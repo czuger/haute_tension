@@ -1,0 +1,13 @@
+.page-header
+  = link_to aventure_url( @aventure ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+
+  %h1= t( '.title' )
+
+- @page.text.each do |txt|
+  %p= txt
+
+%ul
+  - @page.page_links.each do |pl|
+    %li= link_to( pl.text, aventure_read_choice_url( @aventure, pl.dst_page_id ) )

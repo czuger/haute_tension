@@ -1,0 +1,30 @@
+.page-header
+  = link_to aventure_read_url(@aventure), class: 'btn btn-success' do
+    %span.glyphicon.glyphicon-play
+    = t( '.start' )
+  = link_to aventure_reroll_path(@aventure), class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-refresh
+    = t( '.reroll' )
+  = link_to edit_aventure_path(@aventure), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    = t( '.edit' )
+
+  %h1= t( '.show' ) + ' ' + 'aventure'
+
+%dl.dl-horizontal
+  %dt Book:
+  %dd= @aventure.book.name
+  %dt Hp:
+  %dd= @aventure.hp
+  %dt Force:
+  %dd= @aventure.force
+  %dt Gold:
+  %dd= @aventure.gold
+  %dt Gourdes:
+  %dd= @aventure.gourdes
+  %dt Gourdes remplies:
+  %dd= @aventure.gourdes_remplies
+  %dt Rations:
+  %dd= @aventure.rations
+  %dt Charisme:
+  %dd= @aventure.charisme

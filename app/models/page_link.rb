@@ -1,0 +1,2 @@
+class PageLink < ApplicationRecord
+end

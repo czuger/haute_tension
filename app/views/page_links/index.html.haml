@@ -1,0 +1,26 @@
+.page-header
+  = link_to new_page_link_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t( '.new' ) + ' ' + 'Page link'
+  %h1= t( '.listing' ) + ' ' + 'page_links'
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Text
+        %th Src page
+        %th Dst page
+        %th
+        %th
+        %th
+
+    %tbody
+      - @page_links.each do |page_link|
+        %tr
+          %td= page_link.text
+          %td= page_link.src_page
+          %td= page_link.dst_page
+          %td= link_to t( '.show' ), page_link
+          %td= link_to t( '.edit' ), edit_page_link_path(page_link)
+          %td= link_to t( '.destroy' ), page_link, data: { confirm: t( '.are_you_sure' ) }, method: :delete

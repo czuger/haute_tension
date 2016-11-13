@@ -1,0 +1,32 @@
+.page-header
+  = link_to aventures_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+  %h1= t( '.new' ) + ' ' + 'aventure'
+
+= form_for @aventure, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @aventure.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@aventure.errors.count, "error")} prohibited this aventure from being saved:"
+
+      %ul
+        - @aventure.errors.full_messages.each do |msg|
+          %li= msg
+
+  -#.form-group
+  -#  = f.label :book, class: 'col-sm-2 control-label'
+  -#  .col-sm-10
+  -#    = f.select :book_id, Book.all.collect { |p| [ p.name, p.id ] }, class: 'form-control'
+
+  .form-group
+    = f.label :book, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.select :book_id, Book.all.collect { |p| [ p.name, p.id ] }, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'
+

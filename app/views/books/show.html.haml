@@ -1,0 +1,14 @@
+.page-header
+  = link_to books_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+  = link_to edit_book_path(@book), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    = t( '.edit' )
+  %h1= t( '.show' ) + ' ' + 'book'
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @book.name
+  %dt First page:
+  %dd= @book.first_page_id

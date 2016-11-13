@@ -1,0 +1,7 @@
+.page-header
+  = link_to page_links_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+  %h1= t( '.new' ) + ' ' + 'page_link'
+
+= render 'form'

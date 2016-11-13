@@ -1,0 +1,23 @@
+= form_for @page, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @page.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
+
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :text, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :text, class: 'form-control'
+  .form-group
+    = f.label :url, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :url, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

@@ -1,0 +1,2 @@
+module PageLinksHelper
+end
