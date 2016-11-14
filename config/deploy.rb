@@ -6,6 +6,9 @@ set :repo_url, 'git@github.com:czuger/haute_tension.git'
 
 set :rvm_ruby_version, '2.3.1'      # Defaults to: 'default'
 
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml' )
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
