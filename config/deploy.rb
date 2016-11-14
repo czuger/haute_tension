@@ -4,6 +4,8 @@ lock '3.6.1'
 set :application, 'haute_tension'
 set :repo_url, 'git@github.com:czuger/haute_tension.git'
 
+set :rvm_ruby_version, '2.3.1'      # Defaults to: 'default'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
