@@ -41,11 +41,8 @@ GEM
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
-    autoprefixer-rails (6.5.3)
-      execjs
-    bootstrap (4.0.0.alpha5)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (9.0.6)
     capistrano (3.6.1)
@@ -201,7 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap (~> 4.0.0.alpha5)
+  bootstrap-sass (= 3.2.0.2)
   byebug
   capistrano (~> 3.0)
   capistrano-rails (~> 1.2)
