@@ -11,21 +11,9 @@
           %li= msg
 
   .form-group
-    = f.label :book, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :book, class: 'form-control'
-  .form-group
-    = f.label :pages, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :pages, class: 'form-control'
-  .form-group
     = f.label :hp, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.number_field :hp, class: 'form-control'
-  .form-group
-    = f.label :force, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.number_field :force, class: 'form-control'
   .form-group
     = f.label :gold, class: 'col-sm-2 control-label'
     .col-sm-10
@@ -45,7 +33,7 @@
   .form-group
     = f.label :charisme, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :charisme, class: 'form-control'
+      = f.check_box :charisme, class: 'form-control'
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'

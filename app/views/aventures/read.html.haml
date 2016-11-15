@@ -1,7 +1,7 @@
 .page-header
-  = link_to aventure_url( @aventure ), class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    = t( '.back' )
+  = link_to edit_aventure_url( @aventure ), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    = t( '.edit' )
 
   %h1= t( '.title' )
 

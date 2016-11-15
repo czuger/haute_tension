@@ -95,7 +95,7 @@ class AventuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aventure_params
-      params.require(:aventure).permit(:book_id, :aventure_id, :page_id)
+      params.require(:aventure).permit(:book_id, :aventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme )
     end
 
     def roll_aventure
