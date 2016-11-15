@@ -63,6 +63,11 @@ class AventuresController < ApplicationController
     redirect_to @aventure
   end
 
+  def roll_dices
+    @aventure = Aventure.find(params[:aventure_id])
+    @dices = 1.upto( 2 ).inject{ |s| s + rand( 1..6 ) }
+  end
+
   # PATCH/PUT /aventures/1
   # PATCH/PUT /aventures/1.json
   def update

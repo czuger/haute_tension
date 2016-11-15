@@ -3,6 +3,10 @@
     %span.glyphicon.glyphicon-pencil
     = t( '.edit' )
 
+  = link_to aventure_roll_dices_url( aventure_id: @aventure ), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-repeat
+    = t( '.roll_dices' )
+
   %h1= t( '.title' )
 
 - @page.text.each do |txt|

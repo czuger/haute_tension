@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get :reroll
     get :read
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
+    get :roll_dices
   end
 
   resources :books
