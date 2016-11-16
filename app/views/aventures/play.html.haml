@@ -28,7 +28,7 @@
 
   .col-md-2
     = label_tag 'charisme : '
-    = @aventure.charisme ? 'utilisé' : 'disponible'
+    = @aventure.charisme ? 'disponible' : 'utilisé'
 
 - unless @page.monsters.empty?
   = link_to aventure_fight_url( @aventure, f_type: :seq ), class: 'btn btn-warning' do
