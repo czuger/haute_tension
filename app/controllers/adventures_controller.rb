@@ -20,12 +20,29 @@ class AdventuresController < ApplicationController
   end
 
   def fight
+    adventure = Adventure.find(params[:adventure_id])
+    f = GameCore::Fight.new( adventure, params[ :f_fight ] )
+    result = nil
+    ActiveRecord::Base.transaction do
+      result = f.fight
+    end
+    if result == :hero_win
+      redirect_to adventure_play_url( adventure_id: adventure )
+    else
+      redirect_to adventure_die_url( adventure_id: adventure )
+    end
+  end
+
+  def die
   end
 
   def read_choice
     adventure = Adventure.find(params[:adventure_id])
-    adventure.page_id = params[:page_id]
-    adventure.save!
+    ActiveRecord::Base.transaction do
+      @adventure.game_logs.create!( src_page_id: adventure.page_id, dst_page_id: params[:adventure_id] )
+      adventure.page_id = params[:page_id]
+      adventure.save!
+    end
     redirect_to adventure_play_url(adventure )
   end
 
@@ -103,7 +120,7 @@ class AdventuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme )
+      params.require(:adventure).permit(:book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme, :fight )
     end
 
     def roll_adventure

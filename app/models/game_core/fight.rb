@@ -1,3 +1,5 @@
+require_relative 'dices'
+
 class Creature
   attr_reader :hp
   def initialize( adventure, force, hp )
@@ -5,6 +7,7 @@ class Creature
     @adventure = adventure
     @force = force
     @hp = hp
+    pp self
   end
   def dead?
     @hp <= 0
@@ -40,6 +43,7 @@ end
 class Monster < Creature
   attr_reader :name
   def initialize( adventure, monster_data )
+    # pp monster_data
     super( adventure, monster_data[ :force ], monster_data[ :vie ] )
     @name = monster_data[ :name ]
   end
@@ -58,6 +62,7 @@ class GameCore::Fight
     if @f_type == 'seq'
       while( !@monsters.empty? && !@hero.dead? )
         monster = Monster.new( @adventure, @monsters.first )
+        # p monster
         while( !monster.dead? && !@hero.dead? )
           @hero.fight( monster )
         end
