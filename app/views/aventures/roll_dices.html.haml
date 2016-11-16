@@ -1,5 +1,5 @@
 .page-header
-  = link_to aventure_read_url( aventure_id: @aventure.id ), class: 'btn btn-default' do
+  = link_to aventure_play_url( aventure_id: @aventure.id ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-list-alt
     = t( '.back' )
   %h1= t( '.new' ) + ' ' + 'aventure'

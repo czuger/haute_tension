@@ -10,8 +10,8 @@
   %h1= t( '.title' )
 
 - @page.text.each do |txt|
-  %p= txt
+  %p= raw txt
 
-%ul
-  - @page.page_links.each do |pl|
-    %li= link_to( pl.text, aventure_read_choice_url( @aventure, pl.dst_page_id ) )
+-#%ul
+-#  - @page.page_links.each do |pl|
+-#    %li= link_to( pl.text, aventure_read_choice_url( @aventure, pl.dst_page_id ) )

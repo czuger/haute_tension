@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :aventures do
     get :reroll
-    get :read
+    get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
   end

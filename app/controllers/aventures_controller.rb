@@ -12,16 +12,18 @@ class AventuresController < ApplicationController
   def show
   end
 
-  def read
+  def play
     @aventure = Aventure.find(params[:aventure_id])
     @page = @aventure.page
+    # to_i.to_s avoid injections
+    @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:aventure_id].to_i.to_s ) }
   end
 
   def read_choice
     @aventure = Aventure.find(params[:aventure_id])
     @aventure.page_id = params[:page_id]
     @aventure.save!
-    redirect_to aventure_read_url( @aventure )
+    redirect_to aventure_play_url( @aventure )
   end
 
   # GET /aventures/new
