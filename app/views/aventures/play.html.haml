@@ -9,9 +9,39 @@
 
   %h1= t( '.title' )
 
+.row
+  .col-md-2
+    = label_tag 'hp : '
+    = @aventure.hp
+
+  .col-md-2
+    = label_tag 'or : '
+    = @aventure.gold
+
+  .col-md-2
+    = label_tag 'rations : '
+    = @aventure.rations
+
+  .col-md-2
+    = label_tag 'gourdes : '
+    = @aventure.gourdes
+
+  .col-md-2
+    = label_tag 'charisme : '
+    = @aventure.charisme ? 'utilisé' : 'disponible'
+
+- unless @page.monsters.empty?
+  = link_to aventure_fight_url( @aventure, f_type: :seq ), class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-option-vertical
+    = t( '.fight_seq' )
+
+  = link_to aventure_fight_url( @aventure, f_type: :togeth ), class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-option-horizontal
+    = t( '.fight_togeth' )
+
+  = link_to aventure_fight_url( @aventure, f_type: :spe ), class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-asterisk
+    = t( '.fight_spe' )
+
 - @page.text.each do |txt|
   %p= raw txt
-
--#%ul
--#  - @page.page_links.each do |pl|
--#    %li= link_to( pl.text, aventure_read_choice_url( @aventure, pl.dst_page_id ) )

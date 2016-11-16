@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
+    get :fight
   end
 
   resources :books

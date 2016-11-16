@@ -19,6 +19,9 @@ class AventuresController < ApplicationController
     @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:aventure_id].to_i.to_s ) }
   end
 
+  def fight
+  end
+
   def read_choice
     @aventure = Aventure.find(params[:aventure_id])
     @aventure.page_id = params[:page_id]
