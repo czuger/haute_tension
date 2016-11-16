@@ -18,4 +18,11 @@ namespace :data do
     end
   end
 
+  desc 'Read datas'
+  task :read => :environment do
+    Page.all.each do |page|
+      page.pages_content
+    end
+  end
+
 end
