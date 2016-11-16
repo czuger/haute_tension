@@ -1,0 +1,8 @@
+.page-header
+  = link_to adventure_play_url( adventure_id: adventure.id ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+  %h1= t( '.new' ) + ' ' + 'adventure'
+
+Votre jet :
+= @dices

@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116052349) do
+ActiveRecord::Schema.define(version: 20161116170536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "aventures", force: :cascade do |t|
+  create_table "adventures", force: :cascade do |t|
     t.integer  "book_id",                         null: false
     t.integer  "page_id",                         null: false
     t.integer  "hp",                              null: false
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20161116052349) do
     t.boolean  "charisme",         default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.index ["book_id"], name: "index_aventures_on_book_id", using: :btree
-    t.index ["page_id"], name: "index_aventures_on_page_id", using: :btree
+    t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
+    t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
   end
 
   create_table "books", force: :cascade do |t|
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(version: 20161116052349) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
+  end
+
+  create_table "game_logs", force: :cascade do |t|
+    t.integer  "adventure_id",         null: false
+    t.integer  "src_page_id"
+    t.integer  "dst_page_id"
+    t.string   "monster_name"
+    t.integer  "hero_atk"
+    t.integer  "monster_atk"
+    t.integer  "hero_hp_loss"
+    t.integer  "monster_hp_loss"
+    t.integer  "hero_hp_remaining"
+    t.integer  "monster_hp_remaining"
+    t.integer  "fight_round"
+    t.integer  "fight_page_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["adventure_id"], name: "index_game_logs_on_adventure_id", using: :btree
+    t.index ["dst_page_id"], name: "index_game_logs_on_dst_page_id", using: :btree
+    t.index ["fight_page_id"], name: "index_game_logs_on_fight_page_id", using: :btree
+    t.index ["src_page_id"], name: "index_game_logs_on_src_page_id", using: :btree
   end
 
   create_table "page_links", force: :cascade do |t|
@@ -60,9 +81,13 @@ ActiveRecord::Schema.define(version: 20161116052349) do
     t.index ["url"], name: "index_pages_on_url", unique: true, using: :btree
   end
 
-  add_foreign_key "aventures", "books"
-  add_foreign_key "aventures", "pages"
+  add_foreign_key "adventures", "books"
+  add_foreign_key "adventures", "pages"
   add_foreign_key "books", "pages", column: "first_page_id"
+  add_foreign_key "game_logs", "adventures"
+  add_foreign_key "game_logs", "pages", column: "dst_page_id"
+  add_foreign_key "game_logs", "pages", column: "fight_page_id"
+  add_foreign_key "game_logs", "pages", column: "src_page_id"
   add_foreign_key "page_links", "pages", column: "dst_page_id"
   add_foreign_key "page_links", "pages", column: "src_page_id"
   add_foreign_key "pages", "books"

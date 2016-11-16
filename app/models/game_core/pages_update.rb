@@ -61,7 +61,7 @@ module GameCore::PagesUpdate
       original_url = node.children.first.attributes['href'].value
       page = Page.find_by_url( original_url )
       raise "Unable to download page for #{original_url}" unless page
-      node.children.first.attributes['href'].value = Rails.application.routes.url_helpers.aventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
+      node.children.first.attributes['href'].value = Rails.application.routes.url_helpers.adventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
     end
 
     if node.name == 'a'
@@ -69,7 +69,7 @@ module GameCore::PagesUpdate
       original_url = node.attributes['href'].value
       page = Page.find_by_url( original_url )
       raise "Unable to download page for #{original_url}" unless page
-      node.attributes['href'].value = Rails.application.routes.url_helpers.aventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
+      node.attributes['href'].value = Rails.application.routes.url_helpers.adventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
     end
     node
   end

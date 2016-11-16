@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PageLinksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @page_link = page_links(:one)
+    @page_link = create( :page_link )
   end
 
   test "should get index" do

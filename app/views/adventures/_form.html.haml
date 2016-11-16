@@ -1,13 +1,13 @@
-= form_for @aventure, html: { class: "form-horizontal", role: "form" } do |f|
-  -if @aventure.errors.any?
+= form_for @adventure, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @adventure.errors.any?
     .alert.alert-danger.alert-dismissable{role: "alert"}
       %button.close{type: "button", data: {dismiss: "alert"} }
         %span{aria: {hidden: "true"} } &times;
         %span.sr-only Close
-      %h4= "#{pluralize(@aventure.errors.count, "error")} prohibited this aventure from being saved:"
+      %h4= "#{pluralize(adventure.errors.count, "error")} prohibited this adventure from being saved:"
 
       %ul
-        - @aventure.errors.full_messages.each do |msg|
+        - adventure.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group

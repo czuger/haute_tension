@@ -1,6 +1,6 @@
 class CreateAventures < ActiveRecord::Migration[5.0]
   def change
-    create_table :aventures do |t|
+    create_table :adventures do |t|
       t.references :book, foreign_key: true, null: false
       t.references :page, foreign_key: true, null: false
       t.integer :hp, null: false

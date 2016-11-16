@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @book = books(:one)
+    @book = create( :book )
   end
 
   test "should get index" do
@@ -25,7 +25,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should show book" do
     get book_url(@book)
-    assert_response :success
+    assert_redirected_to page_url(@book.first_page_id)
   end
 
   test "should get edit" do

@@ -1,0 +1,36 @@
+.page-header
+  = link_to new_adventure_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t( '.new' ) + ' ' + 'Aventure'
+  %h1= t( '.listing' ) + ' ' + 'adventures'
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Book
+        %th Hp
+        %th Force
+        %th Gold
+        %th Gourdes
+        %th Gourdes remplies
+        %th Rations
+        %th Charisme
+        %th
+        %th
+        %th
+
+    %tbody
+      - @adventures.each do |adventure|
+        %tr
+          %td= adventure.book
+          %td= adventure.hp
+          %td= adventure.force
+          %td= adventure.gold
+          %td= adventure.gourdes
+          %td= adventure.gourdes_remplies
+          %td= adventure.rations
+          %td= adventure.charisme
+          %td= link_to t( '.show' ), adventure
+          %td= link_to t( '.edit' ), edit_adventure_path(adventure)
+          %td= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete
