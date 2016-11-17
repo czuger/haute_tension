@@ -28,11 +28,14 @@
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{href: "#"} Home
-            %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "#contact"} Contact
+              %a{href: "/"} Home
+            - if @adventure && @adventure.id
+              %li
+                = link_to 'Log', adventure_log_url( adventure_id: @adventure.id )
+            -#%li
+            -#  %a{href: "#about"} About
+            -#%li
+            -#  %a{href: "#contact"} Contact
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

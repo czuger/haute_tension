@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20161116170536) do
   end
 
   create_table "game_logs", force: :cascade do |t|
-    t.integer  "adventure_id",         null: false
-    t.integer  "src_page_id"
-    t.integer  "dst_page_id"
+    t.integer  "adventure_id",                         null: false
+    t.integer  "page_id",                              null: false
+    t.boolean  "fight",                default: false, null: false
     t.string   "monster_name"
     t.integer  "hero_atk"
     t.integer  "monster_atk"
@@ -51,13 +51,10 @@ ActiveRecord::Schema.define(version: 20161116170536) do
     t.integer  "hero_hp_remaining"
     t.integer  "monster_hp_remaining"
     t.integer  "fight_round"
-    t.integer  "fight_page_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["adventure_id"], name: "index_game_logs_on_adventure_id", using: :btree
-    t.index ["dst_page_id"], name: "index_game_logs_on_dst_page_id", using: :btree
-    t.index ["fight_page_id"], name: "index_game_logs_on_fight_page_id", using: :btree
-    t.index ["src_page_id"], name: "index_game_logs_on_src_page_id", using: :btree
+    t.index ["page_id"], name: "index_game_logs_on_page_id", using: :btree
   end
 
   create_table "page_links", force: :cascade do |t|
@@ -85,9 +82,7 @@ ActiveRecord::Schema.define(version: 20161116170536) do
   add_foreign_key "adventures", "pages"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "game_logs", "adventures"
-  add_foreign_key "game_logs", "pages", column: "dst_page_id"
-  add_foreign_key "game_logs", "pages", column: "fight_page_id"
-  add_foreign_key "game_logs", "pages", column: "src_page_id"
+  add_foreign_key "game_logs", "pages"
   add_foreign_key "page_links", "pages", column: "dst_page_id"
   add_foreign_key "page_links", "pages", column: "src_page_id"
   add_foreign_key "pages", "books"

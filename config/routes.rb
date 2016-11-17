@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get :roll_dices
     get :fight
     get :die
+    get :log
   end
 
   resources :books

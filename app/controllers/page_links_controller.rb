@@ -24,31 +24,31 @@ class PageLinksController < ApplicationController
   # POST /page_links
   # POST /page_links.json
   def create
-    @page_link = PageLink.new(page_link_params)
-
-    respond_to do |format|
-      if @page_link.save
-        format.html { redirect_to @page_link, notice: 'Page link was successfully created.' }
-        format.json { render :show, status: :created, location: @page_link }
-      else
-        format.html { render :new }
-        format.json { render json: @page_link.errors, status: :unprocessable_entity }
-      end
-    end
+    # @page_link = PageLink.new(page_link_params)
+    #
+    # respond_to do |format|
+    #   if @page_link.save
+    #     format.html { redirect_to @page_link, notice: 'Page link was successfully created.' }
+    #     format.json { render :show, status: :created, location: @page_link }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @page_link.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /page_links/1
   # PATCH/PUT /page_links/1.json
   def update
-    respond_to do |format|
-      if @page_link.update(page_link_params)
-        format.html { redirect_to @page_link, notice: 'Page link was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page_link }
-      else
-        format.html { render :edit }
-        format.json { render json: @page_link.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @page_link.update(page_link_params)
+    #     format.html { redirect_to @page_link, notice: 'Page link was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @page_link }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @page_link.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /page_links/1

@@ -1,0 +1,14 @@
+.page-header
+
+  %h1= t( '.log' )
+
+- @log.each do |log|
+  - unless log.fight
+    %p= raw log.page.text.first
+  - else
+    %p= log_fight_message( log )
+
+  %hr
+
+
+

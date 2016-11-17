@@ -13,15 +13,15 @@ class AdventuresController < ApplicationController
   end
 
   def play
-    adventure = Adventure.find(params[:adventure_id])
-    @page = adventure.page
+    @adventure = Adventure.find(params[:adventure_id])
+    @page = @adventure.page
     # to_i.to_s avoid injections
     @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:adventure_id].to_i.to_s ) }
   end
 
   def fight
     adventure = Adventure.find(params[:adventure_id])
-    f = GameCore::Fight.new( adventure, params[ :f_fight ] )
+    f = GameCore::Fight.new( adventure, params[ :f_type ] )
     result = nil
     ActiveRecord::Base.transaction do
       result = f.fight
@@ -37,13 +37,18 @@ class AdventuresController < ApplicationController
   end
 
   def read_choice
-    adventure = Adventure.find(params[:adventure_id])
+    @adventure = Adventure.find(params[:adventure_id])
+    @adventure.page_id = params[:page_id]
     ActiveRecord::Base.transaction do
-      @adventure.game_logs.create!( src_page_id: adventure.page_id, dst_page_id: params[:adventure_id] )
-      adventure.page_id = params[:page_id]
-      adventure.save!
+      @adventure.game_logs.create!( page_id: @adventure.page_id )
+      @adventure.save!
     end
-    redirect_to adventure_play_url(adventure )
+    redirect_to adventure_play_url( @adventure )
+  end
+
+  def log
+    @adventure = Adventure.find(params[:adventure_id])
+    @log = @adventure.game_logs.includes( :page ).order( 'id DESC' )
   end
 
   # GET /adventures/new
@@ -53,6 +58,8 @@ class AdventuresController < ApplicationController
 
   # GET /adventures/1/edit
   def edit
+    @edit_action = params[ :edit_action ]
+    @edit_typ = params[ :edit_typ ]
   end
 
   # POST /adventures
@@ -62,11 +69,11 @@ class AdventuresController < ApplicationController
 
     book = Book.find( adventure_params[ 'book_id' ] )
     @adventure.page = book.first_page
-
     roll_adventure
 
     respond_to do |format|
       if @adventure.save
+        @adventure.game_logs.create!( page_id: @adventure.page_id )
         format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
         format.json { render :show, status: :created, location: @adventure }
       else
@@ -79,13 +86,13 @@ class AdventuresController < ApplicationController
   def reroll
     @adventure = Adventure.find(params[:adventure_id])
     roll_adventure
-    adventure.save!
-    redirect_to adventure
+    @adventure.save!
+    redirect_to @adventure
   end
 
   def roll_dices
     @adventure = Adventure.find(params[:adventure_id])
-    @dices = 1.upto( 2 ).inject{ |s| s + rand( 1..6 ) }
+    @dices = GameCore::Dices.roll_and_return_separated_result
   end
 
   # PATCH/PUT /adventures/1

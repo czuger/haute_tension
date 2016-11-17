@@ -23,6 +23,10 @@ FactoryGirl.define do
       monsters( [ { name: 'MONSTRE DE LA MORT', force: 20, vie: 10 } ] )
     end
 
+    factory :page_311_3 do
+      url 'http://lesitedontvousetesleheros.overblog.com/311-3'
+    end
+
   end
 
 end
