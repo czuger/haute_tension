@@ -2,9 +2,28 @@
   = link_to adventures_path, class: 'btn btn-default' do
     %span.glyphicon.glyphicon-list-alt
     = t( '.back' )
-  = link_to @adventure, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-info-sign
-    = t( '.show' )
-  %h1= t( '.editing' ) + ' ' + 'adventure'
 
-= render 'form'
+  %h1= t( ".#{@edit_action}.#{@edit_typ}.title" )
+
+  = form_tag "/adventures/#{@adventure.id}", method: :patch, class: "form-horizontal", role: "form" do
+    -if @adventure.errors.any?
+      .alert.alert-danger.alert-dismissable{role: "alert"}
+        %button.close{type: "button", data: {dismiss: "alert"} }
+          %span{aria: {hidden: "true"} } &times;
+          %span.sr-only Close
+        %h4= "#{pluralize(adventure.errors.count, "error")} prohibited this adventure from being saved:"
+
+        %ul
+          - @adventure.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = label_tag @edit_typ, t( ".#{@edit_action}.#{@edit_typ}.label" ), class: 'col-sm-2 control-label'
+      .col-sm-1
+        = number_field_tag @edit_typ, 1, class: 'form-control'
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = submit_tag t( '.submit' ), class: 'btn btn-primary'
+
+    =hidden_field_tag :edit_typ, @edit_typ
+    =hidden_field_tag :edit_action, @edit_action

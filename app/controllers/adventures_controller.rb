@@ -40,7 +40,7 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.find(params[:adventure_id])
     @adventure.page_id = params[:page_id]
     ActiveRecord::Base.transaction do
-      @adventure.game_logs.create!( page_id: @adventure.page_id )
+      @adventure.game_logs.create!( page_id: @adventure.page_id, type: GameLog::JOURNEY )
       @adventure.save!
     end
     redirect_to adventure_play_url( @adventure )
@@ -73,7 +73,7 @@ class AdventuresController < ApplicationController
 
     respond_to do |format|
       if @adventure.save
-        @adventure.game_logs.create!( page_id: @adventure.page_id )
+        @adventure.game_logs.create!( page_id: @adventure.page_id, type: GameLog::JOURNEY )
         format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
         format.json { render :show, status: :created, location: @adventure }
       else
@@ -98,9 +98,19 @@ class AdventuresController < ApplicationController
   # PATCH/PUT /adventures/1
   # PATCH/PUT /adventures/1.json
   def update
+    adventure_params = params.permit( :hp, :gold )
+    
+    %w( hp gold ).each do |field|
+      adventure_params[field] = @adventure.hp + adventure_params[field].to_i if params['edit_action'] == 'up' && adventure_params[field]
+      adventure_params[field] = @adventure.hp - adventure_params[field].to_i if params['edit_action'] == 'down' && adventure_params[field]
+    end
+
+    @adventure.game_logs.create!( page_id: @adventure.page_id, type: GameLog::ADVENTURE_UPDATE,
+      log_data: { edit_action: params['edit_action'], edit_typ: params['edit_typ'] } )
+
     respond_to do |format|
-      if @adventure.update(adventure_params)
-        format.html { redirect_to @adventure, notice: 'Aventure was successfully updated.' }
+      if @adventure.update( adventure_params )
+        format.html { redirect_to adventure_play_url( @adventure ), notice: 'Aventure was successfully updated.' }
         format.json { render :show, status: :ok, location: adventure }
       else
         format.html { render :edit }

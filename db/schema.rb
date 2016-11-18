@@ -40,19 +40,12 @@ ActiveRecord::Schema.define(version: 20161116170536) do
   end
 
   create_table "game_logs", force: :cascade do |t|
-    t.integer  "adventure_id",                         null: false
-    t.integer  "page_id",                              null: false
-    t.boolean  "fight",                default: false, null: false
-    t.string   "monster_name"
-    t.integer  "hero_atk"
-    t.integer  "monster_atk"
-    t.integer  "hero_hp_loss"
-    t.integer  "monster_hp_loss"
-    t.integer  "hero_hp_remaining"
-    t.integer  "monster_hp_remaining"
-    t.integer  "fight_round"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "adventure_id", null: false
+    t.integer  "page_id",      null: false
+    t.integer  "log_type",     null: false
+    t.string   "log_data"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["adventure_id"], name: "index_game_logs_on_adventure_id", using: :btree
     t.index ["page_id"], name: "index_game_logs_on_page_id", using: :btree
   end

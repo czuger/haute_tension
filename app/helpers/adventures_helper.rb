@@ -10,4 +10,8 @@ module AdventuresHelper
       t( '.fight_result.' + fight_result.to_s, count: hp_loss ) )
   end
 
+  def adventure_edit_title( )
+    t( ".#{@edit_action}_#{@edit_typ}_title" )
+  end
+
 end

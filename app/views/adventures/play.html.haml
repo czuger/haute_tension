@@ -3,11 +3,11 @@
     %span.glyphicon.glyphicon-repeat
     = t( '.roll_dices' )
 
-  = link_to edit_adventure_url( @adventure, edit_typ: :life, edit_action: :up ), class: 'btn btn-success' do
+  = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :up ), class: 'btn btn-success' do
     %span.glyphicon.glyphicon-heart
     = t( '.earn_life' )
 
-  = link_to edit_adventure_url( @adventure, edit_typ: :life, edit_action: :down ), class: 'btn btn-danger' do
+  = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :down ), class: 'btn btn-danger' do
     %span.glyphicon.glyphicon-heart
     = t( '.loose_life' )
 

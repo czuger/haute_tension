@@ -15,3 +15,20 @@ fr:
           zero: 'Match nul.'
           one: 'Vous perdez 1 point de vie.'
           other: 'Vous perdez %{count} points de vie.'
+
+    edit:
+      submit: Valider
+      down:
+        gold:
+          title: Perdre de l'or
+          label: Or a perdre
+        hp:
+          title: Perdre des points de vie
+          label: Points de vie a perdre
+      up:
+        gold:
+          title: Gagner de l'or
+          label: Or a gagner
+        hp:
+          title: Gagner des points de vie
+          label: Points de vie a gagner

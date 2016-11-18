@@ -21,9 +21,12 @@ class Creature
     elsif hp_loss < 0
       bleed( -hp_loss )
     end
-    @adventure.game_logs.create!( hero_atk: my_af, monster_atk: op_af, monster_hp_loss: hp_loss > 0 ? hp_loss : nil,
-      hero_hp_loss: hp_loss < 0 ? -hp_loss : nil, hero_hp_remaining: @hp, monster_hp_remaining: opponent.hp,
-      fight_round: @round, page_id: @adventure.page_id, monster_name: opponent.name, fight: true )
+    @adventure.game_logs.create!(
+      page_id: @adventure.page_id, type: GameLog::FIGHT, log_data: {
+        hero_atk: my_af, monster_atk: op_af, monster_hp_loss: hp_loss > 0 ? hp_loss : nil,
+        hero_hp_loss: hp_loss < 0 ? -hp_loss : nil, hero_hp_remaining: @hp, monster_hp_remaining: opponent.hp,
+        fight_round: @round, monster_name: opponent.name }.compact
+    )
   end
   def attack_force
     @force + GameCore::Dices.roll
