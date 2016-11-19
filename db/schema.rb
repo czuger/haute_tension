@@ -31,18 +31,20 @@ ActiveRecord::Schema.define(version: 20161119214926) do
     t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
   end
 
-  create_table "adventures_monsters", id: false, force: :cascade do |t|
-    t.integer "adventure_id", null: false
-    t.integer "monster_id",   null: false
-    t.index ["adventure_id", "monster_id"], name: "index_adventures_monsters_on_adventure_id_and_monster_id", using: :btree
-  end
-
   create_table "books", force: :cascade do |t|
     t.string   "name",          null: false
     t.integer  "first_page_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
+  end
+
+  create_table "fight_monsters", force: :cascade do |t|
+    t.integer "adventure_id", null: false
+    t.integer "monster_id",   null: false
+    t.integer "hp",           null: false
+    t.index ["adventure_id"], name: "index_fight_monsters_on_adventure_id", using: :btree
+    t.index ["monster_id"], name: "index_fight_monsters_on_monster_id", using: :btree
   end
 
   create_table "game_logs", force: :cascade do |t|
@@ -94,6 +96,8 @@ ActiveRecord::Schema.define(version: 20161119214926) do
   add_foreign_key "adventures", "books"
   add_foreign_key "adventures", "pages"
   add_foreign_key "books", "pages", column: "first_page_id"
+  add_foreign_key "fight_monsters", "adventures"
+  add_foreign_key "fight_monsters", "monsters"
   add_foreign_key "game_logs", "adventures"
   add_foreign_key "game_logs", "pages"
   add_foreign_key "page_links", "pages", column: "dst_page_id"

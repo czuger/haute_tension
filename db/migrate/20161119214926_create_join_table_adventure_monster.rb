@@ -1,8 +1,10 @@
 class CreateJoinTableAdventureMonster < ActiveRecord::Migration[5.0]
   def change
-    create_join_table :adventures, :monsters do |t|
-      t.index [:adventure_id, :monster_id]
-      # t.index [:monster_id, :adventure_id]
+    create_table :fight_monsters do |t|
+      t.references :adventure, foreign_key: true, null: false, index: true
+      t.references :monster, foreign_key: true, null: false, index: true
+
+      t.integer :hp, null: false
     end
   end
 end

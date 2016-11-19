@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :fights, only: [ :show, :update ] do
     patch :add_monster
     patch :remove_monster
+    patch :fight_monster
   end
 
   resources :pages, except: [ :new, :create ]

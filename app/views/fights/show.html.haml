@@ -16,17 +16,21 @@
         %th
 
     %tbody
-      - @monsters.each do |monster|
+      - @fight_monsters.each do |fight_monster|
         %tr
-          %td= monster.name
-          %td= monster.strength
-          %td= monster.hp
+          %td= fight_monster.monster.name
+          %td= fight_monster.monster.strength
+          %td= fight_monster.hp
           %td
-            = link_to fight_add_monster_url( @adventure, monster_id: monster.id ), method: :patch, class: 'btn btn-danger' do
+            = link_to fight_fight_monster_url( @adventure, fight_monster_id: fight_monster.id ), method: :patch, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-screenshot
+              = t( '.fight_monster' )
+          %td
+            = link_to fight_add_monster_url( @adventure, monster_id: fight_monster.monster_id ), method: :patch, class: 'btn btn-danger' do
               %span.glyphicon.glyphicon-plus
               = t( '.add_monster' )
           %td
-            = link_to fight_remove_monster_url( @adventure, monster_id: monster.id ), method: :patch, class: 'btn btn-success' do
+            = link_to fight_remove_monster_url( @adventure, fight_monster_id: fight_monster.id ), method: :patch, class: 'btn btn-success' do
               %span.glyphicon.glyphicon-minus
               = t( '.remove_monsters' )
 

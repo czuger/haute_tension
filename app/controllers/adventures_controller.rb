@@ -101,8 +101,8 @@ class AdventuresController < ApplicationController
     adventure_params = params.permit( :hp, :gold )
     
     %w( hp gold ).each do |field|
-      adventure_params[field] = @adventure.hp + adventure_params[field].to_i if params['edit_action'] == 'up' && adventure_params[field]
-      adventure_params[field] = @adventure.hp - adventure_params[field].to_i if params['edit_action'] == 'down' && adventure_params[field]
+      adventure_params[field] = @adventure.send( field ) + adventure_params[field].to_i if params['edit_action'] == 'up' && adventure_params[field]
+      adventure_params[field] = @adventure.send( field ) - adventure_params[field].to_i if params['edit_action'] == 'down' && adventure_params[field]
     end
 
     @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::ADVENTURE_UPDATE,

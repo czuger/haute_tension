@@ -1,37 +1,22 @@
 class Creature
+
   attr_reader :hp
+
   def initialize( adventure, force, hp )
     @round = 0
     @adventure = adventure
     @force = force
     @hp = hp
   end
+
   def dead?
     @hp <= 0
   end
-  def fight( opponent )
-    @round += 1
-    my_af = attack_force
-    op_af = opponent.attack_force
-    hp_loss = my_af - op_af
-    if hp_loss > 0
-      opponent.bleed( hp_loss )
-    elsif hp_loss < 0
-      bleed( -hp_loss )
-    end
-    @adventure.game_logs.create!(
-      page_id: @adventure.page_id, log_type: GameLog::FIGHT, log_data: {
-        hero_atk: my_af, monster_atk: op_af, monster_hp_loss: hp_loss > 0 ? hp_loss : nil,
-        hero_hp_loss: hp_loss < 0 ? -hp_loss : nil, hero_hp_remaining: @hp, monster_hp_remaining: opponent.hp,
-        fight_round: @round, monster_name: opponent.name }.compact
-    )
-  end
+
   def attack_force
     @force + Hazard.r2d6
   end
-  def bleed( hp )
-    @hp -= hp
-  end
+
 end
 
 class Hero < Creature
@@ -40,43 +25,50 @@ class Hero < Creature
   end
 end
 
-class Monster < Creature
+class LocalMonster < Creature
   attr_reader :name
-  def initialize( adventure, monster_data )
+  def initialize( adventure, fight_monster )
     # pp monster_data
-    super( adventure, monster_data[ :force ], monster_data[ :vie ] )
-    @name = monster_data[ :name ]
+    super( adventure, fight_monster.monster.strength, fight_monster.hp )
+    @name = fight_monster.monster.name
   end
 end
 
 class GameCore::Fight
 
-  def initialize( adventure, f_type )
+  def initialize( adventure, fight_monster )
     @adventure = adventure
-    @monsters = adventure.page.monsters
-    @f_type = f_type
     @hero = Hero.new( adventure )
+    @monster = LocalMonster.new( adventure, fight_monster )
+    @fight_monster = fight_monster
+    round
   end
 
-  def fight
-    if @f_type == 'seq'
-      while( !@monsters.empty? && !@hero.dead? )
-        monster = Monster.new( @adventure, @monsters.first )
-        # p monster
-        while( !monster.dead? && !@hero.dead? )
-          @hero.fight( monster )
-        end
-        @monsters.shift if monster.dead?
-      end
-    elsif @f_type == 'togeth'
-    else
-      raise "Unknown fight type : #{@f_type}"
+  private
+
+  def round
+
+    @round ||= 0
+    @round += 1
+
+    my_af = @hero.attack_force
+    mn_af = @monster.attack_force
+    hp_loss = my_af - mn_af
+
+    if hp_loss > 0
+      @fight_monster.decrement!( :hp, hp_loss )
+    elsif hp_loss < 0
+      @hero.decrement!( :hp, -hp_loss )
     end
 
-    @adventure.update_attributes!( hp: @hero.hp )
+    @adventure.game_logs.create!(
+      page_id: @adventure.page_id, log_type: GameLog::FIGHT, log_data: {
+      hero_atk: my_af, monster_atk: mn_af, monster_hp_loss: hp_loss > 0 ? hp_loss : nil,
+      hero_hp_loss: hp_loss < 0 ? -hp_loss : nil, hero_hp_remaining: @hero.hp, monster_hp_remaining: @monster.hp,
+      fight_round: @round, monster_name: @monster.name }.compact
+    )
 
-    return :hero_die if @hero.dead?
-    :hero_win
   end
+
 
 end
