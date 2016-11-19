@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116170536) do
+ActiveRecord::Schema.define(version: 20161119214926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20161116170536) do
     t.datetime "updated_at",                      null: false
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
+  end
+
+  create_table "adventures_monsters", id: false, force: :cascade do |t|
+    t.integer "adventure_id", null: false
+    t.integer "monster_id",   null: false
+    t.index ["adventure_id", "monster_id"], name: "index_adventures_monsters_on_adventure_id_and_monster_id", using: :btree
   end
 
   create_table "books", force: :cascade do |t|
@@ -50,6 +56,21 @@ ActiveRecord::Schema.define(version: 20161116170536) do
     t.index ["page_id"], name: "index_game_logs_on_page_id", using: :btree
   end
 
+  create_table "monsters", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "strength",   null: false
+    t.integer  "hp",         null: false
+    t.integer  "adjustment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "monsters_pages", id: false, force: :cascade do |t|
+    t.integer "page_id",    null: false
+    t.integer "monster_id", null: false
+    t.index ["page_id", "monster_id"], name: "index_monsters_pages_on_page_id_and_monster_id", unique: true, using: :btree
+  end
+
   create_table "page_links", force: :cascade do |t|
     t.string   "text"
     t.integer  "src_page_id", null: false
@@ -66,7 +87,6 @@ ActiveRecord::Schema.define(version: 20161116170536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "book_id",    null: false
-    t.string   "monsters"
     t.index ["book_id"], name: "index_pages_on_book_id", using: :btree
     t.index ["url"], name: "index_pages_on_url", unique: true, using: :btree
   end

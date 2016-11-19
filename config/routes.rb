@@ -4,9 +4,13 @@ Rails.application.routes.draw do
     get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
-    get :fight
     get :die
     get :log
+  end
+
+  resources :fights, only: [ :show, :update ] do
+    patch :add_monster
+    patch :remove_monster
   end
 
   resources :pages, except: [ :new, :create ]

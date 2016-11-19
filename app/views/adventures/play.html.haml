@@ -20,17 +20,9 @@
     = t( '.loose_gold' )
 
   - unless @page.monsters.empty?
-    = link_to adventure_fight_url( @adventure, f_type: :seq ), class: 'btn btn-warning' do
-      %span.glyphicon.glyphicon-option-vertical
-      = t( '.fight_seq' )
-
-    = link_to adventure_fight_url( @adventure, f_type: :togeth ), class: 'btn btn-warning' do
-      %span.glyphicon.glyphicon-option-horizontal
-      = t( '.fight_togeth' )
-
-    = link_to adventure_fight_url( @adventure, f_type: :spe ), class: 'btn btn-warning' do
+    = link_to fight_url( @adventure ), class: 'btn btn-warning' do
       %span.glyphicon.glyphicon-asterisk
-      = t( '.fight_spe' )
+      = t( '.fight' )
 
   %h1= t( '.title' )
 

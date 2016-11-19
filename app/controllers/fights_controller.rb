@@ -1,7 +1,9 @@
 class FightsController < ApplicationController
-  before_action :set_adventure, only: [ :show, :update ]
+  before_action :set_adventure, only: [ :show, :update, :add_monster, :remove_monster ]
 
   def show
+    @adventure.monster_ids = @adventure.page.monster_ids if @adventure.monster_ids.size == 0
+    @monsters = @adventure.monsters
   end
 
   def fight
@@ -18,11 +20,16 @@ class FightsController < ApplicationController
     end
   end
 
-  # POST /adventures
-  # POST /adventures.json
+  def add_monster
+    @adventure.monsters << @monster
+    redirect_to fight_url( @adventure )
+  end
 
-  # PATCH/PUT /adventures/1
-  # PATCH/PUT /adventures/1.json
+  def remove_monster
+    @adventure.monsters.delete( @monster )
+    redirect_to fight_url( @adventure )
+  end
+
   def update
     adventure_params = params.permit( :hp, :gold )
     
@@ -45,20 +52,11 @@ class FightsController < ApplicationController
     end
   end
 
-  # DELETE /adventures/1
-  # DELETE /adventures/1.json
-  def destroy
-    @adventure.destroy
-    respond_to do |format|
-      format.html { redirect_to adventures_url, notice: 'Aventure was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_adventure
-      @adventure = Adventure.find(params[:id])
+      @adventure = Adventure.find( params[:id] ? params[:id] : params[:fight_id] )
+      @monster = Monster.find( params[:monster_id] ) if params[:monster_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -66,11 +64,4 @@ class FightsController < ApplicationController
       params.require(:adventure).permit(:book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme, :fight )
     end
 
-    def roll_adventure
-      @adventure.hp = 18 + 1.upto(2 ).inject{ |s| s + rand(1..6 ) }
-      @adventure.force = 6 + 1.upto(2 ).inject{ |s| s + rand(1..6 ) }
-      @adventure.force = 19 if @adventure.force == 17
-      @adventure.force = 20 if @adventure.force == 18
-      @adventure.gold = 1.upto(4 ).inject{ |s| s + rand(1..6 ) }
-    end
 end

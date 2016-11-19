@@ -24,13 +24,13 @@ module GameCore::PagesUpdate
     downloaded_page.children.each do |node|
       if node.class == Nokogiri::XML::Element
         node = check_for_link( node )
-        monsters = check_for_monsters( node, monsters )
+        check_for_monsters( node, monsters )
         text << node.to_s.strip
       end
 
     end
     # p text, monsters
-    update( text: text, monsters: monsters )
+    update( text: text )
   end
 
   private
@@ -42,18 +42,9 @@ module GameCore::PagesUpdate
       # p node.text
       m = node.text.match( /(\d+)\ *VIE\ *:\ *(\d+)/ )
       if m
-        monsters << {
-          name: node.children.first.text,
-          force: m[1].to_i,
-          vie: m[2].to_i
-        }
-      else
-        monsters << {
-          special: true
-        }
+        self.monsters << Monster.find_or_create_by!( name: node.children.first.text, strength: m[1].to_i, hp: m[2].to_i )
       end
     end
-    monsters
   end
 
   def check_for_link( node )

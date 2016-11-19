@@ -1,0 +1,32 @@
+.page-header
+  = link_to adventure_play_url( adventure_id: @adventure.id ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+
+  %h1= t( '.title' )
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Monstre
+        %th Force
+        %th Vie
+        %th
+        %th
+
+    %tbody
+      - @monsters.each do |monster|
+        %tr
+          %td= monster.name
+          %td= monster.strength
+          %td= monster.hp
+          %td
+            = link_to fight_add_monster_url( @adventure, monster_id: monster.id ), method: :patch, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-plus
+              = t( '.add_monster' )
+          %td
+            = link_to fight_remove_monster_url( @adventure, monster_id: monster.id ), method: :patch, class: 'btn btn-success' do
+              %span.glyphicon.glyphicon-minus
+              = t( '.remove_monsters' )
+
