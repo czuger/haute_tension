@@ -1,5 +1,3 @@
-require_relative 'dices'
-
 class Creature
   attr_reader :hp
   def initialize( adventure, force, hp )
@@ -29,7 +27,7 @@ class Creature
     )
   end
   def attack_force
-    @force + GameCore::Dices.r2d6
+    @force + Hazard.r2d6
   end
   def bleed( hp )
     @hp -= hp

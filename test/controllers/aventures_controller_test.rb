@@ -28,6 +28,26 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show play" do
+    get adventure_play_url( @adventure )
+    assert_response :success
+  end
+
+  test "should redirect after play choice" do
+    get adventure_read_choice_url( adventure_id: @adventure.id, page_id: @adventure.page_id )
+    assert_redirected_to adventure_play_url( @adventure )
+  end
+
+  test "should reroll" do
+    get adventure_reroll_url( adventure_id: @adventure.id )
+    assert_redirected_to @adventure
+  end
+
+  test "should roll dices" do
+    get adventure_roll_dices_url( adventure_id: @adventure.id )
+    assert_response :success
+  end
+
   test "should show log" do
     log = create( :game_log_fight )
     get adventure_log_url( log.adventure )

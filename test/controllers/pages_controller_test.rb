@@ -10,19 +10,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_page_url
-    assert_response :success
-  end
-
-  # test "should create page" do
-  #   assert_difference('Page.count') do
-  #     post pages_url, params: { page: { text: @page.text } }
-  #   end
-  #
-  #   assert_redirected_to page_url(Page.last)
-  # end
-
   test "should show page" do
     get page_url(@page)
     assert_response :success

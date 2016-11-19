@@ -1,22 +1,7 @@
-class AdventuresController < ApplicationController
-  before_action :set_adventure, only: [:show, :edit, :update, :destroy]
+class FightsController < ApplicationController
+  before_action :set_adventure, only: [ :show, :update ]
 
-  # GET /aventures
-  # GET /adventures.json
-  def index
-    @adventures = Adventure.all
-  end
-
-  # GET /adventures/1
-  # GET /adventures/1.json
   def show
-  end
-
-  def play
-    @adventure = Adventure.find(params[:adventure_id])
-    @page = @adventure.page
-    # to_i.to_s avoid injections
-    @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:adventure_id].to_i.to_s ) }
   end
 
   def fight
@@ -33,67 +18,8 @@ class AdventuresController < ApplicationController
     end
   end
 
-  def die
-  end
-
-  def read_choice
-    @adventure = Adventure.find(params[:adventure_id])
-    @adventure.page_id = params[:page_id]
-    ActiveRecord::Base.transaction do
-      @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
-      @adventure.save!
-    end
-    redirect_to adventure_play_url( @adventure )
-  end
-
-  def log
-    @adventure = Adventure.find(params[:adventure_id])
-    @log = @adventure.game_logs.includes( :page ).order( 'id DESC' )
-  end
-
-  # GET /adventures/new
-  def new
-    @adventure = Adventure.new
-  end
-
-  # GET /adventures/1/edit
-  def edit
-    @edit_action = params[ :edit_action ]
-    @edit_typ = params[ :edit_typ ]
-  end
-
   # POST /adventures
   # POST /adventures.json
-  def create
-    @adventure = Adventure.new(adventure_params)
-
-    book = Book.find( adventure_params[ 'book_id' ] )
-    @adventure.page = book.first_page
-    roll_adventure
-
-    respond_to do |format|
-      if @adventure.save
-        @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
-        format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
-        format.json { render :show, status: :created, location: @adventure }
-      else
-        format.html { render :new }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def reroll
-    @adventure = Adventure.find(params[:adventure_id])
-    roll_adventure
-    @adventure.save!
-    redirect_to @adventure
-  end
-
-  def roll_dices
-    @adventure = Adventure.find(params[:adventure_id])
-    @dices = Hazard.s2d6
-  end
 
   # PATCH/PUT /adventures/1
   # PATCH/PUT /adventures/1.json
@@ -141,10 +67,10 @@ class AdventuresController < ApplicationController
     end
 
     def roll_adventure
-      @adventure.hp = 18 + Hazard.r2d6
-      @adventure.force = 6 + Hazard.r2d6
+      @adventure.hp = 18 + 1.upto(2 ).inject{ |s| s + rand(1..6 ) }
+      @adventure.force = 6 + 1.upto(2 ).inject{ |s| s + rand(1..6 ) }
       @adventure.force = 19 if @adventure.force == 17
       @adventure.force = 20 if @adventure.force == 18
-      @adventure.gold = Hazard.r4d6
+      @adventure.gold = 1.upto(4 ).inject{ |s| s + rand(1..6 ) }
     end
 end

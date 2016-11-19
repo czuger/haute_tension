@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get :log
   end
 
-  resources :pages
+  resources :pages, except: [ :new, :create ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'adventures#index'

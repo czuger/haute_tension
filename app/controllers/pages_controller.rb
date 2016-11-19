@@ -12,29 +12,8 @@ class PagesController < ApplicationController
   def show
   end
 
-  # GET /pages/new
-  def new
-    @page = Page.new
-  end
-
   # GET /pages/1/edit
   def edit
-  end
-
-  # POST /pages
-  # POST /pages.json
-  def create
-    @page = Page.new(page_params)
-
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /pages/1

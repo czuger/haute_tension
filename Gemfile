@@ -63,3 +63,5 @@ gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano3-puma' , group: :development
 
 gem 'listen', '~> 3.0.5'
+
+gem 'hazard'
