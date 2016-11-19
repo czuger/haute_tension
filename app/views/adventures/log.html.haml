@@ -3,10 +3,12 @@
   %h1= t( '.log' )
 
 - @log.each do |log|
-  - unless log.fight
+  - if log.log_type == GameLog::JOURNEY
     %p= raw log.page.text.first
-  - else
+  - elsif log.log_type == GameLog::FIGHT
     %p= log_fight_message( log )
+  - else
+    - raise 'Unknown log type'
 
   %hr
 

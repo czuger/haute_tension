@@ -1,3 +1,12 @@
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/mailers/'
+  add_filter '/jobs/'
+  add_filter '/application_cable/'
+  add_filter '/pages_download.rb'
+  add_filter '/pages_update.rb'
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'

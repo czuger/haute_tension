@@ -14,7 +14,7 @@ module GameCore::PagesUpdate
   end
 
   def update_page
-    puts "Updating : #{url}"
+    # puts "Updating : #{url}"
 
     doc = Nokogiri::HTML( open( url ) )
     downloaded_page = doc.css('div.ob-text')

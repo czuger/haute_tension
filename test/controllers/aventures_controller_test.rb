@@ -28,6 +28,12 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show log" do
+    log = create( :game_log_fight )
+    get adventure_log_url( log.adventure )
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_adventure_url(@adventure)
     assert_response :success
@@ -35,7 +41,7 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
 
   test "should update adventure" do
     patch adventure_url(@adventure), params: {adventure: {book_id: @adventure.book_id, charisme: @adventure.charisme, force: @adventure.force, gold: @adventure.gold, gourdes: @adventure.gourdes, gourdes_remplies: @adventure.gourdes_remplies, hp: @adventure.hp, pages_id: @adventure.page_id, rations: @adventure.rations } }
-    assert_redirected_to adventure_url(@adventure)
+    assert_redirected_to adventure_play_url(@adventure)
   end
 
   test "should destroy adventure" do

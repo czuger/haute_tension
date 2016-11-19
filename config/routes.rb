@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     get :log
   end
 
-  resources :books
-  resources :page_links
   resources :pages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

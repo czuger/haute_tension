@@ -73,7 +73,7 @@ class AdventuresController < ApplicationController
 
     respond_to do |format|
       if @adventure.save
-        @adventure.game_logs.create!( page_id: @adventure.page_id, type: GameLog::JOURNEY )
+        @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
         format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
         format.json { render :show, status: :created, location: @adventure }
       else
@@ -92,7 +92,7 @@ class AdventuresController < ApplicationController
 
   def roll_dices
     @adventure = Adventure.find(params[:adventure_id])
-    @dices = GameCore::Dices.roll_and_return_separated_result
+    @dices = GameCore::Dices.s2d6
   end
 
   # PATCH/PUT /adventures/1
@@ -105,7 +105,7 @@ class AdventuresController < ApplicationController
       adventure_params[field] = @adventure.hp - adventure_params[field].to_i if params['edit_action'] == 'down' && adventure_params[field]
     end
 
-    @adventure.game_logs.create!( page_id: @adventure.page_id, type: GameLog::ADVENTURE_UPDATE,
+    @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::ADVENTURE_UPDATE,
       log_data: { edit_action: params['edit_action'], edit_typ: params['edit_typ'] } )
 
     respond_to do |format|
