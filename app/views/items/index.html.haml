@@ -1,0 +1,22 @@
+.page-header
+  = link_to new_item_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t( '.new' ) + ' ' + 'Item'
+  %h1= t( '.listing' ) + ' ' + 'items'
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th
+        %th
+        %th
+
+    %tbody
+      - @items.each do |item|
+        %tr
+          %td= item.name
+          %td= link_to t( '.show' ), item
+          %td= link_to t( '.edit' ), edit_item_path(item)
+          %td= link_to t( '.destroy' ), item, data: { confirm: t( '.are_you_sure' ) }, method: :delete

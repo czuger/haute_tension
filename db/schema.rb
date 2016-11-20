@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120002152) do
+ActiveRecord::Schema.define(version: 20161120004301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20161120002152) do
     t.string   "notes"
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
+  end
+
+  create_table "adventures_items", id: false, force: :cascade do |t|
+    t.integer "adventure_id", null: false
+    t.integer "item_id",      null: false
+    t.index ["adventure_id", "item_id"], name: "index_adventures_items_on_adventure_id_and_item_id", unique: true, using: :btree
   end
 
   create_table "books", force: :cascade do |t|
@@ -57,6 +63,12 @@ ActiveRecord::Schema.define(version: 20161120002152) do
     t.datetime "updated_at",   null: false
     t.index ["adventure_id"], name: "index_game_logs_on_adventure_id", using: :btree
     t.index ["page_id"], name: "index_game_logs_on_page_id", using: :btree
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "monsters", force: :cascade do |t|

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :items, only: [ :index, :new, :create, :destroy ]
+
   resources :adventures do
     get :reroll
     get :play
