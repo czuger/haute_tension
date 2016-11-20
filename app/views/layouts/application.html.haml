@@ -30,9 +30,39 @@
           %ul.nav.navbar-nav
             %li.active
               %a{href: "/"} Home
+
             - if @adventure && @adventure.id
-              %li
-                = link_to 'Log', adventure_log_url( adventure_id: @adventure.id )
+
+              %li.dropdown
+                %a.dropdown-toggle{ href: '#', 'data-toggle' => 'dropdown', role: 'button', 'aria-haspopup' => true, 'aria-expanded' => false }
+                  Event
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :up ) do
+                      %span.glyphicon.glyphicon-heart
+                      = t( '.earn_life' )
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :down ) do
+                      %span.glyphicon.glyphicon-heart
+                      = t( '.loose_life' )
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :gold, edit_action: :up ) do
+                      %span.glyphicon.glyphicon-piggy-bank
+                      = t( '.earn_gold' )
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :gold, edit_action: :down ) do
+                      %span.glyphicon.glyphicon-piggy-bank
+                      = t( '.loose_gold' )
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :up ) do
+                      %span.glyphicon.glyphicon-cutlery
+                      = t( '.gain_rations' )
+                  %li
+                    = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :down ) do
+                      %span.glyphicon.glyphicon-cutlery
+                      = t( '.eat_rations' )
+
             %li.dropdown
               %a.dropdown-toggle{ href: '#', 'data-toggle' => 'dropdown', role: 'button', 'aria-haspopup' => true, 'aria-expanded' => false }
                 Admin

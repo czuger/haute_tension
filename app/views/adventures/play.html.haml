@@ -1,40 +1,12 @@
 .page-header
 
-  %h1= t( '.title' )
-
-.row
-
   = link_to edit_note_url( @adventure ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-pencil
     = t( '.notes' )
 
-  = link_to adventure_roll_dices_url( adventure_id: @adventure ), class: 'btn btn-primary' do
+  = link_to adventure_roll_dices_url( adventure_id: @adventure ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-repeat
     = t( '.roll_dices' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :up ), class: 'btn btn-success' do
-    %span.glyphicon.glyphicon-heart
-    = t( '.earn_life' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :hp, edit_action: :down ), class: 'btn btn-danger' do
-    %span.glyphicon.glyphicon-heart
-    = t( '.loose_life' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :gold, edit_action: :up ), class: 'btn btn-success' do
-    %span.glyphicon.glyphicon-piggy-bank
-    = t( '.earn_gold' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :gold, edit_action: :down ), class: 'btn btn-danger' do
-    %span.glyphicon.glyphicon-piggy-bank
-    = t( '.loose_gold' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :up ), class: 'btn btn-success' do
-    %span.glyphicon.glyphicon-cutlery
-    = t( '.gain_rations' )
-
-  = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :down ), class: 'btn btn-danger' do
-    %span.glyphicon.glyphicon-cutlery
-    = t( '.eat_rations' )
 
   = link_to inventory_url( @adventure ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-briefcase
@@ -45,6 +17,8 @@
       %span.glyphicon.glyphicon-asterisk
       = t( '.fight' )
 
+  %h1= t( '.title' )
+
 .row
   .col-md-2
     = label_tag 'hp : '
@@ -54,7 +28,7 @@
     = label_tag 'or : '
     = @adventure.gold
 
-  .col-md-2
+  .col-md-3
     = label_tag 'rations : '
     = @adventure.rations
 
@@ -62,7 +36,7 @@
     = label_tag 'gourdes : '
     = @adventure.gourdes
 
-  .col-md-2
+  .col-md-3
     = label_tag 'charisme : '
     = @adventure.charisme ? 'disponible' : 'utilisé'
 
