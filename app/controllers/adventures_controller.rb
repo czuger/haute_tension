@@ -19,20 +19,6 @@ class AdventuresController < ApplicationController
     @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:adventure_id].to_i.to_s ) }
   end
 
-  def fight
-    adventure = Adventure.find(params[:adventure_id])
-    f = GameCore::Fight.new( adventure, params[ :f_type ] )
-    result = nil
-    ActiveRecord::Base.transaction do
-      result = f.fight
-    end
-    if result == :hero_win
-      redirect_to adventure_play_url( adventure_id: adventure )
-    else
-      redirect_to adventure_die_url( adventure_id: adventure )
-    end
-  end
-
   def die
   end
 
@@ -98,11 +84,13 @@ class AdventuresController < ApplicationController
   # PATCH/PUT /adventures/1
   # PATCH/PUT /adventures/1.json
   def update
-    adventure_params = params.permit( :hp, :gold )
+    adventure_params = params.permit( :hp, :gold, :rations )
     
-    %w( hp gold ).each do |field|
-      adventure_params[field] = @adventure.send( field ) + adventure_params[field].to_i if params['edit_action'] == 'up' && adventure_params[field]
-      adventure_params[field] = @adventure.send( field ) - adventure_params[field].to_i if params['edit_action'] == 'down' && adventure_params[field]
+    %w( hp gold rations ).each do |field|
+      if adventure_params[field]
+        new_value = ( @adventure.send( field ) + ( params['edit_action'] == 'up' ? adventure_params[field].to_i : -adventure_params[field].to_i ) )
+        adventure_params[field] = new_value
+      end
     end
 
     @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::ADVENTURE_UPDATE,

@@ -8,6 +8,7 @@ FactoryGirl.define do
     hp 20
     force 12
     gold 20
+    rations 4
 
     factory :fight_adventure_weak_monster do
       association :page, factory: :fight_page_weak_monster

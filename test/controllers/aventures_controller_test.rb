@@ -59,6 +59,28 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'test gold, hp and rations increase decrease' do
+    assert_difference '@adventure.reload.gold', -3 do
+      patch adventure_url(@adventure), params: { gold: 3, edit_action: :down }
+    end
+    assert_difference '@adventure.reload.gold', 3 do
+      patch adventure_url(@adventure), params: { gold: 3, edit_action: :up }
+    end
+    assert_difference '@adventure.reload.hp', -3 do
+      patch adventure_url(@adventure), params: { hp: 3, edit_action: :down }
+    end
+    assert_difference '@adventure.reload.hp', 3 do
+      patch adventure_url(@adventure), params: { hp: 3, edit_action: :up }
+    end
+    assert_difference '@adventure.reload.rations', -3 do
+      patch adventure_url(@adventure), params: { rations: 3, edit_action: :down }
+    end
+    assert_difference '@adventure.reload.rations', 3 do
+      patch adventure_url(@adventure), params: { rations: 3, edit_action: :up }
+    end
+    assert_redirected_to adventure_play_url(@adventure)
+  end
+
   test "should update adventure" do
     patch adventure_url(@adventure), params: {adventure: {book_id: @adventure.book_id, charisme: @adventure.charisme, force: @adventure.force, gold: @adventure.gold, gourdes: @adventure.gourdes, gourdes_remplies: @adventure.gourdes_remplies, hp: @adventure.hp, pages_id: @adventure.page_id, rations: @adventure.rations } }
     assert_redirected_to adventure_play_url(@adventure)

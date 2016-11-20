@@ -1,5 +1,9 @@
 .page-header
 
+  %h1= t( '.title' )
+
+.row
+
   = link_to edit_note_url( @adventure ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-pencil
     = t( '.notes' )
@@ -24,19 +28,22 @@
     %span.glyphicon.glyphicon-piggy-bank
     = t( '.loose_gold' )
 
+  = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :up ), class: 'btn btn-success' do
+    %span.glyphicon.glyphicon-cutlery
+    = t( '.gain_rations' )
+
+  = link_to edit_adventure_url( @adventure, edit_typ: :rations, edit_action: :down ), class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-cutlery
+    = t( '.eat_rations' )
+
   = link_to inventory_url( @adventure ), class: 'btn btn-default' do
     %span.glyphicon.glyphicon-briefcase
     = t( '.inventory' )
-
-
-    inventory_index
 
   - unless @page.monsters.empty?
     = link_to fight_url( @adventure ), class: 'btn btn-warning' do
       %span.glyphicon.glyphicon-asterisk
       = t( '.fight' )
-
-  %h1= t( '.title' )
 
 .row
   .col-md-2
