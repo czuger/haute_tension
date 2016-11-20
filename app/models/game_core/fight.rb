@@ -58,7 +58,7 @@ class GameCore::Fight
     if hp_loss > 0
       @fight_monster.decrement!( :hp, hp_loss )
     elsif hp_loss < 0
-      @hero.decrement!( :hp, -hp_loss )
+      @adventure.decrement!( :hp, -hp_loss )
     end
 
     @adventure.game_logs.create!(
