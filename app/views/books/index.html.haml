@@ -18,5 +18,5 @@
         %tr
           %td= book.name
           %td= link_to t( '.show' ), book
-          %td= link_to t( '.edit' ), edit_book_path(book)
+          %td= link_to t( '.new' ), edit_book_path(book)
           %td= link_to t( '.destroy' ), book, data: { confirm: t( '.are_you_sure' ) }, method: :delete

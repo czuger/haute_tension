@@ -1,0 +1,7 @@
+fr:
+  inventories:
+    new:
+      submit: 'Enregistrer'
+
+    show:
+      are_you_sure: "Etes vous sur ?"

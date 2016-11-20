@@ -9,15 +9,15 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   # GET /items/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /items/new
   def new
     @item = Item.new
   end
 
-  # GET /items/1/edit
+  # GET /items/1/new
   def edit
   end
 
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to items_url, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }

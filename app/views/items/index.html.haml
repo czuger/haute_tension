@@ -18,5 +18,5 @@
         %tr
           %td= item.name
           %td= link_to t( '.show' ), item
-          %td= link_to t( '.edit' ), edit_item_path(item)
+          %td= link_to t( '.new' ), edit_item_path(item)
           %td= link_to t( '.destroy' ), item, data: { confirm: t( '.are_you_sure' ) }, method: :delete

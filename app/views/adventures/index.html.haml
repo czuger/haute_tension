@@ -32,5 +32,5 @@
           %td= adventure.rations
           %td= adventure.charisme
           %td= link_to t( '.show' ), adventure
-          %td= link_to t( '.edit' ), edit_adventure_path(adventure)
+          %td= link_to t( '.new' ), edit_adventure_path(adventure)
           %td= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete

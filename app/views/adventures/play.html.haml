@@ -24,6 +24,13 @@
     %span.glyphicon.glyphicon-piggy-bank
     = t( '.loose_gold' )
 
+  = link_to inventory_url( @adventure ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-briefcase
+    = t( '.inventory' )
+
+
+    inventory_index
+
   - unless @page.monsters.empty?
     = link_to fight_url( @adventure ), class: 'btn btn-warning' do
       %span.glyphicon.glyphicon-asterisk

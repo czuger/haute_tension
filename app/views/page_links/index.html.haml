@@ -22,5 +22,5 @@
           %td= page_link.src_page
           %td= page_link.dst_page
           %td= link_to t( '.show' ), page_link
-          %td= link_to t( '.edit' ), edit_page_link_path(page_link)
+          %td= link_to t( '.new' ), edit_page_link_path(page_link)
           %td= link_to t( '.destroy' ), page_link, data: { confirm: t( '.are_you_sure' ) }, method: :delete

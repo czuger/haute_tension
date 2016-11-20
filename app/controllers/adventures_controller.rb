@@ -56,7 +56,7 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new
   end
 
-  # GET /adventures/1/edit
+  # GET /adventures/1/new
   def edit
     @edit_action = params[ :edit_action ]
     @edit_typ = params[ :edit_typ ]

@@ -17,5 +17,5 @@
           %td= page.text
           %td= page.url
           %td= link_to t( '.show' ), page
-          %td= link_to t( '.edit' ), edit_page_path(page)
+          %td= link_to t( '.new' ), edit_page_path(page)
           %td= link_to t( '.destroy' ), page, data: { confirm: t( '.are_you_sure' ) }, method: :delete

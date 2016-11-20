@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :items, only: [ :index, :new, :create, :destroy ]
+  resources :items, except: [ :show ]
+
+  resources :inventories, only: [ :show, :new, :create, :destroy ]
 
   resources :adventures do
     get :reroll

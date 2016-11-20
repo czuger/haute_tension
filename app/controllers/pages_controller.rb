@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def show
   end
 
-  # GET /pages/1/edit
+  # GET /pages/1/new
   def edit
   end
 

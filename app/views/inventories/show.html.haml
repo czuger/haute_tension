@@ -1,0 +1,20 @@
+.page-header
+
+  = link_to new_inventory_url( id: @adventure ), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    = t( '.new' )
+
+  %h1= t( '.title' )
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th
+
+    %tbody
+      - @items.each do |item|
+        %tr
+          %td= item.name
+          %td= link_to t( '.remove' ), inventory_path( @adventure, item_id: item.id ), data: { confirm: t( '.are_you_sure' ) }, method: :delete

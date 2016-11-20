@@ -22,5 +22,5 @@
           %td= <%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
           %td= link_to t( '.show' ), <%= singular_table_name %>
-          %td= link_to t( '.edit' ), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
+          %td= link_to t( '.new' ), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
           %td= link_to t( '.destroy' ), <%= singular_table_name %>, data: { confirm: t( '.are_you_sure' ) }, method: :delete
