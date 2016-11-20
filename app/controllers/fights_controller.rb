@@ -10,20 +10,6 @@ class FightsController < ApplicationController
     @fight_monsters = @adventure.fight_monsters.includes( :monster )
   end
 
-  def fight
-    adventure = Adventure.find(params[:adventure_id])
-    f = GameCore::Fight.new( adventure, params[ :f_type ] )
-    result = nil
-    ActiveRecord::Base.transaction do
-      result = f.fight
-    end
-    if result == :hero_win
-      redirect_to adventure_play_url( adventure_id: adventure )
-    else
-      redirect_to adventure_die_url( adventure_id: adventure )
-    end
-  end
-
   def add_monster
     @adventure.fight_monsters.create!( monster_id: @monster.id, hp: @monster.hp )
     redirect_to fight_url( @adventure )
