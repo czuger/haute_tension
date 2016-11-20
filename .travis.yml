@@ -3,3 +3,10 @@ rvm:
  - 2.3.1
 services:
   - postgresql
+
+before_script:
+  - psql -c 'create database haute_tension_test;' -U postgres
+
+test:
+  adapter: postgresql
+  database: haute_tension_test

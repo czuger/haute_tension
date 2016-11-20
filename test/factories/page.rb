@@ -9,18 +9,17 @@ FactoryGirl.define do
     end
 
     text( [ 'dummy' ] )
-    monsters 'dummy'
 
     factory :fight_page_weak_monster do
-      monsters( [ { name: 'MONSTRE TOUT POURRI', force: 10, vie: 10 } ] )
+      monsters { [ FactoryGirl.create(:monster) ] }
     end
 
     factory :fight_page_two_weak_monsters do
-      monsters( [ { name: 'MONSTRE TOUT POURRI 1', force: 10, vie: 10 }, { name: 'MONSTRE TOUT POURRI 2', force: 8, vie: 10 }  ] )
+      monsters { [ FactoryGirl.create(:monster), FactoryGirl.create(:weak_monster) ] }
     end
 
     factory :fight_page_hard_monster do
-      monsters( [ { name: 'MONSTRE DE LA MORT', force: 20, vie: 10 } ] )
+      monsters { [ FactoryGirl.create(:strong_monster) ] }
     end
 
     factory :page_311_3 do

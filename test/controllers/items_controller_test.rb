@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @item = items(:one)
+    @item = create( :item )
   end
 
   test "should get index" do
@@ -20,12 +20,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       post items_url, params: { item: { name: @item.name } }
     end
 
-    assert_redirected_to item_url(Item.last)
-  end
-
-  test "should show item" do
-    get item_url(@item)
-    assert_response :success
+    assert_redirected_to items_url
   end
 
   test "should get edit" do

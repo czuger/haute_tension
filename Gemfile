@@ -41,6 +41,11 @@ group :development, :test do
   gem 'mocha'
 end
 
+group :test do
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+end
+
 gem 'simplecov', :require => false, :group => :test
 
 group :development do
