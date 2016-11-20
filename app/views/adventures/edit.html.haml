@@ -20,7 +20,7 @@
     .form-group
       = label_tag @edit_typ, t( ".#{@edit_action}.#{@edit_typ}.label" ), class: 'col-sm-2 control-label'
       .col-sm-1
-        = number_field_tag @edit_typ, 1, class: 'form-control'
+        = number_field_tag @edit_typ, nil, class: 'form-control'
     .form-group
       .col-sm-offset-2.col-sm-10
         = submit_tag t( '.submit' ), class: 'btn btn-primary'

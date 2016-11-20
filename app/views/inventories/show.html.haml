@@ -1,5 +1,9 @@
 .page-header
 
+  = link_to inventory_url( @adventure ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-plus
+    = t( '.back' )
+
   = link_to new_inventory_url( id: @adventure ), class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     = t( '.new' )
