@@ -1,0 +1,6 @@
+fr:
+  notes:
+    edit:
+      submit: 'Enregistrer'
+    update:
+      success: 'Note enregistrée'

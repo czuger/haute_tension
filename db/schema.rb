@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161119214926) do
+ActiveRecord::Schema.define(version: 20161120002152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161119214926) do
     t.boolean  "charisme",         default: true
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "notes"
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
   end

@@ -1,0 +1,26 @@
+.page-header
+  = link_to adventure_play_path( @adventure ), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    = t( '.back' )
+
+  %h1= t( ".title" )
+
+  = form_tag "/notes/#{@adventure.id}", method: :patch, class: "form-horizontal", role: "form" do
+    -if @adventure.errors.any?
+      .alert.alert-danger.alert-dismissable{role: "alert"}
+        %button.close{type: "button", data: {dismiss: "alert"} }
+          %span{aria: {hidden: "true"} } &times;
+          %span.sr-only Close
+        %h4= "#{pluralize(adventure.errors.count, "error")} prohibited this adventure from being saved:"
+
+        %ul
+          - @adventure.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = label_tag :notes, t( ".notes" ), class: 'col-sm-2 control-label'
+      .col-sm-1
+        = text_area_tag :notes, @adventure.notes, rows: 10, class: 'form-control', style: 'width:600px'
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = submit_tag t( '.submit' ), class: 'btn btn-primary'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :adventures do
     get :reroll
     get :play
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
     get :die
     get :log
   end
+
+  resources :notes, only: [ :edit, :update ]
 
   resources :fights, only: [ :show, :update ] do
     patch :add_monster
