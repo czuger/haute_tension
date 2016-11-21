@@ -1,0 +1,15 @@
+fr:
+  adventure_trackers:
+
+    edit:
+      submit: Valider
+      down:
+        gold:
+          title: Perdre de l'or
+        hp:
+          title: Perdre des points de vie
+      up:
+        gold:
+          title: Gagner de l'or
+        hp:
+          title: Gagner des points de vie

@@ -23,14 +23,15 @@
     %tbody
       - @adventures.each do |adventure|
         %tr
-          %td= adventure.book
+          %td= adventure.book.name
           %td= adventure.hp
-          %td= adventure.force
+          %td= adventure.strength
           %td= adventure.gold
-          %td= adventure.gourdes
-          %td= adventure.gourdes_remplies
+          %td= adventure.waterskins
+          %td= adventure.waterskins_max
           %td= adventure.rations
-          %td= adventure.charisme
+          %td= adventure.charisma_avaliable
+          %td= link_to t( '.play' ), adventure_play_path( adventure )
           %td= link_to t( '.show' ), adventure
-          %td= link_to t( '.new' ), edit_adventure_path(adventure)
+          -#%td= link_to t( '.new' ), edit_adventure_path(adventure)
           %td= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete

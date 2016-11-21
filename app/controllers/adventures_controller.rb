@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  before_action :set_adventure, only: [:show, :edit, :update, :destroy]
+  before_action :set_adventure, only: [:show, :destroy]
 
   # GET /aventures
   # GET /adventures.json
@@ -32,20 +32,9 @@ class AdventuresController < ApplicationController
     redirect_to adventure_play_url( @adventure )
   end
 
-  def log
-    @adventure = Adventure.find(params[:adventure_id])
-    @log = @adventure.game_logs.includes( :page ).order( 'id DESC' )
-  end
-
   # GET /adventures/new
   def new
     @adventure = Adventure.new
-  end
-
-  # GET /adventures/1/new
-  def edit
-    @edit_action = params[ :edit_action ]
-    @edit_typ = params[ :edit_typ ]
   end
 
   # POST /adventures
@@ -81,32 +70,6 @@ class AdventuresController < ApplicationController
     @dices = Hazard.s2d6
   end
 
-  # PATCH/PUT /adventures/1
-  # PATCH/PUT /adventures/1.json
-  def update
-    adventure_params = params.permit( :hp, :gold, :rations )
-    
-    %w( hp gold rations ).each do |field|
-      if adventure_params[field]
-        new_value = ( @adventure.send( field ) + ( params['edit_action'] == 'up' ? adventure_params[field].to_i : -adventure_params[field].to_i ) )
-        adventure_params[field] = new_value
-      end
-    end
-
-    @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::ADVENTURE_UPDATE,
-      log_data: { edit_action: params['edit_action'], edit_typ: params['edit_typ'] } )
-
-    respond_to do |format|
-      if @adventure.update( adventure_params )
-        format.html { redirect_to adventure_play_url( @adventure ), notice: 'Aventure was successfully updated.' }
-        format.json { render :show, status: :ok, location: adventure }
-      else
-        format.html { render :edit }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /adventures/1
   # DELETE /adventures/1.json
   def destroy
@@ -130,9 +93,11 @@ class AdventuresController < ApplicationController
 
     def roll_adventure
       @adventure.hp = 18 + Hazard.r2d6
-      @adventure.force = 6 + Hazard.r2d6
-      @adventure.force = 19 if @adventure.force == 17
-      @adventure.force = 20 if @adventure.force == 18
+      @adventure.hp_max = @adventure.hp
+      @adventure.strength = 6 + Hazard.r2d6
+      @adventure.strength = 19 if @adventure.strength == 17
+      @adventure.strength = 20 if @adventure.strength == 18
+      @adventure.strength_max = @adventure.strength
       @adventure.gold = Hazard.r4d6
     end
 end

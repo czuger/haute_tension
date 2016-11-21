@@ -10,24 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120004301) do
+ActiveRecord::Schema.define(version: 20161121142303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "adventures", force: :cascade do |t|
-    t.integer  "book_id",                         null: false
-    t.integer  "page_id",                         null: false
-    t.integer  "hp",                              null: false
-    t.integer  "force",                           null: false
-    t.integer  "gold",                            null: false
-    t.integer  "gourdes",          default: 2,    null: false
-    t.integer  "gourdes_remplies", default: 2
-    t.integer  "rations",          default: 4
-    t.boolean  "charisme",         default: true
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "book_id",                           null: false
+    t.integer  "page_id",                           null: false
+    t.integer  "hp",                                null: false
+    t.integer  "strength",                          null: false
+    t.integer  "gold",                              null: false
+    t.integer  "waterskins",         default: 2,    null: false
+    t.integer  "waterskins_max",     default: 2
+    t.integer  "rations",            default: 4
+    t.boolean  "charisma_avaliable", default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "notes"
+    t.integer  "hp_max",                            null: false
+    t.integer  "strength_max",                      null: false
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["page_id"], name: "index_adventures_on_page_id", using: :btree
   end

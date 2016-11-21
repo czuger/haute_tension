@@ -9,10 +9,6 @@ class Creature
     @hp = hp
   end
 
-  def dead?
-    @hp <= 0
-  end
-
   def attack_force
     @force + Hazard.r2d6
   end
@@ -21,7 +17,7 @@ end
 
 class Hero < Creature
   def initialize( adventure )
-    super( adventure, adventure.force, adventure.hp )
+    super( adventure, adventure.strength, adventure.hp )
   end
 end
 

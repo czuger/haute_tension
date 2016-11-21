@@ -1,0 +1,34 @@
+fr:
+  game_logs:
+
+    show:
+      attack_sentence: "Votre force d'attaque est de %{yourforce} et celle du monstre est de %{monsterforce}. "
+      fight_result:
+        hero_win:
+          zero: 'Match nul.'
+          one: 'Il perd 1 point de vie.'
+          other: 'Il perd %{count} points de vie.'
+        monster_win:
+          zero: 'Match nul.'
+          one: 'Vous perdez 1 point de vie.'
+          other: 'Vous perdez %{count} points de vie.'
+
+      down:
+        gold:
+          zero: 'Il ne se passe rien'
+          one: "Vous perdez une pièce d'or"
+          other: "Vous perdez %{count} pièces d'or"
+        hp:
+          zero: 'Il ne se passe rien'
+          one: "Vous perdez un point de vie"
+          other: "Vous perdez %{count} points de vie"
+
+      up:
+        gold:
+          zero: 'Il ne se passe rien'
+          one: "Vous gagnez une pièce d'or"
+          other: "Vous gagnez %{count} pièces d'or"
+        hp:
+          zero: 'Il ne se passe rien'
+          one: "Vous gagnez un point de vie"
+          other: "Vous gagnez %{count} points de vie"

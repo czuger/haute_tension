@@ -5,7 +5,7 @@
 
   %h1= t( ".#{@edit_action}.#{@edit_typ}.title" )
 
-  = form_tag "/adventures/#{@adventure.id}", method: :patch, class: "form-horizontal", role: "form" do
+  = form_tag "/adventure_trackers/#{@adventure.id}", method: :patch, class: "form-horizontal", role: "form" do
     -if @adventure.errors.any?
       .alert.alert-danger.alert-dismissable{role: "alert"}
         %button.close{type: "button", data: {dismiss: "alert"} }

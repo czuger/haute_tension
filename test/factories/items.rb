@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :item do
-    name "MyString"
+    name 'Basic item'
   end
 end

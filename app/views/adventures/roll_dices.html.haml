@@ -4,6 +4,11 @@
     = t( '.back' )
   %h1= t( '.roll_dice' )
 
-= t( '.votre_jet' )
-- @dices.rolls.each do |d|
-  = image_tag( "dices/#{d}.svg", class: :dice )
+.container
+
+  = t( '.votre_jet' )
+  - @dices.rolls.each do |d|
+    = image_tag( "dices/#{d}.svg", class: :dice )
+
+%footer.modal-footer
+  Icons made by Delapouite, More info and icons available at http://game-icons.net

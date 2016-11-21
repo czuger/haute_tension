@@ -6,7 +6,9 @@ FactoryGirl.define do
     page
 
     hp 20
-    force 12
+    hp_max 20
+    strength 12
+    strength_max 12
     gold 20
     rations 4
 
@@ -21,6 +23,8 @@ FactoryGirl.define do
     factory :fight_adventure_two_weak_monsters do
       association :page, factory: :fight_page_two_weak_monsters
     end
+
+    items { [ FactoryGirl.create(:item) ] }
 
   end
 

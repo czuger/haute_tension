@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :adventure_trackers, only: [ :edit, :update ]
+
+  resources :game_logs, only: [ :show ]
+
   resources :items, except: [ :show ]
 
   resources :inventories, only: [ :show, :new, :create, :destroy ]
 
-  resources :adventures do
+  resources :adventures, except: [ :edit, :update ] do
     get :reroll
     get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
     get :die
-    get :log
   end
 
   resources :notes, only: [ :edit, :update ]
