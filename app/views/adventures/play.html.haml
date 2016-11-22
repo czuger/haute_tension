@@ -19,42 +19,7 @@
 
   %h1= t( '.title' )
 
-.row
-  .col-md-2
-    %b
-      = 'hp : '.capitalize
-    = @adventure.hp
-    \/
-    = @adventure.hp_max
-
-  .col-md-2
-    %b
-      = 'force : '.capitalize
-    = @adventure.strength
-    \/
-    = @adventure.strength_max
-
-  .col-md-2
-    %b
-      = 'or : '.capitalize
-    = @adventure.gold
-
-  .col-md-2
-    %b
-      = 'rations : '.capitalize
-    = @adventure.rations
-
-  .col-md-2
-    %b
-      = 'gourdes : '.capitalize
-    = @adventure.waterskins
-    \/
-    = @adventure.waterskins_max
-
-  .col-md-2
-    %b
-      = 'charisme : '.capitalize
-    = @adventure.charisma_avaliable ? 'disponible' : 'utilisé'
+= render partial: 'adventures/info_bar'
 
 - @page.text.each do |txt|
   %p= raw txt

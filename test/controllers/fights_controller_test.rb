@@ -6,6 +6,11 @@ class FightsControllerTest < ActionDispatch::IntegrationTest
     @adventure = @fight_monster.adventure
   end
 
+  test "should get index" do
+    get fights_url( id: @adventure.id )
+    assert_response :success
+  end
+
   test "should get show" do
     @fight_monster.destroy
     get fight_url( @adventure )

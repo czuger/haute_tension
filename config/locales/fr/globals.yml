@@ -1,0 +1,11 @@
+fr:
+  attack_sentence: "Votre force d'attaque est de %{yourforce} (%{myrolls}) et celle du monstre(%{monstername}) est de %{monsterforce} (%{monsterrolls})."
+  fight_result:
+    hero_win:
+      zero: 'Match nul.'
+      one: 'Il perd 1 point de vie.'
+      other: 'Il perd %{count} points de vie.'
+    monster_win:
+      zero: 'Match nul.'
+      one: 'Vous perdez 1 point de vie.'
+      other: 'Vous perdez %{count} points de vie.'

@@ -1,6 +1,6 @@
 class Creature
 
-  attr_reader :hp
+  attr_reader :hp, :attack_force, :rolls
 
   def initialize( adventure, force, hp )
     @round = 0
@@ -9,8 +9,10 @@ class Creature
     @hp = hp
   end
 
-  def attack_force
-    @force + Hazard.r2d6
+  def roll_attack
+    roll = Hazard.s2d6
+    @attack_force = roll.result
+    @rolls = roll.rolls
   end
 
 end
@@ -47,6 +49,9 @@ class GameCore::Fight
     @round ||= 0
     @round += 1
 
+    @hero.roll_attack
+    @monster.roll_attack
+
     my_af = @hero.attack_force
     mn_af = @monster.attack_force
     hp_loss = my_af - mn_af
@@ -61,7 +66,7 @@ class GameCore::Fight
       page_id: @adventure.page_id, log_type: GameLog::FIGHT, log_data: {
       hero_atk: my_af, monster_atk: mn_af, monster_hp_loss: hp_loss > 0 ? hp_loss : nil,
       hero_hp_loss: hp_loss < 0 ? -hp_loss : nil, hero_hp_remaining: @hero.hp, monster_hp_remaining: @monster.hp,
-      fight_round: @round, monster_name: @monster.name }.compact
+      fight_round: @round, monster_name: @monster.name, hero_rolls: @hero.rolls, monster_rolls: @monster.rolls }.compact
     )
 
   end

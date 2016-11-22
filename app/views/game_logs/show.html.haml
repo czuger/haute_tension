@@ -7,7 +7,7 @@
     %p= raw log.page.text.first
 
   - elsif log.log_type == GameLog::FIGHT
-    %p= log_fight_message( log )
+    %p= raw log_fight_message( log )
 
   - elsif log.log_type == GameLog::ADVENTURE_UPDATE
     %p= log_adventure_update_message( log )

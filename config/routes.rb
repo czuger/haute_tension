@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :notes, only: [ :edit, :update ]
 
-  resources :fights, only: [ :show, :update ] do
+  resources :fights, only: [ :index, :show, :update ] do
     patch :add_monster
     patch :remove_monster
     patch :fight_monster

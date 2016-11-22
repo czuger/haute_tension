@@ -5,6 +5,10 @@
 
   %h1= t( '.title' )
 
+= render partial: 'adventures/info_bar'
+
+%hr
+
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead
@@ -33,4 +37,10 @@
             = link_to fight_remove_monster_url( @adventure, fight_monster_id: fight_monster.id ), method: :patch, class: 'btn btn-success' do
               %span.glyphicon.glyphicon-minus
               = t( '.remove_monsters' )
+
+%hr
+
+- @logs.each do |log|
+  %p= raw( log_fight_message( log ) )
+
 

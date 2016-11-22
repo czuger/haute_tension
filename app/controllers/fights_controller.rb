@@ -1,5 +1,9 @@
 class FightsController < ApplicationController
-  before_action :set_adventure, only: [ :show, :update, :add_monster, :remove_monster, :fight_monster ]
+  before_action :set_adventure, only: [ :index, :show, :update, :add_monster, :remove_monster, :fight_monster ]
+
+  def index
+    @monsters = Monster.all.order( :name )
+  end
 
   def show
     if @adventure.fight_monsters.count == 0
@@ -8,6 +12,7 @@ class FightsController < ApplicationController
       end
     end
     @fight_monsters = @adventure.fight_monsters.includes( :monster )
+    @logs = GameLog.where( adventure_id: @adventure.id, page_id: @adventure.page_id, log_type: GameLog::FIGHT ).order( 'id DESC' )
   end
 
   def add_monster

@@ -33,6 +33,10 @@
 
             - if @adventure && @adventure.id
               = render partial: 'layouts/game_events_submenu'
+
+              %li
+                = link_to 'Monsters', fights_url( id: @adventure.id )
+
               %li
                 = link_to 'Log', game_log_url( @adventure )
 

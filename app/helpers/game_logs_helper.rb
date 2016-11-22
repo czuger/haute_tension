@@ -7,9 +7,15 @@ module GameLogsHelper
     hp_loss = log_data[:hero_hp_loss] ? log_data[:hero_hp_loss] : log_data[:monster_hp_loss]
     hp_loss ||= 0
 
-    str = "<#{log_data[:monster_name]}>: "
-    str << t( '.attack_sentence', yourforce: log_data[:hero_atk], monsterforce: log_data[:monster_atk] )
-    str << t( '.fight_result.' + fight_result.to_s, count: hp_loss )
+    str = ''
+
+    myrolls = log_data[:hero_rolls]&.map{ |r| "#{image_tag( 'dices/' + r.to_s + '.svg', class: 'game-log-die' )}" }&.join
+    monsterrolls = log_data[:monster_rolls]&.map{ |r| "#{image_tag( 'dices/' + r.to_s + '.svg', class: 'game-log-die' )}" }&.join
+
+    str << t( 'attack_sentence', yourforce: log_data[:hero_atk], monsterforce: log_data[:monster_atk],
+              monstername: log_data[:monster_name]&.downcase,
+              myrolls: myrolls, monsterrolls: monsterrolls )
+    str << t( 'fight_result.' + fight_result.to_s, count: hp_loss )
     str
   end
 
