@@ -3,10 +3,6 @@
     %span.glyphicon.glyphicon-plus
     = t( '.back' )
 
-  = link_to new_item_url, target: '_blank', class: 'btn btn-info' do
-    %span.glyphicon.glyphicon-wrench
-    = t( '.create' )
-
   %h1= t( '.title' )
 
 = form_tag '/inventories', method: :post, html: { class: "form-horizontal", role: "form" } do

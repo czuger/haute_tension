@@ -4,34 +4,37 @@
     = t( '.new' ) + ' ' + 'Aventure'
   %h1= t( '.listing' ) + ' ' + 'adventures'
 
+-# Best way for responsive
+-# http://stackoverflow.com/questions/25482765/bootstrap-change-image-according-to-device?answertab=active#tab-top
+
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
         %th Book
-        %th Hp
-        %th Force
-        %th Gold
-        %th Gourdes
-        %th Gourdes remplies
-        %th Rations
-        %th Charisme
+        %th.hidden-xs.hidden-sm Hp
+        %th.hidden-xs.hidden-sm Force
+        %th.hidden-xs.hidden-sm Gold
+        %th.hidden-xs.hidden-sm Gourdes
+        %th.hidden-xs.hidden-sm Gourdes remplies
+        %th.hidden-xs.hidden-sm Rations
+        %th.hidden-xs.hidden-sm Charisme
         %th
-        %th
-        %th
+        %th.hidden-xs.hidden-sm
+        %th.hidden-xs.hidden-sm
 
     %tbody
       - @adventures.each do |adventure|
         %tr
           %td= adventure.book.name
-          %td= adventure.hp
-          %td= adventure.strength
-          %td= adventure.gold
-          %td= adventure.waterskins
-          %td= adventure.waterskins_max
-          %td= adventure.rations
-          %td= adventure.charisma_avaliable
+          %td.hidden-xs.hidden-sm= adventure.hp
+          %td.hidden-xs.hidden-sm= adventure.strength
+          %td.hidden-xs.hidden-sm= adventure.gold
+          %td.hidden-xs.hidden-sm= adventure.waterskins
+          %td.hidden-xs.hidden-sm= adventure.waterskins_max
+          %td.hidden-xs.hidden-sm= adventure.rations
+          %td.hidden-xs.hidden-sm= adventure.charisma_avaliable
           %td= link_to t( '.play' ), adventure_play_path( adventure )
-          %td= link_to t( '.show' ), adventure
+          %td.hidden-xs.hidden-sm= link_to t( '.show' ), adventure
           -#%td= link_to t( '.new' ), edit_adventure_path(adventure)
-          %td= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete
+          %td.hidden-xs.hidden-sm= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete

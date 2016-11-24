@@ -11,7 +11,7 @@ class Creature
 
   def roll_attack
     roll = Hazard.s2d6
-    @attack_force = roll.result
+    @attack_force = @force + roll.result
     @rolls = roll.rolls
   end
 
