@@ -30,7 +30,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update item" do
     patch item_url(@item), params: { item: { name: @item.name } }
-    assert_redirected_to item_url(@item)
+    assert_redirected_to edit_item_url(@item)
   end
 
   test "should destroy item" do
