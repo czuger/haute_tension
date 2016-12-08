@@ -29,7 +29,7 @@ class AdventuresController < ApplicationController
       @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
       @adventure.save!
     end
-    redirect_to adventure_play_url( @adventure )
+    redirect_to adventure_book_url( @adventure.id, @adventure.page_id )
   end
 
   # GET /adventures/new

@@ -10,51 +10,18 @@
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
-      = javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
+      -#= javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
-      .container
-        .navbar-header
-          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to "Project name", "#", class: "navbar-brand"
+    = render partial: 'layouts/menu'
 
-        #navbar.collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{href: "/"} Home
-
-            - if @adventure && @adventure.id
-              = render partial: 'layouts/game_events_submenu'
-
-              %li
-                = link_to 'Monsters', fights_url( id: @adventure.id )
-
-              %li
-                = link_to 'Log', game_log_url( @adventure )
-
-            %li.dropdown
-              %a.dropdown-toggle{ href: '#', 'data-toggle' => 'dropdown', role: 'button', 'aria-haspopup' => true, 'aria-expanded' => false }
-                Admin
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{href: items_url}= t( 'items' )
-                %li
-                  %a{href: pages_url}= t( 'pages' )
-
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
-          %button.close{type: "button", data: {dismiss: "alert"} }
-            %span{aria: {hidden: "true"} } &times;
-            %span.sr-only Close
-          = msg
-      = yield
+    - flash.each do |name, msg|
+      = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
+        %button.close{type: "button", data: {dismiss: "alert"} }
+          %span{aria: {hidden: "true"} } &times;
+          %span.sr-only Close
+        = msg
+    = yield

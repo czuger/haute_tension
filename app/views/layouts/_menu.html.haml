@@ -1,0 +1,20 @@
+#mainMenu.container.container-fluid
+  .row
+
+    .col-sm-2.col-xs-2.col-md-2
+      = link_to adventures_url do
+        %button
+          %span.glyphicon.glyphicon-home
+
+    - if @adventure&.id
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to adventure_book_url( @adventure.id, @adventure.page_id ) do
+          %button
+            %span.glyphicon.glyphicon-book
+
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to adventure_heros_url( @adventure.id ) do
+          %button
+            %span.glyphicon.glyphicon-user
+
+

@@ -1,25 +1,8 @@
-.page-header
+#main.container.container-fluid.bookPage
+  .row
+    #pageContent.col-xs-12
 
-  = link_to edit_note_url( @adventure ), class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-pencil
-    = t( '.notes' )
+      - @page.text.each do |txt|
+        %p= raw txt
 
-  = link_to adventure_roll_dices_url( adventure_id: @adventure ), class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-repeat
-    = t( '.roll_dices' )
-
-  = link_to inventory_url( @adventure ), class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-briefcase
-    = t( '.inventory' )
-
-  - unless @page.monsters.empty?
-    = link_to fight_url( @adventure ), class: 'btn btn-warning' do
-      %span.glyphicon.glyphicon-asterisk
-      = t( '.fight' )
-
-  %h1= t( '.title' )
-
-= render partial: 'adventures/info_bar'
-
-- @page.text.each do |txt|
-  %p= raw txt
+    #pageFooter.col-xs-12

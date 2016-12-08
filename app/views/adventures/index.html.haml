@@ -34,7 +34,7 @@
           %td.hidden-xs.hidden-sm= adventure.waterskins_max
           %td.hidden-xs.hidden-sm= adventure.rations
           %td.hidden-xs.hidden-sm= adventure.charisma_avaliable
-          %td= link_to t( '.play' ), adventure_play_path( adventure )
+          %td= link_to t( '.play' ), adventure_book_url( adventure.id, adventure.page_id )
           %td.hidden-xs.hidden-sm= link_to t( '.show' ), adventure
           -#%td= link_to t( '.new' ), edit_adventure_path(adventure)
           %td.hidden-xs.hidden-sm= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete

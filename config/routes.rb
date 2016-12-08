@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
     get :die
+
+    resource :heros, only: [ :show, :update ]
+    resources :books, only: [ :show ]
   end
 
   resources :notes, only: [ :edit, :update ]
