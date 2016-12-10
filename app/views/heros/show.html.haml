@@ -10,26 +10,27 @@
                 .col-xs-6.col-md-3.title
                   = e[ :name ].to_s.capitalize
                 .col-xs-6.col-md-3.values
-                  %span.current
-                    = e[ :base_col ]
-                  - if e[ :max_col ]
+                  %span.current{ id: e[ :base_col ] }
+                    = e[ :base_value ]
+                  - if e[ :max_value ]
                     \/
-                    %span.max
-                      = e[ :max_col ]
+                    %span.max{ id: e[ :max_col ] }
+                      = e[ :max_value ]
         %h2 Actions
         .list-group-item
           .row
-            = form_tag adventure_heros_url( @adventure ), method: :patch do
-              - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
-                - group.each do |e|
-                  .col-xs-6.col-md-3.title
-                    = e[ :name ].to_s.capitalize
-                  .col-xs-6.col-md-3.values
-                    .col-xs-6
-                      %button{ name: "#{e[:code]}_plus" }
-                        %span.glyphicon.glyphicon-plus
-                    .col-xs-6
-                      %button{ name: "#{e[:code]}_minus" }
-                        %span.glyphicon.glyphicon-minus
+            - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
+              - group.each do |e|
+                .col-xs-6.col-md-3.title
+                  = e[ :name ].to_s.capitalize
+                .col-xs-6.col-md-3.values
+                  .col-xs-6
+                    %button.update_hero{ code: e[:code], action: :plus }
+                      %span.glyphicon.glyphicon-plus
+                  .col-xs-6
+                    %button.update_hero{ code: e[:code], action: :minus }
+                      %span.glyphicon.glyphicon-minus
 
     #pageFooter.col-xs-12
+
+= hidden_field_tag( :adventure_id, @adventure.id )

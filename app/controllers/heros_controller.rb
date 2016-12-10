@@ -16,26 +16,21 @@ class HerosController < ApplicationController
     @data = []
     VALUES.each do |value|
       h = value.clone
-      h[ :base_col ] = @adventure.send( value[ :base_col ] )
-      h[ :base_col ] = 'Non utilisé' if h[ :base_col ] == true
-      h[ :max_col ] = @adventure.send( value[ :max_col ] ) if value[ :max_col ]
+      h[ :base_value ] = @adventure.send( value[ :base_col ] )
+      h[ :base_value ] = 'Non utilisé' if h[ :base_col ] == true
+      h[ :max_value ] = @adventure.send( value[ :max_col ] ) if value[ :max_col ]
       @data << h
     end
   end
 
   def update
-    ACTIONS.each do |action|
-      # Minus action :
-      if params[ "#{action[:code]}_minus".to_s ]
-        @adventure.decrement!( action[:code] )
-      end
-      # Plus action
-      # Minus action :
-      if params[ "#{action[:code]}_plus".to_s ]
-        @adventure.increment!( action[:code] )
-      end
+    # Minus action :
+    if params[ :action_code ] == 'minus'
+      @adventure.decrement!( params[ :code ] )
+    elsif params[ :action_code ] == 'plus'
+      @adventure.increment!( params[ :code ] )
     end
-    redirect_to adventure_heros_url( @adventure.id )
+    head :ok
   end
 
   private
