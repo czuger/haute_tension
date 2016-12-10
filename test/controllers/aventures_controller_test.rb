@@ -36,7 +36,7 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect after play choice" do
     get adventure_read_choice_url( adventure_id: @adventure.id, page_id: @adventure.page_id )
-    assert_redirected_to adventure_play_url( @adventure )
+    assert_redirected_to adventure_book_url( @adventure, @adventure.page_id )
   end
 
   test "should reroll" do
