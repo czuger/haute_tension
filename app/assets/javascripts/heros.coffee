@@ -11,7 +11,8 @@ activate_buttons = ->
 
     if action == 'plus'
       val += 1
-    else
+    else if action == 'minus'
+      val -= 1
 
     html_part.html( val.toString() )
 
