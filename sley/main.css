@@ -1,66 +1,72 @@
-body{
-	border-top:0.5em solid #d0d0d0;
-	font-size:1.5em;
+body {
+    border-top: 0.5em solid #d0d0d0;
+    font-size: 1.5em;
 }
 
-#main{
-	position: fixed;
-	top: 3.5em;
-	right:0;
-	bottom: 0;
-	left: 0;
-	overflow-y:auto;
-	border-top:2px dotted #e0e0e0;
+#main {
+    position: fixed;
+    top: 3.5em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    border-top: 2px dotted #e0e0e0;
 }
 
-#pageContent{
-	border-radius:1em 0 0.25em 0;
-	border-style:solid;
-	border-color: #a0a0a0;
-	border-width:2px 0 4px 0;
-	text-align: justify;
-	padding:1.5em 1em;
-	background:#f0f0f0;
-	margin:0.5em 0 1em 0;
+#pageContent {
+    border-radius: 1em 0 0.25em 0;
+    border-style: solid;
+    border-color: #a0a0a0;
+    border-width: 2px 0 4px 0;
+    text-align: justify;
+    padding: 1.5em 1em;
+    background: #f0f0f0;
+    margin: 0.5em 0 1em 0;
 }
 
-#pageContent a.pageLink{
-	font-weight: bold;
-	display:block;
-	padding: 0.5em;
-	border:1px solid #b0b0b0;
-	border-radius: 0.5em;
-	color:#000000;
-	background: #f8f8f8;
-}
-#pageContent a.pageLink:hover{
-	text-decoration:none;
-	background: #ffffff;
+#pageContent a.pageLink {
+    font-weight: bold;
+    display: block;
+    padding: 0.5em;
+    border: 1px solid #b0b0b0;
+    border-radius: 0.5em;
+    color: #000000;
+    background: #f8f8f8;
 }
 
-#pageContent h2{
-	font-size:1.5em;
+#pageContent a.pageLink:hover {
+    text-decoration: none;
+    background: #ffffff;
 }
+
+#pageContent h2 {
+    font-size: 1.5em;
+}
+
 /* Player status */
-#pageContent .playerStatus{
+#pageContent .playerStatus {
 
 }
 
-.playerStatus .title{
-	font-weight:bold;
+.playerStatus .title {
+    font-weight: bold;
 }
-.playerStatus .values{
+
+.playerStatus .values {
 
 }
-.playerStatus .values .current{
-	color:#008000;
-	font-weight:bold;
+
+.playerStatus .values .current {
+    color: #008000;
+    font-weight: bold;
 }
-.playerStatus .values .max{
+
+.playerStatus .values .max {
 }
-.playerStatus .values button{
-	border-radius: 2em;
-	padding:0.5em;
-	width:2.5em;
-	border:0 none;
+
+.playerStatus .values button {
+    border-radius: 2em;
+    padding: 0.5em;
+    width: 2.5em;
+    border: 0 none;
 }
