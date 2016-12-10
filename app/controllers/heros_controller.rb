@@ -1,5 +1,7 @@
 class HerosController < ApplicationController
 
+  before_action :set_adventure
+
   VALUES = [
     { name: :hp, base_col: :hp, max_col: :hp_max }, { name: :or, base_col: :gold },
     { name: :rations, base_col: :rations }, { name: :gourdes, base_col: :waterskins, max_col: :waterskins_max },
@@ -11,8 +13,6 @@ class HerosController < ApplicationController
               { name: :force_max, code: :strength_max }, { name: :gourdes_max, code: :waterskins_max } ]
 
   def show
-    @adventure = Adventure.find( params[ :adventure_id ] )
-
     @data = []
     VALUES.each do |value|
       h = value.clone
@@ -24,6 +24,24 @@ class HerosController < ApplicationController
   end
 
   def update
+    ACTIONS.each do |action|
+      # Minus action :
+      if params[ "#{action[:code]}_minus".to_s ]
+        @adventure.decrement!( action[:code] )
+      end
+      # Plus action
+      # Minus action :
+      if params[ "#{action[:code]}_plus".to_s ]
+        @adventure.increment!( action[:code] )
+      end
+    end
+    redirect_to adventure_heros_url( @adventure.id )
+  end
+
+  private
+
+  def set_adventure
+    @adventure = Adventure.find( params[ :adventure_id ] )
   end
 
 end

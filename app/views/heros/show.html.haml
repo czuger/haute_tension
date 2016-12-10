@@ -19,16 +19,17 @@
         %h2 Actions
         .list-group-item
           .row
-            - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
-              - group.each do |e|
-                .col-xs-6.col-md-3.title
-                  = e[ :name ].to_s.capitalize
-                .col-xs-6.col-md-3.values
-                  .col-xs-6
-                    %button{ name: "#{e[:code]}_plus" }
-                      %span.glyphicon.glyphicon-plus
-                  .col-xs-6
-                    %button{ name: "#{e[:code]}_minus" }
-                      %span.glyphicon.glyphicon-minus
+            = form_tag adventure_heros_url( @adventure ), method: :patch do
+              - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
+                - group.each do |e|
+                  .col-xs-6.col-md-3.title
+                    = e[ :name ].to_s.capitalize
+                  .col-xs-6.col-md-3.values
+                    .col-xs-6
+                      %button{ name: "#{e[:code]}_plus" }
+                        %span.glyphicon.glyphicon-plus
+                    .col-xs-6
+                      %button{ name: "#{e[:code]}_minus" }
+                        %span.glyphicon.glyphicon-minus
 
     #pageFooter.col-xs-12
