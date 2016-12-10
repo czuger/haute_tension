@@ -1,3 +1,5 @@
+# We need javascript, form is too slow on mobile
+
 activate_buttons = ->
   $( '.update_hero' ).click ->
 
