@@ -27,4 +27,6 @@ exclude_paths:
   - spec/**/*
   - "**/vendor/**/*"
   - sley/*
+  - app/assets/stylesheets/bootstrap.css
+  - db/schema.rb
 
