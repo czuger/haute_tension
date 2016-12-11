@@ -1,2 +1,9 @@
+JavaScript: true
+Ruby: true
+Python: false
+PHP: false
+
 exclude_paths:
-  - "sley"
+- test/**/*
+- vendor/**/*
+- sley
