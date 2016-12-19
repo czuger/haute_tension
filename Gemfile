@@ -68,3 +68,5 @@ gem 'capistrano3-puma' , group: :development
 gem 'listen', '~> 3.0.5'
 
 gem 'hazard'
+
+gem 'will_paginate-bootstrap'

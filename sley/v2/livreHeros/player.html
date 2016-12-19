@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Un Livre dont vous êtes le héros !</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Theme -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/mainMenu.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      
+  </head>
+  <body>
+
+    <!-- Menu - insert in any page -->
+    <!-- Use .active to mark current page -->
+    <div id="mainMenu" class="container container-fluid">
+      <div class="row">
+        <!-- Main Page -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="home.html">
+            <button>
+              <span class="glyphicon glyphicon-home"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Read the current book -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="book.html">
+            <button>
+              <span class="glyphicon glyphicon-book"></span>
+            </button>
+          </a>
+        </div>
+        <!-- User page -->
+        <div class="col-sm-2 col-xs-2 col-md-2 active">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-user"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Notes -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Empty -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Config -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-cog"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container container-fluid playerPage" id="main">
+
+      <div class="row">
+
+        <div class="col-xs-12" id="pageContent">
+
+          <div class="list-group playerStatus">
+
+            <h2>Player Status</h2>
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-xs-6 col-md-3 title">HP</div>
+                <div class="col-xs-6 col-md-3 values"><span class="current">25</span> / <span class="max">25</span></div>
+
+                <div class="col-xs-6 col-md-3 title">Force</div>
+                <div class="col-xs-6 col-md-3 values"><span class="current">25</span> / <span class="max">25</span></div>
+              </div>
+              ...
+            </div>
+
+            <h2>Actions</h2>
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-xs-6 col-md-3 title">Life</div>
+                <div class="col-xs-6 col-md-3 values">
+                  <div class="col-xs-6">
+                    <button><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                  <div class="col-xs-6">
+                    <button><span class="glyphicon glyphicon-minus"></span></button>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-3 title">Max Life</div>
+                <div class="col-xs-6 col-md-3 values">
+                  <div class="col-xs-6">
+                    <button><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                  <div class="col-xs-6">
+                    <button><span class="glyphicon glyphicon-minus"></span></button>
+                  </div>
+                </div>
+              </div>
+              ...
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-xs-12" id="pageFooter">
+          ---
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

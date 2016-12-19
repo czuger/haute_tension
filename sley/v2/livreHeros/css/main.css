@@ -1,0 +1,124 @@
+body{
+	border-top:0.5em solid #d0d0d0;
+	font-size:1.5em;
+}
+
+#main{
+	position: absolute;
+	top: 3.5em;
+	left: 0;
+	z-index:1;
+}
+
+#pageContent{
+	border-radius:1em 0 0.25em 0;
+	border-style:solid;
+	border-color: #a0a0a0;
+	border-width:2px 0 4px 0;
+	text-align: justify;
+	padding:1.5em 1em;
+	background:#f0f0f0;
+	margin:0.5em 0 1em 0;
+}
+#pageContent a.pageLink{
+	font-weight: bold;
+	display:block;
+	padding: 0.5em;
+	border:1px solid #b0b0b0;
+	border-radius: 0.5em;
+	color:#000000;
+	background: #f8f8f8;
+}
+#pageContent a.pageLink:hover{
+	text-decoration:none;
+	background: #ffffff;
+}
+
+#pageContent h2{
+	font-size:1.5em;
+}
+
+
+/* Player status */
+
+#pageContent .playerStatus{
+
+}
+
+.playerStatus .title{
+	font-weight:bold;
+}
+.playerStatus .values{
+
+}
+.playerStatus .values .current{
+	color:#008000;
+	font-weight:bold;
+}
+.playerStatus .values .max{
+}
+.playerStatus .values button{
+	border-radius: 2em;
+	padding:0.5em;
+	width:2.5em;
+	border:0 none;
+}
+
+/* Home Page */
+#homePageContent{
+	border:0 none;
+	border-radius:0 0 0 0;
+	text-align: justify;
+	padding:1.5em 1em;
+	background:#ffffff;
+	margin:0.5em 0 1em 0;
+}
+
+/* List of available adventures */
+#availableAdventures a.adventureLink{
+	color:#000000;
+	font-weight:bold;
+	text-decoration:none!important;
+}
+
+#availableAdventures .lastAdventureSummary{
+	font-size:1em;
+	font-style:italic;
+  	line-height:1.5em;
+  	padding-bottom:1em;
+}
+#availableAdventures .lastAdventureSummary .text:before{
+	content:"“";
+	font-size:2em;
+	line-height:1em;
+}
+#availableAdventures .lastAdventureSummary .text:after{
+	content:"”";
+	font-size: 2em;
+    line-height: 0.5em;
+    position: relative;
+    top: 0.6em;
+}
+#availableAdventures .status{
+	margin-bottom: 1em;
+	padding-bottom:1em;
+	border-bottom:1px dotted #dddddd;
+}
+
+#availableAdventures .actions{
+	margin-top: 1em;
+	padding-top:1em;
+	border-top:1px dotted #dddddd;
+}
+#availableAdventures .actions .remove{
+	text-align:right;
+}
+#availableAdventures .actions .remove:hover{
+	font-weight:bold;
+}
+#availableAdventures .actions a{
+	color:#000000;
+	background:#d0d0d0;
+	padding: 0.5em 1em;
+	border-radius:0.25em;
+}

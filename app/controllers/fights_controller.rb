@@ -6,7 +6,7 @@ class FightsController < ApplicationController
   end
 
   def show
-    if @adventure.fight_monsters.count == 0
+    if @adventure.fight_monsters.count == 0 || @adventure.page.monsters.count >= 0
       @adventure.page.monsters.each do |monster|
         @adventure.fight_monsters.create!( monster_id: monster.id, hp: monster.hp )
       end

@@ -17,4 +17,38 @@
           %button
             %span.glyphicon.glyphicon-user
 
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to inventory_url( @adventure.id ) do
+          %button
+            %span.glyphicon.glyphicon-briefcase
 
+      - if @adventure.page.monsters.count > 0
+        .col-sm-2.col-xs-2.col-md-2
+          = link_to fight_url( id: @adventure.id ) do
+            %button
+              %span.glyphicon.glyphicon-flash
+
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to fights_url( id: @adventure.id ) do
+          %button
+            %span.glyphicon.glyphicon-eye-open
+
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to game_log_url( @adventure.id ) do
+          %button
+            %span.glyphicon.glyphicon-list-alt
+
+      .col-sm-2.col-xs-2.col-md-2
+        = link_to adventure_roll_dices_url( adventure_id: @adventure.id ) do
+          %button
+            %span.glyphicon.glyphicon-repeat
+
+    .col-sm-2.col-xs-2.col-md-2
+      = link_to items_url do
+        %button
+          %span.glyphicon.glyphicon-shopping-cart
+
+    .col-sm-2.col-xs-2.col-md-2
+      = link_to pages_url do
+        %button
+          %span.glyphicon.glyphicon-file

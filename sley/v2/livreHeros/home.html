@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Un Livre dont vous êtes le héros !</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Theme -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/mainMenu.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      
+  </head>
+  <body>
+
+    <!-- Menu - insert in any page -->
+    <!-- Use .active to mark current page -->
+    <div id="mainMenu" class="container container-fluid">
+      <div class="row">
+        <!-- Main Page -->
+        <div class="col-sm-2 col-xs-2 col-md-2 active">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-home"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container container-fluid" id="main">
+
+      <div class="row">
+
+        <div class="col-xs-12" id="homePageContent">
+
+          <div class="list-group introduction">
+
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-xs-12">
+                  Welcome !
+                </div>
+              </div>
+            </div>
+
+            <h2>Existing Adventures</h2>
+
+            <div class="list-group">
+
+              <div class="panel-group" id="availableAdventures">
+
+                <!-- One Available Adventure -->
+                <!-- For each .panel, set the data-parent="#availableAdventures" -->
+                <!-- For each .panel a.adventureLink, define a href="#unique_id", that refers to a .panel-collapse with id="unique_id" -->
+                <div class="panel panel-default">
+
+                  <!-- panel header -->
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <div class="row">
+                        <div class="col-md-6 col-xs-10">
+                          <a class="adventureLink" data-toggle="collapse" data-parent="#availableAdventures" href="#adventure_1">
+                            <span class="adventureName">La forteresse d'alamuth</span>
+                          </a>
+                        </div>
+                        <div class="col-md-6 col-xs-2">
+                          <a href="book.html"><!-- Continue adventure link -->
+                            <span class="glyphicon glyphicon-play"></span> 
+                          </a>
+                        </div>
+                      </div>
+                    </h4>
+                  </div>
+
+                  <!-- panel content -->
+                  <div id="adventure_1" class="panel-collapse collapse in">
+                    <div class="panel-body" >
+
+                      <div class="row status">
+                        <div class="col-xs-12">
+                          Aventure commencée le 14/12/2016.
+                        </div>
+                      </div>
+
+                      <p class="lastAdventureSummary">
+                        <span class="text"><!-- Last step summary, please limit text length server side + add an ellipsis -->
+                          Vous arrivez rapidement devant une enseigne aux couleurs avenantes. Cette auberge vous paraît sympathique et vous décidez d'y trouver abri jusqu'au lendemain où vous vous mettrez en route vers les montagnes. Vous attachez votre cheval à l'extérieur et entrez. Une foule bruyante remplit la salle de l'auberge. Votre entrée...
+                        </span>
+                      </p>
+
+                      <h4>Current Status</h4>
+                      <div class="list-group-item playerStatus">
+                        <div class="row">
+                          <div class="col-xs-6 col-md-3 title">HP</div>
+                          <div class="col-xs-6 col-md-3 values"><span class="current">14</span> / <span class="max">25</span></div>
+
+                          <div class="col-xs-6 col-md-3 title">Force</div>
+                          <div class="col-xs-6 col-md-3 values"><span class="current">22</span> / <span class="max">22</span></div>
+                        </div>
+                        ...
+                      </div>
+                        
+                      <div class="row actions">
+                        <div class="col-xs-12 remove">
+                          <a data-confirm="Sure?" href="#"><!-- Delete element -->
+                            <span class="glyphicon glyphicon-trash"></span>
+                          </a>
+                        </div>
+                      </div>
+                        
+                    </div>
+                  </div>
+
+                </div>
+                <!-- EO One Available Adventure -->
+
+
+
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <div class="row">
+                        <div class="col-md-6 col-xs-10">
+                          <a class="adventureLink" data-toggle="collapse" data-parent="#availableAdventures" href="#adventure_2">
+                            <span class="adventureName">Adventure 2</span>
+                          </a>
+                        </div>
+                        <div class="col-md-6 col-xs-2">
+                          <a href="book.html"><!-- Continue adventure -->
+                            <span class="glyphicon glyphicon-play"></span> 
+                          </a>
+                        </div>
+                    </h4>
+                  </div>
+                  <div id="adventure_2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Content
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <div class="row">
+                        <div class="col-md-6 col-xs-10">
+                          <a class="adventureLink" data-toggle="collapse" data-parent="#availableAdventures" href="#adventure_3">
+                            <span class="adventureName">Adventure 3</span>
+                          </a>
+                        </div>
+                        <div class="col-md-6 col-xs-2">
+                          <a href="book.html"><!-- Continue adventure -->
+                            <span class="glyphicon glyphicon-play"></span> 
+                          </a>
+                        </div>
+                    </h4>
+                  </div>
+                  <div id="adventure_3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      Content
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-xs-12" id="pageFooter">
+          ---
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
