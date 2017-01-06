@@ -1,40 +1,51 @@
-.page-header
-  = link_to new_adventure_path, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    = t( '.new' ) + ' ' + 'Aventure'
-  %h1= t( '.listing' ) + ' ' + 'adventures'
+-#.page-header
+-#  = link_to new_adventure_path, class: 'btn btn-primary' do
+-#    %span.glyphicon.glyphicon-plus
+-#    = t( '.new' ) + ' ' + 'Aventure'
+-#  %h1= t( '.listing' ) + ' ' + 'adventures'
 
 -# Best way for responsive
 -# http://stackoverflow.com/questions/25482765/bootstrap-change-image-according-to-device?answertab=active#tab-top
 
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-      %tr
-        %th Book
-        %th.hidden-xs.hidden-sm Hp
-        %th.hidden-xs.hidden-sm Force
-        %th.hidden-xs.hidden-sm Gold
-        %th.hidden-xs.hidden-sm Gourdes
-        %th.hidden-xs.hidden-sm Gourdes remplies
-        %th.hidden-xs.hidden-sm Rations
-        %th.hidden-xs.hidden-sm Charisme
-        %th
-        %th.hidden-xs.hidden-sm
-        %th.hidden-xs.hidden-sm
+#main.container.container-fluid
+  .row
+    #homePageContent.col-xs-12
+      .list-group.introduction
+        .list-group-item
+          .row
+            .col-xs-12
+              Welcome !
 
-    %tbody
-      - @adventures.each do |adventure|
-        %tr
-          %td= adventure.book.name
-          %td.hidden-xs.hidden-sm= adventure.hp
-          %td.hidden-xs.hidden-sm= adventure.strength
-          %td.hidden-xs.hidden-sm= adventure.gold
-          %td.hidden-xs.hidden-sm= adventure.waterskins
-          %td.hidden-xs.hidden-sm= adventure.waterskins_max
-          %td.hidden-xs.hidden-sm= adventure.rations
-          %td.hidden-xs.hidden-sm= adventure.charisma_avaliable
-          %td= link_to t( '.play' ), adventure_book_url( adventure.id, adventure.page_id )
-          %td.hidden-xs.hidden-sm= link_to t( '.show' ), adventure
-          -#%td= link_to t( '.new' ), edit_adventure_path(adventure)
-          %td.hidden-xs.hidden-sm= link_to t( '.destroy' ), adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete
+        %h2
+          Existing Adventures
+
+        .list-group
+
+          #availableAdventures.panel-group
+
+            - @adventures.each_with_index do |adventure, index|
+              .panel.panel-default
+                %h4.panel-heading
+                  .row
+                    .col-md-6.col-xs-10
+                      = link_to "#adventure_#{adventure.id}", class: 'adventureLink', 'data-toggle' => 'collapse', 'data-parent' => '#availableAdventures' do
+                        %span{ class: 'adventureName' }
+                          = adventure.book.name
+                    .col-md-6.col-xs-2
+                      = link_to adventure_book_url( adventure_id: adventure.id, id: adventure.page_id ) do
+                        %span.glyphicon.glyphicon-play
+
+                  .panel-collapse.collapse{ id: "adventure_#{adventure.id}" }
+                    .panel-body
+                      .row.status
+                        .col-xs-12
+                          = "Aventure commencée le #{adventure.created_at}."
+
+                      .lastAdventureSummary
+                        %span{ class: :text }
+                          = adventure.page.text[ 0.. 30 ]
+
+                      .row.actions
+                        .col-xs-12.remove
+                          = link_to adventure, data: { confirm: t( '.are_you_sure' ) }, method: :delete do
+                            %span{ class: 'glyphicon glyphicon-trash' }
