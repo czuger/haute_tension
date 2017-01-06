@@ -43,7 +43,7 @@
 
                       .lastAdventureSummary
                         %span{ class: :text }
-                          = adventure.page.text[ 0.. 30 ]
+                          = raw( truncate( adventure.page.text.first, length: 500 ) )
 
                       .row.actions
                         .col-xs-12.remove
