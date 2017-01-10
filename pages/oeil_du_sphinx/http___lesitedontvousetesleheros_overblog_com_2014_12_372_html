@@ -1,0 +1,1061 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><scri html>
+
+      <script>
+    if (window.parent !== window) {
+      if (typeof btoa !== "function") {
+        window.btoa = function (input) {
+          var str = String(input);
+          for (var block, charCode, idx = 0, map = chars, output = ''; str.charAt(idx | 0) || (map = '=', idx % 1); output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
+            charCode = str.charCodeAt(idx += 3/4)
+            block = block << 8 | charCode
+          }
+          return output
+        }
+      }
+      var re = /^(?:https?:)?(?:\/\/)?([^\/\?]+)/i
+      var res = re.exec(document.referrer)
+      var domain = res[1]
+      var forbidden = ["aGVsbG8ubGFuZA==","Y3Vpc2luZS5sYW5k","cmVjZXR0ZS5sYW5k","cmVjZXR0ZXMubGFuZA==",]
+      if (forbidden.indexOf(btoa(domain)) > -1) {
+        document.location = document.location.origin + "/system/noframed"
+      }
+    }
+  </script>
+<link type="text/css" href="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/css/ob-style.css?v1.4.38.3" rel="stylesheet">
+        <!-- Forked theme from id 60 - last modified : 2014-02-09T23:23:12+01:00 -->
+        <!-- shortcut:[Meta] -->
+        <!-- title -->
+                
+
+                    
+
+        <!-- Title -->
+        <title>372 - Le Site dont vous êtes le Héros</title>
+        <!-- metas description, keyword, robots -->
+        <!-- Metas -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="">
+        <meta property="og:site_name" content="Le Site dont vous êtes le Héros">
+        <meta property="og:title" content="372 - Le Site dont vous êtes le Héros">
+        <meta name="twitter:title" content="372 - Le Site dont vous êtes le Héros">
+        <meta name="description" content="Une trappe s'est ouverte sous vos pieds. Vous tombez dans l'obscurité d'un puits sans fond. Cette chambre funéraire n'était qu'un piège destiné à égarer les profanateurs de sépultures. Vous vous êtes laissé abuser et vous lé payez chèrement... de votre...">
+        <meta property="og:description" content="Une trappe s'est ouverte sous vos pieds. Vous tombez dans l'obscurité d'un puits sans fond. Cette chambre funéraire n'était qu'un piège destiné à égarer les profanateurs de sépultures. Vous vous êtes laissé abuser et vous lé payez chèrement... de votre...">
+        <meta name="twitter:description" content="Une trappe s'est ouverte sous vos pieds. Vous tombez dans l'obscurité d'un puits sans fond. Cette chambre funéraire n'était qu'un piège destiné à égarer les profanateurs de sépultures. Vous vous êtes laissé...">
+        <meta property="og:locale" content="fr_FR">
+
+        <meta property="og:url" content="http://www.lesitedontvousetesleheros.fr/2014/12/372.html">
+        <meta name="twitter:url" content="http://www.lesitedontvousetesleheros.fr/2014/12/372.html">
+        <meta property="og:type" content="article">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@overblog">
+        <meta name="twitter:creator" content="@">
+        <meta property="fb:app_id" content="284865384904712">
+
+    
+                                    
+        <!-- Robots -->
+        <meta name="robots" content="index,follow">
+
+        <!-- RSS -->
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss">
+
+                
+<!-- Analytics -->
+
+        <!-- shortcut:[Options] -->
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        
+		
+        
+		
+        
+		
+        
+		
+        
+		
+
+        
+        
+
+        
+        
+        ll" group="shares" /&gt;
+
+        
+
+        <!-- shortcut:[Includes] -->
+        <!-- favicon -->
+        <!-- Metas -->
+        <link rel="shortcut icon" type="image/x-icon" href="http://fdata.over-blog.net/99/00/00/01/img/favicon.ico">
+        <link rel="icon" type="image/png" href="http://fdata.over-blog.net/99/00/00/01/img/favicon.png">
+        <link rel="apple-touch-icon" href="http://fdata.over-blog.net/99/00/00/01/img/mobile-favicon.png">
+
+        <!-- SEO -->
+                
+        <!-- includes -->
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss">
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+                <link href="http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700" rel="stylesheet" type="text/css">
+        <!-- Fonts -->
+                                <link href="http://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet" type="text/css">
+        
+
+        <!-- Fancybox -->
+        <link rel="stylesheet" type="text/css" href="http://assets.over-blog-kiwi.com/themes/jquery/fancybox/jquery.fancybox-1.3.4.css" media="screen">
+        <style type="text/css">
+            /*** RESET ***/
+            .clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+            .clearfix {display: inline-block;} /* Hides from IE-mac \*/
+            * html .clearfix {height: 1%;}
+            .clearfix {display: block;}
+            * {margin:0; padding:0;}
+            body {background-color: #000; color: #fff; font-family: 'PT Sans Caption', sans-serif; font-size: 12px;}
+            a {text-decoration: none;}
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 { font-weight:normal;}
+            img {border:none;}
+            .box li {list-style:none;}
+            #cl_1_0 ul,
+            #cl_1_0 ol {margin-left: 0; padding-left: 25px;}
+
+            .visuallyhidden,
+            .ob-form-subscription label {
+              position: absolute;
+              overflow: hidden;
+              clip: rect(0 0 0 0);
+              height: 1px; width: 1px;
+              margin: -1px; padding: 0; border: 0;
+            }
+
+            /*** General ***/
+            .ln {clear: both;}
+            #ln_2 {padding-bottom: 20px;}
+            .cl {float:left;}
+            .clear {clear:both;}
+            .list-title {font-size: 24px; margin: 10px 0 10px 10px; text-shadow: 1px 1px 1px #000;}
+
+            /*** Structure ***/
+            #cl_0_0 {margin-bottom:0; width:100%;}
+            #cl_1_0 {display:inline; padding:0 12px 0 0; width:630px; }
+            #cl_1_1 {display:inline; padding:0; width:308px;}
+            #cl_2_0 {margin-top: 30px; width: 100%;}
+
+            #global {margin:0px auto; width:950px;}
+            .header {margin: 110px 0 20px; text-align:left;}
+            .avatar,
+            #top{
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .avatar{
+                margin-right: 10px;
+            }
+                        #top .title {font-family: Carter One, cusrive; font-size: 60px; left: 0; letter-spacing: 2px; line-height: 60px; text-shadow: 0 5px 5px #333; text-transform: uppercase;}
+            #top .description {font-family: Carter One, cusrive; font-size:60px; font-size: 20px; letter-spacing: 2px; text-shadow: 0 2px 1px #333;}
+            article {margin-bottom: 35px;}
+
+                /** Article **/
+                .article,
+                .page{
+                    background: #141414;
+                    background: rgba(20,20,20,0.9);
+                    border: 2px solid #333;
+                    -moz-border-radius: 5px;
+                    -webkit-border-radius: 5px;
+                    -ms-border-radius: 5px;
+                    -o-border-radius: 5px;
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                .noresult{
+                    margin-bottom: 20px;
+                }
+
+                .beforeArticle {margin-bottom: 10px;}
+                .divTitreArticle .post-title,
+                .divPageTitle .post-title,
+                .special h3 {border-bottom: 1px solid; font-size: 30px; letter-spacing:2px; margin-bottom: 10px; padding-bottom:5px; word-wrap: break-word;}
+                .contenuArticle, .pageContent {padding-top:10px;}
+                .contenuArticle p,
+                .pageContent p .contenuArticle ol,
+                .contenuArticle ul {font-size: 14px; line-height: 22px; padding-bottom: 8px;}
+                .ob-repost {background: #222; border: 1px solid #2A2A2A; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-weight: bold; margin: 1em 0; text-align: center;}
+                .ob-repost p {font-size: 12px; line-height: normal; padding: 0;}
+                .ob-repost .ob-link {text-decoration: underline;}
+
+                    /* Sections */
+                    .ob-section-text,
+                    .ob-section-images,
+                    .ob-section-video,
+                    .ob-section-audio,
+                    .ob-section-quote,
+                    .ob-secton-map {width: 600px;}
+
+                    /* Medias */
+                    .ob-video iframe,
+                    .ob-video object,
+                    .ob-section-images .ob-slideshow,
+                    .ob-slideshow img, .ob-section-map .ob-map {
+                        width: 600px;
+                    }
+                    .ob-video iframe{
+                        border: 0;
+                    }
+                    .ob-video object {
+                        max-height: 345px;
+                    }
+                    .ob-section-audio .obsoundplayer .obsoundplayername {
+                        height: 31px;
+                        width: 200px;
+                        overflow: hidden;
+                    }
+
+                    /* Section texte */
+                    .ob-text h3,
+                    .ob-text h4,
+                    .ob-text h5 {margin: 15px 0 5px;}
+                    .ob-text h3 {font-size: 18px; line-height: 18px;}
+                    .ob-text h4 {font-size: 16px; line-height: 16px;}
+                    .ob-text h5 {font-size: 14px; font-weight: bold; line-height: 14px;}
+
+                    .ob-text pre {width: 600px; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -webkit-pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; overflow: auto;}
+
+                    /* Section image */
+                    .ob-media-left {margin-right: 30px;}
+                    .ob-media-right {margin-left: 30px; max-width: 100%;}
+                    .ob-row-1-col img {width: 100%;}
+                    .ob-row-2-col img {width: 50%; margin-top: 0; margin-bottom: 0;}
+                    .ob-row-3-col img {width: 200px; margin-top: 0; margin-bottom: 0;}
+
+                    /* Section map */
+                    .ob-map div {color: #282924;}
+
+                    /* Section HTML */
+                    .ob-section-html iframe,
+                    .ob-section-html embed,
+                    .ob-section-html object {max-width: 100%;}
+
+                    /* Section file */
+                    .ob-section-file .ob-ctn {background: #222; border: none; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); display: block; max-width: 100%;}
+                    .ob-section-file .ob-ctn a.ob-link,
+                    .ob-section-file .ob-c a.ob-link:visited {color: #FFF; text-decoration: underline; max-width: 521px;}
+                    .ob-section-file .ob-ctn a.ob-link:hover {color: #FFF; text-decoration: none;}
+
+                    /* Section Quote */
+                    .ob-section-quote {background: #222; border: none; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); margin-bottom: 20px; width: 100%;}
+                    .ob-section-quote .ob-quote p {color: #FFF; min-height: 20px;}
+                    .ob-section-quote .ob-quote p:before {color: #444; margin: 20px 0 0 -85px;}
+                    .ob-section-quote .ob-quote p:after {color: #444; margin: 80px 0 0;}
+                    .ob-section-quote p.ob-author,
+                    .ob-section-quote p.ob-source {background: #444; font-size: 14px; font-style: italic; margin: 25px 0 0; max-height: 22px; max-width: 517px; overflow: hidden; padding-bottom: 0\9; position: relative; text-overflow: ellipsis; white-space: nowrap; z-index: 11;}
+
+                    /* Section Link */
+                    .ob-section-link .ob-ctn {background: #222; border: none; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);}
+                    .ob-section-link .ob-media-left {margin: 0;}
+                    .ob-section-link p.ob-url {background: #444; margin: 0; max-height: 20px; max-width: 395px;}
+                    .ob-section-link p.ob-title {color: #FFF; margin-bottom: 0; margin-left: 20px;}
+                    .ob-section-link p.ob-snippet {color: #FFF; margin-bottom: 10px; margin-left: 20px; margin-top: 0;}
+                    .ob-section-link p.ob-title .ob-link {color: #FFF; max-height: 42px; overflow: hidden;}
+                    .ob-section-link p.ob-snippet {margin-bottom: 35px; max-height: 40px; overflow: hidden;}
+                    .ob-section-link .ob-img {float: left; width: 170px;}
+                    .ob-section-link .ob-desc {margin-top: 5px;}
+
+
+                    /* Description */
+                    .contenuArticle .ob-desc {font-size: 13px; font-style: italic;}
+
+
+                    /* twitter box */
+                    .ob-section .twitter-tweet-rendered {max-width: 100% !important;}
+                    .ob-section .twt-border {max-width: 100% !important;}
+
+                    /* Share buttons */
+                    .afterArticle {background: #141414; border: 2px solid #333; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; margin: 10px 0; -moz-opacity: 0.9; -webkit-opacity: 0.9; -o-opacity: 0.9; -ms-opacity: 0.9; opacity: 0.9; padding: 9px 13px 8px; position: relative; width: 600px; z-index: 1;/* iframe Facebook */}
+                    .share h3,
+                    .item-comments h3 {margin-bottom: 10px; font-size: 16px; line-height: 16px;}
+                    .google-share,
+                    .twitter-share,
+                    .facebook-share,
+                    .ob-share {float: left;}
+                    .facebook-share {width: 105px;}
+                    .ob-share {margin-top: -2px;}
+                    .comment-number {-moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; display: block; float: right; font-weight: bold; line-height: 17px; padding: 2px 7px; text-align: center;}
+                    .item-comments {
+                                            }
+
+                    /* Contact */
+                    .ob-contact .ob-form {margin-bottom: 80px;}
+                    .ob-contact .ob-form-field {margin: 5px 0 0 80px;}
+                    .ob-label {width: 20%; font-size: 14px;}
+                    .ob-captcha .ob-input-text{
+                        margin-left: 20%;
+                    }
+                    .ob-input-submit,
+                    .ob-error {margin-left: 31%;}
+                    .box-content .ob-input-submit,
+                    .box-content .ob-error {margin-left: 20%;}
+                    .ob-input-text,
+                    .ob-input-email,
+                    .ob-input-textarea {padding: 6px 0; border: 2px solid #333; -moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px;}
+                    .ob-input-submit {-moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; display: block; font-weight: bold; line-height: 17px; margin-top: 5px; padding: 2px 7px; text-align: center;}
+                    .ob-form + a {display: block; text-align: center;}
+
+                /** Sidebar **/
+                .box {background: #141414; border: 2px solid #333; margin-bottom:10px; -moz-opacity: 0.9; -webkit-opacity: 0.9; -o-opacity: 0.9; -ms-opacity: 0.9; opacity: 0.9; padding:10px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;}
+                .box{/* ie6 hack */_background:#000;}
+                .box-titre h3 {border-bottom: 1px solid; font-family: Carter One; font-size: 20px; letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 2px; text-shadow: 1px 1px 1px black; text-transform: uppercase;}
+                .box-content {font-size: 14px; line-height:18px;}
+                .box-content strong {font-weight:normal;}
+                .box-footer {display:none;}
+
+                    /* Sidebar > About */
+                    .profile .avatar {float: left; margin-right: 10px;}
+                    .profile .avatar img {background: #333; -moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; -moz-opacity: 0.8; -webkit-opacity: 0.8; -o-opacity: 0.8; -ms-opacity: 0.8; opacity: 0.8; padding: 3px; -moz-transition: opacity 300ms; -webkit-transition: opacity 300ms; -o-transition: opacity 300ms; -ms-transition: opacity 300ms; transition: opacity 300ms;}
+                    .profile .avatar img:hover {-moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; -ms-opacity: 1; opacity: 1;}
+                    .profile .blog-owner-nickname {font-style: italic; display: block; margin-top: 10px; text-align: right;}
+
+                    /* Sidebar > Search */
+                    .search form {position:relative;}
+                    .search form input {border: 2px solid #333; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; -ms-border-radius: 3px; border-radius: 3px; color: #676767; padding: 5px 0; width: 70%;}
+                    .search form button {border: 0; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; -ms-border-radius: 3px; border-radius: 3px; cursor: pointer; font-weight: bold; padding: 5px 0; width: 13%;}
+
+                    /* Sidebar > Subscribe */
+                    .ob-form-subscription .ob-form-field{
+                        display: inline-block;
+                    }
+                    .ob-form-subscription .ob-form-field input{
+                        width: 170px;
+                    }
+                    .ob-form-subscription .ob-input-submit{
+                        display: inline-block;
+                        margin:0;
+                    }
+
+
+                    /* Sidebar > Last Posts */
+                    .last li {float: left;}
+                    .last ul:hover img {-moz-opacity: 0.7; -webkit-opacity: 0.7; -o-opacity: 0.7; -ms-opacity: 0.7; opacity: 0.7; -moz-transition: opacity 300ms; -webkit-transition: opacity 300ms; -o-transition: opacity 300ms; -ms-transition: opacity 300ms; transition: opacity 300ms;}
+                    .last ul img {background: #333; -moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; margin-bottom: 5px; -moz-transition: opacity 300ms; -webkit-transition: opacity 300ms; -o-transition: opacity 300ms; -ms-transition: opacity 300ms; transition: opacity 300ms;}
+                    .last li.left img {margin-right: 8px;}
+                    .last ul img:hover {-moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; -ms-opacity: 1; opacity: 1; -moz-transition: opacity 300ms; -webkit-transition: opacity 300ms; -o-transition: opacity 300ms; -ms-transition: opacity 300ms; transition: opacity 300ms;}
+
+                    /* Sidebar > Tags */
+                    .tags li {
+                        border-bottom: 1px solid #222;
+                        margin: 10px 0;
+                        padding: 10px 0;
+                        word-wrap:break-word;
+                    }
+                    .tags li a {font-size: 16px;}
+                    .tags .number {-moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; float: right; font-weight: bold; line-height: 17px; margin-top: -2px; padding: 2px 7px; text-align: center;}
+
+                    /* Sidebar > Follow me */
+                    .follow li {-moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; display: block; float: left; height: 83px; text-indent: -9999999%; width: 83px;}
+                    .follow li a {background: url("http://assets.over-blog-kiwi.com/themes/5/images/follow-me.png") no-repeat; display: block; height: 100%; width: 100%;}
+                    .follow .facebook-follow {margin-right: 10px;}
+                    .follow .facebook-follow:hover {background: #3b5999; border-color: #3b5999;}
+                    .follow .facebook-follow a {background-position: center 18px;}
+                    .follow .twitter-follow {margin-right: 10px;}
+                    .follow .twitter-follow:hover {background: #04bff2; border-color: #04bff2;}
+                    .follow .twitter-follow a {background-position: center -74px;}
+                    .follow .rss-follow:hover {background: #ff8604; border-color: #ff8604;}
+                    .follow .rss-follow a {background-position: center -166px;}
+
+                    /* Sidebar > Archives */
+                    .plustext {font-size: 16px;}
+                    .arch_month {margin-left: 20px;}
+                    .arch_month li {border-bottom: 1px solid #222; margin: 10px 0; padding: 10px 0;}
+                    .archives .number {-moz-border-radius: 4px; -webkit-border-radius: 4px; -o-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; float: right; font-weight: bold; line-height: 17px; margin-top: -2px; padding: 2px 7px; text-align: center;}
+
+                    .share > div{
+                        float:left;
+                        height:20px;
+                        margin-right:28px;
+                    }
+                    .share .google-share{
+                        margin-right: 0;
+                    }
+                    .share iframe{
+                        border:none;
+                        width:100px;
+                    }
+
+                /** Pagination **/
+                .pagination {
+                                            margin: 30px auto 20px; width: 600px;
+                                        font-size: 14px; padding: 2px 0;
+				}
+				.pagination a {
+					-moz-border-radius: 4px;
+					-webkit-border-radius: 4px;
+					-o-border-radius: 4px;
+					-ms-border-radius: 4px;
+					border-radius: 4px;
+					float: right;
+					line-height: 17px;
+					margin-top: -2px;
+					padding: 2px 7px;
+					text-align: center;
+					text-transform: uppercase;
+				}
+                .pagination .previous {float: left;}
+                .pagination .next {float: right;}
+
+				.ob-pagination{
+					margin: 20px 0;
+					text-align: center;
+				}
+				.ob-page{
+					display: inline-block;
+					margin: 0 1px;
+					padding: 2px 7px;
+				}
+				.ob-page-link{
+					border-radius: 4px;
+				}
+
+                /** Credits **/
+                .credits {display: block; margin: 20px 0; text-align: center; text-shadow: 1px 1px 1px #000;}
+
+                /**************
+                ** ob-footer **
+                **************/
+                .ob-footer{
+                    padding-bottom: 10px;
+                }
+
+                body.withDisplay{
+                    background-position: 50% 68px;
+                }
+
+                #cl_1_1 .ads{
+                    margin-bottom: 10px;
+                    padding: 2px;
+                    -moz-opacity: 0.9;
+                    -webkit-opacity: 0.9;
+                    -o-opacity: 0.9;
+                    -ms-opacity: 0.9;
+                    opacity: 0.9;
+                }
+
+                .ads{
+                    background: #141414;
+                    border: 2px solid #333;
+                    border-radius: 2px;
+                    margin: 0 auto;
+                }
+
+                .ads-600x250{
+                    padding: 10px;
+                    text-align: center;
+                 }
+                .ads-728x90{
+                    height: 90px;
+                    width: 728px;
+                }
+                .ads-468x60{
+                    height: 60px;
+                    width: 468px;
+                }
+                .ads-468x60 + .before_articles,
+                .afterArticle + .ads-468x60{
+                    margin-top:35px;
+                }
+                .ads-300x250{
+                    height: 250px;
+                    width: 300px;
+                }
+                .ads-600x250 div{
+                    float: left;
+                }
+                .ads-300{
+                    text-align: center;
+                }
+
+                /*****************
+                ** Top articles **
+                *****************/
+                .ob-top-posts h2{
+                    font-size: 35px;
+                }
+                .ob-top-article{
+                    margin-bottom: 20px;
+                }
+                .ob-top-article h3{
+                    line-height: normal;
+                }
+
+            /*** Themes ***/
+
+                /** JUNGLE **/
+                
+                    /* BACKGROUND */
+                    body {background-image: url("http://img.over-blog-kiwi.com/0/24/52/97/201311/ob_5cf972_lesitedontvousetesleheros.jpg"); background-attachment: fixed;  background-position: center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;background-repeat: no-repeat;}
+
+                    /* TOP */
+                    #top .title a,
+                    #top .title a:visited {color: #9bb1c5;}
+                    #top .title a:hover,
+                    #top .description {color: #fff;}
+
+                        /* POSTS */
+                        .beforeArticle .tags a,
+                        .beforeArticle .tags a:visited {color: #9bb1c5;}
+                        .beforeArticle .tags a:hover {color: #fff;}
+                        .post-title,
+                        .special h3 {border-bottom-color: #1e3249;}
+                        .post-title a,
+                        .post-title a:visited,
+                        .special h3,
+                        .ob-text h3,
+                        .ob-text h4,
+                        .ob-text h5 {color: #9bb1c5;}
+                        .post-title a:hover {color: #fff;}
+
+                        .contenuArticle a,
+                        .contenuArticle a:visited,
+						.readmore a {color: #9bb1c5;}
+                        .contenuArticle a:hover,
+						.readmore a:hover {color: #fff;}
+
+                        /* Section file */
+                        .ob-section-file .ob-ctn a.ob-link,
+                        .ob-section-file .ob-c a.ob-link:visited,
+                        .ob-section-file .ob-ctn a.ob-link:hover {color: #9bb1c5;}
+
+                        /* Section Quote */
+                        .ob-section-quote p.ob-author,
+                        .ob-section-quote p.ob-source,
+                        .ob-section-quote p.ob-author .ob-link,
+                        .ob-section-quote p.ob-author .ob-link:visited,
+                        .ob-section-quote p.ob-source .ob-link,
+                        .ob-section-quote p.ob-source .ob-link:visited {color: #9bb1c5;}
+                        .ob-section-quote p.ob-author:hover,
+                        .ob-section-quote p.ob-source:hover,
+                        .ob-section-quote p.ob-author .ob-link:hover,
+                        .ob-section-quote p.ob-source .ob-link:hover {color: #fff;}
+
+                        /* Section Link */
+                        .ob-section-link p.ob-url ,
+                        .ob-section-link p.ob-url .ob-link,
+                        .ob-section-link p.ob-url .ob-link,
+                        .ob-section-link p.ob-url .ob-link {color: #9bb1c5;}
+                        .ob-section-link p.ob-url .ob-link:hover {color: #fff;}
+
+                        /* SIDEBAR */
+                        .box-titre h3 {border-bottom-color: #254870; color: #fff;}
+
+                        .box-content strong {color:#bebebe;}
+                        .box-content a,
+                        .box-content a:visited,
+                        .ob-footer a,
+                        .ob-footer a:visited{color: #9bb1c5;}
+                        .box-content a:hover,
+                        .ob-footer a:hover{color: #fff;}
+
+                        .archives .number,
+                        .box-content form button,
+                        .comment-number,
+                        .follow li,
+                        .ob-input-submit,
+                        .pagination a,
+						.ob-page-link,
+                        .tags .number {
+                            background: #2e5fa4; /* Old browsers */
+                            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+                            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJlNWZhNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgc3RvcC1jb2xvcj0iIzIyNDA2ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+                            background: -moz-linear-gradient(top,  #2e5fa4 0%, #22406d 65%); /* FF3.6+ */
+                            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e5fa4), color-stop(65%,#22406d)); /* Chrome,Safari4+ */
+                            background: -webkit-linear-gradient(top,  #2e5fa4 0%,#22406d 65%); /* Chrome10+,Safari5.1+ */
+                            background: -o-linear-gradient(top,  #2e5fa4 0%,#22406d 65%); /* Opera 11.10+ */
+                            background: -ms-linear-gradient(top,  #2e5fa4 0%,#22406d 65%); /* IE10+ */
+                            background: linear-gradient(to bottom,  #2e5fa4 0%,#22406d 65%); /* W3C */
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e5fa4', endColorstr='#22406d',GradientType=0 ); /* IE6-8 */
+                            border: 1px solid #2d5eab; color: #fff; text-shadow: 1px 1px 1px #141414;}
+
+                        .box-content form button:active,
+                        .comment-number:active,
+                        .ob-input-submit:active,
+                        .pagination a:active,
+						.ob-page-link:active{background: #22406d; /* Old browsers */
+                            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+                            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiMyMjQwNmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMmU1ZmE0IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+                            background: -moz-linear-gradient(top,  #22406d 35%, #2e5fa4 100%); /* FF3.6+ */
+                            background: -webkit-gradient(linear, left top, left bottom, color-stop(35%,#22406d), color-stop(100%,#2e5fa4)); /* Chrome,Safari4+ */
+                            background: -webkit-linear-gradient(top,  #22406d 35%,#2e5fa4 100%); /* Chrome10+,Safari5.1+ */
+                            background: -o-linear-gradient(top,  #22406d 35%,#2e5fa4 100%); /* Opera 11.10+ */
+                            background: -ms-linear-gradient(top,  #22406d 35%,#2e5fa4 100%); /* IE10+ */
+                            background: linear-gradient(to bottom,  #22406d 35%,#2e5fa4 100%); /* W3C */
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22406d', endColorstr='#2e5fa4',GradientType=0 ); /* IE6-8 */
+                        }
+
+                        .blog-owner-nickname {color: #254870;}
+
+                    /* CREDITS */
+                    .credits a,
+                    .credits a:visited {color: #fff;}
+                    .credits a:hover {color: #9bb1c5;}
+                        </style>
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5354236-47', {
+      'cookieDomain': 'www.lesitedontvousetesleheros.fr',
+      'name': 'ob',
+      'allowLinker': true
+  });
+  ga('ob.require', 'displayfeatures');
+  ga('ob.require', 'linkid', 'linkid.js');
+  ga('ob.set', 'dimension1', 'kiwi');
+  ga('ob.set', 'dimension2', 'fr');
+
+  ga('ob.set', 'dimension3', 'BS');
+  ga('ob.set', 'dimension4', 'literature-comics-poetry');
+  ga('ob.set', 'dimension5', '0');
+  ga('ob.set', 'dimension6', '0');
+  ga('ob.set', 'dimension7', '0');
+  ga('ob.set', 'dimension10','245297');
+  ga('ob.set', 'dimension11','1');
+  ga('ob.set', 'dimension12','2');
+  ga('ob.set', 'dimension13','0');
+
+  ga('ob.send', 'pageview');
+
+</script>
+
+<script>
+  var ob_hide_ads = 0
+  var obconnected = 0
+  var obconnectedblog = 0
+  var obtimestamp = 0
+
+  function isConnected(connected, connected_owner, timestamp) {
+    obconnected     =  connected
+    obconnectedblog =  connected_owner
+    obtimestamp     =  timestamp
+
+    if (obconnected) {
+      document.querySelector('html').className += ' ob-connected'
+    }
+
+    if (obconnectedblog) {
+      document.querySelector('html').className += ' ob-connected-blog'
+    }
+  }
+</script>
+<script src="//connect.over-blog.com/ping/245297/isConnected"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/h.js?v1.4.38.3"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/repost.js?v1.4.38.3"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/slideshow.js?v1.4.38.3"></script>
+
+      <script>
+      var OB = OB || {};
+      OB.isPost = true;
+    </script>
+    <script src="//assets.over-blog-kiwi.com/blog/js/index.js?v1.4.38.3"></script>
+
+
+    <script type="text/javascript">
+    <!--
+    var _eStat_Whap_loaded=0;
+    //-->
+  </script>
+  <script type="text/javascript" src="//w.estat.com/js/whap.js"></script>
+  <script type="text/javascript">
+    <!--
+    if(_eStat_Whap_loaded){
+    eStatWhap.serial("800000207013");
+    eStatWhap.send();}
+    //-->
+  </script>
+
+    
+                
+<div class="ob-ShareBar ob-ShareBar--dark js-ob-ShareBar">
+    <div class="ob-ShareBar-container ob-ShareBar-container--left">
+
+                        
+        
+        <a href="http://www.over-blog.com" class="ob-ShareBar-branding">
+            <img class="ob-ShareBar-brandingImg" src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/images/shareicon-branding-ob--dark.png?v1.4.38.3" alt="Overblog">
+        </a>
+        <a href="#" data-href="https://www.facebook.com/sharer/sharer.php?u={referer}" title="Facebook" class="ob-ShareBar-share ob-ShareBar-share--facebook"></a>
+        <a href="#" data-href="https://twitter.com/intent/tweet?url={referer}&amp;text={title}" title="Twitter" class="ob-ShareBar-share ob-ShareBar-share--twitter"></a>
+        <a href="#" data-href="#" title="Pinterest" class="ob-ShareBar-share ob-ShareBar-share--pinterest" id="ob-ShareBar-share--pinterest"></a>
+        <a href="#" data-href="https://plus.google.com/share?url={referer}" title="Google+" class="ob-ShareBar-share ob-ShareBar-share--gplus"></a>
+                <div class="ob-ShareBar-followContainer obbar-follow" data-iframe-src="http://my.over-blog.com/static/follow.html?blog=www.lesitedontvousetesleheros.fr&amp;lang=fr">
+            <a href="http://my.over-blog.com/api/follow/fr/www.lesitedontvousetesleheros.fr" class="ob-ShareBar-follow">
+                <strong>Suivre</strong> ce blog
+            </a>
+            <span class="bubble-text" style="display: none">Utilisez notre Reader et abonnez-vous aux meilleurs articles de ce blog !</span>
+        </div>
+            </div>
+
+    <div class="ob-ShareBar-container ob-ShareBar-container--right">
+                <form action="/search" method="post" accept-charset="utf-8" class="ob-ShareBar-search">
+            <input type="text" name="q" value="" class="ob-ShareBar-input" placeholder="Rechercher">
+            <button class="ob-ShareBar-submit"></button>
+        </form>
+
+                  <a href="https://admin.over-blog.com/write/52826382?blog=245297" class="ob-ShareBar-edit ob-ShareBar--connected-blog">
+            <span>Editer l'article</span>
+          </a>
+        
+        <a href="https://admin.over-blog.com/" class="ob-ShareBar-admin ob-ShareBar--connected">
+            <span>Administration</span>
+        </a>
+        
+        <a href="https://connect.over-blog.com/fr/login" class="ob-ShareBar-login ob-ShareBar--notconnected">
+            <span>Connexion</span>
+        </a>
+        <a href="https://connect.over-blog.com/fr/signup" class="ob-ShareBar-create ob-ShareBar--notconnected">
+            <span>Créer mon blog</span>
+        </a>
+
+                  <span class="ob-ShareBar-toggle ob-ShareBar-toggle--hide js-ob-ShareBar-toggle"></span>
+            </div>
+</div>
+
+  <div class="ob-ShareBar ob-ShareBar--minified js-ob-ShareBar--minified">
+    <div class="ob-ShareBar-container">
+      <span class="ob-ShareBar-toggle ob-ShareBar-toggle--show js-ob-ShareBar-toggle"></span>
+    </div>
+  </div>
+
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/sharebar.js?v1.4.38.3"></script>
+<script>
+    var postTitle = "372"
+    socialShare(document.querySelector('.ob-ShareBar-share--facebook'), postTitle)
+    socialShare(document.querySelector('.ob-ShareBar-share--twitter'), postTitle)
+    socialShare(document.querySelector('.ob-ShareBar-share--gplus'), postTitle)
+</script>        <!-- Init Facebook script -->
+        <div id="fb-root"></div>
+                <div id="global">
+            <div id="ln_0" class="ln">
+                <div id="cl_0_0" class="cl">
+                    <div class="column_content">
+                        <div class="header">
+                                                         <div id="top">
+                                <h1 class="title">
+                                    <a href="http://www.lesitedontvousetesleheros.fr" class="topLien" title="Lecture des livres dont vous êtes le héros">Le Site dont vous êtes le Héros</a>
+                                </h1>
+                                <p class="description">Lecture des livres dont vous êtes le héros</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="ln_1" class="ln">
+                <div id="cl_1_0" class="cl">
+                    <div class="column_content">
+                        <div>
+                            <!-- Title -->
+                            
+                                                            <!-- list posts -->
+                                                                    <article>
+                                        <div class="article">
+                                            <div class="option beforeArticle">
+                                                <div class="date">
+                                                                                                            Publié le
+                                                        <time datetime="2014-12-04T09:40:31+01:00">4 Décembre 2014</time>
+                                                                                                                                                        </div>
+                                                <span class="tags">
+                                                                                                    </span>
+                                            </div>
+                                            <div class="divTitreArticle">
+                                                <h2 class="post-title">
+                                                    <a href="http://www.lesitedontvousetesleheros.fr/2014/12/372.html" class="titreArticle" title="Une trappe s'est ouverte sous vos pieds. Vous tombez dans l'obscurité d'un puits sans fond. Cette chambre funéraire n'était qu'un piège destiné à égarer les profanateurs de sépultures. Vous vous êtes laissé abuser et vous lé payez chèrement... de votre...">
+                                                                                                                    372
+                                                                                                            </a>
+                                                </h2>
+                                            </div>
+                                            <div class="contenuArticle">
+                                                                                                    
+    <div class="ob-sections">
+            <div class="ob-section ob-section-text">
+  <div class="ob-text">
+    <p>Une trappe s'est ouverte sous vos pieds. Vous tombez dans l'obscurité d'un puits sans fond. Cette chambre funéraire n'était qu'un piège destiné à égarer les profanateurs de sépultures. Vous vous êtes laissé abuser et vous lé payez chèrement... de votre vie.</p>
+<p>Votre aventure s'achève ici.</p>
+  </div>
+</div>
+        </div>
+
+                                                                                            </div>
+											                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clear"></div>
+
+                                        <!-- Share buttons + comments -->
+                                        <div class="afterArticle">
+                                                                                                                                    <div class="clear"></div>
+
+                                            <!-- Pagination -->
+                                                                                                                                                <div class="pagination clearfix">
+                                                                                                                    <a href="http://www.lesitedontvousetesleheros.fr/2014/12/371.html" title="371" class="previous">← 371</a>
+                                                                                                                                                                            <a href="http://www.lesitedontvousetesleheros.fr/2014/12/373.html" title="373" class="next">373 →</a>
+                                                                                                            </div>
+                                                                                            
+                                            <!-- Comments -->
+                                                                                    </div>
+                                                                            </article>
+                                                                                    </div>
+
+                        
+                        <!-- Pagination -->
+						                    </div>
+                </div>
+                <div id="cl_1_1" class="cl">
+                    <div class="column_content">
+                                                                                    <div class="box freeModule">
+                                    <div class="box-titre">
+                                        <h3><span></span></h3>
+                                    </div>
+                                    <div class="box-content">
+                                        <div><script src="http://h1.flashvortex.com/display.php?id=2_1391984427_52721_435_0_468_60_8_1_13" type="text/javascript"></script></div>
+                                    </div>
+                                </div>
+                                                    
+                        <!-- Search -->
+                        
+                        
+                        
+                        
+                        <!-- Navigation -->
+                        
+                        
+                        
+                        
+                        							<div class="box blogroll">
+                                <div class="box-titre">
+                                    <h3>
+                                        <span>Liens</span>
+                                    </h3>
+                                </div>
+                                <div class="box-content">
+                                    <ul class="list">
+                                                                                    <li>
+                                                <a href="http://www.lesitedontvousetesleheros.fr/liste-des-series" target="_blank">
+                                                                                                            LISTE DES SERIES
+                                                                                                    </a>
+                                            </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ul>
+                                </div>
+							</div>
+						
+                        
+                        <p class="credits">
+                            Hébergé par <a href="http://www.over-blog.com" target="_blank">Overblog</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="http://assets.over-blog-kiwi.com/themes/jquery/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+        
+
+        <script>
+            $(document).ready(function() {
+                // Fancybox
+                $(".ob-section-images a, .ob-link-img").attr("rel", "fancybox");
+                $("a[rel=fancybox]").fancybox({
+                    'overlayShow'   : true,
+                    'transitionIn'  : 'fadin',
+                    'transitionOut' : 'fadin',
+                    'type'          : 'image'
+                });
+
+                            });
+
+            
+                        // Twitter share + tweets
+            !function(d,s,id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if(!d.getElementById(id)){
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js,fjs);
+                }
+            }(document,"script","twitter-wjs");
+
+            // Google + button
+            window.___gcfg = {lang: 'fr'};
+                (function() {
+                var po = document.createElement('script');
+                    po.type = 'text/javascript';
+                    po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(po, s);
+            })();
+
+             
+
+            
+        </script>
+    <script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/print.js?v1.4.38.3"></script>
+<script>
+  var postTitle = "372"
+  printPost(postTitle)
+</script>
+<div class="ob-footer" id="legals">
+    <ul>
+                <li class="ob-footer-item"><a href="/top">Top articles</a></li>
+        <li class="ob-footer-item"><a href="/contact">Contact</a></li>
+        <li class="ob-footer-item"><a href="https://www.over-blog.com/abuse/245297"> Signaler un abus </a></li>
+        <li class="ob-footer-item"><a href="https://www.over-blog.com/terms-of-use" target="_blank">C.G.U.</a></li>
+            <li class="ob-footer-item"><a href="https://www.over-blog.com/cookies" target="_blank">Cookies et données personnelles</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+if (ob_hide_ads == 1)
+{
+	var eAds = document.querySelectorAll(".ads");
+    
+	Array.prototype.forEach.call(eAds, function(e){
+        e.style.display = 'none';
+	});
+}
+
+</script><div class="ob-ads ob-other"></div>          
+  
+          
+            <!-- End Google Tag Manager -->
+  <script>
+      dataLayer = [{
+        'category': 'Literature, Comics & Poetry',
+        'rating'  : 'BS',
+        'unused'  : 'No',
+        'adult'   : 'No',
+        'pda'     : 'No',
+        'hasAds'  : 'No',
+        'lang'    : 'fr'
+      }];
+  </script>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KJ6B85" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>
+  googletag.cmd.push(function() {
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJ6B85');
+  });
+  </script>
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "6035191" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6035191&amp;cv=2.0&amp;cj=1">
+</noscript>
+<!-- End comScore Tag -->
+<!-- Begin Mediamétrie Tag -->
+<script>
+function _eStat_Whap_loaded_func(){
+  eStatWhap.serial("800000207013");
+  eStatWhap.send();
+}
+
+(function() {
+  var myscript = document.createElement('script');
+  myscript.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'w.estat.com/js/whap.js';
+  myscript.setAttribute('async', 'true');
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(myscript, s);
+})();
+</script>
+<!-- End Mediamétrie Tag -->
+
+<script>
+(function() {
+  var alreadyAccept = getCookie('wbCookieNotifier');
+  if(alreadyAccept != 1) showWbCookieNotifier();
+
+  window.closeWbCookieNotifier = function() {
+    setCookie('wbCookieNotifier', 1, 730);
+    window.document.getElementById("ob-cookies").style.display = "none";
+  }
+
+  function showWbCookieNotifier(){
+      var el = document.createElement("div");
+      var bo = document.body;
+
+      el.id = "ob-cookies";
+      el.className = "__wads_no_click ob-cookies";
+
+      var p = document.createElement("p");
+      p.className = "ob-cookies-content";
+      p.innerHTML = "En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies. Ces derniers assurent le bon fonctionnement de nos services ainsi que l’affichage de publicités pertinentes. <a class='ob-cookies-link' href='https://www.over-blog.com/cookies' target='_blank'>En savoir plus et agir</a> sur les cookies. <span class='ob-cookies-button' onclick='closeWbCookieNotifier()'>J'accepte</span>"
+
+      document.body.appendChild(el); el.appendChild(p);
+      window.wbCookieNotifier = el;
+  }
+
+  function setCookie(e,t,n,d){var r=new Date;r.setDate(r.getDate()+n);var i=escape(t)+(n==null?"":"; expires="+r.toUTCString())+(d==null?"":"; domain="+d)+";path=/";document.cookie=e+"="+i}
+  function getCookie(e){var t,n,r,i=document.cookie.split(";");for(t=0;t<i.length;t++){n=i[t].substr(0,i[t].indexOf("="));r=i[t].substr(i[t].indexOf("=")+1);n=n.replace(/^\s+|\s+$/g,"");if(n==e){return unescape(r)}}}
+})();
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"37e77d7dc6","applicationID":"4205449","transactionName":"ZgdbNhYDDRBRUhBYC19NeAEQCwwNH1MIXgNuEVwBEAsMDVNeCkUFWAxcEA==","queueTime":0,"applicationTime":178,"atts":"SkBYQF4ZHh4=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+
+
+</scri></body></html>

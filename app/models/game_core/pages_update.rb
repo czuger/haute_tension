@@ -40,8 +40,8 @@ module GameCore::PagesUpdate
   def check_for_monsters( node, monsters )
 
     if node.children.first.name == 'strong'
-      # p node
-      # p node.text
+      p node
+      p node.text
       m = node.text.match( /(\d+)\ *VIE\ *:\ *(\d+)/ )
       if m
         p node
