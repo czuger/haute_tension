@@ -29,6 +29,17 @@ namespace :data do
     end
   end
 
+  desc 'Parse page'
+  task :parse_page => :environment do
+    Dir.glob( 'pages/forteresse_alamuth/*' ).each do |f|
+      # next unless f == 'pages/forteresse_alamuth/http___lesitedontvousetesleheros_overblog_com_107_30'
+      # next unless f == 'pages/forteresse_alamuth/http___lesitedontvousetesleheros_overblog_com_595_0'
+      puts
+      p f
+      pp GameCore::PageParser.new.parse_page( File.open( f ).read )
+    end
+  end
+
   desc 'Update data'
   task :update => :environment do
     Page.all.each do |page|

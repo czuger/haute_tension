@@ -22,7 +22,7 @@
       }
     }
   </script>
-<link type="text/css" href="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/css/ob-style.css?v1.4.38.3" rel="stylesheet">
+<link type="text/css" href="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/css/ob-style.css?v1.4.40.0" rel="stylesheet">
         <!-- Forked theme from id 60 - last modified : 2014-02-09T23:23:12+01:00 -->
         <!-- shortcut:[Meta] -->
         <!-- title -->
@@ -689,15 +689,15 @@
   }
 </script>
 <script src="//connect.over-blog.com/ping/245297/isConnected"></script>
-<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/h.js?v1.4.38.3"></script>
-<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/repost.js?v1.4.38.3"></script>
-<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/slideshow.js?v1.4.38.3"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/h.js?v1.4.40.0"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/repost.js?v1.4.40.0"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/slideshow.js?v1.4.40.0"></script>
 
       <script>
       var OB = OB || {};
       OB.isPost = true;
     </script>
-    <script src="//assets.over-blog-kiwi.com/blog/js/index.js?v1.4.38.3"></script>
+    <script src="//assets.over-blog-kiwi.com/blog/js/index.js?v1.4.40.0"></script>
 
 
     <script type="text/javascript">
@@ -722,18 +722,15 @@
                         
         
         <a href="http://www.over-blog.com" class="ob-ShareBar-branding">
-            <img class="ob-ShareBar-brandingImg" src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/images/shareicon-branding-ob--dark.png?v1.4.38.3" alt="Overblog">
+            <img class="ob-ShareBar-brandingImg" src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/images/shareicon-branding-ob--dark.png?v1.4.40.0" alt="Overblog">
         </a>
         <a href="#" data-href="https://www.facebook.com/sharer/sharer.php?u={referer}" title="Facebook" class="ob-ShareBar-share ob-ShareBar-share--facebook"></a>
         <a href="#" data-href="https://twitter.com/intent/tweet?url={referer}&amp;text={title}" title="Twitter" class="ob-ShareBar-share ob-ShareBar-share--twitter"></a>
-        <a href="#" data-href="#" title="Pinterest" class="ob-ShareBar-share ob-ShareBar-share--pinterest" id="ob-ShareBar-share--pinterest"></a>
+        <a href="#" data-href="#" title="Pinterest" class="ob-ShareBar-share ob-ShareBar-share--pinterest js-ob-ShareBar-share--pinterest"></a>
         <a href="#" data-href="https://plus.google.com/share?url={referer}" title="Google+" class="ob-ShareBar-share ob-ShareBar-share--gplus"></a>
-                <div class="ob-ShareBar-followContainer obbar-follow" data-iframe-src="http://my.over-blog.com/static/follow.html?blog=www.lesitedontvousetesleheros.fr&amp;lang=fr">
-            <a href="http://my.over-blog.com/api/follow/fr/www.lesitedontvousetesleheros.fr" class="ob-ShareBar-follow">
-                <strong>Suivre</strong> ce blog
-            </a>
-            <span class="bubble-text" style="display: none">Utilisez notre Reader et abonnez-vous aux meilleurs articles de ce blog !</span>
-        </div>
+                <a class="ob-ShareBar-follow js-ob-ShareBar-follow" href="https://admin.over-blog.com/_follow/245297" target="_blank" rel="nofollow">
+            <strong>Suivre</strong> ce blog
+        </a>
             </div>
 
     <div class="ob-ShareBar-container ob-ShareBar-container--right">
@@ -767,7 +764,7 @@
     </div>
   </div>
 
-<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/sharebar.js?v1.4.38.3"></script>
+<script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/sharebar.js?v1.4.40.0"></script>
 <script>
     var postTitle = "194"
     socialShare(document.querySelector('.ob-ShareBar-share--facebook'), postTitle)
@@ -949,7 +946,7 @@
 
             
         </script>
-    <script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/print.js?v1.4.38.3"></script>
+    <script src="//assets.over-blog-kiwi.com/b/blog/bundles/overblogblogblog/js/print.js?v1.4.40.0"></script>
 <script>
   var postTitle = "194"
   printPost(postTitle)
@@ -1061,7 +1058,7 @@ function _eStat_Whap_loaded_func(){
   function getCookie(e){var t,n,r,i=document.cookie.split(";");for(t=0;t<i.length;t++){n=i[t].substr(0,i[t].indexOf("="));r=i[t].substr(i[t].indexOf("=")+1);n=n.replace(/^\s+|\s+$/g,"");if(n==e){return unescape(r)}}}
 })();
 </script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"37e77d7dc6","applicationID":"4205449","transactionName":"ZgdbNhYDDRBRUhBYC19NeAEQCwwNH1MIXgNuEVwBEAsMDVNeCkUFWAxcEA==","queueTime":0,"applicationTime":218,"atts":"SkBYQF4ZHh4=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"37e77d7dc6","applicationID":"4205449","transactionName":"ZgdbNhYDDRBRUhBYC19NeAEQCwwNH1MIXgNuEVwBEAsMDVNeCkUFWAxcEA==","queueTime":0,"applicationTime":150,"atts":"SkBYQF4ZHh4=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 
 
 
