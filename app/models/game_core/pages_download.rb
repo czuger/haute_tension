@@ -2,25 +2,25 @@ require 'fileutils'
 
 module GameCore::PagesDownload
 
-  def download_only( book_name, link, downloaded )
+  def download_only( book, link, downloaded )
 
-    puts downloaded.count
     return if downloaded.include?( link )
 
     puts "Downloading : #{link}"
 
-    FileUtils.mkpath( "pages/#{book_name}" )
+    FileUtils.mkpath( "dl_pages/#{book.id}" )
+
+    dl_page = book.downloaded_pages.where( url: link ).first_or_create
 
     doc = Nokogiri::HTML( open( link ) )
-    File.open( "pages/#{book_name}/#{link.gsub( /[^a-z0-9]/, '_' ) }", 'w' ).write( doc )
+    File.open( "dl_pages/#{book.id}/#{dl_page.id}.html", 'w' ).write( doc )
     downloaded << link
 
     downloaded_page = doc.css('div.ob-text')
 
-    downloaded_page.css( 'a' ).each do |paragraphe|
-      # p paragraphe
-      url = paragraphe.attributes['href'].value
-      Page.download_only( book_name, url, downloaded )
+    downloaded_page.css( 'a' ).each do |par|
+      url = par.attributes['href'].value
+      Page.download_only( book, url, downloaded )
     end
   end
 

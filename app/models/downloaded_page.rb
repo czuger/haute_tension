@@ -1,0 +1,2 @@
+class DownloadedPage < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121142303) do
+ActiveRecord::Schema.define(version: 20170112156653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 20161121142303) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
+  end
+
+  create_table "downloaded_books", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_downloaded_books_on_name", unique: true, using: :btree
+  end
+
+  create_table "downloaded_pages", force: :cascade do |t|
+    t.string   "url",                null: false
+    t.integer  "downloaded_book_id", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["downloaded_book_id"], name: "index_downloaded_pages_on_downloaded_book_id", using: :btree
+    t.index ["url"], name: "index_downloaded_pages_on_url", unique: true, using: :btree
   end
 
   create_table "fight_monsters", force: :cascade do |t|
@@ -111,6 +128,7 @@ ActiveRecord::Schema.define(version: 20161121142303) do
   add_foreign_key "adventures", "books"
   add_foreign_key "adventures", "pages"
   add_foreign_key "books", "pages", column: "first_page_id"
+  add_foreign_key "downloaded_pages", "downloaded_books"
   add_foreign_key "fight_monsters", "adventures"
   add_foreign_key "fight_monsters", "monsters"
   add_foreign_key "game_logs", "adventures"

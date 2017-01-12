@@ -16,16 +16,20 @@ namespace :data do
     desc 'Download pages only'
     task :pages => :environment do
       downloaded = Set.new
-      # Page.download_only( :forteresse_alamuth, 'http://www.lesitedontvousetesleheros.fr/1-61', downloaded )
-      # downloaded.clear
-      # # Page.download_only( :oeil_du_sphinx, 'http://www.lesitedontvousetesleheros.fr/2014/11/prologue-6.html', downloaded )
-      # downloaded.clear
-      # Page.download_only( :mines_roi_salomon, 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue.html', downloaded )
-      # downloaded.clear
-      # Page.download_only( :mysteres_babylone, 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue-2.html', downloaded )
-      # downloaded.clear
-      # URL parsing issue
-      Page.download_only( :adorateurs_mal, 'http://www.lesitedontvousetesleheros.fr/la-saga-du-pr%C3%AAtre-jean', downloaded )
+
+      books = [
+        { name: "La forteresse d'alamuth", url: 'http://www.lesitedontvousetesleheros.fr/1-61' },
+        { name: "L'oeil du sphinx", url: 'http://www.lesitedontvousetesleheros.fr/2014/11/prologue-6.html' },
+        { name: 'Les mines du roi salomon', url: 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue.html' },
+        { name: 'Les mystères de babylone', url: 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue-2.html' },
+        { name: 'Les adorateurs du mal', url: 'http://www.lesitedontvousetesleheros.fr/la-saga-du-pr%C3%AAtre-jean' }
+      ]
+
+      books.each do |book_str|
+        downloaded.clear
+        dl_book = DownloadedBook.where( name: book_str[ :name ] ).first_or_create!( url: book_str[ :url ] )
+        Page.download_only( dl_book, book_str[ :url ], downloaded )
+      end
     end
   end
 

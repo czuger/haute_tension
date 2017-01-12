@@ -17,7 +17,10 @@ module GameCore
     end
 
     def parse_children( children )
+      # p children
+      element_block = []
       children.each do |child|
+        # p child
         result = nil
         case child.name
           when 'text'
@@ -32,8 +35,9 @@ module GameCore
             @monster_name = child.children.first.to_s.chomp
             result = { type: :text, form: :strong, text: @monster_name }
         end
-        @page_elements << result
+        element_block << result
       end
+      @page_elements << element_block
     end
 
     def process_monster_stats( child )
