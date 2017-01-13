@@ -36,6 +36,7 @@ namespace :data do
   desc 'Parse page'
   task :parse_page => :environment do
 
+    FightMonster.connection.execute( 'TRUNCATE TABLE monsters_parsed_sections' )
     FightMonster.delete_all
     Monster.delete_all
     ParsedSection.delete_all
@@ -43,7 +44,7 @@ namespace :data do
     # TODO : drop table monsters_pages, pages, books
 
     DownloadedSection.all.each do |dls|
-      p dls.url
+      # p dls
       GameCore::SectionParser.new.parse_page( dls )
     end
   end

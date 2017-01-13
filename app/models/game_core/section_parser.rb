@@ -1,9 +1,21 @@
 module GameCore
   class SectionParser
 
-    def parse_page( downloaded_sections )
+    def parse_page( downloaded_section )
 
-      f_path = "dl_pages/#{downloaded_sections.downloaded_book_id}/#{downloaded_sections.id}.html"
+      begin
+        sub_parse_page( downloaded_section )
+      rescue => e
+        p [ downloaded_section.downloaded_book_id, downloaded_section.id, downloaded_section.url ]
+        p e
+        pp e.backtrace
+        exit
+      end
+    end
+
+    def sub_parse_page( downloaded_section )
+
+      f_path = "dl_pages/#{downloaded_section.downloaded_book_id}/#{downloaded_section.id}.html"
       page_content = File.open( f_path, 'r' ).read
 
       doc = Nokogiri::HTML( page_content )
@@ -17,71 +29,70 @@ module GameCore
         parse_children( l1.children )
       end
 
+      save_monster
+
       p_section = ParsedSection.create!(
-        downloaded_section_id: downloaded_sections.id, downloaded_book_id: downloaded_sections.downloaded_book_id,
+        downloaded_section_id: downloaded_section.id, downloaded_book_id: downloaded_section.downloaded_book_id,
         content: @page_elements
       )
 
       @monsters.each do |monster|
-        p monster
-        m = Monster.find_or_create_by!( name: monster[ :name ], hp: monster[ :vie ], strength: monster[ :force ],
-                           adjustment: monster[ :adjustment ] )
-        p_section.monsters << m
+        monster.create_monster_object( p_section )
       end
-
-      # { page_elements: @page_elements, monsters: @monsters }
     end
 
     def parse_children( children )
       element_block = []
       children.each do |child|
+
+        # p child
+
+        next if child.to_s.strip.empty?
+
         result = nil
         case child.name
           when 'text'
-            unless @monster_name
-              result = { type: :text, text: child.to_s }
-            else
-              result = process_monster_stats( child )
+
+            if @monster && !@monster.exception?
+              @monster.process_stats( child )
             end
+
+            result = { type: :text, text: child.to_s }
           when 'a'
             result = process_link( child )
           when 'strong'
-            @monster_name = child.children.first.to_s.strip.upcase
-            result = { type: :text, form: :strong, text: @monster_name }
+
+            # Exception
+            if child.children.first.to_s.strip =~ /^\d+$/
+              # puts :exception
+              result = { type: :text, text: child.children.first.to_s.strip }
+            else
+              save_monster
+              @monster = GameCore::MonsterParser.new( child )
+
+              # Some text has rubbish
+              if @monster.rubbish?
+                @monster = nil
+                next
+              end
+
+              result = { type: :text, form: :strong, text: @monster.original_name }
+            end
         end
-        element_block << result
+        element_block << result if result
       end
-      @page_elements << element_block
-    end
-
-    def process_monster_stats( child )
-      child = child.to_s.upcase
-      r = child.match( /FORCE ?: ?([0-9]+)/ )
-      force = r[1] if r
-
-      r = child.match( /VIE ?: ?([0-9]+)/ )
-      # Forteresse d'alamuth section 520 (http://www.lesitedontvousetesleheros.fr/2014/12/520.html)
-      # Rats does not have life
-      vie = r ? r[1] : 1
-
-      adjustment = 0
-      r = child.match( /AJUSTEMENT DEGATS ?: ?(\+|-) ?([0-9]+)/ )
-      if r
-        adjustment_sign = r[1] if r
-        adjustment_value = r[2] if r
-        adjustment = (adjustment_sign+adjustment_value).to_i
-      end
-
-      raise "No monster : #{child.inspect}" unless force && vie
-
-      @monsters << { force: force, vie: vie, adjustment: adjustment, name: @monster_name }
-      @monster_name = nil
-
-      { type: :text, text: child }
+      @page_elements << element_block unless element_block.empty?
     end
 
     def process_link( child )
       { type: :a, href: child[ 'href' ], text: child.children.first.to_s }
+    end
+
+    def save_monster
+      if @monster
+        @monster.check!
+        @monsters << @monster
+      end
     end
 
   end
