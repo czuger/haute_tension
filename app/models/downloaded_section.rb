@@ -1,0 +1,2 @@
+class DownloadedSection < ApplicationRecord
+end

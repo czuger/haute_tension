@@ -35,12 +35,16 @@ namespace :data do
 
   desc 'Parse page'
   task :parse_page => :environment do
-    Dir.glob( 'pages/forteresse_alamuth/*' ).each do |f|
-      # next unless f == 'pages/forteresse_alamuth/http___lesitedontvousetesleheros_overblog_com_107_30'
-      # next unless f == 'pages/forteresse_alamuth/http___lesitedontvousetesleheros_overblog_com_595_0'
-      puts
-      p f
-      pp GameCore::PageParser.new.parse_page( File.open( f ).read )
+
+    FightMonster.delete_all
+    Monster.delete_all
+    ParsedSection.delete_all
+
+    # TODO : drop table monsters_pages, pages, books
+
+    DownloadedSection.all.each do |dls|
+      p dls.url
+      GameCore::SectionParser.new.parse_page( dls )
     end
   end
 

@@ -1,4 +1,4 @@
 class DownloadedBook < ApplicationRecord
 
-  has_many :downloaded_pages
+  has_many :downloaded_sections
 end
