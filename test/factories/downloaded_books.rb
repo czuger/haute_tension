@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :downloaded_book do
-    name "MyString"
+    id 1
+    name 'dummy'
+    url 'dummy'
   end
 end
