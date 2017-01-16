@@ -4,31 +4,88 @@ module GameCore
     attr_reader :name, :original_name
 
     EXCEPTION = {
-      'CHAQUE RAT' => { strength: 5, hp: 1, adjustment: 0, name: 'CHAQUE RAT' },
-      'TÊTE-SANS-CORPS FORCE' => { strength: 10, hp: 8, adjustment: 0, name: 'TÊTE-SANS-CORPS' },
-      'PREMIER GNOME EMBAUMEUR' => { strength: 6, hp: 10, adjustment: 0, name: 'PREMIER GNOME EMBAUMEUR' },
-      'SECOND GNOME EMBAUMEUR' => { strength: 9, hp: 10, adjustment: 0, name: 'SECOND GNOME EMBAUMEUR' },
-      'SECOND HOMME-SABLE' => { strength: 13, hp: 4, adjustment: 0, name: 'SECOND HOMME-SABLE' },
-      'SCORPION GÉANT FOR' => { strength: 14, hp: 16, adjustment: 1, name: 'SCORPION GÉANT' },
-      'DEUXIÈME CHAUVE-SOURIS' => { strength: 6, hp: 12, adjustment: 0, name: 'DEUXIÈME CHAUVE-SOURIS' },
-      'MONROCK FORCE: 6 VIE: 9' => { strength: 6, hp: 9, adjustment: 0, name: 'MONROCK' }
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/520.html' =>
+        [ { strength: 5, hp: 1, adjustment: 0, name: 'CHAQUE RAT CARNIVORE' } ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/536.html' =>
+        [ { strength: 10, hp: 8, adjustment: 0, name: 'TÊTE-SANS-CORPS' } ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/209.html' =>
+        [
+          { strength: 6, hp: 10, adjustment: 0, name: 'PREMIER GNOME EMBAUMEUR' },
+          { strength: 9, hp: 10, adjustment: 0, name: 'SECOND GNOME EMBAUMEUR' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/429.html' =>
+        [
+          { strength: 12, hp: 4, adjustment: 0, name: 'PREMIER HOMME-SABLE' },
+          { strength: 13, hp: 4, adjustment: 0, name: 'SECOND HOMME-SABLE' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/302.html' =>
+        [
+          { strength: 14, hp: 16, adjustment: 1, name: 'SCORPION GÉANT' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/9.html' =>
+        [
+          { strength: 6, hp: 10, adjustment: 0, name: 'PREMIÈRE CHAUVE-SOURIS' },
+          { strength: 6, hp: 12, adjustment: 0, name: 'DEUXIÈME CHAUVE-SOURIS' },
+          { strength: 6, hp: 11, adjustment: 0, name: 'TROISIÈME CHAUVE-SOURIS' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/289-0.html' =>
+        [
+          { strength: 6, hp: 9, adjustment: 0, name: 'MONROCK' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/278-6.html' =>
+        [
+          { strength: 14, hp: 16, adjustment: 1, name: 'PLÉSIOSAURE' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/530-3.html' =>
+        [
+          { strength: 14, hp: 16, adjustment: 1, name: 'TAUPE GÉANTE' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/411-3.html' =>
+        [
+          { strength: 14, hp: 16, adjustment: 1, name: 'TAUPE GÉANTE' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/166-6.html' =>
+        [
+          { strength: 6, hp: 9, adjustment: 0, name: 'VER DES CAVERNES' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/347.html' =>
+        [
+          { strength: 11, hp: 13, adjustment: 0, name: 'PREMIER VOLEUR' },
+          { strength: 12, hp: 10, adjustment: 0, name: 'DEUXIÈME VOLEUR' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/383.html' =>
+        [
+          { strength: 7, hp: 6, adjustment: 0, name: 'KOSHEN' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/458.html' =>
+        [
+          { strength: 12, hp: 1, adjustment: 0, name: 'GUERRIER' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/181-8.html' =>
+        [
+          { strength: 13, hp: 1, adjustment: 0, name: 'GUERRIER' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2014/12/15-2.html' =>
+        [
+          { strength: 15, hp: 1, adjustment: 0, name: 'GUERRIER' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/268.html' =>
+        [
+          { strength: 12, hp: 13, adjustment: 0, name: 'ALSHAYA LE NOIR' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/312.html' =>
+        [
+          { strength: 8, hp: 11, adjustment: 0, name: 'GUERRIER FORGE' }
+        ],
+      'http://lesitedontvousetesleheros.overblog.com/2015/01/333.html' =>
+        [
+          { strength: 15, hp: 10, adjustment: 0, name: 'MOLOCH' }
+        ]
     }
 
     def initialize( child )
       @name = child.children.first.to_s.strip.upcase
       @original_name = name
-
-      if EXCEPTION.keys.include?( @name )
-
-        @strength = EXCEPTION[ @name ][ :strength ]
-        @hp = EXCEPTION[ @name ][ :hp ]
-        @adjustment = EXCEPTION[ @name ][ :adjustment ]
-        @original_name = @name
-        @name = EXCEPTION[ @name ][ :name ]
-
-        @exception = true
-      end
-
     end
 
     def create_monster_object( section )
@@ -46,10 +103,6 @@ module GameCore
         p self
         raise 'Bad monster'
       end
-    end
-
-    def exception?
-      @exception
     end
 
     def process_stats( child )
@@ -70,6 +123,19 @@ module GameCore
         adjustment_sign = r[1] if r
         adjustment_value = r[2] if r
         @adjustment = (adjustment_sign+adjustment_value).to_i
+      end
+    end
+
+    # Exception handling
+    def self.exception_page?( url )
+      # p EXCEPTION.keys, url
+      EXCEPTION.keys.include?( url )
+    end
+
+    def self.create_monster_object_on_exceptional_page( url, section )
+      EXCEPTION[ url ].each do |e|
+        m = Monster.find_or_create_by!( name: e[:name], hp: e[:hp], strength: e[:strength], adjustment: e[:adjustment] )
+        section.monsters << m
       end
     end
   end

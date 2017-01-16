@@ -31,7 +31,7 @@ class PageParserTest < ActiveSupport::TestCase
 
   def test_exception_1
     @book = create( :downloaded_book, id: 2, url: 'dummy', name: 'dummy' )
-    @section = create( :downloaded_section, id: 695, downloaded_book_id: @book.id )
+    @section = create( :downloaded_section, id: 695, downloaded_book_id: @book.id, url: 'http://lesitedontvousetesleheros.overblog.com/2014/12/520.html' )
     GameCore::SectionParser.new.parse_page( @section )
 
     test_section_content =
@@ -42,7 +42,7 @@ class PageParserTest < ActiveSupport::TestCase
 
   def test_exception_2
     @book = create( :downloaded_book, id: 2, url: 'dummy', name: 'dummy' )
-    @section = create( :downloaded_section, id: 910, downloaded_book_id: @book.id )
+    @section = create( :downloaded_section, id: 910, downloaded_book_id: @book.id, url: 'http://lesitedontvousetesleheros.overblog.com/2014/12/536.html' )
     GameCore::SectionParser.new.parse_page( @section )
 
     test_section_content =

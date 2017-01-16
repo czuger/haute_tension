@@ -33,19 +33,26 @@ namespace :data do
     end
   end
 
-  desc 'Parse page'
-  task :parse_page => :environment do
-
+  desc 'Cleanup pages and monsters'
+  task :cleanup_pages_and_monsters => :environment do
     FightMonster.connection.execute( 'TRUNCATE TABLE monsters_parsed_sections' )
     FightMonster.delete_all
     Monster.delete_all
     ParsedSection.delete_all
+  end
 
+  desc 'Parse page'
+  task :parse_page => :environment do
     # TODO : drop table monsters_pages, pages, books
 
-    DownloadedSection.all.each do |dls|
-      # p dls
+    iv = InternalVariable.find_or_create_by!( var_name: 'LAST_DLS_ID' ) do |var|
+      var.var_int = 0
+    end
+
+    DownloadedSection.where( 'id > ?', iv.var_int ).order( :id ).each do |dls|
+      puts "Parsing : #{dls.id}"
       GameCore::SectionParser.new.parse_page( dls )
+      iv.update_attribute( :var_int, dls.id )
     end
   end
 

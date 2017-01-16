@@ -1,0 +1,2 @@
+class InternalVariable < ApplicationRecord
+end

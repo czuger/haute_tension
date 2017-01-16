@@ -3,10 +3,11 @@ module GameCore
 
     def parse_page( downloaded_section )
 
+      @dl_url = downloaded_section.url
       begin
         sub_parse_page( downloaded_section )
       rescue => e
-        p [ downloaded_section.downloaded_book_id, downloaded_section.id, downloaded_section.url ]
+        p [ downloaded_section.downloaded_book_id, downloaded_section.id, @dl_url ]
         p e
         pp e.backtrace
         exit
@@ -31,13 +32,20 @@ module GameCore
 
       save_monster
 
-      p_section = ParsedSection.create!(
-        downloaded_section_id: downloaded_section.id, downloaded_book_id: downloaded_section.downloaded_book_id,
-        content: @page_elements
-      )
+      p_section = ParsedSection.find_or_initialize_by( downloaded_section_id: downloaded_section.id,
+                                                       downloaded_book_id: downloaded_section.downloaded_book_id ) do |section|
+        section.content = @page_elements
+      end
+      p_section.save!
 
-      @monsters.each do |monster|
-        monster.create_monster_object( p_section )
+      p_section.monsters.clear
+
+      unless GameCore::MonsterParser.exception_page?( @dl_url )
+        @monsters.each do |monster|
+          monster.create_monster_object( p_section )
+        end
+      else
+        GameCore::MonsterParser.create_monster_object_on_exceptional_page( @dl_url, p_section )
       end
     end
 
@@ -53,7 +61,7 @@ module GameCore
         case child.name
           when 'text'
 
-            if @monster && !@monster.exception?
+            if !GameCore::MonsterParser.exception_page?( @dl_url ) && @monster
               @monster.process_stats( child )
             end
 
@@ -63,7 +71,7 @@ module GameCore
           when 'strong'
 
             # Exception
-            if child.children.first.to_s.strip =~ /^\d+$/
+            if GameCore::MonsterParser.exception_page?( @dl_url ) || child.children.first.to_s.strip =~ /^\d+$/
               # puts :exception
               result = { type: :text, text: child.children.first.to_s.strip }
             else
@@ -89,7 +97,7 @@ module GameCore
     end
 
     def save_monster
-      if @monster
+      if !GameCore::MonsterParser.exception_page?( @dl_url ) && @monster
         @monster.check!
         @monsters << @monster
       end
