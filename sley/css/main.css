@@ -1,0 +1,366 @@
+body{
+	border-top:0.5em solid #d0d0d0;
+	font-size:1.5em;
+}
+
+#main{
+	position: absolute;
+	top: 5.5em;
+	right:0;
+	left: 0;
+	z-index:1;
+}
+
+#pageContent{
+	border-radius:1em 0 0.25em 0;
+	border-style:solid;
+	border-color: #a0a0a0;
+	border-width:2px 0 4px 0;
+	text-align: justify;
+	padding:1.5em 1em;
+	background:#f0f0f0;
+	margin:0.5em 0 1em 0;
+}
+#pageContent a.pageLink{
+	font-weight: bold;
+	display:block;
+	padding: 0.5em;
+	border:1px solid #b0b0b0;
+	border-radius: 0.5em;
+	color:#000000;
+	background: #f8f8f8;
+}
+#pageContent a.pageLink:hover{
+	text-decoration:none;
+	background: #ffffff;
+}
+
+#pageContent h2{
+	font-size:1.5em;
+}
+
+
+/* Player status */
+
+#pageContent .playerStatus{
+
+}
+
+.playerStatus .title{
+	font-weight:bold;
+}
+.playerStatus .values{
+
+}
+.playerStatus .values .current{
+	color:#008000;
+	font-weight:bold;
+}
+.playerStatus .values .max{
+}
+.playerStatus .values button{
+	border-radius: 2em;
+	padding:0.5em;
+	width:2.5em;
+	border:0 none;
+}
+
+/* Home Page */
+#homePageContent{
+	border:0 none;
+	border-radius:0 0 0 0;
+	text-align: justify;
+	padding:1.5em 1em;
+	background:#ffffff;
+	margin:0.5em 0 1em 0;
+}
+
+/* List of available adventures */
+#availableAdventures a.adventureLink{
+	color:#000000;
+	font-weight:bold;
+	text-decoration:none!important;
+}
+
+#availableAdventures .lastAdventureSummary{
+	font-size:1em;
+	font-style:italic;
+  	line-height:1.5em;
+  	padding-bottom:1em;
+}
+#availableAdventures .lastAdventureSummary .text:before{
+	content:"“";
+	font-size:2em;
+	line-height:1em;
+}
+#availableAdventures .lastAdventureSummary .text:after{
+	content:"”";
+	font-size: 2em;
+    line-height: 0.5em;
+    position: relative;
+    top: 0.6em;
+}
+#availableAdventures .status{
+	margin-bottom: 1em;
+	padding-bottom:1em;
+	border-bottom:1px dotted #dddddd;
+}
+
+#availableAdventures .actions{
+	margin-top: 1em;
+	padding-top:1em;
+	border-top:1px dotted #dddddd;
+}
+#availableAdventures .actions .remove{
+	text-align:right;
+}
+#availableAdventures .actions .remove:hover{
+	font-weight:bold;
+}
+#availableAdventures .actions a{
+	color:#000000;
+	background:#d0d0d0;
+	padding: 0.5em 1em;
+	border-radius:0.25em;
+}
+
+/* ---- Fighting page ---- */
+
+#fights .panel{
+	background-color:transparent;
+}
+#availableMonsters .row{
+	border-bottom:1px solid #dddddd;
+	margin-bottom:0.5em;
+}
+#availableMonsters .row button{
+	position: relative;
+	top:-0.25em;
+}
+
+#fightingZone .playerRow{
+	border-bottom:1px solid #dddddd;
+	margin-bottom:0.5em;
+	padding-bottom: 0.5em;
+}
+
+#fightingZone .versus{
+	text-align: center;
+	color:#d0d0d0;
+}
+
+#fightingZone .monsterRow{
+	border-bottom:1px solid #dddddd;
+	margin-bottom:0.5em;
+	padding-bottom: 0.5em;
+
+}
+#fightingZone .monsterRow button{
+	position: relative;
+	top:-0.25em;
+}
+
+
+
+/* ---- Layout ---- */
+.margin-top{
+	margin-top:0.5em;
+}
+.margin-bottom{
+	margin-bottom:0.5em;
+}
+.border-top{
+	border-top:1px dotted #d0d0d0;
+	padding-top:0.5em;
+	margin-top:0.5em;
+}
+.border-down{
+	border-bottom:1px dotted #d0d0d0;
+	padding-top:0.5em;
+	margin-top:0.5em;
+}
+
+/* ---- Features ---- */
+.feature{
+	display: flex;
+	border-radius: 0.5em;
+	/*padding: 0.25em;*/
+}
+
+.feature > div, .feature > div.values > div{
+	display: flex;
+	flex:1;
+}
+.feature > .title{
+	/*width: 50%;*/
+	flex:1;
+	font-weight:bold;
+	font-style: italic;
+	padding:0.25em 0 0 0;
+}
+.feature > .values{
+	/*width:50%;*/
+	background: #d0d0d0;
+	border-radius: 0.5em;
+	flex:1;
+	padding:0.25em;
+}
+
+.feature > .values.val-2.separator .current{
+	/*flex-grow:1;*/
+	flex:8;
+
+}
+.feature > .values.val-2.separator .max {
+	/*width: 45%;*/
+	flex:4;
+	text-align: left;
+	font-weight: bold;
+}
+.feature > .values.val-2.separator .separator {
+	/*width: 10%;*/
+	flex:2;
+	/*flex-basis:20%;*/
+	padding: 0 0.5em;
+	font-weight: bold;
+}
+
+.feature > .values input{
+	/*flex-basis:10%;*/
+	width: 100%;
+	border:0 none;
+	border-radius: 0.25em;
+	padding: 0 0 0 0.25em;
+    text-align: right;
+    font-weight: bold
+	/*flex:1;*/
+}
+
+.feature > .icon button{
+	border-radius:0.5em;
+	color:#ffffff;
+	background:#ffcb2d;
+	border:2px solid #ff8000;
+}
+.feature > .icon a, .feature > .icon a:hover, .feature > .icon button, .feature > .icon button:hover{
+	color:#ffffff;
+}
+.color-green{
+	color:#9dd4a7
+}
+.background-green{
+	background-color:#9dd4a7!important;
+}
+
+.color-brown{
+	color:#d2a793
+}
+.background-brown{
+	background-color:#d2a793!important;
+}
+
+.color-orange{
+	color:#ff8000;
+}
+.background-orange{
+	background-color:#ff8000!important;
+}
+
+/* ------ */
+
+.combatActors{
+	border: 2px solid #808080;
+    background: #ffffff;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0;
+    border-radius: 0.5em 0.5em 0 0;
+    border-bottom-width: 0.5em;
+    padding-bottom: 0.5em;
+}
+.combatActors .gameRow{
+	border-bottom:1px solid #808080;
+	margin-left:0;
+	margin-right:0;
+}
+.combatActors .gameRow > div{
+	padding-left:0;
+	padding-right:0;
+}
+
+.combatActors .player{
+	color:#147a27;
+}
+.combatActors .opponent{
+	color:#cc6609;
+}
+.combatActors .result{
+	color:#808080;
+}
+.combatActors .text{
+
+	padding-top:2px;
+}
+.combatActors .points{
+	padding-top:1px;
+	font-weight:bold;
+}
+.combatActors img{
+	width: 45%;
+	max-width:25px;
+}
+
+.combatActors .row .row{
+	margin-left:-10px;
+	margin-right:-10px;
+} 
+
+/* ------ */
+
+.combatContainer{
+	border:2px solid #808080;
+	background:#e8e8e8;
+	margin-left:-10px;
+	margin-right:-10px;
+	height:10em;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	resize:vertical;
+}
+.combatContainer .gameRow{
+	border-bottom:1px solid #808080;
+	margin-left:0;
+	margin-right:0;
+}
+.combatContainer .gameRow > div{
+	padding-left:0;
+	padding-right:0;
+}
+
+.combatContainer .player{
+	color:#147a27;
+}
+.combatContainer .opponent{
+	color:#cc6609;
+}
+.combatContainer .result{
+	color:#808080;
+}
+.combatContainer .text{
+
+	padding-top:2px;
+}
+.combatContainer .points{
+	padding-top:1px;
+	font-weight:bold;
+}
+.combatContainer img{
+	width: 45%;
+	max-width:25px;
+}
+
+.combatContainer .row .row{
+	margin-left:-10px;
+	margin-right:-10px;
+} 
+

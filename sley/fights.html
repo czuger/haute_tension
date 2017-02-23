@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Un Livre dont vous êtes le héros !</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Theme -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/mainMenu.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      
+  </head>
+  <body>
+
+    <!-- Menu - insert in any page -->
+    <!-- Use .active to mark current page -->
+    <div id="mainMenu" class="container container-fluid">
+      <div class="row">
+        <!-- Main Page -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="home.html">
+            <button>
+              <span class="glyphicon glyphicon-home"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Read the current book -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="book.html">
+            <button>
+              <span class="glyphicon glyphicon-book"></span>
+            </button>
+          </a>
+        </div>
+        <!-- User page -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-user"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Notes -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Fights -->
+        <div class="col-sm-2 col-xs-2 col-md-2 active">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-screenshot"></span>
+            </button>
+          </a>
+        </div>
+        <!-- Config -->
+        <div class="col-sm-2 col-xs-2 col-md-2">
+          <a href="#">
+            <button>
+              <span class="glyphicon glyphicon-cog"></span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container-fluid playerPage" id="main">
+
+      <div class="row">
+
+        <div class="col-xs-12" id="pageContent">
+
+          <div class="list-group fights">
+
+            <div class="panel-group" id="fights">
+
+<!-- ---------------------------------------------------------------------------------------- -->
+
+              <!-- List of available monsters -->
+              <!-- For each .panel, set the data-parent="#availableAdventures" -->
+              <!-- For each .panel a.adventureLink, define a href="#unique_id", that refers to a .panel-collapse with id="unique_id" -->
+              <div class="panel panel-default">
+
+                <!-- panel header -->
+                <div class="panel-heading" data-toggle="collapse" data-parent="#fights" href="#availableMonsters">
+                  <h4 class="panel-title">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-10">
+                        <a data-toggle="collapse">
+                          <span>Monstres</span>
+                        </a>
+                      </div>
+                      <div class="col-md-6 col-xs-2">
+                        
+                      </div>
+                    </div>
+                  </h4>
+                </div>
+
+                <!-- panel content -->
+                <div id="availableMonsters" class="panel-collapse collapse">
+                  <div class="panel-body" >
+
+                    <div class="xxlist-group">
+                      <div class="xxlist-group-item">
+
+                        <div class="row">
+                          <div class="col-xs-10">
+                            Monstre 1
+                          </div>
+                          <div class="col-xs-2">
+                            <a href="#">
+                              <button class="btn btn-success btn-xs">
+                                <span class="glyphicon glyphicon-ok"></span>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-xs-10">
+                            Monstre 2
+                          </div>
+                          <div class="col-xs-2">
+                            <a href="#">
+                              <button class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-xs-10">
+                            Monstre 3
+                          </div>
+                          <div class="col-xs-2">
+                            <a href="#">
+                              <button class="btn btn-success btn-xs">
+                                <span class="glyphicon glyphicon-ok"></span>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-xs-10">
+                            Monstre 4
+                          </div>
+                          <div class="col-xs-2">
+                            <a href="#">
+                              <button class="btn btn-primary btn-xs">
+                                <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+
+
+                      </div>  
+                    </div>
+                    
+
+
+
+
+                  </div>
+                </div>
+
+              </div>
+              <!-- EO List of Monsters -->
+
+
+
+<!-- ---------------------------------------------------------------------------------------- -->
+
+              <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#fights" href="#prepareFight">
+                  <h4 class="panel-title">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-10">
+                        <a data-toggle="collapse">
+                          <span>Prepare to Fight!</span>
+                        </a>
+                      </div>
+                      <div class="col-md-6 col-xs-2">
+                        
+                      </div>
+                    </div>
+                  </h4>
+                </div>
+
+                <div id="prepareFight" class="panel-collapse collapse">
+                  <div class="panel-body">
+
+
+<!-- PLAYER STATUS -->
+                    <div class="playerRow">
+
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              HP
+                            </div>
+                            <div class="values val-2 separator background-green">
+                              <div class="current">
+                                <input type="number" value="12" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                29
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              Force
+                            </div>
+                            <div class="values val-2 separator background-brown">
+                              <div class="current">
+                                <input type="number" value="7" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                14
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              Charisme
+                            </div>
+                            <div class="icon">
+                             <a href="#">
+                                <button class="btn btn-md">
+                                  <span class="glyphicon glyphicon-certificate"></span>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+<!-- EO PLAYER STATUS -->
+
+                    <div class="row">
+                      <div class="col-xs-4">&nbsp;</div> 
+                      <div class="col-xs-4 versus"> VS </div> 
+                      <div class="col-xs-4">&nbsp;</div> 
+                    </div>
+
+<!-- monster Row -->
+                    <div class="monsterRow">
+
+                      <div class="row border-down">
+                        <div class="col-xs-10">
+                          Monstre 1
+                        </div>
+                        <div class="col-xs-2">
+                          <a href="#">
+                            <button class="btn btn-danger btn-xs">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              HP
+                            </div>
+                            <div class="values val-2 separator background-green">
+                              <div class="current">
+                                <input type="number" value="12" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                29
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              Force
+                            </div>
+                            <div class="values val-2 separator background-brown">
+                              <div class="current">
+                                <input type="number" value="7" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                14
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+<!-- EO monster row -->
+                    <div class="monsterRow">
+
+                      <div class="row border-down">
+                        <div class="col-xs-10">
+                          Monstre 2
+                        </div>
+                        <div class="col-xs-2">
+                          <a href="#">
+                            <button class="btn btn-danger btn-xs">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              HP
+                            </div>
+                            <div class="values val-2 separator background-green">
+                              <div class="current">
+                                <input type="number" value="12" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                15
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-3 margin-top">
+
+                          <div class="feature">
+                            <div class="title">
+                              Force
+                            </div>
+                            <div class="values val-2 separator background-brown">
+                              <div class="current">
+                                <input type="number" value="7" />
+                              </div>
+                              <div class="separator">
+                                /
+                              </div>
+                              <div class="max">
+                                12
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+<!-- EO monster row -->
+                    
+
+
+                  </div>
+                </div>
+
+              </div><!-- EO Panel default -->
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------- -->
+              
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#fights" href="#fightingZone">
+                  <h4 class="panel-title">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-10">
+                        <a data-toggle="collapse">
+                          <span>Fight!</span>
+                        </a>
+                      </div>
+                      <div class="col-md-6 col-xs-2">
+                        
+                      </div>
+                    </div>
+                  </h4>
+                </div>
+
+                <div id="fightingZone" class="panel-collapse collapse in">
+                  <div class="panel-body">
+
+
+
+                    <div class="row combatActors">
+
+                      <div class="col-md-12 col-xs-12 actions">
+
+                        <!-- Player -->
+
+                        <div class="row border-top player">
+
+                          <div class="col-xs-4 text">
+                            <span class="glyphicon glyphicon-user"></span>
+                          </div>
+
+                          <div class="col-xs-2 points">
+                            <span> 23 </span>
+                          </div>
+
+                          <div class="col-xs-3">&nbsp;</div>
+
+                          <div class="col-xs-3 feature">
+                            <div class="icon">
+                              <a href="#">
+                                <button class="btn btn-md">
+                                  <span class="glyphicon glyphicon-certificate"></span>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                        <!-- Monster -->
+
+                        <div class="row border-top opponent">
+
+                          <div class="col-xs-4">
+                            Monstre 1
+                          </div>
+
+                          <div class="col-xs-2 points">
+                            <span>18</span>
+                          </div>
+
+                          <div class="col-xs-3">
+                            <a href="#">
+                              <button class="btn btn-success btn-md">
+                                <span class="glyphicon glyphicon-flash">A</span>
+                              </button>
+                            </a>
+                          </div>
+
+                          <div class="col-xs-3">
+                            <a href="#">
+                              <button class="btn btn-info btn-md">
+                                <span class="glyphicon glyphicon-flash">D</span>
+                              </button>
+                            </a>
+                          </div>
+
+                        </div>
+
+                        <!-- -->
+                        <div class="row border-top opponent">
+
+                          <div class="col-xs-4">
+                            Monstre 2
+                          </div>
+
+                          <div class="col-xs-2 points">
+                            <span>14</span>
+                          </div>
+
+                          <div class="col-xs-3">
+                            <a href="#">
+                              <button class="btn btn-success btn-md">
+                                <span class="glyphicon glyphicon-flash">A</span>
+                              </button>
+                            </a>
+                          </div>
+
+                          <div class="col-xs-3">
+                            <a href="#">
+                              <button class="btn btn-info btn-md">
+                                <span class="glyphicon glyphicon-flash">D</span>
+                              </button>
+                            </a>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+
+
+
+
+                    <div class="combatContainer">
+
+<!-- One Game Row -->
+                      <div class="row gameRow">
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 player">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              <span class="glyphicon glyphicon-user"></span> (1)
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">23</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-12 opponent">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              Monstre 1
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">18</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 result">
+                          <div class="row">
+                            <div class="col-xs-2 text">
+                              <span class="glyphicon glyphicon-share-alt"></span>
+                            </div>
+                            <div class="col-xs-10 text">
+                              Monstre 1 perd 5 points de vie !
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+<!-- EO Game Row -->
+<!-- One Game Row -->
+                      <div class="row gameRow">
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 player">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              <span class="glyphicon glyphicon-user"></span> (2)
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">23</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-12 opponent">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              Monstre 1
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">18</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 result">
+                          <div class="row">
+                            <div class="col-xs-2 text">
+                              <span class="glyphicon glyphicon-share-alt"></span>
+                            </div>
+                            <div class="col-xs-10 text">
+                              Monstre 1 perd 5 points de vie !
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+<!-- EO Game Row -->
+<!-- One Game Row -->
+                      <div class="row gameRow">
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 player">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              <span class="glyphicon glyphicon-user"></span> (3)
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">23</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-12 opponent">
+                          <div class="row">
+                            <div class="col-xs-6 text">
+                              Monstre 1
+                            </div>
+                            <div class="col-xs-3 points">
+                              <span class="">18</span><!-- class for colors (high, low, failure,...)? -->
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="images/dice.svg" />
+                              <img src="images/dice.svg" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 result">
+                          <div class="row">
+                            <div class="col-xs-2 text">
+                              <span class="glyphicon glyphicon-share-alt"></span>
+                            </div>
+                            <div class="col-xs-10 text">
+                              Monstre 1 perd 5 points de vie !
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+<!-- EO Game Row -->
+
+
+                    </div><!-- EO combatContainer -->
+
+
+
+                  </div>
+                </div>
+              </div><!-- EO Panel default -->
+
+
+
+
+
+            </div>
+
+          </div>
+
+          <div class="col-xs-12" id="pageFooter">
+            ---
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,38 @@
+Accueil:
+  * Connexion
+  * Nouvelle partie
+  * Parties en cours (jouer/log/supprimer)
+
+ Livre: 
+  * Affichage de l'aventure
+
+Fiche de personnage:
+  * Fiche de perso
+  * Inventaire
+  * Gestion de l'inventaire
+  * Combats
+  * Lancer de dés
+
+(?)Actions:
+  * Combats
+  * Lancer de dés
+
+Notes:
+  * Notes
+
+HTML
+¯¯¯¯
+Ajouter .pageLink aux liens de navigation (on peut imaginer d'autres liens sur la page par la suite).
+
+
+24/01/2017
+¯¯¯¯¯¯¯¯¯¯
+Céd :
+  - respecter HTML/CSS (voir diférences entre maquette et intégration)
+  
+M: revoir les containers
+
+Ajouts / ergonomie:
+- Flash à l'écran pour indiquer ce qui vient de changer
+- noty
+
