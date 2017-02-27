@@ -1,17 +1,17 @@
 namespace :data do
   namespace :download do
 
-    desc 'Full download'
-    task :full => :environment do
-      PageLink.delete_all
-      Page.delete_all
-      Book.delete_all
-
-      b = Book.create!( name: "La forteresse d'alamuth" )
-      p = Page.download( b, 'http://www.lesitedontvousetesleheros.fr/1-61' )
-      b.update( first_page_id: p.id )
-
-    end
+    # desc 'Full download'
+    # task :full => :environment do
+    #   PageLink.delete_all
+    #   Page.delete_all
+    #   Book.delete_all
+    #
+    #   b = Book.create!( name: "La forteresse d'alamuth" )
+    #   p = Page.download( b, 'http://www.lesitedontvousetesleheros.fr/1-61' )
+    #   b.update( first_page_id: p.id )
+    #
+    # end
 
     desc 'Download pages only'
     task :pages => :environment do
@@ -56,18 +56,18 @@ namespace :data do
     end
   end
 
-  desc 'Update data'
-  task :update => :environment do
-    Page.all.each do |page|
-      page.update_page
-    end
-  end
-
-  desc 'Read datas'
-  task :read => :environment do
-    Page.all.each do |page|
-      page.pages_content
-    end
-  end
+  # desc 'Update data'
+  # task :update => :environment do
+  #   Page.all.each do |page|
+  #     page.update_page
+  #   end
+  # end
+  #
+  # desc 'Read datas'
+  # task :read => :environment do
+  #   Page.all.each do |page|
+  #     page.pages_content
+  #   end
+  # end
 
 end

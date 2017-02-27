@@ -42,13 +42,13 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
 
-    book = Book.find( adventure_params[ 'book_id' ] )
-    @adventure.page = book.first_page
+    book = DownloadedBook.find(adventure_params[ :downloaded_book_id ] )
+    @adventure.parsed_section = book.first_parsed_section
     roll_adventure
 
     respond_to do |format|
       if @adventure.save
-        @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
+        @adventure.game_logs.create!( parsed_section_id: @adventure.current_parsed_section_id, log_type: GameLog::JOURNEY )
         format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
         format.json { render :show, status: :created, location: @adventure }
       else
@@ -88,7 +88,7 @@ class AdventuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme, :fight )
+      params.require(:adventure).permit(:downloaded_book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme, :fight )
     end
 
     def roll_adventure

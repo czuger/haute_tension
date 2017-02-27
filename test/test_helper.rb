@@ -1,3 +1,5 @@
+require 'pp'
+
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/mailers/'

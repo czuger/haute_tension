@@ -19,6 +19,10 @@
         %h2
           Existing Adventures
 
+        = link_to new_adventure_path, class: 'btn btn-primary' do
+          %span.glyphicon.glyphicon-plus
+          = t( '.new' ) + ' ' + 'Adventure'
+
         .list-group
 
           #availableAdventures.panel-group
@@ -43,7 +47,7 @@
 
                       .lastAdventureSummary
                         %span{ class: :text }
-                          = raw( truncate( adventure.page.text.first, length: 500 ) )
+                          = raw( truncate( adventure.parsed_section&.text&.first, length: 500 ) )
 
                       .row.actions
                         .col-xs-12.remove

@@ -1,7 +1,11 @@
 FactoryGirl.define do
   factory :parsed_section do
-    downloaded_book nil
-    downloaded_page nil
-    content "MyString"
+
+    downloaded_book
+    downloaded_section
+
+    sequence :content do |n|
+      "Parsed section #{n}"
+    end
   end
 end

@@ -10,10 +10,10 @@
       %button.close{type: "button", data: {dismiss: "alert"} }
         %span{aria: {hidden: "true"} } &times;
         %span.sr-only Close
-      %h4= "#{pluralize(adventure.errors.count, "error")} prohibited this adventure from being saved:"
+      %h4= "#{pluralize(@adventure.errors.count, "error")} prohibited this adventure from being saved:"
 
       %ul
-        - adventure.errors.full_messages.each do |msg|
+        - @adventure.errors.full_messages.each do |msg|
           %li= msg
 
   -#.form-group
@@ -24,7 +24,7 @@
   .form-group
     = f.label :book, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :book_id, Book.all.collect { |p| [ p.name, p.id ] }, class: 'form-control'
+      = f.select :downloaded_book_id, DownloadedBook.where.not( first_parsed_section_id: nil ).order( :id ).collect { |p| [ p.name, p.id ] }, class: 'form-control'
 
   .form-group
     .col-sm-offset-2.col-sm-10

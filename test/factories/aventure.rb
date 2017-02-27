@@ -2,8 +2,8 @@ FactoryGirl.define do
 
   factory :adventure do
 
-    book
-    page
+    downloaded_book
+    parsed_section
 
     hp 20
     hp_max 20

@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class DownloadedBooksController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:adventure_id])

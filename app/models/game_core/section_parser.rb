@@ -33,10 +33,16 @@ module GameCore
       save_monster
 
       p_section = ParsedSection.find_or_initialize_by( downloaded_section_id: downloaded_section.id,
-                                                       downloaded_book_id: downloaded_section.downloaded_book_id ) do |section|
+        downloaded_book_id: downloaded_section.downloaded_book_id ) do |section|
         section.content = @page_elements
       end
+
       p_section.save!
+
+      db = DownloadedBook.find_by_url( downloaded_section.url )
+      if db
+        db.update( first_parsed_section_id: p_section.id )
+      end
 
       p_section.monsters.clear
 

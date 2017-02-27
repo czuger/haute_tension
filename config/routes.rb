@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :die
 
     resource :heros, only: [ :show, :update ]
-    resources :books, only: [ :show ]
+    resources :downloaded_books, only: [:show ]
   end
 
   resources :notes, only: [ :edit, :update ]

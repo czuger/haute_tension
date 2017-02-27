@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ParsedSectionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'Create a parsed section' do
+    parsed_section = create( :parsed_section )
+
+    assert parsed_section
+  end
+
 end

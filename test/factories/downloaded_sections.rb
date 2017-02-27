@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :downloaded_section do
-    url "MyString"
-    downloaded_book
+    sequence :url do |n|
+      "Downloaded section #{n}"
+    end
   end
 end
