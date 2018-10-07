@@ -3,7 +3,7 @@ require 'fileutils'
 require 'nokogiri'
 require 'yaml' # Built in, no gem required
 
-data_path = 'data'
+data_path = 'raw_data'
 
 File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
 
