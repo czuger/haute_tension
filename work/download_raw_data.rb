@@ -6,6 +6,9 @@ require 'yaml' # Built in, no gem required
 data_path = 'data'
 
 File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
+
+  next if url_line[0] == '#'
+
   path, start_url, _ = url_line.split( '|' )
 
   index = {}
