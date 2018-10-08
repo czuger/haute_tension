@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(version: 20170227163319) do
     t.string   "page_hash",  null: false
     t.index ["book_id"], name: "index_pages_on_book_id", using: :btree
     t.index ["page_hash"], name: "index_pages_on_page_hash", unique: true, using: :btree
-    t.index ["url"], name: "index_pages_on_url", unique: true, using: :btree
   end
 
   create_table "parsed_section_links", force: :cascade do |t|
