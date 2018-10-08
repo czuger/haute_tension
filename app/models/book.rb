@@ -13,13 +13,18 @@ class Book < ApplicationRecord
 
         db = YAML.load_file("work/raw_data/#{title}.yaml")
 
-        db.values.each do |dl_data|
+        db.values.each_with_index do |dl_data, index|
           page_data = YAML.load_file( "work/parsed_data/#{title}/#{dl_data[:page_index]}.html.yaml" )
           p = Page.where( page_hash: dl_data[:page_index] ).first_or_initialize
           p.text = page_data
           p.url = dl_data[:origin_url]
           p.book_id = b.id
           p.save!
+
+          if index == 0
+            b.first_page_id = p.id
+            b.save!
+          end
         end
       end
     end
