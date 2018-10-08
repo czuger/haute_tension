@@ -2,7 +2,7 @@ require 'nokogiri'
 
 class PageParser
 
-  def update( parsing_hash )
+  def update( directory, parsing_hash )
 
     page_path = parsing_hash[:file_path]
     @origin_url = parsing_hash[:origin_url]
@@ -16,16 +16,19 @@ class PageParser
       if node.class == Nokogiri::XML::Element
         # node = check_for_link( node )
 
-        monsters = check_for_monsters( node, monsters )
+        # monsters = check_for_monsters( node, monsters )
         text << node.to_s.strip
       end
-
     end
     # puts 'Texte'
     # puts text
     # puts 'Monsters'
     # puts monsters
     # puts
+
+    File.open( "parsed_data/#{directory}/#{File.basename(page_path)}.yaml", 'w' ) do |f|
+      f.write( text.to_yaml )
+    end
   end
 
   private

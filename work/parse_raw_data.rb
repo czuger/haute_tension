@@ -11,6 +11,6 @@ directories.each do |directory|
   db = YAML.load_file("raw_data/#{directory}.yaml")
 
   db.values.each do |parsing_hash|
-    PageParser.new.update( parsing_hash )
+    PageParser.new.update( directory, parsing_hash )
   end
 end
