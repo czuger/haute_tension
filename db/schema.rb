@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20170227163319) do
     t.index ["adventure_id", "item_id"], name: "index_adventures_items_on_adventure_id_and_item_id", unique: true, using: :btree
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.integer  "first_page_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
+  end
+
   create_table "downloaded_books", force: :cascade do |t|
     t.string   "name",                    null: false
     t.string   "url",                     null: false
@@ -113,6 +121,28 @@ ActiveRecord::Schema.define(version: 20170227163319) do
     t.index ["parsed_section_id", "monster_id"], name: "mps_ps_id_m_id", unique: true, using: :btree
   end
 
+  create_table "page_links", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "src_page_id", null: false
+    t.integer  "dst_page_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["dst_page_id"], name: "index_page_links_on_dst_page_id", using: :btree
+    t.index ["src_page_id"], name: "index_page_links_on_src_page_id", using: :btree
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "text",       null: false
+    t.string   "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "book_id",    null: false
+    t.string   "page_hash",  null: false
+    t.index ["book_id"], name: "index_pages_on_book_id", using: :btree
+    t.index ["page_hash"], name: "index_pages_on_page_hash", unique: true, using: :btree
+    t.index ["url"], name: "index_pages_on_url", unique: true, using: :btree
+  end
+
   create_table "parsed_section_links", force: :cascade do |t|
     t.integer  "src_parsed_section"
     t.integer  "dst_parsed_section"
@@ -132,6 +162,7 @@ ActiveRecord::Schema.define(version: 20170227163319) do
 
   add_foreign_key "adventures", "downloaded_books"
   add_foreign_key "adventures", "parsed_sections", column: "current_parsed_section_id"
+  add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "downloaded_sections", "downloaded_books"
   add_foreign_key "fight_monsters", "adventures"
   add_foreign_key "fight_monsters", "monsters"
@@ -139,6 +170,9 @@ ActiveRecord::Schema.define(version: 20170227163319) do
   add_foreign_key "game_logs", "parsed_sections"
   add_foreign_key "monsters_parsed_sections", "monsters"
   add_foreign_key "monsters_parsed_sections", "parsed_sections"
+  add_foreign_key "page_links", "pages", column: "dst_page_id"
+  add_foreign_key "page_links", "pages", column: "src_page_id"
+  add_foreign_key "pages", "books"
   add_foreign_key "parsed_sections", "downloaded_books"
   add_foreign_key "parsed_sections", "downloaded_sections"
 end

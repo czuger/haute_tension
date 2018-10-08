@@ -7,14 +7,8 @@ class CreateParsedSectionLinks < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    remove_foreign_key :books, :pages
-    remove_foreign_key :pages, :books
-    remove_foreign_key :page_links, :pages
-
-    drop_table :books
-    drop_table :page_links
-    drop_table :pages
-
+    add_column :pages, :page_hash, :string, null: false
+    add_index :pages, :page_hash, unique: true
   end
 end
 
