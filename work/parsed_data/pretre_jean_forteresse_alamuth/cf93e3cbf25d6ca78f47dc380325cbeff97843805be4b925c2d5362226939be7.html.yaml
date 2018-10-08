@@ -2,8 +2,10 @@
 - "<p>Vous décidez de voir si cette antichambre contient quelque chose qui pourrait
   vous servir. Un grand coffre de bois et une table, identiquement poussiéreux, flanquent
   le couloir.</p>"
-- <p><a href="http://lesitedontvousetesleheros.overblog.com/195-51">Inspecterez-vous
-  le coffre</a></p>
-- <p><a href="http://lesitedontvousetesleheros.overblog.com/45-7">ou la table ?</a></p>
-- <p><a href="http://lesitedontvousetesleheros.overblog.com/283-7">Si cela vous semble
-  peu intéressant, vous pouvez quitter l'antichambre et choisir une autre solution.</a></p>
+- <p><a href="/read_choice/4c402b22dc0ec27a7be19e5dbce6fd5dbf1627387fa123e7ef2d87aeeb64a2e8"
+  class="pageLink">Inspecterez-vous le coffre</a></p>
+- <p><a href="/read_choice/703e5500469b3656349908b88efe2d6c3bd736c84ac82b6fbba9c79f8aa2b5bd"
+  class="pageLink">ou la table ?</a></p>
+- <p><a href="/read_choice/d726bfcb6508f5122bc36553e5360472963db8e89fb76fe515cc55d0da98ae9d"
+  class="pageLink">Si cela vous semble peu intéressant, vous pouvez quitter l'antichambre
+  et choisir une autre solution.</a></p>

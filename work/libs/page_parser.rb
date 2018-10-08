@@ -1,11 +1,15 @@
 require 'nokogiri'
+require 'pp'
 
 class PageParser
 
-  def update( directory, parsing_hash )
+  def update( directory, parsing_hash, pages_converter )
 
     page_path = parsing_hash[:file_path]
     @origin_url = parsing_hash[:origin_url]
+    @pages_converter = pages_converter
+
+    # pp @pages_converter
 
     doc = Nokogiri::HTML( open( page_path ) )
     downloaded_page = doc.css('div.ob-text')
@@ -14,7 +18,7 @@ class PageParser
     monsters = []
     downloaded_page.children.each do |node|
       if node.class == Nokogiri::XML::Element
-        # node = check_for_link( node )
+        node = check_for_link( node )
 
         # monsters = check_for_monsters( node, monsters )
         text << node.to_s.strip
@@ -53,18 +57,18 @@ class PageParser
   def check_for_link( node )
     if node.children.first.name == 'a'
       original_url = node.children.first.attributes['href'].value
-      page = Page.find_by_url( original_url )
-      raise "Unable to find page for #{original_url}" unless page
+      # page = Page.find_by_url( original_url )
+      # raise "Unable to find page for #{original_url}" unless page
       # This read the rails route
-      node.children.first.attributes['href'].value = Rails.application.routes.url_helpers.adventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
+      node.children.first.attributes['href'].value = "/read_choice/#{@pages_converter[original_url]}"
       node.children.first['class'] = 'pageLink'
       # p node.children.first
     elsif ( anchor = node.css( 'a' ) )
       if ! anchor.empty?
         original_url = anchor.first.attributes['href'].value
-        page = Page.find_by_url( original_url )
-        raise "Unable to page page for #{original_url}" unless page
-        anchor.first.attributes['href'].value = Rails.application.routes.url_helpers.adventure_read_choice_path( 'CHANGE_ADVENTURE_ID', page.id )
+        # page = Page.find_by_url( original_url )
+        # raise "Unable to page page for #{original_url}" unless page
+        anchor.first.attributes['href'].value = "/read_choice/#{@pages_converter[original_url]}"
         node.children.first['class'] = 'pageLink'
       end
     end
