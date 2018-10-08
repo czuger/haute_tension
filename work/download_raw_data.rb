@@ -1,7 +1,8 @@
 require 'open-uri'
 require 'fileutils'
 require 'nokogiri'
-require 'yaml' # Built in, no gem required
+require 'digest'
+require 'yaml'
 
 data_path = 'raw_data'
 
@@ -12,7 +13,6 @@ File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
   path, start_url, _ = url_line.split( '|' )
 
   index = {}
-  file_index = 0
   FileUtils.mkpath "#{data_path}/#{path}"
 
   urls = [ start_url ]
@@ -24,12 +24,12 @@ File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
 
       puts "Downloading #{url_to_process}"
 
+      file_index = Digest::SHA2.hexdigest URI::split(url_to_process )[5]
       download = open( url_to_process )
       file_path = "#{data_path}/#{path}/#{file_index}.html"
       IO.copy_stream(download, file_path)
 
-      index[ url_to_process ] = file_path
-      file_index += 1
+      index[ url_to_process ] = { file_path: file_path, origin_url: url_to_process }
 
       doc = Nokogiri::HTML( open( file_path ) )
 
