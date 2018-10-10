@@ -33,10 +33,10 @@
           %button
             =image_tag 'icons/crossed-swords.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
-        = link_to fights_url( id: @adventure.id ) do
-          %button
-            =image_tag 'icons/sword-wound.svg', class: 'menu-icon'
+      -#.col-sm-2.col-xs-2.col-md-1
+      -#  = link_to fights_url( id: @adventure.id ) do
+      -#    %button
+      -#      =image_tag 'icons/sword-wound.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-2.col-md-1
         = link_to game_log_url( @adventure.id ) do
