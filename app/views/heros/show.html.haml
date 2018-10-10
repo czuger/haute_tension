@@ -2,34 +2,45 @@
   .row
     #pageContent.col-xs-12
       .list-group.playerStatus
-        %h2 Player Status
+        %h2 Détails de l'aventurier
         .list-group-item
           .row
+            .col-xs-6.col-md-2.title
+            .col-xs-2.col-md-1.title Min
+            .col-xs-3.col-md-1.title Max
+            .hidden-xs.col-md-2.title
+            .hidden-xs.col-md-1.title Min
+            .hidden-xs.col-md-1.title Max
+            .hidden-xs.col-md-2.title
+            .hidden-xs.col-md-1.title Min
+            .hidden-xs.col-md-1.title Max
+
             - @data.in_groups_of( 2 ) do |group|
               - group.each do |e|
-                .col-xs-6.col-md-3.title
+                .col-xs-6.col-md-2.title
                   = e[ :name ].to_s.capitalize
-                .col-xs-6.col-md-3.values
+                .col-xs-2.col-md-1.values
                   %span.current{ id: e[ :base_col ] }
-                    = e[ :base_value ]
+                    = number_field_tag e[ :name ].to_s, e[ :base_value ], class: 'form-control'
+                .col-xs-2.col-md-1.values
                   - if e[ :max_value ]
-                    \/
                     %span.max{ id: e[ :max_col ] }
-                      = e[ :max_value ]
-        %h2 Actions
-        .list-group-item
-          .row
-            - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
-              - group.each do |e|
-                .col-xs-6.col-md-3.title
-                  = e[ :name ].to_s.capitalize
-                .col-xs-6.col-md-3.values
-                  .col-xs-6
-                    %button.update_hero{ code: e[:code], action: :plus }
-                      %span.glyphicon.glyphicon-plus
-                  .col-xs-6
-                    %button.update_hero{ code: e[:code], action: :minus }
-                      %span.glyphicon.glyphicon-minus
+                      = number_field_tag e[ :name ].to_s, e[ :max_value ], class: 'form-control'
+        -#%h2 Actions
+        -#.list-group-item
+        -#  .row
+        -#    - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
+        -#      - group.each do |e|
+        -#        .col-xs-6.col-md-3.title
+        -#          = e[ :name ].to_s.capitalize
+        -#        .col-xs-6.col-md-3.values
+        -#          = number_field_tag e[ :name ].to_s, 0, class: 'form-control'
+                  -#.col-xs-6
+                  -#  %button.update_hero{ code: e[:code], action: :plus }
+                  -#    %span.glyphicon.glyphicon-plus
+                  -#.col-xs-6
+                  -#  %button.update_hero{ code: e[:code], action: :minus }
+                  -#    %span.glyphicon.glyphicon-minus
 
     #pageFooter.col-xs-12
 

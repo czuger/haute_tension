@@ -25,4 +25,4 @@ activate_buttons = ->
       type: 'PUT'
       data: { code: code, action_code: action }
 
-$(document).on('turbolinks:load', activate_buttons )
+#$(document).on('turbolinks:load', activate_buttons )
