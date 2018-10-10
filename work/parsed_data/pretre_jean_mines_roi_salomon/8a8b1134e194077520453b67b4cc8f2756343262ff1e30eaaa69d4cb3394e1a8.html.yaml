@@ -2,14 +2,14 @@
 - "<p>Lorsque vous approchez de cette porte, vous vous rendez compte qu'elle a été
   partiellement défoncée. La cellule ne contient plus rien à présent. Vous remarquez
   les marques de griffes ou de serres puissantes sur le chambranle.</p>"
-- <p><a href="/read_choice/e69dd4295076227871e4858bca464e9b138d848990533d240c159ac3f7b60ab2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e69dd4295076227871e4858bca464e9b138d848990533d240c159ac3f7b60ab2"
   class="pageLink">Si vous avez déjà examiné trois cellules en comptant celle-ci.</a></p>
-- <p><a href="/read_choice/f0930b1046cb3e033207701d58bafa89079333101f06000d7141a70f5cf87e30"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f0930b1046cb3e033207701d58bafa89079333101f06000d7141a70f5cf87e30"
   class="pageLink">Sinon, vous pouvez retourner choisir celle que vous désirez visiter
   ensuite</a> (si vous avez été béni par un vieil ermite ou n'avez pas serré la main
   d'un petit Lutin)</p>
-- <p><a href="/read_choice/3417a316afa5ccfe2b6dc0103af32fa534e46b6ac2975308bee34484b59dd674"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3417a316afa5ccfe2b6dc0103af32fa534e46b6ac2975308bee34484b59dd674"
   class="pageLink">(dans le cas contraire).</a></p>
-- <p><a href="/read_choice/afcc2ad6bff90ccb2e9e513167ae648915b3ca0b08900d2a4f007d56308b09a3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/afcc2ad6bff90ccb2e9e513167ae648915b3ca0b08900d2a4f007d56308b09a3"
   class="pageLink">Si vous décidez de quitter cet endroit pour poursuivre votre progression.</a></p>
 - "<p> </p>"

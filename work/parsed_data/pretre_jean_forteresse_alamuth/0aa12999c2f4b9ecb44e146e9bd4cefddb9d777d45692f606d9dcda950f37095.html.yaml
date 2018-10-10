@@ -2,8 +2,8 @@
 - "<p>Vous roulez de côté, à temps pour éviter la cage de fer qui s'abattait sur vous.
   Soupirant de soulagement, vous considérez à présent vos possibilités d'évasion de
   la cellule de méditation.</p>"
-- <p><a href="/read_choice/0f67b276b01271bf20f03db47206b2de8f21de67aa23787c3edc9697019d55de"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0f67b276b01271bf20f03db47206b2de8f21de67aa23787c3edc9697019d55de"
   class="pageLink">Allez-vous tirer sur le levier rouge</a></p>
-- <p><a href="/read_choice/375261f87776168301893c56005edb733e117b394e1829e894789e8b98412272"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/375261f87776168301893c56005edb733e117b394e1829e894789e8b98412272"
   class="pageLink">ou prendre la clef qui est tombée du piédestal et gît sur le sol
   ?</a></p>

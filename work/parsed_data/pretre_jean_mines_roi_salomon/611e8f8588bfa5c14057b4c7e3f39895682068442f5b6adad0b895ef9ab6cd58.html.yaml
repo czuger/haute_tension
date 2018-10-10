@@ -4,8 +4,8 @@
   éjecte littéralement. Vous atterrissez sur le sol quelques mètres plus bas, meurtri
   et contusionné. Vous perdez 2 points de Vie. Vous savez à présent qu'il vous sera
   impossible d'atteindre les étages supérieurs de la tour.</p>"
-- <p><a href="/read_choice/75f00189764cbc7a52a3878cebd32759d6d56d89c58890aac16943c657a5d857"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75f00189764cbc7a52a3878cebd32759d6d56d89c58890aac16943c657a5d857"
   class="pageLink">Il ne vous reste qu'à descendre par les marches creusées dans le
   sol, si ce n'est déjà fait</a></p>
-- <p><a href="/read_choice/0fe6b68c70b13ed8b020b3ef389801ebc718733037cc42480e3d8a63cdc123d1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0fe6b68c70b13ed8b020b3ef389801ebc718733037cc42480e3d8a63cdc123d1"
   class="pageLink">ou à quitter cet endroit pour partir explorer les environs.</a></p>

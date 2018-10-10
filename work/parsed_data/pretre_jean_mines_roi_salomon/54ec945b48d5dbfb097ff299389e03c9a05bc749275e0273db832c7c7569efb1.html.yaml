@@ -9,8 +9,8 @@
   votre être se révolte contre ce sort odieux. Réunissant vos dernières forces, vous
   tentez de sauter hors de la marmite.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/65441d40f8fd82346a3837c7b24a00c550f362aa1f5e74d88d91abaa5fd10856"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/65441d40f8fd82346a3837c7b24a00c550f362aa1f5e74d88d91abaa5fd10856"
   class="pageLink">Si le résultat est 5 ou davantage.</a></p>
-- <p><a href="/read_choice/48b327a286da4e9b9de952ea31267dcc6fbb2cbfce3f18a4e93be82a716a0931"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/48b327a286da4e9b9de952ea31267dcc6fbb2cbfce3f18a4e93be82a716a0931"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

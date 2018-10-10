@@ -8,8 +8,8 @@
   Ses protections magiques vous ont fait gaspiller la puissance de l'Œil : vous ne
   pourrez plus vous en servir jusqu'à la fin de l'aventure !</p>"
 - "<p>Maintenant, qu'allez-vous faire ?</p>"
-- <p><a href="/read_choice/8f31de660636fd97348fb9f930b1ac86c07058a58cdd417fa04870814e5f9aa2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8f31de660636fd97348fb9f930b1ac86c07058a58cdd417fa04870814e5f9aa2"
   class="pageLink">Attaquer le démon à l'épée ?</a></p>
 - |-
-  <p><a href="/read_choice/466b970949ac35323ec4983e4422734c1baeee90f0d89203faaff28380bdefe5" class="pageLink">Essayer de lui parler ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/466b970949ac35323ec4983e4422734c1baeee90f0d89203faaff28380bdefe5" class="pageLink">Essayer de lui parler ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2015/01/326.html">Vous enfuir au plus vite ?</a></p>

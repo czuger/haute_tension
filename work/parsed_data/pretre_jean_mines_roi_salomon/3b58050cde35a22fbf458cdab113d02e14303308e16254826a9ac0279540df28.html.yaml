@@ -4,8 +4,8 @@
   Comme cela ne vous était pas arrivé depuis longtemps, vous vous sentez soudain tout
   guilleret, au point que, sans l'écho, vous vous mettriez presque à chanter.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/46131c0934ac4aacf8898c593ddaa8bf094c0d8467524c05f9464512894b9306"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/46131c0934ac4aacf8898c593ddaa8bf094c0d8467524c05f9464512894b9306"
   class="pageLink">Si le résultat est inférieur ou égal à 9.</a></p>
-- <p><a href="/read_choice/47bf6b8089d9cbcf20c14395248b5e2e772cc50978b541967d69b3e9ec1beded"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/47bf6b8089d9cbcf20c14395248b5e2e772cc50978b541967d69b3e9ec1beded"
   class="pageLink">S'il est supérieur ou égal à 10.</a></p>
 - "<p> </p>"

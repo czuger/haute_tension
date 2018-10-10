@@ -1,11 +1,11 @@
 ---
 - "<p>Désirez-vous utiliser une des potions que vous a vendues l'Apothicaire? Laquelle?</p>"
-- <p><a href="/read_choice/fb0368dfe9ed2b72008fc22abac2711ce63c8449de0f32d66a918e54a53dd25b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fb0368dfe9ed2b72008fc22abac2711ce63c8449de0f32d66a918e54a53dd25b"
   class="pageLink">La bleue?</a></p>
-- <p><a href="/read_choice/f84d5edccd5e4f553082d4924e70876d7621785eeb31196ba732dc820e7d7814"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f84d5edccd5e4f553082d4924e70876d7621785eeb31196ba732dc820e7d7814"
   class="pageLink">La jaune ?</a></p>
-- <p><a href="/read_choice/fa16d7bc6e69959788dcf85a03507893027196571d1657c3119f54c90fdbced8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fa16d7bc6e69959788dcf85a03507893027196571d1657c3119f54c90fdbced8"
   class="pageLink">La verte?</a></p>
-- <p><a href="/read_choice/75d393df80096e390353a6e65c04e471dfef5aff8ec3c7315a48fdb5fbd98bb9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75d393df80096e390353a6e65c04e471dfef5aff8ec3c7315a48fdb5fbd98bb9"
   class="pageLink">Si vous ne possédez aucune de ces fioles ou si vous ne voulez courir
   aucun risque inutile, tirez votre épée.</a></p>

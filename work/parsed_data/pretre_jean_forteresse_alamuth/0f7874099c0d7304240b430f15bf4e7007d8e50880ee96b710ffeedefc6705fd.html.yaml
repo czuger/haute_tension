@@ -7,7 +7,7 @@
   peux également te proposer de l'équipement qui te sera utile au cours de ta quête.
   Mais plus utile encore te sera un renseignement que je te donnerai plus tard...
   »</p>"
-- <p><a href="/read_choice/5d972fcf94096a22428930279cbe977a368da3d61ee9f9ed79c0013991764420"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d972fcf94096a22428930279cbe977a368da3d61ee9f9ed79c0013991764420"
   class="pageLink">Si vous n'avez plus d'or.</a></p>
 - "<p>Si vous désirez acheter de l'équipement aux Templiers, voici ce qu'ils ont à
   vous proposer. Vous pouvez acheter chaque objet en plusieurs exemplaires, mais attention
@@ -22,7 +22,7 @@
 - "<p>Jeu de cartes : 2 pièces d'or</p>"
 - "<p>Une fois votre choix terminé, il vous reste à décider si vous acceptez de souper
   et de passer la nuit à la Commanderie en échange de 2 pièces d'or.</p>"
-- <p><a href="/read_choice/892e4da2b1123671c54f8fe5ccf73dcdc44f15de7f341a2551add3fedc4b7ca5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/892e4da2b1123671c54f8fe5ccf73dcdc44f15de7f341a2551add3fedc4b7ca5"
   class="pageLink">Si oui, rayez ces 2 pièces supplémentaires de vos possessions.</a></p>
-- <p><a href="/read_choice/7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
   class="pageLink">Si vous préférez quitter la Commanderie et la ville sans plus attendre.</a></p>

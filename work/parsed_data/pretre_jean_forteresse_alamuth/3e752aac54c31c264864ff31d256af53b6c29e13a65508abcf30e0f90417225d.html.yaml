@@ -6,7 +6,7 @@
   cette vision de cauchemar et l'odeur pestilentielle qui règne en cet endroit vous
   donne la nausée.</p>"
 - "<p>Préférez-vous :</p>"
-- <p><a href="/read_choice/2200de5defa177b8fbc73cc31b0c9b9e4cdfdb13b1001bdc578b8530ba876e1d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2200de5defa177b8fbc73cc31b0c9b9e4cdfdb13b1001bdc578b8530ba876e1d"
   class="pageLink">rebrousser chemin immédiatement et prendre l'autre piste</a></p>
-- <p><a href="/read_choice/b98f0c95f41e0eefd87e37ebc967b102919f3563ce0a3d7f75559df69417645d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b98f0c95f41e0eefd87e37ebc967b102919f3563ce0a3d7f75559df69417645d"
   class="pageLink">ou rassembler tout votre courage pour poursuivre votre route ?</a></p>

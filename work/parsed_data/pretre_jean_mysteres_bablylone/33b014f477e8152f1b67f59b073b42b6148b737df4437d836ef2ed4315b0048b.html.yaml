@@ -8,7 +8,7 @@
   et la porte s'ouvre. Un long couloir s'étend devant vous. Il est parfaitement éclairé
   sans qu'aucune torche n'y brille. Un hibou volette dans le couloir et semble vous
   inviter à le suivre.</p>"
-- <p><a href="/read_choice/333fbfbf97df4c48d149b14d6309d74064f46b7b0b7e3491c01b951fedd7f342"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/333fbfbf97df4c48d149b14d6309d74064f46b7b0b7e3491c01b951fedd7f342"
   class="pageLink">Désirez-vous rengainer votre épée</a></p>
-- <p><a href="/read_choice/9198d8e95967f06d22a22ae3fcb162c15e5295152c2c85f2c2acc6a260f35e6e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9198d8e95967f06d22a22ae3fcb162c15e5295152c2c85f2c2acc6a260f35e6e"
   class="pageLink">ou préférez-vous en garder en main ?</a></p>

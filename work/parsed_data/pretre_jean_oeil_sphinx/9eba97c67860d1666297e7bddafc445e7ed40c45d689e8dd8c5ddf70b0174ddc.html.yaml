@@ -9,7 +9,7 @@
   pour vos vêtements d'aspect inhabituel! Honteux et confus, vous vous agenouillez
   devant son corps sanguinolent.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/5741c4a0422e1fa65d4bbd7afd6ab903617247a49dc362fe4ffb6491b83977ad"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5741c4a0422e1fa65d4bbd7afd6ab903617247a49dc362fe4ffb6491b83977ad"
   class="pageLink">Si vous faites 5 ou moins.</a></p>
-- <p><a href="/read_choice/e59ecf5e2e0be998a29e98939bd41d6dccd199675b3d74aaae08c7f90313f0e5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e59ecf5e2e0be998a29e98939bd41d6dccd199675b3d74aaae08c7f90313f0e5"
   class="pageLink">Si vous faites 6 ou davantage.</a></p>

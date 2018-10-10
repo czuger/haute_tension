@@ -8,9 +8,9 @@
   Suis-moi dans ma caverne et je t'enseignerai la vérité ! »</p>"
 - "<p>Cet homme n'a pas l'air bien dangereux, mais il ne semble plus avoir toute sa
   raison.</p>"
-- <p><a href="/read_choice/3144eed2a5520bed725ae1e181948f635a137edc1d1e19e80b9042fdc4aa42cd"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3144eed2a5520bed725ae1e181948f635a137edc1d1e19e80b9042fdc4aa42cd"
   class="pageLink">Allez-vous accepter son invitation dans l'espoir d'apprendre quelque
   chose d'intéressant</a><em> </em></p>
-- <p><a href="/read_choice/5d99deb0a8e98a6e854c6d7e53f518a62425c0da6701a3255930cfdf25a8c03f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d99deb0a8e98a6e854c6d7e53f518a62425c0da6701a3255930cfdf25a8c03f"
   class="pageLink">ou bien préférez-vous l'assommer pour vous en débarrasser ?</a></p>
 - "<p> </p>"

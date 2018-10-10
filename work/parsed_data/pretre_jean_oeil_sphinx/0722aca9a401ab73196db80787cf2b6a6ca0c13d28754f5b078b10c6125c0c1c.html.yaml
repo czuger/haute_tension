@@ -5,8 +5,8 @@
 - "<p><strong>DRAP SPECTRAL</strong></p>"
 - "<p>FORCE: 9</p>"
 - "<p>VIE: 8</p>"
-- <p><a href="/read_choice/2f6270efa4f5fea6b219bf1d5e2970b4f697a1a51301beb01355b96369b412e7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f6270efa4f5fea6b219bf1d5e2970b4f697a1a51301beb01355b96369b412e7"
   class="pageLink">Si vous êtes réduit à moins de 3 points de Vie.</a></p>
-- <p><a href="/read_choice/ff421fd62d56899891a143cea457fc5d79f7d55068e2c4afe3aba00b33a86327"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ff421fd62d56899891a143cea457fc5d79f7d55068e2c4afe3aba00b33a86327"
   class="pageLink">Si, au contraire, vous en sortez.</a></p>
 - "<p> </p>"

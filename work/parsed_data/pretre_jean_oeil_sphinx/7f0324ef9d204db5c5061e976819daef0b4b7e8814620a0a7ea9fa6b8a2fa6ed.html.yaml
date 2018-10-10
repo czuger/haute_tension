@@ -5,9 +5,9 @@
   à vous d'un peu trop près. En effet, une paire de forts gaillards portant la tenue
   des gardes vous observe avec attention. Aussitôt, la jeune fille vous indique une
   étroite venelle entre les maisons qui bordent la place.</p>"
-- <p><a href="/read_choice/3d96b957265a4435fee47d485dc43d0d701213e19292225796142d6beeffc57e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3d96b957265a4435fee47d485dc43d0d701213e19292225796142d6beeffc57e"
   class="pageLink">Allez-vous la suivre</a></p>
-- <p><a href="/read_choice/28f65b88e0760578093aed6f826fefd152c68b7796107c2f47373702182f0ad5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/28f65b88e0760578093aed6f826fefd152c68b7796107c2f47373702182f0ad5"
   class="pageLink">ou bien êtes-vous soupçonneux et préférez-vous la quitter dès maintenant
   ?</a><em> </em></p>
 - "<p> </p>"

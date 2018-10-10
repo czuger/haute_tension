@@ -5,10 +5,10 @@
   vide. Quatre pièces seulement sont utilisées: une cuisine, une chambre, une salle
   commune et une remise. Vous trouvez deux pièces d'or dans la salle commune, et un
   onguent dans la chambre.</p>"
-- <p><a href="/read_choice/1b99ca866745cc035afc6fcda498a42e05a3cf57330dff5003a9e0481e15455a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1b99ca866745cc035afc6fcda498a42e05a3cf57330dff5003a9e0481e15455a"
   class="pageLink">Si vous désirez l'appliquer sur vos brûlures.</a></p>
 - "<p>Sinon, vous quittez cette maison qui ne présente plus aucun intérêt.</p>"
-- <p><a href="/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
   class="pageLink">Si vous vous dirigez vers la maison au crabe.</a></p>
-- <p><a href="/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
   class="pageLink">Si vous préférez la maison au serpent.</a></p>

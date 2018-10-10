@@ -1,21 +1,21 @@
 ---
 - "<p>Quel sort parmi ceux que vous possédez allez-vous vous choisir de lancer ?</p>"
-- <p><a href="/read_choice/f56f5b98dcb96f0e1dcb4b3c7eac6e80d6fba5259df0bb96eb38fdcb6998c0e8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f56f5b98dcb96f0e1dcb4b3c7eac6e80d6fba5259df0bb96eb38fdcb6998c0e8"
   class="pageLink">Un Sort de Pétrification ?</a></p>
-- <p><a href="/read_choice/560cb8a8154eebb710580204d3a1c936fb98c7e752b8da76d08316ed4bb78ae4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/560cb8a8154eebb710580204d3a1c936fb98c7e752b8da76d08316ed4bb78ae4"
   class="pageLink">Un Sort permettant de changer la pierre en boue ?</a></p>
-- <p><a href="/read_choice/459ad6db0b47e9a5f9904336ffcb304c7ba9f3ef23bb5b1c34e37f3e1746ae07"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/459ad6db0b47e9a5f9904336ffcb304c7ba9f3ef23bb5b1c34e37f3e1746ae07"
   class="pageLink">Un Sort de Détection du Mal ?</a></p>
 - |-
-  <p><a href="/read_choice/078cfbfa8b6677c4c142e16736eebf0dbf71ad5596805df675e5071e001af20a" class="pageLink">Le Sort A du prophète ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/078cfbfa8b6677c4c142e16736eebf0dbf71ad5596805df675e5071e001af20a" class="pageLink">Le Sort A du prophète ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/475-8.html">Le Sort B du prophète ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/524-8.html">Le Sort C du prophète ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/11.html">Le Sort D du prophète ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/316-2.html">Le Sort E du prophète ?</a></p>
 - "<p> </p>"
-- <p><a href="/read_choice/3103ef3d5c448e25249af18af3feddd5ca5cb2d12191ff409e8c4dcae41c183a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3103ef3d5c448e25249af18af3feddd5ca5cb2d12191ff409e8c4dcae41c183a"
   class="pageLink">Si vous n'avez aucun de ces sorts, allez-vous laquer le Lutin à
   l'épée</a></p>
-- <p><a href="/read_choice/48a0f2785cd47b60203ca0506a03cccb1be12415cc6e2934977fc9971fc0bd0f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/48a0f2785cd47b60203ca0506a03cccb1be12415cc6e2934977fc9971fc0bd0f"
   class="pageLink">ou tendre sans le menacer ?</a><em> </em></p>
 - "<p> </p>"

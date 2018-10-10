@@ -13,7 +13,7 @@
   : le chemin qui mène dans la Forteresse se situe derrière cette porte ! Vous remarquez
   deux serrures superposées. « La clef d'argent au cou de l'Homme-Lézard ! » Comment
   ne pas y avoir songé plus tôt? Avez-vous pensé à l'emporter?</p>"
-- <p><a href="/read_choice/1f9bfc1b3c1279a63bbe7382d0f842f9757de4e793acdf6bf88b13211708d63a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1f9bfc1b3c1279a63bbe7382d0f842f9757de4e793acdf6bf88b13211708d63a"
   class="pageLink">Si c'est le cas.</a></p>
-- <p><a href="/read_choice/5d65adbed64e9f4b3edfd90fcfda262ed249842ad9b8211963829126c09d7a98"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d65adbed64e9f4b3edfd90fcfda262ed249842ad9b8211963829126c09d7a98"
   class="pageLink">Sinon, retournez la chercher.</a></p>

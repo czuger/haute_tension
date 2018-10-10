@@ -10,10 +10,10 @@
   qui imbibent là salle. Vous comprenez vite que vous avez dû entrer dans l'atelier
   des embaumeurs de la ville !</p>"
 - "<p>Déciderez-vous de :</p>"
-- <p><a href="/read_choice/3da9b5c66dbe3e2678d30942f13550f90a8c1c4b5d395890bc70748574007cc2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3da9b5c66dbe3e2678d30942f13550f90a8c1c4b5d395890bc70748574007cc2"
   class="pageLink">Quitter cet endroit ?</a></p>
-- <p><a href="/read_choice/740f7fdfb6308f03ef17d19a19a7dd9ce35e47ba8801810391c2cf82a11017fc"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/740f7fdfb6308f03ef17d19a19a7dd9ce35e47ba8801810391c2cf82a11017fc"
   class="pageLink">Interpeller un des ouvriers ?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/12bdcfb181f2e6f382dfb25b79f6d72eea5870a8b6152dddcb6b83225e25e28b">Vous cacher dans l'ombre pour observer ?</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/12bdcfb181f2e6f382dfb25b79f6d72eea5870a8b6152dddcb6b83225e25e28b">Vous cacher dans l'ombre pour observer ?</a></p>

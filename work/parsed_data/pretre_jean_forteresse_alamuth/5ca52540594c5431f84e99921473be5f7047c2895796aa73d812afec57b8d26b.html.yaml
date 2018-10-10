@@ -8,7 +8,7 @@
   mage venu de loin pour travailler à la Forteresse? Ton allure m'indique que tu n'es
   pas d'ici ! Quoi qu'il en soit, je t'aiderai de mon mieux ! »</p>"
 - "<p>Avez-vous rendu visite à Slig l'Alchimiste ?</p>"
-- <p><a href="/read_choice/c358f1cb91f91a0af47ab96539d8ea9ee64aa9f881ccb7f3f33a075cb159abb9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c358f1cb91f91a0af47ab96539d8ea9ee64aa9f881ccb7f3f33a075cb159abb9"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/bb82a099f957cf7dcb92ee886f769af1aa4b0047669aaccd567eb85538bde4ff"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bb82a099f957cf7dcb92ee886f769af1aa4b0047669aaccd567eb85538bde4ff"
   class="pageLink">Dans le cas contraire.</a></p>

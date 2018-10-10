@@ -1,10 +1,10 @@
 ---
 - "<p>Vous remuez du bout de votre épée un amas de lambeaux de bandelettes craquantes
   et de tissu grossier. Vous ne trouvez rien.</p>"
-- <p><a href="/read_choice/b083f1c3cfe81af5c9b906f6cb6032829c37e279dee8db0c9227b1e16cab6f42"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b083f1c3cfe81af5c9b906f6cb6032829c37e279dee8db0c9227b1e16cab6f42"
   class="pageLink">Désirez-vous soulever le couvercle de l'autre sarcophage,</a></p>
-- <p><a href="/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
   class="pageLink">fouiller la pièce</a></p>
-- <p><a href="/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
   class="pageLink">ou faire demi-tour jusqu'au camp de la caravane ?</a><em> </em></p>
 - "<p> </p>"

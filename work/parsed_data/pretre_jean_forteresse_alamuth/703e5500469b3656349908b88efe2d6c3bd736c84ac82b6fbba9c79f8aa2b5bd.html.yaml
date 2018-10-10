@@ -1,7 +1,7 @@
 ---
 - "<p>La table elle-même n'offre aucun intérêt mais vous découvrez deux tiroirs de
   part et d'autre du meuble.</p>"
-- <p><a href="/read_choice/1d4df656f06a7b17ba7a806767e62ca97faf3cc2f02e1cc05261152b928ac5ea"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1d4df656f06a7b17ba7a806767e62ca97faf3cc2f02e1cc05261152b928ac5ea"
   class="pageLink">Ouvrirez- vous celui de gauche</a></p>
-- <p><a href="/read_choice/7a6fa3cc638a65487faa718dfc762981594fc53da629b79040664ac7e46ba889"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a6fa3cc638a65487faa718dfc762981594fc53da629b79040664ac7e46ba889"
   class="pageLink">ou celui de droite ?</a></p>

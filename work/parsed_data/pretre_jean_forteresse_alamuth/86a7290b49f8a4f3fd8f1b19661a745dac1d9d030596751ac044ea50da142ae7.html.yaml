@@ -7,7 +7,7 @@
   en détournant l'attention du chef, tout en prenant garde aux autres occupants de
   la pièce.</p>"
 - "<p>Lancez 2 dés pour savoir si vous réussissez :</p>"
-- <p><a href="/read_choice/c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834"
   class="pageLink">Si le total de vos points est divisible par 3.</a></p>
-- <p><a href="/read_choice/2f1c54d09fb38df649993b5b22c170899bc84d1a503ee6b67cbd175b2e8b2a1d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f1c54d09fb38df649993b5b22c170899bc84d1a503ee6b67cbd175b2e8b2a1d"
   class="pageLink">Dans le cas contraire.</a></p>

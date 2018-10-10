@@ -10,7 +10,7 @@
   en as les moyens, tu me paieras 2 pièces d'or par amulette que tu choisiras », conclut
   la fillette, le regard plein d'espoir.</p>
 - "<p>Déciderez-vous d'acheter :</p>"
-- <p><a href="/read_choice/9084844b4d97e652394ddecb53e5f560e0a5e291911811948f8c4622806e9ecf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9084844b4d97e652394ddecb53e5f560e0a5e291911811948f8c4622806e9ecf"
   class="pageLink">une seule amulette</a></p>
-- <p><a href="/read_choice/bae9f0269e09290c6bcc8ce8d59e835163b6ac166cd1a750646fae6146dbc443"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bae9f0269e09290c6bcc8ce8d59e835163b6ac166cd1a750646fae6146dbc443"
   class="pageLink">ou plus d'une ?</a></p>

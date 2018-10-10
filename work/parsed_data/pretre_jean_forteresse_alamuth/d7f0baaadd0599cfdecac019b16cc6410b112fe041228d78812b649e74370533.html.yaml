@@ -11,7 +11,7 @@
   marchez jusqu'à la porte. Alors vous vous souvenez du trousseau de clefs sur le
   panneau. Vous l'examinez sans le toucher. Il comporte trois clefs : l'une en pierre
   verte, sans doute du jade, la seconde en bronze, la troisième faite d'un métal inconnu.</p>"
-- <p><a href="/read_choice/f7379bc149582bc9b90d2c9d0b9000247b0ae86bbdefb585ecf3edf9fb82f99c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f7379bc149582bc9b90d2c9d0b9000247b0ae86bbdefb585ecf3edf9fb82f99c"
   class="pageLink">Vous pouvez prendre ce trousseau avant de partir</a></p>
-- <p><a href="/read_choice/c497baad5482585eb53f4b2d913ba713838048613a732046322ff7a5cc0f730f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c497baad5482585eb53f4b2d913ba713838048613a732046322ff7a5cc0f730f"
   class="pageLink">ou sortir directement de la Forge pour reprendre votre exploration.</a></p>

@@ -21,7 +21,7 @@
   !» Vous respirez un. bon coup et quittez les gardes. Le soleil est dans votre dos.
   Les trois galeries s'enfoncent en direction du nord.</p>"
 - "<p>Avez-vous fouillé un squelette ?</p>"
-- <p><a href="/read_choice/748d114a64f1302e61bb55df601f47af66c2946da14dcd9b86a4245f0aeb3e22"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/748d114a64f1302e61bb55df601f47af66c2946da14dcd9b86a4245f0aeb3e22"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/d83b2ad9f68d61e8453d83dd82c42af726444a3cdc07aea5ce5d999fcf151bb9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d83b2ad9f68d61e8453d83dd82c42af726444a3cdc07aea5ce5d999fcf151bb9"
   class="pageLink">Sinon.</a></p>

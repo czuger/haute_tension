@@ -4,7 +4,7 @@
   et collant vous donne la nausée : allez-vous pouvoir surmonter une telle épreuve
   ?</p>"
 - "<p>Jetez un dé pour déterminer votre potentiel de réussite.</p>"
-- <p><a href="/read_choice/e9f748e3e41da09a3c6a4158e239a587bb8851ec91442c2b12813ddaa413a10f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e9f748e3e41da09a3c6a4158e239a587bb8851ec91442c2b12813ddaa413a10f"
   class="pageLink">Si le chiffre obtenu est pair.</a></p>
-- <p><a href="/read_choice/1fa95296334b9ac13ecb1559c2931644da0571870f2b0a9b44e52dc09ee31313"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1fa95296334b9ac13ecb1559c2931644da0571870f2b0a9b44e52dc09ee31313"
   class="pageLink">Sinon.</a></p>

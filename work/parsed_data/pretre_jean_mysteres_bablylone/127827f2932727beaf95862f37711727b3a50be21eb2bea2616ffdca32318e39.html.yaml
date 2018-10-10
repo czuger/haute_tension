@@ -4,8 +4,8 @@
   peu sûr que de vous dissimuler dans une ruelle. Il est pourtant trop tard pour trouver
   une autre solution.</p>"
 - "<p>Préférez-vous :</p>"
-- <p><a href="/read_choice/8d191dbba5301f95aca4540cd4df53e0587c3bd211479d11e5b04787daf93898"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8d191dbba5301f95aca4540cd4df53e0587c3bd211479d11e5b04787daf93898"
   class="pageLink">Vous glisser dans un des bâtiments ?</a></p>
-- <p><a href="/read_choice/ae72f0b5310dc6ec7cc01f7b45ee8f03c58fea124ce53d3823131d51b812e4b7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae72f0b5310dc6ec7cc01f7b45ee8f03c58fea124ce53d3823131d51b812e4b7"
   class="pageLink">Trouver un coin à l'abri des regards dans une ruelle ?</a><em>
   </em></p>

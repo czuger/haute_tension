@@ -2,10 +2,10 @@
 - |-
   <p>Vous vous agenouillez sur les dalles et vous vous attaquez au sarcophage avec la pointe de votre couteau. Vous jetez votre dévolu sur un triangle d'argent profondément enchâssé dans le bois. Vous enfoncez la lame du coutelas dans un interstice et, en la remuant doucement dans tous les sens, vous appuyez de plus en <em>plus </em>fort. Le <em>bloc </em>bouge à<br>
    peine. Vous forcez encore. Avec un bruit sec, la lame de votre couteau se brise juste à la hauteur du manche. Furieux, vous le jetez contre un mur (rayez-le de la liste de vos possessions). Votre épée ne vous serait d'aucune aide pour une tâche aussi minutieuse.</p>
-- <p><a href="/read_choice/c5bb171be7f2999382222e5d4b8b959986ca6c1da6855d28b97c1bec7f848d08"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c5bb171be7f2999382222e5d4b8b959986ca6c1da6855d28b97c1bec7f848d08"
   class="pageLink">Désirez-vous soulever le couvercle du sarcophage pour voir ce qu'il
   contient,</a></p>
-- <p><a href="/read_choice/a4917c74de99858fb4d588df3b84712d3153e1fc81ea8c8cc41b703fab0af901"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a4917c74de99858fb4d588df3b84712d3153e1fc81ea8c8cc41b703fab0af901"
   class="pageLink">prendre l'arme de la momie</a></p>
-- <p><a href="/read_choice/f1b8b460aad3b3d416b43923df49894ed2e49b8a8f8e4e2e7b51806681e6a46b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1b8b460aad3b3d416b43923df49894ed2e49b8a8f8e4e2e7b51806681e6a46b"
   class="pageLink">ou ôter son-masque d'or ?</a></p>

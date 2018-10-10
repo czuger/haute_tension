@@ -6,7 +6,7 @@
   à fait soûl, arrive derrière vous et vous interpelle. Profitant de son état d'ébriété
   avancé, vous tirez votre épée.</p>"
 - "<p><strong>GARDE </strong>FORCE : 6 VIE : 12</p>"
-- <p><a href="/read_choice/f4ec02808d7ff74fae35c7f7574bc757976fb9b314dfcb4b089eb85823dbaba8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f4ec02808d7ff74fae35c7f7574bc757976fb9b314dfcb4b089eb85823dbaba8"
   class="pageLink">Si vous remportez le premier assaut.</a></p>
-- <p><a href="/read_choice/37b5f0ec413e0c97d107142a551caf3cd3b46a954ca602f74e5941b7f986ed52"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/37b5f0ec413e0c97d107142a551caf3cd3b46a954ca602f74e5941b7f986ed52"
   class="pageLink">Si le garde remporte le premier assaut.</a></p>

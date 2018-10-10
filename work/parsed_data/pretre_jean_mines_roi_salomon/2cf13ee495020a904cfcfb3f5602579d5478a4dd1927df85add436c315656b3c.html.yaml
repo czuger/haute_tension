@@ -5,7 +5,7 @@
   sanctuaire !</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/224ba1f242ceb372099e099df4b3e3cf2586352728bd53d3655872f12b46c3e2">Si vous disposez d'une fronde.</a></p>
-- <p><a href="/read_choice/307b9286e7dbdc332e8f4456a52f53235ca041094f08eaedb2bdd0f626d8ef85"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/224ba1f242ceb372099e099df4b3e3cf2586352728bd53d3655872f12b46c3e2">Si vous disposez d'une fronde.</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/307b9286e7dbdc332e8f4456a52f53235ca041094f08eaedb2bdd0f626d8ef85"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

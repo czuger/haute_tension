@@ -4,9 +4,9 @@
   chute de pierres plus petites. Votre cotte de mailles n'a pas offert de protection
   suffisante pour que vous puissiez sortir indemne de cet accident. Vous perdez 2
   points de Vie. Prudent, vous décidez d'emprunter un autre chemin.</p>"
-- <p><a href="/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
   class="pageLink">Préférez-vous maintenant longer le mur de droite,</a></p>
-- <p><a href="/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
   class="pageLink">traverser la pièce</a></p>
-- <p><a href="/read_choice/39f758daa6588739ab0c30d99f4ac789e6f412c3c4d3c0a2f956b71496358a0e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/39f758daa6588739ab0c30d99f4ac789e6f412c3c4d3c0a2f956b71496358a0e"
   class="pageLink">ou bien retourner au campement ?</a><em> </em></p>

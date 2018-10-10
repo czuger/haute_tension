@@ -10,11 +10,11 @@
   Pris dans votre étreinte, l'homme semble avoir quelque difficulté à respirer. Vous
   le laissez tomber comme une chiffe molle et il s'effondre sur le sol. Vous quittez
   sa boutique.</p>"
-- <p><a href="/read_choice/17451fe2809effb9e41539705ce1f014ecbac0edcdd06bef0b142869c5f67194"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/17451fe2809effb9e41539705ce1f014ecbac0edcdd06bef0b142869c5f67194"
   class="pageLink">Si vous désirez trouver d'autres renseignements et si vous ne l'avez
   pas déjà fait, vous pouvez vous rendre dans la maison décorée du compas</a></p>
-- <p><a href="/read_choice/20b8c82c28a3131ad11539a936516a3b1a3037fe298207fd5a5d36327a9ff06f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/20b8c82c28a3131ad11539a936516a3b1a3037fe298207fd5a5d36327a9ff06f"
   class="pageLink">ou dans celle, plus haute, d'où s'échappe une étrange odeur.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/7a9ec6d16a0f28b9b48574b4b963d50e66076f8b707daaad5717ddd8ac3d907a">Si vous choisissez de partir dès à présent vers le tombeau.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/7a9ec6d16a0f28b9b48574b4b963d50e66076f8b707daaad5717ddd8ac3d907a">Si vous choisissez de partir dès à présent vers le tombeau.</a></p>

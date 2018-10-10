@@ -2,9 +2,9 @@
 - "<p>Vous vous relevez brusquement. Un frisson de faiblesse vous envahit soudain
   et se répercute dans tout votre corps. Quelques heures de repos ne seraient pas
   un luxe.</p>"
-- <p><a href="/read_choice/da03d7a29a2eab399ea7a8fff082bb4af5df3eb443f93884f7919d7f5531185f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/da03d7a29a2eab399ea7a8fff082bb4af5df3eb443f93884f7919d7f5531185f"
   class="pageLink">Allez-vous vous dissimuler dans un recoin sombre de la galerie
   que vous devez maintenant emprunter, pour vous y endormir ?</a></p>
-- <p><a href="/read_choice/4923cbb2f92e0ac900d2c185a8e98800b5a94111aeec3009548af6b619fe3850"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4923cbb2f92e0ac900d2c185a8e98800b5a94111aeec3009548af6b619fe3850"
   class="pageLink">Ou, jugeant les risques trop importants, préférez-vous quitter
   cet endroit au plus vite ?</a></p>

@@ -1,8 +1,8 @@
 ---
 - "<p>«Tu paieras cet outrage de ta vie, démon !» clamez-vous en tirant votre épée.
   Avec un mouvement de recul, les Hommes de Lave se raidissent, prêts à combattre.</p>"
-- <p><a href="/read_choice/8fbba3cf2eebf2d05ef5209d460864925c1e8b9ebb253fd90da1b8642963e7b9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8fbba3cf2eebf2d05ef5209d460864925c1e8b9ebb253fd90da1b8642963e7b9"
   class="pageLink">Voulez-vous les affronter par la force de vos armes</a></p>
-- <p><a href="/read_choice/ea0e5b7c15b09510ac42978f369212ed0af07bc9b51bbad413adeca965c9b0c2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ea0e5b7c15b09510ac42978f369212ed0af07bc9b51bbad413adeca965c9b0c2"
   class="pageLink">ou bien choisirez-vous d'utiliser la puissance inestimable de l'Œil
   Magique ?</a></p>

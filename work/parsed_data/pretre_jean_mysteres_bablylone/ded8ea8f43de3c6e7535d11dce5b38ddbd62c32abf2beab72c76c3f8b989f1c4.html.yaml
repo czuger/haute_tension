@@ -10,7 +10,7 @@
 - "<p>FORCE: 8 VIE: 10</p>"
 - "<p>A chaque assaut que vous perdez, votre ennemi vous inflige une terrible brûlure
   : vous perdez la moitié de vos points de Vie.</p>"
-- <p><a href="/read_choice/88cea532ef27283aceda866bd8c1e8d6224664fafed978bcee1a1bef26924c4e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/88cea532ef27283aceda866bd8c1e8d6224664fafed978bcee1a1bef26924c4e"
   class="pageLink">Si vous arrivez à un point.</a></p>
-- <p><a href="/read_choice/0db4874842265ef677e239746dcc798d6cae797cd96a9ac051d499974f2f6219"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0db4874842265ef677e239746dcc798d6cae797cd96a9ac051d499974f2f6219"
   class="pageLink">Si vous gagnez ce combat.</a></p>

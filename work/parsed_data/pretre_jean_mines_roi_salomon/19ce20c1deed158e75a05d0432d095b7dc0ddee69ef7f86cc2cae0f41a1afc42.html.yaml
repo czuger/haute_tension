@@ -8,12 +8,12 @@
   vous découvrez une ouverture dans le flanc de la caverne. C'est une galerie qui
   semble s'orienter vers le haut.</p>"
 - "<p>Que décidez-vous de faire :</p>"
-- <p><a href="/read_choice/8371f08380adc1898eb88ccf1fe5a1e83bb91251e51ac6dfa303b547fe7fd3b5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8371f08380adc1898eb88ccf1fe5a1e83bb91251e51ac6dfa303b547fe7fd3b5"
   class="pageLink">Enfiler l'armure et emprunter cette galerie ?</a></p>
-- <p><a href="/read_choice/29c7858b2e22ae62f18962a60d95db3925478f953ff73137f5136084b1722437"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/29c7858b2e22ae62f18962a60d95db3925478f953ff73137f5136084b1722437"
   class="pageLink">Enfiler l'armure et faire demi-tour pour trouver une autre issue
   ?</a></p>
-- <p><a href="/read_choice/48c4429d44f5c3fbbdcf8a1efb4ed3fd59c227a35d55cec601e689a55a308701"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/48c4429d44f5c3fbbdcf8a1efb4ed3fd59c227a35d55cec601e689a55a308701"
   class="pageLink">Laisser l'armure et emprunter la galerie ?</a><em> </em></p>
-- <p><a href="/read_choice/b43e5f0cea160ee59a5abacae49197dab77e8d5f8e26f319e103443463493f74"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b43e5f0cea160ee59a5abacae49197dab77e8d5f8e26f319e103443463493f74"
   class="pageLink">Laisser l'armure et faire demi-tour ?</a></p>

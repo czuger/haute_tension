@@ -9,8 +9,8 @@
   Il possède seulement 2 pièces d''or au fond d''une bourse en lambeaux. Vous pouvez
   les empocher si vous le désirez.</p>'
 - "<p>Il vous reste maintenant à prendre l'embranchement :</p>"
-- <p><a href="/read_choice/de4de92acaae98f36ed8f7d4632c7896d77e9cdcbaba9499afbb587cdae8eaad"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/de4de92acaae98f36ed8f7d4632c7896d77e9cdcbaba9499afbb587cdae8eaad"
   class="pageLink">de gauche</a></p>
-- <p><a href="/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554"
   class="pageLink">ou continuer tout droit.</a></p>
 - "<p> </p>"

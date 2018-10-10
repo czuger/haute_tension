@@ -3,8 +3,8 @@
   retient son souille ... Les dés s'immobilisent ! Vous avez perdu ! Vos 2 pièces
   d'or échoueront dans la poche d'un mineur, à moins que vous ne réussissiez à les
   regagner en jouant une autre partie.</p>"
-- <p><a href="/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
   class="pageLink">Si vous désirez rejouer, relancer les dés. Vous pouvez rejouer
   jusqu'à concurrence de cinq parties ou d un gain de 30 pièces d'or.</a></p>
-- <p><a href="/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
   class="pageLink">Si vous préférez ne plus rejouer.</a></p>

@@ -6,7 +6,7 @@
   coupe court à vos réflexions. Vous vous adossez un moment à là paroi pour examiner
   la situation. Le tunnel que vous suiviez continue tout droit. La nouvelle galerie
   qui s'ouvre ici part vers la droite.</p>"
-- <p><a href="/read_choice/3e8b4c6a351aecea19a7dcc19c84f0ca55c9d335cd7c6248116511bb80224bae"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3e8b4c6a351aecea19a7dcc19c84f0ca55c9d335cd7c6248116511bb80224bae"
   class="pageLink">Allez-vous continuer dans le même tunnel</a></p>
-- <p><a href="/read_choice/d758be1460383649301aa879fe19aa951ba835ae59af83dc0caa299fd8e7b450"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d758be1460383649301aa879fe19aa951ba835ae59af83dc0caa299fd8e7b450"
   class="pageLink">ou prendre la galerie à droite ?</a></p>

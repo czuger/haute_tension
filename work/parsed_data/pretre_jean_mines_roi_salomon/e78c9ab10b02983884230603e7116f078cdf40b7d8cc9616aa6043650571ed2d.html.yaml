@@ -3,9 +3,9 @@
   sympathique. Si tu le désires, je peux te parler de ce prisonnier. .. contre la
   modique somme de 5 pièces d'or. .. »</p>"
 - "<p>Qu'allez-vous faire :</p>"
-- <p><a href="/read_choice/2c464643ab8b7df2a7e903e2961b6edacc444e7a6e19c9fe431eae398224b7aa"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2c464643ab8b7df2a7e903e2961b6edacc444e7a6e19c9fe431eae398224b7aa"
   class="pageLink">payer les 5 pièces d'or, si vous les avez,</a></p>
-- <p><a href="/read_choice/d0c82428d86326c3f14a3c2abadc892a4f104676903666eb2782976383aee48b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d0c82428d86326c3f14a3c2abadc892a4f104676903666eb2782976383aee48b"
   class="pageLink">tenter de marchander</a></p>
-- <p><a href="/read_choice/126368f97f2d039b7dae670c129a5f2fcedb4913cd9ef434b933daef77307f21"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/126368f97f2d039b7dae670c129a5f2fcedb4913cd9ef434b933daef77307f21"
   class="pageLink">ou bien refuser catégoriquement de payer ?</a><em> </em></p>

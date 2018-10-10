@@ -8,5 +8,5 @@
 - "<p>Pour quitter cette salle par la porte qui se trouve de l'autre côté, allez-vous
   :</p>"
 - |-
-  <p><a href="/read_choice/baa2015c0bf0f2030ba0c5238734463746a97afd5788b65e312674397e05cf56" class="pageLink">Traverser le cône ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/baa2015c0bf0f2030ba0c5238734463746a97afd5788b65e312674397e05cf56" class="pageLink">Traverser le cône ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/521.html">Contourner le cône ?</a></p>

@@ -8,11 +8,11 @@
   passage secret.</p>"
 - "<p>Allez-vous à présent si vous ne l'avez déjà fait, essayer de trouve; un mécanisme
   dans la colonne à l'effigie :</p>"
-- <p><a href="/read_choice/db670671cc290aac6d3cc65f8a1e6b277ee95b2b087392e5b258a7257f7e51e3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/db670671cc290aac6d3cc65f8a1e6b277ee95b2b087392e5b258a7257f7e51e3"
   class="pageLink">de Geb,</a></p>
-- <p><a href="/read_choice/50bda1c988f6c9e0346ad1efe79f58a6fcc984cd166e5be51d518f57ae4728cb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/50bda1c988f6c9e0346ad1efe79f58a6fcc984cd166e5be51d518f57ae4728cb"
   class="pageLink">d'Osiris</a></p>
-- <p><a href="/read_choice/7bb5c2075bd162994e5a4cee8b88b6bc24b4e5662c984beba0e7abaa635f459d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7bb5c2075bd162994e5a4cee8b88b6bc24b4e5662c984beba0e7abaa635f459d"
   class="pageLink">ou de Thot.</a><em> </em></p>
-- <p><a href="/read_choice/67f019ea53f12fa0ea04de4509b1cc5bf62a6b62c3d13e14e34161552bb45417"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/67f019ea53f12fa0ea04de4509b1cc5bf62a6b62c3d13e14e34161552bb45417"
   class="pageLink">Si vous décidez de quitter cette salle.</a></p>

@@ -4,7 +4,7 @@
   qui bondit sur vous en essayant de vous mordre le visage. L'animal est presque aussi
   gros qu'un chat ! Trois de ses congénères surgissent des crevasses du sol. Ils ont
   apparemment épuisé leurs provisions de grain et sont prêts à tout pour se nourrir.</p>"
-- <p><a href="/read_choice/5a6af1a4b159e21014f9054ec3d6f72ed0f5e027a8fb785a0a6c89512592ff2f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6af1a4b159e21014f9054ec3d6f72ed0f5e027a8fb785a0a6c89512592ff2f"
   class="pageLink">Si vous avez pris le flacon sur l'étagère.</a></p>
 - "<p>Sinon, vous devrez combattre de votre mieux en essayant de ne pas faire de bruit.
   Pour chaque assaut, lancez deux dés pour vous, et deux fois deux dés pour les Rats
@@ -12,6 +12,6 @@
   assaut). Vous considérerez donc que vous affrontez deux adversaires par assaut,
   mais vous ne pourrez en frapper qu'un seul.</p>"
 - "<p><strong>Chaque RAT</strong> CARNIVORE FORCE: 5</p>"
-- <p><a href="/read_choice/974a5a3cd8e2d9be3937c209896d3d2e2fba09162c85e46b8d85779dd5207a16"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/974a5a3cd8e2d9be3937c209896d3d2e2fba09162c85e46b8d85779dd5207a16"
   class="pageLink">Dès que vous aurez remporté deux assauts.</a><em> </em></p>
 - "<p> </p>"

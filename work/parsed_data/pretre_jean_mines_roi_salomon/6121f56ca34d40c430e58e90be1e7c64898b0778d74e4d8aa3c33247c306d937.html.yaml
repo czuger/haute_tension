@@ -7,10 +7,10 @@
   adulte qui revient surveiller sa progéniture. Accélérant l'allure pour essayer d'échapper
   au monstre qui ne tardera pas à vous apercevoir, vous glissez et lâchez prise.</p>"
 - "<p>Lancez deux dés :</p>"
-- <p><a href="/read_choice/fc8cb95af4b18c6803705d0c230066c508148a59bc30e6d48589951222b6ff62"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fc8cb95af4b18c6803705d0c230066c508148a59bc30e6d48589951222b6ff62"
   class="pageLink">Si vous faites moins de 5,</a></p>
-- <p><a href="/read_choice/b1dafa402319d192093684d9289ca12168710e77124d6a4ce46a2dad9317bda1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b1dafa402319d192093684d9289ca12168710e77124d6a4ce46a2dad9317bda1"
   class="pageLink">entre 5 et 8,</a></p>
-- <p><a href="/read_choice/435ea2f7b8b9b2a7e803e3af0c2b1c3f251f01c181136245d7efbee88f57c3c2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/435ea2f7b8b9b2a7e803e3af0c2b1c3f251f01c181136245d7efbee88f57c3c2"
   class="pageLink">9 ou plus.</a></p>
 - "<p> </p>"

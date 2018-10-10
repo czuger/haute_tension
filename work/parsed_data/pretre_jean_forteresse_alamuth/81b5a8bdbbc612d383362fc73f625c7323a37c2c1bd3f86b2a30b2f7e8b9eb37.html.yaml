@@ -16,10 +16,10 @@
 - "<p>Aucun voyageur muni de 2 pièces d'or n'a jamais été dans l'impossibilité de
   continuer sa quête. »</p>"
 - "<p>Quelle réponse allez-vous donner à Ali Baba ?</p>"
-- <p><a href="/read_choice/e69cb5e2303b90ab28c885270db60709b6313f506df6c6ed3f270a8d371d8f38"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e69cb5e2303b90ab28c885270db60709b6313f506df6c6ed3f270a8d371d8f38"
   class="pageLink">Le voyageur peut poursuivre son chemin sans danger.</a></p>
-- <p><a href="/read_choice/d18daabef49655ba91fb4178d146b3920927d38c3ef5f3b380a59d0cf59925a5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d18daabef49655ba91fb4178d146b3920927d38c3ef5f3b380a59d0cf59925a5"
   class="pageLink">Il doit renoncer à traverser le passage.</a></p>
-- <p><a href="/read_choice/1316506f3151990f102a1d5949dc0813a41699ba3eaa2976ea516f4f931f229f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1316506f3151990f102a1d5949dc0813a41699ba3eaa2976ea516f4f931f229f"
   class="pageLink">Vous pensez que, sous couvert de l'énigme, Ali Baba vous demande
   2 pièces d'or pour un renseignement sur la route à suivre.</a></p>

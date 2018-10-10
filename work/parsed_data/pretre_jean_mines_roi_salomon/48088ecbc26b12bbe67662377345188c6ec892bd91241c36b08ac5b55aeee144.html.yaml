@@ -7,7 +7,7 @@
   trouvaille, vous glissez le parchemin dans votre sac. Notez-le sur votre Feuille
   d'Équipement.</p>"
 - "<p>Voulez-vous maintenant emprunter la galerie :</p>"
-- <p><a href="/read_choice/9411502320125edd81459557514d4ade1df9ea25286234356a6bd73767a5fed4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9411502320125edd81459557514d4ade1df9ea25286234356a6bd73767a5fed4"
   class="pageLink">sur la gauche</a> <em> </em></p>
-- <p><a href="/read_choice/742d5ef33d6d0370de78b45f80f168412dcb80e7f19a0f2676dcb7cd9c4dbc60"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/742d5ef33d6d0370de78b45f80f168412dcb80e7f19a0f2676dcb7cd9c4dbc60"
   class="pageLink">ou sur la droite ?</a></p>

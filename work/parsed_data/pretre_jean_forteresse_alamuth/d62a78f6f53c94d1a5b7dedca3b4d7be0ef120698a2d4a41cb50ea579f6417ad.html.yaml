@@ -4,9 +4,9 @@
   meuble vous donne l'impression de s'effriter sous votre monture. En écarquillant
   les yeux, vous distinguez entre les mottes de terre un objet brillant. Qu'allez-vous
   faire?</p>"
-- <p><a href="/read_choice/db3efefbc0d7f23c2b90b73bf725da8e3d1c1e0fabcd6c1070f5eb0f37b39cbc"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/db3efefbc0d7f23c2b90b73bf725da8e3d1c1e0fabcd6c1070f5eb0f37b39cbc"
   class="pageLink">Continuer et ramasser l'objet brillant ?</a> (220)</p>
-- <p><a href="/read_choice/b909192f4c9f69a886f63983ac85afc31132d969f58cd30fae93d2b1f69cb9f3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b909192f4c9f69a886f63983ac85afc31132d969f58cd30fae93d2b1f69cb9f3"
   class="pageLink">Descendre de cheval et longer la paroi à droite?</a> (443)</p>
-- <p><a href="/read_choice/8ea99c078fd50f4701e57fab086ca6839d4d8eff90180a89ce60a5f4f72f3b29"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8ea99c078fd50f4701e57fab086ca6839d4d8eff90180a89ce60a5f4f72f3b29"
   class="pageLink">Diriger votre monture vers la paroi de gauche?</a> (665)</p>

@@ -5,9 +5,9 @@
   mon devoir sera de l'exaucer. Mais sache qu'après, il sera inutile de m'invoquer
   car je ne pourrai plus t'aider. »</p>"
 - "<p>Que voulez-vous demander au Génie de la lampe ?</p>"
-- <p><a href="/read_choice/ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
   class="pageLink">La route qui mène à Shangri-La ?</a></p>
-- <p><a href="/read_choice/330f28cbc18fb4b4a0518d896a55e1b7bdf0c77d45b7ebcb2974d5838eabe87d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/330f28cbc18fb4b4a0518d896a55e1b7bdf0c77d45b7ebcb2974d5838eabe87d"
   class="pageLink">Comment rencontrer le Vieux de la Montagne?</a></p>
-- <p><a href="/read_choice/39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
   class="pageLink">De vous faire sortir de cette prison?</a></p>

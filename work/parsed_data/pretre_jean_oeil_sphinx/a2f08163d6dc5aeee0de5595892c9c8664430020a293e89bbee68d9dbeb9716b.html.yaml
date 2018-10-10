@@ -7,7 +7,7 @@
 - |-
   <p><br>
    Lancez deux dés.</p>
-- <p><a href="/read_choice/383405bb82b5659fd1a2c247e1c8bb415451b6655e0803477b53f8aa9daa75c3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/383405bb82b5659fd1a2c247e1c8bb415451b6655e0803477b53f8aa9daa75c3"
   class="pageLink">Si le résultat est supérieur ou égal à 4.</a></p>
-- <p><a href="/read_choice/46bf44c640e2292b7187389ef763533aa73fd2e443d94d972f49635990f1c6ee"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/46bf44c640e2292b7187389ef763533aa73fd2e443d94d972f49635990f1c6ee"
   class="pageLink">Sinon.</a></p>

@@ -32,12 +32,12 @@
   trois qui aura perdu, lorsqu'elle grimacera au bout d'une pique !» ajoute le guerrier,
   riant toujours. C'est à vous de jouer le premier.</p>"
 - "<p>Jetez deux dés.</p>"
-- <p><a href="/read_choice/de51e029fc54d1cb3e7e509cc72a62cb98189f7f6cdc2fc0b0d0c2417bc9e438"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/de51e029fc54d1cb3e7e509cc72a62cb98189f7f6cdc2fc0b0d0c2417bc9e438"
   class="pageLink">Si vous obtenez 11 ou 12.</a></p>
-- <p><a href="/read_choice/2205637e294932762098934005f9d69b338ead11c234c0165d36a7b2e98ef2c5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2205637e294932762098934005f9d69b338ead11c234c0165d36a7b2e98ef2c5"
   class="pageLink">Si vous faites 10.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/f4f22bc0ec988dfa79952b6f63ae0fd8915932001193b8b6e646db139fc22e58">Si vous faites 9.</a></p>
-- <p><a href="/read_choice/5d18dbd8a102fea418b07624e9a5a4e25a23f4c7b46e598d12bf0250f202d908"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/f4f22bc0ec988dfa79952b6f63ae0fd8915932001193b8b6e646db139fc22e58">Si vous faites 9.</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d18dbd8a102fea418b07624e9a5a4e25a23f4c7b46e598d12bf0250f202d908"
   class="pageLink">Si vous obtenez 8 ou moins.</a></p>

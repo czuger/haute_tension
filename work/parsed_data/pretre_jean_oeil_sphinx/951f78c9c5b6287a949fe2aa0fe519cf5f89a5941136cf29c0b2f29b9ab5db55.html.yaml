@@ -15,9 +15,9 @@
   cuir. Cela vous réconforte un peu. A présent, il vous faut concevoir un plan d'évasion.
   Vous décidez de vous instruire auprès d'un de vos trois compagnons.</p>"
 - "<p>Lequel allez-vous approcher :</p>"
-- <p><a href="/read_choice/7ce5545234531c2a8c626eabb8b7942b4923924a7776055ca79c5da1e96e6e28"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7ce5545234531c2a8c626eabb8b7942b4923924a7776055ca79c5da1e96e6e28"
   class="pageLink">Un homme au crâne rasé, vêtu seulement d'un pagne blanc ?</a></p>
-- <p><a href="/read_choice/bab1d64576f4f53d107ff288004da3cf381c3e59cfbe8a57d51a6f1d627685be"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bab1d64576f4f53d107ff288004da3cf381c3e59cfbe8a57d51a6f1d627685be"
   class="pageLink">Un barbu petit et râblé, au crâne également rasé ?</a></p>
-- <p><a href="/read_choice/433221a0a991fca911c863bddcb1668bf8e6e5172cf67eb5509073820a1d844d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/433221a0a991fca911c863bddcb1668bf8e6e5172cf67eb5509073820a1d844d"
   class="pageLink">Un homme qui ne semble pas venir d'Égypte ?</a><em> </em></p>

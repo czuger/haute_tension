@@ -9,9 +9,9 @@
   de lune. Puis verse ce produit sur le tapis et celui-ci t'emportera dans les airs
   où tu le désireras ! Cet élixir te coûtera 5 pièces d'or, ce qui est peu, tu en
   conviendras, étranger ! »</p>"
-- <p><a href="/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
   class="pageLink">Si vous possédez la somme nécessaire, rayez ces 5 pièces d'or de
   vos possessions et rajoutez la potion de lévitation à votre équipement.</a></p>
-- <p><a href="/read_choice/3fed052291d48320ce0d25946f2b08f277cfacb6c5297ffcfec08db8e59092fd"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3fed052291d48320ce0d25946f2b08f277cfacb6c5297ffcfec08db8e59092fd"
   class="pageLink">Si vous n'avez pas assez d'or, vous ne pouvez acheter la potion.
   Vous quittez l'échoppe de l'alchimiste.</a></p>

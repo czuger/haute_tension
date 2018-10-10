@@ -6,8 +6,8 @@
   l'elfe noir qui vous a amené dans le jeu rit sous cape. Cela vous laisse penser
   qu'il se trame quelque chose de louche dans cette partie, où vous avez gagné un
   peu trop facilement.</p>"
-- <p><a href="/read_choice/2d9f9f19ab0f5fe4ce6ad256adbc89b85cad2fb054b9882e1972ad6a82dea246"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2d9f9f19ab0f5fe4ce6ad256adbc89b85cad2fb054b9882e1972ad6a82dea246"
   class="pageLink">Si vous voulez insinuer que les elfes noirs ont truqué le jeu.</a></p>
-- <p><a href="/read_choice/83aac02b0406059c8154f9aa4b6bc72bc69bcf2fc0ce7ca6623b167e399e6bb0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/83aac02b0406059c8154f9aa4b6bc72bc69bcf2fc0ce7ca6623b167e399e6bb0"
   class="pageLink">Si vous voulez simplement questionner le premier elfe sur le moyen
   de trouver Barsip.</a></p>

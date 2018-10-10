@@ -8,8 +8,8 @@
   de cuisine assez grossiers et brisés, ainsi que des sacs de toile dont certains
   éventrés. On dirait qu'on les a abandonnés là avec précipitation.</p>"
 - "<p>Possédez-vous un objet magique (à l'exception de l'Œil) ?</p>"
-- <p><a href="/read_choice/98146138d28cf5bf948b56a6401dcc4ddf0ee4d48d706c9c513c3749f96c691c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/98146138d28cf5bf948b56a6401dcc4ddf0ee4d48d706c9c513c3749f96c691c"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/9e2342592056c24de08f6f60dbc94147a75a1a8129c9790e6f8b8ddcc46f9c85"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9e2342592056c24de08f6f60dbc94147a75a1a8129c9790e6f8b8ddcc46f9c85"
   class="pageLink">Sinon.</a><em> </em></p>
 - "<p> </p>"

@@ -18,9 +18,9 @@
   celle de nul autre. Tu es un être d'exception : aussi t'offrirai-je un choix.» Le
   tireur de cartes sort des replis de son habit un poignard effilé et une clef d'argent.
   «Tu peux prendre la clef ou la dague. Que décideras-tu ?»</p>"
-- <p><a href="/read_choice/64ee39dbe88d144cacd9f46023d2a6dde66580f456fdc55aa29d7b757ea0586a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/64ee39dbe88d144cacd9f46023d2a6dde66580f456fdc55aa29d7b757ea0586a"
   class="pageLink">Si vous prenez le poignard.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/3e5bb1294e961c4815fc3460c0253f56c714af625e8d8b04e52443d6f6694b01">Si vous prenez la clef.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/3e5bb1294e961c4815fc3460c0253f56c714af625e8d8b04e52443d6f6694b01">Si vous prenez la clef.</a></p>
 - "<p> </p>"

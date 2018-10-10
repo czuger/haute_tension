@@ -3,17 +3,17 @@
   utile, ô voyageur. Elle brûle des heures entières sans qu'il soit nécessaire de
   la remplir et tu n'auras pas besoin de te procurer des torches pour éclairer ton
   chemin. Elle te coûtera 2 pièces d'or.»</p>"
-- <p><a href="/read_choice/0aff121add392b2b7736520688aad163d7be4e1a516785edcb19720a228a6f16"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0aff121add392b2b7736520688aad163d7be4e1a516785edcb19720a228a6f16"
   class="pageLink">Si le colporteur vous paraît trop exigeant, vous refusez son offre.</a></p>
 - "<p>Si au contraire vous désirez acquérir la lampe à huile, rayer 2 pièces de votre
   total d'or et ajoutez-la à vos possessions. Désirez-vous à présent acheter un autre
   des objets du colporteur :</p>"
-- <p><a href="/read_choice/ef62e70982cdfdd593f4911a212056bf0dc956af58522d86ae1629643baa9348"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ef62e70982cdfdd593f4911a212056bf0dc956af58522d86ae1629643baa9348"
   class="pageLink">un médaillon ouvragé,</a></p>
-- <p><a href="/read_choice/72d3f22af206ef9094de682aad062256431ce8802cb6b00e77e91ecfb48e26d8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/72d3f22af206ef9094de682aad062256431ce8802cb6b00e77e91ecfb48e26d8"
   class="pageLink">un rouleau de papyrus</a></p>
-- <p><a href="/read_choice/a8b931a0e9cf943ecd7a11f124974b135651a0c557539cff8ba5593d50332e76"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a8b931a0e9cf943ecd7a11f124974b135651a0c557539cff8ba5593d50332e76"
   class="pageLink">ou une carte ancienne ?</a><em> </em></p>
-- <p><a href="/read_choice/ed5846f102b70cd10d4d3312a881851a3b9e248e8bfecc76d24ac9fc716c1fc7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ed5846f102b70cd10d4d3312a881851a3b9e248e8bfecc76d24ac9fc716c1fc7"
   class="pageLink">Si vous l'avez déjà fait ou décidez de ne pas dépenser davantage
   votre or, vous pouvez questionner le marchand ambulant.</a></p>

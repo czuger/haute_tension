@@ -5,11 +5,11 @@
   ce qu'il vous a donné. C'est une fiole qui contient encore une dose de potion de
   contrôle des plantes ! Cela pourra vous être utile dans l'avenir. Inscrivez-la sur
   la liste de vos possessions.</p>"
-- <p><a href="/read_choice/649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
   class="pageLink">Tout heureux de ce succès, allez-vous à présent quitter la salle
   d'étude?</a></p>
-- <p><a href="/read_choice/f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
   class="pageLink">Si vous ne l'avez pas encore fait, vous pouvez choisir de parler
   au Magicien qui étudie debout devant un pupitre</a></p>
-- <p><a href="/read_choice/48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb"
   class="pageLink">ou essayer la porte du fond.</a></p>

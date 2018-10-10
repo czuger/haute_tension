@@ -6,8 +6,8 @@
   connaît personne de ce nom. Vous vous apprêtez à reprendre votre marche lorsqu'un
   homme vous aborde. Il a vu vos exploits et désirerait louer vos services pour quelques
   heures.</p>"
-- <p><a href="/read_choice/03ca7a82220bd4539a91b25e802472ea32ffb32ab7e7f4641d79262155adc5ac"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/03ca7a82220bd4539a91b25e802472ea32ffb32ab7e7f4641d79262155adc5ac"
   class="pageLink">Allez-vous demander des précisions sur cette offre</a></p>
-- <p><a href="/read_choice/e26e7ad9eaafc1fe87e90fbadd76d7af95eda9a6ce68bee300202774977669da"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e26e7ad9eaafc1fe87e90fbadd76d7af95eda9a6ce68bee300202774977669da"
   class="pageLink">ou décidez-vous de refuser et de continuer votre chemin ?</a><em>
   </em></p>

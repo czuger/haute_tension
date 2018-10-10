@@ -5,7 +5,7 @@
 - "<p>Lancez deux dés.</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/30586a66c76d9746542bbbbedc87eec0dfe47a5bb4f052bf582bb0641d0e22bd">Si vous faites 9 ou moins.</a></p>
-- <p><a href="/read_choice/d201972a7b04481a6eb0b2e94b5a593fe04f1e3859b67e9b120eb13fc00851b0"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/30586a66c76d9746542bbbbedc87eec0dfe47a5bb4f052bf582bb0641d0e22bd">Si vous faites 9 ou moins.</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d201972a7b04481a6eb0b2e94b5a593fe04f1e3859b67e9b120eb13fc00851b0"
   class="pageLink">Si vous faites 10 ou davantage.</a></p>
 - "<p> </p>"

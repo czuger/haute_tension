@@ -1,8 +1,8 @@
 ---
 - "<p>Vous avez été contaminé durant votre combat avec les lépreux, et les paroles
   de leur chef vous paraissent d'autant plus exaspérantes.</p>"
-- <p><a href="/read_choice/260b9c2dc37d6ecdc6250aeb0bf08523ba166f6c88d974e0ea57ff0331d1db3e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/260b9c2dc37d6ecdc6250aeb0bf08523ba166f6c88d974e0ea57ff0331d1db3e"
   class="pageLink">Allez-vous utiliser le pouvoir de guérison que vous possédez sur
   vous-même</a></p>
-- <p><a href="/read_choice/e0554af1a7dd1833d4100860d60e8aa8a9cf4b5c732a2f4f581894a546095df8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e0554af1a7dd1833d4100860d60e8aa8a9cf4b5c732a2f4f581894a546095df8"
   class="pageLink">ou en ferez-vous profiter le chef des lépreux ?</a></p>

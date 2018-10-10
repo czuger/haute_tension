@@ -6,10 +6,10 @@
   d'un drap poussiéreux et, non loin, un amoncellement de squelettes humains et d'animaux
   du désert.</p>"
 - "<p>Qu'allez-vous regarder de plus près :</p>"
-- <p><a href="/read_choice/19722cdca55c1f71dc44ead9a730b69fcccbe2c9eb6d4374ee7c9260b376366c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/19722cdca55c1f71dc44ead9a730b69fcccbe2c9eb6d4374ee7c9260b376366c"
   class="pageLink">La décoration du mur du fond ?</a></p>
-- <p><a href="/read_choice/3a213833bbee26988961963518544f5df77defeabc14dcbb852b50e1a92e3c1e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3a213833bbee26988961963518544f5df77defeabc14dcbb852b50e1a92e3c1e"
   class="pageLink">Le coffre ?</a></p>
-- <p><a href="/read_choice/88236b7f382c7f56dcaa29e25591fda2540c96e411e05001347f6dceaf7402f9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/88236b7f382c7f56dcaa29e25591fda2540c96e411e05001347f6dceaf7402f9"
   class="pageLink">Le tas d'ossements ?</a></p>
 - "<p> </p>"

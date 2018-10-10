@@ -11,5 +11,5 @@
   fond sur vous du haut des cieux.</p>"
 - "<p>Avez-vous revêtu l'armure trouvée près de la nappe d'eau souterraine ?</p>"
 - |-
-  <p><a href="/read_choice/c21adaf0c629e3592e0bab11eebabac3ee90991e58c9daa4beaf32637625aaa6" class="pageLink">Si oui.</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c21adaf0c629e3592e0bab11eebabac3ee90991e58c9daa4beaf32637625aaa6" class="pageLink">Si oui.</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/225-9.html">Sinon.</a></p>

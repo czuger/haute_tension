@@ -5,9 +5,9 @@
   Vous avalez votre salive, espérant n'avoir pas commis une terrible erreur ! Mais
   en tirant sur la corde vous réussissez à ralentir ce mouvement débridé !</p>"
 - "<p>Jetez deux dés.</p>"
-- <p><a href="/read_choice/85f770e6c44d6c6b321fcd5e281c505ea4e1f1d702dea23f1719087fd2df1209"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/85f770e6c44d6c6b321fcd5e281c505ea4e1f1d702dea23f1719087fd2df1209"
   class="pageLink">Si vous obtenez 4 ou moins.</a></p>
-- <p><a href="/read_choice/d372da832f40efc5dd17a2afca6cd5112f7ccea5855e4d52e89b280415855a28"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d372da832f40efc5dd17a2afca6cd5112f7ccea5855e4d52e89b280415855a28"
   class="pageLink">Si vous obtenez un résultat compris entre 5 et 8.</a></p>
-- <p><a href="/read_choice/68939df4eb88db7118d0b443bdd082d6f9a9966e6d0fc0cd4b6ac299612ec7ce"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/68939df4eb88db7118d0b443bdd082d6f9a9966e6d0fc0cd4b6ac299612ec7ce"
   class="pageLink">Si vous obtenez 9 ou davantage.</a></p>

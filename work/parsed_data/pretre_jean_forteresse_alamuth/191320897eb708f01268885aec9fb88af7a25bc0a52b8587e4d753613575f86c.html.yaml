@@ -5,10 +5,10 @@
   Que nous vaut le douteux honneur de ta présence? Parle vite et sans malice, car
   de ta réponse dépend ta vie ! » Autour de vous, le cercle des bandits s'est resserré.
   Ils n'attendent que la première occasion pour vous sauter dessus.</p>"
-- <p><a href="/read_choice/5c0e4eac6b571b6a2c62c227b0e148699eb9a919d478d82efb43b58a410dc2aa"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5c0e4eac6b571b6a2c62c227b0e148699eb9a919d478d82efb43b58a410dc2aa"
   class="pageLink">Allez-vous répliquer au chef que, chassé par vos compagnons de
   la croisade pour une quelconque faute, vous êtes venu vous joindre à leur groupe
   ?</a></p>
-- <p><a href="/read_choice/399ae9f84370f239509a63f20ff8ece65f5c1a0c7b1b5b68a78fbb40debb8215"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/399ae9f84370f239509a63f20ff8ece65f5c1a0c7b1b5b68a78fbb40debb8215"
   class="pageLink">Ou, dédaignant de rétorquer la moindre parole, vu son arrogance,
   allez-vous dégainer votre épée pour le provoquer en duel ?</a></p>

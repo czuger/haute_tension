@@ -2,10 +2,10 @@
 - |-
   <p>Vous parvenez à ouvrir une porte habilement camouflée dans un mur. Vous vous trouvez maintenant dans une crypte dont le plafond est si bas que vous devez courber la tête. Vous apercevez en face de vous un escalier étroit qui laisse échapper un faisceau de lumière venu d'en haut, sans doute de la salle où vous vous trouviez avant d'affronter la Créature de Bave Dégoulinante. La pièce semble vide, à l'exception de deux sarcophages sur votre droite.<br>
    Que choisissez-vous ?</p>
-- <p><a href="/read_choice/4ed491ff700857bdd48be0ed425575773679a3136a56bc079af8febe8bce8e6f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4ed491ff700857bdd48be0ed425575773679a3136a56bc079af8febe8bce8e6f"
   class="pageLink">D'examiner les sarcophage de plus près ?</a><em> </em></p>
-- <p><a href="/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
   class="pageLink">De fouiller la pièce ?</a></p>
-- <p><a href="/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
   class="pageLink">De fuir au plus vite cet endroit en empruntant l'escalier ?</a><em>
   </em></p>

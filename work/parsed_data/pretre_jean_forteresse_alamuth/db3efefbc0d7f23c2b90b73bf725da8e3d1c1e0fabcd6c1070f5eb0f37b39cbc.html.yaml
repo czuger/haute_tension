@@ -6,7 +6,7 @@
   remué la terre meuble du monticule. Vous apercevez à présent un autre objet, un
   peu terni, qui luit au soleil.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/61128d01ec0ecda5c8092365a74805608c61c73b694659f113b93474ed2c529c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/61128d01ec0ecda5c8092365a74805608c61c73b694659f113b93474ed2c529c"
   class="pageLink">Si votre total est inférieur ou égal à 8.</a></p>
-- <p><a href="/read_choice/0ee745ffebcfebe38d0eaa3288acde1a0acd55edf0f2873453784690af94a347"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0ee745ffebcfebe38d0eaa3288acde1a0acd55edf0f2873453784690af94a347"
   class="pageLink">S'il est supérieur ou égal à 9.</a></p>

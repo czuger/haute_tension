@@ -5,7 +5,7 @@
   un des apprentis qui arpentent la salle d'étude, et son signe indique qu'il ne voulait
   pas être dérangé !</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/c4dd3b01d613a3fe2596bd5135c6b8dae38840b2847369a24564f927171bd1a8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c4dd3b01d613a3fe2596bd5135c6b8dae38840b2847369a24564f927171bd1a8"
   class="pageLink">Si vous faites 6 ou moins.</a></p>
-- <p><a href="/read_choice/9e6428d94ee4a2536f40f20261bd83d47e3f2446798501bccaa24be3190a4846"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9e6428d94ee4a2536f40f20261bd83d47e3f2446798501bccaa24be3190a4846"
   class="pageLink">Si vous faites 7 ou davantage.</a></p>

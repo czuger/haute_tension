@@ -4,9 +4,9 @@
   car vous venez de sauter sur une huître gigantesque. Le coquillage attendait justement
   une occasion semblable pour se refermer sur une proie ! Il saisit votre jambe' dans
   sa mâchoire d'acier! Vous perdez aussitôt 2 points de Vie.</p>"
-- <p><a href="/read_choice/71954faafc004f76c01ad91a11698b8e34a8b82c2dad601f89184d95bcb4c87d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/71954faafc004f76c01ad91a11698b8e34a8b82c2dad601f89184d95bcb4c87d"
   class="pageLink">Si vous possédez une bouteille de vinaigre et désirez l'utiliser.</a></p>
-- <p><a href="/read_choice/fe525ac71231822b183860a6c75c831acd0ce3f3750a2ddf2a440d95143eaf70"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fe525ac71231822b183860a6c75c831acd0ce3f3750a2ddf2a440d95143eaf70"
   class="pageLink">Si vous choisissez de' frapper à l'épée l'énorme huître.</a></p>
-- <p><a href="/read_choice/76f3f6ce0b13dd8183ea401315f2a07f4a7dd0795c340b629d909dd86f4bfba3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/76f3f6ce0b13dd8183ea401315f2a07f4a7dd0795c340b629d909dd86f4bfba3"
   class="pageLink">Si vous préférez vous en remettre au pouvoir de l'Œil Magique.</a></p>

@@ -2,7 +2,7 @@
 - "<p>Vous continuez d'errer dans les ruelles. Un petit homme à moitié nu, le corps
   peint de couleurs vives, vous interpelle : «Holà, étranger ! Tu trouveras chez moi
   le moyen de résoudre tes problèmes ! ».</p>"
-- <p><a href="/read_choice/8cea385f998be35d6ef4dcd12f147fb59f13ce291d3f54a4c7c0e93c0812015c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8cea385f998be35d6ef4dcd12f147fb59f13ce291d3f54a4c7c0e93c0812015c"
   class="pageLink">Désirez-vous approcher de son échoppe</a></p>
-- <p><a href="/read_choice/f1f66a13a3e4c6af629992cd57fca848ffbb54ae558b3d5950baee51c0dd3767"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1f66a13a3e4c6af629992cd57fca848ffbb54ae558b3d5950baee51c0dd3767"
   class="pageLink">ou préférez-vous continuer votre chemin ?</a><em> </em></p>

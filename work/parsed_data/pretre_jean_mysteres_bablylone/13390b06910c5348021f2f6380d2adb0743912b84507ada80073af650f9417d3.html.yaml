@@ -18,7 +18,7 @@
 - "<p>Mais il vous faut songer à gagner les jardins suspendus où vous trouverez Kantoum,
   le sage que vous cherchez ! Et vous n'avez pas la moindre idée de leur emplacement.
   La délégation s'apprête à obliquer à gauche.</p>"
-- <p><a href="/read_choice/b6f3d7586a4081a157ce4c1a3a7c4749dcff8c5b2cd0bbe3e99c32a4fa1105e1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b6f3d7586a4081a157ce4c1a3a7c4749dcff8c5b2cd0bbe3e99c32a4fa1105e1"
   class="pageLink">Allez-vous décider de la suivre</a></p>
-- <p><a href="/read_choice/dc3f5174ea50a48c76e7a7561ccbdee55f31b7fe9be90f5486c09d73a0c6cec1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/dc3f5174ea50a48c76e7a7561ccbdee55f31b7fe9be90f5486c09d73a0c6cec1"
   class="pageLink">ou de lui fausser compagnie ?</a></p>

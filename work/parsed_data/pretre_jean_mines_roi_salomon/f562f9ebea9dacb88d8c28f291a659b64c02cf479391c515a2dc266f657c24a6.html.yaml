@@ -11,8 +11,8 @@
   autre chose, qu'un animal s'élèvent non loin de vous. Il y a eu un appel au secours,
   vous en êtes certain, puis ce cri a été étouffé !</p>"
 - "<p> </p>"
-- <p><a href="/read_choice/09df9e16be2e9cdc3bd65c728537823e9463a40981083785f568b277f47a9c3c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/09df9e16be2e9cdc3bd65c728537823e9463a40981083785f568b277f47a9c3c"
   class="pageLink">Si vous décidez d'aller voir de quoi il s'agit.</a></p>
-- <p><a href="/read_choice/43e3be54bcb02558c9e268abcf8e1e067dd430bace93d02f013b022c19892de8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/43e3be54bcb02558c9e268abcf8e1e067dd430bace93d02f013b022c19892de8"
   class="pageLink">Si vous décidez que cela ne vous concerne pas et préférez retourner
   à votre case pour y dormir.</a></p>

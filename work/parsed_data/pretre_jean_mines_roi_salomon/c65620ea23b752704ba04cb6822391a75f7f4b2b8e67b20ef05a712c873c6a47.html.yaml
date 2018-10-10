@@ -2,7 +2,7 @@
 - "<p>Aussi vite que vos muscles le permettent, vous faites un bond de côté à l'instant
   même où l'éléphant arrive sur vous !</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/ba919c4a1d068fce27bb678cff2f9135f7931b7c37b1b4800c4eaa9ce2308d6b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ba919c4a1d068fce27bb678cff2f9135f7931b7c37b1b4800c4eaa9ce2308d6b"
   class="pageLink">Si vous obtenez 10 ou davantage.</a></p>
-- <p><a href="/read_choice/0e5277a7d1d87e72f02247b61b05b65a4c32397c5f9cac890ac4634ed368b2f0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0e5277a7d1d87e72f02247b61b05b65a4c32397c5f9cac890ac4634ed368b2f0"
   class="pageLink">Sinon.</a></p>

@@ -8,7 +8,7 @@
   Du fond du corridor vous parvient un bruit étrange, semblable à un cliquetis osseux,
   accompagné d'un long frottement âpre contre la roche.</p>"
 - "<p>Que faites-vous?</p>"
-- <p><a href="/read_choice/f5aef40011c40da3b6b7368a3b879a749feebfefd64e162408006b4d492aaf49"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f5aef40011c40da3b6b7368a3b879a749feebfefd64e162408006b4d492aaf49"
   class="pageLink">Vous vous cachez.</a></p>
-- <p><a href="/read_choice/7a432b0bfe8a52910213a76b10783054c6a8e016408c88f41f9404878db6ed06"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a432b0bfe8a52910213a76b10783054c6a8e016408c88f41f9404878db6ed06"
   class="pageLink">Vous cherchez à déterminer la raison de la source lumineuse.</a></p>

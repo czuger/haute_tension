@@ -1,8 +1,8 @@
 ---
 - "<p>Le gargouillement qu'émet votre estomac vous rappelle à l'ordre. Il est temps
   que vous vous nourrissiez.</p>"
-- <p><a href="/read_choice/61053b759225aaf6e494be3edf2fb57789749af43de4baa1cf5941fc0c659cb2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/61053b759225aaf6e494be3edf2fb57789749af43de4baa1cf5941fc0c659cb2"
   class="pageLink">Si vous n'avez plus de provisions ou si vous ne voulez pas perdre
   de temps.</a></p>
-- <p><a href="/read_choice/806a08e360bead402d7c96c35d885901efcff1ad57fc0f6917dbf4fcc04fee36"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/806a08e360bead402d7c96c35d885901efcff1ad57fc0f6917dbf4fcc04fee36"
   class="pageLink">Sinon.</a><em> </em></p>

@@ -60,7 +60,7 @@ class PageParser
       # page = Page.find_by_url( original_url )
       # raise "Unable to find page for #{original_url}" unless page
       # This read the rails route
-      node.children.first.attributes['href'].value = "/read_choice/#{@pages_converter[original_url]}"
+      node.children.first.attributes['href'].value = "/adventures/%ADVENTURE_ID%/read_choice/#{@pages_converter[original_url]}"
       node.children.first['class'] = 'pageLink'
       # p node.children.first
     elsif ( anchor = node.css( 'a' ) )
@@ -68,7 +68,7 @@ class PageParser
         original_url = anchor.first.attributes['href'].value
         # page = Page.find_by_url( original_url )
         # raise "Unable to page page for #{original_url}" unless page
-        anchor.first.attributes['href'].value = "/read_choice/#{@pages_converter[original_url]}"
+        anchor.first.attributes['href'].value = "/adventures/%ADVENTURE_ID%/read_choice/#{@pages_converter[original_url]}"
         node.children.first['class'] = 'pageLink'
       end
     end

@@ -1,8 +1,8 @@
 ---
 - "<p>Le Sphinx vous domine de sa masse impressionnante.</p>"
-- <p><a href="/read_choice/c6417be83b425cf72c22d0deaacfa92627ecf21b9bc8e6f4f22f72a51145b445"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c6417be83b425cf72c22d0deaacfa92627ecf21b9bc8e6f4f22f72a51145b445"
   class="pageLink">Voulez-vous trouver au plus vite la pierre hexagonale qui commande
   le passage dérobé </a></p>
-- <p><a href="/read_choice/b494fdde983896825ff9ac185ccd6ff21dbe802d95c3f37d61e9e427bfd8ad41"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b494fdde983896825ff9ac185ccd6ff21dbe802d95c3f37d61e9e427bfd8ad41"
   class="pageLink">ou effectuer tout d'abord une reconnaissance aux abords du gigantesque
   animal.</a></p>

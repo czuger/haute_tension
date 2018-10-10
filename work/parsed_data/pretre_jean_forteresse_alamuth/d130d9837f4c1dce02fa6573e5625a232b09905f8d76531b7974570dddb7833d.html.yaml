@@ -5,7 +5,7 @@
   pour disparaître dans les profondeurs ténébreuses. Vous avez l'impression d'approcher
   d'un égout à ciel ouvert.</p>"
 - "<p>Que décidez-vous ?</p>"
-- <p><a href="/read_choice/68fbcfa1296251ec0deb0062b1e547a9f9c9285b702bbc02c5f5e31bd4ad9b95"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/68fbcfa1296251ec0deb0062b1e547a9f9c9285b702bbc02c5f5e31bd4ad9b95"
   class="pageLink">Descendre dans le puits malgré la puanteur?</a></p>
-- <p><a href="/read_choice/49fc03f11acecde5dc92b5c0f44d25e03cabd7d76b6003fa4c4f866c614e31ac"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/49fc03f11acecde5dc92b5c0f44d25e03cabd7d76b6003fa4c4f866c614e31ac"
   class="pageLink">Vous diriger vers la porte de la Forteresse d'Alamuth ?</a></p>

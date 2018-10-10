@@ -3,7 +3,7 @@
   1 point de Vie. Mais vous êtes instantanément pris de vertiges, la tête vous fait
   atrocement mal.</p>"
 - "<p>Portez-vous un casque ?</p>"
-- <p><a href="/read_choice/fa03ee099d7769a4dcdf9f24b8c71ca643a7490336bc8307e72e36e4b0c88ee7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fa03ee099d7769a4dcdf9f24b8c71ca643a7490336bc8307e72e36e4b0c88ee7"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
   class="pageLink">Autrement.</a></p>

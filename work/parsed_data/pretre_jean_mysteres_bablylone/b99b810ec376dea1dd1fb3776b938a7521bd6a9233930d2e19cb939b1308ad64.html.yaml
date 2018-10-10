@@ -1,9 +1,9 @@
 ---
 - "<p>Vous misez vos 2 pièces d'or sur un numéro de votre choix. La roue se met à
   tourner.</p>"
-- <p><a href="/read_choice/20f0b766ff66ce14625e8eae604a3ea44f735fdef91b1e1d97587f1913f5b3ff"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/20f0b766ff66ce14625e8eae604a3ea44f735fdef91b1e1d97587f1913f5b3ff"
   class="pageLink">Si vous avez joué le 3.</a></p>
-- <p><a href="/read_choice/e5af09d5e1b0d15759162b05988e98d193691d948b252d54c29f1c23a1c17af3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e5af09d5e1b0d15759162b05988e98d193691d948b252d54c29f1c23a1c17af3"
   class="pageLink">Si vous avez joué le 6.</a></p>
-- <p><a href="/read_choice/fe96197ec79fbd9bf99e4d4e64161d91adbab8facdee53afbf5926a709c5b55f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fe96197ec79fbd9bf99e4d4e64161d91adbab8facdee53afbf5926a709c5b55f"
   class="pageLink">Si vous avez joué un autre numéro.</a></p>

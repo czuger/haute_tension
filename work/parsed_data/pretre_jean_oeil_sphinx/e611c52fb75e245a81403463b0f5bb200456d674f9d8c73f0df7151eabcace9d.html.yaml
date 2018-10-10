@@ -1,9 +1,9 @@
 ---
 - "<p>Vous empoignez fermement les barreaux pour vérifier leur robustesse. Un peu
   de jeu à leur base vous indique qu'il n'est pas impossible de les tordre.</p>"
-- <p><a href="/read_choice/8bf5f29924f2b6f527bcbcff2479a7f4fe60cd7a6fa2fe6ced7f99c37cb50de2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8bf5f29924f2b6f527bcbcff2479a7f4fe60cd7a6fa2fe6ced7f99c37cb50de2"
   class="pageLink">Si votre total de Force est supérieur ou égal à 15. (si vous possédez
   une épée ou un épieu, cela vous permet d'ajouter 1 point à votre total).</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/c057d782538e2570fa1615c80ee26b7b26ad0266d185929c9962e3e4c51bc6ae">Sinon.</a><em> </em></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/c057d782538e2570fa1615c80ee26b7b26ad0266d185929c9962e3e4c51bc6ae">Sinon.</a><em> </em></p>

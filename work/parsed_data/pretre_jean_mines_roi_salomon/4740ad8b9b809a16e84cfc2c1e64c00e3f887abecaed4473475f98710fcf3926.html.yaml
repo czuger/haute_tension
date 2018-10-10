@@ -7,10 +7,10 @@
   » N'osant refuser, de peur de froisser le contremaître, vous l'accompagnez et vous
   vous asseyez près de lui. Il parle beaucoup et de n'importe quoi et les seuls moments
   où vous avez l'occasion de placer un mot sont ceux où il mange.</p>"
-- <p><a href="/read_choice/885c2ea499adff850036c6f4c1be7f85e4f5985a16150a05cd431b31b5453b63"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/885c2ea499adff850036c6f4c1be7f85e4f5985a16150a05cd431b31b5453b63"
   class="pageLink">Si vous avez fait la queue et désirez manger le brouet qu'on vous
   a servi avant d'interroger l'Orque.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/a0e33a9afb93dad5ebdcce5e0aab05c870ed33fc5bd9e4be7db5b46bd336ea7d">Sinon.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/a0e33a9afb93dad5ebdcce5e0aab05c870ed33fc5bd9e4be7db5b46bd336ea7d">Sinon.</a></p>
 - "<p> </p>"

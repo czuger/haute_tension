@@ -1,7 +1,7 @@
 ---
 - "<p>Ouf! Aucun bloc de pierre n'a été assez gros .pour vous blesser. Mais vous choisissez
   d'être prudent et vous préférez emprunter un autre chemin pour atteindre la niche.</p>"
-- <p><a href="/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
   class="pageLink">Préférez-vous longer le mur de droite</a></p>
-- <p><a href="/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
   class="pageLink">ou traverser la pièce en passant entre les colonnes ?</a><em> </em></p>

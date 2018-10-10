@@ -14,9 +14,9 @@
   vous tire et vous secoue, on vous propose de parier. Le Maître des Chiens semble
   tout à coup avoir le dessus, mais son robuste adversaire se ressaisit aussitôt.</p>"
 - "<p>Pris au milieu de cette fantastique épreuve, qu'allez- vous faire?</p>"
-- <p><a href="/read_choice/cf92d8b6a230042d5bf21194e03b028eb87bc58eed2ee9d2db0c9dfa5abcda4c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cf92d8b6a230042d5bf21194e03b028eb87bc58eed2ee9d2db0c9dfa5abcda4c"
   class="pageLink">Parier avec un membre de l'assistance ?</a></p>
-- <p><a href="/read_choice/e7dc3a6e852eb2d76b198896b50f9a2897821e4b1ffe9a2db7dc4594071e6ed1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e7dc3a6e852eb2d76b198896b50f9a2897821e4b1ffe9a2db7dc4594071e6ed1"
   class="pageLink">Déclencher une bagarre pour détourner l'attention ?</a></p>
-- <p><a href="/read_choice/dd434cd6ca01fed65802d613ef2214f97b60e3f457da74c8bb428fefd482f75c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/dd434cd6ca01fed65802d613ef2214f97b60e3f457da74c8bb428fefd482f75c"
   class="pageLink">Tenter de quitter la salle en vous frayant un chemin?</a></p>

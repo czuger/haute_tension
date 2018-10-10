@@ -1,10 +1,10 @@
 ---
 - "<p>Vous continuez malgré le rétrécissement du passage et débouchez dans un vestibule
   où flotte une curieuse vapeur verte.</p>"
-- <p><a href="/read_choice/d8d2f62b54d529ece74fce0befee4658f39d84c5d97f1253bbe5d2e2c5545971"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d8d2f62b54d529ece74fce0befee4658f39d84c5d97f1253bbe5d2e2c5545971"
   class="pageLink">Allez-vous faire demi-tour,</a><em> </em></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/fdd1266bd9b0f7c2ad11560c95f2a916759818a20005d6ee6464af4dd20acda2">explorer cette pièce</a></p>
-- <p><a href="/read_choice/6e4458364fa4167f8769c703653f21a01b0940d9a39ac4752d3fe4438c03b6e1"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/fdd1266bd9b0f7c2ad11560c95f2a916759818a20005d6ee6464af4dd20acda2">explorer cette pièce</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6e4458364fa4167f8769c703653f21a01b0940d9a39ac4752d3fe4438c03b6e1"
   class="pageLink">ou la traverser jusqu'à la salle suivante ?</a><em> </em></p>

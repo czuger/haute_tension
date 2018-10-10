@@ -7,7 +7,7 @@
   victime de la barrière magique du Vieux de la Montagne. Votre chute risque d'être
   plus terrible encore cette fois.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/c2ace4f5da197f977f984cda188a44aad241942b4cf5efaa7c5649e02c269de5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c2ace4f5da197f977f984cda188a44aad241942b4cf5efaa7c5649e02c269de5"
   class="pageLink">Si vous obtenez un total inférieur ou égal à 9.</a></p>
-- <p><a href="/read_choice/e697a356252cd6b195d54ad0b0802a4d3a7320cad86145ddaee88e5aebad8cb0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e697a356252cd6b195d54ad0b0802a4d3a7320cad86145ddaee88e5aebad8cb0"
   class="pageLink">Si vous réussissez 10, 11 ou 12.</a></p>

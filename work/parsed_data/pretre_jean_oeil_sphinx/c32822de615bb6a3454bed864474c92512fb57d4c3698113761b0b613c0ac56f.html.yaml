@@ -2,9 +2,9 @@
 - "<p>Par chance, la Tête-Sans-Corps est encore relativement intacte. Vous pouvez
   y distinguer plusieurs objets très intéressants dont certains ont souffert pendant
   le combat.</p>"
-- <p><a href="/read_choice/2117296d361c5edc4b1619addcef912a0cf0c15a87d46e31c9768f4328078bd0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2117296d361c5edc4b1619addcef912a0cf0c15a87d46e31c9768f4328078bd0"
   class="pageLink">Allez-vous ramasser une boucle d'oreille incrustée de joyaux,</a></p>
-- <p><a href="/read_choice/9cd7879a0f335c4e929c9e1a3e8920b5259525e56656165f047434b2f1020fa6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9cd7879a0f335c4e929c9e1a3e8920b5259525e56656165f047434b2f1020fa6"
   class="pageLink">un anneau de lapis-lazuli fiché dans le nez</a></p>
-- <p><a href="/read_choice/57b91da1ed08b5d9edd9ecf3f5c843fd56469d5aa5798b47cbb2953223760676"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/57b91da1ed08b5d9edd9ecf3f5c843fd56469d5aa5798b47cbb2953223760676"
   class="pageLink">ou un œil de cristal ?</a><em> </em></p>

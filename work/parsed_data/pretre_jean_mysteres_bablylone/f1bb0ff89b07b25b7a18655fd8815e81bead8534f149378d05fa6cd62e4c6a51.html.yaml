@@ -11,7 +11,7 @@
   Le mur fait un tour complet et se referme. Vous vous trouvez dans un autre couloir.
   Peut-être réussirez-vous à trouver une issue.</p>"
 - "<p>Vous pouvez prendre ce couloir :</p>"
-- <p><a href="/read_choice/98b9e3b0fc85c69975a1b1cf72563d2ffd5110c80efd540ec9e5005025195f85"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/98b9e3b0fc85c69975a1b1cf72563d2ffd5110c80efd540ec9e5005025195f85"
   class="pageLink">vers la gauche</a></p>
-- <p><a href="/read_choice/1377451f56ca523033a0fdc5dbf004f3a6433c785552ac74ff660b53b2c745e7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1377451f56ca523033a0fdc5dbf004f3a6433c785552ac74ff660b53b2c745e7"
   class="pageLink">ou vers la droite.</a></p>

@@ -13,8 +13,8 @@
   » Vous tendez la main vers le flacon, mais Slig le recule hors de votre atteinte.
   « Il te coûtera 3 pièces d'or, étranger ! Comment pourrais-je faire marcher mon
   commerce si tout y était gratuit ? » Cet alchimiste semble se moquer de vous ! <a
-  href="/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b">Vous
+  href="/adventures/%ADVENTURE_ID%/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b">Vous
   payez ses 3 pièces d'or (rayez-les de vos possessions) et ajoutez la potion de lévitation
   à votre équipement.</a></p>
-- <p><a href="/read_choice/3fed052291d48320ce0d25946f2b08f277cfacb6c5297ffcfec08db8e59092fd"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3fed052291d48320ce0d25946f2b08f277cfacb6c5297ffcfec08db8e59092fd"
   class="pageLink">Si vous n'avez plus d'or, vous ressortez sur la place sans la potion.</a></p>

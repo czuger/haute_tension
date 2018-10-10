@@ -12,8 +12,8 @@
   du puits. Vous ramassez un caillou sur le sol et le laissez tomber, le choc met
   fort longtemps à parvenir à vos oreilles! Vous ne pouvez savoir pendant combien
   de temps il vous faudra tenir ces maudites cordes !</p>"
-- <p><a href="/read_choice/813e5ed285d299f9b1ac96954abc201476b82058c07dc0883da258b5149a2edb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/813e5ed285d299f9b1ac96954abc201476b82058c07dc0883da258b5149a2edb"
   class="pageLink">Allez-vous malgré tout tenter de parvenir seul au fond de la mine</a></p>
-- <p><a href="/read_choice/1d653475f966cd231fa8d1e083dac0e48769ab732844e8a82c386e9ad804a660"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1d653475f966cd231fa8d1e083dac0e48769ab732844e8a82c386e9ad804a660"
   class="pageLink">ou bien, découragé par ces difficultés, préférez-vous continuer
   à avancer dans le tunnel que vous suiviez jusqu'alors ?</a></p>

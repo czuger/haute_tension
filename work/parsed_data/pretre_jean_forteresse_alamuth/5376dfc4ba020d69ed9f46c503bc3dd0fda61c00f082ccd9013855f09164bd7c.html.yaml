@@ -4,7 +4,7 @@
   Le couloir s'élargit au point de se scinder. Les deux nouveaux chemins sont rigoureusement
   identiques.</p>"
 - "<p>Quel embranchement allez-vous emprunter?</p>"
-- <p><a href="/read_choice/c509d5c7a680f8f6af0f57ed43db8f552459e0fcfc15015694fb638b3edaa26a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c509d5c7a680f8f6af0f57ed43db8f552459e0fcfc15015694fb638b3edaa26a"
   class="pageLink">Celui de gauche?</a></p>
-- <p><a href="/read_choice/e95c38bf1a1144328fc1d48b5ac4948041542482e8970ec0830cf49436f78a0c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e95c38bf1a1144328fc1d48b5ac4948041542482e8970ec0830cf49436f78a0c"
   class="pageLink">Celui de droite?</a></p>

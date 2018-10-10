@@ -8,11 +8,11 @@
   qui erre dans les limbes ou à un gardien magique de l'ultime demeure du Pharaon.
   Quoi qu'il en soit, vous devez l'éliminer pour continuer à chercher Antarsis.</p>"
 - "<p>Comment allez-vous procéder ?</p>"
-- <p><a href="/read_choice/6734a6951cc348225a802fc1f6789fe04016c91b05d092d19e690f7dffa3e2aa"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6734a6951cc348225a802fc1f6789fe04016c91b05d092d19e690f7dffa3e2aa"
   class="pageLink">Vous dégainez votre épée ?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/d936db5a926f86d014e207a619240c347fd786b23747988fbb664d2204742b6b">Vous jetez un sort de dédoublement ?</a></p>
-- <p><a href="/read_choice/4f3dda3573ad338d6de24b0a96db1298a29cd3bb2eae002628f2d2e2fcc7a362"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/d936db5a926f86d014e207a619240c347fd786b23747988fbb664d2204742b6b">Vous jetez un sort de dédoublement ?</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4f3dda3573ad338d6de24b0a96db1298a29cd3bb2eae002628f2d2e2fcc7a362"
   class="pageLink">Vous utilisez votre gantelet magique (si vous le possédez) ?</a>
   <em> </em></p>

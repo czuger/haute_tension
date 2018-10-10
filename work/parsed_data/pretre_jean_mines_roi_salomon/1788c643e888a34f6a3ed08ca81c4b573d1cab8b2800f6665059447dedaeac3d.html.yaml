@@ -1,8 +1,8 @@
 ---
 - "<p>Après une longue course, le nid heurte un promontoire rocheux qui fait saillie
   dans le flanc de la mine.</p>"
-- <p><a href="/read_choice/0eb860cd6497de32429fc9b754aa55b21616742fb61b5bc915d4f34de3228ae7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0eb860cd6497de32429fc9b754aa55b21616742fb61b5bc915d4f34de3228ae7"
   class="pageLink">Allez-vous à tout prix essayer de vous accrocher à votre étrange
   luge</a></p>
-- <p><a href="/read_choice/a2f0bcf873b5e25e267670452ff6eb200eb79d4880dff9be707d73496b5996f9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a2f0bcf873b5e25e267670452ff6eb200eb79d4880dff9be707d73496b5996f9"
   class="pageLink">ou bien vous laisser éjecter ?</a><em> </em></p>

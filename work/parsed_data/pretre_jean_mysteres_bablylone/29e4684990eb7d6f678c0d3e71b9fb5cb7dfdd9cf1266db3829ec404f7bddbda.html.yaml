@@ -5,7 +5,7 @@
   vers l'escalier qui mène au palier supérieur, vous appréciez de plus en plus leurs
   parfums. Ajoutez votre total de points de Vie du moment et votre total de points
   de Force du moment.</p>"
-- <p><a href="/read_choice/f36ebf1c7a23a533c23a0b0ab5109a5d011e3fa668691cfbebcb7b66af92e775"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f36ebf1c7a23a533c23a0b0ab5109a5d011e3fa668691cfbebcb7b66af92e775"
   class="pageLink">Si vous obtenez un résultat supérieur à 30.</a></p>
-- <p><a href="/read_choice/805c28140b074b55d74cccc50afdd23e56bc22bb67c476d7d03f30f137fbc998"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/805c28140b074b55d74cccc50afdd23e56bc22bb67c476d7d03f30f137fbc998"
   class="pageLink">Sinon.</a></p>

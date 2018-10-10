@@ -5,8 +5,8 @@
   par cet escalier où l'atmosphère paraît étouffante. Avec hâte, vous redescendez
   en faisant attention à ne pas glisser.</p>"
 - "<p>Quelle galerie allez-vous à présent décider de suivre :</p>"
-- <p><a href="/read_choice/9f975478677ae1205265abf91cda6d4495740f6cf6db15c68a1e0424ad6caa50"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f975478677ae1205265abf91cda6d4495740f6cf6db15c68a1e0424ad6caa50"
   class="pageLink">Celle d'où vous veniez, qui continue en face de vous ?</a></p>
 - |-
-  <p><a href="/read_choice/69955ee58aec8d2451dba7ee57e715dd3dd51d6f5dd896ef8edcc8ba44ef40c7" class="pageLink">Le petit passage de gauche ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/69955ee58aec8d2451dba7ee57e715dd3dd51d6f5dd896ef8edcc8ba44ef40c7" class="pageLink">Le petit passage de gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/439-7.html">Le petit passage de droite ?</a></p>

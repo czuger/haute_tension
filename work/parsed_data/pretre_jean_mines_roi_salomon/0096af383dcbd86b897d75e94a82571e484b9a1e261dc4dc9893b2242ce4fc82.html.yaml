@@ -8,17 +8,17 @@
 - "<p>Vous êtes prêt à poursuivre votre chemin, mais quel tunnel choisirez-vous d'
   emprunter ?</p>"
 - "<p>Si vous venez du sud, prendrez-vous :</p>"
-- <p><a href="/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
   class="pageLink">à l'est</a></p>
-- <p><a href="/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
   class="pageLink">ou à l'ouest ?</a><em> </em></p>
 - "<p>Si vous venez de l'est, prendrez-vous :</p>"
-- <p><a href="/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
   class="pageLink">au sud</a></p>
-- <p><a href="/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
   class="pageLink">ou à l'ouest ?</a></p>
 - "<p>Si vous venez de l'ouest, prendrez-vous :</p>"
-- <p><a href="/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
   class="pageLink">au sud</a></p>
-- <p><a href="/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
   class="pageLink">ou à l'est ?</a></p>

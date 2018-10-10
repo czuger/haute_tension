@@ -1,12 +1,12 @@
 ---
 - "<p>Lancez un dé pour déterminer si vous avez été blessé par le dard venimeux.</p>"
 - <p>Si vous tirez un chiffre compris entre 2 et 5, vous n'êtes pas mortellement atteint.
-  <a href="/read_choice/41ed02ea9518364627ec4021ac2ba48eb5689cf6cacbdd9492f1ef570ec690ec">Reprenez
+  <a href="/adventures/%ADVENTURE_ID%/read_choice/41ed02ea9518364627ec4021ac2ba48eb5689cf6cacbdd9492f1ef570ec690ec">Reprenez
   l'assaut et n'oubliez pas de revenir à cette entrée si le scorpion vous atteint
   à nouveau.</a></p>
 - "<p>Si vous obtenez 1 ou 6, le dard a percé votre cotte de mailles et le venin a
   déjà pénétré dans votre corps.</p>"
-- <p><a href="/read_choice/b17ba1cbb6108a7ec93f9d8a185652ba071ad4970bcd1a23be895f0d791b9fff"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b17ba1cbb6108a7ec93f9d8a185652ba071ad4970bcd1a23be895f0d791b9fff"
   class="pageLink">Si vous possédez un contre-poison.</a></p>
-- <p><a href="/read_choice/3e6e41009ec1d27085b6becaac6e03e0562ef43d77ec29f97d757d6f60cca1a3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3e6e41009ec1d27085b6becaac6e03e0562ef43d77ec29f97d757d6f60cca1a3"
   class="pageLink">Sinon.</a></p>

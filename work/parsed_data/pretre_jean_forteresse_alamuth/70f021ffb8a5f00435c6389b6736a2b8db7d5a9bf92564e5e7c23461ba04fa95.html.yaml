@@ -2,7 +2,7 @@
 - "<p>Les Hommes-Lézards sont étendus à terre. Vous apercevez une clef d'argent accrochée
   à un riche collier autour du cou de l'un d'eux.</p>"
 - "<p>La prenez-vous ?</p>"
-- <p><a href="/read_choice/5d65adbed64e9f4b3edfd90fcfda262ed249842ad9b8211963829126c09d7a98"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d65adbed64e9f4b3edfd90fcfda262ed249842ad9b8211963829126c09d7a98"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/2c8088fa8ea64bb483a7379fe7d4c65f25cce3690247ad3d9d72a3f7c6a09d8d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2c8088fa8ea64bb483a7379fe7d4c65f25cce3690247ad3d9d72a3f7c6a09d8d"
   class="pageLink">Sinon.</a></p>

@@ -3,10 +3,10 @@
   le petit groupe. Au moment où vous allez rejoindre le centre de la place, vous apercevez
   un homme qui vous regarde fixement en faisant tournoyer une fronde.</p>"
 - "<p>Qu'allez-vous faire :</p>"
-- <p><a href="/read_choice/4be1ec74f3a78a20d6363bdd7dfce9be5be6c9bc0bd03fc971374bccc3f3a1d4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4be1ec74f3a78a20d6363bdd7dfce9be5be6c9bc0bd03fc971374bccc3f3a1d4"
   class="pageLink">L'attaquer ?</a></p>
-- <p><a href="/read_choice/e6a9d05c1a0bee3f7bede147f196229c33ef7c12487b078ccafea69b5ff4bb28"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e6a9d05c1a0bee3f7bede147f196229c33ef7c12487b078ccafea69b5ff4bb28"
   class="pageLink">Lui demander ce qu'il fait ?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/70081175cffc4d7742aa9277bf083e59f1b2ece5706503d64d46af1b0fffb826">Vous jeter à terre pour éviter le projectile ?</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/70081175cffc4d7742aa9277bf083e59f1b2ece5706503d64d46af1b0fffb826">Vous jeter à terre pour éviter le projectile ?</a></p>

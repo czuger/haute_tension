@@ -10,8 +10,8 @@
   sombre d'un large tunnel, criant de plus belle. Si cela ne cesse pas, il va ameuter
   tous les travailleurs de la mine.</p>"
 - "<p>Comment allez-vous réagir ?</p>"
-- <p><a href="/read_choice/ea73c880750a4cad25da73570131e3018f2c15b2e0b9184609200b61a69313b0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ea73c880750a4cad25da73570131e3018f2c15b2e0b9184609200b61a69313b0"
   class="pageLink">Vous vous élancez à sa poursuite pour leur dire votre véritable
   identité.</a></p>
-- <p><a href="/read_choice/1aa9fe548ac25732468a1a5a1552772d1851e32e21abc849fb8972e64b23ba73"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1aa9fe548ac25732468a1a5a1552772d1851e32e21abc849fb8972e64b23ba73"
   class="pageLink">Vous tirez votre arme et vous le tuez sans plus attendre.</a></p>

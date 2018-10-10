@@ -24,9 +24,9 @@
   chacune à un escalier qui monte au second niveau des terrasses.</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/29e4684990eb7d6f678c0d3e71b9fb5cb7dfdd9cf1266db3829ec404f7bddbda">Allez-vous continuer sur le même chemin,</a></p>
-- <p><a href="/read_choice/2a7e2afd114cd74ecfec1e89aae5effe84fc891ad8693f8eaad22909351c9e28"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/29e4684990eb7d6f678c0d3e71b9fb5cb7dfdd9cf1266db3829ec404f7bddbda">Allez-vous continuer sur le même chemin,</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2a7e2afd114cd74ecfec1e89aae5effe84fc891ad8693f8eaad22909351c9e28"
   class="pageLink">prendre un sentier qui serpente vers la droite à travers une végétation
   plus épaisse</a></p>
-- <p><a href="/read_choice/71cf8e3ecbe3324a1d776b629d215818ae0beb903e955ad3108ab01e01a0c502"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/71cf8e3ecbe3324a1d776b629d215818ae0beb903e955ad3108ab01e01a0c502"
   class="pageLink">ou suivre un chemin bordé de terre qui va à gauche ?</a></p>

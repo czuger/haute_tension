@@ -12,7 +12,7 @@
   ! » Il est armé d'une hachette et se jette sur vous.</p>"
 - "<p><strong>LAIMI</strong></p>"
 - "<p>FORCE: 6 VIE: 8</p>"
-- <p><a href="/read_choice/35b2d4fe2302d619a752c076492f66d31d44ad17c84d2f9e55d90b0ac987cf97"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/35b2d4fe2302d619a752c076492f66d31d44ad17c84d2f9e55d90b0ac987cf97"
   class="pageLink">Si vous descendez à un point de Vie.</a></p>
-- <p><a href="/read_choice/2b7638aca1179de1853c055ef5d955e8e864cb4699674571fe36124b07a5763f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2b7638aca1179de1853c055ef5d955e8e864cb4699674571fe36124b07a5763f"
   class="pageLink">Si vous gagnez le combat.</a></p>

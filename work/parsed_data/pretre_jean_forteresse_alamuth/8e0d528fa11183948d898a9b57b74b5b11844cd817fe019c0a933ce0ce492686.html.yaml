@@ -1,6 +1,6 @@
 ---
 - "<p>Détenez-vous une potion ou un sort de guérison ?</p>"
-- <p><a href="/read_choice/583c21951863734b481e800535986297bc4b247a408e6248f3f86463ba4e70ed"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/583c21951863734b481e800535986297bc4b247a408e6248f3f86463ba4e70ed"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/b674d7239b4394658819949fab15a3fb91f3488fc33692018307b245b013c54b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b674d7239b4394658819949fab15a3fb91f3488fc33692018307b245b013c54b"
   class="pageLink">Sinon.</a></p>

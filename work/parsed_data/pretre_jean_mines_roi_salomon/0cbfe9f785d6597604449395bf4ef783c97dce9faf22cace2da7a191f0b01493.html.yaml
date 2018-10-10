@@ -7,8 +7,8 @@
   après, un Crabe Géant se propulse dans votre frêle esquif. La barque du Kobold ne
   va pas supporter bien longtemps cette charge supplémentaire ! Et la façon dont le
   crabe avance sur vous ne vous rassure pas non plus. Quelle situation!</p>"
-- <p><a href="/read_choice/43a785559065eb32cc53ed87d1dfcb4c3afd878a01db44571486363791cd2b84"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/43a785559065eb32cc53ed87d1dfcb4c3afd878a01db44571486363791cd2b84"
   class="pageLink">Peut-être vaudrait-il mieux sauter carrément de la barque et continuer
   votre chemin à la nage ? </a></p>
-- <p><a href="/read_choice/f07d658b18b9f486ff73bcf519178be143f10aec6c3b055182a7c82eb0d8a366"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f07d658b18b9f486ff73bcf519178be143f10aec6c3b055182a7c82eb0d8a366"
   class="pageLink">A moins que vous ne décidiez de combattre le crabe ?</a></p>

@@ -11,8 +11,8 @@
   pas de vous attaquer simultanément.</p>"
 - "<p><strong>PREMIER HASCHICHIN</strong> FORCE : 8 VIE : 12</p>"
 - "<p><strong>DEUXIEME HASCHICHIN</strong> FORCE: 8 VIE: 10</p>"
-- <p><a href="/read_choice/7077bf3de519db6da968e13292526e031682bd00f6be59049b7b6f08508c30c5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7077bf3de519db6da968e13292526e031682bd00f6be59049b7b6f08508c30c5"
   class="pageLink">Si vous parvenez à vaincre ces deux canailles.</a></p>
-- <p><a href="/read_choice/a976df67148e57d41ccb92ddcbe4b8e6061e92f2b106e4d8b5daa01c1a95b278"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a976df67148e57d41ccb92ddcbe4b8e6061e92f2b106e4d8b5daa01c1a95b278"
   class="pageLink">Si, au cours du combat, vous tombez au- dessous de 2 points de
   Vie.</a></p>

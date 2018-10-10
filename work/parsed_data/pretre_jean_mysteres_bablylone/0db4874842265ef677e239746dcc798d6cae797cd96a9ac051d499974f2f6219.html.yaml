@@ -1,10 +1,10 @@
 ---
 - "<p>L'homme s'écroule dans une mare de sang.</p>"
-- <p><a href="/read_choice/a657f9be02aabe49705d386405ad41cce4299395f10020d29b4fc823d6e3aa33"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a657f9be02aabe49705d386405ad41cce4299395f10020d29b4fc823d6e3aa33"
   class="pageLink">Vous n'êtes certainement pas chez le sage, mais vous pouvez si
   vous le désirez explorer la maison.</a></p>
 - "<p>Si vous préférez sortir, vous pouvez vous diriger vers la porte :</p>"
-- <p><a href="/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
   class="pageLink">au crabe sculpté</a></p>
-- <p><a href="/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
   class="pageLink">ou celle au serpent.</a></p>

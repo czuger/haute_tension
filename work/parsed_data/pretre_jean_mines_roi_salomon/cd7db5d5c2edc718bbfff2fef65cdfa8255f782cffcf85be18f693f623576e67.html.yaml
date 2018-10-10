@@ -3,7 +3,7 @@
   dernier instant un wagonnet lancé a pleine vitesse ! Il ne vous reste qu'une série
   de rails à franchir. Le succès est à portée votre main !</p>"
 - "<p>Lancez à nouveau deux dés.</p>"
-- <p><a href="/read_choice/4e075030f895ccfff4ad4ec8eb30a2c53871337e9cc44c3b285f8ad476b81d0b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4e075030f895ccfff4ad4ec8eb30a2c53871337e9cc44c3b285f8ad476b81d0b"
   class="pageLink">Si vous obtenez 8 ou moins.</a></p>
-- <p><a href="/read_choice/119dd22ec601c1ad50eb964cd16286b6d969cd3de4373ffa5d691b44c1969991"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/119dd22ec601c1ad50eb964cd16286b6d969cd3de4373ffa5d691b44c1969991"
   class="pageLink">Si vous obtenez ,9 ou davantage.</a></p>

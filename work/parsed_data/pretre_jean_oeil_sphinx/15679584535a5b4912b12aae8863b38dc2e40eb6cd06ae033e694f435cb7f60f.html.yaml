@@ -13,6 +13,6 @@
 - |-
   <p>Vous voilà affaibli, hors du Temple d'Amon-Rê, sans aucune indication précise sur le lieu<br>
    de détention d'Antarsis et des autres prêtres ! Il vous faut malgré tout rentrer dans le Temple.<br>
-   <a href="/read_choice/f30a8f960bd10ed0a57628272dab6459a273044b8d28ead53a1105c3f2fd9ecf">Vous n'avez d'autre solution que de passer par la grande porte.</a></p>
-- <p><a href="/read_choice/9c528de2f26de53f3ca02f1099f13d88d74ce24c22d1f82b988a7b63d8ee8a84"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/f30a8f960bd10ed0a57628272dab6459a273044b8d28ead53a1105c3f2fd9ecf">Vous n'avez d'autre solution que de passer par la grande porte.</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9c528de2f26de53f3ca02f1099f13d88d74ce24c22d1f82b988a7b63d8ee8a84"
   class="pageLink">Si vous possédez une bague frappée de l'Ankh symbolique.</a></p>

@@ -78,10 +78,10 @@
 - "<p>Le soir tombe, les silhouettes se font plus rares dans les ruelles obscurcies.
   Le chant des muezzins résonne dans le crépuscule. Bientôt, la nuit enveloppera Saint-Jean-d'Acre.</p>"
 - "<p>Allez- vous choisir de vous diriger vers :</p>"
-- <p><a href="/read_choice/11a3980d2d7e33fb4154221155a4aaf8f060be5b4d5dc6e29f6e0ca551636df2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/11a3980d2d7e33fb4154221155a4aaf8f060be5b4d5dc6e29f6e0ca551636df2"
   class="pageLink">La Commanderie des Templiers de Saint- Jean-d'Acre ?</a></p>
-- <p><a href="/read_choice/5ad372a592907a0788cbc86af421d144be4c061dff6c9a0d8b0015b4743449f4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5ad372a592907a0788cbc86af421d144be4c061dff6c9a0d8b0015b4743449f4"
   class="pageLink">Une auberge accueillante où vous pourrez passer la nuit ?</a></p>
-- <p><a href="/read_choice/7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
   class="pageLink">La porte de la ville pour quitter directement Saint-Jean-d'Acre
   ?</a></p>

@@ -2,9 +2,9 @@
 - "<p>Le sentier s'arrête devant une large rivière aux eaux pures et poissonneuses.
   Un brouillard dense vous empêche de distinguer l'autre berge.</p>"
 - "<p>Que décidez-vous de faire ensuite?</p>"
-- <p><a href="/read_choice/bfa9e8c5b64d52af0f5f327c9ca1c9926d19750b53add42e0adb9c35885b1b8f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfa9e8c5b64d52af0f5f327c9ca1c9926d19750b53add42e0adb9c35885b1b8f"
   class="pageLink">Longer la rive sur votre droite ?</a></p>
-- <p><a href="/read_choice/2d5fad8e5cb90f9f080cd1b96799c0720d57e306e443c6842914d3ae68201bde"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2d5fad8e5cb90f9f080cd1b96799c0720d57e306e443c6842914d3ae68201bde"
   class="pageLink">Partir de l'autre côté?</a></p>
-- <p><a href="/read_choice/05c18f2c45cb207cee92888427bb7b32a3f6a018de82a876ce5834cc83b9281e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/05c18f2c45cb207cee92888427bb7b32a3f6a018de82a876ce5834cc83b9281e"
   class="pageLink">Traverser le cours d'eau ?</a></p>

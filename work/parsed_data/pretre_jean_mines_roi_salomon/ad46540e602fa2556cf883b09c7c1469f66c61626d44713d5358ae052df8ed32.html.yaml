@@ -6,7 +6,7 @@
   voilà débarrassé ! En revanche, votre mouvement trop brusque a soumis la corde à
   rude épreuve.</p>"
 - "<p>Lancez deux dés !</p>"
-- <p><a href="/read_choice/12e8cf5846df4a364b40e29caeb70cbe6a072afe03d63e478574b8bc12f60918"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/12e8cf5846df4a364b40e29caeb70cbe6a072afe03d63e478574b8bc12f60918"
   class="pageLink">Si vous obtenez un chiffre pair.</a></p>
-- <p><a href="/read_choice/00d3dbc85562dbc1327f78778fcc9342a745e548557632edeef92ec6265d02a2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/00d3dbc85562dbc1327f78778fcc9342a745e548557632edeef92ec6265d02a2"
   class="pageLink">Si vous obtenez un chiffre impair.</a></p>

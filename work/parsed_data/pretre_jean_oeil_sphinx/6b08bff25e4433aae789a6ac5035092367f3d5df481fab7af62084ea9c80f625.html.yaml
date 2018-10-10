@@ -8,9 +8,9 @@
   près du feu, et un vieillard chenu vêtu de riches habits.</p>"
 - "<p>Avec lequel de ces hommes allez-vous tenter de lier connaissance ?</p>"
 - |-
-  <p><a href="/read_choice/175e0eab1ac346c4dde4ce4db2a0916ede99abb63d0d29e17ccc30dfbd9eeb0c" class="pageLink">Le jeune guerrier ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/175e0eab1ac346c4dde4ce4db2a0916ede99abb63d0d29e17ccc30dfbd9eeb0c" class="pageLink">Le jeune guerrier ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/des-qu-il-vous-entend-approcher-l-homme-leve-la-tete-vous-remar-quez-immediatement-les-enormes-anneaux-d-ar-gent-qui-pendent-au-lobe">Le Nubien ?</a></p>
-- <p><a href="/read_choice/8c10a55b7248375b0bd9ff8d4e837ede54156942193e8015f3b2c6351e03b67d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8c10a55b7248375b0bd9ff8d4e837ede54156942193e8015f3b2c6351e03b67d"
   class="pageLink">Le vieillard ?</a></p>
-- <p><a href="/read_choice/7c2f2c0a97103ed77e689902d8f3ab7d971a9e83b29e8889abb64199b52e7dab"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7c2f2c0a97103ed77e689902d8f3ab7d971a9e83b29e8889abb64199b52e7dab"
   class="pageLink">Si vous préférez vous tenir à l'écart.</a></p>

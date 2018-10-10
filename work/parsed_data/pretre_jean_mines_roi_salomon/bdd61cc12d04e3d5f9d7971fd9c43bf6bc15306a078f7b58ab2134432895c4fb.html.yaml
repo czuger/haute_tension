@@ -13,9 +13,9 @@
   buissons. Ce sont des pygmées qui vous observent, leurs arcs et leurs sarbacanes
   prêts à vous infliger une blessure mortelle. Un coup d'œil vous suffit pour comprendre
   que vous êtes encerclé.</p>"
-- <p><a href="/read_choice/2507d2cd92e2e5c6feee1cade708bd67a9bb38a9407aaf7d65d1c0b26c1bc98f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2507d2cd92e2e5c6feee1cade708bd67a9bb38a9407aaf7d65d1c0b26c1bc98f"
   class="pageLink">Allez-vous jeter vos armes en signe de reddition</a></p>
-- <p><a href="/read_choice/eba83d6486d00bb218cad8480354062aac74eb6093df883fd3826e20342ca8bc"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eba83d6486d00bb218cad8480354062aac74eb6093df883fd3826e20342ca8bc"
   class="pageLink">ou bien, dégainant votre épée, chargerez-vous pour vous ouvrir
   un passage dans la forêt ?</a><em> </em></p>
 - "<p> </p>"

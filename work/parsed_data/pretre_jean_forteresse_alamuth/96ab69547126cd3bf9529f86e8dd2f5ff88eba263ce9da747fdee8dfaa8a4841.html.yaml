@@ -14,7 +14,7 @@
   sur le métal étincelant de ses gantelets vous tire l'oeil. Avec exaltation, vous
   reconnaissez une des pièces de l'armure magique dont vous a parlé Abdul Al-Azhred
   !</p>"
-- <p><a href="/read_choice/345f27b20341ceea5229cca9bb2c2c3766b424dbcd0d1dc10bfbe213b14bcf2e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/345f27b20341ceea5229cca9bb2c2c3766b424dbcd0d1dc10bfbe213b14bcf2e"
   class="pageLink">Allez-vous attaquer l'Homme-Oiseau</a></p>
-- <p><a href="/read_choice/7934ff7be1213f3f2493e9e74f1a1c9351875635b9a609f6a0af453dc6787fe4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7934ff7be1213f3f2493e9e74f1a1c9351875635b9a609f6a0af453dc6787fe4"
   class="pageLink">ou tenter de lui ravir ses gantelets magiques par la ruse ?</a></p>

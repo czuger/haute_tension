@@ -6,7 +6,7 @@
   Vous n'aimeriez pas vous retrouver enchaîné à l'un de ces énormes colliers qui pendent
   au mur ! Avant de partir, vous apercevez sur la table de bois grossier un flacon
   de liquide incolore. L'étiquette indique seulement «contrôle des animaux».</p>"
-- <p><a href="/read_choice/f18de62def417056e3f9c12bcb8ad3df8bd02054aeb351fc61b0538d247f106d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f18de62def417056e3f9c12bcb8ad3df8bd02054aeb351fc61b0538d247f106d"
   class="pageLink">Allez-vous prendre la fiole</a></p>
-- <p><a href="/read_choice/e922d4cb97e6f9871f8b748fd186e5533fbf3bb19f62e69aa0d7be3cfcb7365c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e922d4cb97e6f9871f8b748fd186e5533fbf3bb19f62e69aa0d7be3cfcb7365c"
   class="pageLink">ou quitter directement la salle du Maître des Chiens ?</a></p>

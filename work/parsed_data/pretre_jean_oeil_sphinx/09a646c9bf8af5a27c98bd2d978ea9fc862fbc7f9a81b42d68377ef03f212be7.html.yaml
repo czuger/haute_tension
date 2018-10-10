@@ -8,11 +8,11 @@
   de marbre irisé qui permettait apparemment d'acheminer des matériaux de construction
   dans le tombeau.</p>"
 - "<p>Allez-vous franchir ce passage :</p>"
-- <p><a href="/read_choice/e9dbbe7858b67dae4c1e6fa35ed270cd687d1a84ac05a3fba30513e344fdbcaf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e9dbbe7858b67dae4c1e6fa35ed270cd687d1a84ac05a3fba30513e344fdbcaf"
   class="pageLink">En vous servant de la glissière de. gauche ?</a><em> </em></p>
-- <p><a href="/read_choice/7676c9203a5e56e6141d8405bc3194dd560be75ee63cb8bfdc4b20b1fdc47a24"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7676c9203a5e56e6141d8405bc3194dd560be75ee63cb8bfdc4b20b1fdc47a24"
   class="pageLink">En descendant les marches de l'escalier une par une ?</a></p>
-- <p><a href="/read_choice/6f41567725e3c039007ae9e823d1013d3df0cfe56ebca921ed66d7fe86c4b0c4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6f41567725e3c039007ae9e823d1013d3df0cfe56ebca921ed66d7fe86c4b0c4"
   class="pageLink">En vous servant de la glissière de droite ?</a></p>
-- <p><a href="/read_choice/5b0c7f04ffd5b70b4121e96285b51837597b6cda65da2ca358bf2fa5ae47adba"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5b0c7f04ffd5b70b4121e96285b51837597b6cda65da2ca358bf2fa5ae47adba"
   class="pageLink">En descendant les marches de l'escalier deux par deux ?</a></p>

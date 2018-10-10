@@ -1,7 +1,7 @@
 ---
 - "<p>Quel sort pouvez-vous utiliser :</p>"
 - |-
-  <p><a href="/read_choice/4b24053a5bea790999a029d5e6fb4860f3d58cdd5c2f408eb78fcc4a9c6fb866" class="pageLink">La pétrification ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4b24053a5bea790999a029d5e6fb4860f3d58cdd5c2f408eb78fcc4a9c6fb866" class="pageLink">La pétrification ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/297.html">Le dédoublement ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/439.html">Le feu surnaturel ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/355.html">L'affaiblissement ?</a></p>

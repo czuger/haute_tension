@@ -2,13 +2,13 @@
 - "<p>D'un mouvement brusque, l'Homme-Lézard vous agrippe la main : vous n'avez pas
   été assez discret ! Vous devez réagir sans tarder.</p>"
 - "<p>Allez-vous :</p>"
-- <p><a href="/read_choice/9d7194e7c331c0338b02c2d8f8e809e40d3d3041c507f7283b343aa645fd40ef"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9d7194e7c331c0338b02c2d8f8e809e40d3d3041c507f7283b343aa645fd40ef"
   class="pageLink">Sortir votre arme?</a></p>
 - "<p>Utiliser un des flacons mystérieux que vous a cédés l'Apothicaire? Dans ce cas,
   lequel?</p>"
-- <p><a href="/read_choice/0d56f7dd1f889bae3c03c3a0da4416a55eacbd2998cc22466d21ffddcf168b40"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0d56f7dd1f889bae3c03c3a0da4416a55eacbd2998cc22466d21ffddcf168b40"
   class="pageLink">Le bleu?</a></p>
-- <p><a href="/read_choice/449df519ee067b29cfc7f4bd34e171592a8c7431b616ee011b06f4c83d2d2b68"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/449df519ee067b29cfc7f4bd34e171592a8c7431b616ee011b06f4c83d2d2b68"
   class="pageLink">Le jaune ?</a></p>
-- <p><a href="/read_choice/a00551c0b3d93c7993c0abe77dd86c4c17a1e223f3d4b23b8a474fb52170f8b2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a00551c0b3d93c7993c0abe77dd86c4c17a1e223f3d4b23b8a474fb52170f8b2"
   class="pageLink">Le vert ?</a></p>

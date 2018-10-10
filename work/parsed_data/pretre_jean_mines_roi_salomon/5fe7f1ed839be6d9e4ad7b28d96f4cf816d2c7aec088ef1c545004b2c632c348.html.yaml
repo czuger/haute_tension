@@ -6,8 +6,8 @@
   robe noire semée d'étoiles, comme celles qu'affectionnent les magiciens. Celui-ci
   n'aura probablement pas eu le temps de mettre en pratique son savoir.</p>"
 - "<p>Voulez-vous fouiller ce squelette ?</p>"
-- <p><a href="/read_choice/565e7b7610045f3405e4d6e2c1334b8a49348aac10af98f1823819283949da93"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/565e7b7610045f3405e4d6e2c1334b8a49348aac10af98f1823819283949da93"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/370bdf1dd4c8f505539214f77d088c1aa9c2881b12a36ee5d3fed69791ebecf9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/370bdf1dd4c8f505539214f77d088c1aa9c2881b12a36ee5d3fed69791ebecf9"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

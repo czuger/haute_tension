@@ -23,8 +23,8 @@
   d'une pente assez abrupte, et s'enfonce ensuite au pied des montagnes dans une jungle
   touffue. A gauche, le paysage montagneux qui vous est familier semble se poursuivre
   selon un angle plus doux.</p>"
-- <p><a href="/read_choice/ecec4c170ba5d867be6eddba81fdf529b385dc5557a69fe0b853a41d533c4d3f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ecec4c170ba5d867be6eddba81fdf529b385dc5557a69fe0b853a41d533c4d3f"
   class="pageLink">Allez-vous décider de continuer votre route dans la montagne</a></p>
-- <p><a href="/read_choice/b1338074c25493968fa7c66cbc1ee3fa25717f3687b391e4c8afe03d74543354"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b1338074c25493968fa7c66cbc1ee3fa25717f3687b391e4c8afe03d74543354"
   class="pageLink">ou préférez-vous tenter la traversée de cette jungle inconnue ?</a><em>
   </em></p>

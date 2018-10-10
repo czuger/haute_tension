@@ -4,7 +4,7 @@
   d'une solution un peu trop désespérée ! Quelques dizaines de mètres plus loin, vous
   arrivez devant un second puits, apparemment identique au premier.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/read_choice/66139d7d7100a7a68024c2682d5a3cc0df4c8c54d1153644f160d77682a2d368"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/66139d7d7100a7a68024c2682d5a3cc0df4c8c54d1153644f160d77682a2d368"
   class="pageLink">Rebrousser chemin et descendre dans le premier puits ?</a></p>
-- <p><a href="/read_choice/cbe5af84fadb2e0bc448ed18838244658ff53fed8441f89309cb25e7975c06ca"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cbe5af84fadb2e0bc448ed18838244658ff53fed8441f89309cb25e7975c06ca"
   class="pageLink">Ou bien emprunter celui-ci ?</a></p>

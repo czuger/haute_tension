@@ -3,9 +3,9 @@
   La rue dans laquelle vous avancez sépare deux quartiers distincts : les docks, à
   gauche, et un quartier en ruine, proche de ce que vous avez vu à l'entrée de Shamash,
   à droite.</p>"
-- <p><a href="/read_choice/dae3a0b232dda013e964d0270504406d87f9eca64cbe4baf2ace6ae1a5c6c6a6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/dae3a0b232dda013e964d0270504406d87f9eca64cbe4baf2ace6ae1a5c6c6a6"
   class="pageLink">Allez-vous chercher refuge vers les docks</a></p>
-- <p><a href="/read_choice/127827f2932727beaf95862f37711727b3a50be21eb2bea2616ffdca32318e39"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/127827f2932727beaf95862f37711727b3a50be21eb2bea2616ffdca32318e39"
   class="pageLink">ou préférez-vous chercher un endroit où dormir dans les ruines
   ?</a></p>
 - "<p> </p>"

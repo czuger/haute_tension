@@ -3,17 +3,17 @@
   couloir, perçant la pénombre de leurs taches bariolées. Elles donnent vraisemblablement
   sur des cellules. Les portes de droite sont, respectivement, verte, rouge et jaune.
   Celles de gauche, blanche, bleue et noire.</p>"
-- <p><a href="/read_choice/afcc2ad6bff90ccb2e9e513167ae648915b3ca0b08900d2a4f007d56308b09a3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/afcc2ad6bff90ccb2e9e513167ae648915b3ca0b08900d2a4f007d56308b09a3"
   class="pageLink">Si vous souhaitez poursuivre votre chemin dans ce passage sans
   vous en soucier.</a></p>
 - "<p>Si au contraire vous décidez d'en ouvrir une, laquelle essaierez-vous :</p>"
 - "<p> </p>"
 - |-
-  <p><a href="/read_choice/8a8b1134e194077520453b67b4cc8f2756343262ff1e30eaaa69d4cb3394e1a8" class="pageLink">La verte ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8a8b1134e194077520453b67b4cc8f2756343262ff1e30eaaa69d4cb3394e1a8" class="pageLink">La verte ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/490-1.html">La rouge ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/572-0.html">La jaune ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/188-5.html">La blanche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/29-3.html">La bleue ?</a></p>
-- <p><a href="/read_choice/6a45d1a99ab9905727a4544a78ec6d614fe12ea456275383077e25f85f9c6392"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6a45d1a99ab9905727a4544a78ec6d614fe12ea456275383077e25f85f9c6392"
   class="pageLink">La noire ?</a></p>
 - "<p> </p>"

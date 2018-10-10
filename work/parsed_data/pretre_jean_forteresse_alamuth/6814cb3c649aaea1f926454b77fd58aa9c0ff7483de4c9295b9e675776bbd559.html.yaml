@@ -1,8 +1,8 @@
 ---
 - "<p>Quel grain de riz voulez-vous manger?</p>"
-- <p><a href="/read_choice/2dc89644dc1d99bc989f033e65fa024d589c81daaa901b2b136fa4740e817bd2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2dc89644dc1d99bc989f033e65fa024d589c81daaa901b2b136fa4740e817bd2"
   class="pageLink">Celui qui se trouve à droite,</a></p>
-- <p><a href="/read_choice/43c71a4b0a5503bbc325cf3dcb9cfab4466b8018f6b078d836b8278c27b52d85"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/43c71a4b0a5503bbc325cf3dcb9cfab4466b8018f6b078d836b8278c27b52d85"
   class="pageLink">à gauche ?</a></p>
-- <p><a href="/read_choice/6fa5c6b224016f8097446d1fdc50f518afb5b1bd6b446bdce84f7853a8b045e0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6fa5c6b224016f8097446d1fdc50f518afb5b1bd6b446bdce84f7853a8b045e0"
   class="pageLink">Les deux en même temps ?</a></p>

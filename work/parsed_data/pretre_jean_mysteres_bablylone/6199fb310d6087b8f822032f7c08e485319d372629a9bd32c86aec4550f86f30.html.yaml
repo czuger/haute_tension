@@ -6,7 +6,7 @@
   de vos yeux si votre tête finissait séparée de votre corps. Vous priez en silence
   pour ne pas perdre cette partie.</p>"
 - "<p>Lancez un dé.</p>"
-- <p><a href="/read_choice/90eba1b73f81dfcb75f18c8a9174176e7c48d42d7432ffa27e4e4d4ea9e180ec"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/90eba1b73f81dfcb75f18c8a9174176e7c48d42d7432ffa27e4e4d4ea9e180ec"
   class="pageLink">Si vous obtenez un chiffre impair.</a></p>
-- <p><a href="/read_choice/7ac53f96f90d425bf1b266aa6bab7fce46b2d04466da645d14c632880db6f7a2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7ac53f96f90d425bf1b266aa6bab7fce46b2d04466da645d14c632880db6f7a2"
   class="pageLink">Si vous obtenez un chiffre pair.</a></p>

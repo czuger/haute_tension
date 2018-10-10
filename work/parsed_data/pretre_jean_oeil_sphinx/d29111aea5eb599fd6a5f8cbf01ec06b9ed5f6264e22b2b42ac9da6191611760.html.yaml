@@ -1,7 +1,7 @@
 ---
 - "<p>Vous avez eu vite fait de renvoyer cette ignoble chose dans l'Au-delà.</p>"
-- <p><a href="/read_choice/3cafd5a5cd4129e981d7cd6caf2c7c3a569d51f2eeb8ec0d1976e7d21952ddf6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3cafd5a5cd4129e981d7cd6caf2c7c3a569d51f2eeb8ec0d1976e7d21952ddf6"
   class="pageLink">A présent, allez-vous approcher de la porte carrée</a></p>
-- <p><a href="/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
   class="pageLink">ou emprunter l'escalier ?</a><em> </em></p>
 - "<p> </p>"

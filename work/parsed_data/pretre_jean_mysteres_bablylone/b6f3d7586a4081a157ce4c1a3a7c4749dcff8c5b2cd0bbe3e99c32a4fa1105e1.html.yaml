@@ -7,7 +7,7 @@
   tard. Votre mouvement furtif n'attire pas l'attention des gardes.</p>"
 - "<p>Vous vous retrouvez dans un couloir relativement large, flanqué de deux portes.
   Des pas retentissent a votre droite. Il faut vous cacher pour ne pas être découvert.</p>"
-- <p><a href="/read_choice/62c84f197b2974df162022b4778cc2a964d0d80c25367a2fc80277c5746c0286"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/62c84f197b2974df162022b4778cc2a964d0d80c25367a2fc80277c5746c0286"
   class="pageLink">Allez-vous essayer la porte en face de vous</a></p>
-- <p><a href="/read_choice/101d4191f3ce8dc69122919073207455728dad26bda7158de2f65d6c9587347c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/101d4191f3ce8dc69122919073207455728dad26bda7158de2f65d6c9587347c"
   class="pageLink">ou la porte de gauche ?</a></p>

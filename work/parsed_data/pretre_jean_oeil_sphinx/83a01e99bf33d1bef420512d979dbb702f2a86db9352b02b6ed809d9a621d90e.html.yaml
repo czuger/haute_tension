@@ -6,9 +6,9 @@
   rasé fait irruption à quelques mètres de vous, poursuivi par une foule hostile,
   qui lui jette des cailloux ou des fruits pourris. L'homme (il pourrait s'agir d'un
   prêtre semble prêt à succomber sous le nombre de ses tourmenteurs.</p>"
-- <p><a href="/read_choice/33f13ea9c39baa92743338704d69773242ca9e2eb7b5ca3a1e0aac9083a065ec"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/33f13ea9c39baa92743338704d69773242ca9e2eb7b5ca3a1e0aac9083a065ec"
   class="pageLink">Allez-vous lui venir en aide</a></p>
-- <p><a href="/read_choice/032e61a47fbc26649c378e700a0e25cef009652cc1f5a64e19370821b9533f91"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/032e61a47fbc26649c378e700a0e25cef009652cc1f5a64e19370821b9533f91"
   class="pageLink">ou bien préférez-vous reste à l'écart de cette scène ?</a><em>
   </em></p>
 - "<p> </p>"

@@ -17,7 +17,7 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.current_page
     # to_i.to_s avoid injections
-    @page.text.each{ |text| text.gsub!( 'CHANGE_ADVENTURE_ID', params[:adventure_id].to_i.to_s ) }
+    @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
 
   def die
@@ -25,12 +25,13 @@ class AdventuresController < ApplicationController
 
   def read_choice
     @adventure = Adventure.find(params[:adventure_id])
-    @adventure.page_id = params[:page_id]
+    page = Page.find_by_page_hash( params[:page_id] )
+    @adventure.current_page = page
     ActiveRecord::Base.transaction do
-      @adventure.game_logs.create!( page_id: @adventure.page_id, log_type: GameLog::JOURNEY )
+      @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
       @adventure.save!
     end
-    redirect_to adventure_book_url( @adventure.id, @adventure.page_id )
+    redirect_to adventure_play_url( @adventure.id )
   end
 
   # GET /adventures/new

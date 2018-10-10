@@ -7,7 +7,7 @@
   vous arrivez à une bifurcation. La route se sépare en deux chemins distincts avant
   de s'enfoncer dans la plaine d'un côté et dans les collines de l'autre.</p>"
 - "<p>Prendrez-vous la voie qui va :</p>"
-- <p><a href="/read_choice/2200de5defa177b8fbc73cc31b0c9b9e4cdfdb13b1001bdc578b8530ba876e1d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2200de5defa177b8fbc73cc31b0c9b9e4cdfdb13b1001bdc578b8530ba876e1d"
   class="pageLink">A gauche vers les collines ?</a></p>
-- <p><a href="/read_choice/3e752aac54c31c264864ff31d256af53b6c29e13a65508abcf30e0f90417225d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3e752aac54c31c264864ff31d256af53b6c29e13a65508abcf30e0f90417225d"
   class="pageLink">A droite dans la plaine rocailleuse ?</a></p>

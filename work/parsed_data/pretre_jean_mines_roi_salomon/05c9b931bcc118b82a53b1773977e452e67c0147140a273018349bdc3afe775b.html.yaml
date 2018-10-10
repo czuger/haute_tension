@@ -7,8 +7,8 @@
   puisse vous être utile ? Pendant que vous réfléchissez, le visage d'Apolongo s'éclaire.
   «Je pense savoir comment te venir en aide, reprend-il. . Accompagne-moi dans ma
   case, voyageur !»</p>"
-- <p><a href="/read_choice/78f70a24b512d3409ea62e5cda88eeaf9f170f3f1dfb419deb622ea8ad9a068c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/78f70a24b512d3409ea62e5cda88eeaf9f170f3f1dfb419deb622ea8ad9a068c"
   class="pageLink">Allez-vous accepter sa proposition</a></p>
-- <p><a href="/read_choice/e9d899c5fad9323f09febca86300242ad781d1e1a346c2d6d172cda1c74bf067"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e9d899c5fad9323f09febca86300242ad781d1e1a346c2d6d172cda1c74bf067"
   class="pageLink">ou bien déciderez-vous de ne plus encourir de risques en faisant
   une confiance excessive à des inconnus ?</a></p>

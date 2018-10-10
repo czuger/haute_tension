@@ -12,7 +12,7 @@
   devez la subtiliser en détournant l'attention du chef. Maintenant que vous êtes
   devenu l'un des leurs, cela ne devrait pas poser trop de difficultés.</p>"
 - "<p>Lancez 2 dés pour déterminer si votre tentative est couronnée de succès :</p>"
-- <p><a href="/read_choice/974b51ee55a58ad4bcc3200d8ee4df87267df8130a843bda1db96b5ba0d9aaa4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/974b51ee55a58ad4bcc3200d8ee4df87267df8130a843bda1db96b5ba0d9aaa4"
   class="pageLink">si le total obtenu est un multiple de 2 ou 3.</a></p>
-- <p><a href="/read_choice/75e88a53692ecdb73771d51f349d435a3eb5f985cbcac69e85a6de9dac73ab89"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75e88a53692ecdb73771d51f349d435a3eb5f985cbcac69e85a6de9dac73ab89"
   class="pageLink">Sinon.</a></p>

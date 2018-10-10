@@ -2,11 +2,11 @@
 - "<p>Brusquement, vous remarquez qu'Osiris tient un cor entre ses bras croisés sur
   la poitrine. Vous n'avez jamais entendu parler d'une telle particularité dans d'autres
   temples ou tombeaux.</p>"
-- <p><a href="/read_choice/6e838cdbc9c9f8781fb6a1dbcdf3c37844f5af99cee4403c5cd247daf8e67bd7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6e838cdbc9c9f8781fb6a1dbcdf3c37844f5af99cee4403c5cd247daf8e67bd7"
   class="pageLink">Si cet objet vous rappelle quelque chose.</a></p>
 - "<p>Dans le cas contraire, qu'allez-vous faire :</p>"
 - |-
-  <p><a href="/read_choice/d0a6e58e61e83b7bbbd70dd1fe999dd339f32b7fa5e27841c68368be31670efe" class="pageLink">Desceller un bas-relief ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d0a6e58e61e83b7bbbd70dd1fe999dd339f32b7fa5e27841c68368be31670efe" class="pageLink">Desceller un bas-relief ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/489.html">Ouvrir le sarcophage ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/36.html">Fouiller la chambre ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/180.html">Quitter cette pièce ?</a></p>

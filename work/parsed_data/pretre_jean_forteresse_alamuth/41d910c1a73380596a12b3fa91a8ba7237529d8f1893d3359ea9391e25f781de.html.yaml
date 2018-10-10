@@ -10,7 +10,7 @@
   !</p>"
 - "<p><strong>THALOS </strong>FORCE : 18 VIE : 22</p>"
 - "<p>AJUSTEMENT DOMMAGES : + 1</p>"
-- <p><a href="/read_choice/d0749c9a8c30cda5ba488e17bf588e3f4d323e1f153852ebbb66e28a502f6634"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d0749c9a8c30cda5ba488e17bf588e3f4d323e1f153852ebbb66e28a502f6634"
   class="pageLink">Si vous possédez encore la clef de jade.</a></p>
-- <p><a href="/read_choice/a7547919a6a4620b74dbd6eaa44ed6c97d5f65f2f5548ea66fe46decfca1cd83"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7547919a6a4620b74dbd6eaa44ed6c97d5f65f2f5548ea66fe46decfca1cd83"
   class="pageLink">Si vous remportez ce combat.</a></p>

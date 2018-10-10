@@ -11,10 +11,10 @@
   qui mène au troisième niveau du jardin suspendu. Vous vous mettez à le suivre. Tout
   de suite, une salamandre de belle taille, gros lézard à collerette aux yeux d'or,
   s'interpose en travers de votre chemin.</p>"
-- <p><a href="/read_choice/c3b8cc329e3f176570c3e4c4b3df452d1694e50696fb42ec9538483aee671321"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c3b8cc329e3f176570c3e4c4b3df452d1694e50696fb42ec9538483aee671321"
   class="pageLink">Voulez-vous la chasser</a></p>
-- <p><a href="/read_choice/78299d5cfda5d2395a9ff1a3efa1210766fb1c33cc53f0640527dcb36e4f2baa"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/78299d5cfda5d2395a9ff1a3efa1210766fb1c33cc53f0640527dcb36e4f2baa"
   class="pageLink">ou attendre de voir quel sera son comportement ?</a></p>
-- <p><a href="/read_choice/a6d886aca9744411ca0a652598d2b9df9123f71daeb5baab8410f6d635a2d1b6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a6d886aca9744411ca0a652598d2b9df9123f71daeb5baab8410f6d635a2d1b6"
   class="pageLink">A moins que vous ne décidiez d'utiliser l'Œil Magique sur la salamandre
   ?</a></p>

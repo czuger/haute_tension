@@ -3,15 +3,15 @@
   chiffre obtenu est celui des fléchettes empoisonnées qui viennent de vous frapper
   la main au moment où vous avez réveillé ce piège archaïque. Otez de votre total
   le nombre de points de Vie correspondant.</p>"
-- <p><a href="/read_choice/1d4df656f06a7b17ba7a806767e62ca97faf3cc2f02e1cc05261152b928ac5ea"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1d4df656f06a7b17ba7a806767e62ca97faf3cc2f02e1cc05261152b928ac5ea"
   class="pageLink">Vous pouvez à présent ouvrir le tiroir de gauche</a></p>
-- <p><a href="/read_choice/4c402b22dc0ec27a7be19e5dbce6fd5dbf1627387fa123e7ef2d87aeeb64a2e8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4c402b22dc0ec27a7be19e5dbce6fd5dbf1627387fa123e7ef2d87aeeb64a2e8"
   class="pageLink">ou, si vous ne l'avez déjà fait, fouiller le coffre.</a></p>
 - "<p>Sinon, vous décidez que vous avez assez perdu de temps et quittez l'antichambre
   par le couloir. Ouvrirez-vous :</p>"
-- <p><a href="/read_choice/81ae793194e088077f7413a0d142393b85bc76f6b0da283204ed72a27608d441"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/81ae793194e088077f7413a0d142393b85bc76f6b0da283204ed72a27608d441"
   class="pageLink">La porte de droite?</a></p>
-- <p><a href="/read_choice/031026e44f7a595a0ed335c45e4ef4b5af19ac00673661b7b6325d8ef794055a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/031026e44f7a595a0ed335c45e4ef4b5af19ac00673661b7b6325d8ef794055a"
   class="pageLink">La porte de gauche?</a></p>
-- <p><a href="/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
   class="pageLink">La porte du fond?</a></p>

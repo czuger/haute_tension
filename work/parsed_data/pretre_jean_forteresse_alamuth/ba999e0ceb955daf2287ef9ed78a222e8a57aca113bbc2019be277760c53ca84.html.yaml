@@ -1,7 +1,7 @@
 ---
 - "<p>Un choc violent vous secoue tout le corps. Vous perdez 3 points de Vie. La trappe
   reste fermée.</p>"
-- <p><a href="/read_choice/d3f949fe1f1d1ff0bebb1c69ecf9751b484bfce1a465141bc470e8f1a86bc687"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d3f949fe1f1d1ff0bebb1c69ecf9751b484bfce1a465141bc470e8f1a86bc687"
   class="pageLink">Voulez-vous empoigner le levier noir</a></p>
-- <p><a href="/read_choice/8cda23daa4337b67c022640110ef0b7bd94718e53429c97e6eba491eea76b008"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8cda23daa4337b67c022640110ef0b7bd94718e53429c97e6eba491eea76b008"
   class="pageLink">ou manoeuvrer les deux en même temps ?</a></p>

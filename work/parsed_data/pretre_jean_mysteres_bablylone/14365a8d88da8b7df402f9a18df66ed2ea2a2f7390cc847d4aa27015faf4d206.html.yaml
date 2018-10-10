@@ -1,10 +1,10 @@
 ---
 - "<p>Les trois Gobelins sont morts. L'odeur de la pièce est devenue irrespirable
   ; il serait intolérable d'y passer la nuit.</p>"
-- <p><a href="/read_choice/6ba1c59a1e671f55aebb0ae7a68f2535af17af97e771fa2717bcbb980d6bdc1c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6ba1c59a1e671f55aebb0ae7a68f2535af17af97e771fa2717bcbb980d6bdc1c"
   class="pageLink">Il vous est toutefois possible de fouiller là pièce avant de ressortir.</a></p>
-- <p><a href="/read_choice/81065ca8df209752b95529b6e89f1bcf9d502aafc314e510076189e12fda860b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/81065ca8df209752b95529b6e89f1bcf9d502aafc314e510076189e12fda860b"
   class="pageLink">Vous pouvez également quitter la pièce et essayer une autre porte</a></p>
-- <p><a href="/read_choice/5b12ed947008f07bace61e14b1688d86c25c9c9b356c0dc2c20fe90a860e531f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5b12ed947008f07bace61e14b1688d86c25c9c9b356c0dc2c20fe90a860e531f"
   class="pageLink">ou encore abandonner l'idée de dormir dans cette bâtisse et aller
   coucher dans la rue.</a></p>

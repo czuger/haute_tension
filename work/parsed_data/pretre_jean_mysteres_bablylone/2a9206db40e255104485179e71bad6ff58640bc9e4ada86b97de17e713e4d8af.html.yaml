@@ -13,7 +13,7 @@
   vous faut gagner.</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/cdb9e87b0f7e39e5a9b21df2258f10e8806df73c45dc451781698d77c96f1814">Si vous vous arrêtez de jouer avant d'avoir perdu.</a></p>
-- <p><a href="/read_choice/0397b5b7df58ee0112d5724b17a436d287bd9d6b6aee5306c4dd2e33af97a7a8"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/cdb9e87b0f7e39e5a9b21df2258f10e8806df73c45dc451781698d77c96f1814">Si vous vous arrêtez de jouer avant d'avoir perdu.</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0397b5b7df58ee0112d5724b17a436d287bd9d6b6aee5306c4dd2e33af97a7a8"
   class="pageLink">Sinon, la première fois que vous perdez.</a></p>
 - "<p> </p>"

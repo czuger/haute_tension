@@ -1,7 +1,7 @@
 ---
 - "<p>Vous n'avez pas le choix : il faut remonter ! Vous agrippez la corde et vous
   vous hissez à la hauteur</p>"
-- <p><a href="/read_choice/6ef413be112470df641346b201313ee97e3c18e0db030674e36a2b6b57a8befb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6ef413be112470df641346b201313ee97e3c18e0db030674e36a2b6b57a8befb"
   class="pageLink">du second tunnel,</a></p>
-- <p><a href="/read_choice/c94b4125e72e879e4d3157b5bbe1e594b589bbe0a54ab1909a3e2e9d55d50fed"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c94b4125e72e879e4d3157b5bbe1e594b589bbe0a54ab1909a3e2e9d55d50fed"
   class="pageLink">ou du premier.</a></p>

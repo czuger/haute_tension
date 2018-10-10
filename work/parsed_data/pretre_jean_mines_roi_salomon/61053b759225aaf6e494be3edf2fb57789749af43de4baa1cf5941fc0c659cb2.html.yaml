@@ -1,8 +1,8 @@
 ---
 - "<p>Une étrange sensation de fatigue vous saisit. Vous ne pensiez pas avoir si vite
   besoin de repos.</p>"
-- <p><a href="/read_choice/1e9f9eddba724e31548dbc0e83542b3a54fc27ac126feed875a7c48bc7072de9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1e9f9eddba724e31548dbc0e83542b3a54fc27ac126feed875a7c48bc7072de9"
   class="pageLink">Désirez-vous prendre le risque de vous endormir dans cette galerie,
   à proximité des mineurs</a></p>
-- <p><a href="/read_choice/436ea60bd56ffa9c33a1104e6158a2a01ae00b11058ed6c2eb2b447d2f0a97a9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/436ea60bd56ffa9c33a1104e6158a2a01ae00b11058ed6c2eb2b447d2f0a97a9"
   class="pageLink">ou, jugeant le danger trop important, continuer votre chemin ?</a></p>

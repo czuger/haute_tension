@@ -15,9 +15,9 @@
   lits de sangle, des livres de prière à leur côté. Seuls deux autres Hachchachins
   sont éveillés et discutent.</p>"
 - "<p>Allez- vous :</p>"
-- <p><a href="/read_choice/ee01f7ddeee203d29807d0f9ac2739941624900e31368c780f3e522fc5e24adf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ee01f7ddeee203d29807d0f9ac2739941624900e31368c780f3e522fc5e24adf"
   class="pageLink">Vous faufiler dans l'ombre et traverser la pièce?</a></p>
-- <p><a href="/read_choice/1aea4ee4cbb6ecec96f857986e5744e8981f735ab3f6469c7a63e993eef579bb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1aea4ee4cbb6ecec96f857986e5744e8981f735ab3f6469c7a63e993eef579bb"
   class="pageLink">Utiliser un objet tiré de votre équipement ?</a></p>
-- <p><a href="/read_choice/cbaa5f3bd388925614c89e45d6945f00e561db56c04155da2fa82dd944fd58f4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cbaa5f3bd388925614c89e45d6945f00e561db56c04155da2fa82dd944fd58f4"
   class="pageLink">Rester caché un instant et écouter la conversation des gardes?</a></p>

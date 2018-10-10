@@ -13,8 +13,8 @@
   nouveau là presque au même endroit que précédemment. Cependant, il ne vous a pas
   vu.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/read_choice/a052b6a755e3a8d62f03fc2462b4b18cd0507b987ce1dbcb07d8dc841e8cf7a0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a052b6a755e3a8d62f03fc2462b4b18cd0507b987ce1dbcb07d8dc841e8cf7a0"
   class="pageLink">Vous pourriez attaquer le monstre par-derrière</a></p>
-- <p><a href="/read_choice/9f1c8bf7b9db7cafce233810185e0c01197bfa020bbca27c5f736f93414fae97"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f1c8bf7b9db7cafce233810185e0c01197bfa020bbca27c5f736f93414fae97"
   class="pageLink">ou tenter de sauter le mur de la maison de Barsip sans que cette
   créature ne vous aperçoive.</a><em> </em></p>

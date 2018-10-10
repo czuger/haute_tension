@@ -13,7 +13,7 @@
   tournée à Jamal. Sortez 1 pièce d'or de votre bourse. La discussion se poursuit,
   et Jamal vous demande de lui raconter vos aventures. Au bout d'un moment, il propose
   de vous payer une autre tournée.</p>"
-- <p><a href="/read_choice/bf263d404165c18258e2c869ea7ab83e7c934aac8b9ef11b9c2ead3c74a059d0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bf263d404165c18258e2c869ea7ab83e7c934aac8b9ef11b9c2ead3c74a059d0"
   class="pageLink">Si vous acceptez.</a></p>
-- <p><a href="/read_choice/0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"
   class="pageLink">Si vous préférez décliner son offre et prendre congé.</a></p>

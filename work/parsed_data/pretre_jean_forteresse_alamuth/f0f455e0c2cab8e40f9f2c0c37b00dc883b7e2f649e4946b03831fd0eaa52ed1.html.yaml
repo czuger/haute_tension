@@ -8,11 +8,11 @@
   de bois sculpté sur lequel est posée une clef. Au-dessus du piédestal, un levier
   rouge est fiché dans le mur.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/read_choice/0f67b276b01271bf20f03db47206b2de8f21de67aa23787c3edc9697019d55de"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0f67b276b01271bf20f03db47206b2de8f21de67aa23787c3edc9697019d55de"
   class="pageLink">Tirer sur le levier?</a></p>
-- <p><a href="/read_choice/e5f9e1492af00d5a86a8304edce685e20c6ab8c50e005ed81b796b180c6f69be"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e5f9e1492af00d5a86a8304edce685e20c6ab8c50e005ed81b796b180c6f69be"
   class="pageLink">Soulever le piédestal?</a></p>
-- <p><a href="/read_choice/375261f87776168301893c56005edb733e117b394e1829e894789e8b98412272"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/375261f87776168301893c56005edb733e117b394e1829e894789e8b98412272"
   class="pageLink">Prendre la clef et l'essayer dans la serrure?</a></p>
-- <p><a href="/read_choice/4d811f154d5e56aa9212d88974d34de161e6ed68e03b2edacfa171e4f05b6d25"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4d811f154d5e56aa9212d88974d34de161e6ed68e03b2edacfa171e4f05b6d25"
   class="pageLink">Si vous avez un jeu de cartes.</a></p>

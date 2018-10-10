@@ -2,11 +2,11 @@
 - "<p>Retenant votre respiration, vous ressortez au plus vite de la demeure des embaumeurs.
   Déjà l'odeur acide qui vous brûlait les poumons s'estompe.</p>"
 - "<p>Qu'allez-vous décider à présent ?</p>"
-- <p><a href="/read_choice/227bd50421ae4329d38ffe8aad861bbb4c6b88dd73123e1b6d728b5bfc614ed8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/227bd50421ae4329d38ffe8aad861bbb4c6b88dd73123e1b6d728b5bfc614ed8"
   class="pageLink">Si vous ne l'avez déjà fait, vous pouvez chercher des renseignements
   dans la maison aux sarcophages</a></p>
-- <p><a href="/read_choice/17451fe2809effb9e41539705ce1f014ecbac0edcdd06bef0b142869c5f67194"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/17451fe2809effb9e41539705ce1f014ecbac0edcdd06bef0b142869c5f67194"
   class="pageLink">ou dans la maison à la façade décorée d'un compas.</a></p>
-- <p><a href="/read_choice/7a9ec6d16a0f28b9b48574b4b963d50e66076f8b707daaad5717ddd8ac3d907a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a9ec6d16a0f28b9b48574b4b963d50e66076f8b707daaad5717ddd8ac3d907a"
   class="pageLink">Si vous le désirez, et si vous connaissez l'emplacement du tombeau
   d'Hatshepsout, vous pouvez aussi quitter le village.</a> <em> </em></p>

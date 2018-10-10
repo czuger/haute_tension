@@ -2,10 +2,10 @@
 - "<p>Vous n'avez aucun moyen de comprendre le mécanisme commandant l'ouverture de
   la porte sans l'essayer. Il va vous falloir vous en remettre à votre intuition.</p>"
 - "<p>Voulez-vous tourner :</p>"
-- <p><a href="/read_choice/02b9e3b99b6f28bb1b0f4fc73caef79544446b1b0b40d15aa23e17b8e3435333"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/02b9e3b99b6f28bb1b0f4fc73caef79544446b1b0b40d15aa23e17b8e3435333"
   class="pageLink">La grande roue vers la droite et la petite vers la gauche ?</a></p>
-- <p><a href="/read_choice/31f47a1846ff0346a22315812dcf3e1751b3af7595beb76c324d52c59571eac1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/31f47a1846ff0346a22315812dcf3e1751b3af7595beb76c324d52c59571eac1"
   class="pageLink">La grande roue vers la gauche et la petite vers la droite ?</a></p>
 - |-
-  <p><a href="/read_choice/56084ac84245c05f286a61d8815db3dfb0576ea9eb3d80eac68123adc829fac1" class="pageLink">Les deux roues vers la gauche ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/56084ac84245c05f286a61d8815db3dfb0576ea9eb3d80eac68123adc829fac1" class="pageLink">Les deux roues vers la gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/138-9.html">Les deux roues vers la droite ?</a></p>

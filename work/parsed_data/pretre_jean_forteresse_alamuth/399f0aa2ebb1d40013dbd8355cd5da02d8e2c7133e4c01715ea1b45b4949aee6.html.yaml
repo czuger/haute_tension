@@ -15,9 +15,9 @@
   semble même pas étrange. «Hé ! Où vas-tu, l'ami, à cette heure matinale?» vous interpelle
   ce Haschichin.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/read_choice/8afac3d0873360119bf7fcf82f47dfd5ad096fe49467c6b6ee7e9fa00c1e2699"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8afac3d0873360119bf7fcf82f47dfd5ad096fe49467c6b6ee7e9fa00c1e2699"
   class="pageLink">Répondre à sa question?</a></p>
-- <p><a href="/read_choice/381a22c3d10fcd3dec82d5de04ac851216c25820cb99b93578f2c611ee445177"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/381a22c3d10fcd3dec82d5de04ac851216c25820cb99b93578f2c611ee445177"
   class="pageLink">Fuir précipitamment?</a></p>
-- <p><a href="/read_choice/0581e3b3c9184f7656ad6aebee14a2953cbbe0a380ec0d6141a7c3d98c4020ff"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0581e3b3c9184f7656ad6aebee14a2953cbbe0a380ec0d6141a7c3d98c4020ff"
   class="pageLink">Utiliser une potion achetée chez Abdalsan l'Apothicaire?</a></p>

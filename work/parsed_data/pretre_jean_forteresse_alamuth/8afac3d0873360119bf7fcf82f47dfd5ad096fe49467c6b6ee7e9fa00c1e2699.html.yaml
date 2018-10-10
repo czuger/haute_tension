@@ -17,7 +17,7 @@
   décidez de quitter la salle d'armes. Votre compagnon s'est endormi et ronfle sur
   le sol. Deux portes s'ouvrent au fond de la pièce.</p>"
 - "<p>Laquelle allez- vous emprunter?</p>"
-- <p><a href="/read_choice/4c1345316f68cbbf8e319883f021b55afe8d3b7769f49d5c8830fa69c7105d79"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4c1345316f68cbbf8e319883f021b55afe8d3b7769f49d5c8830fa69c7105d79"
   class="pageLink">Celle de gauche?</a></p>
-- <p><a href="/read_choice/92a24ca4af4ddb9780f60d95fa9b9014d224091313c1ad9d0cf0adf55251fb2d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/92a24ca4af4ddb9780f60d95fa9b9014d224091313c1ad9d0cf0adf55251fb2d"
   class="pageLink">Celle de droite?</a></p>

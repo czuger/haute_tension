@@ -2,7 +2,7 @@
 - "<p>Dégoûté par l'odeur, vous sortez et fermez la porte derrière vous. L'air du
   couloir vous paraît pur; vous respirez longuement avant de continuer votre chemin.
   Les deux autres portes se présentent à vous.</p>"
-- <p><a href="/read_choice/881e817455c1426c17400c02c5ef8891a294960b638c124de29c211d7a330aaf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/881e817455c1426c17400c02c5ef8891a294960b638c124de29c211d7a330aaf"
   class="pageLink">Vous pouvez choisir la porte de gauche</a> <em> </em></p>
-- <p><a href="/read_choice/eebdb5f8c1df48bc857758eb4bff99be149add4fd3b092441dd7a69888d9f179"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eebdb5f8c1df48bc857758eb4bff99be149add4fd3b092441dd7a69888d9f179"
   class="pageLink">ou la porte du fond.</a></p>

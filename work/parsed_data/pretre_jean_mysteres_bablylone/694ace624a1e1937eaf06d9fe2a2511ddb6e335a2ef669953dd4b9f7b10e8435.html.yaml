@@ -3,7 +3,7 @@
   Ceux-ci s'interrogent mutuellement du regard. Le noble, visiblement effrayé, les
   encourage à se battre.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/7668c0b11743a20f47358003680bdf8d16f50f209f8edf09f0acbca46b16003f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7668c0b11743a20f47358003680bdf8d16f50f209f8edf09f0acbca46b16003f"
   class="pageLink">Si vous faites 8 ou moins.</a></p>
-- <p><a href="/read_choice/ea33c44edfc476b85cae9c0b048378d243efe11ef72010fa68551da9d06e955e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ea33c44edfc476b85cae9c0b048378d243efe11ef72010fa68551da9d06e955e"
   class="pageLink">Si vous faites 9 ou davantage.</a></p>

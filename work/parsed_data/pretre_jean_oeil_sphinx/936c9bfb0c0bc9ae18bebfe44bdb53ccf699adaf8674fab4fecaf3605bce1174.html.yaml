@@ -1,12 +1,12 @@
 ---
 - "<p>Le combat a été rude. Vous vous adossez un bref instant à un mur pour reprendre
   votre souille et réfléchir à votre nouvelle ligne d'action.</p>"
-- <p><a href="/read_choice/b083f1c3cfe81af5c9b906f6cb6032829c37e279dee8db0c9227b1e16cab6f42"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b083f1c3cfe81af5c9b906f6cb6032829c37e279dee8db0c9227b1e16cab6f42"
   class="pageLink">Voulez-vous soulever le couvercle du sarcophage d'Ananka,</a></p>
-- <p><a href="/read_choice/7ed76c54ddc4f51eb38a09726691e47273bcf6ceb1bb8dfde69e427d66226ac3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7ed76c54ddc4f51eb38a09726691e47273bcf6ceb1bb8dfde69e427d66226ac3"
   class="pageLink">examiner celui de Kharis,</a></p>
-- <p><a href="/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/37582383e6c37de7fbd394d41e7336eb62bf2cdc263f622d50c295ea5572a89b"
   class="pageLink">fouiller la crypte</a></p>
-- <p><a href="/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a039134201387d3e34a93af3967e603908bc23b9dc7244940f0af287b19e141"
   class="pageLink">ou retourner au campement ?</a><em> </em></p>
 - "<p> </p>"

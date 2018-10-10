@@ -4,7 +4,7 @@
   de vos aventures. L'Égypte recèle encore bien des mystères que vous percerez un
   jour. Pour l'instant, vous vous tenez au milieu des décombres de la pièce où vous
   avez combattu le monstre.</p>"
-- <p><a href="/read_choice/39bf4be108bd305fd7451e5bec677dd7850d0c635da2ba45fa76138f65b0e376"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/39bf4be108bd305fd7451e5bec677dd7850d0c635da2ba45fa76138f65b0e376"
   class="pageLink">Allez-vous à présent fouiller la pièce</a></p>
-- <p><a href="/read_choice/d15180e2b48ff1cb087fe83454c3cdd5362050a92bc971f6fcc4e3632223eb3e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d15180e2b48ff1cb087fe83454c3cdd5362050a92bc971f6fcc4e3632223eb3e"
   class="pageLink">ou la quitter ?</a><em> </em></p>

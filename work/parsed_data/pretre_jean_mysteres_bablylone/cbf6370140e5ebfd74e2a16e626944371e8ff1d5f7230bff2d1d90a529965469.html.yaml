@@ -1,9 +1,9 @@
 ---
 - "<p>Vous réfléchissez un instant. Que savez-vous de ce jardin où vous vous trouvez
   ? A peu près rien.</p>"
-- <p><a href="/read_choice/770a33536b4351962d1943e5fb4401a34d5dea4df15425caf665bb8bc3c8bfb0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/770a33536b4351962d1943e5fb4401a34d5dea4df15425caf665bb8bc3c8bfb0"
   class="pageLink">Si vous voulez vous diriger vers la fontaine que vous avez aperçue
   tout à l'heure.</a></p>
-- <p><a href="/read_choice/f30db8e6f84e1a706cd391cad80e4a5fec7c11cacdec8c42757b03460097c6fd"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f30db8e6f84e1a706cd391cad80e4a5fec7c11cacdec8c42757b03460097c6fd"
   class="pageLink">Si vous préférez marcher dans la direction des rires que vous avez
   entendus s'éloigner.</a></p>

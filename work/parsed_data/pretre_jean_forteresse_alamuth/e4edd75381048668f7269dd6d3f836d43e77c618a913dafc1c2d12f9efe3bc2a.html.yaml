@@ -1,8 +1,8 @@
 ---
 - "<p>Cette porte est verrouillée.</p>"
-- <p><a href="/read_choice/b93e21c279d79376784e3e04ddac3fc1eac89a7e64fdfca033db83c64b665be5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b93e21c279d79376784e3e04ddac3fc1eac89a7e64fdfca033db83c64b665be5"
   class="pageLink">Avez-vous la clef en cuivre ? Dans ce cas.</a></p>
-- <p><a href="/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
   class="pageLink">Sinon, vous pouvez essayer la porte au fond du couloir</a></p>
-- <p><a href="/read_choice/1da320662b681ef8df80dd3b1308edd0408be42260b2df5bc3d033b75813986e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1da320662b681ef8df80dd3b1308edd0408be42260b2df5bc3d033b75813986e"
   class="pageLink">ou celle qui est en face de vous si vous ne l'avez pas déjà ouverte.</a></p>

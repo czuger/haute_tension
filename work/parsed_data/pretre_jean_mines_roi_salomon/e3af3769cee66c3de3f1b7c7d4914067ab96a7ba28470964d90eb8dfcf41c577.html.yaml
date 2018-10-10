@@ -9,8 +9,8 @@
    <strong>SECOND PTÉRODACTYLE</strong><br>
    FORCE : 6 VIE: 5</p>
 - "<p> </p>"
-- <p><a href="/read_choice/f4bf4d7cf75edde650af9f7e5fb0d4245f0aff0ddc306684f95a42d2586228cf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f4bf4d7cf75edde650af9f7e5fb0d4245f0aff0ddc306684f95a42d2586228cf"
   class="pageLink">Si, au cours du combat, vous tombez en dessous de 3 points de Vie.</a></p>
-- <p><a href="/read_choice/bf4f21a465578853b003dae13e9071b59e97840729d862314d14796462d00639"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bf4f21a465578853b003dae13e9071b59e97840729d862314d14796462d00639"
   class="pageLink">Si vous sortez victorieux de cette lutte.</a></p>
 - "<p> </p>"

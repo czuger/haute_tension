@@ -5,8 +5,8 @@
   pourras-tu alors aider un miséreux comme moi en lui offrant 1 pièce d'or ?» Vous
   auriez dû vous en douter.</p>"
 - "<p>A présent qu'allez vous faire ?</p>"
-- <p><a href="/read_choice/ccc52aeda47d10839b9be6a6a6bb3754a544a0317abc8ffbceecf65522b9f09a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ccc52aeda47d10839b9be6a6a6bb3754a544a0317abc8ffbceecf65522b9f09a"
   class="pageLink">Si vous acceptez de donner 1 pièce d or au mendiant.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/0fa0dc90053102dc675c8ef5381aa6526388d2ad355ce9c293f51e3e60491be5">Si vous préférez refuser et passer votre chemin.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/0fa0dc90053102dc675c8ef5381aa6526388d2ad355ce9c293f51e3e60491be5">Si vous préférez refuser et passer votre chemin.</a></p>

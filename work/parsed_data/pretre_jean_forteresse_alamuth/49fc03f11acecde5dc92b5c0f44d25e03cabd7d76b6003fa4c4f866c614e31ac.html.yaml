@@ -6,14 +6,14 @@
   battants renforcés de lourdes barres de fer forgé vous paraissent impossibles à
   franchir autrement qu'en passant par le poste de garde où veille un cerbère attentif.
   Une haute muraille faite de moellons énormes ceinture la Forteresse.</p>"
-- <p><a href="/read_choice/13a51590e5dfa88a5644f74b28fdf05f28306f0ecbe0833863dec989a20d4d58"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/13a51590e5dfa88a5644f74b28fdf05f28306f0ecbe0833863dec989a20d4d58"
   class="pageLink">Si vous avez obtenu un renseignement utile chez Abdalsan l'Apothicaire.</a></p>
 - "<p>Sinon, trois solutions s'offrent à vous :</p>"
-- <p><a href="/read_choice/c695e1fec57375b627b33ec271815009d668191b1a71ae9fa42d9af0dc3edd72"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c695e1fec57375b627b33ec271815009d668191b1a71ae9fa42d9af0dc3edd72"
   class="pageLink">Marcher jusqu'à la porte de la Forteresse et exiger qu'on vous
   laisse entrer.</a></p>
-- <p><a href="/read_choice/276323f91f8c99e72f1b4f4a7f307b29164360e367c45482b50b0c91feaecb14"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/276323f91f8c99e72f1b4f4a7f307b29164360e367c45482b50b0c91feaecb14"
   class="pageLink">Utiliser votre anneau d'invisibilité (si vous en avez un !).</a></p>
-- <p><a href="/read_choice/7101982fcf02f3b93c4d32c12bee84f44f65485f1fbc91a2c37bd03056390277"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7101982fcf02f3b93c4d32c12bee84f44f65485f1fbc91a2c37bd03056390277"
   class="pageLink">Éviter le poste de garde et longer la muraille dans l'espoir de
   découvrir une autre entrée.</a></p>

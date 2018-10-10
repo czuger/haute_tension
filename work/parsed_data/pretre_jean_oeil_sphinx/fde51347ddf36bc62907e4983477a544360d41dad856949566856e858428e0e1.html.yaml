@@ -4,7 +4,7 @@
 - "<p><strong>CREATURE DE BAVE DEGOULINANTE</strong></p>"
 - "<p>Force : 14</p>"
 - "<p>Vie : 13</p>"
-- <p><a href="/read_choice/bece1d7938520294ed15e78f8a6a81679e90804ed2bcec94641bbcbfd5dd86ed"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bece1d7938520294ed15e78f8a6a81679e90804ed2bcec94641bbcbfd5dd86ed"
   class="pageLink">Si le monstre vous a touché au cours de l'affrontement.</a></p>
-- <p><a href="/read_choice/b4488b7fb8f07c86ede28a0c3aba6a39752d635b5a7642bd3664f752a43e8225"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b4488b7fb8f07c86ede28a0c3aba6a39752d635b5a7642bd3664f752a43e8225"
   class="pageLink">Si vous sortez indemne du combat.</a></p>

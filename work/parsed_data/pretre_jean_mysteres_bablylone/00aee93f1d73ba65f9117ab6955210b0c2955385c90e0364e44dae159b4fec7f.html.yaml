@@ -15,10 +15,10 @@
 - "<p> </p>"
 - "<p>FORCE: 14 VIE: 10</p>"
 - "<p> </p>"
-- <p><a href="/read_choice/76e714ac53673f7852c747032d205bf8fa6d4a8f39e7cf025174ca6b5cc5aa7a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/76e714ac53673f7852c747032d205bf8fa6d4a8f39e7cf025174ca6b5cc5aa7a"
   class="pageLink">Si vous ne vous êtes pas dégagé au bout de trois tours.</a></p>
-- <p><a href="/read_choice/da1615fca8fcc13cf683f80b8df3ecf2a4ea82273c90ccaf6c069d64800f372b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/da1615fca8fcc13cf683f80b8df3ecf2a4ea82273c90ccaf6c069d64800f372b"
   class="pageLink">Si vous gagnez le combat en trois tours ou moins.</a></p>
-- <p><a href="/read_choice/e2dd2414bb41d7dfe33da5a84d8937cb2b4d22650fce5ea73c3f479bb532afad"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e2dd2414bb41d7dfe33da5a84d8937cb2b4d22650fce5ea73c3f479bb532afad"
   class="pageLink">Si vous voulez utiliser l'Œil Magique.</a></p>
 - "<p> </p>"

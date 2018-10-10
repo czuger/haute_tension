@@ -28,9 +28,9 @@
   rencontré un sage aussi grand. Mais avant de le laisser à ses études, vous lui confiez
   que son grimoire vous fascine. Il plonge son regard dans le vôtre.</p>"
 - "<p>Lui demanderez-vous :</p>"
-- <p><a href="/read_choice/b2fdeebea0a9b79853755abe8b92daa23fbda4d2c6e7d7fa8ab21ac0e959dc0f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b2fdeebea0a9b79853755abe8b92daa23fbda4d2c6e7d7fa8ab21ac0e959dc0f"
   class="pageLink">De quoi il s'agit?</a></p>
-- <p><a href="/read_choice/10798ead23db1f5dca4b00701566e8c1ca7acd1c00539a81333870c4741add79"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/10798ead23db1f5dca4b00701566e8c1ca7acd1c00539a81333870c4741add79"
   class="pageLink">De regarder dans le grimoire?</a></p>
-- <p><a href="/read_choice/575e3e7b7cab930b8e6ad7fcedcfdbe5f69b224c950538b2b5465b1f105960e3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/575e3e7b7cab930b8e6ad7fcedcfdbe5f69b224c950538b2b5465b1f105960e3"
   class="pageLink">Si ce livre contient des informations qui pourront vous aider?</a></p>

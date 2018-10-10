@@ -8,7 +8,7 @@
   Lorsque vous arrivez à quelques pas de lui, le Gnome lève les yeux et pose sur vous
   un regard malicieux.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/514bbafefdeaf809b3f6854f62cb572cd92d305166e6ccb14fe26d18f0feb20a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/514bbafefdeaf809b3f6854f62cb572cd92d305166e6ccb14fe26d18f0feb20a"
   class="pageLink">Si vous obtenez 6 ou davantage.</a></p>
-- <p><a href="/read_choice/f842518768a5a2b1f42230489d49586f2e3a8adbef5d1406fe2c2f61a70e384f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f842518768a5a2b1f42230489d49586f2e3a8adbef5d1406fe2c2f61a70e384f"
   class="pageLink">Sinon.</a></p>

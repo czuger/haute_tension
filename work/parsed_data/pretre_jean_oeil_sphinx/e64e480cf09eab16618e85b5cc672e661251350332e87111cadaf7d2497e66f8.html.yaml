@@ -1,7 +1,7 @@
 ---
 - "<p>Quel couloir désirez-vous maintenant emprunter ?</p>"
-- <p><a href="/read_choice/5c857aa2899481a79c495a47bc1f663f036d365983ca1bbc34042f203eb47981"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5c857aa2899481a79c495a47bc1f663f036d365983ca1bbc34042f203eb47981"
   class="pageLink">Celui qui s'enfonce au cœur de la Pyramide ?</a><em> </em></p>
-- <p><a href="/read_choice/2f73ee71f0a206b992579c09e72aa45d0f7cdf61e8868aac26f3f216a04d6594"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f73ee71f0a206b992579c09e72aa45d0f7cdf61e8868aac26f3f216a04d6594"
   class="pageLink">Celui qui monte ?</a></p>
 - "<p> </p>"

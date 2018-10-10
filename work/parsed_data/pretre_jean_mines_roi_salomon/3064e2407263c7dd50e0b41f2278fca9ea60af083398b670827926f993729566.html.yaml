@@ -13,10 +13,10 @@
   une attelle improvisée qui, à défaut de soulager votre mal, vous permettra· au moins
   de marcher. Vous empoignez un morceau de bois longiligne qui jouera le rôle d'une
   béquille. A présent, vous voilà en état de reprendre votre route.</p>"
-- <p><a href="/read_choice/cf1d2caf23a748ae5f69226587d8f5a36d04d9805f795971729687f631ae1574"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cf1d2caf23a748ae5f69226587d8f5a36d04d9805f795971729687f631ae1574"
   class="pageLink">Allez-vous décider de remonter jusqu'à la galerie principale où
   vous avanciez jusqu'alors</a></p>
-- <p><a href="/read_choice/81787aecb57b906c7ffb27fce5af32eacdfc9c59954b894b5f68e32a8d50bac8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/81787aecb57b906c7ffb27fce5af32eacdfc9c59954b894b5f68e32a8d50bac8"
   class="pageLink">ou bien préférez-vous suivre les voies où glissent les wagonnets
   ?</a></p>
 - "<p> </p>"

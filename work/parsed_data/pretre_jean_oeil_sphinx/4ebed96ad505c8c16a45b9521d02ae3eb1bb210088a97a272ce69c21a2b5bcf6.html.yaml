@@ -10,7 +10,7 @@
   haute statue d'un cobra muni de bras et de jambes : un des cruels et dévoués serviteurs
   de Seth.</p>"
 - "<p>Allez-vous décider de :</p>"
-- <p><a href="/read_choice/eac89f1eb1b5b03921f19e7a1d82ecbd05a290a29937834965eee98a94c22970"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eac89f1eb1b5b03921f19e7a1d82ecbd05a290a29937834965eee98a94c22970"
   class="pageLink">Prendre la statuette du faucon ?</a></p>
-- <p><a href="/read_choice/1e57a1728dafe0ba9fee278c41837dc579c03cf40d65bc2cce8eca8f5c81973b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1e57a1728dafe0ba9fee278c41837dc579c03cf40d65bc2cce8eca8f5c81973b"
   class="pageLink">Quitter la chapelle ?</a></p>

@@ -7,9 +7,9 @@
   auberges ne change que très peu selon les époques... Vous vous asseyez et l'on vient
   vous proposer à boire le gîte ou le couvert. La chambre coûte 3 pièces d'or, le
   repas, 2 pièces d'or, et le pichet, 1.</p>"
-- <p><a href="/read_choice/b6b724d185d315bfafc40930019ab3475eb4b372a34912d9ce12eec40034593f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b6b724d185d315bfafc40930019ab3475eb4b372a34912d9ce12eec40034593f"
   class="pageLink">Si vous désirez manger et prendre une chambre.</a></p>
-- <p><a href="/read_choice/c988cfecfbdc162d7abc7fd7140c1c01319b237bc5fa58b4abf640fd1c605633"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c988cfecfbdc162d7abc7fd7140c1c01319b237bc5fa58b4abf640fd1c605633"
   class="pageLink">Si vous désirez seulement manger.</a></p>
-- <p><a href="/read_choice/9b593742850c379558f520f54e38ce307f971b33ef7dd60ac669e243cd83af7d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9b593742850c379558f520f54e38ce307f971b33ef7dd60ac669e243cd83af7d"
   class="pageLink">Si une chambre vous suffit.</a></p>

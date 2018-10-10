@@ -2,9 +2,9 @@
 - "<p>Le Cobra humain tente de vous enserrer entre ses anneaux écailleux et darde
   sur vous sa langue empoisonnée. L'espace de la chapelle est très exigu et ne vous
   laisse pas d'autre possibilité que le combat à l'épée.</p>"
-- <p><a href="/read_choice/7d4ccebd0c099ab85b0ecb342778f99671a9910c4246547ad053cc1c5eb69143"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7d4ccebd0c099ab85b0ecb342778f99671a9910c4246547ad053cc1c5eb69143"
   class="pageLink">Si vous possédez un bracelet de contrôle des reptiles.</a><em>
   </em></p>
 - "<p><strong>COBRA HUMAIN</strong> FORCE: 10 VIE: 13</p>"
-- <p><a href="/read_choice/39fd06995dd2f7bffe941df0d2fe43b8c635e80f5c10a0bd5183f501c5215eb4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/39fd06995dd2f7bffe941df0d2fe43b8c635e80f5c10a0bd5183f501c5215eb4"
   class="pageLink">Si vous remportez ce duel.</a></p>

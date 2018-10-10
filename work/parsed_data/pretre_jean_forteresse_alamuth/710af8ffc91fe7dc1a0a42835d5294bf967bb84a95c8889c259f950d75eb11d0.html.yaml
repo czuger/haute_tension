@@ -1,6 +1,6 @@
 ---
 - "<p>Vous vous affolez trop ! Lancez une seconde fois votre dé.</p>"
-- <p><a href="/read_choice/c31d2754e38de9dbdb5610cd101c47632db0c7383aefb164d0a4d071fe6a0243"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c31d2754e38de9dbdb5610cd101c47632db0c7383aefb164d0a4d071fe6a0243"
   class="pageLink">Si vous faites à nouveau un chiffre impair.</a></p>
-- <p><a href="/read_choice/64c93497919f6a22fe7426e019f240933ded382db33dd8b3c92ca84ebfb019d4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/64c93497919f6a22fe7426e019f240933ded382db33dd8b3c92ca84ebfb019d4"
   class="pageLink">Sinon.</a></p>

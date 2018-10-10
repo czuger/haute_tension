@@ -10,17 +10,17 @@
 - "<p>La bleue ?</p>"
 - "<p>La jaune ?</p>"
 - "<p>La verte ?</p>"
-- <p><a href="/read_choice/3b5dafd0c9c6f936a935efc9b043943795b5953dbb1f9f4dd1704bea32bda9e4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3b5dafd0c9c6f936a935efc9b043943795b5953dbb1f9f4dd1704bea32bda9e4"
   class="pageLink">Rajoutez cet achat sur la liste de vos possessions et poursuivez
   votre route.</a></p>
 - "<p>Si vous n'avez pas d'argent ou si vous préférez ne pas le gaspiller pour des
   objets dont vous ignorez l'usage, vous ressortez de la boutique.</p>"
-- <p><a href="/read_choice/32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
   class="pageLink">Vous vous dirigez vers l'auberge,</a></p>
-- <p><a href="/read_choice/db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab"
   class="pageLink">la maison voisine avec les signes cabalistiques au-dessus de la
   porte,</a></p>
-- <p><a href="/read_choice/2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
   class="pageLink">la construction pas éclairée de l'autre côté de la place</a></p>
-- <p><a href="/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
   class="pageLink">ou vous quittez le village.</a></p>

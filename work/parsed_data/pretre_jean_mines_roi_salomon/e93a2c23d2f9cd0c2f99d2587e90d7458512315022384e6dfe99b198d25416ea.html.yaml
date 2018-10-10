@@ -6,8 +6,8 @@
   de mission qui la justifie pleinement ! Toutefois vous avez jusqu'ici dû faire face
   à quelques habitants des mines dont la compagnie ne vous a pas été bien agréable.
   Quelle attitude allez-vous adopter ?</p>"
-- <p><a href="/read_choice/5d7e68eb0a5a8fc33c98d622e2552de3fe4640abc0a6c4e8fbc51591cf0e93b6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d7e68eb0a5a8fc33c98d622e2552de3fe4640abc0a6c4e8fbc51591cf0e93b6"
   class="pageLink">Si vous vous dissimulez dans une des petites galeries perpendiculaires.</a></p>
-- <p><a href="/read_choice/f10cd76df18e5a9013660d433d8bb70f2c087db4a9f4805201d0765cc6f1dc80"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f10cd76df18e5a9013660d433d8bb70f2c087db4a9f4805201d0765cc6f1dc80"
   class="pageLink">Si au contraire, las de vous cacher, vous décidez de marcher au-devant
   des nouveaux arrivants.</a></p>

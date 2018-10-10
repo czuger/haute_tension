@@ -9,11 +9,11 @@
   Vous remarquez un homme resté à l'extérieur du cercle des tentes. Les yeux et les
   oreilles aux aguets, il veille à la sécurité du convoi. Vous vous approchez de lui
   en évitant de faire le moindre bruit.</p>"
-- <p><a href="/read_choice/c564c76d8287568b1198ec5a562903eb038c4896628dfa2100a8ae7736123284"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c564c76d8287568b1198ec5a562903eb038c4896628dfa2100a8ae7736123284"
   class="pageLink">Allez-vous vous glisser derrière le garde et l'assommer,</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/cbf5ceab1f66e845db4b5b66add5275988f0ebbf1f4007c17b5886ba70e9a8c1">dégainer votre épée et l'attaquer</a></p>
-- <p><a href="/read_choice/2fb4758c8ca3fe7c857629754d71d4b139ad2cd47e59f0f63c4d30421d6d39c1"
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/cbf5ceab1f66e845db4b5b66add5275988f0ebbf1f4007c17b5886ba70e9a8c1">dégainer votre épée et l'attaquer</a></p>
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2fb4758c8ca3fe7c857629754d71d4b139ad2cd47e59f0f63c4d30421d6d39c1"
   class="pageLink">ou avancer à découvert en précisant que vos intentions ne sont
   pas hostiles ?</a><em> </em></p>

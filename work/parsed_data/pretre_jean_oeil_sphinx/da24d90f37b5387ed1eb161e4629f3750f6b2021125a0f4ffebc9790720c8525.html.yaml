@@ -3,7 +3,7 @@
   fourrez dans votre sac (ajoutez 3 rations à vos possessions). Mais un craquement
   sonore retentit soudain, et une dalle s'abat devant les niches à offrandes. Vous
   essayez de la déplacer, sans succès.</p>"
-- <p><a href="/read_choice/7b132307e612ac0bb60bafc8ad375d8b3988737e7e5b7a5c606e348963fd7907"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7b132307e612ac0bb60bafc8ad375d8b3988737e7e5b7a5c606e348963fd7907"
   class="pageLink">Allez-vous à présent quitter le couloir</a></p>
-- <p><a href="/read_choice/ef1938c1a59f7a1b96462dd752ae7dfe5ada94347ef5fbaa48a0e5dcb4157aba"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ef1938c1a59f7a1b96462dd752ae7dfe5ada94347ef5fbaa48a0e5dcb4157aba"
   class="pageLink">ou examiner le mur de droite ?</a></p>

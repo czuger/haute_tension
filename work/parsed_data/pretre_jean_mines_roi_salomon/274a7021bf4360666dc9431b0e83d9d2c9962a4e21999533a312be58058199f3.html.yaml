@@ -3,8 +3,8 @@
   soupir. Éprouvé par ce combat, vous l'êtes encore davantage en découvrant que cette
   geôle ne contient absolument rien d'intéressant et n'a aucune issue ! Vous ressortez
   dans le tunnel. d'où vous venez.</p>"
-- <p><a href="/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
   class="pageLink">Allez-vous à présent rebrousser chemin pour emprunter l'escalier
   qui descend ?</a></p>
-- <p><a href="/read_choice/95436b05f29869b530ddfb194bd6e6f73173774bace93e8500f23be40178d036"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/95436b05f29869b530ddfb194bd6e6f73173774bace93e8500f23be40178d036"
   class="pageLink">Si vous préférez ouvrir la porte suivante.</a></p>

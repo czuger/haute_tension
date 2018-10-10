@@ -7,8 +7,8 @@
   ces créatures qui ne se manifestent que la nuit, dans les endroits obscurs, à la
   faveur des ténèbres, un être parmi les plus infects de la création !</p>"
 - "<p>Possédez-vous une amulette en forme d'orchidée ?</p>"
-- <p><a href="/read_choice/9f0c2d5d789cf90268651c7562a9b1f058b8ff792b6f64b43dc60a000616768f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f0c2d5d789cf90268651c7562a9b1f058b8ff792b6f64b43dc60a000616768f"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/31fe4c8e38770f8c6bc7e7b6b886484203116e7020ec3dca94bf6672cceb9ca8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/31fe4c8e38770f8c6bc7e7b6b886484203116e7020ec3dca94bf6672cceb9ca8"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

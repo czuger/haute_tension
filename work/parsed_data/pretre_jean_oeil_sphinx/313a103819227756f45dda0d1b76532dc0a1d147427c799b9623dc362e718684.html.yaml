@@ -3,7 +3,7 @@
   <p>Vous faites irruption dans la vaste chambre funéraire aux multiples sarcophages. Mais cette fois, vous avez pris vos précautions : vous êtes sorti de la salle où vous étiez en marchant sur les mains, si bien que vous atterrissez sur vos deux jambes, un peu secoué<br>
    soit, mais indemne ! Vers quelle porte allez-vous vous diriger à présent ?</p>
 - |-
-  <p><a href="/read_choice/b5b018091888a88e6b441fa9c707594bdec086362db177ece9c59d7ecd81963d" class="pageLink">Celle de gauche ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b5b018091888a88e6b441fa9c707594bdec086362db177ece9c59d7ecd81963d" class="pageLink">Celle de gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/294.html">Celle du centre ?</a></p>
-- <p><a href="/read_choice/42247c963416f2840caa970d94c714a412c71af64acdf937f984b3d3cf8a8748"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/42247c963416f2840caa970d94c714a412c71af64acdf937f984b3d3cf8a8748"
   class="pageLink">Si vous avez déjà essayé ces deux portes.</a><em> </em></p>

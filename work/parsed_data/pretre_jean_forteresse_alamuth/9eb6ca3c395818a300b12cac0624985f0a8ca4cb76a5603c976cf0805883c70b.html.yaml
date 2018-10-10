@@ -9,8 +9,8 @@
   que personne ne s'est aperçu de votre maladresse. La chute vous a tout de même secoué
   : ôtez 3 points de Vie de votre total. Vous ramassez à la hâte le tapis tombé à
   quelque distance.</p>"
-- <p><a href="/read_choice/99f25c491e013f4274e1585c26e55a3eec4db92657fa79b5b26ca32eab9216c8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/99f25c491e013f4274e1585c26e55a3eec4db92657fa79b5b26ca32eab9216c8"
   class="pageLink">Allez-vous à présent remonter à la hauteur de la tour ouest</a></p>
-- <p><a href="/read_choice/726c20b40cd932ea87000f4393207c08a2be94ed3b834d39a1cc37cd3bee9e48"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/726c20b40cd932ea87000f4393207c08a2be94ed3b834d39a1cc37cd3bee9e48"
   class="pageLink">ou refaire une tentative en direction du donjon du Vieux de la
   Montagne ?</a></p>

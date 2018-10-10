@@ -5,11 +5,11 @@
   amusé. A quelques pas de vous, sur une case noire, se trouve un énorme Cyclope,
   une massue hérissée de pointes mortelles à la main. Il vous jauge du regard et s'apprête
   au combat. Que faire ?</p>"
-- <p><a href="/read_choice/37421e616309f34b26b7d1b3b8e0272a4ab4006e0251d61c333b27a78602a864"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/37421e616309f34b26b7d1b3b8e0272a4ab4006e0251d61c333b27a78602a864"
   class="pageLink">L'attaquer au plus vite en sautant sur la case noire la plus proche?</a></p>
-- <p><a href="/read_choice/5aba1e1434a73e516e90f9d3d6fea889f37d7207e9aac139e169f96f2d67431f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5aba1e1434a73e516e90f9d3d6fea889f37d7207e9aac139e169f96f2d67431f"
   class="pageLink">Le contourner en le prenant de vitesse et le pousser par-derrière
   sur une case blanche?</a></p>
-- <p><a href="/read_choice/a7abb2d290fbc6fcce70d11067f97f0e4cc12267aa32183fa12bc78483405679"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7abb2d290fbc6fcce70d11067f97f0e4cc12267aa32183fa12bc78483405679"
   class="pageLink">Lui tourner autour en attendant qu'il fasse le premier mouvement...
   et la première faute?</a></p>

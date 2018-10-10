@@ -9,9 +9,9 @@
   palmés, et surtout une épaisse queue écailleuse qui pend jusqu'au sol. Vous contemplez
   sept spécimens d'Hommes-Lézards.</p>"
 - "<p>Qu'allez-vous faire ensuite ?</p>"
-- <p><a href="/read_choice/71b7ef0d6ffc33763a558d98f55f1f8509fd49bc859a2c87ad1b612b274f027e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/71b7ef0d6ffc33763a558d98f55f1f8509fd49bc859a2c87ad1b612b274f027e"
   class="pageLink">Refermer doucement la porte et continuer dans le tunnel?</a></p>
-- <p><a href="/read_choice/3a13cdc9ca69457a1e9d44b397cd7f38a600f25522b22fe9eb0e44b053e48c90"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3a13cdc9ca69457a1e9d44b397cd7f38a600f25522b22fe9eb0e44b053e48c90"
   class="pageLink">Vous avancer parmi eux et engager la conversation?</a></p>
-- <p><a href="/read_choice/ec39177649200b5bd28eca00b53e9e0fb405f412d2b1fc3ff7b185a4286f1fae"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ec39177649200b5bd28eca00b53e9e0fb405f412d2b1fc3ff7b185a4286f1fae"
   class="pageLink">Les attaquer sans prévenir?</a></p>

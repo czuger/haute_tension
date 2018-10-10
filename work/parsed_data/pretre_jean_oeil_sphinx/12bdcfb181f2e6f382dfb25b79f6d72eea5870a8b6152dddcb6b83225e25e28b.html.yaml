@@ -6,7 +6,7 @@
   trouve au-dessus d'une cuve d'où s'échappent des gaz toxiques. Vous perdez 2 points
   de Vie et sombrez dans le coma.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/aed7c78a8fd8cb31469e243ae37ce665151c7abf792c5a7119e855d691d3fce2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/aed7c78a8fd8cb31469e243ae37ce665151c7abf792c5a7119e855d691d3fce2"
   class="pageLink">Si vous faites 3 ou moins.</a></p>
-- <p><a href="/read_choice/5ed4f7b4406f0483d25857cd0a90f8d6f497462e2802ebc893169435a56957e3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5ed4f7b4406f0483d25857cd0a90f8d6f497462e2802ebc893169435a56957e3"
   class="pageLink">Si vous faites 4 ou davantage.</a></p>

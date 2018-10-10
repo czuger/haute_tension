@@ -9,9 +9,9 @@
   vous venez de dévorer devait être un condiment puissamment épicé. Votre gorge vous
   brûle, un torrent de flammes semble se déverser à travers votre bouche. Vos yeux
   larmoient et vous suffoquez. Il vous faut absolument étancher votre soif !</p>"
-- <p><a href="/read_choice/3162bcec0f19b60e2c0055f4a9cf46d5efb50cd4844acfd95a5566eb30f2b6c5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3162bcec0f19b60e2c0055f4a9cf46d5efb50cd4844acfd95a5566eb30f2b6c5"
   class="pageLink">Allez-vous boire un peu d'eau de votre gourde</a></p>
-- <p><a href="/read_choice/154d57657b02ea187a6f22dc27d51aa3494fbdd55ddf9f8a8380f3ed314c5f2b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/154d57657b02ea187a6f22dc27d51aa3494fbdd55ddf9f8a8380f3ed314c5f2b"
   class="pageLink">ou vous précipiter vers le caniveau le plus proche ?</a></p>
-- <p><a href="/read_choice/de0cff94309424467dade8ba1b52a8f61c6dc180bc73ae15015140b3495eeb5a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/de0cff94309424467dade8ba1b52a8f61c6dc180bc73ae15015140b3495eeb5a"
   class="pageLink">Si vous préférez attendre sans rien faire.</a></p>

@@ -43,9 +43,9 @@
   A chaque fois que vous utiliserez une charge de boules de feu de la baguette, n'oubliez
   pas de la rayer de votre liste. Si vous l'utilisiez plus de trois fois, la baguette
   exploserait instantanément, vous tuant sur le coup !</p>"
-- <p><a href="/read_choice/a6de665bf686353ff696570a67732dd657db018f14b3cf175310eacbefda4736"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a6de665bf686353ff696570a67732dd657db018f14b3cf175310eacbefda4736"
   class="pageLink">Allez-vous à présent passer la nuit chez le prêtre pour vous reposer</a></p>
-- <p><a href="/read_choice/332800624ada363bc26f9eeb993c5eeac1d73db845073c750cc2e1add0ab0b4f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/332800624ada363bc26f9eeb993c5eeac1d73db845073c750cc2e1add0ab0b4f"
   class="pageLink">ou préférez-vous partir dès à présent pour le Temple d' Amon-Rê
   ?</a><em> </em></p>
 - "<p> </p>"

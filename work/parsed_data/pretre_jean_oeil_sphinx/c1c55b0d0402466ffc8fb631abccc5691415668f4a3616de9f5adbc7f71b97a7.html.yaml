@@ -1,7 +1,7 @@
 ---
 - "<p>Vous payez ce qu'il demande au marchand (rayez 1 pièce d'or de votre total)
   et il vous donne une bonne poignée de ses légumes.</p>"
-- <p><a href="/read_choice/238ff537af2bfa3bf79e3373242a5ae2e2f7f5e815a93e8115979549bfe55f79"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/238ff537af2bfa3bf79e3373242a5ae2e2f7f5e815a93e8115979549bfe55f79"
   class="pageLink">A présent, allez-vous les consommer tout de suite</a></p>
-- <p><a href="/read_choice/9d9f6c97c01c401b6741cc4f93e74ed726767adc887bcd9e5e843e9c44511ef2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9d9f6c97c01c401b6741cc4f93e74ed726767adc887bcd9e5e843e9c44511ef2"
   class="pageLink">ou les ranger dans votre sac ?</a></p>

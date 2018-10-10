@@ -2,7 +2,7 @@
 - |-
   <p>Le sol bascule sous vos pieds. Vous tombez dans une fosse étroite mais profonde. Vous vous écrasez avec un hurlement sur le sol de terre battue où sont fichées des centaines de pointes acérées qui déchirent vos vêtements et vous blessent douloureusement.<br>
    Pour déterminer l'importance des dommages que vous avez subis, lancez un dé et retranchez le chiffre obtenu du total de points de Vie que vous possédez encore. Mais un doute vous assaille brusquement: ces pointes sont peut-être empoisonnées ?</p>
-- <p><a href="/read_choice/6568535c7e346e9c94036b5c5b164c2fbae014fb1c7609363a0c2a2754fb9250"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6568535c7e346e9c94036b5c5b164c2fbae014fb1c7609363a0c2a2754fb9250"
   class="pageLink">Si vous possédez un contre-poison.</a></p>
-- <p><a href="/read_choice/a75ab772202d1e98bcbb9d0c592d574e1aff060de83ff96ca54f52b009fa1504"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a75ab772202d1e98bcbb9d0c592d574e1aff060de83ff96ca54f52b009fa1504"
   class="pageLink">Sinon.</a></p>

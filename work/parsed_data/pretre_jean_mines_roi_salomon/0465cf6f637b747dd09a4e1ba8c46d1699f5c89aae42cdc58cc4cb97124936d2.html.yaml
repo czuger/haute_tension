@@ -13,12 +13,12 @@
   affaires en louant ma barque jusqu'à son apparition mais, maintenant, mon commerce
   n'a plus rien de florissant. Veux-tu louer ma barque, l'ami ? Dis ton prix !»</p>"
 - "<p>Combien offrirez-vous au pauvre Kobold ?</p>"
-- <p><a href="/read_choice/33d04c942309f6d57b0a9ff91adb0fa60458cde20f45fdb155476ccd89392442"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/33d04c942309f6d57b0a9ff91adb0fa60458cde20f45fdb155476ccd89392442"
   class="pageLink">2 pièces d'or ?</a></p>
-- <p><a href="/read_choice/4c8cdc06d7c985173fd2668828496872a7533434eca98fabcec0691f2912dcb5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4c8cdc06d7c985173fd2668828496872a7533434eca98fabcec0691f2912dcb5"
   class="pageLink">4 pièces d'or ?</a></p>
-- <p><a href="/read_choice/eafa812994bf131e8c19aaccfbdfe07ee58fff85906b67e9eba8cb6aa443399c"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eafa812994bf131e8c19aaccfbdfe07ee58fff85906b67e9eba8cb6aa443399c"
   class="pageLink">6 pièces d'or ?</a></p>
-- <p><a href="/read_choice/8a79a405abc5b02179e1820f3e74235588a59c2e87f3da3f9f5d754b0ee30319"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8a79a405abc5b02179e1820f3e74235588a59c2e87f3da3f9f5d754b0ee30319"
   class="pageLink">Ou bien l'attaquerez-vous pour lui prendre ses rames sans avoir
   à le payer ?</a></p>

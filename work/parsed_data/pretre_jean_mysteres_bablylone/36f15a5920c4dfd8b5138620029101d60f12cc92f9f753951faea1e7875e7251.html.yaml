@@ -17,8 +17,8 @@
 - "<p><strong>ŒIL DÉVOREUR</strong> FORCE: 7 VIE: 14</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/6dfabb0121b4788f3b103b23c20c3cbad47ff59cdd520c77d3f4d1e704230e50">Si vous gagnez le combat.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/6dfabb0121b4788f3b103b23c20c3cbad47ff59cdd520c77d3f4d1e704230e50">Si vous gagnez le combat.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/read_choice/e1cb79350e9e6652e0db07f7ab61e7a07decb2011f1069353b66adc083af13e4">Si vous possédez l'Œil Magique et désirez l'utiliser.</a></p>
+   <a href="/adventures/%ADVENTURE_ID%/read_choice/e1cb79350e9e6652e0db07f7ab61e7a07decb2011f1069353b66adc083af13e4">Si vous possédez l'Œil Magique et désirez l'utiliser.</a></p>
 - "<p> </p>"

@@ -2,10 +2,10 @@
 - "<p>Vous voilà de nouveau dans la salle aux trois colonnes. Où allez-vous diriger,
   vos pas :</p>"
 - |-
-  <p><a href="/read_choice/3c1a35965a1604231c6e174c9146e7b5b46ee0dc4736a37395e9535e3275cdc0" class="pageLink">Vers la petite porte de droite ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3c1a35965a1604231c6e174c9146e7b5b46ee0dc4736a37395e9535e3275cdc0" class="pageLink">Vers la petite porte de droite ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/207.html">Vers la porte du fond ?</a></p>
 - |-
-  <p><a href="/read_choice/4ebed96ad505c8c16a45b9521d02ae3eb1bb210088a97a272ce69c21a2b5bcf6" class="pageLink">Vers la petite porte de gauche ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4ebed96ad505c8c16a45b9521d02ae3eb1bb210088a97a272ce69c21a2b5bcf6" class="pageLink">Vers la petite porte de gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/300.html">Vers l'étonnant jet d'eau ?</a><br>
    Attention ! Vous ne pouvez retourner à un droit où vous êtes déjà passé !</p>
 - "<p> </p>"

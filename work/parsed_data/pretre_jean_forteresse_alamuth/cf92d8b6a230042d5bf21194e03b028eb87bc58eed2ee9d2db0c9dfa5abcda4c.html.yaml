@@ -1,10 +1,10 @@
 ---
 - "<p>Vous réfléchissez un instant et décidez que jouer le jeu servira au mieux votre
   cause. Cependant, vous ne pouvez parier que si vous possédez 5 pièces d'or ou davantage.</p>"
-- <p><a href="/read_choice/586a59f631ab79f4f49f0f1f8974ea25d0130a10a68be3e41529559417e75cbf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/586a59f631ab79f4f49f0f1f8974ea25d0130a10a68be3e41529559417e75cbf"
   class="pageLink">Sinon, faites un autre choix.</a></p>
 - "<p>Si vous avez de l'or, parierez-vous avec</p>"
-- <p><a href="/read_choice/8ccb6d7406b12778fb7e19bdbb7e93ae98595f10756bb694476dc54554903b0a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8ccb6d7406b12778fb7e19bdbb7e93ae98595f10756bb694476dc54554903b0a"
   class="pageLink">un apprenti-sorcier</a></p>
-- <p><a href="/read_choice/f1e1381922a45f47f276f1285a80276ed56b4b9e6eca2ac45b0824ea9df45762"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1e1381922a45f47f276f1285a80276ed56b4b9e6eca2ac45b0824ea9df45762"
   class="pageLink">ou un sergent de la garde ?</a></p>

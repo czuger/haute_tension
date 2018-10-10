@@ -2,9 +2,9 @@
 - "<p>Vous vérifiez que vous n'avez pas perdu la clef de fer que Jamal vous a confiée.
   Rassuré, vous vous demandez quel chemin suivre.</p>"
 - "<p>Pensez-vous vous diriger :</p>"
-- <p><a href="/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
   class="pageLink">A droite?</a></p>
-- <p><a href="/read_choice/554c5f04f88810cc0654ae728fec96a3bbe1794271cc1ac91bc4fa24aca547f2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/554c5f04f88810cc0654ae728fec96a3bbe1794271cc1ac91bc4fa24aca547f2"
   class="pageLink">A gauche?</a></p>
-- <p><a href="/read_choice/a1cb0219a81425a023dbd9d577534816284a200b698fbf7545cbeb28f7b4cffe"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a1cb0219a81425a023dbd9d577534816284a200b698fbf7545cbeb28f7b4cffe"
   class="pageLink">Tout droit ?</a></p>

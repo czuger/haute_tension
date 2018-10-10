@@ -10,9 +10,9 @@
   qui vous seront utiles dans votre périple, vous décidez de vous asseoir à la table
   de l'un d'eux.</p>"
 - "<p>Choisirez-vous :</p>"
-- <p><a href="/read_choice/171b6d6d7c1997d7da2937de26de91a274e7c78720ce741d93c331d6cd9202cf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/171b6d6d7c1997d7da2937de26de91a274e7c78720ce741d93c331d6cd9202cf"
   class="pageLink">L'homme en noir ?</a></p>
-- <p><a href="/read_choice/c5962bbdaf965e2cfc6814abff8a5c2273a901301e0b93c2cc2bcaa589d24fa2"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c5962bbdaf965e2cfc6814abff8a5c2273a901301e0b93c2cc2bcaa589d24fa2"
   class="pageLink">Le vieillard ?</a></p>
-- <p><a href="/read_choice/e3a316c857f58d4f50e8068630b7fd8748c0c5e9ca706c0a0ac0bd860928ad14"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e3a316c857f58d4f50e8068630b7fd8748c0c5e9ca706c0a0ac0bd860928ad14"
   class="pageLink">Le coureur du désert ?</a></p>

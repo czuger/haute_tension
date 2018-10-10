@@ -9,7 +9,7 @@
 - |-
   <p><br>
    Qu'allez-vous faire ?</p>
-- <p><a href="/read_choice/2e5c9497146ffdd7c07ba5f7eaa4c3d427a2eb679ce6f2181256581520195499"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2e5c9497146ffdd7c07ba5f7eaa4c3d427a2eb679ce6f2181256581520195499"
   class="pageLink">Si vous appelez le maître des lieux.</a></p>
-- <p><a href="/read_choice/4135fcef818b906b73ef638bbd0e7da9ff6330437219132aad0d63a8714e7796"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4135fcef818b906b73ef638bbd0e7da9ff6330437219132aad0d63a8714e7796"
   class="pageLink">Si vous fouillez la pièce.</a></p>

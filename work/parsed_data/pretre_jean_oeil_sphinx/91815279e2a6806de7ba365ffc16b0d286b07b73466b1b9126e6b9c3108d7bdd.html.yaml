@@ -4,6 +4,6 @@
   l'ombre de la paroi, examinez la vaste fresque qui la décore.</p>"
 - "<p>Allez-vous placer votre sceau sur :</p>"
 - |-
-  <p><a href="/read_choice/4eb7690aba6dff43acc776f9b4016594d0c37cbd3fded88cbee8653c7b6e90ff" class="pageLink">La ceinture d'Osiris ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4eb7690aba6dff43acc776f9b4016594d0c37cbd3fded88cbee8653c7b6e90ff" class="pageLink">La ceinture d'Osiris ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/242.html">L'œil droit d'Horus ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/190.html">L'œil droit d'Anubis ?</a></p>

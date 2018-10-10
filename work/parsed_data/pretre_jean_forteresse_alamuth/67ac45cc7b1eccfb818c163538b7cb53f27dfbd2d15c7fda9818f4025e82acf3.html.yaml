@@ -4,7 +4,7 @@
   un trousseau de trois clefs à côté de la clef de leurs chaînes. Vous leur passez
   la clef et les aidez à se dégager.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/2851ffadbe864c21f6f5685bab73fcd00c4353bcb1697c00dd5d5d4da0090baf"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2851ffadbe864c21f6f5685bab73fcd00c4353bcb1697c00dd5d5d4da0090baf"
   class="pageLink">Si vous faites 10 ou moins.</a></p>
-- <p><a href="/read_choice/d7f0baaadd0599cfdecac019b16cc6410b112fe041228d78812b649e74370533"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d7f0baaadd0599cfdecac019b16cc6410b112fe041228d78812b649e74370533"
   class="pageLink">Si vous faites 11 ou 12.</a></p>

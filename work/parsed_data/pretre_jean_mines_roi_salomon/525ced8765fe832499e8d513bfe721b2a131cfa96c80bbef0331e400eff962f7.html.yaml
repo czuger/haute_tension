@@ -10,8 +10,8 @@
   paraît praticable qu'en trois endroits.</p>"
 - "<p>Désirez-vous :</p>"
 - |-
-  <p><a href="/read_choice/eb0df02e8cd05e914647fa9e9743890a14669e7e5e4cb223152d84d533c4a14b" class="pageLink">Longer la paroi de droite ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eb0df02e8cd05e914647fa9e9743890a14669e7e5e4cb223152d84d533c4a14b" class="pageLink">Longer la paroi de droite ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/304-0.html">Longer la paroi de gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/231-6.html">Escalader les éboulis qui obstruent le centre de la salle ?</a></p>
-- <p><a href="/read_choice/c16ad7371e1beb858bc3483778bd7780cca4fcd551de0293fa36b1777c142b39"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c16ad7371e1beb858bc3483778bd7780cca4fcd551de0293fa36b1777c142b39"
   class="pageLink">Retourner sur vos pas et choisir une autre entrée ?</a></p>

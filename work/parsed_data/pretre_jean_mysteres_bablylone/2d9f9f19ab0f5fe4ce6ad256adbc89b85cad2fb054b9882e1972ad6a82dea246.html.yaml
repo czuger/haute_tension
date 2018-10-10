@@ -6,7 +6,7 @@
   vous regardiez bondit sur ses pieds, indigné: «Mensonge ! Nous n'avons rien fait
   ! Les dés sont à eux ! »</p>"
 - "<p>Quelle va être votre réaction :</p>"
-- <p><a href="/read_choice/bbea22163d8166a9a0890765deee7cf3059c8c4643af97e70290567be8d0ff48"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bbea22163d8166a9a0890765deee7cf3059c8c4643af97e70290567be8d0ff48"
   class="pageLink">prendrez-vous le parti des elfes</a></p>
-- <p><a href="/read_choice/8b15cb521125b11d965f38166768b629cc4a2472f255c88283a401b31e8602e5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8b15cb521125b11d965f38166768b629cc4a2472f255c88283a401b31e8602e5"
   class="pageLink">ou celui des caravaniers ?</a></p>

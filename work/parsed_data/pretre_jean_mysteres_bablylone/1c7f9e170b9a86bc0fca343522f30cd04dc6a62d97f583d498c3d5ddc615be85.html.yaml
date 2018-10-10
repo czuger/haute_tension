@@ -21,9 +21,9 @@
   semblent être très connus ici, car une foule s'agglutine bien vite autour d'eux.
   Une vente aux enchères commence.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/54474299a2d2f15f8dcf2522f6714913f9c9175432cb82323e550ac0e72ec76a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/54474299a2d2f15f8dcf2522f6714913f9c9175432cb82323e550ac0e72ec76a"
   class="pageLink">Si vous faites 7 ou moins.</a></p>
-- <p><a href="/read_choice/40a2b9737ba4678dbecedb7258e1ad684b47f0256d49ee901ac80a71cdd0d936"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/40a2b9737ba4678dbecedb7258e1ad684b47f0256d49ee901ac80a71cdd0d936"
   class="pageLink">Si vous faites 8 ou davantage.</a></p>
 - "<p> </p>"
 - "<p> </p>"

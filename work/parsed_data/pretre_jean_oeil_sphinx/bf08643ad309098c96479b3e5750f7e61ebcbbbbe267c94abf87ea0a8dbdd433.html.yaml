@@ -8,7 +8,7 @@
 - |-
   <p><br>
    Allez-vous combattre ce monstre :</p>
-- <p><a href="/read_choice/c7f357bde6e386a093c3563df314dc472c7ca7495444ee0af1cfb0b33727be6e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c7f357bde6e386a093c3563df314dc472c7ca7495444ee0af1cfb0b33727be6e"
   class="pageLink">par magie</a></p>
-- <p><a href="/read_choice/5f805f47c4fccf86d6401b42d596808325897a949a87d663e366d1b5afba2f05"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5f805f47c4fccf86d6401b42d596808325897a949a87d663e366d1b5afba2f05"
   class="pageLink">ou à l'épée ?</a><em> </em></p>

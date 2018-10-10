@@ -4,7 +4,7 @@
   de vous. Une masse noirâtre et gélatineuse, détachée d'une haute branche, se laisse
   tomber sur vous et vous recouvre entièrement la tête.</p>"
 - "<p>Portez-vous un heaume ?</p>"
-- <p><a href="/read_choice/4bf45035b19977fa37686e72dd902a986ea9c912b6a21ae6fcb08bbbc715d790"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4bf45035b19977fa37686e72dd902a986ea9c912b6a21ae6fcb08bbbc715d790"
   class="pageLink">Si c'est le cas.</a></p>
-- <p><a href="/read_choice/7e01e3e4ea5c2c975a7441222af9e8096936994098daa1318bdf9f83473d380b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7e01e3e4ea5c2c975a7441222af9e8096936994098daa1318bdf9f83473d380b"
   class="pageLink">Sinon.</a></p>

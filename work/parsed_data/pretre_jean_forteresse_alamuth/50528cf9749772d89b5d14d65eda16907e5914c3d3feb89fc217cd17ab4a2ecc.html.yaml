@@ -1,9 +1,9 @@
 ---
 - "<p>« Tu mens, étranger ! » s'exclame leur chef. Ils tirent leurs sabres courts
   de leurs fourreaux et s'apprêtent à vous maîtriser.</p>"
-- <p><a href="/read_choice/3f6453ca106e98f3fc5bef8744362c28cec6478d1745e0bb64bd347ffefb904e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3f6453ca106e98f3fc5bef8744362c28cec6478d1745e0bb64bd347ffefb904e"
   class="pageLink">Allez-vous vous laisser emmener sans résistance, espérant dissiper
   ce malentendu avec leur supérieur ?</a></p>
-- <p><a href="/read_choice/40ef63ee7a7673c1d0e36fef138bd8e3865127a69588dbe49bae52ce02006283"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/40ef63ee7a7673c1d0e36fef138bd8e3865127a69588dbe49bae52ce02006283"
   class="pageLink">Ou bien dégainez- vous également votre épée pour les combattre
   ?</a></p>

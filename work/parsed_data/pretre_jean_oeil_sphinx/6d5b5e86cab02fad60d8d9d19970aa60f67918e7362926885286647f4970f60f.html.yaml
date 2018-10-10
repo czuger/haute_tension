@@ -6,9 +6,9 @@
   chose. Le plus imposant d'entre eux s'avance. «Ton accoutrement est bien étrange
   pour un messager de Pharaon. As-tu un ordre de mission ? » demande-t-il.</p>"
 - "<p>Quelle solution allez-vous adopter pour convaincre les gardes ?</p>"
-- <p><a href="/read_choice/41d91b3fb4986cd7e02ae8ed1ec53cb1c175a1849949cfb5d726d6ecb5791c38"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/41d91b3fb4986cd7e02ae8ed1ec53cb1c175a1849949cfb5d726d6ecb5791c38"
   class="pageLink">Si vous possédez un sort d'obéissance.</a></p>
-- <p><a href="/read_choice/6901ef15267e442ad6ad566eb7b4b20cb670025ab54ca2c5f14212e9b20fb154"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6901ef15267e442ad6ad566eb7b4b20cb670025ab54ca2c5f14212e9b20fb154"
   class="pageLink">Si vous décidez de tomber le masque et d'attaquer les gardes.</a></p>
-- <p><a href="/read_choice/d8dd3731c23244fd1e5b2a4b7bc4553ce03508c87666b324e9138b6cb79f92e4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d8dd3731c23244fd1e5b2a4b7bc4553ce03508c87666b324e9138b6cb79f92e4"
   class="pageLink">Si vous voulez chercher un autre moyen de les convaincre.</a></p>

@@ -1,7 +1,7 @@
 ---
 - "<p>Vous fouillez le réfectoire du regard, mais il s'est vite rempli ... Seules
   deux autres places sont libres.</p>"
-- <p><a href="/read_choice/cc600f83538e04eda6394014dbe6fb95aa8843e7e3b9a7142e3661cb92638569"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cc600f83538e04eda6394014dbe6fb95aa8843e7e3b9a7142e3661cb92638569"
   class="pageLink">Vous pouvez vous asseoir près d'un Kobold à l'air patibulaire</a></p>
-- <p><a href="/read_choice/575631ae53cd8821616e628168d05760c95df00261ee200b844618b6999e97c7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/575631ae53cd8821616e628168d05760c95df00261ee200b844618b6999e97c7"
   class="pageLink">ou près d'un petit Gobelin qui vous dévore déjà des yeux.</a></p>

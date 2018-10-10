@@ -2,12 +2,12 @@
 - "<p>L'individu prend un air satisfait. «Très bien, alors, va, car je n'ai rien à
   te dire. Les vulgaires voleurs et autres assassins ne m'intéressent pas. » Vous
   décidez de ne pas vous attarder auprès de ce personnage curieux.</p>"
-- <p><a href="/read_choice/7ce5545234531c2a8c626eabb8b7942b4923924a7776055ca79c5da1e96e6e28"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7ce5545234531c2a8c626eabb8b7942b4923924a7776055ca79c5da1e96e6e28"
   class="pageLink">Allez-vous à présent tourner vos investigations vers l'homme au
   pagne blanc</a></p>
-- <p><a href="/read_choice/433221a0a991fca911c863bddcb1668bf8e6e5172cf67eb5509073820a1d844d"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/433221a0a991fca911c863bddcb1668bf8e6e5172cf67eb5509073820a1d844d"
   class="pageLink">ou Vers celui qui semble étranger à l'Egypte ?</a><em> </em></p>
-- <p><a href="/read_choice/ce7f7522e1019e290b186e549f49848cab7fbe10321d1686ddb4c0e34c232918"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ce7f7522e1019e290b186e549f49848cab7fbe10321d1686ddb4c0e34c232918"
   class="pageLink">Si vous préférez attendre les gardes pour tenter de vous évader
   à leur arrivée.</a></p>
 - "<p> </p>"

@@ -1,10 +1,10 @@
 ---
 - "<p>Le sentier s'arrête au bord d'une rivière. Ses eaux sont profondes et vous cherchez
   la meilleure solution pour la traverser.</p>"
-- <p><a href="/read_choice/28adbacfe85a45894828df19da8177a0732e9808da3ebdd0e14f3f8ad18e8095"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/28adbacfe85a45894828df19da8177a0732e9808da3ebdd0e14f3f8ad18e8095"
   class="pageLink">Allez-vous longer la berge sur votre gauche,</a></p>
-- <p><a href="/read_choice/f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5"
   class="pageLink">sur votre droite</a></p>
-- <p><a href="/read_choice/466541688922ed8976bb0819f54dedf002a8c3090a7d46dad7ca75aeb1822ba3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/466541688922ed8976bb0819f54dedf002a8c3090a7d46dad7ca75aeb1822ba3"
   class="pageLink">ou encore vous engager sur le chemin que des dizaines de nénuphars
   semblent tracer d'une rive à l'autre ?</a></p>

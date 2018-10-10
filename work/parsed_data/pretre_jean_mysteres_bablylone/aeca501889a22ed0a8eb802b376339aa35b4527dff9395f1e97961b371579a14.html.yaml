@@ -10,11 +10,11 @@
   manifeste ainsi, car vous voyez d'autres gens qui à présent acclament le passage
   de la délégation, sortant des maisons et des rues voisines.</p>"
 - "<p>Comment allez-vous entrer dans le palais ?</p>"
-- <p><a href="/read_choice/13390b06910c5348021f2f6380d2adb0743912b84507ada80073af650f9417d3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/13390b06910c5348021f2f6380d2adb0743912b84507ada80073af650f9417d3"
   class="pageLink">Si vous essayez de vous glisser à l'intérieur avec la délégation.</a></p>
-- <p><a href="/read_choice/81ea4dd8f487aa605508646168e32dcbeee45d0a97c3792e932e6416c01afe47"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/81ea4dd8f487aa605508646168e32dcbeee45d0a97c3792e932e6416c01afe47"
   class="pageLink">Si vous préférez profiter de ce défilé qui devrait attirer l'attention
   des gardes pour vous y faufiler.</a><em> </em></p>
-- <p><a href="/read_choice/0dd134c0b07c7ca41441b65f1f34a861c1bd34a82fbd2c156798dd02ca5fa7c9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0dd134c0b07c7ca41441b65f1f34a861c1bd34a82fbd2c156798dd02ca5fa7c9"
   class="pageLink">Si vous possédez la bague aux deux têtes de lion et voulez vous
   en servir.</a></p>

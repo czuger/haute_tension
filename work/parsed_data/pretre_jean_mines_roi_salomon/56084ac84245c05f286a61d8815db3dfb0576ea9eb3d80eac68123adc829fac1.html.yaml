@@ -3,8 +3,8 @@
   Vous vous apercevez très rapidement que vous avez mal choisi, car la porte devient
   brûlante à une vitesse stupéfiante. Si vous n'agissez pas au plus vite, vous risquez
   une blessure douloureuse !</p>"
-- <p><a href="/read_choice/3881b64d6b0c9b4cb618876d28f7f18501c27e7f0f09b7ad757b109f9707a6a7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3881b64d6b0c9b4cb618876d28f7f18501c27e7f0f09b7ad757b109f9707a6a7"
   class="pageLink">Allez-vous lâcher la porte ?</a><em> </em></p>
-- <p><a href="/read_choice/3020c55cc5809f23f4439c7745b8f8459e8cbad6e3da2325ae59698a28676b74"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3020c55cc5809f23f4439c7745b8f8459e8cbad6e3da2325ae59698a28676b74"
   class="pageLink">Si vous préférez tester le pouvoir de l'Œil Magique sur la porte.</a><em>
   </em></p>

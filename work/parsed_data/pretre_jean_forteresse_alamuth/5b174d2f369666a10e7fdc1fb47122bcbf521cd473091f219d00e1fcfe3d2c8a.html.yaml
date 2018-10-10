@@ -3,7 +3,7 @@
   permis de vaincre. Vous vous souvenez de l'objet que vous essayiez de ramasser lorsque
   le sol s'est effondré.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/read_choice/bbcf451da9ded929a386c23a465b4c03c5ff828fde5ca6b0c37613080feddac8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bbcf451da9ded929a386c23a465b4c03c5ff828fde5ca6b0c37613080feddac8"
   class="pageLink">Si vous obtenez un chiffre égal ou inférieur à 6.</a></p>
-- <p><a href="/read_choice/d2b3afa78e8d83af21b730d75665fbf634d94c49be947011e4ff1d83e3514b45"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d2b3afa78e8d83af21b730d75665fbf634d94c49be947011e4ff1d83e3514b45"
   class="pageLink">Si vous faites 7 ou davantage.</a></p>

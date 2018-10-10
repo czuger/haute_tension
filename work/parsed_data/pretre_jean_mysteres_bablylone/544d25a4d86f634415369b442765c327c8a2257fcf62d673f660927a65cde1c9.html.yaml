@@ -9,7 +9,7 @@
   <p><br>
    Lequel choisirez-vous ?</p>
 - |-
-  <p><a href="/read_choice/fafacbf133c8291e202cadb1ba2ead46bb41226822b79fed32566c22e40dea05" class="pageLink">Frill qui vous a amené là ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fafacbf133c8291e202cadb1ba2ead46bb41226822b79fed32566c22e40dea05" class="pageLink">Frill qui vous a amené là ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/158-1.html">Shollo, le chef ?</a></p>
-- <p><a href="/read_choice/375b9ae83043fd9d9a4bc3f10127a0f5bb5b06e5569fd7a95722e60b367a60d8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/375b9ae83043fd9d9a4bc3f10127a0f5bb5b06e5569fd7a95722e60b367a60d8"
   class="pageLink">Bim, le troisième elfe ?</a></p>

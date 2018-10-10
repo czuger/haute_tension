@@ -9,13 +9,13 @@
   En vous approchant avec méfiance, vous vous apercevez qu'il s'agit du squelette
   d'un guerrier. Votre arrivée subite a dû faire fuir les quelques rats qui essayaient
   de trouver là une pitance inexistante.</p>"
-- <p><a href="/read_choice/d4afcf6b5602cb5a06725f0ded4b8ac742dc78129a54bac3c4c4ac222683f6a6"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d4afcf6b5602cb5a06725f0ded4b8ac742dc78129a54bac3c4c4ac222683f6a6"
   class="pageLink">Si vous ne l'avez déjà fait lors d'un précédent passage, vous pouvez
   fouiller ce squelette.</a></p>
-- <p><a href="/read_choice/de4de92acaae98f36ed8f7d4632c7896d77e9cdcbaba9499afbb587cdae8eaad"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/de4de92acaae98f36ed8f7d4632c7896d77e9cdcbaba9499afbb587cdae8eaad"
   class="pageLink">Si vous préférez ne pas vous en soucier et prendre l'embranchement
   de droite.</a></p>
-- <p><a href="/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
   class="pageLink">Si vous décidez, imperturbable, de continuer votre chemin tout
   droit.</a></p>
 - "<p> </p>"

@@ -2,7 +2,7 @@
 - "<p>La corde devient très glissante au fur et à mesure de la descente. Vous arrivez
   à un second embranchement.</p>"
 - "<p>Préférez-vous continuer votre progression ?</p>"
-- <p><a href="/read_choice/4ec6fa615a2fa6e0f3331559017b2263cf5ba07e930eba909142abe487dfce6e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4ec6fa615a2fa6e0f3331559017b2263cf5ba07e930eba909142abe487dfce6e"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/read_choice/6ef413be112470df641346b201313ee97e3c18e0db030674e36a2b6b57a8befb"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6ef413be112470df641346b201313ee97e3c18e0db030674e36a2b6b57a8befb"
   class="pageLink">Dans le cas contraire.</a></p>

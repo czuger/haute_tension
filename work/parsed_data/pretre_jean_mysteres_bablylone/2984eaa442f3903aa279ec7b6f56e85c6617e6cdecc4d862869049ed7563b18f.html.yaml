@@ -11,9 +11,9 @@
   qu'elle intéresserait quelqu'un et qu'il en tirerait profit. Cette perte semble
   le préoccuper bien plus que les histoires que vous pourriez lui raconter pour lui
   expliquer votre présence au sein de glace !</p>"
-- <p><a href="/read_choice/e49e1ebeafb86747c096d71e217ca45ff031834ca536898a4e369f30ba9dbdfd"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e49e1ebeafb86747c096d71e217ca45ff031834ca536898a4e369f30ba9dbdfd"
   class="pageLink">Désirez-vous lui proposer de l'indemniser en lui donnant 15 pièce
   d'or ?</a></p>
-- <p><a href="/read_choice/a56923bf64f22eca547215599e41d666ab9fa50c52ef2bba2827fa640320ea2e"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a56923bf64f22eca547215599e41d666ab9fa50c52ef2bba2827fa640320ea2e"
   class="pageLink">Ou préférez-vous faire la sourde oreille à ce sujet et continuer
   de discuter ?</a></p>

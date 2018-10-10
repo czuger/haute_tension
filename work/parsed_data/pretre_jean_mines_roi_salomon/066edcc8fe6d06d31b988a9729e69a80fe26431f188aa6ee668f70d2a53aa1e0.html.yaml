@@ -2,8 +2,8 @@
 - "<p>Votre épée s'enfonce facilement dans la chair tendre des champignons. Ils n'ont
   dégagé aucune spore empoisonnée au contact de votre lame. Par contre, leur odeur
   vous semble fort appétissante.</p>"
-- <p><a href="/read_choice/b9d623236b962c93417ce43b01e418f798983a69542276562e5082229e79e355"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b9d623236b962c93417ce43b01e418f798983a69542276562e5082229e79e355"
   class="pageLink">Voulez-vous goûter ces champignons</a></p>
-- <p><a href="/read_choice/8e8a9a3185830ddbe0335ceee8aa59dda89358b38dfac507ab6446adaf979fac"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8e8a9a3185830ddbe0335ceee8aa59dda89358b38dfac507ab6446adaf979fac"
   class="pageLink">ou bien préférez-vous continuer votre chemin sans vous en préoccuper
   davantage ?</a></p>

@@ -7,8 +7,8 @@
 - "<p><strong>SERPENT DE FEU</strong></p>"
 - "<p>FORCE: 18 VIE: 15</p>"
 - "<p>AJUSTEMENT DÉGATS : + 1</p>"
-- <p><a href="/read_choice/816a97c39d4b6d93e20c658b2aa3c166c9bb9b6bebc906695dbc4622a98d544a"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/816a97c39d4b6d93e20c658b2aa3c166c9bb9b6bebc906695dbc4622a98d544a"
   class="pageLink">Si vous ne parvenez pas à tuer l'animal avant qu'il atteigne 20
   points de Vie ou si vous-même descendez en dessous de 4 points de Vie.</a></p>
-- <p><a href="/read_choice/2050aa814e436c53f5ac456a1d70b0f933171c21cdc8691e45530b715723f702"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2050aa814e436c53f5ac456a1d70b0f933171c21cdc8691e45530b715723f702"
   class="pageLink">Si vous l'anéantissez avant.</a></p>

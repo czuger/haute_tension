@@ -2,10 +2,10 @@
 - "<p>Bravo! vous avez parié avec discernement ! Les dés s'immobilisent sur le petit
   tapis de jeu posé à même le sol. Vous avez gagné ! Les membres de l'assistance vous
   félicitent pour votre chance. Vous empochez 4 pièces d'or.</p>"
-- <p><a href="/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
   class="pageLink">Vous pouvez rejouer, si vous le désirez,</a></p>
-- <p><a href="/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
   class="pageLink">mais il faudra vous arrêter à la cinquième partie ou à la trentième
   pièce d'or que vous gagnerez. </a></p>
-- <p><a href="/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
   class="pageLink">Si vous décidez que vous avez assez joué.</a></p>

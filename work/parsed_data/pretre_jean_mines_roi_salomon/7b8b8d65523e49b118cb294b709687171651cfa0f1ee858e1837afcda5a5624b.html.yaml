@@ -10,10 +10,10 @@
   de continuer votre route normalement sans toucher ces plantes visqueuses qui ne
   vous inspirent aucune confiance.</p>"
 - "<p>Que décidez-vous :</p>"
-- <p><a href="/read_choice/2a5d8302149cf87ae38da2fda9dece9ed3f46e28f48f6e09774de43b0b01c826"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2a5d8302149cf87ae38da2fda9dece9ed3f46e28f48f6e09774de43b0b01c826"
   class="pageLink">Vous vous frayez un passage à coups d'épée ?</a></p>
-- <p><a href="/read_choice/d101292c4fc0fc61c3ee9a8581210543b1b055e862268f0c017390ab2816cf6b"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d101292c4fc0fc61c3ee9a8581210543b1b055e862268f0c017390ab2816cf6b"
   class="pageLink">Vous progressez à quatre pattes en espérant éviter tout contact
   désagréable ?</a></p>
-- <p><a href="/read_choice/0f620f0527d88e8787888cae4a030119ea64a5be386869a048dd319472304911"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0f620f0527d88e8787888cae4a030119ea64a5be386869a048dd319472304911"
   class="pageLink">Vous rampez carrément sur le sol moussu ?</a></p>

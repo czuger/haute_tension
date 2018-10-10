@@ -5,7 +5,7 @@
   un changement si radical que vous ne remarquez pas un fil diaphane tendu en travers
   du chemin.</p>"
 - "<p>L'avez-vous touché ? Lancez 2 dés pour le savoir.</p>"
-- <p><a href="/read_choice/1f020984c6217d922ea5bba0cbf29533592358d2bebae32cc17095573ce6a5f5"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1f020984c6217d922ea5bba0cbf29533592358d2bebae32cc17095573ce6a5f5"
   class="pageLink">Si vous obtenez un double.</a></p>
-- <p><a href="/read_choice/97d1878f1fc379e87c7f7f8b06c1f49c49ab5f4394e3b181f47b89f89452cf51"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/97d1878f1fc379e87c7f7f8b06c1f49c49ab5f4394e3b181f47b89f89452cf51"
   class="pageLink">Sinon.</a></p>

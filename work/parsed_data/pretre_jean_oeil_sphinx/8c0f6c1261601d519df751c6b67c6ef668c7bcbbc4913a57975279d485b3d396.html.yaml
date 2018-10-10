@@ -1,5 +1,5 @@
 ---
-- <p><a href="/read_choice/df97dc8b9de1adcf76159097d43a0fe5824e035a8e2ecb327859cc877e0c2dc8"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/df97dc8b9de1adcf76159097d43a0fe5824e035a8e2ecb327859cc877e0c2dc8"
   class="pageLink">Si vous avez déjà emprunté ce passage.</a></p>
-- <p><a href="/read_choice/835294e2cb40b47aac2e8c74be3cdea9241619b5b4931334f90926c3669c41f9"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/835294e2cb40b47aac2e8c74be3cdea9241619b5b4931334f90926c3669c41f9"
   class="pageLink">Sinon.</a></p>

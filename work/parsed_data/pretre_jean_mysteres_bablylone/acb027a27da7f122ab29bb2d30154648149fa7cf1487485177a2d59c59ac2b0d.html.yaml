@@ -1,11 +1,11 @@
 ---
 - "<p>La boule de métal fait résonner la porte, mais personne ne vous répond. Vous
   insistez un peu mais vous ne provoquez aucune réaction.</p>"
-- <p><a href="/read_choice/ded8ea8f43de3c6e7535d11dce5b38ddbd62c32abf2beab72c76c3f8b989f1c4"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ded8ea8f43de3c6e7535d11dce5b38ddbd62c32abf2beab72c76c3f8b989f1c4"
   class="pageLink">Si vous désirez entrer.</a></p>
 - "<p>Si vous préférez tenter votre chance devant une autre porte, vous pouvez vous
   diriger :</p>"
-- <p><a href="/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f109577878caf6b34ed01eaaf72410b52efe6c3b8611554363b7a09a87aad59"
   class="pageLink">vers celle ornée d'un serpent</a></p>
-- <p><a href="/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
   class="pageLink">ou vers celle ornée d'un crabe.</a></p>

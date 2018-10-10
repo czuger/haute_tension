@@ -2,8 +2,8 @@
 - "<p>Vous avez réduit l'Araignée à l'état de magma noirâtre. Elle ne vous ennuiera
   plus! Mais ce combat ne vous a guère servi, car la cellule où elle se trouvait est
   vide et ne comporte aucune issue. Vous ressortez, dépité.</p>"
-- <p><a href="/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
   class="pageLink">Voulez-vous reprendre la galerie en sens inverse jusqu'à l'escalier
   et le descendre</a></p>
-- <p><a href="/read_choice/2ee6f697dfcbe602fdc1b5b626e3ed4ddeb7d0867e1b6c076539548d598b6e36"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2ee6f697dfcbe602fdc1b5b626e3ed4ddeb7d0867e1b6c076539548d598b6e36"
   class="pageLink">ou bien ouvrir la porte qui s'ouvre ensuite dans cette paroi ?</a></p>

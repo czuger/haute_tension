@@ -12,7 +12,7 @@
   subtiliser en détournant l'attention du chef. Maintenant que vous êtes devenu un
   des leurs, cela ne devrait pas poser trop de difficultés.</p>"
 - "<p>Jetez 2 dés pour savoir si votre tentative réussit :</p>"
-- <p><a href="/read_choice/41df97f0fa77f8e4387c495463f520c719c7bf0008e771d2b3bb2d202a3eba34"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/41df97f0fa77f8e4387c495463f520c719c7bf0008e771d2b3bb2d202a3eba34"
   class="pageLink">si le total de vos points est un multiple de 2 ou 3.</a></p>
-- <p><a href="/read_choice/b536e6619026f911af3305a659e4b8c06e2550fdd73ca12c5b16b08b6e1c52b0"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b536e6619026f911af3305a659e4b8c06e2550fdd73ca12c5b16b08b6e1c52b0"
   class="pageLink">Sinon.</a></p>

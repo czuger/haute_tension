@@ -2,8 +2,8 @@
 - "<p>Attiré par votre cri, le passeur accoste et vous toise de sa haute taille. Il
   est vêtu d'un long manteau à capuchon qui dissimule ses yeux. « Bonjour, voyageur.
   Le tarif pour mes services et mon esquif est de 5 pièces d'or. »</p>"
-- <p><a href="/read_choice/308db97a0829d3f2395918015e1cd0a86747e79a417e646a72d34302a83747f1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/308db97a0829d3f2395918015e1cd0a86747e79a417e646a72d34302a83747f1"
   class="pageLink">Si vous acceptez son prix.</a></p>
-- <p><a href="/read_choice/ec5c72ef88528208165d8a68ad668c9f95d8794cd788e4b0e18ee5011a75e744"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ec5c72ef88528208165d8a68ad668c9f95d8794cd788e4b0e18ee5011a75e744"
   class="pageLink">Sinon, vous vous excusez de l'avoir dérangé pour rien et vous traversez
   à la nage.</a></p>

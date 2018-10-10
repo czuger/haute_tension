@@ -1,20 +1,20 @@
 ---
 - "<p>Quel sort voulez-vous lancer ?</p>"
-- <p><a href="/read_choice/1d0ce0797be85f7cb48031bd3d39be4424ae1b5a08e2c2a42aeb894cfe28c4f7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1d0ce0797be85f7cb48031bd3d39be4424ae1b5a08e2c2a42aeb894cfe28c4f7"
   class="pageLink">Un Sort de Pétrification ?</a></p>
-- <p><a href="/read_choice/b156bbcaa046975a1e4df449caf18cdfb8a827adbe7c3dd7ff6916fd605a20c3"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b156bbcaa046975a1e4df449caf18cdfb8a827adbe7c3dd7ff6916fd605a20c3"
   class="pageLink">Un Sort permettant de changer la pierre en boue ?</a></p>
 - |-
-  <p><a href="/read_choice/4d475870e7fa9cdc1cf7ea8084af458e3ee9f52528779f958c6c9e39494a6710" class="pageLink">Un Sort de Détection du Mal ?</a><br>
+  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4d475870e7fa9cdc1cf7ea8084af458e3ee9f52528779f958c6c9e39494a6710" class="pageLink">Un Sort de Détection du Mal ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/15.html">Le Sort A du prophète ?</a></p>
-- <p><a href="/read_choice/f102f66f67d64b254ef70c93df1f4dac6d147412ad06b40355eebecb27e1b97f"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f102f66f67d64b254ef70c93df1f4dac6d147412ad06b40355eebecb27e1b97f"
   class="pageLink">Le Sort B du prophète ?</a></p>
-- <p><a href="/read_choice/d92d315b2b6b24899f80150d35338457b3db4329d62974a1130c568a5a3fdf06"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d92d315b2b6b24899f80150d35338457b3db4329d62974a1130c568a5a3fdf06"
   class="pageLink">Le Sort C du prophète ?</a></p>
-- <p><a href="/read_choice/4e0782e86b5bb04c82260a2f3b1973d90d56017a46a0fd759bab88a110f686d7"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4e0782e86b5bb04c82260a2f3b1973d90d56017a46a0fd759bab88a110f686d7"
   class="pageLink">Le Sort D du prophète ?</a></p>
-- <p><a href="/read_choice/fc385603ac8d532c6f77f98982767679cd736090bf4056a3bbe2b797946a7e03"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fc385603ac8d532c6f77f98982767679cd736090bf4056a3bbe2b797946a7e03"
   class="pageLink">Le Sort E du prophète ?</a></p>
-- <p><a href="/read_choice/0c94ef006d2124c73a3fa1f149a0b7c2831b36c8b4bc557b2a4ad6e90d11c4a1"
+- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0c94ef006d2124c73a3fa1f149a0b7c2831b36c8b4bc557b2a4ad6e90d11c4a1"
   class="pageLink">Si vous ne possédez aucun de ces sorts, vous devez combattre la
   Mort Blanche à l'épée.</a><em> </em></p>
