@@ -5,11 +5,17 @@ class Book < ApplicationRecord
   has_many :pages
 
   TITLES = %w( pretre_jean_forteresse_alamuth pretre_jean_mines_roi_salomon pretre_jean_mysteres_bablylone pretre_jean_oeil_sphinx )
+  BOOKS_NAMES = {
+      pretre_jean_forteresse_alamuth: "1. La forteresse d'Alamuth", pretre_jean_oeil_sphinx: "2. L'oeil du Sphinx",
+      pretre_jean_mines_roi_salomon: '3. Les mines du roi Salomon', pretre_jean_mysteres_bablylone: '4. Les mystères de Babylone'
+  }
 
   def self.load_books
     ActiveRecord::Base.transaction do
       Book::TITLES.each do |title|
-        b = Book.find_or_create_by!( name: title.humanize )
+        b = Book.find_or_create_by!( book_key: title ) do |book|
+          book.name = BOOKS_NAMES[title.to_sym]
+        end
 
         db = YAML.load_file("work/raw_data/#{title}.yaml")
 
