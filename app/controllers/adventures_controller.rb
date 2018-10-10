@@ -1,5 +1,6 @@
 class AdventuresController < ApplicationController
   before_action :set_adventure, only: [:show, :destroy]
+  before_action :set_new_adventure, only: [:new, :create]
 
   # GET /aventures
   # GET /adventures.json
@@ -34,8 +35,6 @@ class AdventuresController < ApplicationController
 
   # GET /adventures/new
   def new
-    @adventure = Adventure.new
-    @books = Book.all.order( :name )
   end
 
   # POST /adventures
@@ -44,7 +43,7 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new(adventure_params)
 
     book = Book.find(adventure_params[ :book_id ] )
-    @adventure.parsed_section = book.first_parsed_section
+    @adventure.current_page = book.first_page
     roll_adventure
 
     respond_to do |format|
@@ -89,7 +88,7 @@ class AdventuresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adventure_params
-      params.require(:adventure).permit(:downloaded_book_id, :adventure_id, :page_id, :hp, :gold, :gourdes, :gourdes_remplies, :rations, :charisme, :fight )
+      params.require(:adventure).permit( :book_id )
     end
 
     def roll_adventure
@@ -100,5 +99,10 @@ class AdventuresController < ApplicationController
       @adventure.strength = 20 if @adventure.strength == 18
       @adventure.strength_max = @adventure.strength
       @adventure.gold = Hazard.r4d6
+    end
+
+    def set_new_adventure
+      @adventure = Adventure.new
+      @books = Book.all.order( :name )
     end
 end

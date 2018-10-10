@@ -1,6 +1,7 @@
 class Adventure < ApplicationRecord
-  belongs_to :downloaded_book
-  belongs_to :parsed_section, foreign_key: :current_parsed_section_id
+
+  belongs_to :book
+  belongs_to :current_page, class_name: 'Page'
 
   has_many :game_logs, dependent: :destroy
   has_many :fight_monsters, dependent: :destroy

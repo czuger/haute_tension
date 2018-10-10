@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 20181010092436) do
     t.index ["downloaded_section_id"], name: "index_parsed_sections_on_downloaded_section_id", using: :btree
   end
 
-  add_foreign_key "adventures", "downloaded_books", column: "book_id"
+  add_foreign_key "adventures", "books"
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "downloaded_sections", "downloaded_books"

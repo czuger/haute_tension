@@ -3,6 +3,7 @@ require 'pp'
 
 class Book < ApplicationRecord
   has_many :pages
+  belongs_to :first_page, class_name: 'Page'
 
   TITLES = %w( pretre_jean_forteresse_alamuth pretre_jean_mines_roi_salomon pretre_jean_mysteres_bablylone pretre_jean_oeil_sphinx )
   BOOKS_NAMES = {
