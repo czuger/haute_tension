@@ -1,6 +1,10 @@
 fr:
   adventures:
 
+    roll_dices:
+      title: Jet de dés
+      your_roll: Votre jet
+
     new:
       title: Nouvelle aventure
 

@@ -1,14 +1,8 @@
-.page-header
-  = link_to adventure_play_url( adventure_id: @adventure.id ), class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    = t( '.back' )
-  %h1= t( '.roll_dice' )
+%h2= t( '.title' )
 
-.container
-
-  = t( '.votre_jet' )
-  - @dices.rolls.each do |d|
-    = image_tag( "dices/#{d}.svg", class: :dice )
+= t( '.your_roll' )
+- @dices.rolls.each do |d|
+  = image_tag( "dices/#{d}.svg", class: :dice )
 
 %footer.modal-footer
   Icons made by Delapouite, More info and icons available at http://game-icons.net
