@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181010092436) do
+ActiveRecord::Schema.define(version: 20181010095800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,14 +76,13 @@ ActiveRecord::Schema.define(version: 20181010092436) do
   end
 
   create_table "game_logs", force: :cascade do |t|
-    t.integer  "adventure_id",      null: false
-    t.integer  "parsed_section_id", null: false
-    t.integer  "log_type",          null: false
+    t.integer  "adventure_id", null: false
+    t.integer  "log_type",     null: false
     t.string   "log_data"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "page_id",      null: false
     t.index ["adventure_id"], name: "index_game_logs_on_adventure_id", using: :btree
-    t.index ["parsed_section_id"], name: "index_game_logs_on_parsed_section_id", using: :btree
   end
 
   create_table "internal_variables", force: :cascade do |t|
@@ -167,7 +166,7 @@ ActiveRecord::Schema.define(version: 20181010092436) do
   add_foreign_key "fight_monsters", "adventures"
   add_foreign_key "fight_monsters", "monsters"
   add_foreign_key "game_logs", "adventures"
-  add_foreign_key "game_logs", "parsed_sections"
+  add_foreign_key "game_logs", "pages"
   add_foreign_key "monsters_parsed_sections", "monsters"
   add_foreign_key "monsters_parsed_sections", "parsed_sections"
   add_foreign_key "page_links", "pages", column: "dst_page_id"
