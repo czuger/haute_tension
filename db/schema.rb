@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227163319) do
+ActiveRecord::Schema.define(version: 20181010092436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "adventures", force: :cascade do |t|
-    t.integer  "downloaded_book_id",                       null: false
-    t.integer  "current_parsed_section_id",                null: false
-    t.integer  "hp",                                       null: false
-    t.integer  "strength",                                 null: false
-    t.integer  "gold",                                     null: false
-    t.integer  "waterskins",                default: 2,    null: false
-    t.integer  "waterskins_max",            default: 2
-    t.integer  "rations",                   default: 4
-    t.boolean  "charisma_avaliable",        default: true
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.integer  "book_id",                           null: false
+    t.integer  "current_page_id",                   null: false
+    t.integer  "hp",                                null: false
+    t.integer  "strength",                          null: false
+    t.integer  "gold",                              null: false
+    t.integer  "waterskins",         default: 2,    null: false
+    t.integer  "waterskins_max",     default: 2
+    t.integer  "rations",            default: 4
+    t.boolean  "charisma_avaliable", default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "notes"
-    t.integer  "hp_max",                                   null: false
-    t.integer  "strength_max",                             null: false
-    t.index ["current_parsed_section_id"], name: "index_adventures_on_current_parsed_section_id", using: :btree
-    t.index ["downloaded_book_id"], name: "index_adventures_on_downloaded_book_id", using: :btree
+    t.integer  "hp_max",                            null: false
+    t.integer  "strength_max",                      null: false
+    t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
+    t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
   end
 
   create_table "adventures_items", id: false, force: :cascade do |t|
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170227163319) do
     t.integer  "first_page_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "book_key",      null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
   end
 
@@ -159,8 +160,8 @@ ActiveRecord::Schema.define(version: 20170227163319) do
     t.index ["downloaded_section_id"], name: "index_parsed_sections_on_downloaded_section_id", using: :btree
   end
 
-  add_foreign_key "adventures", "downloaded_books"
-  add_foreign_key "adventures", "parsed_sections", column: "current_parsed_section_id"
+  add_foreign_key "adventures", "downloaded_books", column: "book_id"
+  add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "downloaded_sections", "downloaded_books"
   add_foreign_key "fight_monsters", "adventures"

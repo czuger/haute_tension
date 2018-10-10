@@ -1,6 +1,9 @@
 fr:
   adventures:
 
+    new:
+      title: Nouvelle aventure
+
     index:
       are_you_sure: "Etes vous sur ?"
 

@@ -35,6 +35,7 @@ class AdventuresController < ApplicationController
   # GET /adventures/new
   def new
     @adventure = Adventure.new
+    @books = Book.all.order( :name )
   end
 
   # POST /adventures
@@ -42,7 +43,7 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
 
-    book = DownloadedBook.find(adventure_params[ :downloaded_book_id ] )
+    book = Book.find(adventure_params[ :book_id ] )
     @adventure.parsed_section = book.first_parsed_section
     roll_adventure
 

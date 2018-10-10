@@ -1,8 +1,5 @@
 .page-header
-  = link_to adventures_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    = t( '.back' )
-  %h1= t( '.new' ) + ' ' + 'adventure'
+  %h1= t( '.title' )
 
 = form_for @adventure, html: { class: "form-horizontal", role: "form" } do |f|
   -if @adventure.errors.any?
@@ -24,7 +21,7 @@
   .form-group
     = f.label :book, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.select :downloaded_book_id, DownloadedBook.where.not( first_parsed_section_id: nil ).order( :id ).collect { |p| [ p.name, p.id ] }, class: 'form-control'
+      = f.select :book_id, @books.map { |p| [ p.name, p.id ] }, class: 'form-control'
 
   .form-group
     .col-sm-offset-2.col-sm-10

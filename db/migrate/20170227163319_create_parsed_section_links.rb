@@ -6,10 +6,6 @@ class CreateParsedSectionLinks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-
-    add_column :pages, :page_hash, :string, null: false
-    add_index :pages, :page_hash, unique: true
-    remove_index :pages, :url
   end
 end
 
