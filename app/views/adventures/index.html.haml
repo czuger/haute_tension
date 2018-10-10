@@ -36,7 +36,7 @@
                         %span{ class: 'adventureName' }
                           = adventure.book.name
                     .col-md-6.col-xs-2
-                      = link_to adventure_book_url( adventure_id: adventure.id, id: adventure.page_id ) do
+                      = link_to adventure_play_path( adventure_id: adventure.id ) do
                         %span.glyphicon.glyphicon-play
 
                   .panel-collapse.collapse{ id: "adventure_#{adventure.id}" }
@@ -47,7 +47,7 @@
 
                       .lastAdventureSummary
                         %span{ class: :text }
-                          = raw( truncate( adventure.parsed_section&.text&.first, length: 500 ) )
+                          = print_summary( adventure )
 
                       .row.actions
                         .col-xs-12.remove
