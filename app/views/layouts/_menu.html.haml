@@ -1,10 +1,16 @@
-#mainMenu.container.container-fluid
+#mainMenu
   .row
 
     .col-sm-2.col-xs-2.col-md-1
       = link_to adventures_url do
         %button
           =image_tag 'icons/book-cover.svg', class: 'menu-icon'
+
+    - if @adventures
+      .col-sm-2.col-xs-2.col-md-1
+        = link_to new_adventure_path do
+          %button
+            =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
       -#.col-sm-2.col-xs-2.col-md-1

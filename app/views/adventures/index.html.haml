@@ -11,17 +11,13 @@
   .row
     #homePageContent.col-xs-12
       .list-group.introduction
-        .list-group-item
-          .row
-            .col-xs-12
-              Welcome !
 
         %h2
-          Existing Adventures
+          = t( '.title' )
 
-        = link_to new_adventure_path, class: 'btn btn-primary' do
-          %span.glyphicon.glyphicon-plus
-          = t( '.new' ) + ' ' + 'Adventure'
+        -#= link_to new_adventure_path, class: 'btn btn-primary' do
+        -#  %span.glyphicon.glyphicon-plus
+        -#  = t( '.new' )
 
         .list-group
 

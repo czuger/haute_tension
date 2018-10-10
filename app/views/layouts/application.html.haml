@@ -16,12 +16,23 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render partial: 'layouts/menu'
 
-    - flash.each do |name, msg|
-      = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
-        %button.close{type: "button", data: {dismiss: "alert"} }
-          %span{aria: {hidden: "true"} } &times;
-          %span.sr-only Close
-        = msg
-    = yield
+    .container-fluid
+
+      = render partial: 'layouts/menu'
+
+      - flash.each do |name, msg|
+        = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
+          %button.close{type: "button", data: {dismiss: "alert"} }
+            %span{aria: {hidden: "true"} } &times;
+            %span.sr-only Close
+          = msg
+
+      #main
+        -#.row
+        -#  #homePageContent.col-xs-12
+        -#    .list-group.introduction
+
+
+
+        = yield

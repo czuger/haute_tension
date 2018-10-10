@@ -1,12 +1,12 @@
-.page-header
-  = link_to adventure_play_url(@adventure), class: 'btn btn-success' do
-    %span.glyphicon.glyphicon-play
-    = t( '.play' )
-  = link_to adventure_reroll_path(@adventure), class: 'btn btn-warning' do
-    %span.glyphicon.glyphicon-refresh
-    = t( '.reroll' )
 
-  %h1= t( '.title' )
+= link_to adventure_play_url(@adventure), class: 'btn btn-success' do
+  %span.glyphicon.glyphicon-play
+  = t( '.play' )
+= link_to adventure_reroll_path(@adventure), class: 'btn btn-warning' do
+  %span.glyphicon.glyphicon-refresh
+  = t( '.reroll' )
+
+%h2= t( '.title' )
 
 %dl.dl-horizontal
   %dt Book:

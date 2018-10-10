@@ -8,6 +8,7 @@ fr:
       title: Détail de l'aventure
 
     index:
+      title: Aventures en cours
       are_you_sure: "Etes vous sur ?"
 
     log:
