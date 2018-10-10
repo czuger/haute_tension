@@ -4,6 +4,9 @@ fr:
     new:
       title: Nouvelle aventure
 
+    show:
+      title: Détail de l'aventure
+
     index:
       are_you_sure: "Etes vous sur ?"
 
