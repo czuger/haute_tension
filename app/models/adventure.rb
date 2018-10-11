@@ -6,5 +6,5 @@ class Adventure < ApplicationRecord
   has_many :game_logs, dependent: :destroy
   has_many :fight_monsters, dependent: :destroy
 
-  has_and_belongs_to_many :items
+  serialize :items
 end

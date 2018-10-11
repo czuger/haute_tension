@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :adventure_trackers, only: [ :edit, :update ]
+  # resources :adventure_trackers, only: [ :edit, :update ]
 
   resources :game_logs, only: [ :show ]
 
-  resources :items, except: [ :show ]
-
-  resources :inventories, only: [ :show, :new, :create, :destroy ]
+  # resources :inventories, only: [ :show, :new, :create, :destroy ]
 
   resources :adventures, except: [ :edit, :update ] do
     get :reroll
@@ -16,7 +14,8 @@ Rails.application.routes.draw do
     get :die
 
     resource :heros, only: [ :show, :update ]
-    resources :downloaded_books, only: [:show ]
+    # resources :downloaded_books, only: [:show ]
+    resource :items, only: [ :show, :update ]
   end
 
   resources :notes, only: [ :edit, :update ]
