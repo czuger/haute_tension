@@ -4,43 +4,48 @@
       .list-group.playerStatus
         %h2 Détails de l'aventurier
         .list-group-item
-          .row
+          .row.row-separation
             .col-xs-6.col-md-2.title
             .col-xs-2.col-md-1.title Min
             .col-xs-3.col-md-1.title Max
             .hidden-xs.col-md-2.title
             .hidden-xs.col-md-1.title Min
-            .hidden-xs.col-md-1.title Max
+            .hidden-xs.col-md-1.title
             .hidden-xs.col-md-2.title
             .hidden-xs.col-md-1.title Min
             .hidden-xs.col-md-1.title Max
 
-            - @data.in_groups_of( 2 ) do |group|
-              - group.each do |e|
-                .col-xs-6.col-md-2.title
-                  = e[ :name ].to_s.capitalize
-                .col-xs-2.col-md-1.values
-                  %span.current{ id: e[ :base_col ] }
-                    = number_field_tag e[ :name ].to_s, e[ :base_value ], class: 'form-control'
-                .col-xs-2.col-md-1.values
-                  - if e[ :max_value ]
-                    %span.max{ id: e[ :max_col ] }
-                      = number_field_tag e[ :name ].to_s, e[ :max_value ], class: 'form-control'
-        -#%h2 Actions
-        -#.list-group-item
-        -#  .row
-        -#    - HerosController::ACTIONS.in_groups_of( 2 ) do |group|
-        -#      - group.each do |e|
-        -#        .col-xs-6.col-md-3.title
-        -#          = e[ :name ].to_s.capitalize
-        -#        .col-xs-6.col-md-3.values
-        -#          = number_field_tag e[ :name ].to_s, 0, class: 'form-control'
-                  -#.col-xs-6
-                  -#  %button.update_hero{ code: e[:code], action: :plus }
-                  -#    %span.glyphicon.glyphicon-plus
-                  -#.col-xs-6
-                  -#  %button.update_hero{ code: e[:code], action: :minus }
-                  -#    %span.glyphicon.glyphicon-minus
+            = form_for @adventure, url: adventure_heros_path( @adventure ), method: :put do |a|
+              .row.row-separation
+                .col-xs-6.col-md-2.title Hp
+                .col-xs-6.col-md-1= a.number_field :hp, class: 'form-control'
+                .col-xs-6.col-md-1= a.number_field :hp_max, class: 'form-control'
+
+                .col-xs-6.col-md-2.title Or
+                .col-xs-6.col-md-1= a.number_field :gold, class: 'form-control'
+                .col-xs-6.col-md-1
+
+                .col-xs-6.col-md-2.title Gourdes
+                .col-xs-6.col-md-1= a.number_field :waterskins, class: 'form-control'
+                .col-xs-6.col-md-1= a.number_field :waterskins_max, class: 'form-control'
+
+              .row.row-separation
+                .col-xs-6.col-md-2.title Force
+                .col-xs-6.col-md-1= a.number_field :strength, class: 'form-control'
+                .col-xs-6.col-md-1= a.number_field :strength_max, class: 'form-control'
+
+                .col-xs-6.col-md-2.title Rations
+                .col-xs-6.col-md-1= a.number_field :rations, class: 'form-control'
+                .col-xs-6.col-md-1
+
+                .col-xs-6.col-md-2.title Charisme
+                .col-xs-6.col-md-1= check_box_tag :charisma_avaliable, :charisma, class: 'form-control'
+                .col-xs-6.col-md-1
+
+              .row.row-separation
+                .col-md-5
+                .col-md-2
+                  = submit_tag 'Update', class: 'form-control'
 
     #pageFooter.col-xs-12
 

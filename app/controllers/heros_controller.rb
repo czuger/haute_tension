@@ -24,19 +24,23 @@ class HerosController < ApplicationController
   end
 
   def update
-    # Minus action :
-    if params[ :action_code ] == 'minus'
-      @adventure.decrement!( params[ :code ] )
-    elsif params[ :action_code ] == 'plus'
-      @adventure.increment!( params[ :code ] )
+    respond_to do |format|
+      if @adventure.update(hero_params )
+        format.html { redirect_to adventure_heros_path( @adventure ), notice: 'Données mises à jour.' }
+      else
+        format.html { render adventure_heros_path( @adventure ) }
+      end
     end
-    head :ok
   end
 
   private
 
   def set_adventure
     @adventure = Adventure.find( params[ :adventure_id ] )
+  end
+
+  def hero_params
+    params.require( :adventure ).permit( :hp, :strength, :gold, :waterskins, :waterskins_max, :strength_max, :rations, :hp_max, :charisma_avaliable )
   end
 
 end
