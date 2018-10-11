@@ -13,10 +13,11 @@
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
-      -#.col-sm-2.col-xs-2.col-md-1
-      -#  = link_to adventure_book_url( @adventure.id, @adventure.current_page_id ) do
-      -#    %button
-      -#      %span.glyphicon.glyphicon-book
+      .col-sm-2.col-xs-2.col-md-1
+        = link_to adventure_play_path( @adventure ) do
+          %button
+            -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
+            =image_tag 'icons/mounted-knight.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-2.col-md-1
         = link_to adventure_heros_url( @adventure.id ) do
