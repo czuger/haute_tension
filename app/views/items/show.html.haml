@@ -7,10 +7,13 @@
 
           - 1.upto(20).each do |index|
             .row.row-separation
-              .col-xs-6.col-md-10
+              .col-xs-12.col-md-10
                 = text_field_tag "inventory[#{index}]", @items[index.to_s], class: 'form-control'
 
-              .col-md-2
+              .col-md-2.hidden-xs
                 = submit_tag 'Mettre à jour', class: 'form-control'
+
+          -#.col-xs-2.hidden-md
+          -#  = submit_tag 'Mettre à jour', class: 'form-control'
 
   #pageFooter.col-xs-12

@@ -1,60 +1,60 @@
 #mainMenu
   .row
 
-    .col-sm-2.col-xs-2.col-md-1
+    .col-sm-2.col-xs-3.col-md-1
       = link_to adventures_url do
         %button
           =image_tag 'icons/book-cover.svg', class: 'menu-icon'
 
     - if @adventures
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to new_adventure_path do
           %button
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to adventure_play_path( @adventure ) do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/mounted-knight.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to adventure_heros_url( @adventure.id ) do
           %button
             =image_tag 'icons/barbute.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to adventure_items_url( @adventure.id ) do
           %button
             =image_tag 'icons/backpack.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to fight_url( id: @adventure.id ) do
           %button
             =image_tag 'icons/crossed-swords.svg', class: 'menu-icon'
 
-      -#.col-sm-2.col-xs-2.col-md-1
+      -#.col-sm-2.col-xs-3.col-md-1
       -#  = link_to fights_url( id: @adventure.id ) do
       -#    %button
       -#      =image_tag 'icons/sword-wound.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to game_log_url( @adventure.id ) do
           %button
             =image_tag 'icons/wax-tablet.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-2.col-md-1
+      .col-sm-2.col-xs-3.col-md-1
         = link_to adventure_roll_dices_url( adventure_id: @adventure.id ) do
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 
-    -#.col-sm-2.col-xs-2.col-md-1
+    -#.col-sm-2.col-xs-3.col-md-1
     -#  = link_to items_url do
     -#    %button
     -#      =image_tag 'icons/stabbed-note.svg', class: 'menu-icon'
     -#
-    -#.col-sm-2.col-xs-2.col-md-1
+    -#.col-sm-2.col-xs-3.col-md-1
     -#  = link_to pages_url do
     -#    %button
     -#      =image_tag 'icons/scroll-unfurled.svg', class: 'menu-icon'
