@@ -9,6 +9,23 @@ class FightsController < ApplicationController
     @fight = Fight.new
   end
 
+  def create
+    book = Book.find(adventure_params[ :book_id ] )
+    @adventure.current_page = book.first_page
+    roll_adventure
+
+    respond_to do |format|
+      if @adventure.save
+        @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
+        format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
+        format.json { render :show, status: :created, location: @adventure }
+      else
+        format.html { render :new }
+        format.json { render json: @adventure.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
     if @adventure.fight_monsters.count == 0 || @adventure.page.monsters.count >= 0
       @adventure.page.monsters.each do |monster|

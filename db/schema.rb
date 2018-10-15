@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015093504) do
+ActiveRecord::Schema.define(version: 20181015100129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20181015093504) do
     t.integer  "hp_max",                            null: false
     t.integer  "strength_max",                      null: false
     t.string   "items"
+    t.integer  "current_fight"
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
   end
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20181015093504) do
   end
 
   create_table "fights", force: :cascade do |t|
+    t.integer  "book_id",                       null: false
     t.string   "opponent_1_name",               null: false
     t.integer  "opponent_1_strength", limit: 2, null: false
     t.integer  "opponent_1_life",     limit: 2, null: false
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20181015093504) do
     t.integer  "opponent_5_adv",      limit: 2
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["book_id"], name: "index_fights_on_book_id", using: :btree
   end
 
   create_table "game_logs", force: :cascade do |t|
@@ -174,11 +177,13 @@ ActiveRecord::Schema.define(version: 20181015093504) do
   end
 
   add_foreign_key "adventures", "books"
+  add_foreign_key "adventures", "fights", column: "current_fight"
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "downloaded_sections", "downloaded_books"
   add_foreign_key "fight_monsters", "adventures"
   add_foreign_key "fight_monsters", "monsters"
+  add_foreign_key "fights", "books"
   add_foreign_key "game_logs", "adventures"
   add_foreign_key "game_logs", "pages"
   add_foreign_key "monsters_parsed_sections", "monsters"

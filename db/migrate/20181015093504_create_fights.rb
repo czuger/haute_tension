@@ -2,6 +2,8 @@ class CreateFights < ActiveRecord::Migration[5.0]
   def change
     create_table :fights do |t|
 
+      t.references :book, null: false, index: true, foreign_key: true
+
       t.string :opponent_1_name, null: false
       t.integer :opponent_1_strength, null: false, limit: 2
       t.integer :opponent_1_life, null: false, limit: 2
