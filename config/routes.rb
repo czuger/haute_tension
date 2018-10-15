@@ -18,9 +18,7 @@ Rails.application.routes.draw do
     resource :items, only: [ :show, :update ]
 
     resources :fights, only: [ :index, :show, :update, :new, :create ] do
-      patch :add_monster
-      patch :remove_monster
-      patch :fight_monster
+      get :fight_monster
     end
   end
 

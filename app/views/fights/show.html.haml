@@ -1,3 +1,51 @@
-=render partial: 'fights/form'
+#main
+  #pageContent.col-xs-12
 
+    .list-group
+      %h2
+        Héro
+      .list-group-item
+        .row.row-separation
+          .col-xs-6.col-md-6
+          .col-xs-6.col-md-1.text-center
+            Force
+          .col-xs-6.col-md-1.text-center
+            Vie
 
+        .row.row-separation
+          .col-xs-6.col-md-6
+            Prêtre Jean
+          .col-xs-6.col-md-1.text-center
+            = @adventure.strength
+          .col-xs-6.col-md-1.text-center
+            = @adventure.hp
+
+    .list-group
+      %h2
+        Opposants
+      .list-group-item
+        .row.row-separation
+          .col-xs-6.col-md-6
+            Nom de l'opposant
+          .col-xs-6.col-md-1.text-center
+            Force
+          .col-xs-6.col-md-1.text-center
+            Vie
+          .col-xs-6.col-md-1.text-center
+            Avantage
+
+        - 1.upto(5).each do |index|
+          - if @fight.send( "opponent_#{index}_name" ) && !@fight.send( "opponent_#{index}_name" ).empty?
+            .row.row-separation
+              .col-xs-6.col-md-6
+                = @fight.send( "opponent_#{index}_name" )
+              .col-xs-6.col-md-1.text-center
+                = @fight.send( "opponent_#{index}_strength" )
+              .col-xs-6.col-md-1.text-center
+                = @fight.send( "opponent_#{index}_life" )
+              .col-xs-6.col-md-1.text-center
+                = @fight.send( "opponent_#{index}_adv" )
+              .col-xs-6.col-md-1.text-center
+                = link_to 'Combattre', adventure_fight_fight_monster_url( @adventure, @adventure.current_fight ), class: 'btn btn-secondary', role: 'button',  'aria-disabled' => true
+
+#pageFooter.col-xs-12
