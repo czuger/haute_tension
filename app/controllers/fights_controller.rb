@@ -7,33 +7,26 @@ class FightsController < ApplicationController
 
   def new
     @fight = Fight.new
+    @title= 'Créer un combat'
   end
 
   def create
-    book = Book.find(adventure_params[ :book_id ] )
-    @adventure.current_page = book.first_page
-    roll_adventure
+    @fight = Fight.new( fights_params )
+    @fight.book_id = @adventure.book_id
 
     respond_to do |format|
-      if @adventure.save
-        @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
-        format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
-        format.json { render :show, status: :created, location: @adventure }
+      if save_fight
+        format.html { redirect_to [@adventure, @fight], notice: 'Combat crée' }
       else
         format.html { render :new }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def show
-    if @adventure.fight_monsters.count == 0 || @adventure.page.monsters.count >= 0
-      @adventure.page.monsters.each do |monster|
-        @adventure.fight_monsters.create!( monster_id: monster.id, hp: monster.hp )
-      end
-    end
-    @fight_monsters = @adventure.fight_monsters.includes( :monster )
-    @logs = GameLog.where( adventure_id: @adventure.id, page_id: @adventure.page_id, log_type: GameLog::FIGHT ).order( 'id DESC' )
+    @fight= @adventure.current_fight
+    @read_only= true
+    @title= 'Détail du combat'
   end
 
   def add_monster
@@ -67,6 +60,18 @@ class FightsController < ApplicationController
       @adventure = Adventure.find( params[:adventure_id] )
       # @monster = Monster.find( params[:monster_id] ) if params[:monster_id]
       # @fight_monster = @adventure.fight_monsters.find( params[:fight_monster_id] ) if params[:fight_monster_id]
+    end
+
+    def fights_params
+      params.require(:fight).permit('opponent_1_name', 'opponent_1_strength', 'opponent_1_life', 'opponent_1_adv', 'opponent_2_name', 'opponent_2_strength', 'opponent_2_life', 'opponent_2_adv', 'opponent_3_name', 'opponent_3_strength', 'opponent_3_life', 'opponent_3_adv', 'opponent_4_name', 'opponent_4_strength', 'opponent_4_life', 'opponent_4_adv', 'opponent_5_name', 'opponent_5_strength', 'opponent_5_life', 'opponent_5_adv')
+    end
+
+    def save_fight
+      f_save = @fight.save
+      @adventure.current_fight_id = @fight.id
+      a_save = @adventure.save
+
+      f_save && a_save
     end
 
 end

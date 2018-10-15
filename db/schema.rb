@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20181015100129) do
     t.integer  "hp_max",                            null: false
     t.integer  "strength_max",                      null: false
     t.string   "items"
-    t.integer  "current_fight"
+    t.integer  "current_fight_id"
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
   end
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 20181015100129) do
   end
 
   add_foreign_key "adventures", "books"
-  add_foreign_key "adventures", "fights", column: "current_fight"
+  add_foreign_key "adventures", "fights", column: "current_fight_id"
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "downloaded_sections", "downloaded_books"
