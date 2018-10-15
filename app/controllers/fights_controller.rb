@@ -1,8 +1,12 @@
 class FightsController < ApplicationController
-  before_action :set_adventure, only: [ :index, :show, :update, :add_monster, :remove_monster, :fight_monster ]
+  before_action :set_adventure
 
   def index
     @monsters = Monster.all.order( :name )
+  end
+
+  def new
+    @fight = Fight.new
   end
 
   def show
@@ -43,9 +47,9 @@ class FightsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_adventure
-      @adventure = Adventure.find( params[:id] ? params[:id] : params[:fight_id] )
-      @monster = Monster.find( params[:monster_id] ) if params[:monster_id]
-      @fight_monster = @adventure.fight_monsters.find( params[:fight_monster_id] ) if params[:fight_monster_id]
+      @adventure = Adventure.find( params[:adventure_id] )
+      # @monster = Monster.find( params[:monster_id] ) if params[:monster_id]
+      # @fight_monster = @adventure.fight_monsters.find( params[:fight_monster_id] ) if params[:fight_monster_id]
     end
 
 end

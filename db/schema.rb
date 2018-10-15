@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181011064554) do
+ActiveRecord::Schema.define(version: 20181015093504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,31 @@ ActiveRecord::Schema.define(version: 20181011064554) do
     t.integer "hp",           null: false
     t.index ["adventure_id"], name: "index_fight_monsters_on_adventure_id", using: :btree
     t.index ["monster_id"], name: "index_fight_monsters_on_monster_id", using: :btree
+  end
+
+  create_table "fights", force: :cascade do |t|
+    t.string   "opponent_1_name",               null: false
+    t.integer  "opponent_1_strength", limit: 2, null: false
+    t.integer  "opponent_1_life",     limit: 2, null: false
+    t.integer  "opponent_1_adv",      limit: 2
+    t.string   "opponent_2_name"
+    t.integer  "opponent_2_strength", limit: 2
+    t.integer  "opponent_2_life",     limit: 2
+    t.integer  "opponent_2_adv",      limit: 2
+    t.string   "opponent_3_name"
+    t.integer  "opponent_3_strength", limit: 2
+    t.integer  "opponent_3_life",     limit: 2
+    t.integer  "opponent_3_adv",      limit: 2
+    t.string   "opponent_4_name"
+    t.integer  "opponent_4_strength", limit: 2
+    t.integer  "opponent_4_life",     limit: 2
+    t.integer  "opponent_4_adv",      limit: 2
+    t.string   "opponent_5_name"
+    t.integer  "opponent_5_strength", limit: 2
+    t.integer  "opponent_5_life",     limit: 2
+    t.integer  "opponent_5_adv",      limit: 2
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "game_logs", force: :cascade do |t|

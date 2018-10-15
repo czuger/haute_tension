@@ -30,7 +30,7 @@
             =image_tag 'icons/backpack.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to fight_url( id: @adventure.id ) do
+        = link_to new_adventure_fight_path( @adventure ) do
           %button
             =image_tag 'icons/crossed-swords.svg', class: 'menu-icon'
 

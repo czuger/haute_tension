@@ -16,15 +16,17 @@ Rails.application.routes.draw do
     resource :heros, only: [ :show, :update ]
     # resources :downloaded_books, only: [:show ]
     resource :items, only: [ :show, :update ]
+
+    resources :fights, only: [ :index, :show, :update, :new, :create ] do
+      patch :add_monster
+      patch :remove_monster
+      patch :fight_monster
+    end
   end
 
   resources :notes, only: [ :edit, :update ]
 
-  resources :fights, only: [ :index, :show, :update ] do
-    patch :add_monster
-    patch :remove_monster
-    patch :fight_monster
-  end
+
 
   resources :pages, except: [ :new, :create ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
