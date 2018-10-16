@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # resources :adventure_trackers, only: [ :edit, :update ]
 
   resources :game_logs, only: [ :show ]
