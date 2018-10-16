@@ -30,6 +30,12 @@ class LocalMonster < Creature
     super( adventure, fight.send( "opponent_#{monster_index}_strength" ),
            fight.send( "opponent_#{monster_index}_life" ) )
     @name = fight.send( "opponent_#{monster_index}_name" )
+    @fight = fight
+    @monster_index = monster_index
+  end
+
+  def loose_life( hp_loss )
+    @fight.decrement!( "opponent_#{@monster_index}_life", hp_loss )
   end
 end
 
@@ -39,7 +45,6 @@ class GameCore::Fight
     @adventure = adventure
     @hero = Hero.new( adventure )
     @monster = LocalMonster.new( adventure, fight, monster_index )
-    @fight = fight
     round
   end
 
@@ -54,7 +59,7 @@ class GameCore::Fight
     hp_loss = my_af - mn_af
 
     if hp_loss > 0
-      @fight.decrement!( "opponent_#{monster_index}_life", hp_loss )
+      @monster.loose_life( hp_loss )
     elsif hp_loss < 0
       @adventure.decrement!( :hp, -hp_loss )
     end
