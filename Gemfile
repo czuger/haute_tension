@@ -70,3 +70,5 @@ gem 'listen', '~> 3.0.5'
 gem 'hazard'
 
 gem 'will_paginate-bootstrap'
+
+gem 'devise'

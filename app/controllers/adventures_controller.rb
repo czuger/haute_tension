@@ -16,7 +16,6 @@ class AdventuresController < ApplicationController
   def play
     @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.current_page
-    # to_i.to_s avoid injections
     @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
 
