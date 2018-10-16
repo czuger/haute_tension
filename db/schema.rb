@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016111726) do
+ActiveRecord::Schema.define(version: 20181016111922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,32 +43,6 @@ ActiveRecord::Schema.define(version: 20181016111726) do
     t.datetime "updated_at",    null: false
     t.string   "book_key",      null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
-  end
-
-  create_table "downloaded_books", force: :cascade do |t|
-    t.string   "name",                    null: false
-    t.string   "url",                     null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "first_parsed_section_id"
-    t.index ["name"], name: "index_downloaded_books_on_name", unique: true, using: :btree
-  end
-
-  create_table "downloaded_sections", force: :cascade do |t|
-    t.string   "url",                null: false
-    t.integer  "downloaded_book_id", null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["downloaded_book_id"], name: "index_downloaded_sections_on_downloaded_book_id", using: :btree
-    t.index ["url"], name: "index_downloaded_sections_on_url", unique: true, using: :btree
-  end
-
-  create_table "fight_monsters", force: :cascade do |t|
-    t.integer "adventure_id", null: false
-    t.integer "monster_id",   null: false
-    t.integer "hp",           null: false
-    t.index ["adventure_id"], name: "index_fight_monsters_on_adventure_id", using: :btree
-    t.index ["monster_id"], name: "index_fight_monsters_on_monster_id", using: :btree
   end
 
   create_table "fights", force: :cascade do |t|
@@ -117,37 +91,6 @@ ActiveRecord::Schema.define(version: 20181016111726) do
     t.index ["var_name"], name: "index_internal_variables_on_var_name", unique: true, using: :btree
   end
 
-  create_table "monsters", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "strength",   null: false
-    t.integer  "hp",         null: false
-    t.integer  "adjustment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "monsters_pages", id: false, force: :cascade do |t|
-    t.integer "page_id",    null: false
-    t.integer "monster_id", null: false
-    t.index ["page_id", "monster_id"], name: "index_monsters_pages_on_page_id_and_monster_id", unique: true, using: :btree
-  end
-
-  create_table "monsters_parsed_sections", id: false, force: :cascade do |t|
-    t.integer "parsed_section_id", null: false
-    t.integer "monster_id",        null: false
-    t.index ["parsed_section_id", "monster_id"], name: "mps_ps_id_m_id", unique: true, using: :btree
-  end
-
-  create_table "page_links", force: :cascade do |t|
-    t.string   "text"
-    t.integer  "src_page_id", null: false
-    t.integer  "dst_page_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["dst_page_id"], name: "index_page_links_on_dst_page_id", using: :btree
-    t.index ["src_page_id"], name: "index_page_links_on_src_page_id", using: :btree
-  end
-
   create_table "pages", force: :cascade do |t|
     t.string   "text",       null: false
     t.string   "url",        null: false
@@ -157,23 +100,6 @@ ActiveRecord::Schema.define(version: 20181016111726) do
     t.string   "page_hash",  null: false
     t.index ["book_id"], name: "index_pages_on_book_id", using: :btree
     t.index ["page_hash"], name: "index_pages_on_page_hash", unique: true, using: :btree
-  end
-
-  create_table "parsed_section_links", force: :cascade do |t|
-    t.integer  "src_parsed_section"
-    t.integer  "dst_parsed_section"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  create_table "parsed_sections", force: :cascade do |t|
-    t.integer  "downloaded_book_id",    null: false
-    t.integer  "downloaded_section_id", null: false
-    t.string   "content",               null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["downloaded_book_id"], name: "index_parsed_sections_on_downloaded_book_id", using: :btree
-    t.index ["downloaded_section_id"], name: "index_parsed_sections_on_downloaded_section_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -192,17 +118,8 @@ ActiveRecord::Schema.define(version: 20181016111726) do
   add_foreign_key "adventures", "fights", column: "current_fight_id"
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "books", "pages", column: "first_page_id"
-  add_foreign_key "downloaded_sections", "downloaded_books"
-  add_foreign_key "fight_monsters", "adventures"
-  add_foreign_key "fight_monsters", "monsters"
   add_foreign_key "fights", "books"
   add_foreign_key "game_logs", "adventures"
   add_foreign_key "game_logs", "pages"
-  add_foreign_key "monsters_parsed_sections", "monsters"
-  add_foreign_key "monsters_parsed_sections", "parsed_sections"
-  add_foreign_key "page_links", "pages", column: "dst_page_id"
-  add_foreign_key "page_links", "pages", column: "src_page_id"
   add_foreign_key "pages", "books"
-  add_foreign_key "parsed_sections", "downloaded_books"
-  add_foreign_key "parsed_sections", "downloaded_sections"
 end
