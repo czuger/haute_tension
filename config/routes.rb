@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     # resources :downloaded_books, only: [:show ]
     resource :items, only: [ :show, :update ]
 
-    resources :fights, only: [ :index, :show, :update, :new, :create ] do
+    resource :fights, only: [ :index, :show, :update, :new, :create ] do
       get :fight_monster
     end
   end

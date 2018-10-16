@@ -67,6 +67,4 @@ class GameCore::Fight
     )
 
   end
-
-
 end
