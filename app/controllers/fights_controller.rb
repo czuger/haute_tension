@@ -41,9 +41,9 @@ class FightsController < ApplicationController
   end
 
   def fight_monster
-    fight_result = GameCore::Fight.new( @adventure, params[:monster_index].to_i )
-    @hero = fight_result.hero
-    @monster = fight_result.monster
+    @fight_result = GameCore::Fight.new( @adventure, params[:monster_index].to_i )
+    @hero = @fight_result.hero
+    @monster = @fight_result.monster
   end
 
   private

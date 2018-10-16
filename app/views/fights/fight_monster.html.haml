@@ -1,8 +1,21 @@
 #main
   #pageContent.col-xs-12
 
-    .list-group
-      %h2= @title
+    .row.mb-2
+      - if @fight_result.hero_win
+        .col-xs-6.col-md-2
+          = image_tag 'icons/blade-drag.svg', class: 'result-icon'
+        .col-xs-6.col-md-10
+          %h2= "Vous infligez #{@fight_result.hp_loss} à votre adversaire."
+
+      - else
+        .col-xs-6.col-md-2
+          = image_tag 'icons/dead-head.svg', class: 'result-icon'
+        .col-xs-6.col-md-10
+          %h2= "Votre adversaire vous inflige #{@fight_result.hp_loss}."
+
+
+    .list-group.row-separation
       .list-group-item
         .row.row-separation
           .col-xs-6.col-md-6
