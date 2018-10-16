@@ -1,0 +1,43 @@
+#main
+  #pageContent.col-xs-12
+
+    .list-group
+      %h2= @title
+      .list-group-item
+        .row.row-separation
+          .col-xs-6.col-md-6
+            Opposant
+          .col-xs-6.col-md-1
+            Dé 1
+          .col-xs-6.col-md-1
+            Dé 2
+          .col-xs-6.col-md-1
+            Force
+          .col-xs-6.col-md-1
+            Résultat
+
+        .row.row-separation
+          .col-xs-6.col-md-6
+            Prêtre Jean
+          .col-xs-6.col-md-1
+            = image_tag( 'dices/' + @hero.rolls[0].to_s + '.svg', class: 'game-log-die' )
+          .col-xs-6.col-md-1
+            = image_tag( 'dices/' + @hero.rolls[1].to_s + '.svg', class: 'game-log-die' )
+          .col-xs-6.col-md-1
+            = @hero.force
+          .col-xs-6.col-md-1
+            = @hero.attack_force
+
+        .row.row-separation
+          .col-xs-6.col-md-6
+            = @monster.name
+          .col-xs-6.col-md-1
+            = image_tag( 'dices/' + @monster.rolls[0].to_s + '.svg', class: 'game-log-die' )
+          .col-xs-6.col-md-1
+            = image_tag( 'dices/' + @monster.rolls[1].to_s + '.svg', class: 'game-log-die' )
+          .col-xs-6.col-md-1
+            = @monster.force
+          .col-xs-6.col-md-1
+            = @monster.attack_force
+
+#pageFooter.col-xs-12

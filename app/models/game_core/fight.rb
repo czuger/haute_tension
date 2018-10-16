@@ -1,6 +1,6 @@
 class Creature
 
-  attr_reader :hp, :attack_force, :rolls
+  attr_reader :hp, :attack_force, :rolls, :force
 
   def initialize( adventure, force, hp )
     @round = 0
@@ -41,10 +41,12 @@ end
 
 class GameCore::Fight
 
-  def initialize( adventure, fight, monster_index )
+  attr_reader :hero, :monster
+
+  def initialize( adventure, monster_index )
     @adventure = adventure
     @hero = Hero.new( adventure )
-    @monster = LocalMonster.new( adventure, fight, monster_index )
+    @monster = LocalMonster.new( adventure, adventure.current_fight, monster_index )
     round
   end
 

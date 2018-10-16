@@ -17,7 +17,7 @@ class FightsController < ApplicationController
 
     respond_to do |format|
       if save_fight
-        format.html { redirect_to [@adventure, @fight], notice: 'Combat crée' }
+        format.html { redirect_to adventure_fights_path(@adventure), notice: 'Combat crée' }
       else
         format.html { render :new }
       end
@@ -41,8 +41,9 @@ class FightsController < ApplicationController
   end
 
   def fight_monster
-    GameCore::Fight.new( @adventure, @adventure.current_fight, params[:monster_index].to_i )
-    redirect_to [@adventure, @fight]
+    fight_result = GameCore::Fight.new( @adventure, params[:monster_index].to_i )
+    @hero = fight_result.hero
+    @monster = fight_result.monster
   end
 
   private
