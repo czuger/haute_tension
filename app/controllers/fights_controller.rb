@@ -41,26 +41,14 @@ class FightsController < ApplicationController
   end
 
   def fight_monster
-    GameCore::Fight.new( @adventure, @fight_monster )
-
-    @adventure.fight_monsters.each do |fight_monster|
-      fight_monster.destroy! if fight_monster.hp <= 0
-    end
-
-    if @adventure.fight_monsters.count > 0
-      redirect_to fight_url( @adventure )
-    else
-      redirect_to adventure_play_url( @adventure )
-    end
-
+    GameCore::Fight.new( @adventure, @adventure.current_fight, params[:monster_index].to_i )
+    redirect_to [@adventure, @fight]
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_adventure
       @adventure = Adventure.find( params[:adventure_id] )
-      # @monster = Monster.find( params[:monster_id] ) if params[:monster_id]
-      # @fight_monster = @adventure.fight_monsters.find( params[:fight_monster_id] ) if params[:fight_monster_id]
     end
 
     def fights_params
