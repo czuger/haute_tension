@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :adventures
+  has_one :current_adventure, class_name: 'Adventure'
 end

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get :fight_monster
   end
 
-  resources :adventures, except: [ :edit, :update ] do
+  resource :adventures, except: [ :edit, :update ] do
     get :reroll
     get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice

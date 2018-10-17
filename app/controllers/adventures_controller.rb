@@ -61,7 +61,7 @@ class AdventuresController < ApplicationController
         if @adventure.save
           @user.update!( current_adventure_id: @adventure.id )
           @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
-          format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
+          format.html { redirect_to adventures_path, notice: 'Aventure was successfully created.' }
           format.json { render :show, status: :created, location: @adventure }
         else
           format.html { render :new }

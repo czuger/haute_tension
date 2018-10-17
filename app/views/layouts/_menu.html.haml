@@ -9,13 +9,13 @@
 
     - if @adventures
       .col-sm-2.col-xs-3.col-md-1
-        = link_to new_adventure_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Créer une aventure' do
+        = link_to new_adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Créer une aventure' do
           %button
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventure_play_path( @adventure ), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Aventure en cours' do
+        = link_to play_adventures_path( @adventure ), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Aventure en cours' do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/mounted-knight.svg', class: 'menu-icon'
@@ -46,7 +46,7 @@
             =image_tag 'icons/wax-tablet.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventure_roll_dices_path( @adventure ), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Lancer les dés' do
+        = link_to roll_dices_adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Lancer les dés' do
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 
