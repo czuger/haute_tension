@@ -15,7 +15,12 @@ class AdventuresController < ApplicationController
   end
 
   def play
-    @page = @adventure.current_page
+    if @user
+      @page = @adventure.current_page
+    else
+      @page = Page.find_by_page_hash( params[:page_id] )
+    end
+
     @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
 
@@ -23,13 +28,17 @@ class AdventuresController < ApplicationController
   end
 
   def read_choice
-    page = Page.find_by_page_hash( params[:page_id] )
-    @adventure.current_page = page
-    ActiveRecord::Base.transaction do
-      @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
-      @adventure.save!
+    if @user
+      page = Page.find_by_page_hash( params[:page_id] )
+      @adventure.current_page = page
+      ActiveRecord::Base.transaction do
+        @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
+        @adventure.save!
+      end
+      redirect_to adventure_play_url( @adventure.id )
+    else
+      redirect_to adventure_play_url( adventure_id: :none, page_id: params[:page_id] )
     end
-    redirect_to adventure_play_url( @adventure.id )
   end
 
   # GET /adventures/new
@@ -39,21 +48,25 @@ class AdventuresController < ApplicationController
   # POST /adventures
   # POST /adventures.json
   def create
-    @adventure = Adventure.new(adventure_params)
-
     book = Book.find(adventure_params[ :book_id ] )
-    @adventure.current_page = book.first_page
-    roll_adventure
 
-    respond_to do |format|
-      if @adventure.save
-        @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
-        format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
-        format.json { render :show, status: :created, location: @adventure }
-      else
-        format.html { render :new }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
+    if @user
+      @adventure = Adventure.new(adventure_params)
+      @adventure.current_page = book.first_page
+      roll_adventure
+
+      respond_to do |format|
+        if @adventure.save
+          @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
+          format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
+          format.json { render :show, status: :created, location: @adventure }
+        else
+          format.html { render :new }
+          format.json { render json: @adventure.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to adventure_play_path( adventure_id: :none, page_id: book.first_page.page_hash )
     end
   end
 
