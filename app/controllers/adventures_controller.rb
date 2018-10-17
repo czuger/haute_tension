@@ -36,9 +36,9 @@ class AdventuresController < ApplicationController
         @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
         @adventure.save!
       end
-      redirect_to adventure_play_url( @adventure.id )
+      redirect_to play_adventures_path
     else
-      redirect_to adventure_play_url( adventure_id: :none, page_id: params[:page_id] )
+      redirect_to play_adventures_path( page_id: params[:page_id] )
     end
   end
 
