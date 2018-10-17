@@ -53,11 +53,13 @@ class AdventuresController < ApplicationController
 
     if @user
       @adventure = Adventure.new(adventure_params)
+      @adventure.user_id = @user.id
       @adventure.current_page = book.first_page
       roll_adventure
 
       respond_to do |format|
         if @adventure.save
+          @user.update!( current_adventure_id: @adventure.id )
           @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
           format.html { redirect_to @adventure, notice: 'Aventure was successfully created.' }
           format.json { render :show, status: :created, location: @adventure }

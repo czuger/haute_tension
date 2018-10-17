@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20181017142350) do
     t.integer  "strength_max",                      null: false
     t.string   "items"
     t.integer  "current_fight_id"
-    t.integer  "user_id"
+    t.integer  "user_id",                           null: false
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
     t.index ["user_id"], name: "index_adventures_on_user_id", using: :btree
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20181017142350) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "current_adventure"
+    t.integer  "current_adventure_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -126,4 +127,5 @@ ActiveRecord::Schema.define(version: 20181017142350) do
   add_foreign_key "game_logs", "adventures"
   add_foreign_key "game_logs", "pages"
   add_foreign_key "pages", "books"
+  add_foreign_key "users", "adventures", column: "current_adventure_id"
 end
