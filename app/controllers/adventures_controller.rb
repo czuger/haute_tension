@@ -112,6 +112,7 @@ class AdventuresController < ApplicationController
     end
 
     def set_new_adventure
+      set_user
       @adventure = Adventure.new
       @books = Book.all.order( :name )
     end
