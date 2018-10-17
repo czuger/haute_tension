@@ -3,7 +3,7 @@
     .list-group
       %h2 Vos possessions
       .list-group-item
-        = form_tag adventure_items_path( @adventure ), method: :patch do
+        = form_tag items_path, method: :patch do
 
           - 1.upto(20).each do |index|
             .row.row-separation

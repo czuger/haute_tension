@@ -4,7 +4,6 @@ class Adventure < ApplicationRecord
   belongs_to :current_page, class_name: 'Page'
 
   has_many :game_logs, dependent: :destroy
-  has_many :fight_monsters, dependent: :destroy
 
   belongs_to :current_fight, class_name: 'Fight', required: false
 

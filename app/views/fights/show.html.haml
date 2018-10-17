@@ -46,6 +46,6 @@
               .col-xs-6.col-md-1.text-center
                 = @fight.send( "opponent_#{index}_adv" )
               .col-xs-6.col-md-1.text-center
-                = link_to 'Combattre', fight_monster_adventure_fights_path( @adventure, monster_index: index ), class: 'btn btn-secondary', role: 'button',  'aria-disabled' => true
+                = link_to 'Combattre', fight_monster_fights_path( @adventure, monster_index: index ), class: 'btn btn-secondary', role: 'button',  'aria-disabled' => true
 
 #pageFooter.col-xs-12

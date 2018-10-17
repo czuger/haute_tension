@@ -15,7 +15,7 @@
             .hidden-xs.col-md-1.title Min
             .hidden-xs.col-md-1.title Max
 
-            = form_for @adventure, url: adventure_heros_path( @adventure ), method: :put do |a|
+            = form_for @adventure, url: heros_path, method: :put do |a|
               .row.row-separation
                 .col-xs-6.col-md-2.title Hp
                 .col-xs-6.col-md-1= a.number_field :hp, class: 'form-control'

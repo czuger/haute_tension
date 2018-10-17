@@ -3,7 +3,7 @@
 
     - if @user&.id
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-offset' => 20, title: 'Liste des aventures' do
+        = link_to list_adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-offset' => 20, title: 'Liste des aventures' do
           %button
             =image_tag 'icons/book-cover.svg', class: 'menu-icon'
 

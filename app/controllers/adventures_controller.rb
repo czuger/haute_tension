@@ -5,7 +5,7 @@ class AdventuresController < ApplicationController
 
   # GET /aventures
   # GET /adventures.json
-  def index
+  def list
     @adventures = @user&.adventures
     @adventures ||= Adventure.none
   end
@@ -76,7 +76,7 @@ class AdventuresController < ApplicationController
   def reroll
     roll_adventure
     @adventure.save!
-    redirect_to @adventure
+    redirect_to adventures_path
   end
 
   def roll_dices
@@ -86,9 +86,13 @@ class AdventuresController < ApplicationController
   # DELETE /adventures/1
   # DELETE /adventures/1.json
   def destroy
-    @adventure.destroy
+    ActiveRecord::Base.transaction do
+      @user.update!( current_adventure_id: nil )
+      @adventure.destroy
+    end
+
     respond_to do |format|
-      format.html { redirect_to adventures_url, notice: 'Aventure was successfully destroyed.' }
+      format.html { redirect_to list_adventures_url, notice: 'Aventure was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

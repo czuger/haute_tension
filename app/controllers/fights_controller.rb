@@ -13,7 +13,7 @@ class FightsController < ApplicationController
 
     respond_to do |format|
       if save_fight
-        format.html { redirect_to adventure_fights_path(@adventure), notice: 'Combat crée' }
+        format.html { redirect_to fights_path, notice: 'Combat crée' }
       else
         format.html { render :new }
       end

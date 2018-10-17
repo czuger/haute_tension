@@ -10,9 +10,9 @@ class ItemsController < ApplicationController
     respond_to do |format|
       @adventure.items = params[:inventory]
       if @adventure.save
-        format.html { redirect_to adventure_items_path( @adventure ), notice: 'Liste mise à jour.' }
+        format.html { redirect_to items_path, notice: 'Liste mise à jour.' }
       else
-        format.html { render adventure_items_path( @adventure ) }
+        format.html { render items_path }
       end
     end
   end

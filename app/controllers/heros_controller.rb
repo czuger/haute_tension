@@ -26,9 +26,9 @@ class HerosController < ApplicationController
   def update
     respond_to do |format|
       if @adventure.update(hero_params )
-        format.html { redirect_to adventure_heros_path( @adventure ), notice: 'Données mises à jour.' }
+        format.html { redirect_to heros_path, notice: 'Données mises à jour.' }
       else
-        format.html { render adventure_heros_path( @adventure ) }
+        format.html { render heros_path }
       end
     end
   end
