@@ -6,7 +6,8 @@ class AdventuresController < ApplicationController
   # GET /aventures
   # GET /adventures.json
   def index
-    @adventures = Adventure.all
+    @adventures = @user&.adventures
+    @adventures ||= Adventure.none
   end
 
   # GET /adventures/1
