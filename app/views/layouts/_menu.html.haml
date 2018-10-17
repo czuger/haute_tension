@@ -49,6 +49,20 @@
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 
+    - if @user
+      .col-sm-2.col-xs-3.col-md-1
+        = link_to destroy_user_session_path do
+          %button
+            -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
+            =image_tag 'icons/exit-door.svg', class: 'menu-icon'
+
+    - else
+      .col-sm-2.col-xs-3.col-md-1
+        = link_to new_user_session_path do
+          %button
+            -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
+            =image_tag 'icons/arabic-door.svg', class: 'menu-icon'
+
     -#.col-sm-2.col-xs-3.col-md-1
     -#  = link_to items_url do
     -#    %button
