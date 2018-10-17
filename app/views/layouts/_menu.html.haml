@@ -1,7 +1,7 @@
 #mainMenu
   .row
 
-    - if @user
+    - if @user&.id
       .col-sm-2.col-xs-3.col-md-1
         = link_to adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-offset' => 20, title: 'Liste des aventures' do
           %button
@@ -50,14 +50,14 @@
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 
-    - if @user
+    - if @user&.id
       .col-sm-2.col-xs-3.col-md-1
         = link_to destroy_user_session_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Se déconnecter' do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/exit-door.svg', class: 'menu-icon'
 
-    - else
+    - unless @user
       .col-sm-2.col-xs-3.col-md-1
         = link_to new_user_session_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Log in' do
           %button

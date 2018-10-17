@@ -1,0 +1,61 @@
+-#%h2= t( '.title' )
+-#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#  = devise_error_messages!
+-#  .field
+-#    = f.label :email
+-#    %br/
+-#    = f.email_field :email, autofocus: true, autocomplete: "email"
+-#  .field
+-#    = f.label :password
+-#    - if @minimum_password_length
+-#      %em
+-#        (#{@minimum_password_length} characters minimum)
+-#    %br/
+-#    = f.password_field :password, autocomplete: "new-password"
+-#  .field
+-#    = f.label :password_confirmation
+-#    %br/
+-#    = f.password_field :password_confirmation, autocomplete: "new-password"
+-#  .actions
+-#    = f.submit "Sign up"
+-#
+-#.mt-2
+-#  %h2= t('devise.common.sign_up')
+
+.mt-2
+  %h2= t('devise.common.sign_up')
+
+.ml-2
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group.row
+      = f.label :email, class: 'col-form-label col-4'
+      .col-8
+        = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+
+    .form-group.row
+      - if @minimum_password_length
+        = f.label :password, t('devise.common.password_with_minimum', minimum: @minimum_password_length), class: 'col-form-label col-4'
+      - else
+        = f.label :password, t('devise.common.password'), class: 'col-form-label col-4'
+
+      .col-8
+        = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
+
+    .form-group.row
+      = f.label :password_confirmation, t('devise.common.password_confirmation'), class: 'col-form-label col-4'
+      .col-8
+        = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
+
+    .mt-3
+      = f.submit t('devise.common.create'), class: 'btn btn-primary'
+
+  %hr
+
+  .mt-2
+    = render 'devise/shared/links'
+
+
+-#= render "devise/shared/links"
+
+
