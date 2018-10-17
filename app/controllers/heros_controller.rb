@@ -35,10 +35,6 @@ class HerosController < ApplicationController
 
   private
 
-  def set_adventure
-    @adventure = Adventure.find( params[ :adventure_id ] )
-  end
-
   def hero_params
     params.require( :adventure ).permit( :hp, :strength, :gold, :waterskins, :waterskins_max, :strength_max, :rations, :hp_max, :charisma_avaliable )
   end

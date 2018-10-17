@@ -1,10 +1,6 @@
 class FightsController < ApplicationController
   before_action :set_adventure
 
-  def index
-    @monsters = Monster.all.order( :name )
-  end
-
   def new
     redirect_to adventure_fights_path(@adventure) if @adventure.current_fight
     @fight = Fight.new
@@ -48,9 +44,6 @@ class FightsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_adventure
-      @adventure = Adventure.find( params[:adventure_id] )
-    end
 
     def fights_params
       params.require(:fight).permit('opponent_1_name', 'opponent_1_strength', 'opponent_1_life', 'opponent_1_adv', 'opponent_2_name', 'opponent_2_strength', 'opponent_2_life', 'opponent_2_adv', 'opponent_3_name', 'opponent_3_strength', 'opponent_3_life', 'opponent_3_adv', 'opponent_4_name', 'opponent_4_strength', 'opponent_4_life', 'opponent_4_adv', 'opponent_5_name', 'opponent_5_strength', 'opponent_5_life', 'opponent_5_adv')

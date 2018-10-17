@@ -20,17 +20,17 @@
             =image_tag 'icons/mounted-knight.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventure_heros_path( @adventure.id ) do
+        = link_to heros_path do
           %button
             =image_tag 'icons/barbute.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventure_items_path( @adventure.id ) do
+        = link_to items_path do
           %button
             =image_tag 'icons/backpack.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to new_adventure_fights_path( @adventure ) do
+        = link_to new_fights_path do
           %button
             =image_tag 'icons/crossed-swords.svg', class: 'menu-icon'
 
@@ -40,12 +40,12 @@
       -#      =image_tag 'icons/sword-wound.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to game_log_path( @adventure.id ) do
+        = link_to game_logs_path do
           %button
             =image_tag 'icons/wax-tablet.svg', class: 'menu-icon'
 
       .col-sm-2.col-xs-3.col-md-1
-        = link_to adventure_roll_dices_path( adventure_id: @adventure.id ) do
+        = link_to adventure_roll_dices_path( @adventure ) do
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 

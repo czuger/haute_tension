@@ -19,9 +19,6 @@ class ItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_adventure
-      @adventure = Adventure.find(params[:adventure_id])
-    end
 
     def set_items
       @items = @adventure.items

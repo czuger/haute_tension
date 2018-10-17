@@ -8,9 +8,4 @@ class GameLogsController < ApplicationController
 
   private
 
-  def set_adventure
-    @adventure = Adventure.find(params[:id])
-  end
-
-
 end
