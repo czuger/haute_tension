@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def set_adventure
     @user ||= current_user
-    @adventure = @user&.current
+    @adventure = @user&.current_adventure
   end
 
 end
