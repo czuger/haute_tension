@@ -1,7 +1,7 @@
 ---
 - "<p>Vous vous apprêtez à contourner le camp.</p>"
 - "<p>Avez-vous l'anneau d'invisibilité que vous a offert l'ermite ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7fe3ba1eee814b212fe84a46f5c675b7f5f918d3ba513d992eefeed57849b79a"
+- <p><a href="/adventures/read_choice/7fe3ba1eee814b212fe84a46f5c675b7f5f918d3ba513d992eefeed57849b79a"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/28ce75a59fec689171540856d187f062819646b891caade8a515d04f781d7bb5"
+- <p><a href="/adventures/read_choice/28ce75a59fec689171540856d187f062819646b891caade8a515d04f781d7bb5"
   class="pageLink">Dans le cas contraire.</a></p>

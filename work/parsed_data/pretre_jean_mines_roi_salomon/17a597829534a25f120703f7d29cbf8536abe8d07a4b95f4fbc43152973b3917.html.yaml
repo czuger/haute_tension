@@ -5,7 +5,7 @@
   Plutôt déçu, vous ressortez de ce cachot qui n'a d'autre issue que là porte par
   laquelle vous êtes entré.</p>"
 - "<p>Une fois dans le couloir, allez-vous :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
+- <p><a href="/adventures/read_choice/5e3833a8846a5119c191ae9f0a2c6375be56b1818de0e373bdde460a7fa32115"
   class="pageLink">Rebrousser chemin pour aller emprunter l'escalier ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e2de1756d776aab96effccaaf0aadfa7839e42751528d28c5ef7df6a409c021f"
+- <p><a href="/adventures/read_choice/e2de1756d776aab96effccaaf0aadfa7839e42751528d28c5ef7df6a409c021f"
   class="pageLink">Marcher jusqu'à la porte suivante pour l'ouvrir ?</a></p>

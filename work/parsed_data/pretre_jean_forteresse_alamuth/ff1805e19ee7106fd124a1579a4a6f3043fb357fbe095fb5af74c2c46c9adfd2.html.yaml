@@ -8,9 +8,9 @@
   devinez qu'il s'agit d'un magicien de très haut niveau. Il n'a pas prêté la moindre
   attention à votre entrée dans la pièce.</p>"
 - "<p>Allez-vous :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ddf3c2b6d6e6c1cc5e53cd7567fae6398d2a4be02e6e1708a69946f61966b950"
+- <p><a href="/adventures/read_choice/ddf3c2b6d6e6c1cc5e53cd7567fae6398d2a4be02e6e1708a69946f61966b950"
   class="pageLink">L'attaquer?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8719b4bb6057d428223c27cef247d70ac3fe336141256ffc129173d6238ebfe7"
+- <p><a href="/adventures/read_choice/8719b4bb6057d428223c27cef247d70ac3fe336141256ffc129173d6238ebfe7"
   class="pageLink">L'avertir de votre intrusion en vous excusant ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/dce7b9485bf67a65de233716a64505396f888c27dab4b448ae219857ea804bb1"
+- <p><a href="/adventures/read_choice/dce7b9485bf67a65de233716a64505396f888c27dab4b448ae219857ea804bb1"
   class="pageLink">Tenter de ressortir par où vous êtes entré ?</a></p>

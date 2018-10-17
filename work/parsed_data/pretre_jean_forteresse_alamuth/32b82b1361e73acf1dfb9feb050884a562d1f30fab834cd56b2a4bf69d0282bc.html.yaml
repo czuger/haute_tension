@@ -12,10 +12,10 @@
   lit. » Les prix sont exorbitants mais vous n'avez guère le choix. Votre but est
   proche. Néanmoins, vous avez besoin de reprendre des forces et éliminer les fatigues
   du voyage.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae6a1f0fc1549bd1811384ef2220bd5638bd8f408c37cc9250c93b3800f1cf8f"
+- <p><a href="/adventures/read_choice/ae6a1f0fc1549bd1811384ef2220bd5638bd8f408c37cc9250c93b3800f1cf8f"
   class="pageLink">Si vous avez de l'argent, payez les 7 pièces.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b21e3423ce8608ae61f29b02df70780e86924f0e99ed588cc98bfb2fbabbd02b"
+- <p><a href="/adventures/read_choice/b21e3423ce8608ae61f29b02df70780e86924f0e99ed588cc98bfb2fbabbd02b"
   class="pageLink">Si vous désirez vendre votre cheval pour régler votre dette.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+- <p><a href="/adventures/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
   class="pageLink">Si vous n'avez plus un sou vaillant ou si vous préférez essayer
   de trouver une autre solution pour manger et dormir.</a></p>

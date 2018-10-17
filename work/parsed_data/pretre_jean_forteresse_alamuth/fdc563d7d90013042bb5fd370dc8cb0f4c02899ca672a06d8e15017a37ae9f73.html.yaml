@@ -1,7 +1,7 @@
 ---
 - "<p>D'épais fourrés impénétrables vous empêchent de longer la berge sur la gauche.
   Vous apercevez un kiosque dans le fond du jardin.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f92b83e0cb955e7af4d6b73a2547d3551f01da38645b4c844db2ae66b907c76d"
+- <p><a href="/adventures/read_choice/f92b83e0cb955e7af4d6b73a2547d3551f01da38645b4c844db2ae66b907c76d"
   class="pageLink">Préférez-vous aller dans cette direction</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5"
+- <p><a href="/adventures/read_choice/f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5"
   class="pageLink">ou bien longer la rive sur votre droite ?</a></p>

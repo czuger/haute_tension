@@ -47,11 +47,11 @@
   pour une autre partie !» lance Horla derrière vous. Un frisson vous parcourt l'échine
   à cette pensée !</p>"
 - "<p>Où tournerez-vous vos pas maintenant ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2cd851c3eb29684be79ce30679685d7e7f551a4421a1167f41006d10809fd06b"
+- <p><a href="/adventures/read_choice/2cd851c3eb29684be79ce30679685d7e7f551a4421a1167f41006d10809fd06b"
   class="pageLink">Si vous ne l'avez pas déjà fait, vous pouvez vous diriger vers
   le stand de tir à l'arc d'Amalrik,</a> (369)</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/74dfd836fe944a9313440971b9acca371a69760c857c77fd3b0c01a390604196"
+- <p><a href="/adventures/read_choice/74dfd836fe944a9313440971b9acca371a69760c857c77fd3b0c01a390604196"
   class="pageLink">vers l'échoppe du tireur de cartes</a> <em>(255)</em></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
+- <p><a href="/adventures/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
   class="pageLink">ou vers l'endroit où semble se dérouler une sorte de course.</a>
   (117)</p>

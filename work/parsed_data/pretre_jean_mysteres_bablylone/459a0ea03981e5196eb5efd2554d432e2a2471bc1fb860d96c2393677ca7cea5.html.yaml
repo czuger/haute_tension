@@ -9,10 +9,10 @@
 - "<p>Deux heures passent sans que rien n'arrive. Vous vous lassez d'attendre, mais
   un homme pénètre soudain dans la pièce, l'épée à la main. Avant, que vous ayez le
   temps de réagir, un deuxième agresseur entre par la fenêtre et se jette sur Raf-Nadaihr.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/200724a80de8a3d31d63d956f6e47630200aee4a6b1ba296d633bd9e37219e9b"
+- <p><a href="/adventures/read_choice/200724a80de8a3d31d63d956f6e47630200aee4a6b1ba296d633bd9e37219e9b"
   class="pageLink">Voulez-vous utiliser l'Œil Magique sur l'homme le plus éloigné
   avant de combattre le second à l'épée</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9b97dba0926ba67ff909afa3cb948bf8c1ec5f36946ed48f5dfa149afc77c8a4"
+- <p><a href="/adventures/read_choice/9b97dba0926ba67ff909afa3cb948bf8c1ec5f36946ed48f5dfa149afc77c8a4"
   class="pageLink">ou préférez-vous combattre votre adversaire en laissant Raf-Nadaihr
   se défendre de son côté ? </a></p>
 - "<p> </p>"

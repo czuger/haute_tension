@@ -5,9 +5,9 @@
   décorent la boutique, ainsi qu'un crâne dans lequel est fichée une bougie. L'échoppe
   paraît vide. Le propriétaire n'a pas l'air d'être là.</p>"
 - "<p>Qu'allez- vous faire?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
+- <p><a href="/adventures/read_choice/5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
   class="pageLink">Ressortir et entrer chez le marchand de tapis ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cbb522609134e59c50b41e0f5e52bf3ed4ecd7b4236be32d16cf5226a86972a"
+- <p><a href="/adventures/read_choice/5cbb522609134e59c50b41e0f5e52bf3ed4ecd7b4236be32d16cf5226a86972a"
   class="pageLink">Appeler pour faire venir le propriétaire ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cc9f1ebcc1b6e42fe0a98d1fe3cc8fcbfe371f3a60c30d19dce8d0969520e0b7"
+- <p><a href="/adventures/read_choice/cc9f1ebcc1b6e42fe0a98d1fe3cc8fcbfe371f3a60c30d19dce8d0969520e0b7"
   class="pageLink">Fouiller l'échoppe?</a></p>

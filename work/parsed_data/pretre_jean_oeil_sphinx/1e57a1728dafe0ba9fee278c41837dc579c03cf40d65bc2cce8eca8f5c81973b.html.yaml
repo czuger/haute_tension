@@ -2,8 +2,8 @@
 - "<p>Vous tournez le dos à l'autel et vous apprêtez à franchir le seuil de la chapelle.
   A ce moment, la statue du Cobra humain s'anime, déroulant son corps annelé vers
   . vous.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/55dace56575add6381622e65830442fadd372eea2daf0e1e120398ee6e8271e9"
+- <p><a href="/adventures/read_choice/55dace56575add6381622e65830442fadd372eea2daf0e1e120398ee6e8271e9"
   class="pageLink">Si vous êtes en possession d'une statuette représentant un cobra.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/18b5c56aec74bec9b7ac31fddd568d3c67fb4fdf454008710fe8d759598f3688"
+- <p><a href="/adventures/read_choice/18b5c56aec74bec9b7ac31fddd568d3c67fb4fdf454008710fe8d759598f3688"
   class="pageLink">Sinon.</a><em> </em></p>
 - "<p> </p>"

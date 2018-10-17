@@ -2,7 +2,7 @@
 - "<p>Vous vous agenouillez devant la porte, cherchant une fissure par laquelle vous
   pourriez regarder. Mais le bois est intact. En revanche, vous entendez des gémissements
   étouffés qui proviennent de l'intérieur.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/094244bced31288666b3491f77b07b7ddc2a2dad1218e9634633ce989e74a07d"
+- <p><a href="/adventures/read_choice/094244bced31288666b3491f77b07b7ddc2a2dad1218e9634633ce989e74a07d"
   class="pageLink">Allez-vous à présent enfoncer la porte</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
+- <p><a href="/adventures/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
   class="pageLink">ou vous détourner et emprunter l'escalier ?</a></p>

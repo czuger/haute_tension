@@ -17,10 +17,10 @@
   a fait traverser cet archer vêtu de vert, il est probable qu'un peu d'or le déridera,
   et que la perspective d'un autre volontaire lui semblera douce. Et il vous faut
   essayer par tous les moyens de trouver la trace de Barsip !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f5a16ecc86472c6db915487aa5fe1e6cc2d35558fb88a9075af8ee6b4e0ed0ba"
+- <p><a href="/adventures/read_choice/f5a16ecc86472c6db915487aa5fe1e6cc2d35558fb88a9075af8ee6b4e0ed0ba"
   class="pageLink">Si vous voulez tester votre habileté à l'arc avant d'interroger
   le forain</a><em>. </em></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/7ff0d3e8bcec687e3b131d55a0b5ed6501647d436f5491400e5cbb2bccd8e33d">Si vous préférez le questionner sans attendre.</a><em> </em></p>
+   <a href="/adventures/read_choice/7ff0d3e8bcec687e3b131d55a0b5ed6501647d436f5491400e5cbb2bccd8e33d">Si vous préférez le questionner sans attendre.</a><em> </em></p>
 - "<p> </p>"

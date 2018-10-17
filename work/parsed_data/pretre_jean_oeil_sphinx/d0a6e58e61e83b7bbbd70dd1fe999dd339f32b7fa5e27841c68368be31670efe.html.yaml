@@ -5,12 +5,12 @@
   de votre épée en essayant de déloger le bas-relief. Vous perdez 2 points de Force
   tant que vous n'en avez pas ramassé une autre.</p>"
 - "<p>Quelle va être votre décision suivante :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a55f642a2e852bc3baf8d00c97c578af7b7504c5ef50fd0a061327dada494616"
+- <p><a href="/adventures/read_choice/a55f642a2e852bc3baf8d00c97c578af7b7504c5ef50fd0a061327dada494616"
   class="pageLink">Ouvrir le sarcophage ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/152b44ed9e871353485c7823f6045074fd12ec9b9fc13568310092ca55da0841"
+- <p><a href="/adventures/read_choice/152b44ed9e871353485c7823f6045074fd12ec9b9fc13568310092ca55da0841"
   class="pageLink">Fouiller la pièce en quête d'un trésor ?</a><em> </em></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eedc3ad3e977ca1de32da1e8dee6b44299564ef752e57c119ead7cde4a26bdd8"
+- <p><a href="/adventures/read_choice/eedc3ad3e977ca1de32da1e8dee6b44299564ef752e57c119ead7cde4a26bdd8"
   class="pageLink">Examiner la statue ?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee">Quitter cette salle ?</a></p>
+   <a href="/adventures/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee">Quitter cette salle ?</a></p>

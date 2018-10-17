@@ -1,7 +1,7 @@
 ---
 - "<p>Le cadavre du Scorpion gît au soleil. Vous nettoyez votre arme avec une feuille
   de roseau et vous calmez votre cheval qui frissonne encore de peur.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/34a28b3cd21f50ac9c75938af7c57559e5f62823a387fcfbcd253d7f18bb898a"
+- <p><a href="/adventures/read_choice/34a28b3cd21f50ac9c75938af7c57559e5f62823a387fcfbcd253d7f18bb898a"
   class="pageLink">Voulez-vous quitter cet endroit sans plus attendre</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ad4a1a201c8f48b472070ff41a4cdf7f5d45e2b3d80d98aa736164358866ebce"
+- <p><a href="/adventures/read_choice/ad4a1a201c8f48b472070ff41a4cdf7f5d45e2b3d80d98aa736164358866ebce"
   class="pageLink">ou préférez-vous examiner l'oasis de plus près ?</a><em> </em></p>

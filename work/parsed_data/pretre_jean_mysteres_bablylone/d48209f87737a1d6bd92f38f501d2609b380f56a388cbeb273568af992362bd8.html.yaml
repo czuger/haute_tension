@@ -1,10 +1,10 @@
 ---
 - "<p>Vous vous replongez dans la foule, abandonnant le tir à l'arc. Où allez-vous
   diriger vos pas à présent ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/767fb8108de1e1da5f30b3338abbebc6e88956a3a9d3517529dbba3a3ba302d6"
+- <p><a href="/adventures/read_choice/767fb8108de1e1da5f30b3338abbebc6e88956a3a9d3517529dbba3a3ba302d6"
   class="pageLink">Si vous ne l'avez déjà fait, vous pouvez aller vers une partie
   de jeu de boules plutôt bruyante</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
+- <p><a href="/adventures/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
   class="pageLink">ou vers une sorte de course dans une baraque au bout de la rue.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/74dfd836fe944a9313440971b9acca371a69760c857c77fd3b0c01a390604196"
+- <p><a href="/adventures/read_choice/74dfd836fe944a9313440971b9acca371a69760c857c77fd3b0c01a390604196"
   class="pageLink">ou encore vers un tireur de cartes.</a></p>

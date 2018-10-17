@@ -1,6 +1,6 @@
 ---
 - "<p>Souhaitez-vous avouer à l'apparition que vous disposez d'une telle perle ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1e675f1d3369c488a642d67538054a43736d2447a00f6e27362efc99591b70ad"
+- <p><a href="/adventures/read_choice/1e675f1d3369c488a642d67538054a43736d2447a00f6e27362efc99591b70ad"
   class="pageLink">Si vous jugez que la question du spectre ne cache aucune malice.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/84ae7a12d20dddc88920165869af573b3744bc94d1f7ed005dd02296362b0198"
+- <p><a href="/adventures/read_choice/84ae7a12d20dddc88920165869af573b3744bc94d1f7ed005dd02296362b0198"
   class="pageLink">Sinon.</a></p>

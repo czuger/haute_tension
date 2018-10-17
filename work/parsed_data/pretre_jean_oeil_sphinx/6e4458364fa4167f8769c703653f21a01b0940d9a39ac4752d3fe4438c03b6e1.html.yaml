@@ -3,7 +3,7 @@
   à part un ou deux tabourets poussiéreux. Vous marchez jusqu'à l'entrée de la salle
   suivante.</p>"
 - "<p>Avez-vous perdu le nez dans le combat avec la Tête-Sans-Corps ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d6317c97d4e544ff7405216c45e68171d6c678c69e51f2f71f3576cd3fb6357a"
+- <p><a href="/adventures/read_choice/d6317c97d4e544ff7405216c45e68171d6c678c69e51f2f71f3576cd3fb6357a"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/45b84ed261c438259dcb178d8cc741774d2ad0ed390c38a1784a2146c9a22650"
+- <p><a href="/adventures/read_choice/45b84ed261c438259dcb178d8cc741774d2ad0ed390c38a1784a2146c9a22650"
   class="pageLink">Sinon.</a></p>

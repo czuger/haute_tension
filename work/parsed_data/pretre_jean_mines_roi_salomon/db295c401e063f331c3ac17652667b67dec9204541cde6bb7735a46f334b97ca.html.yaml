@@ -4,9 +4,9 @@
 - |-
   <p><br>
    Choisissez-vous de prendre :</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/05aced5d26e2bd4632b69526a039d52685a4ff7466581a757e14ab451c595597"
+- <p><a href="/adventures/read_choice/05aced5d26e2bd4632b69526a039d52685a4ff7466581a757e14ab451c595597"
   class="pageLink">le diadème,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a0372d69b9463413a712f9e3ef1bda633627a65e3705089557a4d3aef318f862"
+- <p><a href="/adventures/read_choice/a0372d69b9463413a712f9e3ef1bda633627a65e3705089557a4d3aef318f862"
   class="pageLink">la bague</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f318bdc8e76fd8f4baf690ac41bae5d02bf51346fc81ac364c48dd00c0efbd56"
+- <p><a href="/adventures/read_choice/f318bdc8e76fd8f4baf690ac41bae5d02bf51346fc81ac364c48dd00c0efbd56"
   class="pageLink">ou la lourde besace emplie d'or ?</a></p>

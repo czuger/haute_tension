@@ -1,7 +1,7 @@
 ---
 - "<p>Vous dégainez votre épée, vous adossant au mur.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/54ae20ced032f89798e4c64810f8c258383d4106b3079a0a41185189c6b6426c"
+- <p><a href="/adventures/read_choice/54ae20ced032f89798e4c64810f8c258383d4106b3079a0a41185189c6b6426c"
   class="pageLink">Si vous obtenez 9 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6f562f8e3169ab0d24352f39389e051a50f6149a7b97a44be67fc46b2e741a48"
+- <p><a href="/adventures/read_choice/6f562f8e3169ab0d24352f39389e051a50f6149a7b97a44be67fc46b2e741a48"
   class="pageLink">Si vous obtenez 10 ou davantage.</a></p>

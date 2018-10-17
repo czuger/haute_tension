@@ -2,10 +2,10 @@
 - "<p>Cette escarmouche vous rend beaucoup plus méfiant. Ce tombeau isolé dans le
   désert est sans conteste plus dangereux qu'il ne veut bien le laisser paraître.</p>"
 - "<p>Préférez-vous maintenant rejoindre directement la cavité dans le mur :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
+- <p><a href="/adventures/read_choice/379e75f0f8e282a7563e678ee4608adef4b745adb1a2d3a442eaf4819a8cde63"
   class="pageLink">en traversant la pièce,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0d89a2c11fc1139e55f1faa71baaf29f743dde928509978e880e59759df70122"
+- <p><a href="/adventures/read_choice/0d89a2c11fc1139e55f1faa71baaf29f743dde928509978e880e59759df70122"
   class="pageLink">longer le mur de gauche</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
+- <p><a href="/adventures/read_choice/6e62d3b6a7b49bb25f78525a7cb1819d08641b4f849239e24e39b7cef9c610ca"
   class="pageLink">ou bien celui de droite ?</a><em> </em></p>
 - "<p> </p>"

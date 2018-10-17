@@ -1,8 +1,8 @@
 ---
 - "<p>Bientôt, vous vous retrouvez en face d'une paroi rocheuse ! En effet, le tunnel
   que vous suiviez débouche dans une galerie perpendiculaire.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8ad78a7d014a9f45deb86fd2692dc81561934fa93bf113c3f9c813d5c2225815"
+- <p><a href="/adventures/read_choice/8ad78a7d014a9f45deb86fd2692dc81561934fa93bf113c3f9c813d5c2225815"
   class="pageLink">Allez-vous à présent prendre la direction du nord</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fd480ad26fadb20396e7861ed9f7924d932c0c00dd8ca068c203127a0edf28cf"
+- <p><a href="/adventures/read_choice/fd480ad26fadb20396e7861ed9f7924d932c0c00dd8ca068c203127a0edf28cf"
   class="pageLink">ou celle du sud ?</a><em> </em></p>
 - "<p> </p>"

@@ -1,6 +1,6 @@
 ---
 - "<p>Vous êtes à nouveau dans le couloir est de la Forteresse.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
+- <p><a href="/adventures/read_choice/e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
   class="pageLink">Choisirez- vous de pousser la porte qui se trouve en face de vous</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+- <p><a href="/adventures/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
   class="pageLink">ou tenterez-vous d'ouvrir celle qui barre le fond du couloir ?</a></p>

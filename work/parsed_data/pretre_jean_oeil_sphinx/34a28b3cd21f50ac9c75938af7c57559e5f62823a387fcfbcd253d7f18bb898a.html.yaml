@@ -2,10 +2,10 @@
 - "<p>Vous avancez depuis des heures. Enfin le soleil disparaît à l' horizon et un
   vaste manteau d'ombre couvre les dunes. Vous tombez de fatigue et vous décidez de
   dormir afin de reprendre des forces.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae8e89231afa3744e1dd48be92cf9f751e445308a0dc1645a0ceff489b30585a"
+- <p><a href="/adventures/read_choice/ae8e89231afa3744e1dd48be92cf9f751e445308a0dc1645a0ceff489b30585a"
   class="pageLink">Si vous n'avez pas d'eau, ou si vous n'avez pas fait de halte à
   l'oasis.</a></p>
 - <p>Sinon, buvez-en une ration et offrez-en une autre à votre cheval.Si vous avez
   acheté des provisions, vous vous nourrissez, ainsi que votre coursier. Rayez 2 rations
-  de la liste de vos possessions. <a href="/adventures/%ADVENTURE_ID%/read_choice/b0d7f555344d278897813ace40fddd1e5b8192a92509c53a7ff220b59ca7410d">Vous
+  de la liste de vos possessions. <a href="/adventures/read_choice/b0d7f555344d278897813ace40fddd1e5b8192a92509c53a7ff220b59ca7410d">Vous
   gagnez, en revanche; 2 points de Vie.</a></p>

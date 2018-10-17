@@ -4,7 +4,7 @@
   Vous perdez 1 point de Vie. La salle où vous pénétrez est en effet placée dans un
   champ de gravité inversée. Vous dégringolez au plafond, six mètres plus haut, et
   heurtez violemment la pierre.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/baf4958d1261a3117cec24435819870b1b53f162910ac3f751bd90fc8122e8a1"
+- <p><a href="/adventures/read_choice/baf4958d1261a3117cec24435819870b1b53f162910ac3f751bd90fc8122e8a1"
   class="pageLink">Si vous possédez l'Œil de Double Vue.</a></p>
 - "<p>Sinon, l'un des objets de votre sac en a glissé et s'est brisé ou détérioré,
   et le voici inutilisable. (A vous de choisir lequel rations de provisions exceptées
@@ -12,10 +12,10 @@
   tout en largeur et bordée de sarcophages splendides, a trois portes. Une à gauche,
   une au centre au bas d'une volée de marches, une plus petite, dans un renfoncement,
   sur le côté droit.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b5b018091888a88e6b441fa9c707594bdec086362db177ece9c59d7ecd81963d"
+- <p><a href="/adventures/read_choice/b5b018091888a88e6b441fa9c707594bdec086362db177ece9c59d7ecd81963d"
   class="pageLink">Allez-vous vous rendre à celle de gauche,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e7bd6cda4a8322e95448f06275aae2ef5d23bccfeec4c0743af1dafddd27dafd"
+- <p><a href="/adventures/read_choice/e7bd6cda4a8322e95448f06275aae2ef5d23bccfeec4c0743af1dafddd27dafd"
   class="pageLink">à celle du centre</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9d9b9ebf829ec7945c31c8e5ddacb3736c3b9d35e350aaed0ea1234202b6ef5e"
+- <p><a href="/adventures/read_choice/9d9b9ebf829ec7945c31c8e5ddacb3736c3b9d35e350aaed0ea1234202b6ef5e"
   class="pageLink">ou à celle de droite ?</a></p>
 - "<p> </p>"

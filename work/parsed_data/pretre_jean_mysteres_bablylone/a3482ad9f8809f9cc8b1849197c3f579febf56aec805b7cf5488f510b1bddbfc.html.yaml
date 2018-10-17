@@ -6,7 +6,7 @@
   assaut. Cependant, l'homme que vous venez d'aider s'écroule, et vous vous approchez
   de lui.</p>"
 - "<p>Jetez un dé.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d02a621e6701be76b09377ea120335b7de1e92f3a7aeb83c198bf0f94db48b3d"
+- <p><a href="/adventures/read_choice/d02a621e6701be76b09377ea120335b7de1e92f3a7aeb83c198bf0f94db48b3d"
   class="pageLink">Si vous faites 1 ou 2.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a5e269b23a454f17e9e0807c1be7fcebdfb833b16497faf53e43e8a18d23a132"
+- <p><a href="/adventures/read_choice/a5e269b23a454f17e9e0807c1be7fcebdfb833b16497faf53e43e8a18d23a132"
   class="pageLink">Si vous faites de 3 à 6.</a></p>

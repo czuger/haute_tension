@@ -2,14 +2,14 @@
 - "<p>Vous bondissez de côté pour éviter la masse écumante du Dogue. Un filet de bave
   vous atteint à la joue gauche. Vous plongez la main dans votre sac.</p>"
 - "<p>Qu'en ressortez- vous ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f30cf6c4507806241e43acfd5f533f5b58c5b3137b3c47dfeb703b074c34e15"
+- <p><a href="/adventures/read_choice/9f30cf6c4507806241e43acfd5f533f5b58c5b3137b3c47dfeb703b074c34e15"
   class="pageLink">Une fiole bleue?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/85c1b84f82b65f31413d7bd2c43636b263c7ebcb892144902d2aa37443f36730"
+- <p><a href="/adventures/read_choice/85c1b84f82b65f31413d7bd2c43636b263c7ebcb892144902d2aa37443f36730"
   class="pageLink">Une potion verte?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7c4d3cf62384988c6471fba8632b183202c850cd4a71803e6dd7f6af665767e0"
+- <p><a href="/adventures/read_choice/7c4d3cf62384988c6471fba8632b183202c850cd4a71803e6dd7f6af665767e0"
   class="pageLink">Un flacon de poudre jaune?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/951661b9b5333fcc89a55bd9ce2065272bd17c0c06945d6d4bd4823b1d09ba66"
+- <p><a href="/adventures/read_choice/951661b9b5333fcc89a55bd9ce2065272bd17c0c06945d6d4bd4823b1d09ba66"
   class="pageLink">Un poison violent?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6f2b0d07ff75e6defa22f9a406949c16f1e83e561bafea6c33e57a520218ccef"
+- <p><a href="/adventures/read_choice/6f2b0d07ff75e6defa22f9a406949c16f1e83e561bafea6c33e57a520218ccef"
   class="pageLink">Si vous n'avez en votre possession aucun de ces objets, vous combattrez
   le Dogue de l'Enfer à l'épée.</a></p>

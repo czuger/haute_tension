@@ -1,9 +1,9 @@
 ---
 - "<p>Vous quittez le stand de tir, plutôt agacé.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/767fb8108de1e1da5f30b3338abbebc6e88956a3a9d3517529dbba3a3ba302d6"
+- <p><a href="/adventures/read_choice/767fb8108de1e1da5f30b3338abbebc6e88956a3a9d3517529dbba3a3ba302d6"
   class="pageLink">Allez-vous à présent chercher Barsip vers le bruyant jeu de quilles
   voisin</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
+- <p><a href="/adventures/read_choice/9f9ca4b57abe1b88c0a3e07b5fa7b649a459fb6cafa8515562d6687b68665e70"
   class="pageLink">ou du côté de la baraque où se déroule une sorte de course ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1eaf6bc9e4f6465219ccc6d983b1eca5e11030dfb030c16b42e99a82756e3f7"
+- <p><a href="/adventures/read_choice/f1eaf6bc9e4f6465219ccc6d983b1eca5e11030dfb030c16b42e99a82756e3f7"
   class="pageLink">Si vous avez déjà visité ces deux endroits.</a></p>

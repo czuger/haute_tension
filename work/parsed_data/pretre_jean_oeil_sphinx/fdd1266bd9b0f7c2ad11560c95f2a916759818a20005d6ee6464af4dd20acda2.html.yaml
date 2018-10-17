@@ -2,8 +2,8 @@
 - "<p>Vous regardez autour de vous dans le vestibule. Il n'y a là qu'un vieux coffre
   vide et poussiéreux, et deux tabourets dépareillés. Avez-vous perdu le nez dans
   le combat avec la Tête-Sans-Corps ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c45fb33fb155c1b7ba29b799127500ca9cfa6bd996261c2cad263db82b56d840"
+- <p><a href="/adventures/read_choice/c45fb33fb155c1b7ba29b799127500ca9cfa6bd996261c2cad263db82b56d840"
   class="pageLink">SI oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1afc4ba855851d56e8160985ac39f7b4a80ffa02353d53a0475c64ce6af10f9c"
+- <p><a href="/adventures/read_choice/1afc4ba855851d56e8160985ac39f7b4a80ffa02353d53a0475c64ce6af10f9c"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

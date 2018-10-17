@@ -8,13 +8,13 @@
   constructions qui bordent la place. Des demeures avoisinantes vous parviennent les
   bruits habituels de ménagères à leurs fourneaux.</p>"
 - "<p>Que décidez-vous?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b7fce4be108c6899396b682c7535f0aae0156e09a85d2802eabd847e5f6dc4b2"
+- <p><a href="/adventures/read_choice/b7fce4be108c6899396b682c7535f0aae0156e09a85d2802eabd847e5f6dc4b2"
   class="pageLink">Aller rendre visite à l'Apothicaire?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab"
+- <p><a href="/adventures/read_choice/db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab"
   class="pageLink">Découvrir ce qui signifient les signes magiques?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
+- <p><a href="/adventures/read_choice/2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
   class="pageLink">Explorer la maison énigmatique ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
+- <p><a href="/adventures/read_choice/32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
   class="pageLink">Ou bien préférez-vous vous reposer à l'auberge?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+- <p><a href="/adventures/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
   class="pageLink">Ou quitter le village ?</a></p>

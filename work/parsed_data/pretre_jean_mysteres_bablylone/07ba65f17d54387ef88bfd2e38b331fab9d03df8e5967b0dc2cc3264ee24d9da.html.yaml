@@ -71,8 +71,8 @@
 - "<p>Essayant de mettre en ordre vos pensées, vous voyez Rakhor se lever et se détourner.
   Puis, comme si on vous jetait un seau d'eau glacée sur le visage, vous sursautez,
   comprenant pleinement le sens de votre situation.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/be5ac36ccdbf99a765debe06c448e4c23895aadc7bd35ba1f59db08e8c9effe3"
+- <p><a href="/adventures/read_choice/be5ac36ccdbf99a765debe06c448e4c23895aadc7bd35ba1f59db08e8c9effe3"
   class="pageLink">Allez-vous laisser partir Rakhor</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5af1d5931e0b94707b4333c2a9209357c5793c631ede737f6617bf832a534404"
+- <p><a href="/adventures/read_choice/5af1d5931e0b94707b4333c2a9209357c5793c631ede737f6617bf832a534404"
   class="pageLink">ou tenter de le rattraper pour lui demander de vous aider encore
   un peu ?</a></p>

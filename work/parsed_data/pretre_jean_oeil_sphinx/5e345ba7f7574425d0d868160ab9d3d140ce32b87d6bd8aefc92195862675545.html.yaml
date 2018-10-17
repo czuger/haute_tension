@@ -9,7 +9,7 @@
   vos mains à celles de votre faciès. Votre manège amuse-t-il les gardes du Temple
   ?</p>'
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/40e068638893110c58daa72a4c79297291165b8cc944c9a95ef372adb78ba5ee"
+- <p><a href="/adventures/read_choice/40e068638893110c58daa72a4c79297291165b8cc944c9a95ef372adb78ba5ee"
   class="pageLink">Si vous faites 11 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b4c62967f6e697f477a9256369acfbbc8720b3b859b1277d817251614c4eff03"
+- <p><a href="/adventures/read_choice/b4c62967f6e697f477a9256369acfbbc8720b3b859b1277d817251614c4eff03"
   class="pageLink">Si vous faites 12.</a></p>

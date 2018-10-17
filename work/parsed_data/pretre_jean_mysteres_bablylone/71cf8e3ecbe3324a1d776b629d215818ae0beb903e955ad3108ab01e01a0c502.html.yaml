@@ -6,7 +6,7 @@
 - |-
   <p><br>
    Jetez deux dés.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/383c8864a48c166f61bdb897f3e7865bd5b8356015cfaad656ba45ccad856a9d"
+- <p><a href="/adventures/read_choice/383c8864a48c166f61bdb897f3e7865bd5b8356015cfaad656ba45ccad856a9d"
   class="pageLink">Si vous faites 10 ou davantage.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/65a0297117746a1918ae167534b844fa1d61953b3f8998e246b5b99483d16a7c"
+- <p><a href="/adventures/read_choice/65a0297117746a1918ae167534b844fa1d61953b3f8998e246b5b99483d16a7c"
   class="pageLink">Sinon.</a></p>

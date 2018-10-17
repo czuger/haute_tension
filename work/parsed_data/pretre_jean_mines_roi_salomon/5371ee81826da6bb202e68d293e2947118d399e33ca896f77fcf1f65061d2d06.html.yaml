@@ -8,11 +8,11 @@
   d'une faiblesse de la paroi à cet endroit ?</p>"
 - "<p>Si vous décidez de poursuivre sans tarder votre route, vous pouvez emprunter
   ce tunnel perpendiculaire :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1b476fe45f4c073a2e43ab94f07b95931531e8fee8e5026b9b5dacf31f752cfa"
+- <p><a href="/adventures/read_choice/1b476fe45f4c073a2e43ab94f07b95931531e8fee8e5026b9b5dacf31f752cfa"
   class="pageLink">vers la droite</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fb4dcf701beae6a11d6173df210d9a366fa49424c82204be1d5a68f490e73a60"
+- <p><a href="/adventures/read_choice/fb4dcf701beae6a11d6173df210d9a366fa49424c82204be1d5a68f490e73a60"
   class="pageLink">ou vers la gauche.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f8bdb20e4f1c02f8250f5b8bbfda4cbecad06ddd10610e5ecaf31ed99b26de1b"
+- <p><a href="/adventures/read_choice/f8bdb20e4f1c02f8250f5b8bbfda4cbecad06ddd10610e5ecaf31ed99b26de1b"
   class="pageLink">A moins que vous ne préfériez tenter votre chance et creuser la
   paroi gorgée d'eau, dans l'espoir de trouver une issue à ce que vous commencez à
   prendre pour un labyrinthe ?</a><em> </em></p>

@@ -3,9 +3,9 @@
   la soupesez puis l'élevez au-dessus de votre tête. Vous l'abattez de toutes vos
   forces.</p>"
 - "<p>Tirez deux dés et ajoutez le résultat à votre Force.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b2bba760264ee3013a2c83eeb6204ec71e4872c98fd1d432b2ac2a6bc8c908fe"
+- <p><a href="/adventures/read_choice/b2bba760264ee3013a2c83eeb6204ec71e4872c98fd1d432b2ac2a6bc8c908fe"
   class="pageLink">Si le total dépasse 25.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9d57a00f817f48f716166166ee6f11a505fb64e8b85aa895443c608d617d16db"
+- <p><a href="/adventures/read_choice/9d57a00f817f48f716166166ee6f11a505fb64e8b85aa895443c608d617d16db"
   class="pageLink">S'il est compris entre 20 et 24.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f702fc38ef6a16ca4967cd7567b2457188f7886bb0d5ca3376d71ca3f53e0055"
+- <p><a href="/adventures/read_choice/f702fc38ef6a16ca4967cd7567b2457188f7886bb0d5ca3376d71ca3f53e0055"
   class="pageLink">S'il est inférieur.</a></p>

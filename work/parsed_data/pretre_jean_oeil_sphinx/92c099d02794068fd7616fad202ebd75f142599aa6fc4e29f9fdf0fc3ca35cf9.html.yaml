@@ -5,6 +5,6 @@
 - "<p>Êtes-vous en possession d'un sceau frappé d'une Ankh ?</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/91815279e2a6806de7ba365ffc16b0d286b07b73466b1b9126e6b9c3108d7bdd">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f30a8f960bd10ed0a57628272dab6459a273044b8d28ead53a1105c3f2fd9ecf"
+   <a href="/adventures/read_choice/91815279e2a6806de7ba365ffc16b0d286b07b73466b1b9126e6b9c3108d7bdd">Si oui.</a></p>
+- <p><a href="/adventures/read_choice/f30a8f960bd10ed0a57628272dab6459a273044b8d28ead53a1105c3f2fd9ecf"
   class="pageLink">Sinon.</a></p>

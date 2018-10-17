@@ -4,10 +4,10 @@
   vante les qualités de ses produits. Vous vous approchez et constatez qu'il offre
   aux passants des fruits frais, des épices et d'autres produits comestibles.</p>"
 - "<p>Allez-vous lui acheter :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/12f22fbe2a25279a56b265f953a79828a9dac4f685d93a13b411b62f73038724"
+- <p><a href="/adventures/read_choice/12f22fbe2a25279a56b265f953a79828a9dac4f685d93a13b411b62f73038724"
   class="pageLink">Des fruits ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/69d4c7849f648f64d156cdfa98cc1a9c77ba9490086aeffc56af84c452fdcf17"
+- <p><a href="/adventures/read_choice/69d4c7849f648f64d156cdfa98cc1a9c77ba9490086aeffc56af84c452fdcf17"
   class="pageLink">Du poivre et du sel ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae7f11a93051eb4679cd972a26d621dfc32179edd198ba903ccb8531ee2db988"
+- <p><a href="/adventures/read_choice/ae7f11a93051eb4679cd972a26d621dfc32179edd198ba903ccb8531ee2db988"
   class="pageLink">Des fruits rouges à l'aspect alléchant ?</a></p>
 - "<p> </p>"

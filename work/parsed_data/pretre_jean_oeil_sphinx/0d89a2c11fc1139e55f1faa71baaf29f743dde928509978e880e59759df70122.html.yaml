@@ -3,8 +3,8 @@
   au-dessus de vous. Vous êtes recouvert d'une fine couche de poussière de plâtre.
   Avez-vous eu la chance d'éviter les blocs de pierre qui sont tombés du plafond ?</p>"
 - "<p>Pour le savoir, lancez 2 dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b25f1578f212f7d6f50d10bd17242ab9fe730bb1c0a6389093951dccae7d3c83"
+- <p><a href="/adventures/read_choice/b25f1578f212f7d6f50d10bd17242ab9fe730bb1c0a6389093951dccae7d3c83"
   class="pageLink">Si vous obtenez 10 ou plus.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0b3e3388c4442246674ac6c229a7ebb0441bc09975b0c96151ee10657825139b"
+- <p><a href="/adventures/read_choice/0b3e3388c4442246674ac6c229a7ebb0441bc09975b0c96151ee10657825139b"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

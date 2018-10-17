@@ -4,11 +4,11 @@
    «Notre pays vit des heures difficiles depuis l'avènement de notre nouveau premier ministre ! Beaucoup disent que la misère qui s'étend à Babylone lui est due. Partages-tu cette opinion ?»</p>
 - "<p>Ce mendiant affable semble attacher beaucoup d'importance à cette question.</p>"
 - "<p>Qu'allez-vous lui répondre :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/929cf55763dc2541737a197e25cc8c5303c74c6038501030648b1f3265d7dca2"
+- <p><a href="/adventures/read_choice/929cf55763dc2541737a197e25cc8c5303c74c6038501030648b1f3265d7dca2"
   class="pageLink">«Oui, ce que tu dis est vrai»?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/213545f731f27bd416b0910f64c0bc9dc28fb079eb6985963f0e5dcaffe02718">«Non, tu te trompes, le premier ministre est juste»?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9c8805a4db52d05c38fc5f17370fa0e104b75688a55100f920b4c86576787609"
+   <a href="/adventures/read_choice/213545f731f27bd416b0910f64c0bc9dc28fb079eb6985963f0e5dcaffe02718">«Non, tu te trompes, le premier ministre est juste»?</a></p>
+- <p><a href="/adventures/read_choice/9c8805a4db52d05c38fc5f17370fa0e104b75688a55100f920b4c86576787609"
   class="pageLink">«Je suis étranger et ne connais rien aux affaires de Babylone»
   ?</a></p>

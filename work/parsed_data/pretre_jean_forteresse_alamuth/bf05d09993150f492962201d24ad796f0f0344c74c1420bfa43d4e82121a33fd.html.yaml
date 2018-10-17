@@ -6,9 +6,9 @@
   votre dignité que par votre chute. Vous ramassez vos affaires mais vous êtes indécis
   quant au chemin à suivre.</p>"
 - "<p>Quelle rue prenez-vous ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/afa8da8a0c74cb76e95e4f992ced163f162206cae1447f007260325d0d971ca6"
+- <p><a href="/adventures/read_choice/afa8da8a0c74cb76e95e4f992ced163f162206cae1447f007260325d0d971ca6"
   class="pageLink">Celle de gauche?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/735c10256c6cc818aab1812acb567acc6a8f59077f2270d575cd7035ccd59b43"
+- <p><a href="/adventures/read_choice/735c10256c6cc818aab1812acb567acc6a8f59077f2270d575cd7035ccd59b43"
   class="pageLink">Celle qui est devant vous?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+- <p><a href="/adventures/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
   class="pageLink">Celle de droite?</a></p>

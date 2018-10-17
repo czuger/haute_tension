@@ -4,7 +4,7 @@
   blanche qui tourbillonne, pour finalement prendre forme humaine. Vous êtes confronté
   à un Dao, un des plus puissants génies de l'Orient.</p>"
 - "<p>Avez-vous consommé les grains de riz ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/40e43e6081e9c3c8cda737a7c39b855448ce371c564b9211dd0d62b216a6fc27"
+- <p><a href="/adventures/read_choice/40e43e6081e9c3c8cda737a7c39b855448ce371c564b9211dd0d62b216a6fc27"
   class="pageLink">Dans ce cas.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/90df69810e04eba70a1ccdaec165c7d832f59eca033483a180d7f67492f63b5a"
+- <p><a href="/adventures/read_choice/90df69810e04eba70a1ccdaec165c7d832f59eca033483a180d7f67492f63b5a"
   class="pageLink">Autrement.</a></p>

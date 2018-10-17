@@ -1,12 +1,12 @@
 ---
 - "<p>Désirez-vous utiliser une des potions mystérieuses que vous a vendues l'Apothicaire
   ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75d80e00577710292a26555e0abe088facec57106cabf77ee822a8d3f3893810"
+- <p><a href="/adventures/read_choice/75d80e00577710292a26555e0abe088facec57106cabf77ee822a8d3f3893810"
   class="pageLink">La bleue?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/51eb906ac2ec4c3fd486d3f7ac8de9f4d2e4ffc011f853fea68858c8324b7ea8"
+- <p><a href="/adventures/read_choice/51eb906ac2ec4c3fd486d3f7ac8de9f4d2e4ffc011f853fea68858c8324b7ea8"
   class="pageLink">La jaune?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/10876e41d737a1330be4461091c05b4868e91508c150babd94cf70a8b744134b"
+- <p><a href="/adventures/read_choice/10876e41d737a1330be4461091c05b4868e91508c150babd94cf70a8b744134b"
   class="pageLink">La verte?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cc47f86c54e7a3bdf6b24b2ef073b84dd00adaeec09fe202197f3b2e9670ac1c"
+- <p><a href="/adventures/read_choice/cc47f86c54e7a3bdf6b24b2ef073b84dd00adaeec09fe202197f3b2e9670ac1c"
   class="pageLink">Si vous ne possédez aucune de ces fioles ou si vous ne voulez pas
   courir un risque inutile, tirez votre épée.</a></p>

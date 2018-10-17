@@ -15,9 +15,9 @@
   récapitulez en dégustant une de vos rations (qui vous restaure 2 points de Vie supplémentaires).</p>"
 - "<p>Vous vous interrogez. Où allez-vous diriger vos pas une fois sorti de la taverne
   ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/70de3554c526e6174344af6ca209c8b2e6700461015b227ba012aec5c72f0f7f"
+- <p><a href="/adventures/read_choice/70de3554c526e6174344af6ca209c8b2e6700461015b227ba012aec5c72f0f7f"
   class="pageLink">Vers le quartier de Shamash et Mahal ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/76f55116b0ce67dac3eece40e9bbf9e6f5b64688f372f01b96432f58801dea9a"
+- <p><a href="/adventures/read_choice/76f55116b0ce67dac3eece40e9bbf9e6f5b64688f372f01b96432f58801dea9a"
   class="pageLink">Vers le quartier des Jeux et Barsip ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/80fb2f15b7a339bd604c109ef48cee086e860b46b2a8ae8b6294285c77af1634"
+- <p><a href="/adventures/read_choice/80fb2f15b7a339bd604c109ef48cee086e860b46b2a8ae8b6294285c77af1634"
   class="pageLink">Vers les jardins suspendus du palais et Kantoum ?</a></p>

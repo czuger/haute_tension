@@ -5,12 +5,12 @@
   son visage. La momie semble veiller sur l'autre sarcophage posé sur le sol devant
   elle. Il est intact et richement décoré par des motifs sacrés en argent.</p>"
 - "<p>Que voulez-vous faire ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/677f6598a38876b6c02135a0a07aed2796c082e252aa212650ed25510b9c317f"
+- <p><a href="/adventures/read_choice/677f6598a38876b6c02135a0a07aed2796c082e252aa212650ed25510b9c317f"
   class="pageLink">Desceller les métaux précieux du sarcophage intact ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c5bb171be7f2999382222e5d4b8b959986ca6c1da6855d28b97c1bec7f848d08"
+- <p><a href="/adventures/read_choice/c5bb171be7f2999382222e5d4b8b959986ca6c1da6855d28b97c1bec7f848d08"
   class="pageLink">Soulever le couvercle de ce dernier ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a4917c74de99858fb4d588df3b84712d3153e1fc81ea8c8cc41b703fab0af901"
+- <p><a href="/adventures/read_choice/a4917c74de99858fb4d588df3b84712d3153e1fc81ea8c8cc41b703fab0af901"
   class="pageLink">Prendre l'épée que tient la momie dans le sarcophage appuyé contre
   le mur ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1b8b460aad3b3d416b43923df49894ed2e49b8a8f8e4e2e7b51806681e6a46b"
+- <p><a href="/adventures/read_choice/f1b8b460aad3b3d416b43923df49894ed2e49b8a8f8e4e2e7b51806681e6a46b"
   class="pageLink">Ôter son masque mortuaire ?</a></p>

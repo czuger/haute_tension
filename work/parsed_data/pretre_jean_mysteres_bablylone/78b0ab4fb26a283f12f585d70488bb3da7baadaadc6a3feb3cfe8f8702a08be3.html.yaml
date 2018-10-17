@@ -16,15 +16,15 @@
 - |-
   <p><br>
    Jetez un dé.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/18ca4132183aa3e0c4702c0a7feb6883928640ecfb4bccd528d5f5ac969a5c8b"
+- <p><a href="/adventures/read_choice/18ca4132183aa3e0c4702c0a7feb6883928640ecfb4bccd528d5f5ac969a5c8b"
   class="pageLink">Si vous obtenez 1.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/a3addb2762a8e0fd4646ecd23dbaa4e3bbd4fdace7e6aba98bc1ae2bdbcfea88">Si vous obtenez 2.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/42c106d910af49e30b13b15bbc37bda9e722ed6179f24e151668116d554c3225"
+   <a href="/adventures/read_choice/a3addb2762a8e0fd4646ecd23dbaa4e3bbd4fdace7e6aba98bc1ae2bdbcfea88">Si vous obtenez 2.</a></p>
+- <p><a href="/adventures/read_choice/42c106d910af49e30b13b15bbc37bda9e722ed6179f24e151668116d554c3225"
   class="pageLink">Si vous obtenez 3.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7eebe9b37bf8d6c3cf3f78225b84f8b9db8631ac32c0d4b96cfb7940f7e0627f"
+- <p><a href="/adventures/read_choice/7eebe9b37bf8d6c3cf3f78225b84f8b9db8631ac32c0d4b96cfb7940f7e0627f"
   class="pageLink">Si vous obtenez 4.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/bc0845ddbd99d473ad165e2b2c041d6250275bd4a974a23667db3ae9d5eb3b9e">Si vous obtenez 5 ou 6.</a></p>
+   <a href="/adventures/read_choice/bc0845ddbd99d473ad165e2b2c041d6250275bd4a974a23667db3ae9d5eb3b9e">Si vous obtenez 5 ou 6.</a></p>

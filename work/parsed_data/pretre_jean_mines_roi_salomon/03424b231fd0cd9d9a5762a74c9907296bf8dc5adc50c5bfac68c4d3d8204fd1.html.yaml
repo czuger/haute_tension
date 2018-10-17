@@ -2,8 +2,8 @@
 - |-
   <p>L'Homme-Oiseau n'a pu résister à votre brutal assaut. Il souille le dallage du sol de son sang épais, qui s'écoule doucement par ses blessures. Après tout, vous n'aviez fait que violer son refuge et l'attaquer sans autre forme de procès. On se demande quelle susceptibilité torturée l'avait poussé à se montrer agressif envers vous ... Quoi qu'il en soit,<br>
    vous n'avez - plus rien à faire à cet étage de la tour. Vous redescendez l'escalier qui a cessé de s'agiter.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75f00189764cbc7a52a3878cebd32759d6d56d89c58890aac16943c657a5d857"
+- <p><a href="/adventures/read_choice/75f00189764cbc7a52a3878cebd32759d6d56d89c58890aac16943c657a5d857"
   class="pageLink">Une fois en bas, il vous reste la possibilité d'emprunter les marches
   qui s'enfoncent dans le sol, si vous ne l'avez déjà fait</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0fe6b68c70b13ed8b020b3ef389801ebc718733037cc42480e3d8a63cdc123d1"
+- <p><a href="/adventures/read_choice/0fe6b68c70b13ed8b020b3ef389801ebc718733037cc42480e3d8a63cdc123d1"
   class="pageLink">ou bien de partir explorer les environs.</a></p>

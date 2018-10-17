@@ -2,8 +2,8 @@
 - "<p>Le Lutin est fort occupé à biner une plantation de plantes médicinales à la
   houe. «Le chemin qui mène à Hassan Sabba? Je ne te l'indiquerai, étranger, que si
   tu me donnes un objet magique...» Le Lutin est bien exigeant !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d6ffa231a5c917e32127d8e7dcafeeb111ead482fb224e7d34d21e13ff12c348"
+- <p><a href="/adventures/read_choice/d6ffa231a5c917e32127d8e7dcafeeb111ead482fb224e7d34d21e13ff12c348"
   class="pageLink">Si vous acceptez, payez-lui ce qu'il désire et rayez l'objet de
   la liste de vos possessions.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d9436e793456b415a504bc06f4713b7efc7451085012eb6db5ab4e2029329feb"
+- <p><a href="/adventures/read_choice/d9436e793456b415a504bc06f4713b7efc7451085012eb6db5ab4e2029329feb"
   class="pageLink">Si vous refusez.</a></p>

@@ -6,9 +6,9 @@
   écrasez avec fracas au milieu des débris de deux coquilles d'œufs monstrueux. Vous
   perdez 2 points de Vie sous le choc.</p>"
 - "<p>Lancez deux dés :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f4bf4d7cf75edde650af9f7e5fb0d4245f0aff0ddc306684f95a42d2586228cf"
+- <p><a href="/adventures/read_choice/f4bf4d7cf75edde650af9f7e5fb0d4245f0aff0ddc306684f95a42d2586228cf"
   class="pageLink">si vous obtenez 5 ou moins, ou encore si vous possédez moins de
   4 points de Vie.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/304f4f1b9ff409d6dbd33cd1fbe15bc506daecabee8df9c6b40d687a77c26130"
+- <p><a href="/adventures/read_choice/304f4f1b9ff409d6dbd33cd1fbe15bc506daecabee8df9c6b40d687a77c26130"
   class="pageLink">Sinon.</a></p>
 - "<p> </p>"

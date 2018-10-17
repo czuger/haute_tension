@@ -1,7 +1,7 @@
 ---
 - "<p>La porte de droite est frappée d'un emblème macabre : une tête de mort aux orbites
   béantes.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/29ab4e34af9b778f1ee90d7a21ccf46adae23ddd979df15fb0fe025f04a077c3"
+- <p><a href="/adventures/read_choice/29ab4e34af9b778f1ee90d7a21ccf46adae23ddd979df15fb0fe025f04a077c3"
   class="pageLink">Décidez-vous de suivre cet avertissement de mauvais augure ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1da320662b681ef8df80dd3b1308edd0408be42260b2df5bc3d033b75813986e"
+- <p><a href="/adventures/read_choice/1da320662b681ef8df80dd3b1308edd0408be42260b2df5bc3d033b75813986e"
   class="pageLink">Si vous préférez ignorer ce symbole et entrer.</a></p>

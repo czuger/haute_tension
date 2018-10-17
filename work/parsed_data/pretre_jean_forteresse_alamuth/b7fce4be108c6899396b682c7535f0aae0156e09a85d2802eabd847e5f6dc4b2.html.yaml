@@ -5,8 +5,8 @@
   pas de voir clairement l'intérieur de l'échoppe, mais les murs semblent être eux
   aussi entièrement cachés derrière des étagères chargées de récipients poussiéreux.</p>"
 - "<p>Lui apportez-vous une potion médicinale que Sol vous a donnée ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ef6557779c000f2da275860817a90a35dc70794e63d5f41f7e76d0666e9eccf6"
+- <p><a href="/adventures/read_choice/ef6557779c000f2da275860817a90a35dc70794e63d5f41f7e76d0666e9eccf6"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/73db16405ad1bfd48a3221d2f0d34ad92071f1e8935cd60aa607bc66a1a79467"
+- <p><a href="/adventures/read_choice/73db16405ad1bfd48a3221d2f0d34ad92071f1e8935cd60aa607bc66a1a79467"
   class="pageLink">Dans le cas contraire, vous êtes entré par hasard à défaut de visiter
   un autre endroit d'Alazar.</a></p>

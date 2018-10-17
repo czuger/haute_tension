@@ -1,6 +1,6 @@
 ---
 - "<p>Une faim tenace vous tenaille l'estomac.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/50c8bfcd274353c29f18e69e72df1a11d6da61fe4d1f02284404c21470df76ca"
+- <p><a href="/adventures/read_choice/50c8bfcd274353c29f18e69e72df1a11d6da61fe4d1f02284404c21470df76ca"
   class="pageLink">Si vous désirez dévorer vos provisions dans ce lieu de mort.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/af2fad9e2dbed180799767a43c7e607c85c5fcb7bbe1cd82f26d552e99eaa002"
+- <p><a href="/adventures/read_choice/af2fad9e2dbed180799767a43c7e607c85c5fcb7bbe1cd82f26d552e99eaa002"
   class="pageLink">Sinon.</a></p>

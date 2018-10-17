@@ -4,9 +4,9 @@
   pari, celui qui vous rapporte dix fois-votre mise. Vous empochez un total de 20
   pièces d'or. Exalté par cette chance inouïe, vous acceptez joyeusement les acclamations
   de l'assistance:</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
+- <p><a href="/adventures/read_choice/bab9d6be90c89bf479771af400e9bc6919c88c3f11ba2bbd9044001f2e130a32"
   class="pageLink">Si vous voulez rejouer une autre partie.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
+- <p><a href="/adventures/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
   class="pageLink">Lorsque vous aurez gagné 30 pièces d'or ou joué 5 parties.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
+- <p><a href="/adventures/read_choice/5a6c987a37e0011a29dfe265b2829f261e8e1e408cb223bc43f5550753ec8105"
   class="pageLink">Si vous décidez que vous avez assez joué.</a></p>

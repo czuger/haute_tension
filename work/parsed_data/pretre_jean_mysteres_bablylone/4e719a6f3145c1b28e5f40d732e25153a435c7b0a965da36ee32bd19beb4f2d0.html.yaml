@@ -1,7 +1,7 @@
 ---
 - "<p>Adossé au mur vous contemplez les quatre cadavres. Vous reprenez votre souille.
   La fatigue et le manque de sommeil se font sentir :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8b7ca081e6113b6a869bac9a596f4bbb420c04396e4f505b27f88233c14f5d2f"
+- <p><a href="/adventures/read_choice/8b7ca081e6113b6a869bac9a596f4bbb420c04396e4f505b27f88233c14f5d2f"
   class="pageLink">vous pouvez vous endormir dans l'impasse</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a06471e2421f7a4fb4256e5fea6b1bdf1b4d975924ead0fb49665932ca63cd00"
+- <p><a href="/adventures/read_choice/a06471e2421f7a4fb4256e5fea6b1bdf1b4d975924ead0fb49665932ca63cd00"
   class="pageLink">ou tenter de vous cacher dans les égouts.</a></p>

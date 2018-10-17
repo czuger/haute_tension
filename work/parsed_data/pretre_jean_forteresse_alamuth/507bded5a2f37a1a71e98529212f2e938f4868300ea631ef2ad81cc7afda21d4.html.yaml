@@ -2,8 +2,8 @@
 - "<p>Alors que vous alliez quitter la pièce, votre regard s'arrête sur les plats
   encore fumants sur la table. Votre périple dans le souterrain vous a fatigué et
   votre estomac commence à crier famine.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eaf8b04e00a546cb2016334a2035eb21fcef1d85418c837d379e90c40a7a8ae0"
+- <p><a href="/adventures/read_choice/eaf8b04e00a546cb2016334a2035eb21fcef1d85418c837d379e90c40a7a8ae0"
   class="pageLink">Voulez-vous dévorer en quelques bouchées cette cuisse de volaille
   nappée de sauce à la crème ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1c0cd7d23d72fbc92f14963167e647bdf62d8d68c3f27f679c089471792b75be"
+- <p><a href="/adventures/read_choice/1c0cd7d23d72fbc92f14963167e647bdf62d8d68c3f27f679c089471792b75be"
   class="pageLink">Ou bien sortez-vous de cette salle au plus vite.</a></p>

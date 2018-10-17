@@ -2,7 +2,7 @@
 - "<p>Le coffre ne contient qu'un cor posé sur un coussin de soie pourpre !</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/95f4a111c2483bf7a55d8086b8c16c5da1736969ae873aed588ef86a41baaf8e">Si vous voulez souffler dedans.</a></p>
+   <a href="/adventures/read_choice/95f4a111c2483bf7a55d8086b8c16c5da1736969ae873aed588ef86a41baaf8e">Si vous voulez souffler dedans.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/349e10cb745d09ae9e20dbbb2c157995ae4079f5337cff9d0e4ad74b192e9d19">Sinon.</a></p>
+   <a href="/adventures/read_choice/349e10cb745d09ae9e20dbbb2c157995ae4079f5337cff9d0e4ad74b192e9d19">Sinon.</a></p>

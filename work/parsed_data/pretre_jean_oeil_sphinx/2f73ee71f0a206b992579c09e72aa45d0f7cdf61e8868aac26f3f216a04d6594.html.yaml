@@ -3,10 +3,10 @@
   <p>Le couloir ascendant est étroit, mais vous progressez sans peine. Aucun obstacle ne vient vous barrer le chemin. Vous atteignez un palier. Devant vous un fragile pont de pierre enjambe une grande dalle carrée de quatre mètres de côté. Des plaques plus<br>
    petites comblent l'espace jusqu'aux murs de la pièce. Le couloir continue de l'autre côté de cette étrange construction.</p>
 - "<p>Que décidez-vous ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b3396ee814b0ab4cdf0a61b3ed56cd5d6d873d36c708b741e6c26aa8c5f7be12"
+- <p><a href="/adventures/read_choice/b3396ee814b0ab4cdf0a61b3ed56cd5d6d873d36c708b741e6c26aa8c5f7be12"
   class="pageLink">Emprunter la passerelle de pierre ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c5fce3f4e0144717b921ba74256b1cc1aedb64fd2da31a8dff05309349b5f530"
+- <p><a href="/adventures/read_choice/c5fce3f4e0144717b921ba74256b1cc1aedb64fd2da31a8dff05309349b5f530"
   class="pageLink">Faire le tour en longeant les parois ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/26cdcbf208cb38d781b630a19ad6d2bdf16f6fc9ee71fe4aa1fc60463cb918a2"
+- <p><a href="/adventures/read_choice/26cdcbf208cb38d781b630a19ad6d2bdf16f6fc9ee71fe4aa1fc60463cb918a2"
   class="pageLink">Marcher sur la vaste dalle de granit ?</a></p>
 - "<p> </p>"

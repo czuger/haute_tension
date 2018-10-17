@@ -2,7 +2,7 @@
 - "<p>Précautionneusement, vous effleurez le parchemin. Mais à peine y avez-vous posé
   - les doigts que le crâne du squelette se met à luire et dégage un halo pourpre.
   Votre geste a, semble-t-il, alerté le gardien de ce sanctuaire !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/224ba1f242ceb372099e099df4b3e3cf2586352728bd53d3655872f12b46c3e2"
+- <p><a href="/adventures/read_choice/224ba1f242ceb372099e099df4b3e3cf2586352728bd53d3655872f12b46c3e2"
   class="pageLink">Si vous disposez d'une fronde.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/307b9286e7dbdc332e8f4456a52f53235ca041094f08eaedb2bdd0f626d8ef85"
+- <p><a href="/adventures/read_choice/307b9286e7dbdc332e8f4456a52f53235ca041094f08eaedb2bdd0f626d8ef85"
   class="pageLink">Sinon.</a></p>

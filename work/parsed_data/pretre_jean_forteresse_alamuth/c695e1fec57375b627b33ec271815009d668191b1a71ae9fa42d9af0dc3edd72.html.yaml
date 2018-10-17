@@ -5,7 +5,7 @@
   devant lui, il dégaine sa grande épée et la brandit à deux mains devant vous d'un
   air menaçant, avant même que vous n'ayez pu exprimer vos intentions.</p>"
 - "<p>Qu'allez-vous faire?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fe578a235717054259662f38e62b331c14a895a3e15e42bed38d22a0e822ff32"
+- <p><a href="/adventures/read_choice/fe578a235717054259662f38e62b331c14a895a3e15e42bed38d22a0e822ff32"
   class="pageLink">Si vous l'attaquez.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/13a51590e5dfa88a5644f74b28fdf05f28306f0ecbe0833863dec989a20d4d58"
+- <p><a href="/adventures/read_choice/13a51590e5dfa88a5644f74b28fdf05f28306f0ecbe0833863dec989a20d4d58"
   class="pageLink">Si vous préférez lui donner le mot de passe.</a></p>

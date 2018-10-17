@@ -4,7 +4,7 @@
   siècles ! Loin au-dessus de vous, une grille se referme, suivie d'un bruit de chaînes.
   Votre sort est désespéré. L'oubliette n'est même pas assez large pour que vous puissiez
   vous y asseoir. Etes-vous en possession de la lampe d'Aladin?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f5ab033930e7952c02fe0f12870e72f14535b6860671ebec6bab9306c1c73dc4"
+- <p><a href="/adventures/read_choice/f5ab033930e7952c02fe0f12870e72f14535b6860671ebec6bab9306c1c73dc4"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/45421e60549adb3f320ebcf7d0fb7789932f3aaccf5a352e34500daf50954b6a"
+- <p><a href="/adventures/read_choice/45421e60549adb3f320ebcf7d0fb7789932f3aaccf5a352e34500daf50954b6a"
   class="pageLink">Sinon, vous décidez d'attendre en réfléchissant à un plan d'évasion.</a></p>

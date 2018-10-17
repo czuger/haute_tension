@@ -3,8 +3,8 @@
   Mais ce retour en arrière vous a fatigué, les vapeurs de gaz souterrains finissant
   par vous affecter, vous perdez 2 points de Vie.</p>"
 - "<p>Quel chemin allez-vous prendre à présent :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bab19537767eac5113b74ff929a91e9eae6916569167b6f3fd29a6ca718fafa0"
+- <p><a href="/adventures/read_choice/bab19537767eac5113b74ff929a91e9eae6916569167b6f3fd29a6ca718fafa0"
   class="pageLink">celui de gauche</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/842b2cb49275388ed458c614eb48a64627d2ffe54547fe0519486efff26114b0"
+- <p><a href="/adventures/read_choice/842b2cb49275388ed458c614eb48a64627d2ffe54547fe0519486efff26114b0"
   class="pageLink">ou celui de droite ?</a><em> </em></p>
 - "<p> </p>"

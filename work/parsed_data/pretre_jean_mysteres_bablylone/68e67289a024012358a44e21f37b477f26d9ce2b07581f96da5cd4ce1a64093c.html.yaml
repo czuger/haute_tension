@@ -10,10 +10,10 @@
   vous apercevez un homme armé d'une courte épée. Il tente de repousser les assauts
   de deux Hommes-Vautours, attaquant des serres et du bec. Avant même que vous vous
   décidiez à l'aider ou non, l'un d'entre eux se jette sur vous.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/08a872214cf889f4854f0e6e6ccfb7d10e62491460f89629a0ab9741f8b18213"
+- <p><a href="/adventures/read_choice/08a872214cf889f4854f0e6e6ccfb7d10e62491460f89629a0ab9741f8b18213"
   class="pageLink">Si vous désirez utiliser l'Œil Magique.</a></p>
 - "<p>Sinon, vous tirez votre épée et combattez.</p>"
 - "<p><strong>HOMME-VAUTOUR</strong></p>"
 - "<p>FORCE: 10 VIE:9</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a3482ad9f8809f9cc8b1849197c3f579febf56aec805b7cf5488f510b1bddbfc"
+- <p><a href="/adventures/read_choice/a3482ad9f8809f9cc8b1849197c3f579febf56aec805b7cf5488f510b1bddbfc"
   class="pageLink">Si vous triomphez de cet adversaire.</a><strong><em> </em></strong></p>

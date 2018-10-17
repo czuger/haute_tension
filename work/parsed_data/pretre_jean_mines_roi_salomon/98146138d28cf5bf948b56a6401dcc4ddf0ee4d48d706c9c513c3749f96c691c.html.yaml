@@ -6,9 +6,9 @@
   la paroi peinte. Mais tout à coup vous réalisez qu'une force inconnue vous attire
   dans sa direction. Si vous n'êtes pas le jouet de votre imagination, quelque chose
   d'étrange se trame ici !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0b65920113c2d762a1b76ad4b522fb03c70df4fa75a131bbf9003b470c129c2e"
+- <p><a href="/adventures/read_choice/0b65920113c2d762a1b76ad4b522fb03c70df4fa75a131bbf9003b470c129c2e"
   class="pageLink">Voulez-vous tenter de vous enfuir en courant pour échapper à cette
   attraction</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/43117622024b816faf445e490754fcf5c9e45cf657b5d70cc39b5d188bb3c2bb"
+- <p><a href="/adventures/read_choice/43117622024b816faf445e490754fcf5c9e45cf657b5d70cc39b5d188bb3c2bb"
   class="pageLink">ou bien accepterez-vous ceci comme un signe et observerez-vous
   la fresque un instant ?</a><em> </em></p>

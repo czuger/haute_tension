@@ -6,7 +6,7 @@
   qui règne dans le puits a rendu la corde poisseuse. Vous ne pouvez plus remonter
   et vous diriger vers la Forteresse.</p>"
 - "<p>Que décidez-vous ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5478a4081c94efde2d7669085c13a0f4f39836bed91b4c343c726901f22b1b7d"
+- <p><a href="/adventures/read_choice/5478a4081c94efde2d7669085c13a0f4f39836bed91b4c343c726901f22b1b7d"
   class="pageLink">Essayer de faire bouger le levier et voir ce qui se passe ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b793e9b0da04ea05b11fa2ad3f45b98a1541f2a099e9951d07887fec73be562a"
+- <p><a href="/adventures/read_choice/b793e9b0da04ea05b11fa2ad3f45b98a1541f2a099e9951d07887fec73be562a"
   class="pageLink">Rebrousser chemin et poursuivre votre descente dans le puits ?</a></p>

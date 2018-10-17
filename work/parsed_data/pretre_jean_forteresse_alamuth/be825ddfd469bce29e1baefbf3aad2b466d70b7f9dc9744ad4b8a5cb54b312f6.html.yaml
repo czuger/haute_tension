@@ -3,22 +3,22 @@
   Dans le lointain, la silhouette de la Forteresse tant convoitée se découpe contre
   le ciel. Voici l'ultime chance de glaner des informations et de se reposer avant
   le but de l'aventure.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+- <p><a href="/adventures/read_choice/5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
   class="pageLink">Si vous décidez de ne pas pénétrer dans le village.</a></p>
 - "<p>Devez-vous rencontrer un habitant précis pour lui remettre un objet que l'on
   vous a confié :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfbe722e12b724df1726179e5ef9cb804f8f630b260dc5806432af66d4b8eda5"
+- <p><a href="/adventures/read_choice/bfbe722e12b724df1726179e5ef9cb804f8f630b260dc5806432af66d4b8eda5"
   class="pageLink">Hassidin,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/099f9de03a602b6258b1be81269020dda60525590725b2d41698228da3652b2a"
+- <p><a href="/adventures/read_choice/099f9de03a602b6258b1be81269020dda60525590725b2d41698228da3652b2a"
   class="pageLink">Abdalsan l'Apothicaire</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/16793bdb6d1ecba6225ca32d74e1b3d80443d15ebd6f6af08636342f62cfb37a"
+- <p><a href="/adventures/read_choice/16793bdb6d1ecba6225ca32d74e1b3d80443d15ebd6f6af08636342f62cfb37a"
   class="pageLink">ou Shawar ?</a></p>
 - "<p>Autrement, vous jugez plus prudent d'avancer jusqu'à la grand place, puis d'aviser
   pour la suite des opérations.</p>"
 - "<p>Qu'elle rue allez-vous suivre?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+- <p><a href="/adventures/read_choice/b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
   class="pageLink">Celle de droite.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/554c5f04f88810cc0654ae728fec96a3bbe1794271cc1ac91bc4fa24aca547f2"
+- <p><a href="/adventures/read_choice/554c5f04f88810cc0654ae728fec96a3bbe1794271cc1ac91bc4fa24aca547f2"
   class="pageLink">Celle de gauche.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a1cb0219a81425a023dbd9d577534816284a200b698fbf7545cbeb28f7b4cffe"
+- <p><a href="/adventures/read_choice/a1cb0219a81425a023dbd9d577534816284a200b698fbf7545cbeb28f7b4cffe"
   class="pageLink">Celle qui se trouve devant vous.</a></p>

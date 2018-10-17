@@ -2,10 +2,10 @@
 - "<p>Vous payez ses 5 pièces d'or au Génie cupide. Il les glisse dans un repli de
   son turban et vous regarde avec un sourire amical.</p>"
 - "<p>Allez-vous lui demander :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/190b5877af235318c5444fb4c774dd16ecc827bd82bb5850d3c76c7bbbbc819b"
+- <p><a href="/adventures/read_choice/190b5877af235318c5444fb4c774dd16ecc827bd82bb5850d3c76c7bbbbc819b"
   class="pageLink">Le chemin de la Forteresse d'Alamuth ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5446763f9b55523b9ffc560c7cd9d6833577d62df990601e0c3e8c339c8f9bc6"
+- <p><a href="/adventures/read_choice/5446763f9b55523b9ffc560c7cd9d6833577d62df990601e0c3e8c339c8f9bc6"
   class="pageLink">L'emplacement exact de Shangri-La ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/785a0ae5940eb6034be0238afd2b77d043896b731df4a9a0eade5c4bfe597aee"
+- <p><a href="/adventures/read_choice/785a0ae5940eb6034be0238afd2b77d043896b731df4a9a0eade5c4bfe597aee"
   class="pageLink">S'il peut vous donner quelque chose qui vous aidera dans votre
   quête ?</a></p>

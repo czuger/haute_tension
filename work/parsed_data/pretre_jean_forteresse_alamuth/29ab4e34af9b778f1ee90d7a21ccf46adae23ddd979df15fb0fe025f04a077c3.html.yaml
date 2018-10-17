@@ -4,9 +4,9 @@
   Forteresse en direction de l'ouest. Une porte se dessine au fond du couloir. De
   chaque côté du couloir s'ouvre également une porte.</p>"
 - "<p>Allez-vous vous diriger :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5b9d2c68b192d48610c8a7bf14bd647417a5670d06b5995d281e06e0a539faab"
+- <p><a href="/adventures/read_choice/5b9d2c68b192d48610c8a7bf14bd647417a5670d06b5995d281e06e0a539faab"
   class="pageLink">Vers la porte de droite?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
+- <p><a href="/adventures/read_choice/e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
   class="pageLink">Vers la porte de gauche?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+- <p><a href="/adventures/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
   class="pageLink">Vers la porte du fond?</a></p>

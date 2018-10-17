@@ -9,7 +9,7 @@
 - "<p><strong>GUERRIER </strong>FORCE: 15</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/720f1bb24b202dd315dd8d1ab1bd676e2f2af700b501b235d41fff8df894a7db">Si vous gagnez le tour.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b7ff43bbe2e50e214982dbfa5a0173b1d4b6f0b3a4ec23bb3c703d99b8b16e00"
+   <a href="/adventures/read_choice/720f1bb24b202dd315dd8d1ab1bd676e2f2af700b501b235d41fff8df894a7db">Si vous gagnez le tour.</a></p>
+- <p><a href="/adventures/read_choice/b7ff43bbe2e50e214982dbfa5a0173b1d4b6f0b3a4ec23bb3c703d99b8b16e00"
   class="pageLink">Si vous le perdez.</a></p>
 - "<p>Les armes sont en bois, et vous ne perdez ni n'enlevez de points de Vie.</p>"

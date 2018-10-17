@@ -6,9 +6,9 @@
   « Bonjour chez toi, gentil seigneur, fait le Génie. Tu es mon maître et je peux
   t'accorder un souhait. Que me demanderas-tu?»</p>"
 - "<p>Allez-vous demander au Génie :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
+- <p><a href="/adventures/read_choice/ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
   class="pageLink">Comment arriver à Shangri-La ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/35b16b26a5f7bf67c31773d86ebf06d1e5a18756cbde070ab605db8b25310a7b"
+- <p><a href="/adventures/read_choice/35b16b26a5f7bf67c31773d86ebf06d1e5a18756cbde070ab605db8b25310a7b"
   class="pageLink">De vous sortir de cette maudite oubliette?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
+- <p><a href="/adventures/read_choice/39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
   class="pageLink">Le moyen d'atteindre le Vieux de la Montagne?</a></p>

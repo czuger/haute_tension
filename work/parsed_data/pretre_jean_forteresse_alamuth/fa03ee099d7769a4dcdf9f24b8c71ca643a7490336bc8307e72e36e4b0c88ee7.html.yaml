@@ -2,7 +2,7 @@
 - "<p>Votre crâne augmente de volume ! Le casque devient trop étroit pour vous : vous
   allez étouffer dans peu de temps si vous ne parvenez pas à ôter votre heaume.</p>"
 - "<p>Jetez un dé pour déterminer vos chances d'y parvenir.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
+- <p><a href="/adventures/read_choice/fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
   class="pageLink">Si vous obtenez un chiffre pair.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/98f6dfd02bf1e0a14eb8c8b52a2b334b5b4679ad2a8aca5f43e7ee28baaee55d"
+- <p><a href="/adventures/read_choice/98f6dfd02bf1e0a14eb8c8b52a2b334b5b4679ad2a8aca5f43e7ee28baaee55d"
   class="pageLink">Sinon.</a></p>

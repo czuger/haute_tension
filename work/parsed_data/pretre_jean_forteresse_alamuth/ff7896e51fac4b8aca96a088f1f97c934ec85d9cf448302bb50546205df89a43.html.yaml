@@ -3,10 +3,10 @@
   qui se présentait devant vous que les Lutins accourent vers vous de tous côtés.
   «Que faites-vous ici, étranger?» vous demandent-ils.</p>"
 - "<p>Que leur répondez-vous ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/3c5822edfddca41e8b0ff6337687bbf76ba1fda6c7444def0cc03639af0ec5ac"
+- <p><a href="/adventures/read_choice/3c5822edfddca41e8b0ff6337687bbf76ba1fda6c7444def0cc03639af0ec5ac"
   class="pageLink">«Je suis le nouvel apothicaire de la Forteresse »?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a6979eae0884e08d6f8a168f33c9b64be4a0b706128b2b38972584db75c6916c"
+- <p><a href="/adventures/read_choice/a6979eae0884e08d6f8a168f33c9b64be4a0b706128b2b38972584db75c6916c"
   class="pageLink">« Hassan Sabba m'a demandé de lui apporter quelques feuilles pour
   des décoctions magiques»?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4ff862ee2fe1013075b9d026880ac071f9753a2a4ac3b972a5435e6c400f38ce"
+- <p><a href="/adventures/read_choice/4ff862ee2fe1013075b9d026880ac071f9753a2a4ac3b972a5435e6c400f38ce"
   class="pageLink">«Cessez de m'importuner ! Je n'ai d'ordre à recevoir de personne»?</a></p>

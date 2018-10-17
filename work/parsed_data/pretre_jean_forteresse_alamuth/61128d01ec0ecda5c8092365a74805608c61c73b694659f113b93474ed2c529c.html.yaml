@@ -5,9 +5,9 @@
   Vous devez vous cramponner pour ne pas être désarçonné. L'objet que vous convoitiez
   disparaît dans une fissure du sol. Quel est donc le motif de cette agitation?</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fbbd2a515d4d4210a08f808b6ae14807bb861874919d1a3ef3610c7ebe07c39f"
+- <p><a href="/adventures/read_choice/fbbd2a515d4d4210a08f808b6ae14807bb861874919d1a3ef3610c7ebe07c39f"
   class="pageLink">Si vous obtenez un résultat inférieur ou égal à 4.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a1fe549a8319d7dede6de573560401eada8cbdde3f53c1ab5a4eed925a991f43"
+- <p><a href="/adventures/read_choice/a1fe549a8319d7dede6de573560401eada8cbdde3f53c1ab5a4eed925a991f43"
   class="pageLink">Si votre total est 5, 6, 7 ou 8.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f04e1272895101799b7651682fe4a7095c47fc9a8c081bcaa080327590fabbf1"
+- <p><a href="/adventures/read_choice/f04e1272895101799b7651682fe4a7095c47fc9a8c081bcaa080327590fabbf1"
   class="pageLink">Si vous obtenez un résultat supérieur ou égal à 9.</a></p>

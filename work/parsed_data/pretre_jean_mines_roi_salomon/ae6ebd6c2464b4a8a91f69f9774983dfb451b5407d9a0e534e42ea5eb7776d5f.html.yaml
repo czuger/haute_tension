@@ -3,7 +3,7 @@
   de franchir avec succès la première voie. Il vous reste encore les deux tiers des
   rails à traverser !</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4e075030f895ccfff4ad4ec8eb30a2c53871337e9cc44c3b285f8ad476b81d0b"
+- <p><a href="/adventures/read_choice/4e075030f895ccfff4ad4ec8eb30a2c53871337e9cc44c3b285f8ad476b81d0b"
   class="pageLink">Si le résultat est 6 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cd7db5d5c2edc718bbfff2fef65cdfa8255f782cffcf85be18f693f623576e67"
+- <p><a href="/adventures/read_choice/cd7db5d5c2edc718bbfff2fef65cdfa8255f782cffcf85be18f693f623576e67"
   class="pageLink">Si le résultat est 7 ou davantage.</a></p>

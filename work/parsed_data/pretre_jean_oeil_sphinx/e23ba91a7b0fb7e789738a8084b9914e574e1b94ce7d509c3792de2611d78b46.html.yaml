@@ -4,8 +4,8 @@
   mal préparée à une telle épreuve. Vous mettez pied à terre et vous continuez en
   tirant votre coursier par la bride.</p>"
 - "<p>Avez-vous pensé à acheter de l'eau ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/14d60824d84c5a6d22e4370532237c3daf43fba63bfc64b73eac28666a64a093"
+- <p><a href="/adventures/read_choice/14d60824d84c5a6d22e4370532237c3daf43fba63bfc64b73eac28666a64a093"
   class="pageLink">Si c'est le cas.</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/a29c7466160b0b164b3aa967aeb46434167bbd474337b7d29465e07fc9ca9754">Autrement.</a></p>
+   <a href="/adventures/read_choice/a29c7466160b0b164b3aa967aeb46434167bbd474337b7d29465e07fc9ca9754">Autrement.</a></p>

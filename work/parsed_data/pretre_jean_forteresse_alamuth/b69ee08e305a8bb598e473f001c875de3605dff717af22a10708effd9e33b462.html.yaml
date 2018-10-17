@@ -5,14 +5,14 @@
   patrouille de gardes en errant dans le village. Vous interrogez votre prisonnier
   quant au chemin à suivre.</p>"
 - "<p>Allez-vous lui demander?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/882c5d6bbfe312dec74f9ecb2e6ab7975ba06e5ae37c062a61a23615f6301ed5"
+- <p><a href="/adventures/read_choice/882c5d6bbfe312dec74f9ecb2e6ab7975ba06e5ae37c062a61a23615f6301ed5"
   class="pageLink">Où se trouve la demeure de Shawar?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ecfcf6e02dd55f8d8fac711369e647bd1f11314736ed3c9f7e701133deb73295"
+- <p><a href="/adventures/read_choice/ecfcf6e02dd55f8d8fac711369e647bd1f11314736ed3c9f7e701133deb73295"
   class="pageLink">Quelle est la meilleure auberge du village?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d62099fbd16a1811a804bd1f86c67c464a0c5cdd6a464483f2572d27de5f32c3"
+- <p><a href="/adventures/read_choice/d62099fbd16a1811a804bd1f86c67c464a0c5cdd6a464483f2572d27de5f32c3"
   class="pageLink">Où se trouve l'échoppe d'Abdalsan?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/750b98bcc44cbcabc5653ef0721ebccb20e716ef70b74bf7a5c3500b2e201bcf"
+- <p><a href="/adventures/read_choice/750b98bcc44cbcabc5653ef0721ebccb20e716ef70b74bf7a5c3500b2e201bcf"
   class="pageLink">Quel est le plus court chemin pour aller à la maison d'Hassidin
   ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6474b546bfc571ede0ca173921ab40e904c4767b059415f4915fa31409fe6e0d"
+- <p><a href="/adventures/read_choice/6474b546bfc571ede0ca173921ab40e904c4767b059415f4915fa31409fe6e0d"
   class="pageLink">Comment sortir du village sans éveiller l'attention?</a></p>

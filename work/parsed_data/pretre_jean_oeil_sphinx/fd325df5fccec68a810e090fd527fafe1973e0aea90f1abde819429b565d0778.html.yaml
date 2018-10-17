@@ -4,13 +4,13 @@
 - |-
   <p><br>
    Lancez deux dés.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e406af5d987907180685a685533a6b3f6d443f7acdab961244c10c641cb2513e"
+- <p><a href="/adventures/read_choice/e406af5d987907180685a685533a6b3f6d443f7acdab961244c10c641cb2513e"
   class="pageLink">Si vous faites 4 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bb86fba073814ff2319576de9429173c89d94f08936209eddd97ff7892d37a92"
+- <p><a href="/adventures/read_choice/bb86fba073814ff2319576de9429173c89d94f08936209eddd97ff7892d37a92"
   class="pageLink">Si vous faites 5 ou 6.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9ddc234212cb3c7abf0b81907120c14b2fa6451c14d9af6229475571322b1632"
+- <p><a href="/adventures/read_choice/9ddc234212cb3c7abf0b81907120c14b2fa6451c14d9af6229475571322b1632"
   class="pageLink">Si vous faites 7 ou 8.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cdd1cd63116b5f74c954b803121b68309b9290bb974d097f9b91787db837bfdc"
+- <p><a href="/adventures/read_choice/cdd1cd63116b5f74c954b803121b68309b9290bb974d097f9b91787db837bfdc"
   class="pageLink">Si vous faites 9 ou 10.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/120d686d3396c1f52d38f7550a27a47058824c9650676b09950b7f09ed3c76f2"
+- <p><a href="/adventures/read_choice/120d686d3396c1f52d38f7550a27a47058824c9650676b09950b7f09ed3c76f2"
   class="pageLink">Si vous faites 11 ou 12.</a></p>

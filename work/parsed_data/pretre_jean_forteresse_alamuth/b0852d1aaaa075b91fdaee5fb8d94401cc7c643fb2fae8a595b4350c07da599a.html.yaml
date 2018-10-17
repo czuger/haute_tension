@@ -1,7 +1,7 @@
 ---
 - "<p>A l'intérieur de la tour, vous distinguez deux passages possibles.</p>"
 - "<p>Lequel allez-vous emprunter?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/399f0aa2ebb1d40013dbd8355cd5da02d8e2c7133e4c01715ea1b45b4949aee6"
+- <p><a href="/adventures/read_choice/399f0aa2ebb1d40013dbd8355cd5da02d8e2c7133e4c01715ea1b45b4949aee6"
   class="pageLink">Un petit escalier en colimaçon qui descend dans la tour?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/be0c70d768056fe600ca16d4fde9abb7174ed413fab876f3d213f8066b0ed06d"
+- <p><a href="/adventures/read_choice/be0c70d768056fe600ca16d4fde9abb7174ed413fab876f3d213f8066b0ed06d"
   class="pageLink">Le chemin de ronde qui court sur les remparts au sommet du mur?</a></p>

@@ -7,13 +7,13 @@
   sur elle : en l'occurrence vous ! Ayant mal calculé sa trajectoire, l'Araignée atterrit
   en souplesse devant vous. Elle déplie ses huit longues pattes tranchantes comme
   des couteaux et avance sur vous.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f51e8c1656ecef7d6f8797da829494aaee65fb7434187f60cac9e0ff0ebd2133"
+- <p><a href="/adventures/read_choice/f51e8c1656ecef7d6f8797da829494aaee65fb7434187f60cac9e0ff0ebd2133"
   class="pageLink">Si vous possédez la potion de contrôle des animaux.</a></p>
 - "<p>Aucun autre philtre ou objet magique n'est efficace ! Vous n'avez alors que
   votre épée et votre courage à opposer au monstre :</p>"
 - "<p><strong>ARAIGNEE GEANTE </strong>FORCE : 12 VIE : 12</p>"
 - "<p>AJUSTEMENT DEGATS : + 1</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9f5966a8b985a5e7eca8c6b706a462b5464f8f5c088933d0dd28979ea0187563"
+- <p><a href="/adventures/read_choice/9f5966a8b985a5e7eca8c6b706a462b5464f8f5c088933d0dd28979ea0187563"
   class="pageLink">A la première piqûre ou morsure qu'elle vous inflige.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f5a5239bf4f7ad92d2ace76143d1632d209faa6c0617d02529e5bab1b6f1f022"
+- <p><a href="/adventures/read_choice/f5a5239bf4f7ad92d2ace76143d1632d209faa6c0617d02529e5bab1b6f1f022"
   class="pageLink">Si vous parvenez à tuer l'arachnide sans qu'elle vous touche.</a></p>

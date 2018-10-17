@@ -1,6 +1,6 @@
 ---
 - "<p>Vous faites à nouveau face à la tour centrale, derrière les colonnes du jardin.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d9b1821561b7c55eb70a7703cf004dd8106e2e79a93f033fbc2e434a9a575b00"
+- <p><a href="/adventures/read_choice/d9b1821561b7c55eb70a7703cf004dd8106e2e79a93f033fbc2e434a9a575b00"
   class="pageLink">Allez-vous prendre le couloir est sur votre droite</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3"
+- <p><a href="/adventures/read_choice/974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3"
   class="pageLink">ou le couloir ouest sur votre gauche ?</a></p>

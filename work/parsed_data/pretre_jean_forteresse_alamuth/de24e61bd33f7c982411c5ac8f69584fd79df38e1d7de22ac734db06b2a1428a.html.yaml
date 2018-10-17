@@ -1,6 +1,6 @@
 ---
 - <p>Si Shawar le Magicien vous a parlé d'un puits asséché à la sortie du village,
-  <a href="/adventures/%ADVENTURE_ID%/read_choice/d130d9837f4c1dce02fa6573e5625a232b09905f8d76531b7974570dddb7833d">vous
+  <a href="/adventures/read_choice/d130d9837f4c1dce02fa6573e5625a232b09905f8d76531b7974570dddb7833d">vous
   pouvez vous y rendre.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/49fc03f11acecde5dc92b5c0f44d25e03cabd7d76b6003fa4c4f866c614e31ac"
+- <p><a href="/adventures/read_choice/49fc03f11acecde5dc92b5c0f44d25e03cabd7d76b6003fa4c4f866c614e31ac"
   class="pageLink">Dans le cas contraire. </a></p>

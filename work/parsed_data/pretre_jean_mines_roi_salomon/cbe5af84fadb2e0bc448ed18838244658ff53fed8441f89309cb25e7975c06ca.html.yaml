@@ -3,7 +3,7 @@
   Cette échelle rudimentaire semble solide. Vous descendez ainsi dans le puits obscur
   sur une vingtaine de mètres.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/65bea94e889dfe724132c4eb3cf68f33926436372ba3f7e021bdf4d5caf3d81d"
+- <p><a href="/adventures/read_choice/65bea94e889dfe724132c4eb3cf68f33926436372ba3f7e021bdf4d5caf3d81d"
   class="pageLink">Si vous obtenez 11 ou 12.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8dfcf91b0a91227028a5d767e9a01d8f5f9f7b40a5cef8abd017b4e3fc704207"
+- <p><a href="/adventures/read_choice/8dfcf91b0a91227028a5d767e9a01d8f5f9f7b40a5cef8abd017b4e3fc704207"
   class="pageLink">Sinon.</a></p>

@@ -8,7 +8,7 @@
   une sorte de nid. De vieux moellons de pierre dure jonchent le sol, et un vent lugubre
   souille sur ce tableau peu réjouissant.</p>"
 - "<p>Voulez-vous ouvrir un des sacs ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/24a11612b93699d18c3028b738ad870601584c6a53b9994e97c22a14c38b8862"
+- <p><a href="/adventures/read_choice/24a11612b93699d18c3028b738ad870601584c6a53b9994e97c22a14c38b8862"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/18ab3ea95c342d76d04e2af0228e12ff23b48e7d8504b1ef24606c36d5e14816"
+- <p><a href="/adventures/read_choice/18ab3ea95c342d76d04e2af0228e12ff23b48e7d8504b1ef24606c36d5e14816"
   class="pageLink">Sinon.</a></p>

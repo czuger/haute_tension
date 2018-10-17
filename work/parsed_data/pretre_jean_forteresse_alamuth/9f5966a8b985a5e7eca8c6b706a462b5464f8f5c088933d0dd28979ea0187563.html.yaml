@@ -1,6 +1,6 @@
 ---
 - "<p>Votre sac contient-il un contrepoison ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c01ad9f5b43a8556af087001f4dc87a46708fb7663b78ab2b0072639fc22f2f8"
+- <p><a href="/adventures/read_choice/c01ad9f5b43a8556af087001f4dc87a46708fb7663b78ab2b0072639fc22f2f8"
   class="pageLink">Si oui, buvez-le immédiatement.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/32f434c7183babe924c4686070226a36fec1ea8d9e19e1e4a8e96e242a43ae66"
+- <p><a href="/adventures/read_choice/32f434c7183babe924c4686070226a36fec1ea8d9e19e1e4a8e96e242a43ae66"
   class="pageLink">Dans le cas contraire.</a></p>

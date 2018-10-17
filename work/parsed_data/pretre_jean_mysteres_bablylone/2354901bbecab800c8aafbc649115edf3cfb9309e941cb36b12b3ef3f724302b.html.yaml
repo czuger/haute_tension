@@ -2,10 +2,10 @@
 - "<p>Vous poussez sur la porte pour entrer mais celle-ci est verrouillée. Votre corps
   est secoué d'une décharge d'énergie : la porte est protégée et n'entre pas qui veut
   ! Vous perdez 2 points de Vie.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/33b014f477e8152f1b67f59b073b42b6148b737df4437d836ef2ed4315b0048b"
+- <p><a href="/adventures/read_choice/33b014f477e8152f1b67f59b073b42b6148b737df4437d836ef2ed4315b0048b"
   class="pageLink">Vous pouvez vous résoudre à frapper.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
+- <p><a href="/adventures/read_choice/c24acab9a5c5cc8530ca85be80fb0e7ce6b19761631a5ec9aed51338d87a7127"
   class="pageLink">Vous pouvez également vous diriger vers la bâtisse de gauche, sur
   la porte de laquelle est gravé un crabe</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d4613d9eb3824d5e16c174ed3d5a00819a8f803395917a617409bbea426f614b"
+- <p><a href="/adventures/read_choice/d4613d9eb3824d5e16c174ed3d5a00819a8f803395917a617409bbea426f614b"
   class="pageLink">ou vers la bâtisse de droite, dont la porte est ornée d'un scorpion.</a></p>

@@ -7,7 +7,7 @@
   suiviez se poursuit tout droit sur une bonne distance, mais une autre galerie part
   à angle droit vers la gauche.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ff45b8bc69bafe0845b1bd7bc1bf093f4f9ebe952f3c695c20dce1930ad53b7e"
+- <p><a href="/adventures/read_choice/ff45b8bc69bafe0845b1bd7bc1bf093f4f9ebe952f3c695c20dce1930ad53b7e"
   class="pageLink">Si vous continuez tout droit.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d758be1460383649301aa879fe19aa951ba835ae59af83dc0caa299fd8e7b450"
+- <p><a href="/adventures/read_choice/d758be1460383649301aa879fe19aa951ba835ae59af83dc0caa299fd8e7b450"
   class="pageLink">Si vous prenez à gauche.</a></p>

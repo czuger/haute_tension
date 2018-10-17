@@ -2,7 +2,7 @@
 - |-
   <p>Vous poursuivez votre chemin dans le passage secret qui mène à l'extérieur de la prison. A nouveau, la hauteur du plafond diminue en même temps qu'augmente la pente, si bien que vous devez grimper à demi accroupi. Vous avancez ainsi pendant plusieurs centaines de mètres quand, enfin, un peu de jour grisâtre filtre au bout de la galerie. Vous vous réjouissez trop vite car une herse aux barreaux solidement enfoncés dans le sol barre votre route.<br>
    Allez-vous décider de :</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b43c505706b0e12c2036f1392df22d96fd121a1aeda5f6453b8c1e3ecb1801e4"
+- <p><a href="/adventures/read_choice/b43c505706b0e12c2036f1392df22d96fd121a1aeda5f6453b8c1e3ecb1801e4"
   class="pageLink">Rebrousser chemin ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e611c52fb75e245a81403463b0f5bb200456d674f9d8c73f0df7151eabcace9d"
+- <p><a href="/adventures/read_choice/e611c52fb75e245a81403463b0f5bb200456d674f9d8c73f0df7151eabcace9d"
   class="pageLink">Tenter d'écarter, en force, les barreaux ?</a><em> </em></p>

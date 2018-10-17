@@ -11,9 +11,9 @@
   la gauche.</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/473bc5c0570cc277e3d5e67c69f912ed6cc48838e9aa011385c951c60e3cf774">Allez-vous continuer tout droit dans le même tunnel</a></p>
+   <a href="/adventures/read_choice/473bc5c0570cc277e3d5e67c69f912ed6cc48838e9aa011385c951c60e3cf774">Allez-vous continuer tout droit dans le même tunnel</a></p>
 - "<p>ou bien prendrez-vous la nouvelle galerie :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7114909c51fd9a53b9eec3859873fe84ccea0ff2f4a06068012e6ca6b713e3ae"
+- <p><a href="/adventures/read_choice/7114909c51fd9a53b9eec3859873fe84ccea0ff2f4a06068012e6ca6b713e3ae"
   class="pageLink">vers la droite</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7b76c6c6584c56047d4c3622ed1f9df051cf43278f51ab440763fca88a6087cc"
+- <p><a href="/adventures/read_choice/7b76c6c6584c56047d4c3622ed1f9df051cf43278f51ab440763fca88a6087cc"
   class="pageLink">ou la gauche ?</a></p>

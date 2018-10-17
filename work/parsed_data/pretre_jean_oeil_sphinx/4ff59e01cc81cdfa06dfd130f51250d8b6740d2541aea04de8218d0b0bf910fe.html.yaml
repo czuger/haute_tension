@@ -27,12 +27,12 @@
 - "<p><strong>CRÉATURE DES MARAIS</strong></p>"
 - "<p>FORCE: 12</p>"
 - "<p>VIE: 15</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/be8ebe50425b9167729bdb59682d2136159fd4f7a629c50b1ea9b259fa3919a7"
+- <p><a href="/adventures/read_choice/be8ebe50425b9167729bdb59682d2136159fd4f7a629c50b1ea9b259fa3919a7"
   class="pageLink">Si vous le désirez, vous pouvez fuir après 2 assauts.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7c9f941ce92f5e8478f63dcb7e4e94bf7b4b360e180efe32ee7adfdbc0e3e605"
+- <p><a href="/adventures/read_choice/7c9f941ce92f5e8478f63dcb7e4e94bf7b4b360e180efe32ee7adfdbc0e3e605"
   class="pageLink">Si vous n'avez pas encore détruit votre adversaire au bout de 3
   assauts.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/0d6599479aa56af63875f10f15d8ff03ea534672531a670b67eb45b37a685539"
+- <p><a href="/adventures/read_choice/0d6599479aa56af63875f10f15d8ff03ea534672531a670b67eb45b37a685539"
   class="pageLink">Si, par contre, vous tuez ce monstre en 3 assauts ou moins.</a></p>
 - "<p> </p>"
 - "<p> </p>"

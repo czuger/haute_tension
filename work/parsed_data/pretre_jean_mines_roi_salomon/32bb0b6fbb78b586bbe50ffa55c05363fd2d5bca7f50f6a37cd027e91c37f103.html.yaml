@@ -15,12 +15,12 @@
 - |-
   <p><br>
    Qu'allez-vous répliquer au spectre ;</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f04461d2d405c95bb8ef6da29762e9b24be8b39a569a24adec27fb223190a4f5"
+- <p><a href="/adventures/read_choice/f04461d2d405c95bb8ef6da29762e9b24be8b39a569a24adec27fb223190a4f5"
   class="pageLink">« Vous me tuerez»?</a></p>
 - "<p> </p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/22e8e0e2b59627873d7a0e9e0f235f396eccb0cd49ef5686fa499191cd37c3bc"
+- <p><a href="/adventures/read_choice/22e8e0e2b59627873d7a0e9e0f235f396eccb0cd49ef5686fa499191cd37c3bc"
   class="pageLink">«Vous m'indiquerez une fausse route» ?</a></p>
 - "<p> </p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/022177e10c2d181543ecaf6271e1fc2595fe120b914d623cb481c73438dc6354"
+- <p><a href="/adventures/read_choice/022177e10c2d181543ecaf6271e1fc2595fe120b914d623cb481c73438dc6354"
   class="pageLink">«Vous serez magnanime et m'accorderez tout de même votre aide»?</a></p>
 - "<p> </p>"

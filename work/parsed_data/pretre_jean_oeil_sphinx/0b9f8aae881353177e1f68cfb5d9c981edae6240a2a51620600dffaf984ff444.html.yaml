@@ -1,7 +1,7 @@
 ---
 - "<p>Vous avez réussi à vous débarrasser des gardes, sans trahir votre présence.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/92356a7ef0e87cd7167cfb14ab4e9368cdd62896450e81771194c21504f3cf04"
+- <p><a href="/adventures/read_choice/92356a7ef0e87cd7167cfb14ab4e9368cdd62896450e81771194c21504f3cf04"
   class="pageLink">Si vous devez vous diriger vers la Quatrième Pyramide tronquée
   du pharaon Asphren.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a5a3226e8c6df500fceedea250ab2fb6a90bbc87a7961c7ecf3194294a82779b"
+- <p><a href="/adventures/read_choice/a5a3226e8c6df500fceedea250ab2fb6a90bbc87a7961c7ecf3194294a82779b"
   class="pageLink">Sinon, vous vous approchez du Sphinx.</a></p>

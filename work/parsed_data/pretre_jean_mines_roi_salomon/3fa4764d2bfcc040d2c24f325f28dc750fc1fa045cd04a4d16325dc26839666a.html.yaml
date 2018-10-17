@@ -6,13 +6,13 @@
   une forme écroulée sur le sol a attiré votre attention. Vous vous approchez en hâte
   et découvrez le squelette d'un guerrier, rongé jusqu'à la moelle par des rats. Il
   y avait donc bien quelques habitants furtifs dans cette partie de la mine.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f608f29099f5ba5f56c57e7e0fc912c3e2d2b76fa7d92401d0132113a4f3164e"
+- <p><a href="/adventures/read_choice/f608f29099f5ba5f56c57e7e0fc912c3e2d2b76fa7d92401d0132113a4f3164e"
   class="pageLink">Si vous ne l'avez pas déjà fait au cours d'un passage précédent,
   vous pouvez fouiller le squelette.</a></p>
 - "<p>S'il ne vous intéresse pas, vous pouvez à présent suivre le couloir perpendiculaire
   que vous avez croisé :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
+- <p><a href="/adventures/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
   class="pageLink">vers la droite</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554"
+- <p><a href="/adventures/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554"
   class="pageLink">ou vers la gauche.</a></p>
 - "<p> </p>"

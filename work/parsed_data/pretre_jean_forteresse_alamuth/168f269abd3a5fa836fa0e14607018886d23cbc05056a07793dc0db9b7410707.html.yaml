@@ -3,7 +3,7 @@
   visqueux surgit du fond de l'eau et agrippe la lame. Vous avez réveillé le poulpe
   géant chargé de garder l'objet que vous convoitiez !</p>"
 - "<p>Lancez un dé.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9862c85e18c113299b6c3d59b8edfa0a0df13c1998e6373b4c7ff02efb3d9536"
+- <p><a href="/adventures/read_choice/9862c85e18c113299b6c3d59b8edfa0a0df13c1998e6373b4c7ff02efb3d9536"
   class="pageLink">Si vous obtenez un résultat supérieur ou égal à 4.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/23dfc9ad6c586efaf2bc61f78280cae8a9ad5d39af2662be60c2d3ccaea48ac4"
+- <p><a href="/adventures/read_choice/23dfc9ad6c586efaf2bc61f78280cae8a9ad5d39af2662be60c2d3ccaea48ac4"
   class="pageLink">Si vous obtenez 1, 2 ou 3.</a></p>

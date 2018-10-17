@@ -7,10 +7,10 @@
   armes. Peu sûrs de vos intentions, ils vous interpellent : « Holà ! Qui es-tu et
   que viens-tu faire ici ? »</p>"
 - "<p>Quelle va être votre réponse?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/50528cf9749772d89b5d14d65eda16907e5914c3d3feb89fc217cd17ab4a2ecc"
+- <p><a href="/adventures/read_choice/50528cf9749772d89b5d14d65eda16907e5914c3d3feb89fc217cd17ab4a2ecc"
   class="pageLink">Leur faire croire que vous habitez ce village,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4631fe80f58bc3b2ec07187e61588c0c2dfe2e15e03eb68454f81581d39d4ab7"
+- <p><a href="/adventures/read_choice/4631fe80f58bc3b2ec07187e61588c0c2dfe2e15e03eb68454f81581d39d4ab7"
   class="pageLink">leur expliquer que vous êtes un voyageur qui ne leur veut aucun
   mal</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fa1481ff985c1905e32ff10bf9ddb6a84361b2f1faaebee261fbd57920307a79"
+- <p><a href="/adventures/read_choice/fa1481ff985c1905e32ff10bf9ddb6a84361b2f1faaebee261fbd57920307a79"
   class="pageLink">ou les attaquer ?</a></p>

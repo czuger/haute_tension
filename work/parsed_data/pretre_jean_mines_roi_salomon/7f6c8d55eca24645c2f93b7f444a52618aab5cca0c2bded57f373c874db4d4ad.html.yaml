@@ -5,7 +5,7 @@
   lorsque, soudain, quelque chose de gluant fait déraper votre pied. Vous glissez
   et battez l'air de vos bras !</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ba4abc6221cfdf9c6d8e7aa2e2796d0adc5144561934eee64283f77c4daca3ee"
+- <p><a href="/adventures/read_choice/ba4abc6221cfdf9c6d8e7aa2e2796d0adc5144561934eee64283f77c4daca3ee"
   class="pageLink">Si le résultat est un chiffre pair.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b31db29211d3b38a6bb64a479174a5730862154676c42538d4c096007d6c72fb"
+- <p><a href="/adventures/read_choice/b31db29211d3b38a6bb64a479174a5730862154676c42538d4c096007d6c72fb"
   class="pageLink">Si c'est un chiffre impair.</a><em> </em></p>

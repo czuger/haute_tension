@@ -2,7 +2,7 @@
 - "<p>«Je viens interroger le prisonnier qu'on a amené ce matin ! Lancez- vous à l'Orque
   bestial. Conduis-moi à lui, je te l'ordonne!» Votre ruse va-t-elle réussir?</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4cb51428d78ec93f424d0fd115a3531cc89b19ea3e92a9849c43563bdba7d11a"
+- <p><a href="/adventures/read_choice/4cb51428d78ec93f424d0fd115a3531cc89b19ea3e92a9849c43563bdba7d11a"
   class="pageLink">Si vous faites 8 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8b132fed055e24ec683c3ef8805d3db350ba08a12a16d44177669859d5b582ff"
+- <p><a href="/adventures/read_choice/8b132fed055e24ec683c3ef8805d3db350ba08a12a16d44177669859d5b582ff"
   class="pageLink">Si vous faites 9 ou davantage.</a></p>

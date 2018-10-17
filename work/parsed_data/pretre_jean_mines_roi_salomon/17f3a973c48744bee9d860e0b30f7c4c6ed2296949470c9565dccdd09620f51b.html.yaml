@@ -12,7 +12,7 @@
   les fameuses prisons de Salomon, dont on vous a tant parlé. Ces mêmes prisons où
   l'on a enfermé Nikanor, l'homme que vous cherchez !</p>"
 - "<p>Avez-vous serré la main d'un petit Lutin ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae96baa2defccddc9e8658c1509eafbd1491c53aabb514c5d9065140a337160e"
+- <p><a href="/adventures/read_choice/ae96baa2defccddc9e8658c1509eafbd1491c53aabb514c5d9065140a337160e"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f0930b1046cb3e033207701d58bafa89079333101f06000d7141a70f5cf87e30"
+- <p><a href="/adventures/read_choice/f0930b1046cb3e033207701d58bafa89079333101f06000d7141a70f5cf87e30"
   class="pageLink">Sinon.</a></p>

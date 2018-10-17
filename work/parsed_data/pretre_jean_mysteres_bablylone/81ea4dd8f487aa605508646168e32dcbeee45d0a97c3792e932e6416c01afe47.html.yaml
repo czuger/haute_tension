@@ -7,10 +7,10 @@
   d'enceinte est relativement bas, vous décidez d'essayer de le franchir en douce.
   Un petit fossé sépare le mur de la rue.</p>"
 - "<p>Comment allez-vous vous y prendre pour pénétrer à l'intérieur ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/91b3ea5791479cbd700312a8cd0940a57b874e92d3ec15ca20e23689345f0ca5"
+- <p><a href="/adventures/read_choice/91b3ea5791479cbd700312a8cd0940a57b874e92d3ec15ca20e23689345f0ca5"
   class="pageLink">Si vous voulez sauter le fossé puis escalader le mur de briques.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1476f0d16e14450862d4d9a0b07a6dfe5d423ff2c90295d6ac6e104b9928f24c"
+- <p><a href="/adventures/read_choice/1476f0d16e14450862d4d9a0b07a6dfe5d423ff2c90295d6ac6e104b9928f24c"
   class="pageLink">Si vous préférez grimper sur un arbre proche dont les branches
   surplombent les deux côtés du mur.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/60772baf9a56c3c4147129d27ccee766bba22960672158ee26b58d56c586f837"
+- <p><a href="/adventures/read_choice/60772baf9a56c3c4147129d27ccee766bba22960672158ee26b58d56c586f837"
   class="pageLink">Si vous voulez sonder le mur à la recherche d'un passage secret.</a></p>

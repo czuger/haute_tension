@@ -3,7 +3,7 @@
   émet un rayon rougeâtre à travers ses orbites. Vous combattez normalement.</p>"
 - "<p><strong>CUBE ENSORCELÉ </strong> FORCE: 13 VIE: 17</p>"
 - "<p>AJUSTEMENT DÉGÂTS: + 1</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c149e15dc50675b1a0a3cde7bb9236028718d4ff371330015abadd867f166d92"
+- <p><a href="/adventures/read_choice/c149e15dc50675b1a0a3cde7bb9236028718d4ff371330015abadd867f166d92"
   class="pageLink">Si vous perdez ou êtes touché trois fois par le rayon.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2f56e3f9f98b903fc75129aa622637cbeb48c141b7eb2a8a5642ac9f6f808fdf"
+- <p><a href="/adventures/read_choice/2f56e3f9f98b903fc75129aa622637cbeb48c141b7eb2a8a5642ac9f6f808fdf"
   class="pageLink">Si vous gagnez le combat avant d'être touché trois fois.</a></p>

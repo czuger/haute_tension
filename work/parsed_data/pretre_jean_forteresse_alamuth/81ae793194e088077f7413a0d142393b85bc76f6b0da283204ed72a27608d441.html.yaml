@@ -8,7 +8,7 @@
   Dogue de l'Enfer, noir et fort comme un cheval, aux crocs écumants, tente de rompre
   sa chaîne pour se jeter sur vous.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8d7aede6449a615b389dea217621b3a79de4929c80d66f49f28617609de6a262"
+- <p><a href="/adventures/read_choice/8d7aede6449a615b389dea217621b3a79de4929c80d66f49f28617609de6a262"
   class="pageLink">Si vous tirez un chiffre inférieur ou égal à 8.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6f2b0d07ff75e6defa22f9a406949c16f1e83e561bafea6c33e57a520218ccef"
+- <p><a href="/adventures/read_choice/6f2b0d07ff75e6defa22f9a406949c16f1e83e561bafea6c33e57a520218ccef"
   class="pageLink">Si vous tirez un 9 ou davantage.</a></p>

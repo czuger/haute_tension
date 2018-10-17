@@ -4,9 +4,9 @@
   sensibles. Vous devez maintenant découvrir l'entrée du passage qui mène aux appartements
   du Vieux de la Montagne. Trois chemins s'enfoncent dans une forêt touffue.</p>"
 - "<p>Quelle direction allez- vous suivre ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/117d765e65cefd4fd5ce70ae71bb622367d3bb7477c33df75a5202ea5bcd5b9d"
+- <p><a href="/adventures/read_choice/117d765e65cefd4fd5ce70ae71bb622367d3bb7477c33df75a5202ea5bcd5b9d"
   class="pageLink">A droite ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5d501b06f987dc897951e3b42f72c3c2bf181a7e21e396ef95a5a894fcbccf33"
+- <p><a href="/adventures/read_choice/5d501b06f987dc897951e3b42f72c3c2bf181a7e21e396ef95a5a894fcbccf33"
   class="pageLink">Tout droit ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/9384f856b57520434ceb14352fad10e3af7256f849a43898e9cacf664a805118"
+- <p><a href="/adventures/read_choice/9384f856b57520434ceb14352fad10e3af7256f849a43898e9cacf664a805118"
   class="pageLink">A gauche ?</a></p>

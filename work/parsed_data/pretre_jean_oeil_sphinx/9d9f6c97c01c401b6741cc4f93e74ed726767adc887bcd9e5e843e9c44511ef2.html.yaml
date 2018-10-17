@@ -1,10 +1,10 @@
 ---
 - "<p>Vous reconnaissez ces légumes que vous avez achetés ; des piments rouges très
   forts ! Cela pourra vous être utile dans l'avenir. Notez-les parmi vos possessions.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cd1e40368fb620b32371b3244cf37d62c0b569e6a716669cf8a460c3db497423"
+- <p><a href="/adventures/read_choice/cd1e40368fb620b32371b3244cf37d62c0b569e6a716669cf8a460c3db497423"
   class="pageLink">Si vous décidez de quitter à présent le marchand.</a></p>
 - "<p>Si vous ne l'avez pas déjà fait, vous pouvez par contre lui acheter :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/69d4c7849f648f64d156cdfa98cc1a9c77ba9490086aeffc56af84c452fdcf17"
+- <p><a href="/adventures/read_choice/69d4c7849f648f64d156cdfa98cc1a9c77ba9490086aeffc56af84c452fdcf17"
   class="pageLink">du poivre et du sel</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/12f22fbe2a25279a56b265f953a79828a9dac4f685d93a13b411b62f73038724"
+- <p><a href="/adventures/read_choice/12f22fbe2a25279a56b265f953a79828a9dac4f685d93a13b411b62f73038724"
   class="pageLink">ou des fruits. </a></p>

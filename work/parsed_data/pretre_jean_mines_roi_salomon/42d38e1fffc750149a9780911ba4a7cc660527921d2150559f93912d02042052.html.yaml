@@ -3,8 +3,8 @@
   la dégringolez plutôt: vous glissez plus que vous ne marchez ! Mais bientôt vous
   arrivez à nouveau devant le lac souterrain. Vous allez devoir le franchir une seconde
   fois !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8c321ccd9bb22ab9befa9925c8edd877fe6a3ad333080876fcaae1cb043ad885"
+- <p><a href="/adventures/read_choice/8c321ccd9bb22ab9befa9925c8edd877fe6a3ad333080876fcaae1cb043ad885"
   class="pageLink">Si vous avez endossé l'armure et désirez la garder.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2780f3ebfeb469e8e5d270b00ba54425b8bb09ec8961c8632f49128ac86f4c5e"
+- <p><a href="/adventures/read_choice/2780f3ebfeb469e8e5d270b00ba54425b8bb09ec8961c8632f49128ac86f4c5e"
   class="pageLink">Si vous ne l'avez pas mise ou si vous décidez de l'enlever avant
   de retraverser.</a></p>

@@ -6,7 +6,7 @@
 - "<p>Ça y est ! Vous avez réussi ! Vous pénétrez dans le lieu de prière des Hommes-Rats
   et des Hommes-Lézards.</p>"
 - "<p>Avez-vous toujours apparence humaine?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4c18f062b37bbf4451d3bef93ebfd8463d8f5b6669c770ad69cefa4ef0baf0a8"
+- <p><a href="/adventures/read_choice/4c18f062b37bbf4451d3bef93ebfd8463d8f5b6669c770ad69cefa4ef0baf0a8"
   class="pageLink">Si c'est le cas.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/cca0715731a1dba703955719ba872580c24efae08959533f666e7dce69508797"
+- <p><a href="/adventures/read_choice/cca0715731a1dba703955719ba872580c24efae08959533f666e7dce69508797"
   class="pageLink">Sinon.</a></p>

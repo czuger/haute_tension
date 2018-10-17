@@ -12,7 +12,7 @@
   belle. Vous tentez d'éviter l'averse de cailloux acérés mais ne pouvez échapper
   à tous.</p>"
 - "<p>Lancez deux dés.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/41a2b83e801c368ae1340cf60afe2376979bd22f35cd22b7383897edda266d15"
+- <p><a href="/adventures/read_choice/41a2b83e801c368ae1340cf60afe2376979bd22f35cd22b7383897edda266d15"
   class="pageLink">Si vous faites 4 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/661475cd0f9251b8abd5fba7d8bb7d0b0615fb310f6a1d2459198097cdaaf5ab"
+- <p><a href="/adventures/read_choice/661475cd0f9251b8abd5fba7d8bb7d0b0615fb310f6a1d2459198097cdaaf5ab"
   class="pageLink">Si vous faites 5 ou davantage.</a></p>

@@ -4,14 +4,14 @@
   monte du sol au plafond. Au fond, deux énormes piliers de pierre encadrent une large
   porte. Sur chaque côté de la salle, une petite porte s'ouvre sur une autre pièce.</p>"
 - "<p>Choisirez-vous de :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ea5abcdd1601c6a0a2a768215f585d872a0c9f3e39d3ec2e80e22255affd946c"
+- <p><a href="/adventures/read_choice/ea5abcdd1601c6a0a2a768215f585d872a0c9f3e39d3ec2e80e22255affd946c"
   class="pageLink">Vous approcher du jet d'eau ?</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/3c1a35965a1604231c6e174c9146e7b5b46ee0dc4736a37395e9535e3275cdc0">Pousser la petite porte sur la droite ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c1a3e4f257f0b5ff478c642abe047e60a1001e6d2a315f04a4fa8c14289f7087"
+   <a href="/adventures/read_choice/3c1a35965a1604231c6e174c9146e7b5b46ee0dc4736a37395e9535e3275cdc0">Pousser la petite porte sur la droite ?</a></p>
+- <p><a href="/adventures/read_choice/c1a3e4f257f0b5ff478c642abe047e60a1001e6d2a315f04a4fa8c14289f7087"
   class="pageLink">Traverser la salle et aller à la porte du fond ?</a><em> </em></p>
 - "<p> </p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4ebed96ad505c8c16a45b9521d02ae3eb1bb210088a97a272ce69c21a2b5bcf6"
+- <p><a href="/adventures/read_choice/4ebed96ad505c8c16a45b9521d02ae3eb1bb210088a97a272ce69c21a2b5bcf6"
   class="pageLink">Pousser la petite porte de gauche ?</a></p>
 - "<p> </p>"

@@ -2,11 +2,11 @@
 - |-
   <p>Vous êtes à l'entrée d'un nouveau couloir, plus court et un peu moins étroit que le précédent. Aux torches qui flanquent le passage, s'ajoutent d'autres ornements. Dans le mur de droite, un large bas-relief aux couleurs chatoyantes représente des scènes<br>
    de la vie des dieux. On y voit Horus rendant la justice, Isis charmant un mortel, Bastet, la déesse chatte, parcourant des montagnes, et d'autres encore. Dans le mur de gauche, une série de niches ont été aménagées pour recevoir les offrandes destinées à ces dieux. Une tenture richement décorée surmonte ces niches à offrandes. Au fond de ce couloir, vous distinguez une ouverture donnant sur la salle suivante.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ef1938c1a59f7a1b96462dd752ae7dfe5ada94347ef5fbaa48a0e5dcb4157aba"
+- <p><a href="/adventures/read_choice/ef1938c1a59f7a1b96462dd752ae7dfe5ada94347ef5fbaa48a0e5dcb4157aba"
   class="pageLink">Allez-vous examiner le mur de droite,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/163c207baf5507eb8f97ab2695e65c438699e5ad35743a1707d9ec4583f284f9"
+- <p><a href="/adventures/read_choice/163c207baf5507eb8f97ab2695e65c438699e5ad35743a1707d9ec4583f284f9"
   class="pageLink">le mur de gauche</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7b132307e612ac0bb60bafc8ad375d8b3988737e7e5b7a5c606e348963fd7907"
+- <p><a href="/adventures/read_choice/7b132307e612ac0bb60bafc8ad375d8b3988737e7e5b7a5c606e348963fd7907"
   class="pageLink">ou préférez-vous traverser directement ce couloir sans vous y attarder
   ?</a></p>
 - "<p> </p>"

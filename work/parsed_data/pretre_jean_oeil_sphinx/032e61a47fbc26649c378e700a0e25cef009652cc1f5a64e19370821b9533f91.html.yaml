@@ -10,9 +10,9 @@
   le reste de la patrouille très probablement, arrivent entre-temps du fond de la
   ruelle.</p>"
 - "<p>Qu'allez-vous répondre au chef des gardes ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4eae20c34af67ed1657789907be8fc61fe3c2bbccc62fae1769adc1e68e48787"
+- <p><a href="/adventures/read_choice/4eae20c34af67ed1657789907be8fc61fe3c2bbccc62fae1769adc1e68e48787"
   class="pageLink">Que vous êtes prêtre et que vous vous rendez au Temple ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c2e3c23fe57defa8ee87a89b351a5f2af7e582c4f5ad99607a08ebb149cee4af"
+- <p><a href="/adventures/read_choice/c2e3c23fe57defa8ee87a89b351a5f2af7e582c4f5ad99607a08ebb149cee4af"
   class="pageLink">Que vous êtes marchand et cherchez la place du marché ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/38f6377bd85e6c7ad6891889c14c8631127f8cd0444d4d6f80d6ffcece6eba92"
+- <p><a href="/adventures/read_choice/38f6377bd85e6c7ad6891889c14c8631127f8cd0444d4d6f80d6ffcece6eba92"
   class="pageLink">Que vous cherchez la demeure du prêtre Antarsis ?</a></p>

@@ -1,9 +1,9 @@
 ---
 - "<p>«Chic! Enfin quelqu'un qui va pouvoir jouer avec moi ! » S’écrie le Magicien
   au moment où vous passez le pas de la porte.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5b748446a0fec82af8affac6a0b9b26ae227a4d7bf6d9afda307dddd6926e8f4"
+- <p><a href="/adventures/read_choice/5b748446a0fec82af8affac6a0b9b26ae227a4d7bf6d9afda307dddd6926e8f4"
   class="pageLink">Allez-vous accepter son offre,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/13e6308d995337f978a1d7593a1eeb84d33879e2e29208ee8451eed77c3d0e2c"
+- <p><a href="/adventures/read_choice/13e6308d995337f978a1d7593a1eeb84d33879e2e29208ee8451eed77c3d0e2c"
   class="pageLink">reculer précipitamment vers la porte</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/56e869fcda51b996beea39c8c536e2122b5f178cb6c500521f95ecad040d7526"
+- <p><a href="/adventures/read_choice/56e869fcda51b996beea39c8c536e2122b5f178cb6c500521f95ecad040d7526"
   class="pageLink">ou bien tirer votre épée pour l'attaquer ?</a></p>

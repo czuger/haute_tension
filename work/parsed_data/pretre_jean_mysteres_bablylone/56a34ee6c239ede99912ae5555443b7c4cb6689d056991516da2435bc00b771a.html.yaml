@@ -15,12 +15,12 @@
   de vos songes.</p>"
 - "<p>Le matin vertu, vous vous préparez à vous remettre en route, après avoir retrouvé
   2 points de Vie en vous reposant. Allez-vous diriger vos pas vers :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/70de3554c526e6174344af6ca209c8b2e6700461015b227ba012aec5c72f0f7f"
+- <p><a href="/adventures/read_choice/70de3554c526e6174344af6ca209c8b2e6700461015b227ba012aec5c72f0f7f"
   class="pageLink">Le quartier de Shamash pour trouver Mahal ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/76f55116b0ce67dac3eece40e9bbf9e6f5b64688f372f01b96432f58801dea9a"
+- <p><a href="/adventures/read_choice/76f55116b0ce67dac3eece40e9bbf9e6f5b64688f372f01b96432f58801dea9a"
   class="pageLink">La porte de Sin et le quartier des Jeux pour trouver Barsip ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/80fb2f15b7a339bd604c109ef48cee086e860b46b2a8ae8b6294285c77af1634"
+- <p><a href="/adventures/read_choice/80fb2f15b7a339bd604c109ef48cee086e860b46b2a8ae8b6294285c77af1634"
   class="pageLink">Les jardins suspendus du palais pour trouver Kantoum ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/83e2bc2b6114e0426e6e71cba2d1b84cd4a9fad82f7b17c5e54f02d352e3e9a4"
+- <p><a href="/adventures/read_choice/83e2bc2b6114e0426e6e71cba2d1b84cd4a9fad82f7b17c5e54f02d352e3e9a4"
   class="pageLink">Si vous avez vu chacun des trois sages et recueilli leurs trois
   renseignements.</a></p>

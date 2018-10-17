@@ -18,9 +18,9 @@
   ! Que se passe-t-il ? Réponds-moi !» Mais vos appels se répercutent à travers la
   mine, restant sans réponse. Vous attendez encore quelques secondes, puis comprenez
   qu'il vous faut agir !</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6fee51605331f9903fbc8d9e5e8381d5219ed685210b5ab437a1b261ca851332"
+- <p><a href="/adventures/read_choice/6fee51605331f9903fbc8d9e5e8381d5219ed685210b5ab437a1b261ca851332"
   class="pageLink">Voulez-vous vous glisser dans cette galerie intermédiaire pour
   l'explorer ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d068e21bf406d0d13da6a22831bc78f9768641dc442979c15767f14bac1ebdea"
+- <p><a href="/adventures/read_choice/d068e21bf406d0d13da6a22831bc78f9768641dc442979c15767f14bac1ebdea"
   class="pageLink">Ou bien, soucieux d'atteindre le fond de la mine voulez-vous prendre
   le risque de trancher la corde qui vous retient suspendu ?</a></p>

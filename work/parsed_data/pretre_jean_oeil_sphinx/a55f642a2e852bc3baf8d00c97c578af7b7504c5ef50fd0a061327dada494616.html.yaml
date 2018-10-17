@@ -4,6 +4,6 @@
   ce qu'il contient, la surprise vous étreint. Le sarcophage du Pharaon est vide !</p>"
 - |-
   <p>Lancez 2 dés.<br>
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/25f68bc4334a9886f890e5d86dc13371d6c06b7187dab0448601e022d4a7b71d">Si vous tirez 10 ou plus.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/25f0b1cc6bf8aaf9d084522b0f970c6b0f89c5bd5ea20ce775d5d7e8bc6d055e"
+   <a href="/adventures/read_choice/25f68bc4334a9886f890e5d86dc13371d6c06b7187dab0448601e022d4a7b71d">Si vous tirez 10 ou plus.</a></p>
+- <p><a href="/adventures/read_choice/25f0b1cc6bf8aaf9d084522b0f970c6b0f89c5bd5ea20ce775d5d7e8bc6d055e"
   class="pageLink">Sinon.</a><em> </em></p>

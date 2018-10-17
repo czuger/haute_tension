@@ -1,10 +1,10 @@
 ---
 - "<p>L'embranchement a été une fausse joie : le couloir continue, toujours aussi
   monotone. Un second embranchement se dessine bientôt devant vous.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/89fc742da623b28ab197cb09cccda00bbba58f96745f125f551e7eab96a4590e"
+- <p><a href="/adventures/read_choice/89fc742da623b28ab197cb09cccda00bbba58f96745f125f551e7eab96a4590e"
   class="pageLink">Vous devez tourner à gauche</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ffbf76c8d19bd9115223a0cb253495e4223c2e531a3148a46810c1a3835cc5fd"
+- <p><a href="/adventures/read_choice/ffbf76c8d19bd9115223a0cb253495e4223c2e531a3148a46810c1a3835cc5fd"
   class="pageLink">ou à droite.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bcdc21226a9221ea556ba5c09f45ee4b90fce6621f99514fabb5e3463e46748d"
+- <p><a href="/adventures/read_choice/bcdc21226a9221ea556ba5c09f45ee4b90fce6621f99514fabb5e3463e46748d"
   class="pageLink">Vous pouvez également revenir sur vos pas jusqu'au premier embranchement
   et explorer le second couloir.</a></p>

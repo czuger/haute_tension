@@ -22,8 +22,8 @@
 - "<p> </p>"
 - "<p>FORCE: 12 VIE: 14</p>"
 - "<p> </p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5cc3fc2a4a3b30734fe53ca5e8676037908d256e9e021aa61932d3b2e75d53d3"
+- <p><a href="/adventures/read_choice/5cc3fc2a4a3b30734fe53ca5e8676037908d256e9e021aa61932d3b2e75d53d3"
   class="pageLink">Si vous gagnez le combat.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/d25c0c4a144a596350c9cb72c901c2265ef11ab0e2b54d0f69310a53cde9df16"
+- <p><a href="/adventures/read_choice/d25c0c4a144a596350c9cb72c901c2265ef11ab0e2b54d0f69310a53cde9df16"
   class="pageLink">Si vous arrivez à 0 point de Vie.</a></p>
 - "<p> </p>"

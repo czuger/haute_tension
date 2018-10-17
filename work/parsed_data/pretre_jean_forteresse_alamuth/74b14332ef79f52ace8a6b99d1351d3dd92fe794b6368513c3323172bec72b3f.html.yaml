@@ -10,7 +10,7 @@
   plus que la mort ! » raille l'homme. Vous comprenez qu'il s'agit du chef des lépreux.
   «Ne sais-tu rien faire d'autre que tuer, étranger ?»</p>"
 - "<p>Avez-vous été blessé durant le combat avec les lépreux ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8e0d528fa11183948d898a9b57b74b5b11844cd817fe019c0a933ce0ce492686"
+- <p><a href="/adventures/read_choice/8e0d528fa11183948d898a9b57b74b5b11844cd817fe019c0a933ce0ce492686"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5eaa65eb798ec86dc34468fa1520ef0a04815c3ce48445f3df93c47ccb243333"
+- <p><a href="/adventures/read_choice/5eaa65eb798ec86dc34468fa1520ef0a04815c3ce48445f3df93c47ccb243333"
   class="pageLink">Sinon.</a></p>

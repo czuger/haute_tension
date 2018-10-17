@@ -14,9 +14,9 @@
 - "<p>En avançant sur la place, vous constatez que les mendiants semblent garder les
   accès de la ville plutôt que quémander: on ne peut entrer dans une ruelle sans passer
   devant au moins deux d'entre eux.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2870a08c7833c576de90e16ff45a3a9d1592640c92197bf5df0dedbe8766379f"
+- <p><a href="/adventures/read_choice/2870a08c7833c576de90e16ff45a3a9d1592640c92197bf5df0dedbe8766379f"
   class="pageLink">Désirez-vous tenter de pénétrer dans la Ville Rouge en courant
   dans l'une de ces ruelles</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/fa2a083a186453e29e9e222b5a12bee071e4116f92d4649da507621854572c2f"
+- <p><a href="/adventures/read_choice/fa2a083a186453e29e9e222b5a12bee071e4116f92d4649da507621854572c2f"
   class="pageLink">ou préférez-vous la contourner dans l'espoir-de trouver une entrée
   moins risquée ?</a></p>

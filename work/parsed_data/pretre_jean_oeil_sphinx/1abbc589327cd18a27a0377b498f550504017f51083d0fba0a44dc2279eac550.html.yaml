@@ -11,9 +11,9 @@
 - "<p><strong>HOMME-SERPENT</strong> FORCE: 14 VIE : 14</p>"
 - "<p>AJUSTEMENT DÉGATS : + 1</p>"
 - "<p> </p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/15679584535a5b4912b12aae8863b38dc2e40eb6cd06ae033e694f435cb7f60f"
+- <p><a href="/adventures/read_choice/15679584535a5b4912b12aae8863b38dc2e40eb6cd06ae033e694f435cb7f60f"
   class="pageLink">Si au bout de trois assauts, vous choississez de fuir hors du Temple.</a><em>
   </em></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f8f9efd5bb071ce9704d77dc70a6749487e4f75fccef07a38483c0985c7b6252"
+- <p><a href="/adventures/read_choice/f8f9efd5bb071ce9704d77dc70a6749487e4f75fccef07a38483c0985c7b6252"
   class="pageLink">Si vous tuez l'Homme-Serpent.</a><em> </em></p>
 - "<p> </p>"

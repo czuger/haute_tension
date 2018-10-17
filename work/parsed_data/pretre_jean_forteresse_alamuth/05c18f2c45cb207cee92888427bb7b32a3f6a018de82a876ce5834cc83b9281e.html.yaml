@@ -1,8 +1,8 @@
 ---
 - "<p>La rivière vous paraît profonde et vous ignorez à quelle distance se trouve
   la rive opposée.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f959f294e183a94ddb53b834de2455f831b56fba0b2142679046a861bc2ff99d"
+- <p><a href="/adventures/read_choice/f959f294e183a94ddb53b834de2455f831b56fba0b2142679046a861bc2ff99d"
   class="pageLink">Si vous jugez préférable d'ôter votre armure avant de vous risquer
   dans l'eau.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1e22bb21d717e381a773daaabf348ece19078a955018946de59fecca3517abd2"
+- <p><a href="/adventures/read_choice/1e22bb21d717e381a773daaabf348ece19078a955018946de59fecca3517abd2"
   class="pageLink">Sinon.</a></p>

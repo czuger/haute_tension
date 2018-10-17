@@ -11,15 +11,15 @@
 - "<p>Quelle attitude allez-vous adopter ?</p>"
 - "<p> </p>"
 - |-
-  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5eade4bcf38dcb733c7c5a1e158b6aead849cbdef4d6caf40c22ffe666555cd7" class="pageLink">Essayer de voler un cheval ?</a><br>
+  <p><a href="/adventures/read_choice/5eade4bcf38dcb733c7c5a1e158b6aead849cbdef4d6caf40c22ffe666555cd7" class="pageLink">Essayer de voler un cheval ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/553.html">Attendre la prochaine caravane ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/531.html">Repartir en direction du port ?</a></p>
 - |-
   <p><br>
    Lui proposer un autre échange :</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bdbe7d85f097e608cbf114af3f42ef3942aff2c334305f90fdfd50dfd54e452c"
+- <p><a href="/adventures/read_choice/bdbe7d85f097e608cbf114af3f42ef3942aff2c334305f90fdfd50dfd54e452c"
   class="pageLink">une lampe</a><em> </em></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c7524fa3b21a591bd478319dbb76e081cde2ce9711172c615f97a1f9cc96f097"
+- <p><a href="/adventures/read_choice/c7524fa3b21a591bd478319dbb76e081cde2ce9711172c615f97a1f9cc96f097"
   class="pageLink">des joyaux,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a73b92ba2e524d4ead0e13c6a549b9cacfb7fd14cd923741d41bf590e3cc7781"
+- <p><a href="/adventures/read_choice/a73b92ba2e524d4ead0e13c6a549b9cacfb7fd14cd923741d41bf590e3cc7781"
   class="pageLink">un médaillon d'argent ?</a><em> </em></p>

@@ -1,15 +1,15 @@
 ---
 - "<p>Vous ouvrez le tiroir de gauche. A votre grand regret, il est vide.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7a6fa3cc638a65487faa718dfc762981594fc53da629b79040664ac7e46ba889"
+- <p><a href="/adventures/read_choice/7a6fa3cc638a65487faa718dfc762981594fc53da629b79040664ac7e46ba889"
   class="pageLink">Vous pouvez à présent ouvrir le tiroir de droite</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/4c402b22dc0ec27a7be19e5dbce6fd5dbf1627387fa123e7ef2d87aeeb64a2e8"
+- <p><a href="/adventures/read_choice/4c402b22dc0ec27a7be19e5dbce6fd5dbf1627387fa123e7ef2d87aeeb64a2e8"
   class="pageLink">ou, si vous ne l'avez déjà fait, fouiller le coffre</a></p>
 - "<p>Sinon vous décidez que vous assez perdu de temps ici et quittez l'antichambre
   par le couloir.</p>"
 - "<p>Ouvrirez-vous :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/81ae793194e088077f7413a0d142393b85bc76f6b0da283204ed72a27608d441"
+- <p><a href="/adventures/read_choice/81ae793194e088077f7413a0d142393b85bc76f6b0da283204ed72a27608d441"
   class="pageLink">La porte de droite ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/031026e44f7a595a0ed335c45e4ef4b5af19ac00673661b7b6325d8ef794055a"
+- <p><a href="/adventures/read_choice/031026e44f7a595a0ed335c45e4ef4b5af19ac00673661b7b6325d8ef794055a"
   class="pageLink">La porte de gauche ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+- <p><a href="/adventures/read_choice/077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
   class="pageLink">La porte du fond ?</a></p>

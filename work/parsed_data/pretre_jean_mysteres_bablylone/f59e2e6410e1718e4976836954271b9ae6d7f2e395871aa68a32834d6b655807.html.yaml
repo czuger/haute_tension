@@ -7,7 +7,7 @@
 - |-
   <p><br>
    Lancez deux dés.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b3c226a22cd9546404a925931abb0db3cf69c3454b1c55f5ede9f3344579a8f3"
+- <p><a href="/adventures/read_choice/b3c226a22cd9546404a925931abb0db3cf69c3454b1c55f5ede9f3344579a8f3"
   class="pageLink">Si vous faites 5 ou moins.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b8168efed59eec4287090aab96bacdad70d42028973f10695095745b2b5698f4"
+- <p><a href="/adventures/read_choice/b8168efed59eec4287090aab96bacdad70d42028973f10695095745b2b5698f4"
   class="pageLink">Si vous faites 6 ou davantage.</a></p>

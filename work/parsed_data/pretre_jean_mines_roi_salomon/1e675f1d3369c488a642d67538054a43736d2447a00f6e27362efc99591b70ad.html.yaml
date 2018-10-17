@@ -4,12 +4,12 @@
   resplendissante !» s'exclame-t-il. «Assurément elle est fort précieuse ... Acceptes-tu
   de t'en séparer pour sauver mon âme ?»</p>"
 - "<p>Quelle est votre réaction ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/75883b3e02948e219a5ddb789aa1a86bc180c22249e501c6869f90d1f8b196a4"
+- <p><a href="/adventures/read_choice/75883b3e02948e219a5ddb789aa1a86bc180c22249e501c6869f90d1f8b196a4"
   class="pageLink">Vous faites ce que vous a demandé le spectre et vous brisez la
   perle ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/32bb0b6fbb78b586bbe50ffa55c05363fd2d5bca7f50f6a37cd027e91c37f103"
+- <p><a href="/adventures/read_choice/32bb0b6fbb78b586bbe50ffa55c05363fd2d5bca7f50f6a37cd027e91c37f103"
   class="pageLink">Vous refusez obstinément de vous séparer d'un si beau joyau ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2118459613c60066b095fcd7a86fca2429dd9370a7f8cd95ee4fbd55b0872782"
+- <p><a href="/adventures/read_choice/2118459613c60066b095fcd7a86fca2429dd9370a7f8cd95ee4fbd55b0872782"
   class="pageLink">Vous attaquez l'apparition pour lui signifier qu'une telle proposition
   est indigne de votre considération ?</a></p>
 - "<p> </p>"

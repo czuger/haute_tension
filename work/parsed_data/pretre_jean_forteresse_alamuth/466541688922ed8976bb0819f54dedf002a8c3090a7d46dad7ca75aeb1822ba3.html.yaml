@@ -2,7 +2,7 @@
 - "<p>Les feuilles des nénuphars sont d'une taille peu commune. Curieusement, elles
   se chevauchent et forment un passage pour traverser la rivière. Vous jugez plus
   prudent d'ôter votre armure avant de tenter de passer, ne conservant que votre heaume.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/305a2fdb06f1d286e58d99fd2266586981e2f14618d7e08263c462408180c072"
+- <p><a href="/adventures/read_choice/305a2fdb06f1d286e58d99fd2266586981e2f14618d7e08263c462408180c072"
   class="pageLink">Si vous désirez traverser en passant à gauche des fleurs odorante.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f1eba9769e05e43af0e8aea6b5a5eea15b6f1c2bc4aa1706d6a2ed02c2ac10cf"
+- <p><a href="/adventures/read_choice/f1eba9769e05e43af0e8aea6b5a5eea15b6f1c2bc4aa1706d6a2ed02c2ac10cf"
   class="pageLink">Si au contraire vous préférez passer à droite.</a></p>

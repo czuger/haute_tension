@@ -4,6 +4,6 @@
    apparition ! Il s'agit certainement d'un spectre !</p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/2118459613c60066b095fcd7a86fca2429dd9370a7f8cd95ee4fbd55b0872782">Allez-vous l'attaquer sans tarder</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8c968e645b134862c8718390b7d24d8c376d649e916a9829cef37205a67723d6"
+   <a href="/adventures/read_choice/2118459613c60066b095fcd7a86fca2429dd9370a7f8cd95ee4fbd55b0872782">Allez-vous l'attaquer sans tarder</a></p>
+- <p><a href="/adventures/read_choice/8c968e645b134862c8718390b7d24d8c376d649e916a9829cef37205a67723d6"
   class="pageLink">ou tenter de découvrir les motifs de sa présence en ce lieu ? </a></p>

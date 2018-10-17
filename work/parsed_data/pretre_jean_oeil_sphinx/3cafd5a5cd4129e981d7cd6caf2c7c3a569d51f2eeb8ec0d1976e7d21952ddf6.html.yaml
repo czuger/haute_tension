@@ -1,9 +1,9 @@
 ---
 - "<p>La porte est solidement fermée. En l'observant de plus près, vous vous apercevez
   qu'elle est décorée de hiéroglyphes rouges et noirs représentant une cérémonie funéraire.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/094244bced31288666b3491f77b07b7ddc2a2dad1218e9634633ce989e74a07d"
+- <p><a href="/adventures/read_choice/094244bced31288666b3491f77b07b7ddc2a2dad1218e9634633ce989e74a07d"
   class="pageLink">Allez-vous soulever la barre et l'enfoncer,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8cd04d1fd3280de0fd96054cc871dc82c88662dee95a7cdc66d77490877df296"
+- <p><a href="/adventures/read_choice/8cd04d1fd3280de0fd96054cc871dc82c88662dee95a7cdc66d77490877df296"
   class="pageLink">essayer de regarder par une fente du bois</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
+- <p><a href="/adventures/read_choice/e19e35c58d425c7d588d23acc3b590cf7f16215b45059e065beddd85c768380c"
   class="pageLink">ou en rester là et" emprunter l'escalier ?</a><em> </em></p>

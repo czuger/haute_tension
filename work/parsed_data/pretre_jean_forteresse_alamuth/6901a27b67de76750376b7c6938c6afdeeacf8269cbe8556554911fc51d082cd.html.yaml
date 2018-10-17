@@ -1,6 +1,6 @@
 ---
 - "<p>Vous apercevez un pont devant vous.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/2effd3690024fda9ab1f0f59741df8b9ad37c7ef2fbb135899820a898e8e0963"
+- <p><a href="/adventures/read_choice/2effd3690024fda9ab1f0f59741df8b9ad37c7ef2fbb135899820a898e8e0963"
   class="pageLink">Si vous n'avez pas traversé la rivière.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c03167eaf8b6a69abc5375350378586f0df9f6bdf1eab5e7205c8d3091f0d800"
+- <p><a href="/adventures/read_choice/c03167eaf8b6a69abc5375350378586f0df9f6bdf1eab5e7205c8d3091f0d800"
   class="pageLink">Sinon.</a></p>

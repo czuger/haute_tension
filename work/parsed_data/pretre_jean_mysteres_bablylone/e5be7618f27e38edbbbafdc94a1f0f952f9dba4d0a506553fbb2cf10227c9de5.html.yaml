@@ -13,11 +13,11 @@
   aux pantalons bouffants, armés de yatagans effilés comme des couperets, avancent
   par ici !</p>"
 - "<p>Qu'allez-vous faire ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7cfa9694326f027f41367d5838d37056c278d2fc988349424c0cf094d24f4ec"
+- <p><a href="/adventures/read_choice/a7cfa9694326f027f41367d5838d37056c278d2fc988349424c0cf094d24f4ec"
   class="pageLink">Attendre qu'ils passent et entrer dans le jardin ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7bc99b6a8ca30d0e3954ab80419fc6315bcfb3d42b12270445a0ce0f18276a01"
+- <p><a href="/adventures/read_choice/7bc99b6a8ca30d0e3954ab80419fc6315bcfb3d42b12270445a0ce0f18276a01"
   class="pageLink">Les attaquer de front ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/24dbf9e977c32611146c18e860a7077959bc85baa5b36812da816b5b98a99bd8"
+- <p><a href="/adventures/read_choice/24dbf9e977c32611146c18e860a7077959bc85baa5b36812da816b5b98a99bd8"
   class="pageLink">Essayer une autre porte de l'antichambre ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b35ace0079124ff5e4a2a8fca0b55b7e319033c36e8bfc6612023cbe2db52acd"
+- <p><a href="/adventures/read_choice/b35ace0079124ff5e4a2a8fca0b55b7e319033c36e8bfc6612023cbe2db52acd"
   class="pageLink">Utiliser l'Œil Magique ?</a></p>

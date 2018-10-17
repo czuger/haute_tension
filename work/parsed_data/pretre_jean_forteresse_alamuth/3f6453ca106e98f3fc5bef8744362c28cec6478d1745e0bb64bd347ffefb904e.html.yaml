@@ -6,7 +6,7 @@
   violemment à l'intérieur. Vous atterrissez sur la paille moisie d'un cachot. L'odeur
   est épouvantable, gémissements et plaintes fusent de tous côtés.</p>"
 - "<p>Avez- vous trouvé la lampe d'Aladin ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/7c1764e44bf7b7979dcfbd7d27ae4c1e7e4e2a35b744bea1ece588802383c667"
+- <p><a href="/adventures/read_choice/7c1764e44bf7b7979dcfbd7d27ae4c1e7e4e2a35b744bea1ece588802383c667"
   class="pageLink">Si oui.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8d0280995f6d46e298bf7a38c1872b1b42e6b6b09c4bc313386c8d5a23cccbac"
+- <p><a href="/adventures/read_choice/8d0280995f6d46e298bf7a38c1872b1b42e6b6b09c4bc313386c8d5a23cccbac"
   class="pageLink">Dans le cas contraire.</a></p>

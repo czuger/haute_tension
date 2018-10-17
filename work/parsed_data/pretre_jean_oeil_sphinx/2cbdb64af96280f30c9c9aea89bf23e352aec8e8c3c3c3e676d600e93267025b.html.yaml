@@ -1,5 +1,5 @@
 ---
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/aba40f30c7f0c131d3c31dd64a94fb77dece5efa8f8447186c3c6170bc4c30ec"
+- <p><a href="/adventures/read_choice/aba40f30c7f0c131d3c31dd64a94fb77dece5efa8f8447186c3c6170bc4c30ec"
   class="pageLink">Si vous possédez un anneau de lapis-lazuli.</a></p>
 - "<p>Épuisé par tant d'épreuves, les jambes flageolantes, vous dégainez votre large
   lame encore tachée du sang de vos victimes. Il vous est impossible d'attaquer ces
@@ -7,7 +7,7 @@
   surprise et en éliminer un avant que les deux autres aient le temps de réagir.</p>"
 - "<p>Sur lequel allez-vous jeter votre dévolu ?</p>"
 - |-
-  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/640b5df9af306521c21fa774bfb0eafaceb9b8bda953f04e749a2e83f4b3a8dd" class="pageLink">Celui de gauche ?</a><br>
+  <p><a href="/adventures/read_choice/640b5df9af306521c21fa774bfb0eafaceb9b8bda953f04e749a2e83f4b3a8dd" class="pageLink">Celui de gauche ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/361.html">Celui du milieu ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/243d03935ba86a65e5bf2040168912badf69f20ce059ece09cf5be9483cfb9a5"
+- <p><a href="/adventures/read_choice/243d03935ba86a65e5bf2040168912badf69f20ce059ece09cf5be9483cfb9a5"
   class="pageLink">Celui de droite ?</a></p>

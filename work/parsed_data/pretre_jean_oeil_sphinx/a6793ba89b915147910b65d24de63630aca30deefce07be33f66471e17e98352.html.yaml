@@ -1,9 +1,9 @@
 ---
 - "<p>Qu'essayez - vous de faire :</p>"
 - |-
-  <p><a href="/adventures/%ADVENTURE_ID%/read_choice/b0624bed9509e7b93284f180311a02ef97a10859f0d632ca7962aafe2b619a8e" class="pageLink">Lancer une boule de feu magique ?</a><br>
+  <p><a href="/adventures/read_choice/b0624bed9509e7b93284f180311a02ef97a10859f0d632ca7962aafe2b619a8e" class="pageLink">Lancer une boule de feu magique ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/148.html">Déclencher un orage de grêle ?</a><br>
    <a href="http://lesitedontvousetesleheros.overblog.com/2014/12/357.html">Pétrifier le panneau ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/19722cdca55c1f71dc44ead9a730b69fcccbe2c9eb6d4374ee7c9260b376366c"
+- <p><a href="/adventures/read_choice/19722cdca55c1f71dc44ead9a730b69fcccbe2c9eb6d4374ee7c9260b376366c"
   class="pageLink">Si vous ne possédez aucun des potions indiquées (ou si vous avez
   changé d'avis).</a></p>

@@ -1,10 +1,10 @@
 ---
 - "<p>Un vague pressentiment vous fait choisir de ne pas entrer dans cette pièce.
   Il ne vous reste donc que deux portes, celle de droite et celle du fond.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c450363dfa8f4888685a0e8b1b8511cf4bd2bb73ec6099dea036441905faa958"
+- <p><a href="/adventures/read_choice/c450363dfa8f4888685a0e8b1b8511cf4bd2bb73ec6099dea036441905faa958"
   class="pageLink">Si vous choisissez la porte de droite.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/eebdb5f8c1df48bc857758eb4bff99be149add4fd3b092441dd7a69888d9f179"
+- <p><a href="/adventures/read_choice/eebdb5f8c1df48bc857758eb4bff99be149add4fd3b092441dd7a69888d9f179"
   class="pageLink">Si vous préférez celle du fond.</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5b12ed947008f07bace61e14b1688d86c25c9c9b356c0dc2c20fe90a860e531f"
+- <p><a href="/adventures/read_choice/5b12ed947008f07bace61e14b1688d86c25c9c9b356c0dc2c20fe90a860e531f"
   class="pageLink">A moins que vous ne vous ravisiez et quittiez ce bâtiment pour
   coucher dans la rue ?</a></p>

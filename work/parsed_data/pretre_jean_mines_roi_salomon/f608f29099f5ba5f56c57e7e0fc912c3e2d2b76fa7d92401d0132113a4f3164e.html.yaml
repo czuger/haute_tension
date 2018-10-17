@@ -8,8 +8,8 @@
   secteur ! Il ignorait qu'une fin si misérable l'attendait... Il possède seulement
   2 pièces d'or au fond d'une bourse en lambeaux. Vous pouvez les empocher si vous
   le désirez.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
+- <p><a href="/adventures/read_choice/a7d368e154e76ce5692db305b246e0532490d2db93ce6afa5dbf213c963ed94e"
   class="pageLink">Prenez maintenant l'embranchement de droite</a></p>
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554">ou celui de gauche.</a></p>
+   <a href="/adventures/read_choice/a049e976a70ba5d1f4a3e0f4c0d451117d9691ff0c454c86282edd9e77faf554">ou celui de gauche.</a></p>

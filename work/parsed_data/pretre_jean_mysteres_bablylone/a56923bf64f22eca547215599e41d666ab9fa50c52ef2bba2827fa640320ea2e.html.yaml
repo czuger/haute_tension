@@ -1,9 +1,9 @@
 ---
 - "<p>Vous tentez de détourner la conversation, mais le marchand revient sur ses 15
   pièces d'or. Il vous rend responsable de cette perte, et vous les demande.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/e49e1ebeafb86747c096d71e217ca45ff031834ca536898a4e369f30ba9dbdfd"
+- <p><a href="/adventures/read_choice/e49e1ebeafb86747c096d71e217ca45ff031834ca536898a4e369f30ba9dbdfd"
   class="pageLink">Voulez-vous les lui donner</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ae019655562b86414eb4b712a5faf2ecbaf40e025a5b4e4664f9cdf388c6ae97"
+- <p><a href="/adventures/read_choice/ae019655562b86414eb4b712a5faf2ecbaf40e025a5b4e4664f9cdf388c6ae97"
   class="pageLink">ou préférez-vous refuser ?</a><em> </em></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/84e195acc68503bdd327c72329cd4e27d5fab47b6b3bba32aa659467cbb99c6a"
+- <p><a href="/adventures/read_choice/84e195acc68503bdd327c72329cd4e27d5fab47b6b3bba32aa659467cbb99c6a"
   class="pageLink">Si vous désirez le dédommager mais n'avez pas assez d'or.</a></p>

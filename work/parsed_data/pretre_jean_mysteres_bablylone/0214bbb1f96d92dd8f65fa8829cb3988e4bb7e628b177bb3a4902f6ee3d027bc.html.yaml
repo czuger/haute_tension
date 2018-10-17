@@ -27,9 +27,9 @@
   de livrer ce combat, retirez 3 points de votre total de Force car vous êtes obligé
   de lutter sans armure et entravé. Le combat commence.</p>"
 - "<p><strong>ALSHAYA LE NOIR F</strong>ORCE: 12 VIE: 13</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8c476d362bdb1708659760be6886c4b134b8b34b4774b26fc0ec3c1b781e3b32"
+- <p><a href="/adventures/read_choice/8c476d362bdb1708659760be6886c4b134b8b34b4774b26fc0ec3c1b781e3b32"
   class="pageLink">Lorsque votre adversaire sera descendu à 2 points de Vie, vous
   pourrez décider de l'épargner </a></p>
 - "<p>ou bien continuer le combat jusqu'à ce que vous l'ayez tué.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/69ac5a9142b9c45e4ce6779ae3a2432065cd52d081f7c3845adb7e1641a8f2a9"
+- <p><a href="/adventures/read_choice/69ac5a9142b9c45e4ce6779ae3a2432065cd52d081f7c3845adb7e1641a8f2a9"
   class="pageLink">Dans ce cas, une fois qu'il sera mort.</a></p>

@@ -2,14 +2,14 @@
 - |-
   <p>Le veilleur appelle le chef de la caravane, un homme grossier et bourru dont les nombreuses entailles sur les plaques de cuir de son armure prouvent à la fois<br>
    sa valeur au combat et la résistance de sa cuirasse. «Bonsoir, voyageur. Mon nom est Aratoth, mais peut-être as-tu entendu parler de moi sous le sobriquet de « Sans peur » ... En effet, depuis dix ans que je mène des convois à travers le désert, je n'ai pas encore été victime de la convoitise des pillards des sables. Ils sèment la mort et la terreur lorsqu'une caravane a la malchance de croiser leur chemin et nul n'a survécu assez longtemps pour donner le moindre indice permettant de les capturer.»· Devant votre ignorance de ses exploits, Aratoth est abasourdi, mais vous accueille néanmoins avec plaisir. Bien qu'il n'ait jamais été attaqué, la compagnie d'un courageux guerrier n'est pas à négliger. « Etranger, reprend-il, tu dois malgré tout acquitter le prix de ton passage, 5 pièces d'or, même si tu ne nous accompagnes pas depuis Thèbes. Cette caravane t'apportera protection et sécurité. Elle te permettra de te reposer et d'arriver à bon port. »</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/6b08bff25e4433aae789a6ac5035092367f3d5df481fab7af62084ea9c80f625"
+- <p><a href="/adventures/read_choice/6b08bff25e4433aae789a6ac5035092367f3d5df481fab7af62084ea9c80f625"
   class="pageLink">Payez ce qu'il demande.</a></p>
 - "<p>Si vous n'avez pas d'argent, vous pouvez lui proposer un objet en troc :</p>"
 - |-
   <p><br class="pageLink">
-   <a href="/adventures/%ADVENTURE_ID%/read_choice/e17f477a453f51518c1b7084beac87d755efa1020d7f5667bd24c4a24f80ef44">un médaillon d'argent,</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/c823b5331415aa1fe58d3c98f262588a0cb20d9b5ffa4b06a99b798d41127e46"
+   <a href="/adventures/read_choice/e17f477a453f51518c1b7084beac87d755efa1020d7f5667bd24c4a24f80ef44">un médaillon d'argent,</a></p>
+- <p><a href="/adventures/read_choice/c823b5331415aa1fe58d3c98f262588a0cb20d9b5ffa4b06a99b798d41127e46"
   class="pageLink">une lampe en cuivre</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/a7f8b7bebd97a9c2162f27e9e13bfd8a6b867d14ce685a9c18f85fa6f36b5c24"
+- <p><a href="/adventures/read_choice/a7f8b7bebd97a9c2162f27e9e13bfd8a6b867d14ce685a9c18f85fa6f36b5c24"
   class="pageLink">ou des pierres précieuses.</a></p>
 - "<p> </p>"

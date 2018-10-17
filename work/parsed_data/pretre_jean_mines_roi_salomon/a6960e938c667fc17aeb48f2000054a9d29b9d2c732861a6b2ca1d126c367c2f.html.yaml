@@ -19,9 +19,9 @@
 - |-
   <p>A l'issue du repas, un spectacle de danses et de combats simulés vous est dédié, puis<br>
    M'Satchmo vous accompagne jusqu'à une des plus belles cases. Avec un excès' de civilités, il prend congé et s'éclipse- dans la nuit. Une fois seul, vous ne trouvez pas le sommeil le vin des Matabélés possède d'indéniables propriétés stimulantes.</p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f562f9ebea9dacb88d8c28f291a659b64c02cf479391c515a2dc266f657c24a6"
+- <p><a href="/adventures/read_choice/f562f9ebea9dacb88d8c28f291a659b64c02cf479391c515a2dc266f657c24a6"
   class="pageLink">Désirez-vous effectuer une petite promenade nocturne dans le village
   avant de dormir</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/43e3be54bcb02558c9e268abcf8e1e067dd430bace93d02f013b022c19892de8"
+- <p><a href="/adventures/read_choice/43e3be54bcb02558c9e268abcf8e1e067dd430bace93d02f013b022c19892de8"
   class="pageLink">ou vous forcerez-vous tout de même à vous reposer en prévision
   du long voyage du lendemain ?</a></p>

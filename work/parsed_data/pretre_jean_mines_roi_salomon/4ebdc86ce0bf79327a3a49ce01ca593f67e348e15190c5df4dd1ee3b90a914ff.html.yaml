@@ -6,21 +6,21 @@
   et même un squelette humain allongé dans un recoin ténébreux.</p>"
 - "<p>Qu'allez-vous faire ?</p>"
 - "<p>Si vous venez du sud :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
+- <p><a href="/adventures/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
   class="pageLink">Prendrez-vous à l'est</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
+- <p><a href="/adventures/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
   class="pageLink">ou à l'ouest ?</a></p>
 - "<p>Si vous venez de l'ouest :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
+- <p><a href="/adventures/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
   class="pageLink">irez-vous au sud</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
+- <p><a href="/adventures/read_choice/bfeac8ae0c61c53e1168f94a7fb013dd39c4ed05eac991f1107b433d5249c458"
   class="pageLink">ou à l'est ?</a></p>
 - "<p>Si vous venez de l'est :</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
+- <p><a href="/adventures/read_choice/8fa24eb0ee5b11b6b7ccdb10b0d1a190a1b181fb58946dc360d3745bdf9dc7ed"
   class="pageLink">prendre-vous au sud</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
+- <p><a href="/adventures/read_choice/decf19469c339bbf742c3ea75e1ea4859be6de37a52250fbb56e31b9f7ca5bab"
   class="pageLink">ou à l'ouest ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/1c5d40cab889e42bdce5d9f7fa15783af0926f6099fa155518332a2e5324ad23"
+- <p><a href="/adventures/read_choice/1c5d40cab889e42bdce5d9f7fa15783af0926f6099fa155518332a2e5324ad23"
   class="pageLink">Ou bien désirez-vous fouiller le squelette ?</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/707ecd1b56efb1f1fd2a6412fed8ad649817fc27ec17fa8f2792267fec086884"
+- <p><a href="/adventures/read_choice/707ecd1b56efb1f1fd2a6412fed8ad649817fc27ec17fa8f2792267fec086884"
   class="pageLink">Si vous êtes déjà passé par ici.</a></p>

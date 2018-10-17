@@ -5,7 +5,7 @@
   les gardes vous accueillent bien volontiers à leur table, heureux de cette aubaine.
   L'aubergiste apporte cinq larges chopes de bière pleines à ras bord. Avez-vous les
   5 pièces d'or nécessaires pour payer cette tournée ?</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/f723bcaad19cfb348e198d31ac684bd4b1f692476b5c90844f088b3984542456"
+- <p><a href="/adventures/read_choice/f723bcaad19cfb348e198d31ac684bd4b1f692476b5c90844f088b3984542456"
   class="pageLink">Si vous ne les avez pas, vous vous excusez, mais les gardes pensent
   à tort que vous vous êtes moqué d'eux. Ils vous empoignent rudement et vous traînent
   au dehors.</a></p>
@@ -14,7 +14,7 @@
   complètement leurs soupçons. Un moment après, ils décident de retourner à leur poste
   dans la tour est de la Forteresse et prennent congé en vous remerciant d'une voix
   pâteuse. Le plus ivre des cinq est toujours réticent à partir.</p>"
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/5ded4934ae9603182290be3e98fe11f55f3c192bdadcffe20ba725e63f03a6ca"
+- <p><a href="/adventures/read_choice/5ded4934ae9603182290be3e98fe11f55f3c192bdadcffe20ba725e63f03a6ca"
   class="pageLink">Décidez- vous d'emboîter très vite le pas aux gardes éméchés</a></p>
-- <p><a href="/adventures/%ADVENTURE_ID%/read_choice/ba56226d1b69ccd270d4206d2c8983ab9da2068ed798207f6e3bd86c06ec764f"
+- <p><a href="/adventures/read_choice/ba56226d1b69ccd270d4206d2c8983ab9da2068ed798207f6e3bd86c06ec764f"
   class="pageLink">ou préférez-vous attendre un moment avant de sortir?</a></p>
