@@ -1,5 +1,6 @@
 class AdventuresController < ApplicationController
-  before_action :set_adventure, only: [:show, :destroy]
+
+  before_action :set_adventure, except: [:new, :create]
   before_action :set_new_adventure, only: [:new, :create]
 
   # GET /aventures
@@ -14,7 +15,6 @@ class AdventuresController < ApplicationController
   end
 
   def play
-    @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.current_page
     @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
@@ -23,7 +23,6 @@ class AdventuresController < ApplicationController
   end
 
   def read_choice
-    @adventure = Adventure.find(params[:adventure_id])
     page = Page.find_by_page_hash( params[:page_id] )
     @adventure.current_page = page
     ActiveRecord::Base.transaction do
@@ -59,14 +58,12 @@ class AdventuresController < ApplicationController
   end
 
   def reroll
-    @adventure = Adventure.find(params[:adventure_id])
     roll_adventure
     @adventure.save!
     redirect_to @adventure
   end
 
   def roll_dices
-    @adventure = Adventure.find(params[:adventure_id])
     @dices = Hazard.s2d6
   end
 
