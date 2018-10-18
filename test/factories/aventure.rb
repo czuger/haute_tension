@@ -1,16 +1,13 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :adventure do
 
-    downloaded_book
-    parsed_section
-
-    hp 20
-    hp_max 20
-    strength 12
-    strength_max 12
-    gold 20
-    rations 4
+    hp {20}
+    hp_max {20}
+    strength {12}
+    strength_max {12}
+    gold {20}
+    rations {4}
 
     factory :fight_adventure_weak_monster do
       association :page, factory: :fight_page_weak_monster
@@ -24,7 +21,7 @@ FactoryGirl.define do
       association :page, factory: :fight_page_two_weak_monsters
     end
 
-    items { [ FactoryGirl.create(:item) ] }
+    items { [ FactoryBot.create(:item) ] }
 
   end
 

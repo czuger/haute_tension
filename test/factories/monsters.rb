@@ -1,19 +1,19 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :monster do
-    name 'Basic monster'
-    strength 10
-    hp 10
+    name {'Basic monster'}
+    strength {10}
+    hp {10}
 
     factory :weak_monster do
-      name 'Weak monster'
-      strength 8
-      hp 8
+      name {'Weak monster'}
+      strength {8}
+      hp {8}
     end
 
     factory :strong_monster do
-      name 'Strong monster'
-      strength 20
-      hp 20
+      name {'Strong monster'}
+      strength {20}
+      hp {20}
     end
 
   end

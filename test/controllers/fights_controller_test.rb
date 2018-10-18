@@ -2,8 +2,6 @@ require 'test_helper'
 
 class FightsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @fight_monster = create( :fight_monster )
-    @adventure = @fight_monster.adventure
   end
 
   test "should get index" do

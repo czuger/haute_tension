@@ -22,7 +22,7 @@ class AdventuresController < ApplicationController
       @page = Page.find_by_page_hash( params[:page_id] )
     end
 
-    @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
+    # @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
 
   def die
@@ -69,7 +69,7 @@ class AdventuresController < ApplicationController
         end
       end
     else
-      redirect_to adventure_play_path( adventure_id: :none, page_id: book.first_page.page_hash )
+      redirect_to adventure_play_path( page_id: book.first_page.page_hash )
     end
   end
 
