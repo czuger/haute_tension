@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :game_logs, only: [ :show ]
   resource :heros, only: [ :show, :update ]
   resource :items, only: [ :show, :update ]
+  resource :notes, only: [:edit, :update]
 
   resource :fights, only: [ :show, :update, :new, :create ] do
     get :fight_monster

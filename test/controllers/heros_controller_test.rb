@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NotesControllerTest < ActionDispatch::IntegrationTest
+class HerosControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = create(:user)
@@ -10,14 +10,14 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
   end
 
-  test 'should get edit' do
-    get edit_notes_url
+  test 'should get show' do
+    get heros_url
     assert_response :success
   end
 
-  test 'should get update' do
-    patch notes_url
-    assert_redirected_to play_adventures_url
+  test 'should update hero' do
+    patch heros_url, params: {adventure: { hp: 50 } }
+    assert_redirected_to heros_url
   end
 
 end
