@@ -1,42 +1,18 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
+    @user = create(:user)
+    sign_in @user
+
+    @book = create( :book )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
   end
 
-  test "should get index" do
-    get items_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_item_url
-    assert_response :success
-  end
-
-  test "should create item" do
-    assert_difference('Item.count') do
-      post items_url, params: { item: { name: @item.name } }
-    end
-
+  test 'should update item' do
+    patch items_url, params: { inventory: {} }
     assert_redirected_to items_url
   end
 
-  test "should get edit" do
-    get edit_item_url(@item)
-    assert_response :success
-  end
-
-  test "should update item" do
-    patch item_url(@item), params: { item: { name: @item.name } }
-    assert_redirected_to edit_item_url(@item)
-  end
-
-  # test "should destroy item" do
-  #   assert_difference('Item.count', -1) do
-  #     delete item_url(@item)
-  #   end
-  #
-  #   assert_redirected_to items_url
-  # end
 end

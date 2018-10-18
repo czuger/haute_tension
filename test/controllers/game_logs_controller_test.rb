@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GameLogsControllerTest < ActionDispatch::IntegrationTest
 
-  def setup
+  setup do
     # @request.env['devise.mapping'] = Devise.mappings[:user]
     @user = create(:user)
     sign_in @user

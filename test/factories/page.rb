@@ -11,7 +11,7 @@ FactoryBot.define do
     end
 
     sequence :text do |n|
-      "Lorem ipsum #{n}"
+      ["Lorem ipsum #{n}"]
     end
 
     factory :fight_page_weak_monster do
