@@ -1,73 +1,36 @@
-namespace :data do
-  namespace :download do
+namespace :books do
 
-    # desc 'Full download'
-    # task :full => :environment do
-    #   PageLink.delete_all
-    #   Page.delete_all
-    #   Book.delete_all
-    #
-    #   b = Book.create!( name: "La forteresse d'alamuth" )
-    #   p = Page.download( b, 'http://www.lesitedontvousetesleheros.fr/1-61' )
-    #   b.update( first_page_id: p.id )
-    #
-    # end
+    desc 'Build books database'
+    task :build_db => :environment do
 
-    desc 'Download pages only'
-    task :pages => :environment do
-      downloaded = Set.new
+      TITLES = %w( pretre_jean_forteresse_alamuth pretre_jean_mines_roi_salomon pretre_jean_mysteres_bablylone pretre_jean_oeil_sphinx )
+      BOOKS_NAMES = {
+          pretre_jean_forteresse_alamuth: "1. La forteresse d'Alamuth", pretre_jean_oeil_sphinx: "2. L'oeil du Sphinx",
+          pretre_jean_mines_roi_salomon: '3. Les mines du roi Salomon', pretre_jean_mysteres_bablylone: '4. Les mystères de Babylone'
+      }
 
-      books = [
-        { name: "La forteresse d'alamuth", url: 'http://www.lesitedontvousetesleheros.fr/1-61' },
-        { name: "L'oeil du sphinx", url: 'http://www.lesitedontvousetesleheros.fr/2014/11/prologue-6.html' },
-        { name: 'Les mines du roi salomon', url: 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue.html' },
-        { name: 'Les mystères de babylone', url: 'http://www.lesitedontvousetesleheros.fr/2014/12/prologue-2.html' },
-        { name: 'Les adorateurs du mal', url: 'http://www.lesitedontvousetesleheros.fr/la-saga-du-pr%C3%AAtre-jean' }
-      ]
+      ActiveRecord::Base.transaction do
+        Book::TITLES.each do |title|
+          b = Book.find_or_create_by!( book_key: title ) do |book|
+            book.name = BOOKS_NAMES[title.to_sym]
+          end
 
-      books.each do |book_str|
-        downloaded.clear
-        dl_book = DownloadedBook.where( name: book_str[ :name ] ).first_or_create!( url: book_str[ :url ] )
-        Page.download_only( dl_book, book_str[ :url ], downloaded )
+          db = YAML.load_file("work/raw_data/#{title}.yaml")
+
+          db.values.each_with_index do |dl_data, index|
+            page_data = YAML.load_file( "work/parsed_data/#{title}/#{dl_data[:page_index]}.html.yaml" )
+            p = Page.where( page_hash: dl_data[:page_index] ).first_or_initialize
+            p.text = page_data
+            p.url = dl_data[:origin_url]
+            p.book_id = b.id
+            p.save!
+
+            if index == 0
+              b.first_page_id = p.id
+              b.save!
+            end
+          end
+        end
       end
-    end
   end
-
-  desc 'Cleanup pages and monsters'
-  task :cleanup_pages_and_monsters => :environment do
-    FightMonster.connection.execute( 'TRUNCATE TABLE monsters_parsed_sections' )
-    FightMonster.delete_all
-    Monster.delete_all
-    ParsedSection.delete_all
-  end
-
-  desc 'Parse page'
-  task :parse_page => :environment do
-    # TODO : drop table monsters_pages, pages, books
-
-    iv = InternalVariable.find_or_create_by!( var_name: 'LAST_DLS_ID' ) do |var|
-      var.var_int = 0
-    end
-
-    DownloadedSection.where( 'id > ?', iv.var_int ).order( :id ).each do |dls|
-      puts "Parsing : #{dls.id}"
-      GameCore::SectionParser.new.parse_page( dls )
-      iv.update_attribute( :var_int, dls.id )
-    end
-  end
-
-  # desc 'Update data'
-  # task :update => :environment do
-  #   Page.all.each do |page|
-  #     page.update_page
-  #   end
-  # end
-  #
-  # desc 'Read datas'
-  # task :read => :environment do
-  #   Page.all.each do |page|
-  #     page.pages_content
-  #   end
-  # end
-
 end
