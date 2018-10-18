@@ -22,4 +22,20 @@ class FightsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get new in case combat already exist' do
+    get new_fights_url
+    assert_redirected_to fights_url
+  end
+
+  test 'should get new in case of new combat' do
+    @adventure.update( current_fight_id: nil )
+    get new_fights_url
+    assert_response :success
+  end
+
+  test 'should create new fight' do
+    post fights_url, params: { fight: { opponent_1_name: 'Foo', opponent_1_strength: 10, opponent_1_life: 10 } }
+    assert_redirected_to fights_url
+  end
+
 end

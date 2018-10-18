@@ -2,7 +2,7 @@ class FightsController < ApplicationController
   before_action :set_adventure
 
   def new
-    redirect_to adventure_fights_path(@adventure) if @adventure.current_fight
+    redirect_to fights_path if @adventure.current_fight
     @fight = Fight.new
     @title= 'Créer un combat'
   end

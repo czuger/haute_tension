@@ -11,7 +11,7 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get adventures_url
+    get list_adventures_url
     assert_response :success
   end
 
@@ -29,7 +29,7 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show adventure' do
-    get adventures_url(@adventure)
+    get adventures_url
     assert_response :success
   end
 
