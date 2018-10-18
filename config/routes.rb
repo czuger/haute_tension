@@ -20,5 +20,5 @@ Rails.application.routes.draw do
     get :list
   end
 
-  root 'adventures#index'
+  root 'adventures#list'
 end
