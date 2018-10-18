@@ -3,7 +3,11 @@ require 'test_helper'
 class AventuresControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @adventure = create( :adventure )
+    @user = create(:user)
+    sign_in @user
+
+    @book = create( :book )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
   end
 
   test "should get index" do
@@ -40,8 +44,8 @@ class AventuresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should reroll" do
-    get adventure_reroll_url( adventure_id: @adventure.id )
-    assert_redirected_to @adventure
+    get reroll_adventures_url( adventure_id: @adventure.id )
+    assert_redirected_to adventures_url
   end
 
   test "should roll dices" do

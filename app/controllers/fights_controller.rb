@@ -26,16 +26,6 @@ class FightsController < ApplicationController
     @title= 'Détail du combat'
   end
 
-  def add_monster
-    @adventure.fight_monsters.create!( monster_id: @monster.id, hp: @monster.hp )
-    redirect_to fight_url( @adventure )
-  end
-
-  def remove_monster
-    @adventure.fight_monsters.delete( @fight_monster )
-    redirect_to fight_url( @adventure )
-  end
-
   def fight_monster
     @fight_result = GameCore::Fight.new( @adventure, params[:monster_index].to_i )
     @hero = @fight_result.hero

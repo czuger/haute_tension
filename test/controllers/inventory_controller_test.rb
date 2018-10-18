@@ -3,7 +3,11 @@ require 'test_helper'
 class InventoryControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @adventure = create( :adventure )
+    @user = create(:user)
+    sign_in @user
+
+    @book = create( :book )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
   end
 
   test "should get show" do

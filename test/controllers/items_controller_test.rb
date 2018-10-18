@@ -2,7 +2,6 @@ require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @item = create( :item )
   end
 
   test "should get index" do
@@ -33,11 +32,11 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_item_url(@item)
   end
 
-  test "should destroy item" do
-    assert_difference('Item.count', -1) do
-      delete item_url(@item)
-    end
-
-    assert_redirected_to items_url
-  end
+  # test "should destroy item" do
+  #   assert_difference('Item.count', -1) do
+  #     delete item_url(@item)
+  #   end
+  #
+  #   assert_redirected_to items_url
+  # end
 end
