@@ -5,47 +5,47 @@
         %h2 Détails de l'aventurier
         .list-group-item
           .row.row-separation
-            .col-xs-6.col-md-2.title
-            .col-xs-2.col-md-1.title Min
-            .col-xs-3.col-md-1.title Max
+            .col-xs-6.col-md-3.title
+            .col-xs-2.col-md-2.title Min
+            .col-xs-3.col-md-2.title Max
             .hidden-xs.col-md-2.title
-            .hidden-xs.col-md-1.title Min
-            .hidden-xs.col-md-1.title
-            .hidden-xs.col-md-2.title
-            .hidden-xs.col-md-1.title Min
-            .hidden-xs.col-md-1.title Max
+            .hidden-xs.col-md-2.title Min
 
-            = form_for @adventure, url: heros_path, method: :put do |a|
-              .row.row-separation
-                .col-xs-6.col-md-2.title Hp
-                .col-xs-6.col-md-1= a.number_field :hp, class: 'form-control'
-                .col-xs-6.col-md-1= a.number_field :hp_max, class: 'form-control'
+          = form_for @adventure, url: heros_path, method: :put do |a|
+            .row.row-separation
+              .col-xs-6.col-md-1
+              .col-xs-6.col-md-2.title Hp
+              .col-xs-6.col-md-2= a.number_field :hp, class: 'form-control'
+              .col-xs-6.col-md-2= a.number_field :hp_max, class: 'form-control'
 
-                .col-xs-6.col-md-2.title Or
-                .col-xs-6.col-md-1= a.number_field :gold, class: 'form-control'
-                .col-xs-6.col-md-1
+              .col-xs-6.col-md-2.title Or
+              .col-xs-6.col-md-2= a.number_field :gold, class: 'form-control'
+              .col-xs-6.col-md-1
 
-                .col-xs-6.col-md-2.title Gourdes
-                .col-xs-6.col-md-1= a.number_field :waterskins, class: 'form-control'
-                .col-xs-6.col-md-1= a.number_field :waterskins_max, class: 'form-control'
+            .row.row-separation
+              .col-xs-6.col-md-1
+              .col-xs-6.col-md-2.title Force
+              .col-xs-6.col-md-2= a.number_field :strength, class: 'form-control'
+              .col-xs-6.col-md-2= a.number_field :strength_max, class: 'form-control'
 
-              .row.row-separation
-                .col-xs-6.col-md-2.title Force
-                .col-xs-6.col-md-1= a.number_field :strength, class: 'form-control'
-                .col-xs-6.col-md-1= a.number_field :strength_max, class: 'form-control'
+              .col-xs-6.col-md-2.title Rations
+              .col-xs-6.col-md-2= a.number_field :rations, class: 'form-control'
+              .col-xs-6.col-md-1
 
-                .col-xs-6.col-md-2.title Rations
-                .col-xs-6.col-md-1= a.number_field :rations, class: 'form-control'
-                .col-xs-6.col-md-1
+            .row.row-separation
+              .col-xs-6.col-md-1
+              .col-xs-6.col-md-2.title Gourdes
+              .col-xs-6.col-md-2= a.number_field :waterskins, class: 'form-control'
+              .col-xs-6.col-md-2= a.number_field :waterskins_max, class: 'form-control'
 
-                .col-xs-6.col-md-2.title Charisme
-                .col-xs-6.col-md-1= a.check_box :charisma_avaliable, class: 'form-control'
-                .col-xs-6.col-md-1
+              .col-xs-6.col-md-2.title Charisme
+              .col-xs-6.col-md-2= a.check_box :charisma_avaliable, class: 'form-control'
+              .col-xs-6.col-md-1
 
-              .row.row-separation
-                .col-md-5
-                .col-md-2
-                  = submit_tag 'Mettre à jour', class: 'form-control'
+            .row.row-separation
+              .col-md-5
+              .col-md-2
+                = submit_tag 'Mettre à jour', class: 'form-control'
 
     #pageFooter.col-xs-12
 
