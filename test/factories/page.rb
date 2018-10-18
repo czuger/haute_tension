@@ -2,10 +2,16 @@ FactoryBot.define do
 
   factory :page do
 
-    book
-
     sequence :url do |n|
-      "Dummy url #{n}"
+      "Page url #{n}"
+    end
+
+    sequence :page_hash do |n|
+      "Page hash #{n}"
+    end
+
+    sequence :text do |n|
+      "Lorem ipsum #{n}"
     end
 
     factory :fight_page_weak_monster do

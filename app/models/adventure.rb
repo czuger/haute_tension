@@ -1,5 +1,6 @@
 class Adventure < ApplicationRecord
 
+  belongs_to :user
   belongs_to :book
   belongs_to :current_page, class_name: 'Page'
 

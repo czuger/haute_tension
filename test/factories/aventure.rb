@@ -21,8 +21,6 @@ FactoryBot.define do
       association :page, factory: :fight_page_two_weak_monsters
     end
 
-    items { [ FactoryBot.create(:item) ] }
-
   end
 
 end
