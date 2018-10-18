@@ -69,7 +69,7 @@ class AdventuresController < ApplicationController
         end
       end
     else
-      redirect_to adventure_play_path( page_id: book.first_page.page_hash )
+      redirect_to play_adventures_path( page_id: book.first_page.page_hash )
     end
   end
 

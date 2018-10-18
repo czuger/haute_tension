@@ -3,13 +3,13 @@
 
     - if @user&.id
       .col-sm-2.col-xs-3.col-md-1
-        = link_to list_adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-offset' => 20, title: 'Liste des aventures' do
+        = link_to list_adventures_path, offset: '10px', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-offset' => 20, title: 'Liste des aventures' do
           %button
             =image_tag 'icons/book-cover.svg', class: 'menu-icon'
 
     - if @adventures
       .col-sm-2.col-xs-3.col-md-1
-        = link_to new_adventures_path, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Créer une aventure' do
+        = link_to new_adventures_path, 'data-offset' => '10 10', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', title: 'Créer une aventure' do
           %button
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
