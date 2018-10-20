@@ -4,7 +4,12 @@ lock '3.6.1'
 set :application, 'haute_tension'
 set :repo_url, 'git@github.com:czuger/haute_tension.git'
 
-set :rvm_ruby_version, '2.3.1'      # Defaults to: 'default'
+set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_ruby, '2.4.2'
+
+# Default deploy_to directory is /var/www/my_app
+set :deploy_to, '/var/www/haute_tension'
+set :keep_releases, 1
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets')
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml' )

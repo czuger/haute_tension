@@ -41,6 +41,15 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'mocha'
   gem 'rubocop-rspec'
+
+  gem 'capistrano', '3.6.1'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rbenv', '~> 2.1'
+
+  gem 'capistrano3-puma'
+
+  gem 'ed25519', '~> 1.2'
+  gem 'bcrypt_pbkdf', '~> 1.0'
 end
 
 group :test do
@@ -60,12 +69,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'capistrano', '~> 3.0'
-gem 'capistrano-rvm'
-gem 'capistrano-rails', '~> 1.2'
-
-gem 'capistrano3-puma' , group: :development
 
 gem 'listen', '~> 3.0.5'
 
