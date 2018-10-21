@@ -10,7 +10,7 @@ namespace :books do
       }
 
       ActiveRecord::Base.transaction do
-        Book::TITLES.each do |title|
+        TITLES.each do |title|
           b = Book.find_or_create_by!( book_key: title ) do |book|
             book.name = BOOKS_NAMES[title.to_sym]
           end
