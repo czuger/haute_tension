@@ -76,6 +76,11 @@ class AdventuresController < ApplicationController
     end
   end
 
+  def start_book
+    book = Book.find_by_book_key(params[ :book_key ] )
+    redirect_to play_adventures_path( page_id: book.first_page.page_hash )
+  end
+
   def reroll
     roll_adventure
     @adventure.save!
