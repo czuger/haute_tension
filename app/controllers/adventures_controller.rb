@@ -3,6 +3,9 @@ class AdventuresController < ApplicationController
   before_action :set_adventure, except: [:new, :create]
   before_action :set_new_adventure, only: [:new, :create]
 
+  def welcome
+  end
+
   # GET /aventures
   # GET /adventures.json
   def list
