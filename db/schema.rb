@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181018151930) do
+ActiveRecord::Schema.define(version: 20181023094246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20181018151930) do
     t.string   "notes"
     t.integer  "hp_max",                            null: false
     t.integer  "strength_max",                      null: false
-    t.string   "items"
     t.integer  "current_fight_id"
     t.integer  "user_id",                           null: false
+    t.string   "items",                             null: false
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
     t.index ["user_id"], name: "index_adventures_on_user_id", using: :btree
