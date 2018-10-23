@@ -4,7 +4,7 @@
 
 - @log.each do |log|
   - if log.log_type == GameLog::JOURNEY
-    %p= raw log.page.text.first
+    %p= raw log.page.text.first.gsub( /<a.+">/, '' ).gsub( '</a>', '' )
 
   - elsif log.log_type == GameLog::FIGHT
     %p= raw log_fight_message( log )
