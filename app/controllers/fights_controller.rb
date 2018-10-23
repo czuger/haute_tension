@@ -6,6 +6,16 @@ class FightsController < ApplicationController
   end
 
   def old_fights_selection
+    old_fight = Fight.find( params[:fight_id] )
+    old_fight.dup.save
+    @adventure.current_fight = old_fight
+
+    if @adventure.save
+      redirect_to fights_path, notice: 'Combat dupliqué'
+    else
+      @fights = @adventure.book.fights
+      render :old_fights
+    end
   end
 
   def new
@@ -44,7 +54,7 @@ class FightsController < ApplicationController
       current_fight = @adventure.current_fight
       @adventure.current_fight_id = nil
       if @adventure.save && current_fight.destroy
-        redirect_to fights_path, notice: 'Combat terminé'
+        redirect_to new_fights_path, notice: 'Combat terminé'
       else
         render :show
       end
