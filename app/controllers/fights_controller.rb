@@ -32,6 +32,18 @@ class FightsController < ApplicationController
     @monster = @fight_result.monster
   end
 
+  def destroy
+    if @adventure.current_fight
+      current_fight = @adventure.current_fight
+      @adventure.current_fight_id = nil
+      if @adventure.save && current_fight.destroy
+        redirect_to fights_path, notice: 'Combat terminé'
+      else
+        render :show
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 

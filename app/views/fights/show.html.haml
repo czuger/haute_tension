@@ -48,4 +48,6 @@
               .col-xs-6.col-md-1.text-center
                 = link_to 'Combattre', fight_monster_fights_path( monster_index: index ), class: 'btn btn-secondary', role: 'button',  'aria-disabled' => true
 
+    = link_to 'Terminer le combat', fights_path, method: :delete, class: 'btn btn-secondary mt-2', role: 'button',  'aria-disabled' => true
+
 #pageFooter.col-xs-12

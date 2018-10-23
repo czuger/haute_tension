@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :items, only: [ :show, :update ]
   resource :notes, only: [:edit, :update]
 
-  resource :fights, only: [ :show, :update, :new, :create ] do
+  resource :fights, only: [ :show, :update, :new, :create, :destroy ] do
     get :fight_monster
   end
 
