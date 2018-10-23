@@ -1,27 +1,35 @@
+%h2
+  = t( '.title' )
 
-= link_to play_adventures_path, class: 'btn btn-success' do
-  %span.glyphicon.glyphicon-play
-  = t( '.play' )
-= link_to reroll_adventures_path, class: 'btn btn-warning' do
-  %span.glyphicon.glyphicon-refresh
-  = t( '.reroll' )
+.my-3
+  = link_to play_adventures_path, class: 'btn btn-success mr-3' do
+    %span.glyphicon.glyphicon-play
+    = t( '.play' )
 
-%h2= t( '.title' )
+  = link_to reroll_adventures_path, class: 'btn btn-warning' do
+    %span.glyphicon.glyphicon-refresh
+    = t( '.reroll' )
 
-%dl.dl-horizontal
-  %dt Book:
-  %dd= @adventure.book.name
-  %dt Hp:
-  %dd= @adventure.hp
-  %dt Force:
-  %dd= @adventure.strength
-  %dt Or:
-  %dd= @adventure.gold
-  %dt Gourdes:
-  %dd= @adventure.waterskins
-  %dt Gourdes remplies:
-  %dd= @adventure.waterskins_max
-  %dt Rations:
-  %dd= @adventure.rations
-  %dt Charisme:
-  %dd= @adventure.charisma_avaliable
+.row
+  .col-2
+    Book
+  .col-10
+    = @adventure.book.name
+
+.row
+  .col-2
+    Hp
+  .col-10
+    = @adventure.hp
+
+.row
+  .col-2
+    Force
+  .col-10
+    = @adventure.strength
+
+.row
+  .col-2
+    Or
+  .col-10
+    = @adventure.gold
