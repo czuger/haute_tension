@@ -58,6 +58,7 @@ class AdventuresController < ApplicationController
       @adventure = Adventure.new(adventure_params)
       @adventure.user_id = @user.id
       @adventure.current_page = book.first_page
+      @adventure.items = {}
       roll_adventure
 
       respond_to do |format|
