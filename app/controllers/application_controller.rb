@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   def set_adventure
     set_user
-    # p @user
     @adventure = @user&.current_adventure
   end
 
