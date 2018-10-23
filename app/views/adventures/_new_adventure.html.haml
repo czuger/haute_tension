@@ -1,7 +1,7 @@
 %h1
   La saga du prêtre Jean
 
-- if @adventure.errors.any?
+- if @adventure&.errors&.any?
   - @adventure.errors.full_messages.each do |msg|
     = content_tag :div, class: 'alert alert-danger alert-dismissable', role: 'alert' do
       %button.close{type: 'button', data: {dismiss: 'alert'} }
