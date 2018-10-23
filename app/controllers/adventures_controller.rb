@@ -101,7 +101,7 @@ class AdventuresController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to list_adventures_url, notice: 'Aventure was successfully destroyed.' }
+      format.html { redirect_to list_adventures_url, notice: 'Aventure supprimée avec succès.' }
       format.json { head :no_content }
     end
   end

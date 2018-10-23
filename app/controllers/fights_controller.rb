@@ -44,7 +44,7 @@ class FightsController < ApplicationController
       @adventure.current_fight_id = @fight.id
       a_save = @adventure.save
 
-      f_save && a_save
+      f_save && a_save && @fight.dup.save
     end
 
 end
