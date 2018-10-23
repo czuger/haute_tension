@@ -20,6 +20,12 @@ File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
   until urls.empty?
     url_to_process = urls.shift
 
+    p url_to_process.encoding.to_s
+
+    # if url_to_process.encoding.to_s == 'UTF-8'
+    #   url_to_process = url_to_process.encode 'iso-8859-1'
+    # end
+
     unless index[ url_to_process ]
 
       puts "Downloading #{url_to_process}"
@@ -27,8 +33,8 @@ File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
       file_index = Digest::SHA2.hexdigest URI::split(url_to_process )[5]
       file_path = "#{data_path}/#{path}/#{file_index}.html"
 
-      # download = open( url_to_process )
-      # IO.copy_stream(download, file_path)
+      download = open( url_to_process )
+      IO.copy_stream(download, file_path)
 
       index[ url_to_process ] = { file_path: file_path, origin_url: url_to_process, page_index: file_index }
 
@@ -41,7 +47,8 @@ File.open( 'urls.txt', 'r' ).readlines.each do |url_line|
         url = paragraphe.attributes['href'].value
         urls << url.gsub( 'www.lesitedontvousetesleheros.fr', 'lesitedontvousetesleheros.overblog.com' )
       end
-
+    else
+      puts "Skipping #{url_to_process}"
     end
   end
 
