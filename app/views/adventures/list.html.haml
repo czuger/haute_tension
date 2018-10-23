@@ -9,11 +9,11 @@
 
 #main.container.container-fluid
   .row
-    #homePageContent.col-xs-12
+    #homePageContent.col-12
       .list-group.introduction
 
         %h2
-          = t( '.title' )
+          Aventures en cours
 
         -#= link_to new_adventure_path, class: 'btn btn-primary' do
         -#  %span.glyphicon.glyphicon-plus
@@ -27,25 +27,30 @@
               .panel.panel-default
                 %h4.panel-heading
                   .row
-                    .col-md-6.col-xs-10
+                    .col-md-8.col-8
                       = link_to "#adventure_#{adventure.id}", class: 'adventureLink', 'data-toggle' => 'collapse', 'data-parent' => '#availableAdventures' do
                         %span{ class: 'adventureName' }
                           = adventure.book.name
-                    .col-md-6.col-xs-2
+                    .col-md-2.col-2
                       = link_to play_adventures_path( adventure_id: adventure.id ) do
-                        %span.glyphicon.glyphicon-play
+                        -#%span.glyphicon.glyphicon-play
+                        Jouer
+                    .col-md-2.col-2
+                      = link_to adventures_path, data: { confirm: t( '.are_you_sure' ) }, method: :delete do
+                        -#%span.glyphicon.glyphicon-play
+                        Supprimer
 
-                  .panel-collapse.collapse{ id: "adventure_#{adventure.id}" }
-                    .panel-body
-                      .row.status
-                        .col-xs-12
-                          = "Aventure commencée le #{adventure.created_at}."
-
-                      .lastAdventureSummary
-                        %span{ class: :text }
-                          = print_summary( adventure )
-
-                      .row.actions
-                        .col-xs-12.remove
-                          = link_to adventures_path, data: { confirm: t( '.are_you_sure' ) }, method: :delete do
-                            %span{ class: 'glyphicon glyphicon-trash' }
+                  -#.panel-collapse.collapse{ id: "adventure_#{adventure.id}" }
+                  -#  .panel-body
+                  -#    .row.status
+                  -#      .col-12
+                  -#        = "Aventure commencée le #{adventure.created_at}."
+                  -#
+                  -#    .lastAdventureSummary
+                  -#      %span{ class: :text }
+                  -#        = print_summary( adventure )
+                  -#
+                  -#    .row.actions
+                  -#      .col-12.remove
+                  -#        = link_to adventures_path, data: { confirm: t( '.are_you_sure' ) }, method: :delete do
+                  -#          %span{ class: 'glyphicon glyphicon-trash' }
