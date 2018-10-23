@@ -28,9 +28,6 @@ class AdventuresController < ApplicationController
     # @page.text.each{ |text| text.gsub!( '%ADVENTURE_ID%', params[:adventure_id].to_i.to_s ) }
   end
 
-  def die
-  end
-
   def read_choice
     if @user
       page = Page.find_by_page_hash( params[:page_id] )
@@ -49,37 +46,24 @@ class AdventuresController < ApplicationController
   def new
   end
 
-  # POST /adventures
-  # POST /adventures.json
-  def create
-    book = Book.find(adventure_params[ :book_id ] )
+  def start_book
+    book = Book.find_by_book_key(params[ :book_key ] )
 
     if @user
-      @adventure = Adventure.new(adventure_params)
-      @adventure.user_id = @user.id
-      @adventure.current_page = book.first_page
-      @adventure.items = {}
+      @adventure = Adventure.new( user: @user, book: book, current_page: book.first_page, items: {} )
       roll_adventure
 
-      respond_to do |format|
-        if @adventure.save
-          @user.update!( current_adventure_id: @adventure.id )
-          @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
-          format.html { redirect_to adventures_path, notice: 'Aventure was successfully created.' }
-          format.json { render :show, status: :created, location: @adventure }
-        else
-          format.html { render :new }
-          format.json { render json: @adventure.errors, status: :unprocessable_entity }
-        end
+      if @adventure.save
+        @user.update!( current_adventure_id: @adventure.id )
+        @adventure.game_logs.create!( page: @adventure.current_page, log_type: GameLog::JOURNEY )
+
+        redirect_to adventures_path, notice: 'Aventure crée.'
+      else
+        render :new
       end
     else
       redirect_to play_adventures_path( page_id: book.first_page.page_hash )
     end
-  end
-
-  def start_book
-    book = Book.find_by_book_key(params[ :book_key ] )
-    redirect_to play_adventures_path( page_id: book.first_page.page_hash )
   end
 
   def reroll
@@ -129,4 +113,5 @@ class AdventuresController < ApplicationController
       @adventure = Adventure.new
       @books = Book.all.order( :name )
     end
+
 end

@@ -13,12 +13,11 @@ Rails.application.routes.draw do
     get ':fight_id/old_fights_selection', action: :old_fights_selection, as: :select_old
   end
 
-  resource :adventures, except: [ :edit, :update ] do
+  resource :adventures, except: [ :edit, :update, :create ] do
     get :reroll
     get :play
     get 'read_choice/:page_id', action: :read_choice, as: :read_choice
     get :roll_dices
-    get :die
     get :list
     get ':book_key/start_book', action: :start_book, as: :start_book
   end

@@ -1,0 +1,47 @@
+%h1
+  La saga du prêtre Jean
+
+- if @adventure.errors.any?
+  - @adventure.errors.full_messages.each do |msg|
+    = content_tag :div, class: 'alert alert-danger alert-dismissable', role: 'alert' do
+      %button.close{type: 'button', data: {dismiss: 'alert'} }
+        %span{aria: {hidden: 'true'} } &times;
+        %span.sr-only Fermer
+      = msg
+        
+%p
+  Vous pouvez ici rejouer les vieux livres dont vous êtes le héros de la saga du prêtre jean
+
+%p.mb-5
+  En vous connectant vous pouvez gérer votre fiche de personnage, les combats et votre inventaire.
+
+.row.mb-4
+  .col-6.col-sm-4.col-lg-3
+    = link_to image_tag( 'covers/la-saga-du-pretre-jean-01-la-forteresse-d-alamuth.jpg' ), start_book_adventures_path( 'pretre_jean_forteresse_alamuth' )
+  .col-6.col-sm-8.col-lg-9
+    %p
+      Laissant les Croisés rentrer en Angleterre, vous vous lancez dans votre quête. Votre seul point de départ : le Vieux de la Montagne, chef de la terrifiante secte des Assassins, détiendrait le secret de Shangri-La. Encore vous faut-il arriver jusqu'à lui, car son sanctuaire recèle des périls monstrueux qui vous coûteront peut être la vie...
+
+.row.mb-4
+  .col-6.col-sm-4.col-lg-3
+    = link_to image_tag( 'covers/la-saga-du-pretre-jean-02-l-oeil-du-sphinx.jpg' ), start_book_adventures_path( 'pretre_jean_oeil_sphinx' )
+  .col-6.col-sm-8.col-lg-9
+    Transporté au cœur de l'Egypte ancienne, vous devez retrouver le grand prêtre d'Osiris qui connaît le chemin de Shangri-La. Mais des forces maléfiques tentent de vous barrer la route, lançant sur vous des créatures de cauchemar. De tombeaux maudits en pyramides mystérieuses, réussirez-vous à accomplir votre mission sans succomber à leurs assauts ?...
+
+.row.mb-4
+  .col-6.col-sm-4.col-lg-3
+    = link_to image_tag( 'covers/la-saga-du-pretre-jean-03-les-mines-du-roi-salomon.jpg' ), start_book_adventures_path( 'pretre_jean_mines_roi_salomon' )
+  .col-6.col-sm-8.col-lg-9
+    Après avoir échappé aux périls de l'Egypte et traversé les siècles, il va falloir à notre héros un courage exceptionnel. L'homme qui détient la piste de Shangri-La a été emprisonné au fond des mines gigantesques du grand Salomon ! pour le retrouver, le Prêtre Jean devra affronter les périls de la jungle africaine ; puis, en mission pour le monarque, il aura à combattre une mystérieuse créature qui sème la terreur dans les mines : la Mort Blanche ! A ce prix seul il pourra continuer sa quête...
+
+.row.mb-4
+  .col-6.col-sm-4.col-lg-3
+    = link_to image_tag( 'covers/la-saga-du-pretre-jean-04-les-mysteres-de-babylon.jpg' ), start_book_adventures_path( 'pretre_jean_mysteres_bablylone' )
+  .col-6.col-sm-8.col-lg-9
+    Transporté par magie sur plusieurs centaines d'années, le Prêtre Jean s'éveille à Babylone, cité des merveilles du monde antique, repaire des sorciers et des démons. Son seul atout : le nom d'un sage qui aurait visité Shangri-La. A travers le dédale infernal des quartiers dangereux de Babylone, notre héros devra se garder de toutes les embûches, défier coupe-jarrets et maléfices, faire preuve d'astuce et de bravoure. Peut être alors accédera-t-il au secret de la bibliothèque cachée au sommet de la Tour de Babel.
+
+-#.row.row-separation
+-#  .col-3
+-#    = link_to image_tag 'covers/la-saga-du-pretre-jean-05-les-adorateurs-du-mal.jpg', start_book_adventures_path( 'pretre_jean_forteresse_alamuth' )
+-#  .col
+-#    Une fois Babylone dépassée, vous chevauchez vers l'Orient mystérieux. Des indications vous ont donné la route à suivre : celle de l'Inde aux mille secrets. Mais votre quête ne progresse pas, et vous vous découragez. Alors, sans que le motif vous en soit connu, un incroyable tourbillon de mort et de désastres se déchaîne autour de vous ! Découvrirez-vous la clé de l'énigme de la secte qui adore les puissances du Mal ?
