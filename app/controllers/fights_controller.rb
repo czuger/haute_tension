@@ -1,6 +1,13 @@
 class FightsController < ApplicationController
   before_action :set_adventure
 
+  def old_fights
+    @fights = @adventure.book.fights
+  end
+
+  def old_fights_selection
+  end
+
   def new
     redirect_to fights_path if @adventure.current_fight
     @fight = Fight.new

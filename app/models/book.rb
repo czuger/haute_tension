@@ -6,6 +6,5 @@ class Book < ApplicationRecord
 
   belongs_to :first_page, class_name: 'Page', required: false
 
-  has_many :fights
-
+  has_many :fights, dependent: :destroy
 end

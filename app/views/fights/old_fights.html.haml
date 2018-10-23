@@ -1,0 +1,17 @@
+#main
+  #pageContent.col-xs-12
+
+    .list-group
+      %h2
+        Anciens combats
+      .list-group-item
+
+        - @fights.each do |fight|
+          - fight_name = 1.upto(5).map{ |index| fight.send( "opponent_#{index}_name" ).empty? ? nil : fight.send( "opponent_#{index}_name" ) }.compact.join( ', ' )
+          .row.row-separation
+            .col-xs-6.col-md-6
+              = fight_name
+            .col-xs-6.col-md-6
+              = link_to 'Choisir ce combat', select_old_fights_path( fight ), class: 'btn btn-secondary', role: 'button', 'aria-disabled' => true
+
+#pageFooter.col-xs-12

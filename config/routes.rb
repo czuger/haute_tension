@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resource :fights, only: [ :show, :update, :new, :create, :destroy ] do
     get :fight_monster
+    get :old_fights, as: :old
+    get ':fight_id/old_fights_selection', action: :old_fights_selection, as: :select_old
   end
 
   resource :adventures, except: [ :edit, :update ] do
