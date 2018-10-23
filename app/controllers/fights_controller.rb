@@ -2,7 +2,7 @@ class FightsController < ApplicationController
   before_action :set_adventure
 
   def old_fights
-    @fights = @adventure.book.fights
+    @fights = @user.fights.where( book_id: @adventure.book_id )
   end
 
   def old_fights_selection
@@ -27,6 +27,7 @@ class FightsController < ApplicationController
   def create
     @fight = Fight.new( fights_params )
     @fight.book_id = @adventure.book_id
+    @fight.user_id = @user.id
 
     respond_to do |format|
       if save_fight
@@ -51,8 +52,10 @@ class FightsController < ApplicationController
 
   def destroy
     if @adventure.current_fight
+
       current_fight = @adventure.current_fight
       @adventure.current_fight_id = nil
+
       if @adventure.save && current_fight.destroy
         redirect_to new_fights_path, notice: 'Combat terminé'
       else
