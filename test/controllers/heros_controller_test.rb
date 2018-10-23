@@ -7,7 +7,8 @@ class HerosControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     @book = create( :book )
-    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user, items: {} )
+    @user.update!( current_adventure_id: @adventure.id )
   end
 
   test 'should get show' do
@@ -16,7 +17,7 @@ class HerosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update hero' do
-    patch heros_url, params: {adventure: { hp: 50 } }
+    patch heros_url, params: { adventure: { hp: 50 } }
     assert_redirected_to heros_url
   end
 

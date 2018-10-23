@@ -8,8 +8,9 @@ class GameLogsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     @book = create( :book )
-    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user, items: {} )
     @game_log = create( :game_log, adventure: @adventure, page: @book.first_page )
+    @user.update!( current_adventure_id: @adventure.id )
   end
 
   test 'should get show for different cases' do

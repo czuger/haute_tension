@@ -7,8 +7,9 @@ class FightsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     @book = create( :book )
-    @fight = create( :fight, book: @book )
-    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user, current_fight: @fight )
+    @fight = create( :fight, book: @book, user: @user )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user, current_fight: @fight, items: {} )
+    @user.update!( current_adventure_id: @adventure.id )
   end
 
   test 'should get index' do

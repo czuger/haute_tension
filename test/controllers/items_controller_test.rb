@@ -7,7 +7,8 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     @book = create( :book )
-    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user )
+    @adventure = create( :adventure, book: @book, current_page: @book.first_page, user: @user, items: {} )
+    @user.update!( current_adventure_id: @adventure.id )
   end
 
   test 'should update item' do
