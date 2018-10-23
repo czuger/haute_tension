@@ -2,74 +2,74 @@
   .row
 
     - if @user&.id
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to list_adventures_path, 'data-toggle' => 'tooltip', title: 'Liste des aventures' do
           %button
             =image_tag 'icons/book-cover.svg', class: 'menu-icon'
 
     - if @adventures
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to new_adventures_path, 'data-toggle' => 'tooltip', title: 'Créer une aventure' do
           %button
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to play_adventures_path, 'data-toggle' => 'tooltip', title: 'Aventure en cours' do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/mounted-knight.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to heros_path, 'data-toggle' => 'tooltip', title: 'Détails du héro' do
           %button
             =image_tag 'icons/barbute.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to items_path, 'data-toggle' => 'tooltip', title: 'Inventaire' do
           %button
             =image_tag 'icons/backpack.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to new_fights_path, 'data-toggle' => 'tooltip', title: 'Combats' do
           %button
             =image_tag 'icons/crossed-swords.svg', class: 'menu-icon'
 
-      -#.col-sm-2.col-xs-3.col-md-1
+      -#.col-sm-2.col-3.col-lg-1
       -#  = link_to fights_url( id: @adventure.id ) do
       -#    %button
       -#      =image_tag 'icons/sword-wound.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to game_logs_path, 'data-toggle' => 'tooltip', title: 'Historique' do
           %button
             =image_tag 'icons/wax-tablet.svg', class: 'menu-icon'
 
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to roll_dices_adventures_path, 'data-toggle' => 'tooltip', title: 'Lancer les dés' do
           %button
             =image_tag 'icons/rolling-dices.svg', class: 'menu-icon'
 
     - if @user&.id
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to destroy_user_session_path, method: :delete, 'data-toggle' => 'tooltip', title: 'Se déconnecter' do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/exit-door.svg', class: 'menu-icon'
 
     - unless @user
-      .col-sm-2.col-xs-3.col-md-1
+      .col-sm-2.col-3.col-lg-1
         = link_to new_user_session_path, 'data-toggle' => 'tooltip', title: 'Log in' do
           %button
             -#=image_tag 'icons/cavalry.svg', class: 'menu-icon'
             =image_tag 'icons/arabic-door.svg', class: 'menu-icon'
 
-    -#.col-sm-2.col-xs-3.col-md-1
+    -#.col-sm-2.col-3.col-lg-1
     -#  = link_to items_url do
     -#    %button
     -#      =image_tag 'icons/stabbed-note.svg', class: 'menu-icon'
     -#
-    -#.col-sm-2.col-xs-3.col-md-1
+    -#.col-sm-2.col-3.col-lg-1
     -#  = link_to pages_url do
     -#    %button
     -#      =image_tag 'icons/scroll-unfurled.svg', class: 'menu-icon'
