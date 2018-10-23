@@ -69,7 +69,7 @@ class AdventuresController < ApplicationController
   def reroll
     roll_adventure
     @adventure.save!
-    redirect_to adventures_path
+    render :show
   end
 
   def roll_dices
@@ -99,13 +99,41 @@ class AdventuresController < ApplicationController
     end
 
     def roll_adventure
-      @adventure.hp = 18 + Hazard.r2d6
+      difficulty = params[:difficulty] || 'medium'
+
+      case difficulty
+        when 'medium'
+          roll_regular
+        when 'easy'
+          roll_easy
+        when 'hard'
+          roll_hardcore
+        else
+          raise "Unknown difficulty #{difficulty.inspect}"
+      end
+
       @adventure.hp_max = @adventure.hp
-      @adventure.strength = 6 + Hazard.r2d6
       @adventure.strength = 19 if @adventure.strength == 17
       @adventure.strength = 20 if @adventure.strength == 18
       @adventure.strength_max = @adventure.strength
+    end
+
+    def roll_regular
+      @adventure.hp = 18 + Hazard.r2d6
+      @adventure.strength = 6 + Hazard.r2d6
       @adventure.gold = Hazard.r4d6
+    end
+
+    def roll_easy
+      @adventure.hp = 18 + 6 + Hazard.d6
+      @adventure.strength = 6 + 6 + Hazard.d6
+      @adventure.gold = 12 + Hazard.r2d6
+    end
+
+    def roll_hardcore
+      @adventure.hp = 18 + 1 + Hazard.d6
+      @adventure.strength = 6 + 1 + Hazard.d6
+      @adventure.gold = 4 + Hazard.r2d6
     end
 
     def set_new_adventure
