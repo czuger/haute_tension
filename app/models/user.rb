@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :adventures
   has_many :fights, dependent: :destroy
 
-  belongs_to :current_adventure, class_name: 'Adventure'
+  belongs_to :current_adventure, class_name: 'Adventure', required: false
 end
