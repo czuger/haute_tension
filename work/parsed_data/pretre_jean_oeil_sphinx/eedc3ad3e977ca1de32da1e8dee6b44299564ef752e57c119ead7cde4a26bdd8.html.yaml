@@ -7,6 +7,6 @@
 - <p><a href="/adventures/read_choice/bbba35bc43355a4056eb19564c5784c241f8f2028eb7b1c0e38f9f35cb29eef3"
   class="pageLink">Désirez-vous continuer à examiner cette statue</a></p>
 - |-
-  <p><br class="pageLink">
-   <a href="/adventures/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee">ou quitter cette pièce pour découvrir d'autres sections de la Pyramide ?</a><em> </em></p>
+  <p><br>
+   <a href="/adventures/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee" class="pageLink">ou quitter cette pièce pour découvrir d'autres sections de la Pyramide ?</a><em> </em></p>
 - "<p> </p>"

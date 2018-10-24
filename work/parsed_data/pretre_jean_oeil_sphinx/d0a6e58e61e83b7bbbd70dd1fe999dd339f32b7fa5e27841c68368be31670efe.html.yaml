@@ -12,5 +12,5 @@
 - <p><a href="/adventures/read_choice/eedc3ad3e977ca1de32da1e8dee6b44299564ef752e57c119ead7cde4a26bdd8"
   class="pageLink">Examiner la statue ?</a></p>
 - |-
-  <p><br class="pageLink">
-   <a href="/adventures/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee">Quitter cette salle ?</a></p>
+  <p><br>
+   <a href="/adventures/read_choice/3215255c2efc645fff83295d8b371b66196b9f1e826c683ebca1aff01d43b0ee" class="pageLink">Quitter cette salle ?</a></p>

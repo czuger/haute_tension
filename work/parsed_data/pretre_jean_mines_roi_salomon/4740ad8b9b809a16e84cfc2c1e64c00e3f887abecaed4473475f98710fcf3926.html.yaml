@@ -11,6 +11,6 @@
   class="pageLink">Si vous avez fait la queue et désirez manger le brouet qu'on vous
   a servi avant d'interroger l'Orque.</a></p>
 - |-
-  <p><br class="pageLink">
-   <a href="/adventures/read_choice/a0e33a9afb93dad5ebdcce5e0aab05c870ed33fc5bd9e4be7db5b46bd336ea7d">Sinon.</a></p>
+  <p><br>
+   <a href="/adventures/read_choice/a0e33a9afb93dad5ebdcce5e0aab05c870ed33fc5bd9e4be7db5b46bd336ea7d" class="pageLink">Sinon.</a></p>
 - "<p> </p>"

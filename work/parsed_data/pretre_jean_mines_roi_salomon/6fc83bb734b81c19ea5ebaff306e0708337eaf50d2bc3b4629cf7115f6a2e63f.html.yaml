@@ -6,7 +6,7 @@
   dont l'unique but serait de vous faire choir !</p>"
 - "<p>Lancez deux dés !</p>"
 - |-
-  <p><br class="pageLink">
-   <a href="/adventures/read_choice/611e8f8588bfa5c14057b4c7e3f39895682068442f5b6adad0b895ef9ab6cd58">Si le résultat est inférieur ou égal à 5.</a></p>
+  <p><br>
+   <a href="/adventures/read_choice/611e8f8588bfa5c14057b4c7e3f39895682068442f5b6adad0b895ef9ab6cd58" class="pageLink">Si le résultat est inférieur ou égal à 5.</a></p>
 - <p><a href="/adventures/read_choice/354c4b69c5a6789dd34a85b85f44859f8090dd461929f666c34e6866acd180c1"
   class="pageLink">S'il est supérieur ou égal à 6.</a></p>
