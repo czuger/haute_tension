@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
-      p params
       @adventure.items = params[:inventory].to_hash
       if @adventure.save
         format.html { redirect_to items_path, notice: 'Liste mise à jour.' }

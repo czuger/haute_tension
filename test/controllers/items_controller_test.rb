@@ -12,7 +12,8 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update item' do
-    patch items_url, params: { inventory: {} }
+    # Empty hash are skipped by params apparently. so dummy data is required.
+    patch items_url, params: { inventory: { dummy: :true } }
     assert_redirected_to items_url
   end
 

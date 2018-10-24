@@ -9,8 +9,6 @@ class PageParser
     @origin_url = parsing_hash[:origin_url]
     @pages_converter = pages_converter
 
-    # pp @pages_converter
-
     doc = Nokogiri::HTML( open( page_path ) )
     read_page = doc.css('div.ob-text')
 
@@ -24,11 +22,6 @@ class PageParser
         text << node.to_s.strip
       end
     end
-    # puts 'Texte'
-    # puts text
-    # puts 'Monsters'
-    # puts monsters
-    # puts
 
     File.open( "parsed_data/#{directory}/#{File.basename(page_path)}.yaml", 'w' ) do |f|
       f.write( text.to_yaml )
@@ -62,26 +55,5 @@ class PageParser
     end
     node
   end
-
-  # def check_for_link( node )
-  #   if node.children.first.name == 'a'
-  #     original_url = node.children.first.attributes['href'].value
-  #     # page = Page.find_by_url( original_url )
-  #     # raise "Unable to find page for #{original_url}" unless page
-  #     # This read the rails route
-  #     node.children.first.attributes['href'].value = "/adventures/read_choice/#{@pages_converter[original_url]}"
-  #     node.children.first['class'] = 'pageLink'
-  #     # p node.children.first
-  #   elsif ( anchor = node.css( 'a' ) )
-  #     if ! anchor.empty?
-  #       original_url = anchor.first.attributes['href'].value
-  #       # page = Page.find_by_url( original_url )
-  #       # raise "Unable to page page for #{original_url}" unless page
-  #       anchor.first.attributes['href'].value = "/adventures/read_choice/#{@pages_converter[original_url]}"
-  #       node.children.first['class'] = 'pageLink'
-  #     end
-  #   end
-  #   node
-  # end
 
 end
