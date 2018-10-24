@@ -46,6 +46,13 @@ class AdventuresController < ApplicationController
   def new
   end
 
+  def select_adventure
+    @adventure = Adventure.find( params[:adventure_id] )
+    @user.update!( current_adventure_id: @adventure.id )
+    @page = @adventure.current_page
+    render :play
+  end
+
   def start_book
     book = Book.find_by_book_key(params[ :book_key ] )
 

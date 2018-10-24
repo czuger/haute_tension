@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get :roll_dices
     get :list
     get ':book_key/start_book', action: :start_book, as: :start_book
+    get ':adventure_id/select', action: :select_adventure, as: :select
   end
 
   root 'adventures#welcome'

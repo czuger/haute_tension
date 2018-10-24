@@ -19,7 +19,7 @@
                         %span{ class: 'adventureName' }
                           = adventure.book.name
                     .col-md-6.col-2
-                      = link_to play_adventures_path( adventure_id: adventure.id ) do
+                      = link_to select_adventures_path( adventure ) do
                         %span
                           = icon('fas', 'play')
 
