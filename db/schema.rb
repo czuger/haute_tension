@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023120901) do
+ActiveRecord::Schema.define(version: 20181027132910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20181023120901) do
     t.datetime "updated_at",    null: false
     t.string   "book_key",      null: false
     t.index ["first_page_id"], name: "index_books_on_first_page_id", using: :btree
+  end
+
+  create_table "bugs", force: :cascade do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "page_id",                    null: false
+    t.string   "info",                       null: false
+    t.boolean  "fixed",      default: false, null: false
+    t.datetime "date_fixed"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "fights", force: :cascade do |t|
@@ -114,6 +124,8 @@ ActiveRecord::Schema.define(version: 20181023120901) do
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "adventures", "users"
   add_foreign_key "books", "pages", column: "first_page_id"
+  add_foreign_key "bugs", "pages"
+  add_foreign_key "bugs", "users"
   add_foreign_key "fights", "books"
   add_foreign_key "fights", "users"
   add_foreign_key "game_logs", "adventures"

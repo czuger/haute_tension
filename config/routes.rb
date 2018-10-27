@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resource :items, only: [ :show, :update ]
   resource :notes, only: [:edit, :update]
 
+  resources :bugs, only: [ :index, :show, :new, :create ]
+
   resource :fights, only: [ :show, :update, :new, :create, :destroy ] do
     get :fight_monster
     get :old_fights, as: :old
