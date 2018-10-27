@@ -28,11 +28,14 @@
             %span.sr-only Close
           = msg
 
-      #main
+      %main.main.container
         -#.row
         -#  #homePageContent.col-xs-12
         -#    .list-group.introduction
 
-
-
         = yield
+
+    %footer.footer
+      .container
+        Icones faites par Delapouite,
+        = link_to 'http://game-icons.net', 'http://game-icons.net'
