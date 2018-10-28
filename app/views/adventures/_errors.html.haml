@@ -1,0 +1,7 @@
+- if data&.errors&.any?
+  - data.errors.full_messages.each do |msg|
+    = content_tag :div, class: 'alert alert-danger alert-dismissable', role: 'alert' do
+      %button.close{type: 'button', data: {dismiss: 'alert'} }
+        %span{aria: {hidden: 'true'} } &times;
+        %span.sr-only Fermer
+      = msg

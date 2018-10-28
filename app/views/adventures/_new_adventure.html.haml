@@ -1,13 +1,7 @@
 %h1
   La saga du prêtre Jean
 
-- if @adventure&.errors&.any?
-  - @adventure.errors.full_messages.each do |msg|
-    = content_tag :div, class: 'alert alert-danger alert-dismissable', role: 'alert' do
-      %button.close{type: 'button', data: {dismiss: 'alert'} }
-        %span{aria: {hidden: 'true'} } &times;
-        %span.sr-only Fermer
-      = msg
+= render partial: 'adventures/errors', locals: { data: @adventure }
         
 %p
   Vous pouvez ici rejouer les vieux livres dont vous êtes le héros de la saga du prêtre jean
