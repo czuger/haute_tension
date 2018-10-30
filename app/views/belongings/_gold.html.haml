@@ -1,0 +1,8 @@
+= render partial: 'adventures/errors', locals: { data: @adventure }
+
+- 1.upto(12).to_a.in_groups_of(3).each do |g|
+  .row
+    - g.each do |group_elem|
+      .col.mt-1
+
+        = link_to group_elem, gold_update_link( group_elem ), method: :patch, class: 'btn btn-secondary btn-block', role: 'button',  'aria-disabled' => true

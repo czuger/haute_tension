@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   resource :belongings, only: [:show] do
     get :add_gold
-    patch :add_gold_update
+    patch ':gold_amount/add_gold_update', as: :add_gold_update, action: :add_gold_update
+
     get :loose_gold
-    patch :loose_gold_update
+    patch ':gold_amount/loose_gold_update', as: :loose_gold_update, action: :loose_gold_update
   end
 
   resource :game_logs, only: [ :show ]
