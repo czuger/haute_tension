@@ -73,12 +73,14 @@ class AdventuresController < ApplicationController
     end
   end
 
+  # this is the roll required to set up the character
   def reroll
     roll_adventure
     @adventure.save!
     render :show
   end
 
+  # this is the regular dice roll (2d6 for events in adventure)
   def roll_dices
     @dices = Hazard.s2d6
   end
