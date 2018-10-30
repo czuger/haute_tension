@@ -1,0 +1,25 @@
+#main
+  #pageContent.col-xs-12
+
+    %h2
+      historiques des possessions pour ce livre
+
+    = render partial: 'adventures/errors', locals: { data: @adventure  }
+    = render partial: 'adventures/errors', locals: { data: @history }
+    = render partial: 'adventures/errors', locals: { data: @belonging }
+
+    .mt-3
+      - @histories.each do |history|
+        .row.mt-1
+          .col-12.col-md-8
+            = history.name
+          .col-8.col-md-2
+            = link_to belongings_histories_path( history_id: history ), method: :post, class: 'btn btn-secondary btn-block' do
+              %span
+                = icon('fas', 'plus-square')
+          .col-4.col-md-2
+            = link_to belongings_histories_path( id: history ), data: { confirm: 'Etes vous sur ?' }, method: :delete, class: 'btn btn-danger btn-block' do
+              %span
+                = icon('fas', 'trash')
+
+#pageFooter.col-xs-12

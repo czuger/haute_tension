@@ -14,8 +14,7 @@
             =image_tag 'icons/spell-book.svg', class: 'menu-icon'
 
     - if @adventure&.id
-      - p controller_name
-      - if controller_name == 'belongings'
+      - if %w( belongings belongings_histories ).include?( controller_name )
         = render partial: 'layouts/menu_belongings'
       - else
         = render partial: 'layouts/menu_adventure'

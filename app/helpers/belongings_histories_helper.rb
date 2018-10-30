@@ -1,0 +1,2 @@
+module BelongingsHistoriesHelper
+end

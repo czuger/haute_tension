@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resource :belongings_histories, only: [:show, :create, :destroy]
+
   namespace :belongings do
     get :add_gold
     patch ':gold_amount/add_gold_update', as: :add_gold_update, action: :add_gold_update
