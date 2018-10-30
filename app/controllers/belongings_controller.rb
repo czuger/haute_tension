@@ -6,7 +6,11 @@ class BelongingsController < ApplicationController
   end
 
   def create
-
+    if add_belonging
+      redirect_to belongings_path
+    else
+      render :show
+    end
   end
 
   def destroy
@@ -40,6 +44,23 @@ class BelongingsController < ApplicationController
     else
       render :loose_gold
     end
+  end
+
+  private
+
+  def belonging_params
+    params.require(:belonging).permit(:name)
+  end
+
+  def add_belonging
+    @belonging = Belonging.new( belonging_params )
+    @belonging.adventure = @adventure
+
+    @belongings_history = BelongingsHistory.new( belonging_params )
+    @belongings_history.book = @adventure.book
+    @belongings_history.user = @user
+
+    @belonging.save && @belongings_history.save
   end
 
 end

@@ -1,33 +1,26 @@
 #main
   #pageContent.col-xs-12
 
-
     %h2
       Mes possessions
 
+    = render partial: 'adventures/errors', locals: { data: @adventure }
+    = render partial: 'adventures/errors', locals: { data: @belonging }
+    = render partial: 'adventures/errors', locals: { data: @belonging_history }
+
     = form_tag belongings_url do
       .row
-        .col-12.mt-1.col-md-6
+        .col-12.mt-1.col-md-7
           = text_field_tag 'belonging[name]', '', class: 'form-control'
-        .col-12.mt-1.col-md-3
+        .col-12.mt-1.col-md-2
           = submit_tag 'Ajouter', class: 'btn btn-secondary btn-block'
-        .col-12.mt-1.col-md-3
+        .col-12.mt-1.col-md-2
           = link_to 'Historique', '#', class: 'btn btn-secondary btn-block', role: 'button',  'aria-disabled' => true
+        .col-12.mt-1.col-md-1
+          = link_to belongings_path, data: { confirm: 'Etes vous sur ?' }, method: :delete, class: 'btn btn-danger btn-block' do
+            %span
+              = icon('fas', 'trash')
 
-    -#
-    -#.row.mb-2
-    -#  - if @fight_result.hero_win
-    -#    .col-xs-6.col-md-2
-    -#      = image_tag 'icons/blade-drag.svg', class: 'result-icon'
-    -#    .col-xs-6.col-md-10
-    -#      %h2= "Vous infligez #{@fight_result.hp_loss} à votre adversaire."
-    -#
-    -#  - else
-    -#    .col-xs-6.col-md-2
-    -#      = image_tag 'icons/dead-head.svg', class: 'result-icon'
-    -#    .col-xs-6.col-md-10
-    -#      %h2= "Votre adversaire vous inflige #{@fight_result.hp_loss}."
-    -#
     -#
     -#.list-group.row-separation
     -#  .list-group-item
