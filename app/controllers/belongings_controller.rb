@@ -1,5 +1,7 @@
 class BelongingsController < ApplicationController
 
+  before_action :set_adventure
+
   def show
   end
 
