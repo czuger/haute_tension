@@ -12,6 +12,9 @@
   - elsif log.log_type == GameLog::ADVENTURE_UPDATE
     %p= log_adventure_update_message( log )
 
+  - elsif log.log_type == GameLog::ITEMS
+    %p= log_adventure_items( log )
+
   - else
     - raise "Unknown log type : #{log.inspect}"
 

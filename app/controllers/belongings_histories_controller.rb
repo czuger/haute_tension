@@ -13,7 +13,8 @@ class BelongingsHistoriesController < ApplicationController
     @belonging.adventure = @adventure
 
     if @belonging.save
-      redirect_to belongings_path
+      GameLog.add_item( @adventure, :gain, @belonging.name )
+      redirect_to belongings_path, notice: I18n.t( 'game_logs.show.item.gain', item_name: @belonging.name )
     else
       render :show
     end

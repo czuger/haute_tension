@@ -32,3 +32,7 @@ fr:
           zero: 'Il ne se passe rien'
           one: "Vous gagnez un point de vie"
           other: "Vous gagnez %{count} points de vie"
+
+      item:
+        gain: "Vous gagnez l'objet %{item_name}."
+        loss: "Vous perdez l'objet %{item_name}."

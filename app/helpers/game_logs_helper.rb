@@ -26,4 +26,9 @@ module GameLogsHelper
     t( message, count: amount )
   end
 
+  def log_adventure_items( log )
+    message = '.' + [ log.log_data[ :edit_typ ], log.log_data[ :edit_action ] ].join( '.' )
+    t( message, item_name: log.log_data[ :item_name ] )
+  end
+
 end
