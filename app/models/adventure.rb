@@ -8,5 +8,7 @@ class Adventure < ApplicationRecord
 
   belongs_to :current_fight, class_name: 'Fight', required: false
 
+  has_many :belongings, dependent: :destroy
+
   serialize :items
 end

@@ -10,17 +10,22 @@
 
     = form_tag belongings_url do
       .row
-        .col-12.mt-1.col-md-7
+        .col-12.mt-1.col-md-8
           = text_field_tag 'belonging[name]', '', class: 'form-control'
-        .col-12.mt-1.col-md-2
+        .col-6.mt-1.col-md-2
           = submit_tag 'Ajouter', class: 'btn btn-secondary btn-block'
-        .col-12.mt-1.col-md-2
+        .col-6.mt-1.col-md-2
           = link_to 'Historique', '#', class: 'btn btn-secondary btn-block', role: 'button',  'aria-disabled' => true
-        .col-12.mt-1.col-md-1
-          = link_to belongings_path, data: { confirm: 'Etes vous sur ?' }, method: :delete, class: 'btn btn-danger btn-block' do
-            %span
-              = icon('fas', 'trash')
 
+    .mt-3
+      - @belongings.each do |belonging|
+        .row.mt-1
+          .col-10
+            = belonging.name
+          .col-2
+            = link_to belonging_path( belonging ), data: { confirm: 'Etes vous sur ?' }, method: :delete, class: 'btn btn-danger btn-block' do
+              %span
+                = icon('fas', 'trash')
     -#
     -#.list-group.row-separation
     -#  .list-group-item

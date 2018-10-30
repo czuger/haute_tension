@@ -2,7 +2,8 @@ class BelongingsController < ApplicationController
 
   before_action :set_adventure
 
-  def show
+  def index
+    @belongings = @adventure.belongings
   end
 
   def create
@@ -14,6 +15,12 @@ class BelongingsController < ApplicationController
   end
 
   def destroy
+    @belonging = Belonging.find( params[:id])
+    if @belonging.destroy
+      redirect_to belongings_path
+    else
+      render :show
+    end
   end
 
   def add_gold
