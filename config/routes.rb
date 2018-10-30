@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resource :belongings, only: [:show] do
+    get :add_gold
+    patch :add_gold_update
+    get :loose_gold
+    patch :loose_gold_update
+  end
+
   resource :game_logs, only: [ :show ]
   resource :heros, only: [ :show, :update ]
   resource :items, only: [ :show, :update ]
