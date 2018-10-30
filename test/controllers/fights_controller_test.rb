@@ -17,6 +17,16 @@ class FightsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should list old fights' do
+    get old_fights_url
+    assert_response :success
+  end
+
+  test 'should select an old fights' do
+    get select_old_fights_url( @fight )
+    assert_redirected_to fights_url
+  end
+
   test 'should get fight_monster' do
     # Kernel.stubs( :rand ).returns( 1 )
     get fight_monster_fights_url( monster_index: 1 )
@@ -37,6 +47,11 @@ class FightsControllerTest < ActionDispatch::IntegrationTest
   test 'should create new fight' do
     post fights_url, params: { fight: { opponent_1_name: 'Foo', opponent_1_strength: 10, opponent_1_life: 10 } }
     assert_redirected_to fights_url
+  end
+
+  test 'should destroy a fight' do
+    delete fights_url @fight
+    assert_redirected_to new_fights_url
   end
 
 end
