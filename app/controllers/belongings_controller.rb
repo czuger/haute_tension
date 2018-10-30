@@ -9,10 +9,12 @@ class BelongingsController < ApplicationController
   end
 
   def add_gold_update
-    @adventure.increment( :gold, params[:gold_amount].to_i )
+    amount = params[:gold_amount].to_i
+    @adventure.increment( :gold, amount )
 
     if @adventure.save
-      redirect_to play_adventures_path, notice: 'Or ajouté.'
+      GameLog.gold_modification( @adventure, amount, :up )
+      redirect_to play_adventures_path, notice: I18n.t( 'belongings.up.gold', count: amount )
     else
       render :add_gold
     end
@@ -22,10 +24,12 @@ class BelongingsController < ApplicationController
   end
 
   def loose_gold_update
-    @adventure.decrement( :gold, params[:gold_amount].to_i )
+    amount = params[:gold_amount].to_i
+    @adventure.decrement( :gold, amount )
 
     if @adventure.save
-      redirect_to play_adventures_path, notice: 'Or supprimé.'
+      GameLog.gold_modification( @adventure, amount, :down )
+      redirect_to play_adventures_path, notice: I18n.t( 'belongings.down.gold', count: amount )
     else
       render :loose_gold
     end

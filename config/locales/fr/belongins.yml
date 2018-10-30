@@ -1,0 +1,14 @@
+fr:
+  belongings:
+
+    down:
+      gold:
+        zero: 'Vous tripotez nerveusement votre bourse. Vous feriez mieux de continuer votre aventure.'
+        one: "Or gagné (%{count} pièce)."
+        other: "Or gagné (%{count} pièces)."
+
+    up:
+      gold:
+        zero: 'Vous tripotez nerveusement votre bourse. Vous feriez mieux de continuer votre aventure.'
+        one: "Or perdu (%{count} pièce)."
+        other: "Or perdu (%{count} pièces)."

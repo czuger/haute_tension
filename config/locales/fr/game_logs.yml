@@ -15,17 +15,17 @@ fr:
 
       down:
         gold:
-          zero: 'Il ne se passe rien'
-          one: "Vous perdez une pièce d'or"
-          other: "Vous perdez %{count} pièces d'or"
+          zero: "Vous perdez 0 pièces d'or. Ce n'est pas avec ce genre d'actions que vous atteindrez Shangri-La."
+          one: "Vous perdez une pièce d'or."
+          other: "Vous perdez %{count} pièces d'or."
         hp:
-          zero: 'Il ne se passe rien'
-          one: "Vous perdez un point de vie"
-          other: "Vous perdez %{count} points de vie"
+          zero: "Vous perdez 0 pièces d'or. Ce n'est pas avec ce genre d'actions que vous atteindrez Shangri-La."
+          one: "Vous perdez un point de vie."
+          other: "Vous perdez %{count} points de vie."
 
       up:
         gold:
-          zero: 'Il ne se passe rien'
+          zero: "Vous gagnez 0 pièces d'or. Ce n'est pas avec ce genre d'actions que vous atteindrez Shangri-La."
           one: "Vous gagnez une pièce d'or"
           other: "Vous gagnez %{count} pièces d'or"
         hp:
