@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resource :belongings, only: [:show] do
+  resource :belongings, only: [:show, :create, :destroy] do
     get :add_gold
     patch ':gold_amount/add_gold_update', as: :add_gold_update, action: :add_gold_update
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181027132910) do
+ActiveRecord::Schema.define(version: 20181030113556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 20181027132910) do
     t.index ["book_id"], name: "index_adventures_on_book_id", using: :btree
     t.index ["current_page_id"], name: "index_adventures_on_current_page_id", using: :btree
     t.index ["user_id"], name: "index_adventures_on_user_id", using: :btree
+  end
+
+  create_table "belongings", force: :cascade do |t|
+    t.integer  "adventure_id", null: false
+    t.string   "name",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["adventure_id"], name: "index_belongings_on_adventure_id", using: :btree
+  end
+
+  create_table "belongings_histories", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "book_id",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_belongings_histories_on_user_id", using: :btree
   end
 
   create_table "books", force: :cascade do |t|
@@ -123,6 +140,9 @@ ActiveRecord::Schema.define(version: 20181027132910) do
   add_foreign_key "adventures", "fights", column: "current_fight_id"
   add_foreign_key "adventures", "pages", column: "current_page_id"
   add_foreign_key "adventures", "users"
+  add_foreign_key "belongings", "adventures"
+  add_foreign_key "belongings_histories", "books"
+  add_foreign_key "belongings_histories", "users"
   add_foreign_key "books", "pages", column: "first_page_id"
   add_foreign_key "bugs", "pages"
   add_foreign_key "bugs", "users"
