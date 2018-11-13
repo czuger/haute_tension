@@ -1,6 +1,10 @@
 class BugsController < ApplicationController
 
-  before_action :set_adventure
+  before_action :set_adventure, except: [:index]
+
+  def index
+    @bugs = Bug.all
+  end
 
   def new
     @page = @adventure.current_page
