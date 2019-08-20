@@ -14,7 +14,7 @@ gem 'haml-rails'
 # gem 'bootstrap', '~> 4.0.0.alpha5'
 # gem 'bootstrap-sass', '~> 3.3.6'
 
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -24,7 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-gem 'autoprefixer-rails', '8.6.5'
+gem 'autoprefixer-rails', '9.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
