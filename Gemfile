@@ -81,4 +81,5 @@ gem 'hazard'
 
 gem 'will_paginate-bootstrap'
 
-gem 'devise'
+# Will move to Oauth + Discord
+# gem 'devise'
