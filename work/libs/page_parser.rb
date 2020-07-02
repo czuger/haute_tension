@@ -4,49 +4,22 @@ require 'ostruct'
 
 class PageParser
 
-  def initialize
-    @pages = []
+  def initialize( pages_converter )
+    @pages = {}
+    @pages_converter = pages_converter
   end
 
-  def update( directory, parsing_hash, pages_converter )
+  def update( parsing_hash )
 
     page_path = parsing_hash[:file_path]
-    @origin_url = parsing_hash[:origin_url]
-    @pages_converter = pages_converter
+    page_hash = File.basename( parsing_hash[:file_path], '.html' )
+    # origin_url = parsing_hash[:origin_url]
 
-    # puts
-    # puts "page_path = #{page_path}"
-    # puts "@origin_url = #{@origin_url}"
+    # p page_path, origin_url
 
     doc = Nokogiri::HTML( open( page_path ) )
 
-    @pages << process_page( doc )
-
-    # read_page = doc.css('div.ob-text')
-    #
-    # paragraphs = []
-    # monsters = []
-    # read_page.children.each do |node|
-    #   if node.class == Nokogiri::XML::Element
-    #     process_page( node )
-    #
-    #     # node = process_links( node )
-    #
-    #     # p node
-    #
-    #     # monsters = check_for_monsters( node, monsters )
-    #     paragraphs << node.to_s.strip
-    #
-    #     # p paragraphs
-    #
-    #   end
-    #
-    #   # p paragraphs
-    # end
-
-    # File.open( "parsed_data/#{directory}/#{File.basename(page_path)}.yaml", 'w' ) do |f|
-    #   f.write( paragraphs.to_yaml )
-    # end
+    @pages[ page_hash ] = process_page( doc )
   end
 
   def save( directory )
@@ -104,7 +77,7 @@ class PageParser
 
         unless link.empty?
           link = link[0]  # Shouldn't be more than one link
-          page[:text] << { type: :link, text: link.text, src: link['href'] }
+          page[:text] << { type: :link, text: link.text, hash: @pages_converter[link['href']] }
         else
           page[:text] << { type: :text, text: p.text }
         end
@@ -115,17 +88,5 @@ class PageParser
 
     page
   end
-
-  # def process_links( node )
-  #   node.xpath( './/a' ).each do |link|
-  #     original_url = link.attributes['href'].value
-  #
-  #     # p original_url
-  #
-  #     link.attributes['href'].value = "/adventures/read_choice/#{@pages_converter[original_url]}"
-  #     link['class'] = 'pageLink'
-  #   end
-  #   node
-  # end
 
 end

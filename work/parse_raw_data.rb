@@ -13,11 +13,11 @@ directories.each do |directory|
 
   # p pages_converter
 
-  p_pars = PageParser.new
+  p_pars = PageParser.new( pages_converter )
 
   db.values.each do |parsing_hash|
     # p parsing_hash
-    p_pars.update( directory, parsing_hash, pages_converter )
+    p_pars.update( parsing_hash )
   end
 
   p_pars.save( directory )
