@@ -47,7 +47,7 @@ class PageParser
   def check_for_monsters( page )
     monsters = []
 
-    tmp_text = page[:text].dup
+    tmp_text = page[:paragraphs].dup
 
     until tmp_text.empty?
       text = tmp_text.shift
@@ -81,21 +81,21 @@ class PageParser
   end
 
   def process_page( doc, page_hash )
-    page = { page_hash: page_hash, text: [], monsters: [] }
+    page = { page_hash: page_hash, paragraphs: [], monsters: [] }
 
     doc.css( '.ob-section-text' ).each do |text_section|
 
       pictures = text_section.css( '.ob-img' )
-      page[:text] << { type: :pics, sources: pictures.map{ |p| p['src'] } } unless pictures.empty?
+      page[:paragraphs] << { type: :pics, sources: pictures.map{ |p| p['src'] } } unless pictures.empty?
 
       text_section.css( '.ob-text' ).xpath( './/p' ).each do |p|
         link = p.xpath( './/a' )
 
         unless link.empty?
           link = link[0]  # Shouldn't be more than one link
-          page[:text] << { type: :link, text: link.text, hash: @pages_converter[link['href']] }
+          page[:paragraphs] << { type: :link, text: link.text, hash: @pages_converter[link['href']] }
         else
-          page[:text] << { type: :text, text: p.text }
+          page[:paragraphs] << { type: :text, text: p.text }
         end
       end
     end
