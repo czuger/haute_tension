@@ -1,9 +1,0 @@
----
-- "<p>Grâce à la bague marquée de l'Ankh, vous savez que le passage secret sur le
-  mur arrière du Temple s'ouvrira pour vous. Vous courez jusque-là, puis, tapi dans
-  l'ombre de la paroi, examinez la vaste fresque qui la décore.</p>"
-- "<p>Allez-vous placer votre sceau sur :</p>"
-- |-
-  <p><a href="/adventures/read_choice/4eb7690aba6dff43acc776f9b4016594d0c37cbd3fded88cbee8653c7b6e90ff" class="pageLink">La ceinture d'Osiris ?</a><br>
-   <a href="/adventures/read_choice/b3d434b92f6dc4127f8a4c7f273e30e2e6c5e5cda691e0be526e8bb40b961aa4" class="pageLink">L'œil droit d'Horus ?</a><br>
-   <a href="/adventures/read_choice/1948fcfa66ddd18af6fe097f9c41d9cc45d8470cd65cbb65125dba9db6a155db" class="pageLink">L'œil droit d'Anubis ?</a></p>

@@ -1,9 +1,0 @@
----
-- "<p>La chute est longue et douloureuse. Vous perdez 4 points de Vie. Vous heurtez
-  quelque chose de solide. Vous vous retrouvez au milieu d'un tunnel. Vous ne distinguez
-  aucune ouverture dans le plafond à travers lequel vous avez passé. Le couloir monte
-  en pente douce sur votre gauche. Le passage paraît bouché sur votre droite.</p>"
-- "<p>De quel côté vous dirigez-vous ?</p>"
-- |-
-  <p><a href="/adventures/read_choice/2c04d00c450bec0694a7a320a96a872381b82d7b026204848b99867f24ff1c1b" class="pageLink">A gauche ?</a><br>
-   <a href="/adventures/read_choice/8f1d936aba9e5bdd1ea13dae77c69ea3ae4370d4252aa63066f8c1004f40a73f" class="pageLink">A droite ?</a></p>
