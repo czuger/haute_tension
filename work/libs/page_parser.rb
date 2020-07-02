@@ -57,42 +57,61 @@ class PageParser
 
   private
 
-  # def check_for_monsters( node, monsters )
-  #
-  #   if node.children.first.name == 'strong'
-  #     # p node
-  #     # p node.text
-  #     m = node.text.match( /(\d+) *VIE *: *(\d+)/ )
-  #     if m
-  #       # p node
-  #       monsters << { name: node.children.first.text, strength: m[1].to_i, hp: m[2].to_i }
-  #     else
-  #       puts "Monster in bad format : #{@origin_url}, #{node.inspect}"
-  #     end
-  #   end
-  #
-  #   monsters
-  # end
+  def check_for_monsters( page )
+    monsters = []
+
+    tmp_text = page[:text].dup
+
+    until tmp_text.empty?
+      text = tmp_text.shift
+
+      if text[:type] == :text
+        monster = text[:text].match( /(.*)FORCE[^\d]*(\d+) VIE[^\d]*(\d+)/ )
+
+        adjustment = text[:text].match( /.*AJUSTEMENT[^\d]*(\d)/ )
+        unless adjustment
+          text = tmp_text.shift
+
+          if text
+            adjustment = text[:text].match( /.*AJUSTEMENT[^\d]*(\d)/ )
+            if adjustment
+              adjustment = adjustment[1]
+            else
+              tmp_text.unshift( text )
+            end
+          end
+        end
+
+        if monster
+          monsters << { name: monster[1], force: monster[2].to_i, vie: monster[3].to_i, adjustment: adjustment }
+        end
+      end
+    end
+
+    monsters
+  end
 
   def process_page( doc )
-    page = []
+    page = { text: [], monsters: [] }
 
     doc.css( '.ob-section-text' ).each do |text_section|
 
       pictures = text_section.css( '.ob-img' )
-      page << OpenStruct.new( type: :pics, sources: pictures.map{ |p| p['src'] } ) unless pictures.empty?
+      page[:text] << { type: :pics, sources: pictures.map{ |p| p['src'] } } unless pictures.empty?
 
       text_section.css( '.ob-text' ).xpath( './/p' ).each do |p|
         link = p.xpath( './/a' )
 
         unless link.empty?
           link = link[0]  # Shouldn't be more than one link
-          page << OpenStruct.new( type: :link, text: link.text, src: link['href'] )
+          page[:text] << { type: :link, text: link.text, src: link['href'] }
         else
-          page << OpenStruct.new( type: :text, text: p.text )
+          page[:text] << { type: :text, text: p.text }
         end
       end
     end
+
+    page[:monsters] = check_for_monsters( page )
 
     page
   end

@@ -1,3 +1,4 @@
+# No more used. To be removed when all is working.
 module GameCore
   class MonsterParser
 
