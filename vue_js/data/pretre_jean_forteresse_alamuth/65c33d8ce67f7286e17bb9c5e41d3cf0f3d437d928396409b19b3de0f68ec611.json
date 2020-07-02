@@ -1,0 +1,26 @@
+{
+  "page_hash": "65c33d8ce67f7286e17bb9c5e41d3cf0f3d437d928396409b19b3de0f68ec611",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous suivez le sentier. La forêt change de visage : les arbres sont plus clairsemés, des feuilles mortes jonchent le sol, les taillis sont moins denses. Mais vous remarquez immédiatement que les oiseaux ont arrêté de siffler. Vous êtes tellement saisi par un changement si radical que vous ne remarquez pas un fil diaphane tendu en travers du chemin."
+    },
+    {
+      "type": "text",
+      "text": "L'avez-vous touché ? Lancez 2 dés pour le savoir."
+    },
+    {
+      "type": "link",
+      "text": "Si vous obtenez un double.",
+      "hash": "1f020984c6217d922ea5bba0cbf29533592358d2bebae32cc17095573ce6a5f5"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "97d1878f1fc379e87c7f7f8b06c1f49c49ab5f4394e3b181f47b89f89452cf51"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

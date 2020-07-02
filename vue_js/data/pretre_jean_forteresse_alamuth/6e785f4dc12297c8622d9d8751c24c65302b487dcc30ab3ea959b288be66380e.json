@@ -1,0 +1,25 @@
+{
+  "page_hash": "6e785f4dc12297c8622d9d8751c24c65302b487dcc30ab3ea959b288be66380e",
+  "text": [
+    {
+      "type": "text",
+      "text": "Fauché par un coup d'épée fatal, le faucon tueur s'abat à terre en piaillant de douleur. L'Oiseleur bondit vers le petit corps ensanglanté de son animal favori et le cajole un instant dans ses bras. Puis, avec un hurlement terrible, l'Homme-Oiseau, bien décidé à venger son faucon, prend son envol et fond sur vous. Vous n'avez pas le temps de faire autre chose que vous défendre de votre mieux."
+    },
+    {
+      "type": "text",
+      "text": "HOMME-OISEAU FORCE: 11 VIE: 14"
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez ce combat.",
+      "hash": "057f426e1f6b33676016fe3422025fbc14410fe18922570f4f2394cf9bc3e5b5"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "HOMME-OISEAU ",
+      "force": 11,
+      "vie": 14
+    }
+  ]
+}

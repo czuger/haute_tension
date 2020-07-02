@@ -1,0 +1,26 @@
+{
+  "page_hash": "924bcd8ae31472ad01abbd8fd9d553b4522c1642b1d36215df3234d3f73bb1a0",
+  "text": [
+    {
+      "type": "text",
+      "text": "Arrivé à l'endroit où des échoppes bordent le mur est de la cour intérieure, vous les observez avec attention. Deux d'entre elles vous paraissent plus intéressantes que les traditionnelles boutiques d'épices ou de denrées alimentaires. La première a une façade blanchie à la chaux. En vous approchant discrètement, vous distinguez de nombreuses fioles alignées le long des murs sur des étagères vétustes. Vous passez ensuite devant la seconde échoppe, richement colorée, elle. C'est à l'évidence la pratique d'un marchand de tapis de toutes sortes que vous entendez discuter dans l'arrière-boutique."
+    },
+    {
+      "type": "text",
+      "text": "Décidez-vous d'entrer :"
+    },
+    {
+      "type": "link",
+      "text": "Dans l'échoppe blanche?",
+      "hash": "61348bd33f25a5db0721e4da00069c1801eb47f51405aedf140c5d77627279bb"
+    },
+    {
+      "type": "link",
+      "text": "Chez le marchand de tapis?",
+      "hash": "5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

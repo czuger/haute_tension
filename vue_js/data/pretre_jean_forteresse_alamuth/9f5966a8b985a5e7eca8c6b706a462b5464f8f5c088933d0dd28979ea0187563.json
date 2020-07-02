@@ -1,0 +1,22 @@
+{
+  "page_hash": "9f5966a8b985a5e7eca8c6b706a462b5464f8f5c088933d0dd28979ea0187563",
+  "text": [
+    {
+      "type": "text",
+      "text": "Votre sac contient-il un contrepoison ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui, buvez-le immédiatement.",
+      "hash": "c01ad9f5b43a8556af087001f4dc87a46708fb7663b78ab2b0072639fc22f2f8"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire.",
+      "hash": "32f434c7183babe924c4686070226a36fec1ea8d9e19e1e4a8e96e242a43ae66"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

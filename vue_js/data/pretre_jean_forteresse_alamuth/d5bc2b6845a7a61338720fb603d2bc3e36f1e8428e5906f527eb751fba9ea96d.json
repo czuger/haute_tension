@@ -1,0 +1,30 @@
+{
+  "page_hash": "d5bc2b6845a7a61338720fb603d2bc3e36f1e8428e5906f527eb751fba9ea96d",
+  "text": [
+    {
+      "type": "text",
+      "text": "« Vil traître ! Je viens mettre fin à ton règne de terreur, au nom du Christ ! » Lancez-vous en crachant au visage de l'Orque bestial. L'effet de surprise est de votre côté et vous remportez automatiquement le premier assaut. Otez-lui 2 Points de Vie. Cependant il vous faudra compter avec la force exceptionnelle du bourreau !"
+    },
+    {
+      "type": "text",
+      "text": "BOURREAU FORCE: 13 VIE: 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous tuez l'Orque.",
+      "hash": "e2bad0595c122a4a1de481be640cfd0beb5dae009d1288737f26d6be1c7b67a3"
+    },
+    {
+      "type": "link",
+      "text": "Si vous descendez au-dessous de 2 points de Vie.",
+      "hash": "492289c4132127ce0c643167b0265de42aea597f6b53731eba1bc3d49e94221b"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "BOURREAU ",
+      "force": 13,
+      "vie": 12
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "page_hash": "32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc",
+  "text": [
+    {
+      "type": "text",
+      "text": "En poussant la porte vous êtes surpris par le bruit et la lumière vive qui règnent en cet endroit. Toutes les tables sont occupées par des hommes, rougeauds et bruyants. Certains s'agitent sur place, d'autres font un tel raffut qu'il est impossible de déterminer s'ils hurlent ou chantent. La servante a peine à se frayer un passage au milieu de cette foule gesticulante. Le tavernier, un gros homme ceint d'un tablier d'une propreté douteuse, s'approche de vous. Il pousse sans aucun ménagement un homme attablé devant vous. « Va-t'en, immonde pourceau, lui crie-t-il. As-tu oublié les bonnes manières au point de ne pas laisser ta place à un chevalier qui ne trouve pas à s'asseoir?... Que désirez-vous, monseigneur? Je peux vous servir à souper pour la somme modique de 3 pièces d'or. Il vous en coûtera 5 autres pour avoir un lit. » Les prix sont exorbitants mais vous n'avez guère le choix. Votre but est proche. Néanmoins, vous avez besoin de reprendre des forces et éliminer les fatigues du voyage."
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez de l'argent, payez les 7 pièces.",
+      "hash": "ae6a1f0fc1549bd1811384ef2220bd5638bd8f408c37cc9250c93b3800f1cf8f"
+    },
+    {
+      "type": "link",
+      "text": "Si vous désirez vendre votre cheval pour régler votre dette.",
+      "hash": "b21e3423ce8608ae61f29b02df70780e86924f0e99ed588cc98bfb2fbabbd02b"
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez plus un sou vaillant ou si vous préférez essayer de trouver une autre solution pour manger et dormir.",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

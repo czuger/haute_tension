@@ -1,0 +1,25 @@
+{
+  "page_hash": "7b4b48a077e56ddee8c308e577d544902393761d49b605e4af8b2c462b60fae9",
+  "text": [
+    {
+      "type": "text",
+      "text": "L'épée encore à la main, vous lancez un défi au chef! Chancelant un peu, celui-ci rassemble son courage et s'empare à deux mains d'une grande épée posée près de lui. Il se relève et s'élance sur vous. Très vite, vous vous rendez compte que, malgré les ravages de la lèpre, il a gardé beaucoup de son ancienne habileté. Ce chevalier déchu sera un redoutable adversaire."
+    },
+    {
+      "type": "text",
+      "text": "CHEVALIER LEPREUX FORCE : 12 VIE : 8"
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez ce combat.",
+      "hash": "bbb046269f3f10a8630cf286e2b7944e5e9017b2fce35a0c55001c805af2933a"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "CHEVALIER LEPREUX ",
+      "force": 12,
+      "vie": 8
+    }
+  ]
+}

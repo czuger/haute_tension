@@ -1,0 +1,26 @@
+{
+  "page_hash": "f92b83e0cb955e7af4d6b73a2547d3551f01da38645b4c844db2ae66b907c76d",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous engagez dans un marécage peu profond. La végétation luxuriante est d'une rare beauté et l'eau atteint à peine vos mollets. Vous avancez sans peine et le kiosque est maintenant très proche. Soudain vous glissez. Mais ce que vous croyez n'être qu'un trou d'eau inoffensif se révèle, en fait, une étendue de sables mouvants."
+    },
+    {
+      "type": "text",
+      "text": "Lancez un dé :"
+    },
+    {
+      "type": "link",
+      "text": "si vous obtenez un nombre pair.",
+      "hash": "c8ff67611f912c0cee02ff3a0f3aef6795c3bfa1addafbe70a5407cd491896fe"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "710af8ffc91fe7dc1a0a42835d5294bf967bb84a95c8889c259f950d75eb11d0"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

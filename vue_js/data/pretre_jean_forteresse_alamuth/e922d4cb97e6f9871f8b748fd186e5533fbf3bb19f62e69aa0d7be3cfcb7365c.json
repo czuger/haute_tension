@@ -1,0 +1,22 @@
+{
+  "page_hash": "e922d4cb97e6f9871f8b748fd186e5533fbf3bb19f62e69aa0d7be3cfcb7365c",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous refermez la porte de la salle du Maître des Chiens et pivotez sur vos talons."
+    },
+    {
+      "type": "link",
+      "text": "Essaierez-vous la porte du fond du couloir",
+      "hash": "077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+    },
+    {
+      "type": "link",
+      "text": "ou bien, si vous ne l'avez déjà fait, ouvrirez-vous celle qui se trouve en face de vous, renforcée par de solides barres de fer ?",
+      "hash": "81ae793194e088077f7413a0d142393b85bc76f6b0da283204ed72a27608d441"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

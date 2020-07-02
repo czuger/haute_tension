@@ -1,0 +1,63 @@
+{
+  "page_hash": "0f7874099c0d7304240b430f15bf4e7007d8e50880ee96b710ffeedefc6705fd",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous lui expliquez votre décision de ne pas rentrer en Angleterre et de poursuivre votre voyage. « Ainsi tu as l'esprit d'aventure, ami ! s'exclame l'énorme Templier avec un grand rire. Je suis Godric de Villebonne, trésorier de la Commanderie de Saint-Jean- d'Acre. Nous accueillons tous les chrétiens dans notre sanctuaire. Désires-tu passer la nuit avec nous ? Le gîte et le couvert te coûteront 2 pièces d'or. Je peux également te proposer de l'équipement qui te sera utile au cours de ta quête. Mais plus utile encore te sera un renseignement que je te donnerai plus tard... »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez plus d'or.",
+      "hash": "5d972fcf94096a22428930279cbe977a368da3d61ee9f9ed79c0013991764420"
+    },
+    {
+      "type": "text",
+      "text": "Si vous désirez acheter de l'équipement aux Templiers, voici ce qu'ils ont à vous proposer. Vous pouvez acheter chaque objet en plusieurs exemplaires, mais attention à ne pas dépasser la limite de vos pièces d'or ! Faites votre choix puis déduisez le nombre de pièces d'or correspondant à vos acquisitions de votre bourse :"
+    },
+    {
+      "type": "text",
+      "text": "Provisions (3 rations) 3 pièces d'or"
+    },
+    {
+      "type": "text",
+      "text": "Poignard de jet : 2 pièces d'or"
+    },
+    {
+      "type": "text",
+      "text": "Gourde d'eau : 1 pièce d'or"
+    },
+    {
+      "type": "text",
+      "text": "Torches : 1 pièce d'or"
+    },
+    {
+      "type": "text",
+      "text": "Dague en argent : 3 pièces d'or"
+    },
+    {
+      "type": "text",
+      "text": "Arc et flèches : 2 pièces d'or"
+    },
+    {
+      "type": "text",
+      "text": "Jeu de cartes : 2 pièces d'or"
+    },
+    {
+      "type": "text",
+      "text": "Une fois votre choix terminé, il vous reste à décider si vous acceptez de souper et de passer la nuit à la Commanderie en échange de 2 pièces d'or."
+    },
+    {
+      "type": "link",
+      "text": "Si oui, rayez ces 2 pièces supplémentaires de vos possessions.",
+      "hash": "892e4da2b1123671c54f8fe5ccf73dcdc44f15de7f341a2551add3fedc4b7ca5"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez quitter la Commanderie et la ville sans plus attendre.",
+      "hash": "7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

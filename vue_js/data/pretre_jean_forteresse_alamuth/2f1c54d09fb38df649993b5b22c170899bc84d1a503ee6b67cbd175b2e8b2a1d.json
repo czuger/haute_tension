@@ -1,0 +1,40 @@
+{
+  "page_hash": "2f1c54d09fb38df649993b5b22c170899bc84d1a503ee6b67cbd175b2e8b2a1d",
+  "text": [
+    {
+      "type": "text",
+      "text": "D'un mouvement brusque, l'Homme-Rat vous agrippe la main : vous n'avez pas été assez vif! Vous devez réagir sans tarder !"
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "Dégainer votre épée ?",
+      "hash": "c1b42e3ad0ea2b32d2bbd3d6a9ba3d9361855ee540bb7d2b26bef2a53e9d739f"
+    },
+    {
+      "type": "text",
+      "text": "Utiliser un des flacons mystérieux que vous a cédés l'Apothicaire ? Dans ce cas, lequel ?"
+    },
+    {
+      "type": "link",
+      "text": "Le bleu ?",
+      "hash": "3656d45840d47fbb52419fa0e53b730948ad8e96d01cf43d2463b79a97b4f78a"
+    },
+    {
+      "type": "link",
+      "text": "Le jaune ?",
+      "hash": "f6ab4bf4dc59e4363ab2c907f5521ee25d2ecc716d7ab865637e7f387ecd248d"
+    },
+    {
+      "type": "link",
+      "text": "Le vert?",
+      "hash": "0dc042922a02749e69f67b36cd2a7ee3abfd71003b25e18b91698452f25fbc42"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "page_hash": "7934ff7be1213f3f2493e9e74f1a1c9351875635b9a609f6a0af453dc6787fe4",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous décochez un large sourire à l'Oiseleur, pour le mettre en confiance."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous essayer pour lui faire quitter ses gants par la ruse?"
+    },
+    {
+      "type": "link",
+      "text": "Lui dire qu'Abdul Al-Azhred vous a envoyé à lui?",
+      "hash": "1dcaab6cd005f19e8fd1ca6e3168e6261427470309e0eedf218227b83e429618"
+    },
+    {
+      "type": "link",
+      "text": "Lui proposer de lui lire les lignes de la main ?",
+      "hash": "9ef78d6f8c31146abfb404a920920cdf930b1fb134108a6d1b8b0f66496ef8fd"
+    },
+    {
+      "type": "link",
+      "text": "Lui jeter un sort d'illusion (si vous en possédez un) ?",
+      "hash": "faf207aa44c1c22a37bc4e885cbae01a8b07a10e4ebce307829122673474c597"
+    },
+    {
+      "type": "link",
+      "text": "Lui offrir de l'or en échange de ses gantelets ?",
+      "hash": "df8509da02fa06ecd4fb1d4a78eab75474874cc26ea562e18404f21fe455e661"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

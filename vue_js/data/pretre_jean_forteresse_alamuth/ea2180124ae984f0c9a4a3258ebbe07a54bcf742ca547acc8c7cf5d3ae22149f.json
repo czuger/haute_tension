@@ -1,0 +1,22 @@
+{
+  "page_hash": "ea2180124ae984f0c9a4a3258ebbe07a54bcf742ca547acc8c7cf5d3ae22149f",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le bouchon tient bon, mais avec une violente secousse vous parvenez à le défaire. Un nuage de vapeur verte siffle en s'échappant par le goulot dès que vous avez réussi à ôter la fermeture : il s'agit d'une bouteille magique où un Génie était retenu prisonnier ! La vapeur verte se cristallise bien vite et le Génie apparaît. Il est coiffé d'un turban vert et ses traits sont fins. Il croise les bras et s'adresse à vous : « Merci de m'avoir délivré, ô voyageur. Autrefois un mage cruel qui était mon ennemi m'a abandonné ici, et depuis ma prison de verre n'avait été ouverte par nulle âme charitable. Pour te récompenser, je te donnerai ce que tu me demanderas... en échange de 5 pièces d'or ! Mais attention, mes pouvoirs sont limités et tu devras méditer soigneusement ton souhait. »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous donnez au Génie ce qu'il demande.",
+      "hash": "47a205dc143c56cb29ac242254ea4c7406127b0229790866572c6c465dcaa87f"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez le remercier mais décliner son offre et quitter l'oasis.",
+      "hash": "478b2babe0e698f8ad1a91d7fbad4826e82fb0fa56fe53b7c54f5a0263fa48db"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

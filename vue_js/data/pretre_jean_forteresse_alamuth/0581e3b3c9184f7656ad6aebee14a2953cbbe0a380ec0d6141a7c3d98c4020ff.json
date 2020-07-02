@@ -1,0 +1,32 @@
+{
+  "page_hash": "0581e3b3c9184f7656ad6aebee14a2953cbbe0a380ec0d6141a7c3d98c4020ff",
+  "text": [
+    {
+      "type": "link",
+      "text": "Si vous n'en avez aucun, choisissez une autre solution.",
+      "hash": "399f0aa2ebb1d40013dbd8355cd5da02d8e2c7133e4c01715ea1b45b4949aee6"
+    },
+    {
+      "type": "text",
+      "text": "Lequel des objets de l'Apothicaire allez-vous essayer?"
+    },
+    {
+      "type": "link",
+      "text": "La fiole bleue?",
+      "hash": "1ae435f27530eb613e34888ac917a259176b9df163543aeb64c13aad94f4ff3a"
+    },
+    {
+      "type": "link",
+      "text": "Le flacon de poudre jaune?",
+      "hash": "87db3ef9f8791810327f6dab7b2e094646db3c4337e506f5b8648cea0033c76a"
+    },
+    {
+      "type": "link",
+      "text": "La potion verte?",
+      "hash": "8a3b58fa73b7b93992ace45dcafafe0255a91c75902dc0e58cbd81aefb35ace9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "page_hash": "2cb78d0ed943221b55222aa494f856f1cf702807ca634ffbcc5b9e15a41eb587",
+  "text": [
+    {
+      "type": "text",
+      "text": "II se retourne vers vous. «Je suppose que vous cherchez à pénétrer à l'intérieur de la Forteresse pour rencontrer le vieux Hassan Sabba. Je vais vous faire une faveur supplémentaire : le mot de passe qui permet de franchir la porte... Mes jours sont comptés et je n'ai rien à perdre à dévoiler un secret si anodin. N'importe quel ivrogne local serait sans doute enclin à vous le donner en échange d'un verre de vin... Lorsque le garde vous arrêtera à la porte d'enceinte, dites-lui uniquement : Samarcande. Il vous laissera passer sans difficulté. Mais je vois qu'il est tard et que vous devez être fourbu par les fatigues du voyage. Désirez-vous dîner et passer la nuit dans mon modeste logis ? »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez.",
+      "hash": "8c5550cf9942562806c4af6a0833df7681debad9b5fca1eaaa1a27dbe78ede08"
+    },
+    {
+      "type": "text",
+      "text": "Autrement, vous remerciez l'Apothicaire de son précieux renseignement. Puis vous dirigez vos pas"
+    },
+    {
+      "type": "link",
+      "text": "vers l'auberge,",
+      "hash": "32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
+    },
+    {
+      "type": "link",
+      "text": "la maison du Magicien,",
+      "hash": "db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab"
+    },
+    {
+      "type": "link",
+      "text": "la haute construction à l'écart de l'autre côté de la place",
+      "hash": "2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
+    },
+    {
+      "type": "link",
+      "text": "ou vous décidez de quitter le village.",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

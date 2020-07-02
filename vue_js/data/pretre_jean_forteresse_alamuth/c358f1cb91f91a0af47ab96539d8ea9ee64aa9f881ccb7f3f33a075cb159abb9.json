@@ -1,0 +1,22 @@
+{
+  "page_hash": "c358f1cb91f91a0af47ab96539d8ea9ee64aa9f881ccb7f3f33a075cb159abb9",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous expliquez au marchand de tapis que Slig vous a conseillé de vous procurer un tapis dans son échoppe, mais vous vous gardez bien de lui parler de la potion de lévitation. Le visage rondouillard du marchand s'illumine à la perspective de ce gain. « Comme tu vois, seigneur, j'ai des tapis de toutes sortes. Mais ceux-ci sont ordinaires quoique magnifiques, s'entend ! Si tu veux voir mes plus belles pièces, dont certaines ont, j'ose le dire, des pouvoirs très spéciaux, daigneras- tu m'accompagner dans l'arrière-boutique ? » Répondrez-vous au commerçant :"
+    },
+    {
+      "type": "link",
+      "text": "Que vous vous contenterez d'un tapis ordinaire?",
+      "hash": "114357da02462f3aee1c697b930b5c29ab196278a1a4625b6d781db6d7370c1f"
+    },
+    {
+      "type": "link",
+      "text": "Que vous aimeriez en effet voir ses tapis spéciaux?",
+      "hash": "ad5fd76e16a0cc67eee8dc226696b5470eb5df9dce0ff15c67ad37e6e8877a11"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

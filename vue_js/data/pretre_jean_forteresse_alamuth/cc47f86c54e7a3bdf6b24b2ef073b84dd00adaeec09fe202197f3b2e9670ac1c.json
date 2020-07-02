@@ -1,0 +1,49 @@
+{
+  "page_hash": "cc47f86c54e7a3bdf6b24b2ef073b84dd00adaeec09fe202197f3b2e9670ac1c",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_1abbfddfe70f50430d5ededba8b8764a_312.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Au moment où vous faites irruption dans la salle, quatre Hommes- Rats se précipitent vers une porte au fond de la pièce qui se verrouille immédiatement derrière eux. Ne craignant pas que l'on puisse venir en aide à vos trois adversaires restants avant que vous ayez le temps de les anéantir, vous engagez le combat. Vous affrontez les Hommes-Rats séparément."
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-RAT FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-RAT FORCE : 6 VIE: 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-RAT FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous êtes vainqueur.",
+      "hash": "714fed43b6c31c83571e389eb47eb43c39d646d32626e64537d1c066b03129c6"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-RAT ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-RAT ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-RAT ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "page_hash": "9d1922c5bcfcb87e8a24e621a53aca4588be3c9227287e4cd8ab8d5dca10ce84",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le Marchand ventripotent vous entraîne tout au fond de son échoppe, dans une salle chichement éclairée. Il vous tend une petite lampe à huile. «Je dois faire attention, tout pourrait facilement flamber dans ma pauvre boutique ! Gémit-il. Voici le tapis que vous cherchez, seigneur ! » Vous vous penchez au-dessus du tapis qu'il désigne et le regardez de près. Vous ne distinguez rien de bien extraordinaire. Vous vous retournez pour demander des explications, juste à temps pour apercevoir deux Haschichins complices du Marchand qui s'apprêtaient à vous faire un mauvais parti. Vous lancez un coup de pied dans la poitrine du premier et tirez votre épée. Vous les combattrez séparément car l'exiguïté de l'arrière-boutique ne leur permet pas de vous attaquer simultanément."
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HASCHICHIN FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "DEUXIEME HASCHICHIN FORCE: 8 VIE: 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous parvenez à vaincre ces deux canailles.",
+      "hash": "7077bf3de519db6da968e13292526e031682bd00f6be59049b7b6f08508c30c5"
+    },
+    {
+      "type": "link",
+      "text": "Si, au cours du combat, vous tombez au- dessous de 2 points de Vie.",
+      "hash": "a976df67148e57d41ccb92ddcbe4b8e6061e92f2b106e4d8b5daa01c1a95b278"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HASCHICHIN ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "DEUXIEME HASCHICHIN ",
+      "force": 8,
+      "vie": 10
+    }
+  ]
+}

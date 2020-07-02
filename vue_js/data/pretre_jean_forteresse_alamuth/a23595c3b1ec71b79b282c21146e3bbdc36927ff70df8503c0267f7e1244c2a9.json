@@ -1,0 +1,30 @@
+{
+  "page_hash": "a23595c3b1ec71b79b282c21146e3bbdc36927ff70df8503c0267f7e1244c2a9",
+  "text": [
+    {
+      "type": "text",
+      "text": "Malgré son apparence lourdaude, la Limace est redoutable."
+    },
+    {
+      "type": "text",
+      "text": "LIMACE MUTANTE FORCE : 9 VIE : 20"
+    },
+    {
+      "type": "text",
+      "text": "AJUSTEMENT DEGATS : + 1"
+    },
+    {
+      "type": "link",
+      "text": "Si vous sortez victorieux de l'affrontement.",
+      "hash": "5376dfc4ba020d69ed9f46c503bc3dd0fda61c00f082ccd9013855f09164bd7c"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "LIMACE MUTANTE ",
+      "force": 9,
+      "vie": 20,
+      "adjustment": "1"
+    }
+  ]
+}

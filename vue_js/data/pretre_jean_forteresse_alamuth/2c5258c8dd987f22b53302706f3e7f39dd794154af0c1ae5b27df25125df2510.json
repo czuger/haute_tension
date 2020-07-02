@@ -1,0 +1,31 @@
+{
+  "page_hash": "2c5258c8dd987f22b53302706f3e7f39dd794154af0c1ae5b27df25125df2510",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous allez jusqu'au puits et vous penchez sur le rebord. Cela vous rappelle d'autres temps où, à Venise, vous suiviez la coutume locale de jeter une pièce au fond du puits dans l'espoir de voir un voeu se réaliser. Peut-être qu'en Orient aussi, ce genre de fantaisies a cours ? Vous restez là un moment à vous rappeler vos voyages passés, puis vous vous reprenez."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "Jeter une pièce dans le puits en faisant un voeu?",
+      "hash": "bdb25e52b05c22cbc9fe126941bd7a648274f447f33bc26b1c791a412b5bd4ca"
+    },
+    {
+      "type": "link",
+      "text": "Faire boire votre cheval?",
+      "hash": "1af2c57dd1e47ccaf8caf40340d1a7c0698ff654e20c15b275efbfba430fb804"
+    },
+    {
+      "type": "link",
+      "text": "Quitter l'oasis?",
+      "hash": "478b2babe0e698f8ad1a91d7fbad4826e82fb0fa56fe53b7c54f5a0263fa48db"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

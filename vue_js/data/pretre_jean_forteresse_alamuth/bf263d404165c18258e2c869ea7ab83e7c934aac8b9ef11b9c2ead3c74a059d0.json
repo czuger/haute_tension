@@ -1,0 +1,26 @@
+{
+  "page_hash": "bf263d404165c18258e2c869ea7ab83e7c934aac8b9ef11b9c2ead3c74a059d0",
+  "text": [
+    {
+      "type": "text",
+      "text": "La discussion se poursuit plaisamment. Jamal est d'agréable compagnie et vous retracez pour lui vos exploits, un peu nostalgique. Les gobelets se vident les uns après les autres et vous vous détendez. Votre compagnon évite cependant de parler de lui. Vous vous demandez s'il n'en dit pas moins long qu'il n'en sait. Finalement, vous jugez qu'il est temps de gagner votre chambre pour vous y reposer. Vous prenez congé, mais Jamal, énigmatique, vous offre une dernière tournée avant de vous séparer."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "Accepter son offre dans l'espoir de percer son secret ?",
+      "hash": "5067c244313abc4c45177e040d4cefb8b55e473a1548a0e09db576c9adbe8a12"
+    },
+    {
+      "type": "link",
+      "text": "Refuser poliment et monter vous coucher?",
+      "hash": "0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

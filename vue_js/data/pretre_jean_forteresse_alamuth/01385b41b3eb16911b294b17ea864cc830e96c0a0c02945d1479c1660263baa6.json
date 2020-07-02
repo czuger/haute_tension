@@ -1,0 +1,27 @@
+{
+  "page_hash": "01385b41b3eb16911b294b17ea864cc830e96c0a0c02945d1479c1660263baa6",
+  "text": [
+    {
+      "type": "text",
+      "text": "Apprenant que vous ne pouvez pas le payer, le tavernier s'apprête à remporter son vin. Votre compagnon lui pose la main sur le bras. « Comment, Youssouf, mon crédit n'est plus valable en ce lieu?... » Le cruchon retrouve vite sa place sur la table. Votre interlocuteur commence à boire. Avant qu'il soit trop soûl, vous décidez de l'interroger sur le plus sûr moyen de pénétrer à l'intérieur de la Forteresse. «Je l'ignore, vous répond-il, mais rends-toi sur la place. Je doute que tu n'y trouves pas quelqu'un pour te renseigner. De plus, fais...» Soudain il s'écroule sur la table, ivre mort. Vous l'abandonnez à son sort, mais vous ignorez où se situe la place."
+    },
+    {
+      "type": "link",
+      "text": "A gauche?",
+      "hash": "afa8da8a0c74cb76e95e4f992ced163f162206cae1447f007260325d0d971ca6"
+    },
+    {
+      "type": "link",
+      "text": "Tout droit?",
+      "hash": "735c10256c6cc818aab1812acb567acc6a8f59077f2270d575cd7035ccd59b43"
+    },
+    {
+      "type": "link",
+      "text": "A droite?",
+      "hash": "b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

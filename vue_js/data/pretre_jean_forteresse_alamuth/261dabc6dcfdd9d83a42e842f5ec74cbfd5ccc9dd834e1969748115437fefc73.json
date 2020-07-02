@@ -1,0 +1,26 @@
+{
+  "page_hash": "261dabc6dcfdd9d83a42e842f5ec74cbfd5ccc9dd834e1969748115437fefc73",
+  "text": [
+    {
+      "type": "text",
+      "text": "«Je viens interroger le prisonnier qu'on a amené ce matin ! Lancez- vous à l'Orque bestial. Conduis-moi à lui, je te l'ordonne!» Votre ruse va-t-elle réussir?"
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 8 ou moins.",
+      "hash": "4cb51428d78ec93f424d0fd115a3531cc89b19ea3e92a9849c43563bdba7d11a"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 9 ou davantage.",
+      "hash": "8b132fed055e24ec683c3ef8805d3db350ba08a12a16d44177669859d5b582ff"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "page_hash": "abef9922188de19ba6f0073a6497c442181f3af07ea1a6331b66d2fd724efee9",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le Lutin est fort occupé à biner une plantation de plantes médicinales à la houe. «Le chemin qui mène à Hassan Sabba? Je ne te l'indiquerai, étranger, que si tu me donnes un objet magique...» Le Lutin est bien exigeant !"
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez, payez-lui ce qu'il désire et rayez l'objet de la liste de vos possessions.",
+      "hash": "d6ffa231a5c917e32127d8e7dcafeeb111ead482fb224e7d34d21e13ff12c348"
+    },
+    {
+      "type": "link",
+      "text": "Si vous refusez.",
+      "hash": "d9436e793456b415a504bc06f4713b7efc7451085012eb6db5ab4e2029329feb"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

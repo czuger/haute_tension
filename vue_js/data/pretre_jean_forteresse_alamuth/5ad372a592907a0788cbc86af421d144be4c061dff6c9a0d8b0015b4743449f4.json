@@ -1,0 +1,22 @@
+{
+  "page_hash": "5ad372a592907a0788cbc86af421d144be4c061dff6c9a0d8b0015b4743449f4",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous arrivez rapidement devant une enseigne aux couleurs avenantes. Cette auberge vous paraît sympathique et vous décidez d'y trouver abri jusqu'au lendemain où vous vous mettrez en route vers les montagnes. Vous attachez votre cheval à l'extérieur et entrez. Une foule bruyante remplit la salle de l'auberge. Votre entrée semble aviver les conversations. Vous marchez jusqu'à l'endroit où se tient le propriétaire et lui demandez combien vous coûtera un lit pour la nuit. Il vous répond que le tarif usuel est de 3 pièces d'or, et qu'il peut également vous servir un repas chaud pour 2 pièces d'or supplémentaires."
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez son offre, ôtez 5 pièces d'or de votre bourse.",
+      "hash": "51688c6ab8b4cd41a1f4c756086c20c7738b65af47843a562b178c6a61da946e"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez manger vos propres provisions, rayez une ration sur la liste de vos possessions. Vous payez à l'aubergiste ses 3 pièces d'or et vous montez au premier étage.",
+      "hash": "0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "page_hash": "586a59f631ab79f4f49f0f1f8974ea25d0130a10a68be3e41529559417e75cbf",
+  "text": [
+    {
+      "type": "text",
+      "text": "D'un geste prudent, vous poussez la porte de la salle d'où montent des rires enjoués. Vous entrez et vous vous retrouvez au coeur d'une joyeuse agitation. Vous avez franchi le seuil de la pièce de récréation des gardes de la Forteresse, qui sert aussi de dortoir. L'assistance ne vous prête que peu d'attention : tous les regards sont vissés à un titanesque affrontement. Deux hommes aux traits rudes se mesurent en une partie de bras de fer vigoureuse. Leurs visages sont écarlates, tendus par l'effort. Des cris d'encouragement fusent parmi l'assemblée : «Dix pièces d'or sur le Maître des Chiens ! » « Le Maître de la Forge va l'emporter ! » « Peuh ! il n'arrive pas à la cheville de l'autre ! » Un brusque mouvement de foule vous amène tout près de la table où les lutteurs se font face. A côté de vous, des voix vous accueillent comme un familier du dortoir : «Allons, ami, tu risqueras bien cinq pièces d'or sur ton poulain ! » « Serais-tu avare ? » De part et d'autre, on vous tire et vous secoue, on vous propose de parier. Le Maître des Chiens semble tout à coup avoir le dessus, mais son robuste adversaire se ressaisit aussitôt."
+    },
+    {
+      "type": "text",
+      "text": "Pris au milieu de cette fantastique épreuve, qu'allez- vous faire?"
+    },
+    {
+      "type": "link",
+      "text": "Parier avec un membre de l'assistance ?",
+      "hash": "cf92d8b6a230042d5bf21194e03b028eb87bc58eed2ee9d2db0c9dfa5abcda4c"
+    },
+    {
+      "type": "link",
+      "text": "Déclencher une bagarre pour détourner l'attention ?",
+      "hash": "e7dc3a6e852eb2d76b198896b50f9a2897821e4b1ffe9a2db7dc4594071e6ed1"
+    },
+    {
+      "type": "link",
+      "text": "Tenter de quitter la salle en vous frayant un chemin?",
+      "hash": "dd434cd6ca01fed65802d613ef2214f97b60e3f457da74c8bb428fefd482f75c"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

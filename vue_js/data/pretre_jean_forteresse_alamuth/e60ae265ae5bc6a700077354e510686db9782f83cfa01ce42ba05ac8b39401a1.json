@@ -1,0 +1,22 @@
+{
+  "page_hash": "e60ae265ae5bc6a700077354e510686db9782f83cfa01ce42ba05ac8b39401a1",
+  "text": [
+    {
+      "type": "text",
+      "text": "Alors que vous alliez quitter la pièce, votre regard s'arrête sur les plats encore fumants sur la table. Votre périple dans le souterrain vous a fatigué et votre estomac commence à crier famine."
+    },
+    {
+      "type": "link",
+      "text": "Voulez-vous dévorer en quelques bouchées un de ces fruits alléchants ?",
+      "hash": "b9b68eb02631d8a513282d3ffdc2a4b36393baa9ef930c87c5a3f64d04162146"
+    },
+    {
+      "type": "link",
+      "text": "Ou bien sortez-vous le plus vite possible.",
+      "hash": "2c8088fa8ea64bb483a7379fe7d4c65f25cce3690247ad3d9d72a3f7c6a09d8d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

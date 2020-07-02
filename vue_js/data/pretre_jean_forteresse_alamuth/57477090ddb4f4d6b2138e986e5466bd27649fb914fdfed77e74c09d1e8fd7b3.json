@@ -1,0 +1,41 @@
+{
+  "page_hash": "57477090ddb4f4d6b2138e986e5466bd27649fb914fdfed77e74c09d1e8fd7b3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous sortez le parchemin de votre sac et vous le posez sur une table. « Bonsoir, étranger, je vous attendais avec impatience ! » Vous vous retournez vivement car vous pensiez que la pièce était vide. Un vieillard à la chevelure argentée vous observe passivement. Il est confortablement installé dans un large fauteuil en bois ouvragé, la tête reposant sur un coussin de soie sauvage. Vous pourriez jurer qu'il n'était pas là lorsque vous êtes entré. «Grâce à mes pouvoirs, j'ai suivi votre périple depuis Saint-Jean-d'Acre. N'ayez crainte, je suis prêt à vous aider dans votre aventure. Le mot de passe pour pénétrer dans la Forteresse d'Alamuth ne vous servira à rien : je connais l'existence d'un souterrain oublié qui débouche dans le puits à sec derrière le village. Il vous permettra d'éviter de nombreux périls. Mais j'ai une envie folle de me distraire. Voulez-vous jouer avec moi?»"
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez.",
+      "hash": "5b748446a0fec82af8affac6a0b9b26ae227a4d7bf6d9afda307dddd6926e8f4"
+    },
+    {
+      "type": "text",
+      "text": "Si, au contraire, sa proposition ne vous inspire aucune confiance, vous le remerciez de son accueil. Vous pouvez partir :"
+    },
+    {
+      "type": "link",
+      "text": "à l'auberge,",
+      "hash": "32b82b1361e73acf1dfb9feb050884a562d1f30fab834cd56b2a4bf69d0282bc"
+    },
+    {
+      "type": "link",
+      "text": "chez l'Apothicaire,",
+      "hash": "b7fce4be108c6899396b682c7535f0aae0156e09a85d2802eabd847e5f6dc4b2"
+    },
+    {
+      "type": "link",
+      "text": "explorer la haute maison isolée de l'autre côté de la place",
+      "hash": "2f1102e63f7a7a781a8a8310d37aac0cfc2d71749edba0f801fbdc0076d897ee"
+    },
+    {
+      "type": "link",
+      "text": "ou quitter le village ?",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

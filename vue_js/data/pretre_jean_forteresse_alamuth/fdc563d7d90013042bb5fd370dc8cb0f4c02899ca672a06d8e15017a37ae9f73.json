@@ -1,0 +1,22 @@
+{
+  "page_hash": "fdc563d7d90013042bb5fd370dc8cb0f4c02899ca672a06d8e15017a37ae9f73",
+  "text": [
+    {
+      "type": "text",
+      "text": "D'épais fourrés impénétrables vous empêchent de longer la berge sur la gauche. Vous apercevez un kiosque dans le fond du jardin."
+    },
+    {
+      "type": "link",
+      "text": "Préférez-vous aller dans cette direction",
+      "hash": "f92b83e0cb955e7af4d6b73a2547d3551f01da38645b4c844db2ae66b907c76d"
+    },
+    {
+      "type": "link",
+      "text": "ou bien longer la rive sur votre droite ?",
+      "hash": "f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

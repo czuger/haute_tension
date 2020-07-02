@@ -1,0 +1,25 @@
+{
+  "page_hash": "3777178ae0d0937ad5a1768f161d42f51eb0dfc46f153b3903f14f997a5de1f0",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous renversez d'un violent coup de pied la table de bois à laquelle vous étiez assis, la catapultant sur le Collecteur d'impôts. Vous dégainez votre épée pendant qu'il se relève avec peine, gêné par les débris de meubles."
+    },
+    {
+      "type": "text",
+      "text": "COLLECTEUR D'IMPOTS FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous triomphez.",
+      "hash": "bd4dabcd1cc516db0403badb4ae23ef2c0c361126fb7b91e78b7e339f74fd494"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "COLLECTEUR D'IMPOTS ",
+      "force": 6,
+      "vie": 10
+    }
+  ]
+}

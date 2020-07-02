@@ -1,0 +1,40 @@
+{
+  "page_hash": "23dfc9ad6c586efaf2bc61f78280cae8a9ad5d39af2662be60c2d3ccaea48ac4",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous rejetez brusquement en arrière pour ne pas tomber dans le bassin et arrachez votre épée à la pieuvre venimeuse qui voulait vous happer !"
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous dans votre sac un objet qui puisse vous aider ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "98cd6c5d38fa6f0ae31a0f8cbdc74fc7d6ce12a3a718e327ce9d0257268c4565"
+    },
+    {
+      "type": "text",
+      "text": "Sinon, plusieurs solutions s'offrent à vous :"
+    },
+    {
+      "type": "link",
+      "text": "Plonger avec votre épée à la main.",
+      "hash": "d80577d8d4dda07b07f09e030aa80db4bbfca8aed0bddb81f131e809196e7a0c"
+    },
+    {
+      "type": "link",
+      "text": "Plonger avec votre poignard à la main.",
+      "hash": "fd2c4df4ffcfbd00e5a6f4dc4e27fa7f76be4ab430ab81af6d46bc9da5a504a0"
+    },
+    {
+      "type": "link",
+      "text": "Lancer votre poignard sur le monstre.",
+      "hash": "8d5d82ad634592a0d0c5552d88168af1fc5f7e7f65c6ccfb306a757db7f255fe"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

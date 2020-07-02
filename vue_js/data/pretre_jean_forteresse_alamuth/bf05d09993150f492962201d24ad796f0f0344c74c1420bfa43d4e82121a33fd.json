@@ -1,0 +1,31 @@
+{
+  "page_hash": "bf05d09993150f492962201d24ad796f0f0344c74c1420bfa43d4e82121a33fd",
+  "text": [
+    {
+      "type": "text",
+      "text": "« Puisque tu ne peux pas payer, tu n'as rien à faire dans mon établissement ! J'aurais dû m'en douter, en compagnie d'un tel ivrogne... » Sur ces mots, le tavernier vous attrape par le col, vous soulève de votre siège, et d'une poussée vigoureuse vous propulse dans la rue. Vous vous affalez dans la poussière, plus blessé dans votre dignité que par votre chute. Vous ramassez vos affaires mais vous êtes indécis quant au chemin à suivre."
+    },
+    {
+      "type": "text",
+      "text": "Quelle rue prenez-vous ?"
+    },
+    {
+      "type": "link",
+      "text": "Celle de gauche?",
+      "hash": "afa8da8a0c74cb76e95e4f992ced163f162206cae1447f007260325d0d971ca6"
+    },
+    {
+      "type": "link",
+      "text": "Celle qui est devant vous?",
+      "hash": "735c10256c6cc818aab1812acb567acc6a8f59077f2270d575cd7035ccd59b43"
+    },
+    {
+      "type": "link",
+      "text": "Celle de droite?",
+      "hash": "b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

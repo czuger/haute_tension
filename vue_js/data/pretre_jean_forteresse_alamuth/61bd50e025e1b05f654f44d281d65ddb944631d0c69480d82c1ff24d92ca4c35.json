@@ -1,0 +1,43 @@
+{
+  "page_hash": "61bd50e025e1b05f654f44d281d65ddb944631d0c69480d82c1ff24d92ca4c35",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avancez avec précaution dans le boyau étroit. Une humidité Masseuse ruisselle le long des parois. Soudain, vous entendez des cris derrière vous. Immédiatement sur vos gardes, vous faites volte-face. Trois Hommes-Rats vous foncent dessus, l'air menaçant. Ils tirent de larges épées de leurs fourreaux. Damnation ! Vous aviez oublié que vous possédez maintenant l'apparence de leurs ennemis héréditaires. Vous dégainez votre arme. Vous devez combattre ces trois agresseurs individuellement :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-RAT FORCE: 7 VIE: 10"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-RAT FORCE : 8 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-RAT FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous sortez victorieux de cette attaque.",
+      "hash": "9446f44f4c308790da372a7ae598c2205c26dfb00c47e2f90b29d91b3dc909c9"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-RAT ",
+      "force": 7,
+      "vie": 10
+    },
+    {
+      "name": "SECOND HOMME-RAT ",
+      "force": 8,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-RAT ",
+      "force": 8,
+      "vie": 12
+    }
+  ]
+}

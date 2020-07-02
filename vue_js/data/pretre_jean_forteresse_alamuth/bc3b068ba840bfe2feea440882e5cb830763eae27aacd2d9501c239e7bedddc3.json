@@ -1,0 +1,22 @@
+{
+  "page_hash": "bc3b068ba840bfe2feea440882e5cb830763eae27aacd2d9501c239e7bedddc3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous atteignez le bout du tunnel. Dans l'obscurité, vous montez une à une les marches usées d'un escalier en colimaçon. Ecartant une tenture, vous débouchez dans un hall sans fenêtres. Une grande table est dressée au centre de la pièce, un chandelier éclairé de centaines de bougies est suspendu au plafond lambrissé. Vous fouillez le hall. Derrière une tapisserie représentant un animal monstrueux crachant des flammes, vous découvrez un autre escalier qui monte. Aucun doute n'est possible : vous êtes parvenu au donjon de la Forteresse d'Alamuth ! Et Hassan Sabba habite au sommet de la plus haute tour de son palais ! Vous vous apprêtez à poser le pied sur la première marche lorsque vous entendez un bruit étrange dans votre dos. Vous pivotez sur vos talons. Un Spectre enveloppé dans une longue cape moisie flotte vers vous, attirant fixement votre regard de ses orbites vides. Voilà une épreuve supplémentaire à surmonter..."
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez trouvé un anneau de sort dans la forge de la Forteresse. (vous êtes à nouveau à l'intérieur de la Forteresse, l'anneau d'invisibilité est inefficace).",
+      "hash": "2594d751dc60aabada026c4d0b7c5b9f499968af07599969628e17bae84bf941"
+    },
+    {
+      "type": "link",
+      "text": "Sinon, vous devez dégainer votre épée et affronter l'apparition surnaturelle.",
+      "hash": "b653b489fcc245abb962f5fe0b1dade3060e7a74a09c83bc44a5317d53135f9b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

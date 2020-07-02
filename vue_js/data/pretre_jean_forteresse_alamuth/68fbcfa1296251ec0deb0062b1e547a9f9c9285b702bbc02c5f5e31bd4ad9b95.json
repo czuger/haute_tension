@@ -1,0 +1,26 @@
+{
+  "page_hash": "68fbcfa1296251ec0deb0062b1e547a9f9c9285b702bbc02c5f5e31bd4ad9b95",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous éprouvez la corde qui semble pouvoir supporter votre poids. Vous commencez la descente. L'odeur de putréfaction gagne en intensité à chaque mètre par couru. L'obscurité s'épaissit. Soudain, en tâtant la paroi du bout des doigts, vous rencontrez le vide. Vous êtes à hauteur d'un embranchement. Un tunnel s'enfonce devant vous sous terre."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous l'emprunter?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "c94b4125e72e879e4d3157b5bbe1e594b589bbe0a54ab1909a3e2e9d55d50fed"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire, vous continuez votre descente.",
+      "hash": "b793e9b0da04ea05b11fa2ad3f45b98a1541f2a099e9951d07887fec73be562a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

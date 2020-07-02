@@ -1,0 +1,40 @@
+{
+  "page_hash": "974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous apercevez trois portes dans le mur ouest du couloir. Vous avancez vers le nord jusqu'au fond du couloir et constatez qu'une quatrième porte, solidement verrouillée, barre le passage."
+    },
+    {
+      "type": "link",
+      "text": "Si vous pensez pouvoir ouvrir cette porte grâce à un objet que vous avez trouvé.",
+      "hash": "8e7036b0173e04c6d9138bdbd72c7f4d6bca6ece0221d900c06a750dd1c05483"
+    },
+    {
+      "type": "text",
+      "text": "Sinon, vous revenez au début du couloir. La porte de la première pièce est faite de bois grossier, et des rires s'en échappent. La seconde est marquée d'une serre, et d'étranges bruits en émanent. La troisième porte la blessure d'un fer rouge."
+    },
+    {
+      "type": "text",
+      "text": "Choisirez-vous d'ouvrir :"
+    },
+    {
+      "type": "link",
+      "text": "La porte d'où s'échappent des rires?",
+      "hash": "586a59f631ab79f4f49f0f1f8974ea25d0130a10a68be3e41529559417e75cbf"
+    },
+    {
+      "type": "link",
+      "text": "La porte marquée d'une serre de rapace?",
+      "hash": "cb0637ee1dd4a4dde72d505ced3dd03a2914fca74b2056e5de9fc62677eba6d5"
+    },
+    {
+      "type": "link",
+      "text": "La porte marquée au fer rouge ?",
+      "hash": "185ca03a6e8657e8047f82c93029adafb90fea46dfb4a384f8897ff793049bd5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

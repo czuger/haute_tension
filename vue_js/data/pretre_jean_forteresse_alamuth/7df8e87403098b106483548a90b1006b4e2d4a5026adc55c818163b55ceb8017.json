@@ -1,0 +1,36 @@
+{
+  "page_hash": "7df8e87403098b106483548a90b1006b4e2d4a5026adc55c818163b55ceb8017",
+  "text": [
+    {
+      "type": "text",
+      "text": "Soudain, vous apercevez à l'autre extrémité d'un boyau étroit trois silhouettes verdâtres qui se dirigent vers vous. Vous n'en croyez pas vos yeux : l'une d'elles porte en pendentif une clef semblable à celle que vous venez de dérober. L'occasion est trop belle pour ne pas en profiter, mais vous réalisez que les Hommes-Lézards ne vont pas vous confier leur précieux trésor uniquement pour vous faire plaisir. Vous allez devoir le prendre par la force."
+    },
+    {
+      "type": "text",
+      "text": "Décidez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "De dégainer votre épée et de les attaquer?",
+      "hash": "38ba3c3f5ebf6ed1e6050652e7da851a00cce60f7dc070661aa44e4e62456801"
+    },
+    {
+      "type": "link",
+      "text": "D'utiliser le globe de Shawar?",
+      "hash": "0d034d3b9a77289c9d16ece0832673d8d2bf9fdcb832c31d2421d7aa369edd50"
+    },
+    {
+      "type": "link",
+      "text": "De les endormir en jouant un air de flûte?",
+      "hash": "97fec68a5b0610f4d1e5ec6db4b30fe2790d0fd871bcbe29ad53c1700a8f48cf"
+    },
+    {
+      "type": "link",
+      "text": "De vous rendre invisible?",
+      "hash": "920fa2425a5527e6fa36f0cd6877a2c4b2bfee14814ffa3e8fe2c54269c3a5fd"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "page_hash": "c509d5c7a680f8f6af0f57ed43db8f552459e0fcfc15015694fb638b3edaa26a",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le boyau est encore large et vous pouvez avancer sans gêne en évitant les tas de détritus qui jonchent le sol par endroits. Vous repérez une porte sur votre gauche. Vous l'entrebâillez avec précaution pour voir ce qui se cache derrière, et vous découvrez une salle enfumée, dépouillée de toute décoration. Au centre est installée une grande table couverte de mets appétissants : venaisons fumantes, fruits juteux... Sept individus sont en profonde discussion à proximité. Mais en les observant avec plus d'attention, vous remarquez leur teint gris, leurs mains fines et poilues, leurs ongles longs et étroits, et surtout une queue rosâtre qui tombe jusqu'au sol. Vous avez devant vous sept spécimens d'Hommes-Rats."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous faire?"
+    },
+    {
+      "type": "link",
+      "text": "Refermer doucement la porte et continuer dans le tunnel ?",
+      "hash": "b8da37b177db7c780e6b62474245810d69dcf51fd529635e447525d9724f7ff3"
+    },
+    {
+      "type": "link",
+      "text": "Avancer parmi eux et engager la conversation?",
+      "hash": "7552b3d2502f8e5707b9e240cddbf488eda6a58a48553864639334f4ffe6ba5f"
+    },
+    {
+      "type": "link",
+      "text": "Les attaquer sans prévenir?",
+      "hash": "97e1b9ec0587a025b29d22fb10936101b9fd14ff1ff5889755037670cf59cf31"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -20,7 +20,7 @@ class PageParser
 
     doc = Nokogiri::HTML( open( page_path ) )
 
-    @pages[ page_hash ] = process_page( doc )
+    @pages[ page_hash ] = process_page( doc, page_hash )
   end
 
   # This method save data for better view and test (useful for having an overview of regexp matches)
@@ -32,7 +32,7 @@ class PageParser
 
   # This method prepare the data for future VueJs requests
   def prepare( directory )
-    path = '../public/' + directory
+    path = '../vue_js/data/' + directory
 
     FileUtils.mkpath( path )
     @pages.each do |key, data|
@@ -80,8 +80,8 @@ class PageParser
     monsters
   end
 
-  def process_page( doc )
-    page = { text: [], monsters: [] }
+  def process_page( doc, page_hash )
+    page = { page_hash: page_hash, text: [], monsters: [] }
 
     doc.css( '.ob-section-text' ).each do |text_section|
 

@@ -1,0 +1,43 @@
+{
+  "page_hash": "c1b42e3ad0ea2b32d2bbd3d6a9ba3d9361855ee540bb7d2b26bef2a53e9d739f",
+  "text": [
+    {
+      "type": "text",
+      "text": "A la seconde où ils aperçoivent l'éclat de votre lame, quatre Hommes- Rats se précipitent vers une porte dissimulée dans le mur du fond. Vous n'avez que peu de temps pour éliminer les trois créatures qui restent, en les affrontant séparément :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-RAT FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-RAT FORCE: 6 VIE: 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-RAT FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Après avoir remporté les trois combats, vous arrachez la clef au cou du chef et vous fuyez pour éviter les renforts qui ne vont pas tarder.",
+      "hash": "c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-RAT ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-RAT ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-RAT ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

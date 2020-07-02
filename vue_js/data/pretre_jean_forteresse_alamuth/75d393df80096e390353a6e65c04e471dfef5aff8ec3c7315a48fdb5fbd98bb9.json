@@ -1,0 +1,43 @@
+{
+  "page_hash": "75d393df80096e390353a6e65c04e471dfef5aff8ec3c7315a48fdb5fbd98bb9",
+  "text": [
+    {
+      "type": "text",
+      "text": "Au moment où vous faites irruption dans la salle, quatre Hommes-Lézards se précipitent vers une porte au fond de la pièce qui se verrouille immédiatement derrière eux. Ne craignant pas que l'on puisse venir en aide à vos trois adversaires restants avant que vous ayez le temps de les anéantir., vous engagez le combat. Vous affrontez les Hommes-Lézards séparément :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-LEZARD FORCE:8 VIE: 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-LEZARD FORCE:6 VIE: 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous êtes victorieux.",
+      "hash": "70f021ffb8a5f00435c6389b6736a2b8db7d5a9bf92564e5e7c23461ba04fa95"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-LEZARD ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-LEZARD ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-LEZARD ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

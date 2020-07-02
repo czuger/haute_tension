@@ -1,0 +1,26 @@
+{
+  "page_hash": "f21e8222fdcfc53c74995b77666eb1545ac6e9704215fa3c31d432e179f9391a",
+  "text": [
+    {
+      "type": "text",
+      "text": "Seule une potion de contrepoison pourra redonner à vos oreilles leur aspect normal. Si vous en trouvez au cours de votre aventure, avalez-la. L'effet sera instantané : rajoutez alors 1 point de Vie à votre total."
+    },
+    {
+      "type": "text",
+      "text": "Mais avez-vous acheté une fiole à l'Apothicaire?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "7d35ff4e6818bb27f34d78fc6a2e951dbb0132a41f5fd7aae371e4d41cb7c937"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "9a8061a612763b604122ee17ef5813d92f941a774c988228969bff435ff10b12"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

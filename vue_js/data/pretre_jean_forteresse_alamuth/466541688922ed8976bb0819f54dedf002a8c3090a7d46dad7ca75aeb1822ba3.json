@@ -1,0 +1,22 @@
+{
+  "page_hash": "466541688922ed8976bb0819f54dedf002a8c3090a7d46dad7ca75aeb1822ba3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Les feuilles des nénuphars sont d'une taille peu commune. Curieusement, elles se chevauchent et forment un passage pour traverser la rivière. Vous jugez plus prudent d'ôter votre armure avant de tenter de passer, ne conservant que votre heaume."
+    },
+    {
+      "type": "link",
+      "text": "Si vous désirez traverser en passant à gauche des fleurs odorante.",
+      "hash": "305a2fdb06f1d286e58d99fd2266586981e2f14618d7e08263c462408180c072"
+    },
+    {
+      "type": "link",
+      "text": "Si au contraire vous préférez passer à droite.",
+      "hash": "f1eba9769e05e43af0e8aea6b5a5eea15b6f1c2bc4aa1706d6a2ed02c2ac10cf"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

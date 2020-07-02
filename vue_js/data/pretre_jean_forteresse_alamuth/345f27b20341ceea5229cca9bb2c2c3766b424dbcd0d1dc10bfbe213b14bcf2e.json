@@ -1,0 +1,25 @@
+{
+  "page_hash": "345f27b20341ceea5229cca9bb2c2c3766b424dbcd0d1dc10bfbe213b14bcf2e",
+  "text": [
+    {
+      "type": "text",
+      "text": "Espérant avoir l'avantage de la surprise, vous dégainez votre épée et attaquez l'Oiseleur. D'un battement d'ailes, il prend ses distances et se prépare au combat. Son agilité vous a fait perdre toute chance de remporter le premier assaut. Bien pire, l'Homme- Oiseau tire sur les cordons de cuir qui retiennent le capuchon de son faucon dressé et libère le rapace. Le faucon tueur se jette sur vous en lançant un cri rageur."
+    },
+    {
+      "type": "text",
+      "text": "FAUCON TUEUR FORCE : 10 VIE : 7"
+    },
+    {
+      "type": "link",
+      "text": "Si vous gagnez ce combat.",
+      "hash": "6e785f4dc12297c8622d9d8751c24c65302b487dcc30ab3ea959b288be66380e"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "FAUCON TUEUR ",
+      "force": 10,
+      "vie": 7
+    }
+  ]
+}

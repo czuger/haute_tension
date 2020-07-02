@@ -1,0 +1,26 @@
+{
+  "page_hash": "552f4764e800ba1b754e965b1f0b5515ff7229b2949121f21c5c03d6b1e5b280",
+  "text": [
+    {
+      "type": "text",
+      "text": "Alors que vous vous apprêtez à prendre congé, vous remarquez un reflet argenté sur la poitrine de l'Homme-Lézard avec qui vous discutiez. Accrochée à un collier autour de son cou se trouve l'une des deux clefs dont il vous a conté l'enjeu. Une idée germe dans votre esprit. Les Hommes-Lézards sont trop nombreux pour que vous puissiez les attaquer, aussi décidez-vous de voler la clef. Vous essayez de la subtiliser en détournant l'attention du chef, tout en prenant garde aux autres occupants de la pièce."
+    },
+    {
+      "type": "text",
+      "text": "Jetez 2 dés pour savoir si vous réussissez :"
+    },
+    {
+      "type": "link",
+      "text": "si le total de vos points est divisible par 3.",
+      "hash": "adc0f7350d48c8865fd90128c204617b7d065de1f04df9c7a4ec799b60d947ac"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire.",
+      "hash": "7483bc964626e2dbfa31eaea1f3f8725a7cac3fe0755ea7d18bdbf85e0daafc0"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

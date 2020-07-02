@@ -1,0 +1,26 @@
+{
+  "page_hash": "9384f856b57520434ceb14352fad10e3af7256f849a43898e9cacf664a805118",
+  "text": [
+    {
+      "type": "text",
+      "text": "L'allée s'enfonce dans la verdure. Les premières branches des arbres sont très hautes au-dessus de votre tête. Les taillis et le sous-bois sont étrangement denses. Soudain, une langue rose vous happe la cheville gauche. Fine et longue de plusieurs mètres, elle vous tire vers un fourré touffu... qui s'ouvre en deux pour découvrir une gueule béante. Vous êtes prisonnier d'une Drosera géante, plante carnivore particulièrement vorace. D'habitude, son espèce ne s'attaque jamais à des animaux plus gros que des lièvres. Vous agrippez la langue à pleines mains pour lui faire lâcher prise."
+    },
+    {
+      "type": "text",
+      "text": "Jetez un dé pour déterminer vos chances de réussite."
+    },
+    {
+      "type": "link",
+      "text": "Si vous obtenez 2 chiffres pairs.",
+      "hash": "ee2f59c7c1b54391ba7cf093a3ff305ee0e5d747f24bf1ad8854695dc7ebb092"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "962afaea8dc9b7628978649714149dd38f1f6aaaaf2c5a837be3312f6c4b5ea5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

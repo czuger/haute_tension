@@ -1,0 +1,22 @@
+{
+  "page_hash": "e5e4f81162ca85540088b178966c4d336d1db571047fb5b732a3d12785c270f1",
+  "text": [
+    {
+      "type": "text",
+      "text": "Après avoir payé les 5 pièces d'or exigées, vous montez dans votre chambre. Personne ne vous dérange jusqu'au matin et vous vous éveillez frais et dispos. Rajoutez 2 points de Vie à votre total. Vous vous habillez et décidez de prendre la direction de la Forteresse d'Alamuth."
+    },
+    {
+      "type": "link",
+      "text": "Si vous possédez encore votre cheval.",
+      "hash": "88fe24f56ed98c22079f5dd4eea47e0a0e1d3bee66bc40939da093f72959a00a"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "de24e61bd33f7c982411c5ac8f69584fd79df38e1d7de22ac734db06b2a1428a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "page_hash": "5cbb522609134e59c50b41e0f5e52bf3ed4ecd7b4236be32d16cf5226a86972a",
+  "text": [
+    {
+      "type": "text",
+      "text": "«Holà! Y a-t-il quelqu'un?» appelez-vous d'une voix forte. Un rideau de"
+    },
+    {
+      "type": "text",
+      "text": "perles se soulève bientôt pour laisser le passage à un homme à longue"
+    },
+    {
+      "type": "text",
+      "text": "barbe blanche, vêtu d'une robe de soie azur sertie de saphirs. «"
+    },
+    {
+      "type": "text",
+      "text": "Bienvenue au magasin de Slig l'alchimiste, voyageur. Parmi tous mes"
+    },
+    {
+      "type": "text",
+      "text": "trésors, lequel répondra à tes désirs? Parle, que puis-je faire pour toi ? »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez vu Akim le Fakir.",
+      "hash": "bbbd9ea23ab7eb0b0febed9f3253d1077c5e97ffc2ce3cb8d46f5a60a954cdca"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "260d54ffaebf8d924536b9664d23272a370722d6bcc06581a7d6bf7908aa3456"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

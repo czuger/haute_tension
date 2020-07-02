@@ -1,0 +1,26 @@
+{
+  "page_hash": "b3da33b8137d65ce1f1a9713f386f8ece476775d96d290b66e252cbc5a5aad7b",
+  "text": [
+    {
+      "type": "text",
+      "text": "N'écoutant que votre courage de croisé, vous courez vers le cheval emballé. Vous poussez rudement le Fakir hors de son chemin et faites face à l'animal, bras écartés, en poussant un grand cri. La bête fougueuse se cabre avec un grand hennissement, dressée sur ses jambes arrière. Vous profitez de sa frayeur pour agripper ses rênes qui pendent librement. Vous dissipez ses dernières craintes en lui flattant le col. Renâclant encore un peu, elle se laisse pourtant emmener jusqu'aux palefreniers qui la poursuivaient. Ceux-ci vous remercient bien bas de votre sollicitude. A présent il est temps pour vous d'aider le malheureux Fakir à se relever. «Ah, brave inconnu, tu mériterais de souffrir mon courroux pour m'avoir malmené de la sorte. Cependant, tu m'as également sauvé la vie, et cela je ne l'oublierai pas. Je suis Akim, et comme toi j'ai longtemps voyagé pour venir ici. Auras-tu l'obligeance de me raccompagner à mon humble masure, car cet incident m'a plutôt éprouvé?» Vous ramassez la planche à clous du Fakir et la lui tendez. Sans vos gantelets de fer, vous vous seriez certainement piqué !"
+    },
+    {
+      "type": "text",
+      "text": "Comment cet homme étrange fait-il pour la serrer ainsi sous son bras ?"
+    },
+    {
+      "type": "link",
+      "text": "Allez- vous à présent prendre congé de lui",
+      "hash": "48b4729738566daa42bb6636cdd8c5a62bc8c102b8f4514fcf9ed3c9c0941e1d"
+    },
+    {
+      "type": "link",
+      "text": "ou bien ferez-vous ce qu'il vous demande ?",
+      "hash": "8c0d9d5fbf6c381faa48efce44c00df74f8f7758810d356a72dbd7fb44d86be2"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "page_hash": "b69ee08e305a8bb598e473f001c875de3605dff717af22a10708effd9e33b462",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous étourdissez votre dernier adversaire en le frappant du plat de votre lame. Vous le ligotez solidement avec les ceinturons de ses compagnons morts et vous le giflez pour le réveiller. Vous êtes bien décidé à éviter de croiser une nouvelle patrouille de gardes en errant dans le village. Vous interrogez votre prisonnier quant au chemin à suivre."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous lui demander?"
+    },
+    {
+      "type": "link",
+      "text": "Où se trouve la demeure de Shawar?",
+      "hash": "882c5d6bbfe312dec74f9ecb2e6ab7975ba06e5ae37c062a61a23615f6301ed5"
+    },
+    {
+      "type": "link",
+      "text": "Quelle est la meilleure auberge du village?",
+      "hash": "ecfcf6e02dd55f8d8fac711369e647bd1f11314736ed3c9f7e701133deb73295"
+    },
+    {
+      "type": "link",
+      "text": "Où se trouve l'échoppe d'Abdalsan?",
+      "hash": "d62099fbd16a1811a804bd1f86c67c464a0c5cdd6a464483f2572d27de5f32c3"
+    },
+    {
+      "type": "link",
+      "text": "Quel est le plus court chemin pour aller à la maison d'Hassidin ?",
+      "hash": "750b98bcc44cbcabc5653ef0721ebccb20e716ef70b74bf7a5c3500b2e201bcf"
+    },
+    {
+      "type": "link",
+      "text": "Comment sortir du village sans éveiller l'attention?",
+      "hash": "6474b546bfc571ede0ca173921ab40e904c4767b059415f4915fa31409fe6e0d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

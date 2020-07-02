@@ -1,0 +1,27 @@
+{
+  "page_hash": "df8509da02fa06ecd4fb1d4a78eab75474874cc26ea562e18404f21fe455e661",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous ne cachez pas votre jeu et expliquez à l'Oiseleur que ses gantelets vous intéressent. Il semble ignorer leurs vertus magiques, mais n'est pas pour autant désireux de s'en séparer. « Tu n'as pas la moitié de l'or qu'il faudrait pour que je te vende ces gants, l'ami ! » Vous insistez et demandez combien il désire en tirer. « Trente pièces d'or, oui, trente, et pas une de moins ! » lance l'Homme- Oiseau en riant."
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez cette somme.",
+      "hash": "68438d6fd6ec3f6c04bd49cbeb028810f180719d7229efbbda40e890a654edf4"
+    },
+    {
+      "type": "link",
+      "text": "Sinon, votre tentative interdit toute autre ruse, car l'Oiseleur aurait tôt fait de vous soupçonner. Il ne vous reste qu'une solution : l'attaquer pour lui prendre ses gants par la force !",
+      "hash": "345f27b20341ceea5229cca9bb2c2c3766b424dbcd0d1dc10bfbe213b14bcf2e"
+    },
+    {
+      "type": "link",
+      "text": "Si vous renoncez complètement à acquérir les gantelets magiques, vous pouvez exprimer vos regrets à l'Homme-Oiseau et quitter la volière.",
+      "hash": "c497baad5482585eb53f4b2d913ba713838048613a732046322ff7a5cc0f730f"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

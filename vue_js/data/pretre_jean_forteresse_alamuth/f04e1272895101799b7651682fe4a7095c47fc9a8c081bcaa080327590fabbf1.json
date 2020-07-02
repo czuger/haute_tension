@@ -1,0 +1,43 @@
+{
+  "page_hash": "f04e1272895101799b7651682fe4a7095c47fc9a8c081bcaa080327590fabbf1",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous comprenez avec horreur que vous venez de tomber dans une embûche des plus dangereuses. Autour de vous le sol s'effondre de toutes parts. Le monticule à l'aspect anodin était en réalité une termitière géante ! Trois énormes insectes aux mandibules acérées surgissent des éboulis, terrifiant votre cheval. Les Termites se précipitent vers vous dans un infernal cliquetis. Les insectes meurtriers vous barrent le passage. Il n'y a d'autre issue que le combat à mort. Préparez-vous à vendre chèrement votre peau !"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER TERMITE GEANT FORCE: 5 VIE: 8"
+    },
+    {
+      "type": "text",
+      "text": "SECOND TERMITE GEANT FORCE: 5 VIE: 7"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME TERMITE GEANT FORCE: 6 VIE:8"
+    },
+    {
+      "type": "link",
+      "text": "Heureusement pour vous, les Termites vous attaquent l'un après l'autre et non tous ensemble. Si vous sortez vainqueur de cet affrontement.",
+      "hash": "5b174d2f369666a10e7fdc1fb47122bcbf521cd473091f219d00e1fcfe3d2c8a"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER TERMITE GEANT ",
+      "force": 5,
+      "vie": 8
+    },
+    {
+      "name": "SECOND TERMITE GEANT ",
+      "force": 5,
+      "vie": 7
+    },
+    {
+      "name": "TROISIEME TERMITE GEANT ",
+      "force": 6,
+      "vie": 8
+    }
+  ]
+}

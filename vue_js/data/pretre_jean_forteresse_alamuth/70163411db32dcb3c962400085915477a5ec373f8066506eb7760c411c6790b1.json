@@ -1,0 +1,35 @@
+{
+  "page_hash": "70163411db32dcb3c962400085915477a5ec373f8066506eb7760c411c6790b1",
+  "text": [
+    {
+      "type": "text",
+      "text": "Priant le ciel de ne pas commettre une irréparable étourderie, vous passez derrière le mage pour qu'il ne vous voie pas. Puis, désireux d'éviter d'attirer l'attention, vous chuchotez : « Tiens, voilà que je n'ai pas pris ma sacoche à potions ! Aurais-tu une fiole à me prêter, cher collègue ? » Vous retenez votre souffle, et essuyez une goutte de sueur de votre front."
+    },
+    {
+      "type": "text",
+      "text": "Mais le Magicien ne daigne pas même vous regarder. Gardant l'oeil rivé à sa tâche, il glisse une main dans les replis de sa longue robe lie-devin et l'y laisse un instant. De plus en plus inquiet, vous attendez. Le mage ressort vite une fiole de son habit. « Prends celle-ci ! Il ne me souvient plus de son contenu, mais de toute façon je n'en ai pas grand besoin. » Sans se retourner, il vous tend une main osseuse. Avec légèreté, vous refermez le poing sur la fiole qu'il vous a donnée."
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 8 ou moins.",
+      "hash": "f091c9225a91088f3b7c89ac0776424c024156d16c42cc6aebbb18a9ad3215de"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 9.",
+      "hash": "fe236c97426b710c3c8a5589af8b805b3021ecba6171f7d2e9466a512e3ba27a"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 10 ou davantage.",
+      "hash": "9318c4a8a10ffa83acb950a94e6be677ba1d0336dbe0c73207ec9bf61e9cdac8"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

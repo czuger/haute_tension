@@ -1,0 +1,22 @@
+{
+  "page_hash": "2743ec7b79ab0c72babe338a201fcc39e550d5177d9fc053d9087dcaa92f4b59",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le chemin est étroit et votre progression devient plus difficile. Vous chevauchez pendant plusieurs heures. Soudain, à environ trois cents mètres devant vous, se dresse un campement d'une vingtaine de tentes."
+    },
+    {
+      "type": "link",
+      "text": "Pensez-vous qu'il est plus sage de l'éviter ?",
+      "hash": "fe8c0aa0b4cd257fbfc22905baa6a41227bbfcd531ffe39ad553fa80e0e13e11"
+    },
+    {
+      "type": "link",
+      "text": "Ou préférezvous le traverser en espérant vous y reposer quelques instants ?",
+      "hash": "1e9456358e0e50599576635eaf4507d3b1c5d3aae3c5412e1c914a69de17d37e"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

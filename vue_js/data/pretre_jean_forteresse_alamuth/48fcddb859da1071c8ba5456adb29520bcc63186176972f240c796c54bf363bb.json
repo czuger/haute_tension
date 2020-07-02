@@ -1,0 +1,42 @@
+{
+  "page_hash": "48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_8454ecc9f246c100ef25e9af2f2a633e_412.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Essayant de ne pas attirer l'attention, vous traversez la salle d'étude à petits pas, jusqu'à la porte du fond. Nul ne se préoccupe de vous, car chacun des mages est absorbé par l'examen d'un grimoire ou d'un parchemin usé par les ans. Avec un peu d'appréhension, vous tournez la poignée de la porte. Vous passez le seuil... et vous voilà devant un puits d'où émane une étrange lueur bleue, comme si l'eau ou le liquide qu'il contient brillait d'un éclat irréel couleur de saphir. Au-delà du puits, deux chemins séparés par des murs de marbre blanc s'éloignent vers le fond de cette salle, dans des ténèbres impossibles à percer."
+    },
+    {
+      "type": "text",
+      "text": "Vous détaillez ces deux passages et comprenez vite qu'il s'agit de l'entrée d'un labyrinthe, sans doute de petite taille, qui occupe tout l'espace restant de ce lieu. Sans précautions, vous auriez pu vous y aventurer et y perdre la vie ! Qui sait dans quel dessein cette aile de la Forteresse a été consacrée à un pareil dédale ? Vous revenez près du puits et observez ses parois de brique ocre. La lueur bleue qui en émane semble attirer votre regard."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent quitter cet endroit et traverser la salle d'étude",
+      "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+    },
+    {
+      "type": "link",
+      "text": "ou préférez-vous ressortir pour parler au mage assis à une table",
+      "hash": "f69b7e4c7c39dabf04e51b1856e4dab934fa3eafd5a3a6f5dc4aa1325ed82abb"
+    },
+    {
+      "type": "link",
+      "text": "ou à celui qui étudie devant un pupitre ?",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    },
+    {
+      "type": "link",
+      "text": "Ou bien déciderez-vous de remplir une de vos gourdes du scintillant liquide bleu ?",
+      "hash": "1167026c9aa8fccb951bbf65b0a62dbcc73fc5840441fd26c78a79b6b9aa3fe5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

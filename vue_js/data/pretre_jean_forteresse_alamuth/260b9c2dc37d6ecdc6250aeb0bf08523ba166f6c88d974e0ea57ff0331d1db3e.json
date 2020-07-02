@@ -1,0 +1,22 @@
+{
+  "page_hash": "260b9c2dc37d6ecdc6250aeb0bf08523ba166f6c88d974e0ea57ff0331d1db3e",
+  "text": [
+    {
+      "type": "text",
+      "text": "Épouvanté à l'idée d'avoir contracté la lèpre, vous sortez de votre sac une fiole de potion ou un parchemin de sort de guérison. Sans plus tarder, vous exercez le pouvoir purificateur sur vous-même, sous l'oeil courroucé du chef des lépreux. Aussitôt, vous vous sentez régénéré. Ajoutez 2 points de Vie à votre total du moment. «Ton ignominie n'a donc pas de bornes, étranger! Tu oses profiter toi-même de ton pouvoir de guérison, dors qu'alentour des dizaines de malheureux se meurent ! » Les paroles de l'ancien guerrier vous touchent."
+    },
+    {
+      "type": "link",
+      "text": "Si vous possédez une seconde dose de potion ou un autre sort de guérison, vous pouvez décider de l'utiliser sur le chef.",
+      "hash": "e0554af1a7dd1833d4100860d60e8aa8a9cf4b5c732a2f4f581894a546095df8"
+    },
+    {
+      "type": "link",
+      "text": "Si, au contraire, vous n'en possédez pas, ou si vous estimez avoir perdu assez de temps.",
+      "hash": "7b4b48a077e56ddee8c308e577d544902393761d49b605e4af8b2c462b60fae9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

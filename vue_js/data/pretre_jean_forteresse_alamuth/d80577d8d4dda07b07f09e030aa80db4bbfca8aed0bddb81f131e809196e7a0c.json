@@ -1,0 +1,21 @@
+{
+  "page_hash": "d80577d8d4dda07b07f09e030aa80db4bbfca8aed0bddb81f131e809196e7a0c",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous plongez, l'épée à la main, pour affronter le monstre. Le choc est rude : la pieuvre était aussi préparée que vous ! Mais vous connaissez son point faible ! Son oeil unique : vous parviendrez à le transpercer, au cours du combat, si vous réussissez un double, portant un coup mortel à la bête. Vous mènerez ce combat sous-marin à 1 point de Force au-dessous de votre total du moment, à cause de l'eau bien sûr. Pour chaque 6 que vous tirerez, ôtez 2 points de Force à la pieuvre : vous aurez tranché l'un de ses tentacules. Cependant si vous ne remportez pas ce duel en deux assauts au plus, vos poumons cèdent sous le manque d'oxygène et vous mourez noyé avant d'être dévoré par le poulpe."
+    },
+    {
+      "type": "text",
+      "text": "PIEUVRE VENIMEUSE FORCE : 16 VIE : 6 AJUSTEMENT DOMMAGES : + 1"
+    },
+    {
+      "type": "link",
+      "text": "Si vous triomphez.",
+      "hash": "f4698bc252ad05f4569b5d841cdc101ec9dac0aa6072283d07d6915edc5f1994"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "page_hash": "714fed43b6c31c83571e389eb47eb43c39d646d32626e64537d1c066b03129c6",
+  "text": [
+    {
+      "type": "text",
+      "text": "Les Hommes-Rats sont étendus à terre. Vous apercevez une clef d'argent accrochée à un riche collier autour du cou de l'un d'eux."
+    },
+    {
+      "type": "text",
+      "text": "La prenez-vous?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "42d40e89154e8a534422a0bc13802f703e3bd197f39ec9020d71056ea704ab83"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "1c0cd7d23d72fbc92f14963167e647bdf62d8d68c3f27f679c089471792b75be"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

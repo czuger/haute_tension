@@ -1,0 +1,43 @@
+{
+  "page_hash": "9946e99fd7b137b8bb5666d851a93d055bd70b0dda76ec8e0c4db8a69d1d4c97",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avancez avec précaution dans un boyau étroit. Une humidité crasseuse ruisselle des parois. Soudain, vous entendez des cris derrière vous. Immédiatement sur vos gardes, vous vous retournez. Trois Hommes-Lézards vous foncent dessus, l'air menaçant. Ils tirent de larges épées de leurs fourreaux. Damnation ! Vous aviez oublié que vous possédiez maintenant l'apparence de leurs ennemis héréditaires. Vous dégainez votre arme, et affrontez ces trois agresseurs séparément :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-LEZARD FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-LEZARD FORCE : 8 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous sortez victorieux de cette attaque surprise.",
+      "hash": "b67d246a50bb4061742cdbc239506459157cf5b58f60c43acc818efda55cb055"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-LEZARD ",
+      "force": 7,
+      "vie": 10
+    },
+    {
+      "name": "SECOND HOMME-LEZARD ",
+      "force": 8,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-LEZARD ",
+      "force": 8,
+      "vie": 12
+    }
+  ]
+}

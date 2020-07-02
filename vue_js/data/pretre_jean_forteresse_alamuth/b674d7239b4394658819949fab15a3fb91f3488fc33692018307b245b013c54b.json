@@ -1,0 +1,26 @@
+{
+  "page_hash": "b674d7239b4394658819949fab15a3fb91f3488fc33692018307b245b013c54b",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous approchez du chef des lépreux, exaspéré par ses moqueries. Celles-ci vous rendent d'autant plus furieux qu'au cours du combat avec ses compagnons d'infortune, vous avez contracté la lèpre."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous faire?"
+    },
+    {
+      "type": "link",
+      "text": "Si vous attaquez le chef.",
+      "hash": "7b4b48a077e56ddee8c308e577d544902393761d49b605e4af8b2c462b60fae9"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez tenter de le calmer.",
+      "hash": "4fa8b40d7c535a1ba24eb71937a0e448bfe5ffe8db283cc35ff59dc93a91c8cf"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "page_hash": "5067c244313abc4c45177e040d4cefb8b55e473a1548a0e09db576c9adbe8a12",
+  "text": [
+    {
+      "type": "text",
+      "text": "Jamal vous donne une grande claque dans le dos. «Je vois que tu as le goût des bonnes choses, ami ! » s'exclame-t-il en éclatant de rire. Sur un signe de votre compagnon, l'aubergiste apporte deux gobelets fraîchement remplis. «A ta santé, seigneur», fait Jamal en vous tendant votre verre. Vous trinquez de bon coeur, déjà un peu éméché, et avalez le contenu de votre gobelet. Soudain, la pièce semble chavirer. Votre vue se brouille, et le rire strident de Jamal se répercute à l'infini sous votre crâne, tel un écho démesuré. Vous sombrez dans l'inconscience. Votre première sensation est celle de la terre froide et sale contre votre joue. Vous ouvrez les yeux avec peine, et une terrible douleur aux cheveux vous secoue. Jamal s'est joué de vous ! Il a profité de votre ivresse pour vous droguer et vous entraîner, inconscient, dans la venelle derrière l'auberge où il vous a dévalisé. Toutes vos pièces d'or ont disparu ! Rayez-les de la liste de vos possessions. Vous voilà pauvre comme Job. Il est déjà tard, et vous vous apercevez que l'auberge a depuis longtemps fermé ses portes. Furieux de vous être laissé flouer aussi stupidement, vous remontez à cheval."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "Essayer de trouver asile à la commanderie des Templiers ?",
+      "hash": "11a3980d2d7e33fb4154221155a4aaf8f060be5b4d5dc6e29f6e0ca551636df2"
+    },
+    {
+      "type": "link",
+      "text": "Veiller jusqu'à l'aube et quitter directement Saint-Jean-d'Acre.",
+      "hash": "7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "page_hash": "ad7ab378badc2ba91bf5f1425472ec6e319e9e0381182c6452bd2ebff1316257",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous savez que les Gnomes sont des créatures perfides. Si Hassan Sabba les a emprisonnés ici, c'est qu'il y a certainement une bonne raison à cela ! Vous décidez de les laisser à leur sort, d'autant plus que le forgeron pourrait revenir d'un instant à l'autre. Vous vous détournez, et leurs plaintes se transforment vite en insultes et en cris haineux. Au moment où vous posez la main sur la poignée de la porte, vous remarquez un panneau de bois sur le côté. Un trousseau des clefs y est accroché, ainsi que la clef des chaînes qui retiennent les Gnomes. Le trousseau comporte trois clefs : l'une en pierre verte, sans doute du jade, la seconde en bronze, la troisième faite d'un métal inconnu."
+    },
+    {
+      "type": "link",
+      "text": "Vous pouvez prendre ces clefs avant de quitter la forge",
+      "hash": "f7379bc149582bc9b90d2c9d0b9000247b0ae86bbdefb585ecf3edf9fb82f99c"
+    },
+    {
+      "type": "link",
+      "text": "ou sortir directement pour reprendre vos explorations.",
+      "hash": "c497baad5482585eb53f4b2d913ba713838048613a732046322ff7a5cc0f730f"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

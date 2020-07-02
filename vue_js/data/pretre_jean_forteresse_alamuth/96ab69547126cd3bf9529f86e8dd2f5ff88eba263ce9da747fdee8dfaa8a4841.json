@@ -1,0 +1,32 @@
+{
+  "page_hash": "96ab69547126cd3bf9529f86e8dd2f5ff88eba263ce9da747fdee8dfaa8a4841",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_5e31d3df5388e810b3a8f758910675ee_578.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous refermez doucement la porte de la volière. Le chant des oiseaux vous paraît encore plus assourdissant maintenant que vous êtes à l'intérieur. Vous contemplez les plumages multicolores et les ailes flamboyantes de ces créatures volantes, qui ne ressemblent à aucune espèce de votre connaissance. La Forteresse renferme donc encore un trésor supplémentaire."
+    },
+    {
+      "type": "text",
+      "text": "Ce spectacle merveilleux captive votre attention. Vous n'entendez donc pas le maître des lieux s'approcher de vous. L'Oiseleur pose sur votre épaule une main gantée de métal luisant. Sur l'autre gantelet, un splendide faucon pèlerin se tient perché, encapuchonné, le bec acéré. L'Oiseleur lui-même est un Homme-Oiseau à tête d'aigle royal, et deux amples ailes aux plumes blanches et noires s'élancent de son dos. Ce personnage fantastique vous interroge d'une voix nasillarde : « Qui es-tu, et que viens-tu faire dans la volière du Vieux de la Montagne?» Un reflet sur le métal étincelant de ses gantelets vous tire l'oeil. Avec exaltation, vous reconnaissez une des pièces de l'armure magique dont vous a parlé Abdul Al-Azhred !"
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous attaquer l'Homme-Oiseau",
+      "hash": "345f27b20341ceea5229cca9bb2c2c3766b424dbcd0d1dc10bfbe213b14bcf2e"
+    },
+    {
+      "type": "link",
+      "text": "ou tenter de lui ravir ses gantelets magiques par la ruse ?",
+      "hash": "7934ff7be1213f3f2493e9e74f1a1c9351875635b9a609f6a0af453dc6787fe4"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

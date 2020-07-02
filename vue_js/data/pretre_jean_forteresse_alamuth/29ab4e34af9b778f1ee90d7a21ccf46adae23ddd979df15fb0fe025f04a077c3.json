@@ -1,0 +1,31 @@
+{
+  "page_hash": "29ab4e34af9b778f1ee90d7a21ccf46adae23ddd979df15fb0fe025f04a077c3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Une fois à l'extérieur de la salle d'armes, vous vous retrouvez dans une large antichambre que vous dédaignez au profit d'un couloir qui longe la façade de la Forteresse en direction de l'ouest. Une porte se dessine au fond du couloir. De chaque côté du couloir s'ouvre également une porte."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous vous diriger :"
+    },
+    {
+      "type": "link",
+      "text": "Vers la porte de droite?",
+      "hash": "5b9d2c68b192d48610c8a7bf14bd647417a5670d06b5995d281e06e0a539faab"
+    },
+    {
+      "type": "link",
+      "text": "Vers la porte de gauche?",
+      "hash": "e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
+    },
+    {
+      "type": "link",
+      "text": "Vers la porte du fond?",
+      "hash": "077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "page_hash": "ab27e49b444abb428e413aab32b5eea47572386b8b6bd5ff0b1a2a18085e6278",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avez de la chance ! Aucun autre Crapaud ne vous a atteint. Vous courez le long de la rive en direction d'un pont qui enjambe la rivière."
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez pas traversé le cours d'eau.",
+      "hash": "2effd3690024fda9ab1f0f59741df8b9ad37c7ef2fbb135899820a898e8e0963"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "c03167eaf8b6a69abc5375350378586f0df9f6bdf1eab5e7205c8d3091f0d800"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

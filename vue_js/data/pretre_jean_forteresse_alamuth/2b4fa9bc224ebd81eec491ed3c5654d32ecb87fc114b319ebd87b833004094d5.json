@@ -1,0 +1,22 @@
+{
+  "page_hash": "2b4fa9bc224ebd81eec491ed3c5654d32ecb87fc114b319ebd87b833004094d5",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous restez debout en face du monstre, croisant les bras. Votre instinct de chevalier vous dit qu'il s'agit d'une illusion. Le Démon du Styx semble intrigué. Il s'approche doucement de vous et vous souffle une haleine de feu au visage. Vous perdez 2 points de Vie à cause de la brûlure qu'il vous a infligée."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous persister dans votre inaction",
+      "hash": "0f86ff696b3a9112ae465515210264f3240da12585fa174074d3828f3795aca5"
+    },
+    {
+      "type": "link",
+      "text": "ou bien changez-vous d'attitude pour vous décider à combattre ?",
+      "hash": "5171293869878d9e06899b3b4c09e8cba2d9264d66a113dea5ddab328e86312f"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "page_hash": "89671669618bee981045bee62bc5035c5277ba760694712c9ce752645179be48",
+  "text": [
+    {
+      "type": "text",
+      "text": "Un goût amer, mais pas réellement désagréable, vous emplit la bouche. Vous gagnez 1 point de Vie. Mais vous êtes instantanément pris de vertiges, la tête vous fait atrocement mal."
+    },
+    {
+      "type": "text",
+      "text": "Portez-vous un casque ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "fa03ee099d7769a4dcdf9f24b8c71ca643a7490336bc8307e72e36e4b0c88ee7"
+    },
+    {
+      "type": "link",
+      "text": "Autrement.",
+      "hash": "fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

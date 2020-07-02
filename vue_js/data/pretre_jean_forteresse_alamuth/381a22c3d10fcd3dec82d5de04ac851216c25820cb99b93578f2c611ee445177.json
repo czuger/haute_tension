@@ -1,0 +1,18 @@
+{
+  "page_hash": "381a22c3d10fcd3dec82d5de04ac851216c25820cb99b93578f2c611ee445177",
+  "text": [
+    {
+      "type": "link",
+      "text": "Vous pouvez fuir en ressortant par ou vous êtes entré",
+      "hash": "be0c70d768056fe600ca16d4fde9abb7174ed413fab876f3d213f8066b0ed06d"
+    },
+    {
+      "type": "link",
+      "text": "ou traverser la pièce en courant et sortir par la porte du fond.",
+      "hash": "d726bfcb6508f5122bc36553e5360472963db8e89fb76fe515cc55d0da98ae9d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

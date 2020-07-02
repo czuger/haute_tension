@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
 
   resource :belongings_histories, only: [:show, :create, :destroy]
 

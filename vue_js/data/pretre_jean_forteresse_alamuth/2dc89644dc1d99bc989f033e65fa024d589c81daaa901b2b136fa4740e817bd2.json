@@ -1,0 +1,22 @@
+{
+  "page_hash": "2dc89644dc1d99bc989f033e65fa024d589c81daaa901b2b136fa4740e817bd2",
+  "text": [
+    {
+      "type": "text",
+      "text": "Une grande faiblesse vous envahit. Vous venez de perdre 5 points de Vie."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous donc manger l'autre grain de riz, si ce n'est déjà fait,",
+      "hash": "43c71a4b0a5503bbc325cf3dcb9cfab4466b8018f6b078d836b8278c27b52d85"
+    },
+    {
+      "type": "link",
+      "text": "ou poser la main sur l'idole à l'emplacement indiqué ?",
+      "hash": "fbf4d677ec4b0fb93341eb55938bb08df0811d2c67b2415b5180c16090959776"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

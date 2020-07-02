@@ -1,0 +1,22 @@
+{
+  "page_hash": "583c21951863734b481e800535986297bc4b247a408e6248f3f86463ba4e70ed",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avez été contaminé durant votre combat avec les lépreux, et les paroles de leur chef vous paraissent d'autant plus exaspérantes."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous utiliser le pouvoir de guérison que vous possédez sur vous-même",
+      "hash": "260b9c2dc37d6ecdc6250aeb0bf08523ba166f6c88d974e0ea57ff0331d1db3e"
+    },
+    {
+      "type": "link",
+      "text": "ou en ferez-vous profiter le chef des lépreux ?",
+      "hash": "e0554af1a7dd1833d4100860d60e8aa8a9cf4b5c732a2f4f581894a546095df8"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

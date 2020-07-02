@@ -1,0 +1,31 @@
+{
+  "page_hash": "6887ba0370d076d16f2eaa87322f9904f7e10798c0d9bdcac3367f5b1106e4c3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le passage est barré au milieu du pont par deux statues blanches comme l'albâtre qui se font face. Toutes deux ont les bras tendus et leurs doigts se touchent presque. Vous remarquez que les statues sont sur pivot, et qu'elles ne devraient pas trop vous gêner pour traverser."
+    },
+    {
+      "type": "text",
+      "text": "Laquelle allez-vous faire pivoter pour passer?"
+    },
+    {
+      "type": "link",
+      "text": "Celle de droite?",
+      "hash": "582ebd717fb3d5fcb11c922b3b6770f58345ec7914827fd2349dfd1dcce3a504"
+    },
+    {
+      "type": "link",
+      "text": "Celle de gauche?",
+      "hash": "271800dbf0977596526c1e145e1d3490de14c456ae4a338c83f61b8e6eb25347"
+    },
+    {
+      "type": "link",
+      "text": "Les deux en même temps?",
+      "hash": "494a200a6ba8e359ee5fabaf3711b4b17fbe13c1ac039a83e93ccf2f8d26abbc"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

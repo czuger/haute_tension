@@ -1,0 +1,22 @@
+{
+  "page_hash": "c8bb8de27d8407bfa8dcb157afc8e1ede397702037cef614dc7baafa77fd3885",
+  "text": [
+    {
+      "type": "text",
+      "text": "Avec des gestes prudents, vous vous approchez de la porte marquée d'un signe cabalistique. Vous posez la main sur la poignée et sentez un léger frisson vous parcourir. Réprimant toute envie de fuir, vous entrebâillez la porte et jetez un coup d'oeil à l'intérieur. Il s'agit en apparence d'une vaste bibliothèque, où de nombreux mages sont plongés dans l'étude de grimoires et d'impressionnants volumes aux pages enluminées. Un silence presque total règne dans la bibliothèque."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous pénétrer dans la pièce sur la pointe des pieds",
+      "hash": "81d87b159ce91ef417993f7385459fa7290bdfdea3ec8ad3ab76c31c84dba19f"
+    },
+    {
+      "type": "link",
+      "text": "ou refermer tout doucement la porte derrière vous sans entrer ?",
+      "hash": "a15444e2c1fc4be1a03e55ed7916a7ebacce1675aebb790f726b9252c7772828"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

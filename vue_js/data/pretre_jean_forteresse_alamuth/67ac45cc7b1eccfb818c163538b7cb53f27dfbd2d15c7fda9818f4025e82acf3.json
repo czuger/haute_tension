@@ -1,0 +1,26 @@
+{
+  "page_hash": "67ac45cc7b1eccfb818c163538b7cb53f27dfbd2d15c7fda9818f4025e82acf3",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous êtes scandalisé par le sort de ces pauvres Gnomes et acceptez volontiers de les délivrer. L'un d'eux vous indique un panneau près de la porte où est accroché un trousseau de trois clefs à côté de la clef de leurs chaînes. Vous leur passez la clef et les aidez à se dégager."
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 10 ou moins.",
+      "hash": "2851ffadbe864c21f6f5685bab73fcd00c4353bcb1697c00dd5d5d4da0090baf"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 11 ou 12.",
+      "hash": "d7f0baaadd0599cfdecac019b16cc6410b112fe041228d78812b649e74370533"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

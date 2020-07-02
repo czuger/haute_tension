@@ -1,0 +1,34 @@
+{
+  "page_hash": "ff0cd4e07c032fc21e18236e0a2a28dd923140cb052062bf107483bc115eb4ec",
+  "text": [
+    {
+      "type": "text",
+      "text": "Deux lépreux plus hardis que les autres (ou peut-être simplement moins malades) se jettent sur vous en vous voyant sortir votre épée. Ils vous prennent sans doute pour un de leurs tortionnaires."
+    },
+    {
+      "type": "text",
+      "text": "LEPREUX FORCE : 6 VIE : 6"
+    },
+    {
+      "type": "text",
+      "text": "Vous devez les combattre ensemble. Pour chaque assaut, lancez deux dés pour vous et deux dés pour chacun de vos adversaires. Si votre Force d'Attaque est supérieure à celle de chacun de vos deux adversaires, vous les touchez tous les deux. Si elle est supérieure à celle de l'un d'eux et inférieure à celle de l'autre, vous touchez le premier mais le second vous blesse. Si votre Force d'Attaque est inférieure à celle de vos deux adversaires, ils vous touchent tous les deux."
+    },
+    {
+      "type": "link",
+      "text": "A la première blessure que les lépreux vous infligent, rendez-vous ici avant de continuer le combat.",
+      "hash": "201688018edfd56452c56daf4c0e35ffda217209d09dedccc12a73bf10c598bd"
+    },
+    {
+      "type": "link",
+      "text": "Si vous tuez vos deux adversaires.",
+      "hash": "74b14332ef79f52ace8a6b99d1351d3dd92fe794b6368513c3323172bec72b3f"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "LEPREUX ",
+      "force": 6,
+      "vie": 6
+    }
+  ]
+}

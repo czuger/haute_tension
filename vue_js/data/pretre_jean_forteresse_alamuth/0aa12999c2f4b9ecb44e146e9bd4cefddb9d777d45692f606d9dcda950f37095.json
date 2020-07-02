@@ -1,0 +1,22 @@
+{
+  "page_hash": "0aa12999c2f4b9ecb44e146e9bd4cefddb9d777d45692f606d9dcda950f37095",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous roulez de côté, à temps pour éviter la cage de fer qui s'abattait sur vous. Soupirant de soulagement, vous considérez à présent vos possibilités d'évasion de la cellule de méditation."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous tirer sur le levier rouge",
+      "hash": "0f67b276b01271bf20f03db47206b2de8f21de67aa23787c3edc9697019d55de"
+    },
+    {
+      "type": "link",
+      "text": "ou prendre la clef qui est tombée du piédestal et gît sur le sol ?",
+      "hash": "375261f87776168301893c56005edb733e117b394e1829e894789e8b98412272"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

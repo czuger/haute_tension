@@ -1,0 +1,22 @@
+{
+  "page_hash": "f511314934d2c60e39c2846277425ab1856767022a15e84c236ebc6af86240f5",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous arrivez à hauteur d'un amoncellement de rondins, de troncs et de branchages au milieu de la rivière."
+    },
+    {
+      "type": "link",
+      "text": "Poursuivez-vous votre route ?",
+      "hash": "6901a27b67de76750376b7c6938c6afdeeacf8269cbe8556554911fc51d082cd"
+    },
+    {
+      "type": "link",
+      "text": "Ou voulez-vous vous arrêter un instant le temps d'étudier cette énigme naturelle ?",
+      "hash": "66384b74716c18c9cbece7c04277ed5d0ba559f1cb3c78d65035663e113b209e"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "page_hash": "e426463692e2d766dc22fb01981fa224f047c84cc65ed481d67231518c588a66",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le sentier s'arrête devant une large rivière aux eaux pures et poissonneuses. Un brouillard dense vous empêche de distinguer l'autre berge."
+    },
+    {
+      "type": "text",
+      "text": "Que décidez-vous de faire ensuite?"
+    },
+    {
+      "type": "link",
+      "text": "Longer la rive sur votre droite ?",
+      "hash": "bfa9e8c5b64d52af0f5f327c9ca1c9926d19750b53add42e0adb9c35885b1b8f"
+    },
+    {
+      "type": "link",
+      "text": "Partir de l'autre côté?",
+      "hash": "2d5fad8e5cb90f9f080cd1b96799c0720d57e306e443c6842914d3ae68201bde"
+    },
+    {
+      "type": "link",
+      "text": "Traverser le cours d'eau ?",
+      "hash": "05c18f2c45cb207cee92888427bb7b32a3f6a018de82a876ce5834cc83b9281e"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

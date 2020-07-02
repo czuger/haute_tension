@@ -1,0 +1,26 @@
+{
+  "page_hash": "5d1b8ac57f135f6dbb61389cd4ef0b239f9b55fc0c7c1eee757259a572ae5ffe",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le goût est divin ! Les Hommes-Rats sont passés maîtres dans l'art culinaire. Votre périple dans les souterrains vous a fatigué et vous mangez avec appétit. Vous gagnez 2 points de Vie. Mais vous sentez un changement s'opérer petit à petit en vous. Des frissons glacés vous courent le long de la colonne vertébrale, vous étouffez... Vous vous évanouissez ! En vous réveillant, votre reflet dans une glace vous apprend avec horreur que vous êtes transformé en Homme-Rat... Effrayé par cette idée, vous n'avez qu'une idée : partir d'ici le plus vite possible. Mais au moment de fuir, vous remarquez une clef au cou de l'Homme- Rat avec qui vous discutiez. Serait-ce celle dont il vous a conté l'enjeu ? Les Hommes- Rats sont trop nombreux pour que vous puissiez les attaquer, aussi décidez-vous de voler cette clef. Vous devez la subtiliser en détournant l'attention du chef. Maintenant que vous êtes devenu un des leurs, cela ne devrait pas poser trop de difficultés."
+    },
+    {
+      "type": "text",
+      "text": "Jetez 2 dés pour savoir si votre tentative réussit :"
+    },
+    {
+      "type": "link",
+      "text": "si le total de vos points est un multiple de 2 ou 3.",
+      "hash": "41df97f0fa77f8e4387c495463f520c719c7bf0008e771d2b3bb2d202a3eba34"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "b536e6619026f911af3305a659e4b8c06e2550fdd73ca12c5b16b08b6e1c52b0"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

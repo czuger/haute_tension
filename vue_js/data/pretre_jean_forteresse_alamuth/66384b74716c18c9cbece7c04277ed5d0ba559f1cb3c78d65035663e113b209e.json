@@ -1,0 +1,22 @@
+{
+  "page_hash": "66384b74716c18c9cbece7c04277ed5d0ba559f1cb3c78d65035663e113b209e",
+  "text": [
+    {
+      "type": "text",
+      "text": "D'énormes Crapauds grisâtres, couverts de pustules, surgissent des interstices entre les branches. Ils sont si nombreux que vous ne parvenez pas à les dénombrer. Soudain, vous ressentez une vive brûlure à la main droite. Une goutte de venin crachée par un Crapaud vous corrode l'épiderme. Il est temps de fuir cet endroit. Jetez un dé pour savoir si vous avez pu échapper à la bave acide des Crapauds."
+    },
+    {
+      "type": "link",
+      "text": "Si le chiffre obtenu est inférieur ou égal à 4.",
+      "hash": "c3f41b5e05ef32abc527d9f7d5cc4b580d8b272bbd23327ff328e3930d9038ab"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "ab27e49b444abb428e413aab32b5eea47572386b8b6bd5ff0b1a2a18085e6278"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

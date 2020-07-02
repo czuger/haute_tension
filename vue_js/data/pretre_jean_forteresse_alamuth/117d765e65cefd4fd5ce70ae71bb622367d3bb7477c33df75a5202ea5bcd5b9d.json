@@ -1,0 +1,22 @@
+{
+  "page_hash": "117d765e65cefd4fd5ce70ae71bb622367d3bb7477c33df75a5202ea5bcd5b9d",
+  "text": [
+    {
+      "type": "text",
+      "text": "L'allée s'enfonce sous les arbres verts. Le chemin est large et vous marchez sans peine. Les oiseaux chantent non loin de vous. Vous avez peine à croire aux épreuves qu'il vous a fallu endurer pour arriver jusqu'ici. Vous commencez à avoir faim. Vous remarquez un arbuste sur votre gauche. De grosses baies écarlates et juteuses pendent de ses branches. Un corbeau maladif en saisit une avec son bec et la mange. Son plumage décharné repousse immédiatement et devient d'un beau noir de jais."
+    },
+    {
+      "type": "link",
+      "text": "Si vous désirez suivre son exemple.",
+      "hash": "89671669618bee981045bee62bc5035c5277ba760694712c9ce752645179be48"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "3651ab1bb5cbceb886c6fe2a49ed79ca00c379fb8e13ff544c9c486bd5355143"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

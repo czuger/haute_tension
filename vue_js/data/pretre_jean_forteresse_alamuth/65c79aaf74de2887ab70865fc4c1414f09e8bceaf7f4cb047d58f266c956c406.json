@@ -1,0 +1,35 @@
+{
+  "page_hash": "65c79aaf74de2887ab70865fc4c1414f09e8bceaf7f4cb047d58f266c956c406",
+  "text": [
+    {
+      "type": "text",
+      "text": "Le quidam est plus qu'heureux de votre décision. Il trépigne de joie et attend avec impatience le moment où il se retrouvera attablé devant un verre. Vous ne vous êtes pas trompé sur son compte : il s'agit visiblement d'un assoiffé chronique dont le passé guerrier doit se limiter aux tonneaux d'alcool descendus lors des campagnes. Il vous entraîne à l'estaminet le plus proche. Vous êtes tous deux à peine installés que le tavernier pose devant vous un cruchon rempli de vin capiteux. «Ça fera 3 pièces d'or», vous dit-il."
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez de l'argent, payez-le.",
+      "hash": "86d66568f3307607dd8994cb068487606f5b17bddc759adcbf0069185d180d0f"
+    },
+    {
+      "type": "text",
+      "text": "Dans le cas contraire, tentez votre chance."
+    },
+    {
+      "type": "text",
+      "text": "Si vous obtenez un chiffre pair,"
+    },
+    {
+      "type": "link",
+      "text": "allez",
+      "hash": "01385b41b3eb16911b294b17ea864cc830e96c0a0c02945d1479c1660263baa6"
+    },
+    {
+      "type": "link",
+      "text": "autrement.",
+      "hash": null
+    }
+  ],
+  "monsters": [
+
+  ]
+}

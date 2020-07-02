@@ -1,0 +1,22 @@
+{
+  "page_hash": "6901a27b67de76750376b7c6938c6afdeeacf8269cbe8556554911fc51d082cd",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous apercevez un pont devant vous."
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez pas traversé la rivière.",
+      "hash": "2effd3690024fda9ab1f0f59741df8b9ad37c7ef2fbb135899820a898e8e0963"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "c03167eaf8b6a69abc5375350378586f0df9f6bdf1eab5e7205c8d3091f0d800"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

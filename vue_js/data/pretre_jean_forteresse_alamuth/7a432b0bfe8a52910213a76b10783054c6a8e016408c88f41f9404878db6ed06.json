@@ -1,0 +1,36 @@
+{
+  "page_hash": "7a432b0bfe8a52910213a76b10783054c6a8e016408c88f41f9404878db6ed06",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_c085992be8a0f40fef205d3c1122bc8f_84.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous vous approchez prudemment, essayant de deviner la raison de ce phénomène inconnu. Vous ne pouvez maîtriser un mouvement de recul instinctif. Vous êtes en face d'un nid de Charognards des cavernes, une espèce oubliée de mille-pattes géants qui vit au milieu des cadavres et des détritus. Ils ne voient jamais la lumière du jour."
+    },
+    {
+      "type": "text",
+      "text": "Et même ces petits, déjà longs de cinquante centimètres à l'éclosion, ne sont pas des adversaires à prendre à la légère. Lancez un dé pour déterminer le nombre de bêtes qui vous regardent de leurs yeux chassieux."
+    },
+    {
+      "type": "text",
+      "text": "Que faites-vous ?"
+    },
+    {
+      "type": "link",
+      "text": "Vous les écrasez rageusement.",
+      "hash": "7f27057c2640f3ba3a50caa0f11b4ca7000aec9fb9b59c3daa443683f940ee29"
+    },
+    {
+      "type": "link",
+      "text": "Vous étudiez leurs mouvements avec un intérêt zoologique manifeste.",
+      "hash": "e08ffbd162e8ebcb12191bac1fcaa3174c142492f71bfd1642eb4937f9e4feef"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

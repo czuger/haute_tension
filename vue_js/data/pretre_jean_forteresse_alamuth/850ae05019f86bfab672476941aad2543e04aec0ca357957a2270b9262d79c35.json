@@ -1,0 +1,22 @@
+{
+  "page_hash": "850ae05019f86bfab672476941aad2543e04aec0ca357957a2270b9262d79c35",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous jugez préférable de quitter votre armure de peur d'alourdir dangereusement le tapis. Vous enterrez celle-ci dans le sable puis vous vous installez au centre du tapis, assis en tailleur. D'une voix un peu hésitante, vous lui ordonnez de s'élever. Et tout fonctionne comme prévu ! Le tapis monte, monte dans les airs... Arrivé à dix mètres du sol environ, vous vous retrouvez en face de la tour ouest."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous vous en approcher pour y pénétrer",
+      "hash": "99f25c491e013f4274e1585c26e55a3eec4db92657fa79b5b26ca32eab9216c8"
+    },
+    {
+      "type": "link",
+      "text": "ou bien essaierez-vous de grimper encore plus haut, jusqu'à la vertigineuse tour du Vieux de la Montagne qui se dresse au centre de la Forteresse, surplombant les autres bâtiments ?",
+      "hash": "9eb6ca3c395818a300b12cac0624985f0a8ca4cb76a5603c976cf0805883c70b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

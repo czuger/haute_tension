@@ -1,0 +1,46 @@
+{
+  "page_hash": "1da320662b681ef8df80dd3b1308edd0408be42260b2df5bc3d033b75813986e",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_baa46af580b6428d2d3723962484b66e_131.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous pénétrez dans la pièce. C'est une vaste salle de torture où règne une chaleur infernale, provoquée sans doute par les charbons ardents qui rougeoient dans des cuves voisines. Des prisonniers hâves et décharnés subissent divers supplices atroces : la roue, le pal, la pendaison par les pieds... C'en est trop ! Vous détournez votre regard de cet ignoble spectacle ! Vous avez à peine le temps de vous demander ce qu'ont fait ces malheureux pour mériter pareil sort, qu'une énorme brute au faciès bestial s'avance vers vous. Le bourreau !"
+    },
+    {
+      "type": "text",
+      "text": "C'est un Orque hideux au visage couvert de pustules. Il tient encore à la main les tenailles qui lui servent à enfoncer des clous chauffés au rouge sous les ongles de ses victimes. « Que viens-tu faire dans l'antre des tortures? Parle, et vite!»"
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous lui répondre ?"
+    },
+    {
+      "type": "link",
+      "text": "Que vous venez interroger un des prisonniers ?",
+      "hash": "261dabc6dcfdd9d83a42e842f5ec74cbfd5ccc9dd834e1969748115437fefc73"
+    },
+    {
+      "type": "link",
+      "text": "Que vous vous êtes trompé de porte?",
+      "hash": "d93610025c509124a9e2ad612055ce39ef00713b448c9554745f248177e7f78e"
+    },
+    {
+      "type": "link",
+      "text": "Que vous êtes venu pour l'encourager?",
+      "hash": "b39977abdfd24f0b30a103b380a7759e3f5a1f6391e971f88019457c4f912ac6"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez tirer aussitôt votre épée et attaquer le détestable personnage.",
+      "hash": "d5bc2b6845a7a61338720fb603d2bc3e36f1e8428e5906f527eb751fba9ea96d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

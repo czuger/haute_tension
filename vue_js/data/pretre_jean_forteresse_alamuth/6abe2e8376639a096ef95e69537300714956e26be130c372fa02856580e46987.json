@@ -1,0 +1,31 @@
+{
+  "page_hash": "6abe2e8376639a096ef95e69537300714956e26be130c372fa02856580e46987",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous débouchez sur un immense jardin luxuriant entouré de hautes murailles. Après un si long trajet entre des murs dos, la lumière du soleil irrite vos yeux sensibles. Vous devez maintenant découvrir l'entrée du passage qui mène aux appartements du Vieux de la Montagne. Trois chemins s'enfoncent dans une forêt touffue."
+    },
+    {
+      "type": "text",
+      "text": "Quelle direction allez- vous suivre ?"
+    },
+    {
+      "type": "link",
+      "text": "A droite ?",
+      "hash": "117d765e65cefd4fd5ce70ae71bb622367d3bb7477c33df75a5202ea5bcd5b9d"
+    },
+    {
+      "type": "link",
+      "text": "Tout droit ?",
+      "hash": "5d501b06f987dc897951e3b42f72c3c2bf181a7e21e396ef95a5a894fcbccf33"
+    },
+    {
+      "type": "link",
+      "text": "A gauche ?",
+      "hash": "9384f856b57520434ceb14352fad10e3af7256f849a43898e9cacf664a805118"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

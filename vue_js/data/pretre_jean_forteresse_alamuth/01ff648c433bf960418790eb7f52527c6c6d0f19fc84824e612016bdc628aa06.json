@@ -1,0 +1,22 @@
+{
+  "page_hash": "01ff648c433bf960418790eb7f52527c6c6d0f19fc84824e612016bdc628aa06",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous faites à nouveau face à la tour centrale, derrière les colonnes du jardin."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous prendre le couloir est sur votre droite",
+      "hash": "d9b1821561b7c55eb70a7703cf004dd8106e2e79a93f033fbc2e434a9a575b00"
+    },
+    {
+      "type": "link",
+      "text": "ou le couloir ouest sur votre gauche ?",
+      "hash": "974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

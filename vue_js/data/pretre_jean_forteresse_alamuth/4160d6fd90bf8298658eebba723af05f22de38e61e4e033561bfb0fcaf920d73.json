@@ -1,0 +1,40 @@
+{
+  "page_hash": "4160d6fd90bf8298658eebba723af05f22de38e61e4e033561bfb0fcaf920d73",
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_01d4f9092fc282915179806a24e6d47b_429.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous n'hésitez pas une seconde et plongez dans le bassin pour en remonter cet objet brillant qui pourrait bien être une pièce de l'armure magique dont a parlé Abdul Al-Azhred. Vous nagez jusqu'au fond du bassin, mais à ce moment un tentacule visqueux agrippe votre jambe et vous attire vers un bec acéré ! Un poulpe géant sommeillait dans le bassin, chargé de garder précieusement l'objet que vous convoitiez ! Vous devez le combattre en divisant par deux vos points de Force car vous êtes sous l'eau et n'avez pas le temps de tirer votre épée."
+    },
+    {
+      "type": "text",
+      "text": "PIEUVRE VENIMEUSE FORCE: 16 VIE : 6"
+    },
+    {
+      "type": "text",
+      "text": "AJUSTEMENT DOMMAGES : + 1"
+    },
+    {
+      "type": "text",
+      "text": "A chaque 6 que vous lancerez au cours du combat, vous lui enlevez automatiquement 2 points de Vie car vous aurez réussi à trancher l'un de ses tentacules. Cependant, si vous ne triomphez pas de ce monstre en deux assauts au plus, vos poumons cèdent sous le manque d'oxygène et vous mourez noyé avant d'être dévoré par la pieuvre."
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez ce combat.",
+      "hash": "f4698bc252ad05f4569b5d841cdc101ec9dac0aa6072283d07d6915edc5f1994"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PIEUVRE VENIMEUSE ",
+      "force": 16,
+      "vie": 6,
+      "adjustment": "1"
+    }
+  ]
+}

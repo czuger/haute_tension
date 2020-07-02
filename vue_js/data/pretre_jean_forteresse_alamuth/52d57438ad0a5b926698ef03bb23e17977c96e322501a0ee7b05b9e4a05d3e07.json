@@ -1,0 +1,22 @@
+{
+  "page_hash": "52d57438ad0a5b926698ef03bb23e17977c96e322501a0ee7b05b9e4a05d3e07",
+  "text": [
+    {
+      "type": "text",
+      "text": "La nuit tombe rapidement. Vous décidez de vous arrêter le temps de vous nourrir et de laisser votre monture se reposer. Si vous avez pensé à emporter des provisions et si vous voulez manger, ajoutez 2 points de Vie. Si vous avez déjà dîné aujourd'hui, vous ne gagnez qu' 1 point."
+    },
+    {
+      "type": "link",
+      "text": "Envisagez-vous de dormir à cet endroit",
+      "hash": "db582f78fc1f7911fe0be540a345d35ec56863a21bc97f2c7d3e72da794582b3"
+    },
+    {
+      "type": "link",
+      "text": "ou bien voulez-vous continuer votre route ?",
+      "hash": "9b7876e9831ff0cd5d0f988450db198c5855f8849bf2f1e0d8004dc1bfbd28bf"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

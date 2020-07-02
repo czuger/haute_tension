@@ -1,0 +1,30 @@
+{
+  "page_hash": "f5c835de4e3ec149f55d2dd7a90db631641e8b8ed27677d886f289c180370474",
+  "text": [
+    {
+      "type": "text",
+      "text": "Une fois arrivé devant la porte, vous mettez les deux clefs d'argent dans les serrures et vous essayez de pousser la porte pour l'ouvrir. Rien ne bouge : la porte est extrêmement lourde. Vous poussez plus fort, vous vous arc-boutez, la sueur perle à votre front..."
+    },
+    {
+      "type": "text",
+      "text": "Ça y est ! Vous avez réussi ! Vous pénétrez dans le lieu de prière des Hommes-Rats et des Hommes-Lézards."
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous toujours apparence humaine?"
+    },
+    {
+      "type": "link",
+      "text": "Si c'est le cas.",
+      "hash": "4c18f062b37bbf4451d3bef93ebfd8463d8f5b6669c770ad69cefa4ef0baf0a8"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "cca0715731a1dba703955719ba872580c24efae08959533f666e7dce69508797"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

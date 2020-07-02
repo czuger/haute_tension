@@ -1,0 +1,22 @@
+{
+  "page_hash": "48b4729738566daa42bb6636cdd8c5a62bc8c102b8f4514fcf9ed3c9c0941e1d",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous donnez une tape amicale au Fakir et lui conseillez d'être plus prudent à l'avenir. Il vous toise d'un air navré et détourne ses pas en maugréant."
+    },
+    {
+      "type": "link",
+      "text": "Vous pouvez à présent examiner les échoppes avoisinantes",
+      "hash": "924bcd8ae31472ad01abbd8fd9d553b4522c1642b1d36215df3234d3f73bb1a0"
+    },
+    {
+      "type": "link",
+      "text": "ou vous diriger vers le caravansérail tout proche.",
+      "hash": "c00f3da9961fd4031fa35b6d882cc27bfb2b77c21cf4614b0a9daa6e640f4287"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

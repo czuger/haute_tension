@@ -1,0 +1,31 @@
+{
+  "page_hash": "e5f9e1492af00d5a86a8304edce685e20c6ab8c50e005ed81b796b180c6f69be",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous examinez le piédestal de plus près. Ce n'est que du vulgaire bois de cèdre qui... mais tout à coup un sifflement strident retentit au-dessus de votre tête !"
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 4 ou moins.",
+      "hash": "15d07f1946d138b5a7467f56b94caa0778847276a272d4664bcd82aaff051b41"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 5, 6, 7 ou 8.",
+      "hash": "d9028b964e46fbb88427c1a25be49b0942da4d667f43bc850fe031ae2420b993"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 9 ou davantage.",
+      "hash": "0aa12999c2f4b9ecb44e146e9bd4cefddb9d777d45692f606d9dcda950f37095"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

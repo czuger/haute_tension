@@ -1,0 +1,25 @@
+{
+  "page_hash": "faf207aa44c1c22a37bc4e885cbae01a8b07a10e4ebce307829122673474c597",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous commencez à parler à l'Homme-Oiseau pour distraire son attention, puis tout à coup vous criez : «Attention ! Une belette ! Elle va dévorer les oiseaux ! » Affolé, l'Oiseleur se retourne et vous en profitez pour lancer votre sort d'illusion. Le malheureux ne voit pas une mais cinq belettes aux dents pointues qui s'élancent vers ses précieux volatiles. Il s'apprête à les pourchasser mais vous l'assommez du plat de votre épée tandis qu'il vous tourne le dos. Avant de sombrer dans l'inconscience, il pousse un cri rauque. Aussitôt, son faucon tueur s'envole et se précipite vers vous, les serres tendues. Vous devrez l'affronter, tout en espérant que son maître ne reprendra pas connaissance durant ce combat !"
+    },
+    {
+      "type": "text",
+      "text": "FAUCON TUEUR FORCE: 10 VIE: 7"
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez ce combat.",
+      "hash": "462fb57dea6745275cb488144f866a02397cd1cb0539368f6937df4cae1fde77"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "FAUCON TUEUR ",
+      "force": 10,
+      "vie": 7
+    }
+  ]
+}

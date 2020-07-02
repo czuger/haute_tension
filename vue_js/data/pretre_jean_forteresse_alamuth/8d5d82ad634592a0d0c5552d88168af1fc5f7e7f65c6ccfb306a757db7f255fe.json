@@ -1,0 +1,26 @@
+{
+  "page_hash": "8d5d82ad634592a0d0c5552d88168af1fc5f7e7f65c6ccfb306a757db7f255fe",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous décidez de viser l'oeil du monstre avec votre poignard de jet."
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 10 ou moins.",
+      "hash": "c3f01275bea3e8f9bc33f92eec6f4d448e88f703a40b24a690210f6a745e2439"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 11 ou 12.",
+      "hash": "e9cd729b05961b7b54948f61ac1b941b40469b692889e3f94c00b8f8bb2a4167"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

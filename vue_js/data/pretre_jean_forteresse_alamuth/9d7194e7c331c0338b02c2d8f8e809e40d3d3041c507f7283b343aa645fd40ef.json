@@ -1,0 +1,43 @@
+{
+  "page_hash": "9d7194e7c331c0338b02c2d8f8e809e40d3d3041c507f7283b343aa645fd40ef",
+  "text": [
+    {
+      "type": "text",
+      "text": "A la seconde où ils aperçoivent l'éclat de votre lame, quatre Hommes- Lézards se précipitent vers une porte dissimulée dans le mur du fond. Vous n'avez que peu de temps pour éliminer les trois créatures qui restent, en les affrontant séparément :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-LEZARD FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-LEZARD FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Après avoir remporté les trois combats, vous arrachez la clef au cou du chef et vous fuyez pour éviter les renforts qui ne vont pas tarder à accourir",
+      "hash": "adc0f7350d48c8865fd90128c204617b7d065de1f04df9c7a4ec799b60d947ac"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-LEZARD ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-LEZARD ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-LEZARD ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "page_hash": "9318c4a8a10ffa83acb950a94e6be677ba1d0336dbe0c73207ec9bf61e9cdac8",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous écartez rapidement du mage qui s'est de nouveau absorbé dans son travail. Il semble vous avoir déjà oublié, sans s'être aperçu de son erreur. Sans doute vous a-t-il pris pour un de ses confrères. Avec une certaine excitation, vous regardez ce qu'il vous a donné. C'est une fiole qui contient encore une dose de potion de contrôle des plantes ! Cela pourra vous être utile dans l'avenir. Inscrivez-la sur la liste de vos possessions."
+    },
+    {
+      "type": "link",
+      "text": "Tout heureux de ce succès, allez-vous à présent quitter la salle d'étude?",
+      "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+    },
+    {
+      "type": "link",
+      "text": "Si vous ne l'avez pas encore fait, vous pouvez choisir de parler au Magicien qui étudie debout devant un pupitre",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    },
+    {
+      "type": "link",
+      "text": "ou essayer la porte du fond.",
+      "hash": "48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

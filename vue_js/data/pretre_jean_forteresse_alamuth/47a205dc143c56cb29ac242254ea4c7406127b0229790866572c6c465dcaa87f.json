@@ -1,0 +1,31 @@
+{
+  "page_hash": "47a205dc143c56cb29ac242254ea4c7406127b0229790866572c6c465dcaa87f",
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous payez ses 5 pièces d'or au Génie cupide. Il les glisse dans un repli de son turban et vous regarde avec un sourire amical."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous lui demander :"
+    },
+    {
+      "type": "link",
+      "text": "Le chemin de la Forteresse d'Alamuth ?",
+      "hash": "190b5877af235318c5444fb4c774dd16ecc827bd82bb5850d3c76c7bbbbc819b"
+    },
+    {
+      "type": "link",
+      "text": "L'emplacement exact de Shangri-La ?",
+      "hash": "5446763f9b55523b9ffc560c7cd9d6833577d62df990601e0c3e8c339c8f9bc6"
+    },
+    {
+      "type": "link",
+      "text": "S'il peut vous donner quelque chose qui vous aidera dans votre quête ?",
+      "hash": "785a0ae5940eb6034be0238afd2b77d043896b731df4a9a0eade5c4bfe597aee"
+    }
+  ],
+  "monsters": [
+
+  ]
+}
