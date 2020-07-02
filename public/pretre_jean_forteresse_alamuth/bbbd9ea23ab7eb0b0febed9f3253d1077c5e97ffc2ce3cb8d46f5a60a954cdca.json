@@ -1,0 +1,17 @@
+{
+  "text": [
+    {
+      "type": "link",
+      "text": "Vous payez ses 3 pièces d'or (rayez-les de vos possessions) et ajoutez la potion de lévitation à votre équipement.",
+      "hash": "5ca52540594c5431f84e99921473be5f7047c2895796aa73d812afec57b8d26b"
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez plus d'or, vous ressortez sur la place sans la potion.",
+      "hash": "3fed052291d48320ce0d25946f2b08f277cfacb6c5297ffcfec08db8e59092fd"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

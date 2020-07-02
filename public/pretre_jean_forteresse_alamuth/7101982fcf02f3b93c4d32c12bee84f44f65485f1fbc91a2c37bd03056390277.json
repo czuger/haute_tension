@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous jugez plus sage de contourner le poste de garde. La perspective de défier le garde haut de deux mètres ne vous séduit pas non plus, surtout que ses camarades ne doivent pas être bien loin. Vous vous glissez donc entre les rochers et attendez d'être hors de vue du poste de garde pour vous rapprocher de la muraille et l'examiner. Vous longez le mur ouest de la Forteresse pendant un moment, puis vous apercevez une poterne qui semble donner dans la cour intérieure de la Forteresse. Vous vous dirigez vers elle, mais à ce moment, vous distinguez, cachée par les fourrés, une brèche dans la muraille, juste un peu plus loin. Des pierres semblent s'être détachées du mur et avoir créé une ouverture imprévue."
+    },
+    {
+      "type": "link",
+      "text": "Choisirez vous d'essayer d'entrer par la poterne",
+      "hash": "e7a171c067877666e9c7d9487c3ad7a6c0ee36bd542a7577215acbfbbe20e8a3"
+    },
+    {
+      "type": "link",
+      "text": "ou par la brèche ?",
+      "hash": "dd8bdc1352a4ab51c96687c835eadee70e0ea820ea4d7e7d401c87d1e807a37f"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

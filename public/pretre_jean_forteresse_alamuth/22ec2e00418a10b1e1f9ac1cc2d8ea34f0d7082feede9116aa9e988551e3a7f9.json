@@ -1,0 +1,42 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "D'un mouvement tournant, l'Escargot vous a acculé contre le tronc d'unarbre. Vous n'avez pas la possibilité de fuir et vous devez attaquer le monstre, armé de votre seule épée."
+    },
+    {
+      "type": "text",
+      "text": "ESCARGOT MOISSONNEUR"
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 13 VIE: 15"
+    },
+    {
+      "type": "text",
+      "text": "AJUSTEMENT DEGATS : + 1"
+    },
+    {
+      "type": "text",
+      "text": "Lancez un dé pour déterminer le nombre de fléaux que vous réussissez à lui trancher dès le début du combat. Au cours de l'affrontement, considérez que vous venez de couper un fléau à chaque 6 que vous réussissez. A chaque appendice inutilisable, l'Escargot perd 2 points de Vie."
+    },
+    {
+      "type": "link",
+      "text": "Lorsque vous aurez réduit l'Escargot à 3 points de Vie ou moins.",
+      "hash": "96ae8a261dd7956fc06dcc5af1dc9942996be54016a9bdd624119ad9219c6296"
+    },
+    {
+      "type": "link",
+      "text": "Si vous l'avez déjà tué ou si vous préférez abréger ses souffrances, vous regagnez le chemin dont vous vous êtes écarté.",
+      "hash": "e426463692e2d766dc22fb01981fa224f047c84cc65ed481d67231518c588a66"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "",
+      "force": 13,
+      "vie": 15,
+      "adjustment": "1"
+    }
+  ]
+}

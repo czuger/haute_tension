@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "A l'intérieur de la tour, vous distinguez deux passages possibles."
+    },
+    {
+      "type": "text",
+      "text": "Lequel allez-vous emprunter?"
+    },
+    {
+      "type": "link",
+      "text": "Un petit escalier en colimaçon qui descend dans la tour?",
+      "hash": "399f0aa2ebb1d40013dbd8355cd5da02d8e2c7133e4c01715ea1b45b4949aee6"
+    },
+    {
+      "type": "link",
+      "text": "Le chemin de ronde qui court sur les remparts au sommet du mur?",
+      "hash": "be0c70d768056fe600ca16d4fde9abb7174ed413fab876f3d213f8066b0ed06d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

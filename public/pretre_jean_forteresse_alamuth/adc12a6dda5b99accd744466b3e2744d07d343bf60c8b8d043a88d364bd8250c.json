@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Le kiosque, ouvert de tous côtés, est bâti sur un léger monticule. Son toit écarlate et ses montants de bois blanc contrastent avec la verdure luxuriante du jardin alentour. Une vigne vierge court sur un panneau à croisillons. Vous pénétrez à l'intérieur en tapant par endroits sur le plancher, pour déterminer l'entrée d'un passage souterrain dissimulé par une trappe. Au premier son de creux, vous remarquez deux leviers enchâssés dans une poutre massive devant vous. L'un d'eux doit commander l'ouverture de la trappe."
+    },
+    {
+      "type": "text",
+      "text": "Lequel allez-vous manoeuvrer?"
+    },
+    {
+      "type": "link",
+      "text": "Le rouge?",
+      "hash": "ba999e0ceb955daf2287ef9ed78a222e8a57aca113bbc2019be277760c53ca84"
+    },
+    {
+      "type": "link",
+      "text": "Le noir?",
+      "hash": "d3f949fe1f1d1ff0bebb1c69ecf9751b484bfce1a465141bc470e8f1a86bc687"
+    },
+    {
+      "type": "link",
+      "text": "Les deux simultanément?",
+      "hash": "8cda23daa4337b67c022640110ef0b7bd94718e53429c97e6eba491eea76b008"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

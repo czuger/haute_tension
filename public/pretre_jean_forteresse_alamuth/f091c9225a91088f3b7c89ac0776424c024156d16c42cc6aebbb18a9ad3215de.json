@@ -1,0 +1,26 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous reculez de quelques pas, de peur que le mage ne s'aperçoive de son erreur. Mais il vous a déjà oublié, vous prenant pour un de ses confrères. Vous regardez ce qu'il vous a donné : une fiole qui contient une dose de potion de guérison ! Quelle aubaine ! Notez-la sur la liste de vos possessions : elle vous sera précieuse."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent quitter la salle d'études?",
+      "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+    },
+    {
+      "type": "link",
+      "text": "Si vous ne l'avez déjà fait, vous pouvez parler au Magicien debout à son pupitre",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    },
+    {
+      "type": "link",
+      "text": "ou essayer la porte du fond.",
+      "hash": "48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

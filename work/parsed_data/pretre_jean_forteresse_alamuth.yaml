@@ -631,7 +631,6 @@ d62a78f6f53c94d1a5b7dedca3b4d7be0ef120698a2d4a41cb50ea579f6417ad:
   - :name: 'SQUELETTE '
     :force: 8
     :vie: 12
-    :adjustment: 
 a7aa7f59025dfa705b485cf858f8b0be477c6983f6407e7170500592187fe358:
   :text:
   - :type: :pics
@@ -661,7 +660,6 @@ a7aa7f59025dfa705b485cf858f8b0be477c6983f6407e7170500592187fe358:
   - :name: 'CHAQUE YLLERLON '
     :force: 10
     :vie: 8
-    :adjustment: 
 52d57438ad0a5b926698ef03bb23e17977c96e322501a0ee7b05b9e4a05d3e07:
   :text:
   - :type: :text
@@ -910,11 +908,9 @@ ea2180124ae984f0c9a4a3258ebbe07a54bcf742ca547acc8c7cf5d3ae22149f:
   - :name: 'LEY '
     :force: 14
     :vie: 12
-    :adjustment: 
   - :name: 'Bus '
     :force: 12
     :vie: 14
-    :adjustment: 
 1c281e5100e2dffe76d271a5a2763f940f066f793bb8d74f95de6750b6055240:
   :text:
   - :type: :text
@@ -1056,7 +1052,6 @@ fbbd2a515d4d4210a08f808b6ae14807bb861874919d1a3ef3610c7ebe07c39f:
   - :name: 'TERMITE GEANT '
     :force: 5
     :vie: 8
-    :adjustment: 
 a1fe549a8319d7dede6de573560401eada8cbdde3f53c1ab5a4eed925a991f43:
   :text:
   - :type: :text
@@ -1075,7 +1070,6 @@ a1fe549a8319d7dede6de573560401eada8cbdde3f53c1ab5a4eed925a991f43:
   - :name: 'TERMITES GEANTS '
     :force: 5
     :vie: 8
-    :adjustment: 
 f04e1272895101799b7651682fe4a7095c47fc9a8c081bcaa080327590fabbf1:
   :text:
   - :type: :text
@@ -1100,15 +1094,12 @@ f04e1272895101799b7651682fe4a7095c47fc9a8c081bcaa080327590fabbf1:
   - :name: 'PREMIER TERMITE GEANT '
     :force: 5
     :vie: 8
-    :adjustment: 
   - :name: 'SECOND TERMITE GEANT '
     :force: 5
     :vie: 7
-    :adjustment: 
   - :name: 'TROISIEME TERMITE GEANT '
     :force: 6
     :vie: 8
-    :adjustment: 
 7ea17dc062b8691d58622a34fa5a647a00f1dfc310f11d3f2c3a9ba750691614:
   :text:
   - :type: :link
@@ -1566,7 +1557,6 @@ d6aefa19338455d9ec72b25200b18fcd4f6fb5e4bfbd7f5fac5965717505cdf5:
   - :name: 'LOUP-GAROU '
     :force: 10
     :vie: 12
-    :adjustment: 
 7fe3ba1eee814b212fe84a46f5c675b7f5f918d3ba513d992eefeed57849b79a:
   :text:
   - :type: :link
@@ -1671,11 +1661,9 @@ d35c82610cb7d81ddf2d7a42433e5a6d1830c56e1cde5cf1d56c7ca74a1c2295:
   - :name: 'LIEUTENANT DES GARDES '
     :force: 7
     :vie: 10
-    :adjustment: 
   - :name: 'CHAQUE GARDE '
     :force: 6
     :vie: 10
-    :adjustment: 
 bc18261741e4345dd3aac0267f56b78565c4bed4c2cde4d2cbabc902e69d7a02:
   :text:
   - :type: :link
@@ -1914,7 +1902,6 @@ db61d8c0542d7a150bc0dc894349d9d6e562a01126a3338ff55e69b5005377ab:
   - :name: 'CHEF DES 40 VOLEURS '
     :force: 15
     :vie: 16
-    :adjustment: 
 de24e61bd33f7c982411c5ac8f69584fd79df38e1d7de22ac734db06b2a1428a:
   :text:
   - :type: :link
@@ -2737,7 +2724,6 @@ fe578a235717054259662f38e62b331c14a895a3e15e42bed38d22a0e822ff32:
   - :name: 'GARDE DE LA FORTERESSE '
     :force: 8
     :vie: 12
-    :adjustment: 
 e7a171c067877666e9c7d9487c3ad7a6c0ee36bd542a7577215acbfbbe20e8a3:
   :text:
   - :type: :text
@@ -3513,7 +3499,6 @@ c581e83ddb1c00bc6ce977a3c14a8a90510c09cfbcda56bbc5c6970c73e3e80e:
   - :name: 'GARDE '
     :force: 6
     :vie: 12
-    :adjustment: 
 ba56226d1b69ccd270d4206d2c8983ab9da2068ed798207f6e3bd86c06ec764f:
   :text:
   - :type: :link
@@ -3776,15 +3761,12 @@ cc47f86c54e7a3bdf6b24b2ef073b84dd00adaeec09fe202197f3b2e9670ac1c:
   - :name: 'PREMIER HOMME-RAT '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-RAT '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-RAT '
     :force: 7
     :vie: 10
-    :adjustment: 
 e3d71bb8e7c137f123fb2531a6fd9b571467c67ed38bceee659b93a9b63eefd0:
   :text:
   - :type: :text
@@ -3858,15 +3840,12 @@ fa16d7bc6e69959788dcf85a03507893027196571d1657c3119f54c90fdbced8:
   - :name: 'PREMIER HOMME-LEZARD '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-LEZARD '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-LEZARD '
     :force: 7
     :vie: 10
-    :adjustment: 
 8341c3250b3293295fecc31a60338362fdb0010c1b5871a7f8f26e5029900d94:
   :text:
   - :type: :text
@@ -3884,7 +3863,6 @@ fa16d7bc6e69959788dcf85a03507893027196571d1657c3119f54c90fdbced8:
   - :name: 'CHAROGNARD DES CAVERNES '
     :force: 11
     :vie: 14
-    :adjustment: 
 47e79eebd503d31d41eed2c5509c6083bd708570660d79e83e82ff40a3c97de7:
   :text:
   - :type: :text
@@ -3955,7 +3933,6 @@ bbbd9ea23ab7eb0b0febed9f3253d1077c5e97ffc2ce3cb8d46f5a60a954cdca:
   - :name: 'ELEMENTAL DE L''AIR '
     :force: 8
     :vie: 8
-    :adjustment: 
 b5d914014eba58a9a58e4f5bff64794d2f0b0b4b15b5b8e9ed104c568434b777:
   :text:
   - :type: :link
@@ -4017,11 +3994,9 @@ ad5fd76e16a0cc67eee8dc226696b5470eb5df9dce0ff15c67ad37e6e8877a11:
   - :name: 'PREMIER HASCHICHIN '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'DEUXIEME HASCHICHIN '
     :force: 8
     :vie: 10
-    :adjustment: 
 bd35a28a999d6428de7614bacc04b1ec038baaa8c070c2cddf100b063a69b477:
   :text:
   - :type: :link
@@ -4043,7 +4018,6 @@ bd35a28a999d6428de7614bacc04b1ec038baaa8c070c2cddf100b063a69b477:
   - :name: 'COLLECTEUR D''IMPOTS '
     :force: 6
     :vie: 10
-    :adjustment: 
 d44d26fca57412957006346b4d1d4a4298206a811eb010d7d4c3b17aed74470c:
   :text:
   - :type: :text
@@ -4374,15 +4348,12 @@ ff1805e19ee7106fd124a1579a4a6f3043fb357fbe095fb5af74c2c46c9adfd2:
   - :name: 'PREMIER HOMME-LEZARD '
     :force: 7
     :vie: 10
-    :adjustment: 
   - :name: 'SECOND HOMME-LEZARD '
     :force: 8
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-LEZARD '
     :force: 8
     :vie: 12
-    :adjustment: 
 30308d41a4c1e36ef93dc0febc27e1f818ab1e13fcdac8246a334882a81aefd5:
   :text:
   - :type: :text
@@ -4405,15 +4376,12 @@ ff1805e19ee7106fd124a1579a4a6f3043fb357fbe095fb5af74c2c46c9adfd2:
   - :name: 'PREMIER HOMME-RAT '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-RAT '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-RAT '
     :force: 7
     :vie: 10
-    :adjustment: 
 c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834:
   :text:
   - :type: :link
@@ -4500,15 +4468,12 @@ c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834:
   - :name: 'PREMIER HOMME-RAT '
     :force: 7
     :vie: 10
-    :adjustment: 
   - :name: 'SECOND HOMME-RAT '
     :force: 8
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-RAT '
     :force: 8
     :vie: 12
-    :adjustment: 
 37a3b9a1ff18c32071590e8b15cdf52ed1bdce25909e4000b1142cbb0eba4800:
   :text:
   - :type: :text
@@ -4531,15 +4496,12 @@ c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834:
   - :name: 'PREMIER HOMME-LEZARD '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-LEZARD '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-LEZARD '
     :force: 7
     :vie: 10
-    :adjustment: 
 adc0f7350d48c8865fd90128c204617b7d065de1f04df9c7a4ec799b60d947ac:
   :text:
   - :type: :link
@@ -4764,15 +4726,12 @@ c1b42e3ad0ea2b32d2bbd3d6a9ba3d9361855ee540bb7d2b26bef2a53e9d739f:
   - :name: 'PREMIER HOMME-RAT '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-RAT '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-RAT '
     :force: 7
     :vie: 10
-    :adjustment: 
 3656d45840d47fbb52419fa0e53b730948ad8e96d01cf43d2463b79a97b4f78a:
   :text:
   - :type: :link
@@ -4862,15 +4821,12 @@ d9b21e8b6fa0f84241209200c18c03cd33aa119a80163dc291cf6c36e0316d9d:
   - :name: 'PREMIER HOMME-LEZARD '
     :force: 8
     :vie: 12
-    :adjustment: 
   - :name: 'SECOND HOMME-LEZARD '
     :force: 6
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-LEZARD '
     :force: 7
     :vie: 10
-    :adjustment: 
 0d56f7dd1f889bae3c03c3a0da4416a55eacbd2998cc22466d21ffddcf168b40:
   :text:
   - :type: :link
@@ -5039,15 +4995,12 @@ f5c835de4e3ec149f55d2dd7a90db631641e8b8ed27677d886f289c180370474:
   - :name: 'PREMIER HOMME-LEZARD '
     :force: 7
     :vie: 10
-    :adjustment: 
   - :name: 'SECOND HOMME-LEZARD '
     :force: 8
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-LEZARD '
     :force: 8
     :vie: 12
-    :adjustment: 
 0d034d3b9a77289c9d16ece0832673d8d2bf9fdcb832c31d2421d7aa369edd50:
   :text:
   - :type: :link
@@ -5091,15 +5044,12 @@ eaf8b04e00a546cb2016334a2035eb21fcef1d85418c837d379e90c40a7a8ae0:
   - :name: 'PREMIER HOMME-RAT '
     :force: 7
     :vie: 10
-    :adjustment: 
   - :name: 'SECOND HOMME-RAT '
     :force: 8
     :vie: 10
-    :adjustment: 
   - :name: 'TROISIEME HOMME-RAT '
     :force: 8
     :vie: 12
-    :adjustment: 
 a13290f0f07898a2cb599a289c005dbe24529dcd48b1f5689d8a81be560723b8:
   :text:
   - :type: :link
@@ -5467,7 +5417,6 @@ b93e21c279d79376784e3e04ddac3fc1eac89a7e64fdfca033db83c64b665be5:
   - :name: 'DEMON DU STYX '
     :force: 12
     :vie: 20
-    :adjustment: 
 7db9427b476b00a8a6fc229436a73c14e255adeed9917d2be870cc0df7d4b053:
   :text:
   - :type: :text
@@ -5595,7 +5544,6 @@ d5bc2b6845a7a61338720fb603d2bc3e36f1e8428e5906f527eb751fba9ea96d:
   - :name: 'BOURREAU '
     :force: 13
     :vie: 12
-    :adjustment: 
 c2ace4f5da197f977f984cda188a44aad241942b4cf5efaa7c5649e02c269de5:
   :text:
   - :type: :text
@@ -5973,7 +5921,6 @@ fbf4d677ec4b0fb93341eb55938bb08df0811d2c67b2415b5180c16090959776:
   - :name: 'DOGUE DE L''ENFER '
     :force: 10
     :vie: 12
-    :adjustment: 
 f18de62def417056e3f9c12bcb8ad3df8bd02054aeb351fc61b0538d247f106d:
   :text:
   - :type: :text
@@ -7043,7 +6990,6 @@ ff0cd4e07c032fc21e18236e0a2a28dd923140cb052062bf107483bc115eb4ec:
   - :name: 'LEPREUX '
     :force: 6
     :vie: 6
-    :adjustment: 
 67e1626333866b9e612157e45444cc26fccd4649eabfffc6b0b66f0bc449a882:
   :text:
   - :type: :text
@@ -7282,7 +7228,6 @@ ec1addb585f47ad5ae5c72d26d06b748fb6a7e160cbcf5ec466f4986400ff1ea:
   - :name: 'FAUCON TUEUR '
     :force: 10
     :vie: 7
-    :adjustment: 
 7934ff7be1213f3f2493e9e74f1a1c9351875635b9a609f6a0af453dc6787fe4:
   :text:
   - :type: :text
@@ -7716,7 +7661,6 @@ e5c8681662b6884f7024e5368f0a41b7e3e2c2813572c425df31a8ce3256c70f:
   - :name: 'HOMME-OISEAU '
     :force: 11
     :vie: 14
-    :adjustment: 
 1dcaab6cd005f19e8fd1ca6e3168e6261427470309e0eedf218227b83e429618:
   :text:
   - :type: :text
@@ -7740,7 +7684,6 @@ e5c8681662b6884f7024e5368f0a41b7e3e2c2813572c425df31a8ce3256c70f:
   - :name: 'FAUCON TUEUR '
     :force: 10
     :vie: 7
-    :adjustment: 
 9ef78d6f8c31146abfb404a920920cdf930b1fb134108a6d1b8b0f66496ef8fd:
   :text:
   - :type: :text
@@ -7769,7 +7712,6 @@ e5c8681662b6884f7024e5368f0a41b7e3e2c2813572c425df31a8ce3256c70f:
   - :name: 'FAUCON TUEUR '
     :force: 10
     :vie: 7
-    :adjustment: 
 faf207aa44c1c22a37bc4e885cbae01a8b07a10e4ebce307829122673474c597:
   :text:
   - :type: :text
@@ -7792,7 +7734,6 @@ faf207aa44c1c22a37bc4e885cbae01a8b07a10e4ebce307829122673474c597:
   - :name: 'FAUCON TUEUR '
     :force: 10
     :vie: 7
-    :adjustment: 
 df8509da02fa06ecd4fb1d4a78eab75474874cc26ea562e18404f21fe455e661:
   :text:
   - :type: :text
@@ -8217,7 +8158,6 @@ b674d7239b4394658819949fab15a3fb91f3488fc33692018307b245b013c54b:
   - :name: 'CHEVALIER LEPREUX '
     :force: 12
     :vie: 8
-    :adjustment: 
 85778e3eb8dddf0ff21bfa206528cd70edb19e298ffe996c4d8c9af399ab1e97:
   :text:
   - :type: :text
@@ -8584,7 +8524,6 @@ e590bf76567589a00b14403033d98f4cc151ffa82cb0c3c8347ae2b11957f183:
   - :name: 'ARBRE ETRANGLEUR '
     :force: 10
     :vie: 12
-    :adjustment: 
 1f020984c6217d922ea5bba0cbf29533592358d2bebae32cc17095573ce6a5f5:
   :text:
   - :type: :link
@@ -8683,7 +8622,6 @@ ab17892f7c1f6036ff3e4b09ca49baeff324eb816a6f801c71348fc01de4dd2c:
   - :name: 'PLANTE CARNIVORE '
     :force: 9
     :vie: 13
-    :adjustment: 
 98f6dfd02bf1e0a14eb8c8b52a2b334b5b4679ad2a8aca5f43e7ee28baaee55d:
   :text:
   - :type: :link
@@ -9568,7 +9506,6 @@ b653b489fcc245abb962f5fe0b1dade3060e7a74a09c83bc44a5317d53135f9b:
   - :name: 'SPECTRE '
     :force: 10
     :vie: 8
-    :adjustment: 
 49a85fa98f646c8e76043c2ea4f95cded212dd4aefa457402cbe6e33eec017b8:
   :text:
   - :type: :pics

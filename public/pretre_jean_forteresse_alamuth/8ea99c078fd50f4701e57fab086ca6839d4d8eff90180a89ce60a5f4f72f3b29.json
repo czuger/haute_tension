@@ -1,0 +1,24 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous menez votre cheval vers la paroi de gauche, évitant soigneusement le monticule de terre qui ne vous inspire pas confiance. Mais aussitôt le monde vous semble basculer : le sol s'effondre sous vos pas. Votre cheval se cabre et vous manquez être désarçonné. Vous tombez au fond d'une sorte de galerie souterraine. Au fond de cette galerie, une lueur diffuse vous intrigue. Vous avancez jusque- là : une salle qui a l'apparence d'une sépulture a été creusée dans le roc, sous la surface du sol. Le caveau renferme peu d'objets : quelques coupes de métal grossier où pourrissent d'antiques offrandes entourent le Squelette du défunt, un guerrier d'assez haute taille. Vous distinguez deux détails intéressants : à sa ceinture sont accrochées une dague en argent au manche incrusté de diamants et une bourse gonflée. Vous vous approchez du Squelette et tendez la main vers ces objets. Aussitôt, comme réveillé par votre geste, le mort s'anime et vous attaque. Vous dégainez votre épée et le duel commence."
+    },
+    {
+      "type": "text",
+      "text": "SQUELETTE FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous détruisez cet adversaire.",
+      "hash": "31b5efb1bee21fbb92dfe20f3f0cf48e509d764d816cd6e372fb01b86c0ca261"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "SQUELETTE ",
+      "force": 8,
+      "vie": 12
+    }
+  ]
+}

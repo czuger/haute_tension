@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Au fur et à mesure que vous avancez, des Arabes de plus en plus nombreux sortent des tentes. Ils n'ont pas l'air accueillant et vous regardent chevaucher au milieu d'eux avec une méfiance non dissimulée. Si vous ne réagissez pas promptement, ils vont vous assaillir pour vous voler et peut-être même vous tuer."
+    },
+    {
+      "type": "text",
+      "text": "Deux solutions s'offrent à vous :"
+    },
+    {
+      "type": "link",
+      "text": "éperonner votre cheval et traverser le campement au grand galop en faisant des moulinets au-dessus de votre tête avec votre épée.",
+      "hash": "5e5cdcf43c0104d468a060f0662a8dc07bb74f184d2241bc46f7a8efba007086"
+    },
+    {
+      "type": "link",
+      "text": "Ou mettre pied à terre et vous diriger vers un énorme gaillard qui se tient à quelques pas de vous sur la droite. La tente dont il vient de surgir est nettement plus luxueuse que les autres et son allure imposante vous laisse penser qu'il dirige le groupe.",
+      "hash": "191320897eb708f01268885aec9fb88af7a25bc0a52b8587e4d753613575f86c"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

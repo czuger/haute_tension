@@ -1,0 +1,41 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_375b4c291f6e6982cefeb07f0619e726_179.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous longez la rive. Caché par des roseaux, vous découvrez un petit Dragon rouge endormi au bord de l'onde, les écailles brillantes, les ailes repliées sur le dos, le corps à demi immergé. Un énorme rubis de la plus belle eau est enchâssé dans son front."
+    },
+    {
+      "type": "text",
+      "text": "Que décidez-vous de faire ?"
+    },
+    {
+      "type": "link",
+      "text": "Lui trancher le cou afin de récupérer la pierre précieuse?",
+      "hash": "9fbf0d7f79a751a0eb6a1dbfbafb64c720c0c4d4dfa6d19d0b6e68ee71335271"
+    },
+    {
+      "type": "link",
+      "text": "Vous rendre invisible?",
+      "hash": "ff8c19f75924c82c37476fa38de41e8ecece070ecf55eba1a858dd68ce87c4ee"
+    },
+    {
+      "type": "link",
+      "text": "Continuer votre chemin sans le réveiller ?",
+      "hash": "879e4897ba9a72da3ae9d116242156af7ec92cd783dd3ec13aaf912f261e6aac"
+    },
+    {
+      "type": "link",
+      "text": "Vous approcher en lui montrant que vos intentions sont amicales?",
+      "hash": "558c1086473d064031df251e15d26a725edd1faa452cb9fbe0b13bc52d07523b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_15f8c490a47c50abb9869b542e58e905_240.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Shawar pousse une pile de livres et pose un échiquier d'ivoire devant lui. Soudain vous êtes pris de nausée, la tête vous tourne, et vous vous retrouvez sur une case blanche du plateau de jeu. Le visage gigantesque du Magicien vous regarde d'un oeil amusé. A quelques pas de vous, sur une case noire, se trouve un énorme Cyclope, une massue hérissée de pointes mortelles à la main. Il vous jauge du regard et s'apprête au combat. Que faire ?"
+    },
+    {
+      "type": "link",
+      "text": "L'attaquer au plus vite en sautant sur la case noire la plus proche?",
+      "hash": "37421e616309f34b26b7d1b3b8e0272a4ab4006e0251d61c333b27a78602a864"
+    },
+    {
+      "type": "link",
+      "text": "Le contourner en le prenant de vitesse et le pousser par-derrière sur une case blanche?",
+      "hash": "5aba1e1434a73e516e90f9d3d6fea889f37d7207e9aac139e169f96f2d67431f"
+    },
+    {
+      "type": "link",
+      "text": "Lui tourner autour en attendant qu'il fasse le premier mouvement... et la première faute?",
+      "hash": "a7abb2d290fbc6fcce70d11067f97f0e4cc12267aa32183fa12bc78483405679"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

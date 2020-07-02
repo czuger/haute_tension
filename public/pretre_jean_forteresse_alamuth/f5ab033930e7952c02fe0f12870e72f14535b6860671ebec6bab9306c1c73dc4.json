@@ -1,0 +1,40 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_4e28e242d5b4ee79f77c73f24ac94cca_348.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Heureusement, les gardes ne se sont pas donné la peine de vous enlever votre épée et votre sac. Vous tirez de ce dernier la lampe magique d'Aladin et la frottez contre votre manche. Aussitôt le majestueux Génie de la lampe apparaît."
+    },
+    {
+      "type": "text",
+      "text": "A son regard affable, vous savez qu'il vous aidera. Vous retrouvez l'espoir. « Bonjour chez toi, gentil seigneur, fait le Génie. Tu es mon maître et je peux t'accorder un souhait. Que me demanderas-tu?»"
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous demander au Génie :"
+    },
+    {
+      "type": "link",
+      "text": "Comment arriver à Shangri-La ?",
+      "hash": "ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
+    },
+    {
+      "type": "link",
+      "text": "De vous sortir de cette maudite oubliette?",
+      "hash": "35b16b26a5f7bf67c31773d86ebf06d1e5a18756cbde070ab605db8b25310a7b"
+    },
+    {
+      "type": "link",
+      "text": "Le moyen d'atteindre le Vieux de la Montagne?",
+      "hash": "39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

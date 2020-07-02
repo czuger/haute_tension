@@ -1,0 +1,26 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous sortez avec l'aubergiste afin qu'il puisse examiner votre monture. «Je vous l'achète contre le prix de votre dîner et d'un lit pour la nuit. A prendre ou à laisser... »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez.",
+      "hash": "bf6615d4dc1dd32f2868de68d5133e8f931df27846a6e26005c6fdb6227e32b3"
+    },
+    {
+      "type": "link",
+      "text": "Si, au contraire, vous croyez qu'il cherche à vous voler, vous pouvez soit retourner à l'auberge et payer votre repas,",
+      "hash": "ae6a1f0fc1549bd1811384ef2220bd5638bd8f408c37cc9250c93b3800f1cf8f"
+    },
+    {
+      "type": "link",
+      "text": "soit chercher d'autres dispositions pour la nuit.",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous écartez légèrement les jambes pour assurer votre appui. Vous êtes prêt à frapper. Vous devez affronter les trois Hommes-Lézards individuellement :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-LEZARD FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-LEZARD FORCE : 8 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous êtes victorieux.",
+      "hash": "71de94955fa56241df7d4d7b1d781c128e8dc9646bc3a080d34b38a0e8bf88db"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-LEZARD ",
+      "force": 7,
+      "vie": 10
+    },
+    {
+      "name": "SECOND HOMME-LEZARD ",
+      "force": 8,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-LEZARD ",
+      "force": 8,
+      "vie": 12
+    }
+  ]
+}

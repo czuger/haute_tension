@@ -1,0 +1,42 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Dès qu'ils aperçoivent l'éclat de votre lame, quatre Hommes-Rats s'engouffrent dans une ouverture dissimulée dans le fond de la pièce. Sans doute pour aller chercher du secours... Néanmoins vous jugez avoir le temps nécessaire pour éliminer les trois adversaires qui vous font face. Vous devez les combattre individuellement :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-RAT FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-RAT FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-RAT FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous vous procurez la seconde clef, vous trouverez le chemin qui mène à l'intérieur de la Forteresse d'Alamuth.",
+      "hash": "9946e99fd7b137b8bb5666d851a93d055bd70b0dda76ec8e0c4db8a69d1d4c97"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-RAT ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-RAT ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-RAT ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

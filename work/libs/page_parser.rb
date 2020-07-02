@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'pp'
 require 'ostruct'
+require 'json'
 
 class PageParser
 
@@ -22,9 +23,22 @@ class PageParser
     @pages[ page_hash ] = process_page( doc )
   end
 
+  # This method save data for better view and test (useful for having an overview of regexp matches)
   def save( directory )
     File.open( "parsed_data/#{directory}.yaml", 'w' ) do |f|
       f.write( @pages.to_yaml )
+    end
+  end
+
+  # This method prepare the data for future VueJs requests
+  def prepare( directory )
+    path = '../public/' + directory
+
+    FileUtils.mkpath( path )
+    @pages.each do |key, data|
+      File.open( "#{path}/#{key}.json", 'w' ) do |f|
+        f.puts( JSON.pretty_generate( data ) )
+      end
     end
   end
 
@@ -56,7 +70,9 @@ class PageParser
         end
 
         if monster
-          monsters << { name: monster[1], force: monster[2].to_i, vie: monster[3].to_i, adjustment: adjustment }
+          m = { name: monster[1], force: monster[2].to_i, vie: monster[3].to_i }
+          m[ :adjustment ] = adjustment if adjustment
+          monsters << m
         end
       end
     end

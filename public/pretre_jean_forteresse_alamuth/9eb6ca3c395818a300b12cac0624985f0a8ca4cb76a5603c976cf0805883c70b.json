@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Grâce à ce tapis magique, vous vous sentez capable de tout ! Il vous paraît superflu de vous arrêter à la hauteur de la tour de garde alors que vous pouvez sans doute monter directement au sanctuaire de Hassan Sabba. Mais au moment où vous commandez à votre tapis de s'élever encore, celui-ci se cabre et devient mou, comme s'il perdait tout pouvoir magique. Vous tombez de près de dix mètres de haut ! Cette chute serait mortelle, mais par chance un auvent déployé sous une fenêtre de la tour amortit votre chute et vous glissez dans le sable. Vous vérifiez avec anxiété que personne ne s'est aperçu de votre maladresse. La chute vous a tout de même secoué : ôtez 3 points de Vie de votre total. Vous ramassez à la hâte le tapis tombé à quelque distance."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent remonter à la hauteur de la tour ouest",
+      "hash": "99f25c491e013f4274e1585c26e55a3eec4db92657fa79b5b26ca32eab9216c8"
+    },
+    {
+      "type": "link",
+      "text": "ou refaire une tentative en direction du donjon du Vieux de la Montagne ?",
+      "hash": "726c20b40cd932ea87000f4393207c08a2be94ed3b834d39a1cc37cd3bee9e48"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

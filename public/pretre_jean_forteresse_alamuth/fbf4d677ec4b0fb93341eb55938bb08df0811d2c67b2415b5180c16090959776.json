@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Votre main s'adapte parfaitement. Vous sentez une douce chaleur qui peu à peu gagne votre bras, puis votre corps tout entier. La statue est enveloppée d'une fumée blanche qui tourbillonne, pour finalement prendre forme humaine. Vous êtes confronté à un Dao, un des plus puissants génies de l'Orient."
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous consommé les grains de riz ?"
+    },
+    {
+      "type": "link",
+      "text": "Dans ce cas.",
+      "hash": "40e43e6081e9c3c8cda737a7c39b855448ce371c564b9211dd0d62b216a6fc27"
+    },
+    {
+      "type": "link",
+      "text": "Autrement.",
+      "hash": "90df69810e04eba70a1ccdaec165c7d832f59eca033483a180d7f67492f63b5a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

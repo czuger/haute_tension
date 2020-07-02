@@ -1,0 +1,38 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous sortez de la salle d'étude d'Abdul Al-Azhred par une petite porte secrète. Vous descendez un escalier et arrivez vite au niveau du sol de la Forteresse. Vous refermez le passage secret et examinez ce qui vous entoure."
+    },
+    {
+      "type": "text",
+      "text": "En face de vous, des colonnes de marbre blanc s'élèvent vers le ciel. Derrière elles, un vaste jardin étend sa verdure jusqu'au pied de la tour centrale, refuge de Hassan Sabba. Il ne semble pas y avoir d'accès possible à la tour par ce côté."
+    },
+    {
+      "type": "text",
+      "text": "A l'est, une fois dépassées les colonnes, un couloir oblique vers la gauche, en direction du nord."
+    },
+    {
+      "type": "text",
+      "text": "A l'ouest, un couloir semblable commence au- delà des colonnes, obliquant à droite, en direction du nord. Ces deux couloirs longent probablement les côtés de la tour centrale."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous pénétrer dans le jardin,",
+      "hash": "75881ef9231c89e9b76066826e7eebf885792d6d828f209ea358bf703dc518ad"
+    },
+    {
+      "type": "link",
+      "text": "prendre le couloir est",
+      "hash": "d9b1821561b7c55eb70a7703cf004dd8106e2e79a93f033fbc2e434a9a575b00"
+    },
+    {
+      "type": "link",
+      "text": "ou emprunter le couloir ouest ?",
+      "hash": "974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

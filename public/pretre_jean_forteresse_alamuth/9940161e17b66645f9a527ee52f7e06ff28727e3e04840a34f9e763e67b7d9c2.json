@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous approchez en catimini du gros volume relié de cuir noir et décoré de mystérieuses enluminures, qui est posé sur la table de lecture la plus proche. C'est certainement un livre de magie ! Peut-être y découvrirez-vous quelque secret... Mais au premier coup d'oeil vous réalisez que cet ouvrage ne vous servira à rien ! Vous ne comprenez pas un traître mot au langage dans lequel il est rédigé. S'agit-il d'ancien chaldéen, de dialecte atlante, ou d'une protection magique contre les regards profanes? Quoi qu'il en soit, vous n'êtes pas plus avancé."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent chercher de l'aide auprès du mage attablé à droite",
+      "hash": "f69b7e4c7c39dabf04e51b1856e4dab934fa3eafd5a3a6f5dc4aa1325ed82abb"
+    },
+    {
+      "type": "link",
+      "text": "ou à celui qui étudie devant son pupitre ?",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Voyant à votre mine piteuse que vous n'en menez pas large, Slig l'Alchimiste part d'un grand éclat de rire. Mais ce n'est pas un mauvais homme et il claque dans ses mains. Aussitôt, l'Elémental de l'air s'évanouit en un nuage de vapeur, comme il était apparu. «Allons, étranger, que cela te serve de leçon ! Tu n'avais qu'à m'appeler et je serais venu à ton aide. Pourquoi ne pas l'avoir fait? Je suppose que si tu es entré ici, je peux avoir confiance en toi ! Peu de gens s'aventurent au hasard dans mon échoppe. Quel bon vent t'amène?» Content de sa plaisanterie, Slig éclate à nouveau de rire."
+    },
+    {
+      "type": "link",
+      "text": "Avez-vous été chez Akim le Fakir ?",
+      "hash": "bbbd9ea23ab7eb0b0febed9f3253d1077c5e97ffc2ce3cb8d46f5a60a954cdca"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "260d54ffaebf8d924536b9664d23272a370722d6bcc06581a7d6bf7908aa3456"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

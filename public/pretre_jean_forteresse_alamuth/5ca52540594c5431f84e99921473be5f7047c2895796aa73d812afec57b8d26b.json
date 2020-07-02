@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous marchez jusqu'à l'étal déployé devant la boutique bariolée du marchand de tapis. Vous soupesez plusieurs pièces finement tissées, ainsi que des nattes et des étoffes diverses. Un beau tapis de brocart mordoré vous plaît particulièrement. Tout occupé à votre examen, vous n'avez pas remarqué le petit homme grassouillet qui s'est glissé derrière vous. «Bienvenue chez Mok'Hêt, marchand des tapis les plus raffinés de tout l'Orient, voyageur. Serais-tu, comme mes autres clients, un mage venu de loin pour travailler à la Forteresse? Ton allure m'indique que tu n'es pas d'ici ! Quoi qu'il en soit, je t'aiderai de mon mieux ! »"
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous rendu visite à Slig l'Alchimiste ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "c358f1cb91f91a0af47ab96539d8ea9ee64aa9f881ccb7f3f33a075cb159abb9"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire.",
+      "hash": "bb82a099f957cf7dcb92ee886f769af1aa4b0047669aaccd567eb85538bde4ff"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

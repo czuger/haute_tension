@@ -1,0 +1,24 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous tentez le tout pour le tout : «Je suis nouveau dans la Forteresse. Hassan Sabba m'a appelé à lui car mon talent spécial est peu ordinaire. Je sais lire les lignes de la main, et ce que j'y vois finit toujours par se réaliser. Je pratique mon art à travers tout Alamuth; veux-tu aussi en profiter, Oiseleur?» Séduit par vos paroles, l'Homme-Oiseau accepte d'un hochement du bec. Il pose son faucon sur un perchoir spécial et vous invite à vous asseoir en face de lui. Vous lui faites quitter ses gants. « Non, tu te trompes, ce n'est pas sur ta paume droite, mais sur la gauche qu'il me faut lire», expliquez-vous de façon à lui faire ôter ses deux gantelets. Vous commencez à suivre du doigt les lignes de sa main gauche, et soudain vous vous exclamez : « Oh ! Là ! Un oiseau s'échappe ! » Surpris, l'Oiseleur se retourne et lève la tête. Vous profitez de son geste pour empoigner une bouteille posée sur la table et la briser sur son crâne déplumé. Avant d'être complètement étourdi, il a le temps de lancer un cri rauque. Puis il s'écroule, sans connaissance. Aussitôt son faucon dressé quitte son perchoir et se rue sur vous, serres tendues. Vous devez le combattre en espérant que son maître ne se réveillera pas entretemps..."
+    },
+    {
+      "type": "text",
+      "text": "FAUCON TUEUR FORCE : 10 VIE : 7"
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez ce combat.",
+      "hash": "462fb57dea6745275cb488144f866a02397cd1cb0539368f6937df4cae1fde77"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "FAUCON TUEUR ",
+      "force": 10,
+      "vie": 7
+    }
+  ]
+}

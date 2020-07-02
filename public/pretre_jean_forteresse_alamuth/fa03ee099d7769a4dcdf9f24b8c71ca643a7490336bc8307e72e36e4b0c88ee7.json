@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Votre crâne augmente de volume ! Le casque devient trop étroit pour vous : vous allez étouffer dans peu de temps si vous ne parvenez pas à ôter votre heaume."
+    },
+    {
+      "type": "text",
+      "text": "Jetez un dé pour déterminer vos chances d'y parvenir."
+    },
+    {
+      "type": "link",
+      "text": "Si vous obtenez un chiffre pair.",
+      "hash": "fcda5245b643e5c6bfa06259273c26f9fb73523b1cdc4c89620d85462cefa495"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "98f6dfd02bf1e0a14eb8c8b52a2b334b5b4679ad2a8aca5f43e7ee28baaee55d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

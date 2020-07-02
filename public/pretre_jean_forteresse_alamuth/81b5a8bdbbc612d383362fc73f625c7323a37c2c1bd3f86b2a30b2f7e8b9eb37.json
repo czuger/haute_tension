@@ -1,0 +1,38 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "L'Arabe en burnous déchiré s'approche de vous. Il est essoufflé d'avoir chevauché longtemps. Il ne tient pas en place, fait de grands gestes des bras. Le soleil étincelle sur la blancheur de ses dents irrégulières que dévoile un large sourire. « Bonjour, bon et aimable seigneur, dit-il. Mille mercis de m'avoir attendu. Mon nom est Ali Baba et je serai ton éternel obligé. Je viens à la fois de découvrir une fantastique merveille et d'échapper à un péril qui aurait pu me coûter la tête. » Mais vous n'êtes pas là pour écouter les élucubrations de cet homme ! « Quel est le plus court chemin pour atteindre la Forteresse de Hassan Sabba ? » lui demandez-vous. Interloqué, Ali Baba réalise que vous vous moquez de ses aventures. «Je vais te répondre, doux seigneur, sous la forme d'une énigme. Ta réponse me fournira une indication quant à la route à t'indiquer. Imagine un Orque gardant un passage. Arrive un voyageur à la bourse pleine. L'Orque, qui ne peut dire que la vérité, lui donne ces deux affirmations :"
+    },
+    {
+      "type": "text",
+      "text": "Aucun voyageur qui rencontre un Orque ne doit être démuni de 2 pièces d'or."
+    },
+    {
+      "type": "text",
+      "text": "Aucun voyageur muni de 2 pièces d'or n'a jamais été dans l'impossibilité de continuer sa quête. »"
+    },
+    {
+      "type": "text",
+      "text": "Quelle réponse allez-vous donner à Ali Baba ?"
+    },
+    {
+      "type": "link",
+      "text": "Le voyageur peut poursuivre son chemin sans danger.",
+      "hash": "e69cb5e2303b90ab28c885270db60709b6313f506df6c6ed3f270a8d371d8f38"
+    },
+    {
+      "type": "link",
+      "text": "Il doit renoncer à traverser le passage.",
+      "hash": "d18daabef49655ba91fb4178d146b3920927d38c3ef5f3b380a59d0cf59925a5"
+    },
+    {
+      "type": "link",
+      "text": "Vous pensez que, sous couvert de l'énigme, Ali Baba vous demande 2 pièces d'or pour un renseignement sur la route à suivre.",
+      "hash": "1316506f3151990f102a1d5949dc0813a41699ba3eaa2976ea516f4f931f229f"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

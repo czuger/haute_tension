@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous sortez la lampe de votre sac et la frottez avec votre manche. Une fumée bleutée s'en échappe, qui rapidement prend forme humaine. Vous vous trouvez en face d'un Génie. « Salutations, Maître de la Lampe, vous dit-il. Formule un souhait et mon devoir sera de l'exaucer. Mais sache qu'après, il sera inutile de m'invoquer car je ne pourrai plus t'aider. »"
+    },
+    {
+      "type": "text",
+      "text": "Que voulez-vous demander au Génie de la lampe ?"
+    },
+    {
+      "type": "link",
+      "text": "La route qui mène à Shangri-La ?",
+      "hash": "ab3d9f25d5c4282a0628e7543d3b7cd2b7e4928e3d84bff93aaf394a167047bf"
+    },
+    {
+      "type": "link",
+      "text": "Comment rencontrer le Vieux de la Montagne?",
+      "hash": "330f28cbc18fb4b4a0518d896a55e1b7bdf0c77d45b7ebcb2974d5838eabe87d"
+    },
+    {
+      "type": "link",
+      "text": "De vous faire sortir de cette prison?",
+      "hash": "39ca350cea8c864785886ba7e9ad98281f22422a87621865b37aad419aaead06"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Avez-vous découvert sur votre parcours une paire de babouches?"
+    },
+    {
+      "type": "link",
+      "text": "Si c'est le cas.",
+      "hash": "4273142a25e4a98dcb964d437005f4c6013a0a7ea4e6506cfa202157ec489929"
+    },
+    {
+      "type": "link",
+      "text": "Sinon, vous devez traverser le pont.",
+      "hash": "2effd3690024fda9ab1f0f59741df8b9ad37c7ef2fbb135899820a898e8e0963"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

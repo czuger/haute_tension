@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Déguisé en garde, mais toujours muni de votre précieux sac et de votre bourse, vous rejoignez les autres Hachchachins pris de boisson (quoique moins que celui que vous venez de détrousser) et les suivez à l'intérieur de la Forteresse. Enfin vous y voilà ! Vous y croyez à peine. Grâce à cette ruse vous avez la voie libre. Vous dépassez le poste de garde de la tour est, puis faussez compagnie aux gardes en les laissant continuer seuls. Du recoin où vous avez trouvé abri; vous distinguez un escalier en colimaçon qui monte dans la tour est de la Forteresse. Vous le grimpez doucement et arrivez dans un couloir. Vous savez que vous longez la façade de la Forteresse en venant du côté est. La tour au sommet de laquelle se trouve le refuge de Hassan Sabba est au centre de la Forteresse. Vous décidez donc de vous rapprocher du centre autant que possible. Pour le moment, l'escalier que vous avez emprunté débouche dans une grande salle remplie de gardes ! Vous restez dans l'ombre à l'entrée de la pièce et observez ce spectacle. Dix gardes dorment sur des paillasses ou des lits de sangle, des livres de prière à leur côté. Seuls deux autres Hachchachins sont éveillés et discutent."
+    },
+    {
+      "type": "text",
+      "text": "Allez- vous :"
+    },
+    {
+      "type": "link",
+      "text": "Vous faufiler dans l'ombre et traverser la pièce?",
+      "hash": "ee01f7ddeee203d29807d0f9ac2739941624900e31368c780f3e522fc5e24adf"
+    },
+    {
+      "type": "link",
+      "text": "Utiliser un objet tiré de votre équipement ?",
+      "hash": "1aea4ee4cbb6ecec96f857986e5744e8981f735ab3f6469c7a63e993eef579bb"
+    },
+    {
+      "type": "link",
+      "text": "Rester caché un instant et écouter la conversation des gardes?",
+      "hash": "cbaa5f3bd388925614c89e45d6945f00e561db56c04155da2fa82dd944fd58f4"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

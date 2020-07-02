@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous marchez jusqu'au poste de garde. Le colosse qui veille à éloigner les indésirables vous aperçoit et porte la main à son épée. C'est un Haschichin de la secte des Ismaéliens, dévoué corps et âme à la protection du Vieux de la Montagne. Lorsque vous arrivez devant lui, il dégaine sa grande épée et la brandit à deux mains devant vous d'un air menaçant, avant même que vous n'ayez pu exprimer vos intentions."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous faire?"
+    },
+    {
+      "type": "link",
+      "text": "Si vous l'attaquez.",
+      "hash": "fe578a235717054259662f38e62b331c14a895a3e15e42bed38d22a0e822ff32"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez lui donner le mot de passe.",
+      "hash": "13a51590e5dfa88a5644f74b28fdf05f28306f0ecbe0833863dec989a20d4d58"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

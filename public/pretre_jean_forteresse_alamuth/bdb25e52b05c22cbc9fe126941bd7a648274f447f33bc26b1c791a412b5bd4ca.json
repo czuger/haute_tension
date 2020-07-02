@@ -1,0 +1,44 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_c44320fc77e1c6479778b081f5354b48_485.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous fermez les yeux et jetez une pièce d'or dans le puits en formulant le souhait de trouver de l'aide dans votre quête de Shangri-La. Vous attendez un moment, mais rien ne se produit. Haussant les épaules, vous vous détournez du puits quand un sourd grondement retentit. A peine avez-vous fait volte- face qu'une énorme silhouette s'extirpe avec peine du puits. En face de vous se dresse un Djinn haut de plus de quatre mètres, aux cheveux tressés en une longue natte noire, un rubis serti au milieu du front."
+    },
+    {
+      "type": "text",
+      "text": "Il croise les bras sur sa vaste poitrine et vous lance un regard courroucé :"
+    },
+    {
+      "type": "text",
+      "text": "« Qui es-tu, étranger, pour oser réveiller un Djinn endormi du sommeil du juste ? Sache que je n'aime pas être dérangé lorsque je me repose, surtout lorsqu'un intrus croit malin de me jeter une pièce sur la tête. Allons, je t'écoute ! » Abasourdi par la taille de ce Djinn acariâtre, vous ne savez que répondre."
+    },
+    {
+      "type": "text",
+      "text": "Décidez- vous de :"
+    },
+    {
+      "type": "link",
+      "text": "L'attaquer?",
+      "hash": "2aedd4f77888c7cb3df0fe5943c6a85eaab345c98b03bbc485b561fc9616502d"
+    },
+    {
+      "type": "link",
+      "text": "Prendre vos jambes à votre cou et quitter l'oasis?",
+      "hash": "478b2babe0e698f8ad1a91d7fbad4826e82fb0fa56fe53b7c54f5a0263fa48db"
+    },
+    {
+      "type": "link",
+      "text": "Lui expliquer votre quête?",
+      "hash": "44a5798f7cd3923c72e5c8840409c77b54a44c336d4249bd7545bfd2a5811c15"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

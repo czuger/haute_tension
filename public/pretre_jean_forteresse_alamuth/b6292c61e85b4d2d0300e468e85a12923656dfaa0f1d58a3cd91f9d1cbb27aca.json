@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous refermez la porte et découvrez que vous êtes dans un immense couloir à ciel ouvert, perpendiculaire à celui d'où vous arrivez. D'après sa longueur, vous supposez qu'il doit faire toute la largeur de la Forteresse. Vous avancez à pas mesurés sur les dalles de marbre blanc zébré d'azur. Le long du couloir, des niches abritent des statues de verre poli aux riches coloris. Un panthéon fabuleux est réuni là, ainsi que des effigies de mages puissants ayant vécu en des temps oubliés. Vous tournez le dos à la tour centrale, refuge du Vieux de la Montagne, à la paroi toujours aussi désespérément lisse et dépourvue d'accès. Tout en haut de la tour, une fenêtre luit faiblement : c'est sans doute la pièce d'étude de Hassan Sabba ! Bientôt vous êtes au centre du couloir. La vaste double porte d'un temple est ouverte. Vous lui faites face, le dos à la tour. A l'intérieur du temple, une cérémonie a lieu. Des dizaines de fidèles s'agenouillent devant une statue immense, haute de près de dix mètres, à l'image d'une divinité étrange. Vous comprenez que c'est Thalos, la statue qu'il vous faudra affronter."
+    },
+    {
+      "type": "text",
+      "text": "Quel adversaire formidable cédera-t-il sous vos coups ?"
+    },
+    {
+      "type": "link",
+      "text": "Si vous avez réuni les trois pièces de l'armure magique.",
+      "hash": "407cb5e757b5ca9bd434fec1c52230b769fd9df8980b011e76e509801dbb4dc4"
+    },
+    {
+      "type": "link",
+      "text": "Si vous ne vous sentez pas encore de taille à affronter la statue géante et désirez chercher encore quelque chose qui puisse vous aider.",
+      "hash": "5289df04bda2670451a20e60ca994bc00962ffaf938d316e831bd7cea9f7bb42"
+    },
+    {
+      "type": "link",
+      "text": "Si vous voulez affronter immédiatement Thalos, armure ou pas.",
+      "hash": "fa146cc9020aa2d42d7b946e1f76a5e31492b170d804b80511759a2d51e64cf9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Le Collecteur d'impôts gît à vos pieds dans une mare de sang. Il est bien mort. La demeure du Fakir aussi a subi les effets du combat : ce n'est plus qu'un monceau de débris. Le maître des lieux, qui se tenait à l'écart, sort prudemment de sa retraite. Quelle va être sa réaction ?"
+    },
+    {
+      "type": "text",
+      "text": "Tentez votre chance en jetant deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 6 ou moins.",
+      "hash": "d6b6e59a359b38bd3af2b7acb3569dd95a23cc95c82fffbab9d2d2bd50c4871c"
+    },
+    {
+      "type": "link",
+      "text": "Si vous faites 7 ou davantage.",
+      "hash": "8de9859459e31d0f82d4b3a2ab5cf5c56527bfe667eb6472a66e980617d45721"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

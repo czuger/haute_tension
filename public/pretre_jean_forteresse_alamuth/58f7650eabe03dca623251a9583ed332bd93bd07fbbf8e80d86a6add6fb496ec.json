@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous ouvrez la petite porte basse et passez à l'intérieur. Il fait très, sombre et une odeur ignoble empuantit l'atmosphère. Un escalier très raide descend dans les profondeurs de la salle obscure."
+    },
+    {
+      "type": "text",
+      "text": "Allez-vous :"
+    },
+    {
+      "type": "link",
+      "text": "Descendre l'escalier?",
+      "hash": "7ed13ebeba6a3442beab32f264bde985a3a1f218e6c26ce5baaffd36c52f19b2"
+    },
+    {
+      "type": "link",
+      "text": "Refermer la porte et ressortir?",
+      "hash": "a15444e2c1fc4be1a03e55ed7916a7ebacce1675aebb790f726b9252c7772828"
+    },
+    {
+      "type": "link",
+      "text": "Attendre pour voir si quelque chose se passe ?",
+      "hash": "99d6a3290f76326ca47e015a0bd746ccc57c5de415368cf1c967c21e18ffc505"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

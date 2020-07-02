@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous apprêtez à contourner le camp."
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous l'anneau d'invisibilité que vous a offert l'ermite ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "7fe3ba1eee814b212fe84a46f5c675b7f5f918d3ba513d992eefeed57849b79a"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire.",
+      "hash": "28ce75a59fec689171540856d187f062819646b891caade8a515d04f781d7bb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

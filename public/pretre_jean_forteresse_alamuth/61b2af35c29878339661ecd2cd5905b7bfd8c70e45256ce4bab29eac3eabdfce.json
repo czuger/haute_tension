@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "La trouée est énorme. L'herbe est aplatie et gluante, les branches brisées net. Vous tirez votre épée, prêt à tout. Vous entendez un raclement sourd derrière un épais buisson."
+    },
+    {
+      "type": "text",
+      "text": "Que faire?"
+    },
+    {
+      "type": "link",
+      "text": "Écarter les branches du buisson et découvrir l'origine du bruit?",
+      "hash": "2f66a3027b62f8927ddfc5b6c78d140437cbb1d5fc240f68d115e117b4c470f5"
+    },
+    {
+      "type": "link",
+      "text": "Retrouver le sentier que vous avez quitté?",
+      "hash": "e426463692e2d766dc22fb01981fa224f047c84cc65ed481d67231518c588a66"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

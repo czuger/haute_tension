@@ -1,0 +1,29 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Les deux lépreux qui ont osé vous résister gisent à terre. Leurs malheureux camarades ont fui dans les coins sombres de la léproserie. Vous avancez un peu dans la salle, vers une forme sombre allongée par terre. « Holà, cruel guerrier ! » s'exclame cet homme grand et efflanqué, qui autrefois devait être un brave lui aussi. Un ancien blason en lambeaux orne encore les restes de son pourpoint. Mais vous ne pouvez distinguer son visage, caché par un casque d'une grande beauté. Avec émotion, vous reconnaissez une des pièces de l'armure magique dont vous a parlé Abdul Al-Azhred."
+    },
+    {
+      "type": "text",
+      "text": "«Tu es bien courageux, pour frapper aussi durement des misérables qui n'attendent plus que la mort ! » raille l'homme. Vous comprenez qu'il s'agit du chef des lépreux. «Ne sais-tu rien faire d'autre que tuer, étranger ?»"
+    },
+    {
+      "type": "text",
+      "text": "Avez-vous été blessé durant le combat avec les lépreux ?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "8e0d528fa11183948d898a9b57b74b5b11844cd817fe019c0a933ce0ce492686"
+    },
+    {
+      "type": "link",
+      "text": "Sinon.",
+      "hash": "5eaa65eb798ec86dc34468fa1520ef0a04815c3ce48445f3df93c47ccb243333"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

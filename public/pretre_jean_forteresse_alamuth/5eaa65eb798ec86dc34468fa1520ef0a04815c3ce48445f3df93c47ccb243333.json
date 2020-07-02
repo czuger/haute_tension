@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous êtes offensé par les paroles acerbes de cet impertinent. Le chef des lépreux attend votre réaction."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous faire?"
+    },
+    {
+      "type": "link",
+      "text": "Si vous l'attaquez, craignant une ruse.",
+      "hash": "7b4b48a077e56ddee8c308e577d544902393761d49b605e4af8b2c462b60fae9"
+    },
+    {
+      "type": "link",
+      "text": "Si vous préférez tenter de le calmer.",
+      "hash": "85778e3eb8dddf0ff21bfa206528cd70edb19e298ffe996c4d8c9af399ab1e97"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

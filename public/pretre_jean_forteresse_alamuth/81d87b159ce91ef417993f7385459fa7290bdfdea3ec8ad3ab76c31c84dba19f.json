@@ -1,0 +1,35 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous vous faufilez à l'intérieur de la salle d'étude des mages en essayant de faire aussi peu de bruit qu'une souris. Mais soudain votre épée heurte le coin d'une table avec un cliquetis révélateur! Vous craignez le pire, mais les magiciens sont si profondément plongés dans leur réflexion qu'aucun ne lève le nez vers vous. Après un soupir de soulagement, vous examinez la grande pièce qui vous entoure. Vous voyez que, de l'autre côté de la salle, une petite porte s'ouvre sans doute sur une autre pièce. Deux magiciens, occupés à prendre des notes sur des parchemins antiques, s'affairent, l'un attablé à droite de l'entrée, l'autre à gauche, debout à un pupitre, devant des rayonnages. Un épais volume repose sur une table voisine, ouvert à une page richement décorée."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous faire à présent?"
+    },
+    {
+      "type": "link",
+      "text": "Traverser sans bruit la bibliothèque pour essayer la porte du fond?",
+      "hash": "48fcddb859da1071c8ba5456adb29520bcc63186176972f240c796c54bf363bb"
+    },
+    {
+      "type": "link",
+      "text": "Regarder le grimoire de plus près?",
+      "hash": "9940161e17b66645f9a527ee52f7e06ff28727e3e04840a34f9e763e67b7d9c2"
+    },
+    {
+      "type": "link",
+      "text": "Demander assistance au mage assis à la table ?",
+      "hash": "f69b7e4c7c39dabf04e51b1856e4dab934fa3eafd5a3a6f5dc4aa1325ed82abb"
+    },
+    {
+      "type": "link",
+      "text": "Demander assistance au mage debout devant son pupitre?",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

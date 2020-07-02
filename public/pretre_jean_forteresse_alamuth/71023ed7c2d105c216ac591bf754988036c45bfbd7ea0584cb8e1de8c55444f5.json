@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Heureux d'avoir passé outre aux pièges de ce labyrinthe à l'usage mystérieux, vous rentrez à nouveau dans la salle d'étude. En face de vous se trouve la porte qui mène dans le couloir par où vous êtes arrivé."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent quitter la bibliothèque ?",
+      "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+    },
+    {
+      "type": "link",
+      "text": "Si vous ne l'avez pas encore fait, vous pouvez préférer parler au magicien qui étudie debout devant un pupitre.",
+      "hash": "f6d040904ae976fbcc6605694088b2248c7f3f60a328f91169437a4528e98dc9"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

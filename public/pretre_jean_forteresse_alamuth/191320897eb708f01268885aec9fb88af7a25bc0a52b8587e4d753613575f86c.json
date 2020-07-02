@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Le chef s'adresse à vous en ces termes : «Etranger infidèle, tu n'as dû poser le pied sur le sol de Palestine que depuis peu pour ignorer l'existence de la bande des Quarante Voleurs. Autrement, jamais tu n'aurais osé pénétrer dans ce campement. Que nous vaut le douteux honneur de ta présence? Parle vite et sans malice, car de ta réponse dépend ta vie ! » Autour de vous, le cercle des bandits s'est resserré. Ils n'attendent que la première occasion pour vous sauter dessus."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous répliquer au chef que, chassé par vos compagnons de la croisade pour une quelconque faute, vous êtes venu vous joindre à leur groupe ?",
+      "hash": "5c0e4eac6b571b6a2c62c227b0e148699eb9a919d478d82efb43b58a410dc2aa"
+    },
+    {
+      "type": "link",
+      "text": "Ou, dédaignant de rétorquer la moindre parole, vu son arrogance, allez-vous dégainer votre épée pour le provoquer en duel ?",
+      "hash": "399ae9f84370f239509a63f20ff8ece65f5c1a0c7b1b5b68a78fbb40debb8215"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

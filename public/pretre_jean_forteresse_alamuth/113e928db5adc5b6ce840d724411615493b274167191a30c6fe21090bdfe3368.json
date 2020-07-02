@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "«Alors, que Dieu soit avec toi, ami ! Bonne route et longue vie à Richard ! » Clame l'impressionnant Templier. Il vous serre la main d'une poigne de fer et vous prenez congé. Tandis que vous regagnez la sortie, son vautour vient vous taquiner, mais vous vous gardez bien de repousser l'horrible bête de peur de déplaire à son maître."
+    },
+    {
+      "type": "text",
+      "text": "Vous pouvez à présent :"
+    },
+    {
+      "type": "link",
+      "text": "Chercher une auberge où passer la nuit.",
+      "hash": "5ad372a592907a0788cbc86af421d144be4c061dff6c9a0d8b0015b4743449f4"
+    },
+    {
+      "type": "link",
+      "text": "Quitter directement Saint-Jean-d'Acre.",
+      "hash": "7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

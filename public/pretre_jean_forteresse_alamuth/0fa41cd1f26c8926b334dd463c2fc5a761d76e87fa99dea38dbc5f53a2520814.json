@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avancez jusqu'au centre de la salle de prière et restez là, campé sur vos jambes, faisant face à l'énorme statue. Son aspect a de quoi impressionner le plus fougueux paladin. A ses quatre poignets sont fixés des bracelets en rubis, tandis que ses yeux brillent de l'éclat d'énormes améthystes. Des cimeterres de trois mètres de long pendent à ses côtés. Vous attendez toujours. Il ne se passe rien."
+    },
+    {
+      "type": "link",
+      "text": "Si vous désirez attendre encore.",
+      "hash": "a42639898cf3da8232e8bb17612aeb685930fc37eec5e14020e843bbe4978054"
+    },
+    {
+      "type": "link",
+      "text": "Si vous en avez assez d'attendre et préférez agir.",
+      "hash": "41d910c1a73380596a12b3fa91a8ba7237529d8f1893d3359ea9391e25f781de"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

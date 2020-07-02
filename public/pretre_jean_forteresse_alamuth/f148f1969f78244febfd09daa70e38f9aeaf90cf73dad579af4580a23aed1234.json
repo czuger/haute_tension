@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous revenez silencieusement vers le mage et lui tendez la fiole que vous avez remplie de liquide bleu. Il ne s'arrache même pas à son travail pour vous remercier et vous chasse d'un signe de la main. Trop content d'avoir évité la colère de ce redoutable sorcier, vous vous félicitez de l'avoir échappé belle."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous à présent quitter la salle d'étude",
+      "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"
+    },
+    {
+      "type": "link",
+      "text": "ou, si vous ne l'avez pas encore fait, parlerez-vous au mage qui compulse un grimoire assis à une table ?",
+      "hash": "f69b7e4c7c39dabf04e51b1856e4dab934fa3eafd5a3a6f5dc4aa1325ed82abb"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

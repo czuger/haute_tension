@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "« Tu es sage, ami, car nul ne doit s'embarquer pour une longue route sans provisions. Je peux te vendre des rations pour 1 pièce d'or chacune. » Vous pouvez acheter jusqu'à 3 rations de provisions au Templier. Rayez le nombre de pièces correspondant de la liste de vos possessions et n'oubliez pas d'y ajouter ces provisions."
+    },
+    {
+      "type": "text",
+      "text": "«Je suis Godric de Villebonne ! clame le géant barbu. Voudras-tu profiter cette nuit de l'hospitalité des Templiers? Comme tu le sais, nous recueillons des contributions pour notre Seigneur Jésus-Christ, et l'asile ainsi qu'un solide repas te coûteront 2 pièces d'or. »"
+    },
+    {
+      "type": "link",
+      "text": "Si vous acceptez, rayez ces 2 pièces supplémentaires de la liste de vos possessions.",
+      "hash": "892e4da2b1123671c54f8fe5ccf73dcdc44f15de7f341a2551add3fedc4b7ca5"
+    },
+    {
+      "type": "link",
+      "text": "Si vous n'avez pas d'or ou si vous préférez quitter la Commanderie et la ville sans plus tarder.",
+      "hash": "7e1a27a773130932b16043988053bc3b963b47841a18b5f03a454793826ea11a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

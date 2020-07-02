@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous êtes à nouveau dans le couloir est de la Forteresse."
+    },
+    {
+      "type": "link",
+      "text": "Choisirez- vous de pousser la porte qui se trouve en face de vous",
+      "hash": "e4edd75381048668f7269dd6d3f836d43e77c618a913dafc1c2d12f9efe3bc2a"
+    },
+    {
+      "type": "link",
+      "text": "ou tenterez-vous d'ouvrir celle qui barre le fond du couloir ?",
+      "hash": "077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

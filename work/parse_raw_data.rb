@@ -21,4 +21,5 @@ directories.each do |directory|
   end
 
   p_pars.save( directory )
+  p_pars.prepare( directory )
 end

@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous menez doucement votre cheval jusqu'à l'objet brillant. Puis vous vous penchez pour le ramasser. A votre grande joie, c'est une pièce d'or qui dépasse d'une bourse en cuir de chameau. Vous prenez la bourse : elle contient 11 pièces d'or (marquez-les sur la liste de vos possessions). En vous emparant de votre trouvaille, vous avez remué la terre meuble du monticule. Vous apercevez à présent un autre objet, un peu terni, qui luit au soleil."
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si votre total est inférieur ou égal à 8.",
+      "hash": "61128d01ec0ecda5c8092365a74805608c61c73b694659f113b93474ed2c529c"
+    },
+    {
+      "type": "link",
+      "text": "S'il est supérieur ou égal à 9.",
+      "hash": "0ee745ffebcfebe38d0eaa3288acde1a0acd55edf0f2873453784690af94a347"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

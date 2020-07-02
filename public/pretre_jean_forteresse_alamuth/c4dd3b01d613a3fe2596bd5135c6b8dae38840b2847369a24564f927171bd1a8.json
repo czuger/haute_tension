@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous avez l'impression d'avoir reçu un brutal coup de pied au derrière ! Vous perdez 2 points de Vie ! D'une poussée magique, le maître des arts cabalistiques que vous avez importuné vous a expédié hors de sa vue. Vous êtes de nouveau dans le couloir est, un peu échaudé par cette cuisante expérience."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous réitérer vos efforts en direction de la salle d'études et y rentrer à nouveau",
+      "hash": "81d87b159ce91ef417993f7385459fa7290bdfdea3ec8ad3ab76c31c84dba19f"
+    },
+    {
+      "type": "link",
+      "text": "ou diriger vos pas ailleurs ?",
+      "hash": "a15444e2c1fc4be1a03e55ed7916a7ebacce1675aebb790f726b9252c7772828"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

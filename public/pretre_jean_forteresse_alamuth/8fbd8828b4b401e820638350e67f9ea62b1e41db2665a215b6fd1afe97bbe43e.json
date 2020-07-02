@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Un peu étourdi, vous retrouvez votre taille normale. Shawar le magicientrépigne de joie et frappe des mains. « Vous avez gagné ! La supériorité de l'intelligence sur la force brute... Vous méritez de rencontrer Hassan Sabba. Je vais également vous offrir un des trois objets que voici. » Devant vous se trouvent une boule argentée, un médaillon finement ciselé et un minuscule coffret en bois précieux."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez-vous choisir?"
+    },
+    {
+      "type": "link",
+      "text": "La boule?",
+      "hash": "f00f0a620a856ec36e35be47f1b22241ebcb2166ce2a1c1b25822569235e99b6"
+    },
+    {
+      "type": "link",
+      "text": "Le médaillon?",
+      "hash": "79e5e36a7869cac2951dff5f05eb1331423035295a7a5f64d9990637a03a6e5a"
+    },
+    {
+      "type": "link",
+      "text": "Le coffret?",
+      "hash": "3f31c79217c3e6671fe155c1e495bdd258a0e1151bf5ccd8c12583655471d446"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

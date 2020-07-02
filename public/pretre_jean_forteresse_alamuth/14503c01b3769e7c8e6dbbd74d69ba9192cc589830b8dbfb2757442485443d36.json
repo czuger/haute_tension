@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Prenant l'air d'un habitué des lieux, vous marchez d'un pas décidé jusqu'à la porte de la Forteresse. Deux larges battants commandés par une lourde serrure barrent l'entrée, tandis que deux Haschichins au profil d'aigle flanquent cette porte. Ils vous observent d'un oeil intrigué. « Bien le bonjour ! Lancez-vous. Je viens aider le maître d'armes dans ses tâches. Il m'a fait venir de très loin pour l'assister. » Les gardes ne bronchent pas. « Holà, messires, ne m'entendez-vous pas?» Quelque chose ne va pas, tout ceci vous semble bizarre."
+    },
+    {
+      "type": "link",
+      "text": "Allez-vous tirer votre épée pour provoquer quelque réaction chez ces soldats impassibles",
+      "hash": "57c81c87c53f8ea952e324b9715ef989e5b67a83e45c0845b79385ec6c01cded"
+    },
+    {
+      "type": "link",
+      "text": "ou bien jugerez-vous que cela est trop risqué ? Dans ce cas, choisissez une autre solution.",
+      "hash": "b505d45560fdbd752811cced39d9ff6574e9b657903699202b22a182773045a0"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

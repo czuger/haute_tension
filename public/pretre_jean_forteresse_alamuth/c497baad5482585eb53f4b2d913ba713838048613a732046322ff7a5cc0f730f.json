@@ -1,0 +1,22 @@
+{
+  "text": [
+    {
+      "type": "link",
+      "text": "Décidez-vous de continuer votre exploration du couloir ouest",
+      "hash": "974bb77a985d89b7445853a87eb866fddecda239ed8bab2ecefc79ea659c10c3"
+    },
+    {
+      "type": "link",
+      "text": "ou préférez-vous, si vous ne l'avez déjà fait, explorer le couloir est ?",
+      "hash": "d9b1821561b7c55eb70a7703cf004dd8106e2e79a93f033fbc2e434a9a575b00"
+    },
+    {
+      "type": "link",
+      "text": "A moins que vous ne préfériez-vous rendre dans le jardin au cas où vous ne l'auriez pas encore examiné ?",
+      "hash": "75881ef9231c89e9b76066826e7eebf885792d6d828f209ea358bf703dc518ad"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Dès qu'ils aperçoivent l'éclat de votre lame, quatre des Hommes- Lézards s'engouffrent dans une ouverture dissimulée dans le fond de la pièce. Sans doute pour aller chercher du secours... Néanmoins vous jugez avoir tout le temps nécessaire pour éliminer les trois adversaires qui vous font face. Vous devez les combattre individuellement :"
+    },
+    {
+      "type": "text",
+      "text": "PREMIER HOMME-LEZARD FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "SECOND HOMME-LEZARD FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "link",
+      "text": "Si vous trouvez la seconde clef, vous aurez ainsi accès au chemin qui mène à l'intérieur de la Forteresse d'Alamuth.",
+      "hash": "61bd50e025e1b05f654f44d281d65ddb944631d0c69480d82c1ff24d92ca4c35"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "PREMIER HOMME-LEZARD ",
+      "force": 8,
+      "vie": 12
+    },
+    {
+      "name": "SECOND HOMME-LEZARD ",
+      "force": 6,
+      "vie": 10
+    },
+    {
+      "name": "TROISIEME HOMME-LEZARD ",
+      "force": 7,
+      "vie": 10
+    }
+  ]
+}

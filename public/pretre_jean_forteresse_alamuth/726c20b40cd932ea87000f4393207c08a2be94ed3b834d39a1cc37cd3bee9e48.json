@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Votre impatience vous suggère que le hasard a peut-être déterminé votre chute. Vous décidez bravement de remonter. Lentement vous arrivez à hauteur de la tour de garde, puis vous commandez à votre tapis demonter plus haut, vers le sanctuaire de Hassan Sabba. Le tapis semblerépondre à votre injonction. Tout se passe bien, mais soudain, arrivé à unpeu plus de dix mètres de haut, il s'effondre à nouveau, victime de la barrière magique du Vieux de la Montagne. Votre chute risque d'être plus terrible encore cette fois."
+    },
+    {
+      "type": "text",
+      "text": "Lancez deux dés."
+    },
+    {
+      "type": "link",
+      "text": "Si vous obtenez un total inférieur ou égal à 9.",
+      "hash": "c2ace4f5da197f977f984cda188a44aad241942b4cf5efaa7c5649e02c269de5"
+    },
+    {
+      "type": "link",
+      "text": "Si vous réussissez 10, 11 ou 12.",
+      "hash": "e697a356252cd6b195d54ad0b0802a4d3a7320cad86145ddaee88e5aebad8cb0"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

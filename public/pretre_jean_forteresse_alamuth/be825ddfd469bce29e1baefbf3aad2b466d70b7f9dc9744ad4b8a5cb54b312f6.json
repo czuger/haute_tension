@@ -1,0 +1,58 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "La route a été longue, la journée tire à sa fin. Vous êtes à l'entrée d'un village. Dans le lointain, la silhouette de la Forteresse tant convoitée se découpe contre le ciel. Voici l'ultime chance de glaner des informations et de se reposer avant le but de l'aventure."
+    },
+    {
+      "type": "link",
+      "text": "Si vous décidez de ne pas pénétrer dans le village.",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    },
+    {
+      "type": "text",
+      "text": "Devez-vous rencontrer un habitant précis pour lui remettre un objet que l'on vous a confié :"
+    },
+    {
+      "type": "link",
+      "text": "Hassidin,",
+      "hash": "bfbe722e12b724df1726179e5ef9cb804f8f630b260dc5806432af66d4b8eda5"
+    },
+    {
+      "type": "link",
+      "text": "Abdalsan l'Apothicaire",
+      "hash": "099f9de03a602b6258b1be81269020dda60525590725b2d41698228da3652b2a"
+    },
+    {
+      "type": "link",
+      "text": "ou Shawar ?",
+      "hash": "16793bdb6d1ecba6225ca32d74e1b3d80443d15ebd6f6af08636342f62cfb37a"
+    },
+    {
+      "type": "text",
+      "text": "Autrement, vous jugez plus prudent d'avancer jusqu'à la grand place, puis d'aviser pour la suite des opérations."
+    },
+    {
+      "type": "text",
+      "text": "Qu'elle rue allez-vous suivre?"
+    },
+    {
+      "type": "link",
+      "text": "Celle de droite.",
+      "hash": "b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+    },
+    {
+      "type": "link",
+      "text": "Celle de gauche.",
+      "hash": "554c5f04f88810cc0654ae728fec96a3bbe1794271cc1ac91bc4fa24aca547f2"
+    },
+    {
+      "type": "link",
+      "text": "Celle qui se trouve devant vous.",
+      "hash": "a1cb0219a81425a023dbd9d577534816284a200b698fbf7545cbeb28f7b4cffe"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

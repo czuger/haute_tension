@@ -1,0 +1,37 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Inutile de refaire en sens inverse le chemin déjà parcouru ; vous partez sur votre droite. Au bout de quelques minutes, vous arrivez à hauteur d'une porte bardée de métal. Les ferrures en sont massives et solides. Vous vous approchez : des mots sont gravés dans le bois. La description du trésor peut-être enfermé de l'autre côté..."
+    },
+    {
+      "type": "text",
+      "text": "« Priez et lamentez-vous, créatures des rats et des lézards,"
+    },
+    {
+      "type": "text",
+      "text": "Qu'un jour proche entre vos peuples cette guerre cesse ;"
+    },
+    {
+      "type": "text",
+      "text": "Les deux clefs d'argent alors seront nécessaires, Car derrière cette porte commence la voie de la délivrance et du départ."
+    },
+    {
+      "type": "text",
+      "text": "HASSAN SABBA. » Vos rêves de richesse s'évanouissent. Vous réfléchissez tout de même sur la signification du message. En un éclair, le sens en devient évident : le chemin qui mène dans la Forteresse se situe derrière cette porte ! Vous remarquez deux serrures superposées. « La clef d'argent au cou de l'Homme-Lézard ! » Comment ne pas y avoir songé plus tôt? Avez-vous pensé à l'emporter?"
+    },
+    {
+      "type": "link",
+      "text": "Si c'est le cas.",
+      "hash": "1f9bfc1b3c1279a63bbe7382d0f842f9757de4e793acdf6bf88b13211708d63a"
+    },
+    {
+      "type": "link",
+      "text": "Sinon, retournez la chercher.",
+      "hash": "5d65adbed64e9f4b3edfd90fcfda262ed249842ad9b8211963829126c09d7a98"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

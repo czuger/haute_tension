@@ -1,0 +1,31 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Comment allez- vous lutter contre ce Démon du Styx ?"
+    },
+    {
+      "type": "link",
+      "text": "Vous vous jetez sur lui l'épée au poing.",
+      "hash": "5171293869878d9e06899b3b4c09e8cba2d9264d66a113dea5ddab328e86312f"
+    },
+    {
+      "type": "link",
+      "text": "Vous lui parlez en vers.",
+      "hash": "7db9427b476b00a8a6fc229436a73c14e255adeed9917d2be870cc0df7d4b053"
+    },
+    {
+      "type": "link",
+      "text": "Vous pensez qu'il s'agit d'une illusion et vous attendez.",
+      "hash": "2b4fa9bc224ebd81eec491ed3c5654d32ecb87fc114b319ebd87b833004094d5"
+    },
+    {
+      "type": "link",
+      "text": "Si le Génie de l'oasis vous a fait un don.",
+      "hash": "a4355aa392e024d312b38e07b849ddc7e8625d21bfe533a503fd2ecd659d122d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

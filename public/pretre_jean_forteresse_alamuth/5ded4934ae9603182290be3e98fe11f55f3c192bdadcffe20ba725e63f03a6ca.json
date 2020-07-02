@@ -1,0 +1,29 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous quittez rapidement le caravansérail. La nuit est tombée et seul un pâle clair de lune jette sa lueur sur la cour intérieure de la Forteresse. Vous suivez les quatre soldats en vous dissimulant dans l'ombre. Mais alors que vous passez dans une zone éclairée par une torche fixée à la muraille, le dernier garde, tout à fait soûl, arrive derrière vous et vous interpelle. Profitant de son état d'ébriété avancé, vous tirez votre épée."
+    },
+    {
+      "type": "text",
+      "text": "GARDE FORCE : 6 VIE : 12"
+    },
+    {
+      "type": "link",
+      "text": "Si vous remportez le premier assaut.",
+      "hash": "f4ec02808d7ff74fae35c7f7574bc757976fb9b314dfcb4b089eb85823dbaba8"
+    },
+    {
+      "type": "link",
+      "text": "Si le garde remporte le premier assaut.",
+      "hash": "37b5f0ec413e0c97d107142a551caf3cd3b46a954ca602f74e5941b7f986ed52"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "GARDE ",
+      "force": 6,
+      "vie": 12
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_36e2512606f53b0cbc9bb5c1487c84bc_158.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Le cercle de pillards se referme sur vous, les voilà prêts à vous écharper ou vous faire souffrir mille morts pour oser défier leur chef. D'un geste de la main, ce dernier leur signifie de reculer. Il accepte le combat."
+    },
+    {
+      "type": "text",
+      "text": "Il se dévêt jusqu'à la ceinture pour être plus à l'aise, les muscles de son torse jouant sous la peau bronzée luisante de sueur. Il tire une longue épée d'un fourreau finement ciselé. Dégainez à votre tour. Le duel commence :"
+    },
+    {
+      "type": "text",
+      "text": "CHEF DES 40 VOLEURS FORCE: 15 VIE: 16"
+    },
+    {
+      "type": "link",
+      "text": "Si vous sortez vainqueur de l'affrontement.",
+      "hash": "da55c0517865828830919026ebfc5194d52ab04cdb8abdb2a4dcc044963ccc4f"
+    }
+  ],
+  "monsters": [
+    {
+      "name": "CHEF DES 40 VOLEURS ",
+      "force": 15,
+      "vie": 16
+    }
+  ]
+}

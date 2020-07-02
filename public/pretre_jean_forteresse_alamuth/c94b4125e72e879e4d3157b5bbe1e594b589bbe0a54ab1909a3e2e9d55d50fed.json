@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Si vous n'avez pas pensé à emporter une torche, vous perdez 1 point de Force jusqu'à votre retour à la surface. Vous avancez avec précaution, mais vous réalisez, en atteignant le bout du tunnel, que vous êtes dans un cul-de-sac. Vous vous trouvez devant un mur... Non, pas tout à fait. Vous sentez un levier sur votre gauche. L'humidité qui règne dans le puits a rendu la corde poisseuse. Vous ne pouvez plus remonter et vous diriger vers la Forteresse."
+    },
+    {
+      "type": "text",
+      "text": "Que décidez-vous ?"
+    },
+    {
+      "type": "link",
+      "text": "Essayer de faire bouger le levier et voir ce qui se passe ?",
+      "hash": "5478a4081c94efde2d7669085c13a0f4f39836bed91b4c343c726901f22b1b7d"
+    },
+    {
+      "type": "link",
+      "text": "Rebrousser chemin et poursuivre votre descente dans le puits ?",
+      "hash": "b793e9b0da04ea05b11fa2ad3f45b98a1541f2a099e9951d07887fec73be562a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

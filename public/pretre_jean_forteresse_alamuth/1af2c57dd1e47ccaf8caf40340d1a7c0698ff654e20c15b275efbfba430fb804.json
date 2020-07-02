@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Vous descendez de cheval et menez votre monture par la bride jusqu'au puits. Vous tirez assez d'eau pour étancher la soif de l'animal."
+    },
+    {
+      "type": "text",
+      "text": "Qu'allez vous faire à présent :"
+    },
+    {
+      "type": "link",
+      "text": "Boire à votre tour?",
+      "hash": "f719165883a214ffc425d7d8116c2a1706d52f4d8f0f3689f7011628cc292a79"
+    },
+    {
+      "type": "link",
+      "text": "Quitter l'oasis?",
+      "hash": "478b2babe0e698f8ad1a91d7fbad4826e82fb0fa56fe53b7c54f5a0263fa48db"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

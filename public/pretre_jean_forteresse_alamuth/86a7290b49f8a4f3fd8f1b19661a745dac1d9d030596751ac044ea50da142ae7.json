@@ -1,0 +1,25 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Alors que vous apprêtez à prendre congé, vous remarquez un reflet argenté sur la poitrine de l'Homme-Rat avec qui vous discutiez. Accrochée à un collier autour de son cou se trouve l'une des deux clefs dont il vous a conté l'enjeu. Une idée germe dans votre esprit. Les Hommes-Rats sont trop nombreux pour que vous puissiez les attaquer, aussi décidez-vous de voler la clef. Vous essayez de la subtiliser en détournant l'attention du chef, tout en prenant garde aux autres occupants de la pièce."
+    },
+    {
+      "type": "text",
+      "text": "Lancez 2 dés pour savoir si vous réussissez :"
+    },
+    {
+      "type": "link",
+      "text": "Si le total de vos points est divisible par 3.",
+      "hash": "c9a26b7c274909dbcaa738f0668d7191cef929f932e99a026a654851c1325834"
+    },
+    {
+      "type": "link",
+      "text": "Dans le cas contraire.",
+      "hash": "2f1c54d09fb38df649993b5b22c170899bc84d1a503ee6b67cbd175b2e8b2a1d"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

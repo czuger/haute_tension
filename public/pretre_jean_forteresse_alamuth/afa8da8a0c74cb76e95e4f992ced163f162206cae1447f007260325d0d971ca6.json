@@ -1,0 +1,30 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "La ruelle est minuscule. En étendant les bras, vous pouvez toucher les murs des maisons de chaque côté. De plus, vous ne voyez pas à plus de trois pas devant vous : la nuit est presque totale. Soudain, vous entendez un hurlement à proximité, suivi de halètements bestiaux."
+    },
+    {
+      "type": "link",
+      "text": "Essayez-vous de déterminer l'origine de ces bruits ?",
+      "hash": "d6aefa19338455d9ec72b25200b18fcd4f6fb5e4bfbd7f5fac5965717505cdf5"
+    },
+    {
+      "type": "text",
+      "text": "Ou préférez-vous retourner à l'estaminet et choisir une autre rue ?"
+    },
+    {
+      "type": "link",
+      "text": "Vous prenez celle de droite",
+      "hash": "b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"
+    },
+    {
+      "type": "link",
+      "text": "ou celle qui va tout droit.",
+      "hash": "735c10256c6cc818aab1812acb567acc6a8f59077f2270d575cd7035ccd59b43"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

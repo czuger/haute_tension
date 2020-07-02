@@ -1,0 +1,43 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "« Ton caractère me plaît, reprend Hassan Sabba, mais je dois m'assurer que tu es bien digne de réaliser ta quête du bonheur éternel. Réponds à cette énigme, et je verrai ce que je peux faire pour t'aider : \"Trois tomes d'un ouvrage sont posés verticalement côte à côte sur une étagère. L'épaisseur totale de chaque livre est de 10 centimètres. Un ver se fraie un chemin à travers les feuilles de papier. Il commence à la page 1 du premier volume pour s'arrêter à la dernière page du troisième. En sachant que la couverture de chaque livre est épaisse de 2 millimètres, dis- moi quelle distance a parcourue le ver dans son oeuvre destructrice...\""
+    },
+    {
+      "type": "text",
+      "text": "Calculez cette distance en millimètres et, en fonction du résultat, allez à la référence correspondante."
+    },
+    {
+      "type": "text",
+      "text": "Vous avez trouvé :"
+    },
+    {
+      "type": "link",
+      "text": "34 mm",
+      "hash": "5ddb6fc70ef2d428cff538981fee8364e4a49a84d500ad110cfd9c92623fe5e2"
+    },
+    {
+      "type": "link",
+      "text": "104 mm",
+      "hash": "5ddb6fc70ef2d428cff538981fee8364e4a49a84d500ad110cfd9c92623fe5e2"
+    },
+    {
+      "type": "link",
+      "text": "296 mm",
+      "hash": "f80e06f97dc1e30d19ae2f7214eccdc034a887c494b7450c85eb6e0a7585b366"
+    },
+    {
+      "type": "text",
+      "text": " "
+    },
+    {
+      "type": "link",
+      "text": "Si vous ne trouvez pas la bonne solution.",
+      "hash": "5ddb6fc70ef2d428cff538981fee8364e4a49a84d500ad110cfd9c92623fe5e2"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

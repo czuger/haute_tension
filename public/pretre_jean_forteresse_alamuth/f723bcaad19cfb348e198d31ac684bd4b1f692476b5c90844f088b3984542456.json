@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Sans ménagement, les gardes vous jettent dans un trou creusé à même le sol. Votre chute est longue : cette oubliette a dû être creusée dans le roc voici des siècles ! Loin au-dessus de vous, une grille se referme, suivie d'un bruit de chaînes. Votre sort est désespéré. L'oubliette n'est même pas assez large pour que vous puissiez vous y asseoir. Etes-vous en possession de la lampe d'Aladin?"
+    },
+    {
+      "type": "link",
+      "text": "Si oui.",
+      "hash": "f5ab033930e7952c02fe0f12870e72f14535b6860671ebec6bab9306c1c73dc4"
+    },
+    {
+      "type": "link",
+      "text": "Sinon, vous décidez d'attendre en réfléchissant à un plan d'évasion.",
+      "hash": "45421e60549adb3f320ebcf7d0fb7789932f3aaccf5a352e34500daf50954b6a"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "La nourriture que vous apporte le tavernier n'est pas très appétissante, mais votre estomac affamé se moque de telles subtilités gustatives. Vous gagnez 2 points de Vie."
+    },
+    {
+      "type": "link",
+      "text": "Pensez-vous dormir à l'auberge",
+      "hash": "e5e4f81162ca85540088b178966c4d336d1db571047fb5b732a3d12785c270f1"
+    },
+    {
+      "type": "link",
+      "text": "ou passer la nuit dans la nature ?",
+      "hash": "5cbcbc8b1ec7ebb9b36a533eb62e21c80421fe26608721a7a58da05251352cb5"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "text": [
+    {
+      "type": "pics",
+      "sources": [
+        "http://img.over-blog-kiwi.com/600x600/0/24/52/97/201301/ob_1663d514ad24e72ed6cea7caa1dc1669_121.jpg"
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Vous menez votre cheval jusqu'à un grand bâtiment blanchi à la chaux : la Commanderie des Templiers, érigée près du port de Saint-Jean-d'Acre. Des oriflammes blanches ornées d'une grande croix rouge claquent au vent. Un garde à l'allure féroce vous introduit à l'intérieur. Il vous amène devant un Templier énorme, mesurant près de deux mètres, au visage mangé d'une barbe sale."
+    },
+    {
+      "type": "text",
+      "text": "Ce personnage est d'allure peu rassurante, d'autant plus qu'un vautour borgne posé sur son épaule lance des coups de bec dans votre direction. « Holà, messire ! lance le Templier d'une voix de tonnerre. Que venez-vous faire à la Commanderie ? N'avez-vous pas suivi le bon roi Richard Coeur de Lion sur le chemin du retour ? »"
+    },
+    {
+      "type": "text",
+      "text": "Allez- vous lui dire :"
+    },
+    {
+      "type": "link",
+      "text": "Que vous désirez acheter quelques provisions avant de quitter Saint- Jean-d'Acre ?",
+      "hash": "c1d2ebc48077aff9b2cd7c7e0318b8207ba082c3f1518899857906280e5afd34"
+    },
+    {
+      "type": "link",
+      "text": "Que votre destin emmène vos pas loin de l'Angleterre ?",
+      "hash": "0f7874099c0d7304240b430f15bf4e7007d8e50880ee96b710ffeedefc6705fd"
+    },
+    {
+      "type": "link",
+      "text": "Que vous veniez simplement saluer l'ordre des Templiers avant de rentrer au pays ?",
+      "hash": "113e928db5adc5b6ce840d724411615493b274167191a30c6fe21090bdfe3368"
+    }
+  ],
+  "monsters": [
+
+  ]
+}

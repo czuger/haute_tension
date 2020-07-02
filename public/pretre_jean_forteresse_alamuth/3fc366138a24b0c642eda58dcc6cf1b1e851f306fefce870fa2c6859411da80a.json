@@ -1,0 +1,21 @@
+{
+  "text": [
+    {
+      "type": "text",
+      "text": "Le cadavre du Charognard des cavernes gît inerte non loin de vous."
+    },
+    {
+      "type": "link",
+      "text": "Décidez-vous de fouiller le corridor à la recherche d'une sortie",
+      "hash": "ac55afa940cf5fa9d48de8af3625d7813e5df2852737b118541a90de0e032443"
+    },
+    {
+      "type": "link",
+      "text": "ou bien rebroussez-vous chemin vers le puits ?",
+      "hash": "47e79eebd503d31d41eed2c5509c6083bd708570660d79e83e82ff40a3c97de7"
+    }
+  ],
+  "monsters": [
+
+  ]
+}
