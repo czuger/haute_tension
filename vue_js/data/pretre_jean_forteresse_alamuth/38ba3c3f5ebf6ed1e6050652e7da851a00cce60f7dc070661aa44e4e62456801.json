@@ -7,15 +7,27 @@
     },
     {
       "type": "text",
-      "text": "PREMIER HOMME-LEZARD FORCE : 7 VIE : 10"
+      "text": "PREMIER HOMME-LEZARD"
     },
     {
       "type": "text",
-      "text": "SECOND HOMME-LEZARD FORCE : 8 VIE : 10"
+      "text": " FORCE : 7 VIE : 10"
     },
     {
       "type": "text",
-      "text": "TROISIEME HOMME-LEZARD FORCE : 8 VIE : 12"
+      "text": "SECOND HOMME-LEZARD "
+    },
+    {
+      "type": "text",
+      "text": "FORCE : 8 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 8 VIE : 12"
     },
     {
       "type": "link",
@@ -25,17 +37,17 @@
   ],
   "monsters": [
     {
-      "name": "PREMIER HOMME-LEZARD ",
+      "name": " ",
       "force": 7,
       "vie": 10
     },
     {
-      "name": "SECOND HOMME-LEZARD ",
+      "name": "",
       "force": 8,
       "vie": 10
     },
     {
-      "name": "TROISIEME HOMME-LEZARD ",
+      "name": " ",
       "force": 8,
       "vie": 12
     }

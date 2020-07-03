@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "COLLECTEUR D'IMPOTS FORCE : 6 VIE : 10"
+      "text": "COLLECTEUR D'IMPOTS"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 6 VIE : 10"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "COLLECTEUR D'IMPOTS ",
+      "name": " ",
       "force": 6,
       "vie": 10
     }

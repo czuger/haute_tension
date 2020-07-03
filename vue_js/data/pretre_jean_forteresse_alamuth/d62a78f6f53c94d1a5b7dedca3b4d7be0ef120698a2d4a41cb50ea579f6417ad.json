@@ -11,14 +11,26 @@
       "hash": "db3efefbc0d7f23c2b90b73bf725da8e3d1c1e0fabcd6c1070f5eb0f37b39cbc"
     },
     {
+      "type": "text",
+      "text": " (220)"
+    },
+    {
       "type": "link",
       "text": "Descendre de cheval et longer la paroi à droite?",
       "hash": "b909192f4c9f69a886f63983ac85afc31132d969f58cd30fae93d2b1f69cb9f3"
     },
     {
+      "type": "text",
+      "text": " (443)"
+    },
+    {
       "type": "link",
       "text": "Diriger votre monture vers la paroi de gauche?",
       "hash": "8ea99c078fd50f4701e57fab086ca6839d4d8eff90180a89ce60a5f4f72f3b29"
+    },
+    {
+      "type": "text",
+      "text": " (665)"
     }
   ],
   "monsters": [

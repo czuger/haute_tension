@@ -2,6 +2,10 @@
   "page_hash": "c5962bbdaf965e2cfc6814abff8a5c2273a901301e0b93c2cc2bcaa589d24fa2",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous demandez au vieillard si votre compagnie ne l'importune pas. Au contraire, il vous invite bien volontiers à vous joindre à lui. Vous apprenez qu'il se nomme Sol et connaît bien les villages des collines au pied de la Forteresse d'Alamuth. «Mon cousin Abdalsan y exerce le métier d'apothicaire. Pourriez-vous me rendre le service de lui remettre cette fiole de potion à base d'herbes qu'il m'a demandée? Je suis sûr qu'en échange de votre amabilité, il fera tout son possible pour vous aider à pénétrer dans la Forteresse. En tant qu'apothicaire du village, il est fort probable qu'il détienne le mot de passe qui permet d'y accéder.» Satisfait de cette aubaine, vous empochez la fiole de potion (notez-la dans la liste de vos possessions). Vous avez à présent un précieux allié aux portes mêmes de la Forteresse ! Le vieux Sol s'excuse et prend congé pour la nuit. "
+    },
+    {
       "type": "link",
       "text": "Vous l'imitez bientôt et gagnez votre chambre pour y goûter un repos mérité.",
       "hash": "0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"

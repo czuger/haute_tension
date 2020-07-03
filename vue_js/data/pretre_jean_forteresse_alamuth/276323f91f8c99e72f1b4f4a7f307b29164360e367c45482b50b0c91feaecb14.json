@@ -2,6 +2,10 @@
   "page_hash": "276323f91f8c99e72f1b4f4a7f307b29164360e367c45482b50b0c91feaecb14",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous tournez votre bague d'invisibilité de la façon spéciale que l'on vous a enseignée et attendez. Vous pensez que l'anneau doit avoir opéré son effet et avancez en confiance vers l'énorme garde qui trône devant la grande porte de la Forteresse. Mais dès que vous êtes à portée de vue, il vous fixe d'un regard hargneux. Pourtant il devrait lui être impossible de vous voir ! Vous comprenez que Hassan Sabba a tout prévu : il a dû ériger un bouclier protégeant la Forteresse et ses alentours contre les objets magiques ! "
+    },
+    {
       "type": "link",
       "text": "Votre anneau ne vous sert donc à rien. Faites vite un autre choix !",
       "hash": "49fc03f11acecde5dc92b5c0f44d25e03cabd7d76b6003fa4c4f866c614e31ac"

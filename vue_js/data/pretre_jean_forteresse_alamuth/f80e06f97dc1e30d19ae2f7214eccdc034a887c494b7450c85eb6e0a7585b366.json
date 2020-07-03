@@ -2,6 +2,10 @@
   "page_hash": "f80e06f97dc1e30d19ae2f7214eccdc034a887c494b7450c85eb6e0a7585b366",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "« Bravo ! s'exclame le Vieux de la Montagne. Tu mérites grandement de découvrir l'immortalité et la félicité parfaite que tu poursuis avec hardiesse. Pour t'aider dans la suite de ton voyage, accepte en cadeau cette épée enchantée et cette potion vivifiante. » Vous soupesez l'épée : sa lame resplendit à la lueur des bougies, bien équilibrée et extraordinairement légère dans votre main. Ajoutez 1 point à votre total de points de Force tant que vous combattrez avec cette arme. Vous buvez le philtre que vous offre Hassan Sabba. Un frisson revitalisant vous parcourt les membres, monte le long de votre colonne vertébrale, baigne votre torse. Vous sentez votre coeur battre plus fort et plus régulièrement. "
+    },
+    {
       "type": "link",
       "text": "Vous gagnez 1 point de Vie de façon permanente.",
       "hash": "27ffae69adc5d6af58847a78d9f49eb7061962b8ff8405fb1c04b2f5595c6c5c"

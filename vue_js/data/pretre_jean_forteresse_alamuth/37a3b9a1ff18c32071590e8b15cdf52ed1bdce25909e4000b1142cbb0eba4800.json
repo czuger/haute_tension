@@ -7,15 +7,31 @@
     },
     {
       "type": "text",
-      "text": "PREMIER HOMME-LEZARD FORCE : 8 VIE : 12"
+      "text": "PREMIER HOMME-LEZARD"
     },
     {
       "type": "text",
-      "text": "SECOND HOMME-LEZARD FORCE : 6 VIE : 10"
+      "text": " FORCE : 8 VIE : 12"
     },
     {
       "type": "text",
-      "text": "TROISIEME HOMME-LEZARD FORCE : 7 VIE : 10"
+      "text": "SECOND HOMME-LEZARD"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "Si vous remportez le combat, après les avoir tués tous les trois, vous arrachez la clef au cou du chef et vous vous dirigez vers le territoire des Hommes-Rats. "
     },
     {
       "type": "link",
@@ -25,17 +41,17 @@
   ],
   "monsters": [
     {
-      "name": "PREMIER HOMME-LEZARD ",
+      "name": " ",
       "force": 8,
       "vie": 12
     },
     {
-      "name": "SECOND HOMME-LEZARD ",
+      "name": " ",
       "force": 6,
       "vie": 10
     },
     {
-      "name": "TROISIEME HOMME-LEZARD ",
+      "name": " ",
       "force": 7,
       "vie": 10
     }

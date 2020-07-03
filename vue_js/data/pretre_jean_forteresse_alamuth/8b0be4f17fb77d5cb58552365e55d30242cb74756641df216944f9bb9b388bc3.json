@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "ARBRE ETRANGLEUR FORCE: 10 VIE: 12"
+      "text": "ARBRE ETRANGLEUR "
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 10 VIE: 12"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "ARBRE ETRANGLEUR ",
+      "name": "",
       "force": 10,
       "vie": 12
     }

@@ -2,6 +2,10 @@
   "page_hash": "915ecab5ea20358818a943bc0a394cf459f6c1058d3724b3e04007458ce57b40",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Votre champion vient de perdre la partie. Vous tempêtez intérieurement d'avoir eu aussi peu de chance. L'apprenti-sorcier tend une main avide, et vous lui cédez à contrecoeur l'un de vos objets magiques ou potions (rayez cela de la liste de vos possessions). "
+    },
+    {
       "type": "link",
       "text": "Estimant que ce divertissement inutile vous a coûté assez cher, vous décidez de quitter la salle de récréation un peu trop remplie de gardes.",
       "hash": "4f025aff3fcbf15e5b652f8e7c6c13f8b321829b563c71d09b5b95af2dbc6717"

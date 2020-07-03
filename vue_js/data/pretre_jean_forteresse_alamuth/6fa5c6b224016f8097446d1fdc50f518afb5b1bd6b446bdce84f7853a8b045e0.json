@@ -2,9 +2,17 @@
   "page_hash": "6fa5c6b224016f8097446d1fdc50f518afb5b1bd6b446bdce84f7853a8b045e0",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous ne ressentez aucun effet. "
+    },
+    {
       "type": "link",
       "text": "Vous n'avez pas d'autre solution que de toucher l'idole.",
       "hash": "fbf4d677ec4b0fb93341eb55938bb08df0811d2c67b2415b5180c16090959776"
+    },
+    {
+      "type": "text",
+      "text": " (265)"
     }
   ],
   "monsters": [

@@ -2,6 +2,10 @@
   "page_hash": "bbcf451da9ded929a386c23a465b4c03c5ff828fde5ca6b0c37613080feddac8",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous fouillez la terre de la pointe de votre épée encore ensanglantée, dans l'espoir de retrouver l'objet mystérieux. Au moment où vous allez renoncer à vos recherches, un scintillement attire votre regard. Là, au milieu de la terre piétinée, luit ce que vous tentiez d'arracher à la termitière. Vous prenez l'objet et l'examinez. C'est une lampe très ancienne, finement ciselée. Sur sa surface, des signes mystérieux parcourent le métal précieux qui la compose. En y regardant de plus près, vous reconnaissez un objet de légende que tout l'Orient connaît : la lampe d'Aladin ! Par quel hasard a-t-elle atterri dans ce désert rocailleux ? Cette question devra rester sans réponse ! Vous glissez la fabuleuse lampe dans votre sac (notez- la sur la liste de vos possessions). Vous savez que si vous la frottez lorsque la possibilité vous en sera offerte, le Génie de la lampe apparaîtra pour exaucer un de vos souhaits ! "
+    },
+    {
       "type": "link",
       "text": "Il vous faudra choisir ce moment avec discernement et ne pas gaspiller votre chance.",
       "hash": "2b6068b81ddf6e8d8e01b05e5be0c9c9c83a5b5d8734cc9abeb7ee6b5462a2ad"

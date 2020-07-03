@@ -13,7 +13,11 @@
     },
     {
       "type": "text",
-      "text": "PIEUVRE VENIMEUSE FORCE: 16 VIE : 6"
+      "text": "PIEUVRE VENIMEUSE"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 16 VIE : 6"
     },
     {
       "type": "text",
@@ -31,7 +35,7 @@
   ],
   "monsters": [
     {
-      "name": "PIEUVRE VENIMEUSE ",
+      "name": " ",
       "force": 16,
       "vie": 6,
       "adjustment": "1"

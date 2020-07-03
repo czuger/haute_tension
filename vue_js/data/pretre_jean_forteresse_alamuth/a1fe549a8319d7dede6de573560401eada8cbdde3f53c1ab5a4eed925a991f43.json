@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "TERMITES GEANTS FORCE : 5 VIE : 8"
+      "text": "TERMITES GEANTS"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 5 VIE : 8"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "TERMITES GEANTS ",
+      "name": " ",
       "force": 5,
       "vie": 8
     }

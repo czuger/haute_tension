@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "LIMACE MUTANTE FORCE : 9 VIE : 20"
+      "text": "LIMACE MUTANTE"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 9 VIE : 20"
     },
     {
       "type": "text",
@@ -21,7 +25,7 @@
   ],
   "monsters": [
     {
-      "name": "LIMACE MUTANTE ",
+      "name": " ",
       "force": 9,
       "vie": 20,
       "adjustment": "1"

@@ -2,6 +2,10 @@
   "page_hash": "42d40e89154e8a534422a0bc13802f703e3bd197f39ec9020d71056ea704ab83",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous avez en main une clef finement ouvragée. "
+    },
+    {
       "type": "link",
       "text": "Son poids seul vous permettrait déjà de la vendre un bon prix.",
       "hash": "507bded5a2f37a1a71e98529212f2e938f4868300ea631ef2ad81cc7afda21d4"

@@ -2,6 +2,10 @@
   "page_hash": "5d19aa85ff494d325eef2a76b5756a972f09aee8e7657e059632919c767ebdcc",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Le Magicien vous offre le gîte et le couvert. Vous ne pouvez pas décemment le décevoir en refusant son offre. Il vous sert un succulent repas puis, avide de savoir, il vous questionne sur vos actions lors de la croisade et votre lointaine patrie d'Albion. Vous lui répondez avec ferveur. Sentant la fatigue vous gagner, vous vous retirez pour dormir dans le lit moelleux qu'il vous a préparé. Vous gagnez 4 points de Vie pour cette agréable soirée. Au matin, Shawar se propose de veiller sur votre cheval (si vous l'avez encore) car il vous sera désormais inutile. "
+    },
+    {
       "type": "link",
       "text": "Vous le remerciez chaleureusement de ses attentions et vous sortez du village.",
       "hash": "de24e61bd33f7c982411c5ac8f69584fd79df38e1d7de22ac734db06b2a1428a"

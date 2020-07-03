@@ -2,6 +2,10 @@
   "page_hash": "582ebd717fb3d5fcb11c922b3b6770f58345ec7914827fd2349dfd1dcce3a504",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous avancez prudemment en évitant de toucher l'autre statue. Soudain, une trappe s'ouvre dans le tablier du pont. "
+    },
+    {
       "type": "link",
       "text": "Vous plongez malgré vous dans la rivière.",
       "hash": "ec5c72ef88528208165d8a68ad668c9f95d8794cd788e4b0e18ee5011a75e744"

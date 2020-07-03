@@ -17,7 +17,11 @@
     },
     {
       "type": "text",
-      "text": "CHAQUE YLLERLON FORCE : 10 VIE : 8"
+      "text": "CHAQUE YLLERLON "
+    },
+    {
+      "type": "text",
+      "text": "FORCE : 10 VIE : 8"
     },
     {
       "type": "link",
@@ -32,7 +36,7 @@
   ],
   "monsters": [
     {
-      "name": "CHAQUE YLLERLON ",
+      "name": "",
       "force": 10,
       "vie": 8
     }

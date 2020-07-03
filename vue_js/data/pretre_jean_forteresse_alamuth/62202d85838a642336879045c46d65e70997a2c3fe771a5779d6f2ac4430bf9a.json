@@ -2,6 +2,10 @@
   "page_hash": "62202d85838a642336879045c46d65e70997a2c3fe771a5779d6f2ac4430bf9a",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous ressortez de l'étrange labyrinthe, laissant derrière vous le puits auliquide bleuté. "
+    },
+    {
       "type": "link",
       "text": "Vous marchez en silence vers la porte qui mène au couloir par où vous avez pénétré dans la salle d'étude.",
       "hash": "649676167e94112b7947876a3cfedefaa6d4a8fc5330f208fcec57d147946f3c"

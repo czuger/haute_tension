@@ -2,6 +2,10 @@
   "page_hash": "88fe24f56ed98c22079f5dd4eea47e0a0e1d3bee66bc40939da093f72959a00a",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "La route jusqu'à la porte de la Forteresse est trop escarpée pour que vous puissiez continuer sans danger pour votre monture. Vous devez à regret vous en séparer. Il n'y a plus la moindre place vacante dans les écuries du village et vous êtes contraint de vendre votre fidèle cheval à l'aubergiste. « D'accord, dit-il, 5 pièces d'or, pas un sou de plus... » Vous n'avez pas d'autre choix que d'accepter son offre. Ajoutez cette somme sur la liste de vos possessions. "
+    },
+    {
       "type": "link",
       "text": "Vous vous dirigez ensuite vers la Forteresse.",
       "hash": "de24e61bd33f7c982411c5ac8f69584fd79df38e1d7de22ac734db06b2a1428a"

@@ -17,7 +17,11 @@
     },
     {
       "type": "text",
-      "text": "LOUP-GAROU FORCE: 10 VIE: 12"
+      "text": "LOUP-GAROU"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 10 VIE: 12"
     },
     {
       "type": "link",
@@ -27,7 +31,7 @@
   ],
   "monsters": [
     {
-      "name": "LOUP-GAROU ",
+      "name": " ",
       "force": 10,
       "vie": 12
     }

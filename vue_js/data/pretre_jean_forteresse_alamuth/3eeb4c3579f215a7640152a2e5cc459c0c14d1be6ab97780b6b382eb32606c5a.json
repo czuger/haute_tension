@@ -2,6 +2,10 @@
   "page_hash": "3eeb4c3579f215a7640152a2e5cc459c0c14d1be6ab97780b6b382eb32606c5a",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous laissez échapper une exclamation de triomphe. Votre favori vient de gagner l'épreuve de force ! L'air contrit, le jeune apprenti magicien vous regarde en faisant la moue. Il réfléchit un instant, puis décide qu'il serait trop risqué d'essayer de vous flouer, car vous lui semblez bien trop menaçant. A contre- coeur, il plonge la main dans une poche de sa tunique brodée et en ressort un petit flacon. « Tiens, l'ami. Tu sais que nous autres apprentis n'avons pas encore de bien bons sorts, mais voici une potion qui te servira pour jeter un sort d'illusion ! Sers-t ‘en avec discernement, comme j'espérais le faire moi-même ! » L'apprenti se retourne et va rejoindre un groupe de condisciples. "
+    },
+    {
       "type": "link",
       "text": "Vous estimez vous être suffisamment attardé ici et quittez la salle de récréation plongée dans la confusion.",
       "hash": "4f025aff3fcbf15e5b652f8e7c6c13f8b321829b563c71d09b5b95af2dbc6717"

@@ -7,15 +7,27 @@
     },
     {
       "type": "text",
-      "text": "PREMIER TERMITE GEANT FORCE: 5 VIE: 8"
+      "text": "PREMIER TERMITE GEANT"
     },
     {
       "type": "text",
-      "text": "SECOND TERMITE GEANT FORCE: 5 VIE: 7"
+      "text": " FORCE: 5 VIE: 8"
     },
     {
       "type": "text",
-      "text": "TROISIEME TERMITE GEANT FORCE: 6 VIE:8"
+      "text": "SECOND TERMITE GEANT"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 5 VIE: 7"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME TERMITE GEANT"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 6 VIE:8"
     },
     {
       "type": "link",
@@ -25,17 +37,17 @@
   ],
   "monsters": [
     {
-      "name": "PREMIER TERMITE GEANT ",
+      "name": " ",
       "force": 5,
       "vie": 8
     },
     {
-      "name": "SECOND TERMITE GEANT ",
+      "name": " ",
       "force": 5,
       "vie": 7
     },
     {
-      "name": "TROISIEME TERMITE GEANT ",
+      "name": " ",
       "force": 6,
       "vie": 8
     }

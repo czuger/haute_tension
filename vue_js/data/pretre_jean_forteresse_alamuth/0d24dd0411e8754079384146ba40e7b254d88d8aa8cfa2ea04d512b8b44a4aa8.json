@@ -7,16 +7,28 @@
     },
     {
       "type": "text",
-      "text": "LEY FORCE : 14 VIE : 12"
+      "text": "LEY "
     },
     {
       "type": "text",
-      "text": "Bus FORCE: 12 VIE: 14"
+      "text": "FORCE : 14 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "Bus "
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 12 VIE: 14"
     },
     {
       "type": "link",
       "text": "Si vous sortez vainqueur de ce combat.",
       "hash": "d59c1b457b077bc44f3888546e8a08127823c840a5a126c5852d3f3e0b450ffb"
+    },
+    {
+      "type": "text",
+      "text": "Vous pouvez également choisir de fuir en sautant du pont et en vous jetant dans l'eau avec votre cheval (si vous ne l'avez pas donné aux Trolls), mais seulement une fois que vous aurez tué l'un de vos adversaires. "
     },
     {
       "type": "link",
@@ -26,12 +38,12 @@
   ],
   "monsters": [
     {
-      "name": "LEY ",
+      "name": "",
       "force": 14,
       "vie": 12
     },
     {
-      "name": "Bus ",
+      "name": "",
       "force": 12,
       "vie": 14
     }

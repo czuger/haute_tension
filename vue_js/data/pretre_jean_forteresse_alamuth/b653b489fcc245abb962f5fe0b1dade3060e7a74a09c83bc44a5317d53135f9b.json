@@ -7,7 +7,15 @@
     },
     {
       "type": "text",
-      "text": "SPECTRE FORCE: 10 VIE: 8"
+      "text": "SPECTRE "
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 10 VIE: 8"
+    },
+    {
+      "type": "text",
+      "text": "Si vous avez une dague en argent, tirez-la de votre sac ou de votre ceinture. Vous pouvez combattre le fantôme en tenant une arme dans chaque main. Multipliez par 2 les coups que vous lui portez. "
     },
     {
       "type": "link",
@@ -17,7 +25,7 @@
   ],
   "monsters": [
     {
-      "name": "SPECTRE ",
+      "name": "",
       "force": 10,
       "vie": 8
     }

@@ -8,7 +8,15 @@ new Vue({
     },
     methods: {
         getUrl: function ( hash ) {
-            return `http://data/`
+            console.log( hash );
+            this.current_hash = hash;
+            var self = this;
+            axios
+                .get(`data/pretre_jean_forteresse_alamuth/${this.current_hash}.json`)
+                .then( function( response ) {
+                    // console.log( response.data.paragraphs );
+                    self.texts_data = response.data.paragraphs;
+                });
         }
     },
     mounted () {
@@ -18,7 +26,7 @@ new Vue({
         axios
             .get(`data/pretre_jean_forteresse_alamuth/${this.current_hash}.json`)
             .then( function( response ) {
-                console.log( response.data.paragraphs );
+                // console.log( response.data.paragraphs );
                 self.texts_data = response.data.paragraphs;
             });
 

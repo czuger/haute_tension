@@ -2,6 +2,10 @@
   "page_hash": "07d62b3ae168b42b840c9bc90dc1d08c601e966e1424b63d69ed0e6c528a5192",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous sortez la lampe d'Aladin de votre sac et la frottez. Il ne se passe rien, car le Génie est dans l'impossibilité de sortir sous l'eau. Entre-temps, la pieuvre vous a assené un coup de ses tentacules venimeux. Vous perdez 2 points de Vie. "
+    },
+    {
       "type": "link",
       "text": "Affrontez le monstre au poignard ou à l'épée.",
       "hash": "9862c85e18c113299b6c3d59b8edfa0a0df13c1998e6373b4c7ff02efb3d9536"

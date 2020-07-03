@@ -2,6 +2,10 @@
   "page_hash": "31b5efb1bee21fbb92dfe20f3f0cf48e509d764d816cd6e372fb01b86c0ca261",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Le Squelette cède finalement sous vos coups et s'écroule à terre, rompu en mille morceaux. Des ossements brisés roulent à travers la crypte. Vous prenez délicatement la dague en argent du défunt ainsi que la bourse. Celle-ci contient 10 pièces d'or que vous empochez (ajoutez tout cela à la liste de vos possessions). Vous vous apprêtez à examiner ce caveau de plus près, mais il vous semble soudain discerner un mouvement parmi les ossements épars, comme s'ils se reconstituaient. Craignant un autre affrontement avec le malheureux gardien de la crypte, vous décidez de quitter ce lieu au plus vite et remontez à la surface. "
+    },
+    {
       "type": "link",
       "text": "Là, vous menez votre monture vers l'embouchure du défilé.",
       "hash": "2b6068b81ddf6e8d8e01b05e5be0c9c9c83a5b5d8734cc9abeb7ee6b5462a2ad"

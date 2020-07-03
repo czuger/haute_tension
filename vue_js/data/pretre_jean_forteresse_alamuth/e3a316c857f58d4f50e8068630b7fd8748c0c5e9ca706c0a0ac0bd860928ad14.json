@@ -2,6 +2,10 @@
   "page_hash": "e3a316c857f58d4f50e8068630b7fd8748c0c5e9ca706c0a0ac0bd860928ad14",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous vous installez en face du Coureur de désert. Vous remarquez à présent son teint rougeaud que vous ne pouviez distinguer précédemment. « Salut à toi ! lance- t-il d'une voix pâteuse. Que veux-tu à Slobb, le plus alerte des pisteurs de ce pays?» vous demande-t-il. Vous lui parlez de votre destination et tentez de lui arracher des renseignements sur la route à suivre. Mais vous comprenez bien vite que Slobb est totalement ivre. « Étranger, voici ce que tu dois faire ! réussit-il à articuler. Il te faudra prendre la route qui... » dit-il encore, puis il s'effondre avec un gros ronflement. Agacé, vous le secouez pour le réveiller, mais rien n'y fait. "
+    },
+    {
       "type": "link",
       "text": "Au bout d'un moment, vous renoncez et décidez d'aller dormir.",
       "hash": "0ba365ea66f541f767bd17386caae7811ed93f48afd73555c66c7c42a3df7612"

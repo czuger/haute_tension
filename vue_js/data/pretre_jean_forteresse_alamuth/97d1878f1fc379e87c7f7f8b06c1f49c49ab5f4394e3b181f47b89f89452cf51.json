@@ -16,7 +16,11 @@
     },
     {
       "type": "text",
-      "text": "ARAIGNEE GEANTE FORCE : 12 VIE : 12"
+      "text": "ARAIGNEE GEANTE "
+    },
+    {
+      "type": "text",
+      "text": "FORCE : 12 VIE : 12"
     },
     {
       "type": "text",
@@ -35,7 +39,7 @@
   ],
   "monsters": [
     {
-      "name": "ARAIGNEE GEANTE ",
+      "name": "",
       "force": 12,
       "vie": 12,
       "adjustment": "1"

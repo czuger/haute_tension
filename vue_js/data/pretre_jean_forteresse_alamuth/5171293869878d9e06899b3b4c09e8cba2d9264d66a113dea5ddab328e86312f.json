@@ -11,7 +11,11 @@
     },
     {
       "type": "text",
-      "text": "DEMON DU STYX FORCE: 12 VIE : 20"
+      "text": "DEMON DU STYX "
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 12 VIE : 20"
     },
     {
       "type": "link",
@@ -26,7 +30,7 @@
   ],
   "monsters": [
     {
-      "name": "DEMON DU STYX ",
+      "name": "",
       "force": 12,
       "vie": 20
     }

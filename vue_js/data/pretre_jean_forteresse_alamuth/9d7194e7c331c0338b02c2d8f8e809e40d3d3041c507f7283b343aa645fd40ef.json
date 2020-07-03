@@ -7,35 +7,51 @@
     },
     {
       "type": "text",
-      "text": "PREMIER HOMME-LEZARD FORCE : 8 VIE : 12"
+      "text": "PREMIER HOMME-LEZARD"
     },
     {
       "type": "text",
-      "text": "SECOND HOMME-LEZARD FORCE : 6 VIE : 10"
+      "text": " FORCE : 8 VIE : 12"
     },
     {
       "type": "text",
-      "text": "TROISIEME HOMME-LEZARD FORCE : 7 VIE : 10"
+      "text": "SECOND HOMME-LEZARD"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 6 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-LEZARD"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 7 VIE : 10"
     },
     {
       "type": "link",
       "text": "Après avoir remporté les trois combats, vous arrachez la clef au cou du chef et vous fuyez pour éviter les renforts qui ne vont pas tarder à accourir",
       "hash": "adc0f7350d48c8865fd90128c204617b7d065de1f04df9c7a4ec799b60d947ac"
+    },
+    {
+      "type": "text",
+      "text": "."
     }
   ],
   "monsters": [
     {
-      "name": "PREMIER HOMME-LEZARD ",
+      "name": " ",
       "force": 8,
       "vie": 12
     },
     {
-      "name": "SECOND HOMME-LEZARD ",
+      "name": " ",
       "force": 6,
       "vie": 10
     },
     {
-      "name": "TROISIEME HOMME-LEZARD ",
+      "name": " ",
       "force": 7,
       "vie": 10
     }

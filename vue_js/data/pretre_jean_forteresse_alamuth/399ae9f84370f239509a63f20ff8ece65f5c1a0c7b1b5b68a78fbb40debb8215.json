@@ -17,7 +17,11 @@
     },
     {
       "type": "text",
-      "text": "CHEF DES 40 VOLEURS FORCE: 15 VIE: 16"
+      "text": "CHEF DES 40 VOLEURS"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 15 VIE: 16"
     },
     {
       "type": "link",
@@ -27,7 +31,7 @@
   ],
   "monsters": [
     {
-      "name": "CHEF DES 40 VOLEURS ",
+      "name": " ",
       "force": 15,
       "vie": 16
     }

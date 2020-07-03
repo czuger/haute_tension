@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "CHAROGNARD DES CAVERNES FORCE : 11 VIE : 14"
+      "text": "CHAROGNARD DES CAVERNES"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 11 VIE : 14"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "CHAROGNARD DES CAVERNES ",
+      "name": " ",
       "force": 11,
       "vie": 14
     }

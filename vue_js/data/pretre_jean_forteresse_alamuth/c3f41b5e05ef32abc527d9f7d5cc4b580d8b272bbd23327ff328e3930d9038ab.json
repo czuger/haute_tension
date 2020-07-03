@@ -2,6 +2,10 @@
   "page_hash": "c3f41b5e05ef32abc527d9f7d5cc4b580d8b272bbd23327ff328e3930d9038ab",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Le chiffre obtenu représente le nombre de points de Vie que vous perdez à cause des brûlures de venin. "
+    },
+    {
       "type": "link",
       "text": "Vous continuez de longer la berge.",
       "hash": "6901a27b67de76750376b7c6938c6afdeeacf8269cbe8556554911fc51d082cd"

@@ -2,6 +2,10 @@
   "page_hash": "077d877895f4300a67d0b952fc677fe6b272b51f6978921b3354fbd1ceece01b",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous arrivez dans un vestibule. En face de vous, le couloir est fermé par une porte, mais vous entendez des pas qui se rapprochent de vous. Seraient-ce des gardes ? "
+    },
+    {
       "type": "link",
       "text": "Vous apercevez une petite porte voûtée dans le mur nord du couloir et la poussez prestement pour y trouver refuge et échapper à la patrouille.",
       "hash": "ff1805e19ee7106fd124a1579a4a6f3043fb357fbe095fb5af74c2c46c9adfd2"

@@ -2,6 +2,10 @@
   "page_hash": "cbaa5f3bd388925614c89e45d6945f00e561db56c04155da2fa82dd944fd58f4",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Profitant de votre cachette obscure, vous entendez un étrange dialogue entre les gardes. Le premier, un sergent moustachu si gros qu'il est presque obèse, parle avec couardise au second, également moustachu mais beaucoup plus fluet. « Écoutez, caporal, moi je ne m'y frotterais pour rien au monde, à cet Abdul Al-Azhred ! Ça non ! » L'autre réplique : « Oui, sergent, je vous comprends. Seul un fou tenterait d'attaquer ce dément d'Abdul ! Ou de regarder dans ce maudit grimoire qu'il élabore nuit et jour... » Craignant d'être découvert si vous restez plus longtemps, "
+    },
+    {
       "type": "link",
       "text": "vous laissez les deux gardes à leur discussion et quittez la salle d'armes furtivement.",
       "hash": "29ab4e34af9b778f1ee90d7a21ccf46adae23ddd979df15fb0fe025f04a077c3"

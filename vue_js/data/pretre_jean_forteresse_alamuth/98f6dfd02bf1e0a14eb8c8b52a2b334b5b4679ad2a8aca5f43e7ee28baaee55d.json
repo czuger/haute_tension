@@ -2,6 +2,10 @@
   "page_hash": "98f6dfd02bf1e0a14eb8c8b52a2b334b5b4679ad2a8aca5f43e7ee28baaee55d",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Votre casque refuse de bouger d'un millimètre... Vous avez l'impression que votre tête va éclater, comme coincée entre les deux leviers d'un casse noix... Vous perdez 3 points de Vie avant que cesse la douleur. "
+    },
+    {
       "type": "link",
       "text": "Vous vous sentez suffisamment fort pour reprendre votre marche.",
       "hash": "3651ab1bb5cbceb886c6fe2a49ed79ca00c379fb8e13ff544c9c486bd5355143"

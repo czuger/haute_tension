@@ -88,19 +88,31 @@ class PageParser
       pictures = text_section.css( '.ob-img' )
       page[:paragraphs] << { type: :pics, sources: pictures.map{ |p| p['src'] } } unless pictures.empty?
 
-      text_section.css( '.ob-text' ).xpath( './/p' ).each do |p|
-        link = p.xpath( './/a' )
+      # pp doc.css( '.ob-section-text' ).css( '.ob-text' ).xpath( './/p' )
 
-        unless link.empty?
-          link = link[0]  # Shouldn't be more than one link
-          page[:paragraphs] << { type: :link, text: link.text, hash: @pages_converter[link['href']] }
-        else
-          page[:paragraphs] << { type: :text, text: p.text }
+      text_section.css( '.ob-text' ).xpath( './/p' ).each do |p|
+
+        p.children.each do |ns|
+          if ns['href']
+            page[:paragraphs] << { type: :link, text: ns.text, hash: @pages_converter[ns['href']] }
+          else
+            page[:paragraphs] << { type: :text, text: ns.text }
+          end
         end
+
       end
     end
 
     page[:monsters] = check_for_monsters( page )
+
+    if page[:paragraphs].select{ |p| p[:type] == :text }.count == 0
+      # p page[:paragraphs]
+      # p page[:paragraphs].select{ |p| p[:type] == :text }
+      puts "No texts for raw_data/pretre_jean_forteresse_alamuth/#{page_hash}.html"
+      pp doc.css( '.ob-section-text' ).css( '.ob-text' ).xpath( './/p' )
+    end
+
+    # puts
 
     page
   end

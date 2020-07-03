@@ -2,6 +2,10 @@
   "page_hash": "3df8d7fba1262b16b5c76312686730dd05dab83340ea2fa4e6881be679264b1f",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous décidez d'utiliser le pouvoir de guérison que vous détenez pour sauver de la mort le guerrier lépreux. Vous voyez son corps se ressaisir et se redresser. « Merci, voyageur. Je vois que ton coeur est juste malgré tes expériences difficiles. Tiens, prends ce heaume, fait-il en quittant le casque enchanté. Moi, je n'en ai plus besoin. Ma quête ne signifie plus rien pour moi, mais toi, tu ne dois pas renoncer. J'ai décidé de me consacrer à aider mes compagnons d'infortune, et cela me sera d'autant plus facile que me voici immunisé contre leur mal. Quant à toi, je devine que tu feras bon usage de ce heaume. » Le chef des lépreux quitte la zone d'ombre où il se tenait et vous tend le casque. Vous voyez son visage déterminé, serein et plein d'une énergie farouche, d'où toute trace de lèpre a disparu. "
+    },
+    {
       "type": "link",
       "text": "La gorge serrée, vous faites vos adieux à ce gentilhomme généreux.",
       "hash": "7aedb0bc1e344745940cfaf5da06d8ce9e1e4f7c347642dbd109fa51addc1fda"

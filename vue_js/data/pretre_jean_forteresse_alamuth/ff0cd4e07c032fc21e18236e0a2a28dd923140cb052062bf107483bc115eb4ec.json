@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "LEPREUX FORCE : 6 VIE : 6"
+      "text": "LEPREUX "
+    },
+    {
+      "type": "text",
+      "text": "FORCE : 6 VIE : 6"
     },
     {
       "type": "text",
@@ -26,7 +30,7 @@
   ],
   "monsters": [
     {
-      "name": "LEPREUX ",
+      "name": "",
       "force": 6,
       "vie": 6
     }

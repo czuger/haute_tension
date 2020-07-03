@@ -21,21 +21,33 @@
     },
     {
       "type": "text",
-      "text": "PIEUVRE VENIMEUSE FORCE : 16 VIE : 6"
+      "text": "PIEUVRE VENIMEUSE"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 16 VIE : 6"
     },
     {
       "type": "text",
       "text": "AJUSTEMENT DOMMAGES : + 1"
     },
     {
+      "type": "text",
+      "text": "Pour chaque 6 que vous lancez au cours du combat, ôtez immédiatement 2 points de Force au poulpe : vous avez réussi à arracher l'un de ses tentacules. Cependant, si vous ne triomphez pas de ce monstre en trois assauts au plus, vos poumons cèdent sous le manque d'oxygène et vous mourez noyé. La pieuvre dévorera votre cadavre. "
+    },
+    {
       "type": "link",
       "text": "Si vous remportez ce combat.",
       "hash": "f4698bc252ad05f4569b5d841cdc101ec9dac0aa6072283d07d6915edc5f1994"
+    },
+    {
+      "type": "text",
+      "text": " ("
     }
   ],
   "monsters": [
     {
-      "name": "PIEUVRE VENIMEUSE ",
+      "name": " ",
       "force": 16,
       "vie": 6,
       "adjustment": "1"

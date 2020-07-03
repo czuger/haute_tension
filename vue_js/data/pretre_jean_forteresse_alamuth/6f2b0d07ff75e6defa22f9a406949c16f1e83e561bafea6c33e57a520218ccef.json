@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "DOGUE DE L'ENFER FORCE : 10 VIE : 12"
+      "text": "DOGUE DE L'ENFER"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 10 VIE : 12"
     },
     {
       "type": "link",
@@ -22,7 +26,7 @@
   ],
   "monsters": [
     {
-      "name": "DOGUE DE L'ENFER ",
+      "name": " ",
       "force": 10,
       "vie": 12
     }

@@ -7,7 +7,15 @@
     },
     {
       "type": "text",
-      "text": "ELEMENTAL DE L'AIR FORCE : 8 VIE : 8"
+      "text": "ELEMENTAL DE L'AIR"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 8 VIE : 8"
+    },
+    {
+      "type": "text",
+      "text": "Mais vous vous apercevez très vite que vos coups ne portent pas ! Ils traversent la créature des airs sans lui faire le moindre mal, comme un souffle de vent. Par contre, les coups de poing que vous lance l'Elémental font mouche ! "
     },
     {
       "type": "link",
@@ -17,7 +25,7 @@
   ],
   "monsters": [
     {
-      "name": "ELEMENTAL DE L'AIR ",
+      "name": " ",
       "force": 8,
       "vie": 8
     }

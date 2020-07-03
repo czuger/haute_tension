@@ -7,11 +7,19 @@
     },
     {
       "type": "text",
-      "text": "PREMIER HASCHICHIN FORCE : 8 VIE : 12"
+      "text": "PREMIER HASCHICHIN"
     },
     {
       "type": "text",
-      "text": "DEUXIEME HASCHICHIN FORCE: 8 VIE: 10"
+      "text": " FORCE : 8 VIE : 12"
+    },
+    {
+      "type": "text",
+      "text": "DEUXIEME HASCHICHIN"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 8 VIE: 10"
     },
     {
       "type": "link",
@@ -26,12 +34,12 @@
   ],
   "monsters": [
     {
-      "name": "PREMIER HASCHICHIN ",
+      "name": " ",
       "force": 8,
       "vie": 12
     },
     {
-      "name": "DEUXIEME HASCHICHIN ",
+      "name": " ",
       "force": 8,
       "vie": 10
     }

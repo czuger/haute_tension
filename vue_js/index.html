@@ -16,7 +16,7 @@
         <div>
             <div class="" v-for="text in texts_data">
                 <p v-if="text.type == 'text'">{{ text.text }}</p>
-                <a v-else-if="text.type == 'link'" :src="getUrl(text.hash)">{{ text.text }}</a>
+                <button type="button" class="btn btn-primary mt-2" v-else-if="text.type == 'link'" @click="getUrl(text.hash)">{{ text.text }}</button>
             </div>
         </div>
     </div>

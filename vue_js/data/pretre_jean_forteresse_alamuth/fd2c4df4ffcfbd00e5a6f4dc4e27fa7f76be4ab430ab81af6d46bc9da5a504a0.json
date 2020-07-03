@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "PIEUVRE VENIMEUSE FORCE : 16 VIE : 6 AJUSTEMENT DEGATS : + 1"
+      "text": "PIEUVRE VENIMEUSE "
+    },
+    {
+      "type": "text",
+      "text": "FORCE : 16 VIE : 6 AJUSTEMENT DEGATS : + 1"
     },
     {
       "type": "link",

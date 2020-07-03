@@ -2,9 +2,17 @@
   "page_hash": "920ab29f0ef765ca51e299aa6214f2b18690ff646228594e4e3f5c95f93ab0a2",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Devant votre refus, l'Homme-Rat se montre offusqué que vous rejetiez son hospitalité. « Nous te remercions de ta visite, voyageur, mais ta présence parmi nous a assez duré. Il faut te remettre en route. Avant de partir, la coutume veut que tu fasses un cadeau à notre peuple qui t'a accueilli et laissé la vie sauve. » Ils sont sept et vous êtes seul ! Vous devez vous exécuter. Donnez à l'Homme-Rat un objet que vous transportez et rayez-le de la liste de vos possessions. Si vous n'en avez pas, offrez-lui votre bourse. Rayez-la alors de votre Feuille d'équipement. Si vous avez dépensé toutes vos pièces d'or, donnez-lui votre sac. Mais attention ! Pour la suite de votre périple, il vous sera impossible d'emporter plus de deux objets : "
+    },
+    {
       "type": "link",
       "text": "vos poches ne sont pas assez larges pour en contenir davantage.",
       "hash": "86a7290b49f8a4f3fd8f1b19661a745dac1d9d030596751ac044ea50da142ae7"
+    },
+    {
+      "type": "text",
+      "text": " (493)"
     }
   ],
   "monsters": [

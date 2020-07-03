@@ -7,15 +7,27 @@
     },
     {
       "type": "text",
-      "text": "PREMIER HOMME-RAT FORCE : 8 VIE : 12"
+      "text": "PREMIER HOMME-RAT"
     },
     {
       "type": "text",
-      "text": "SECOND HOMME-RAT FORCE: 6 VIE: 10"
+      "text": " FORCE : 8 VIE : 12"
     },
     {
       "type": "text",
-      "text": "TROISIEME HOMME-RAT FORCE : 7 VIE : 10"
+      "text": "SECOND HOMME-RAT"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 6 VIE: 10"
+    },
+    {
+      "type": "text",
+      "text": "TROISIEME HOMME-RAT"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 7 VIE : 10"
     },
     {
       "type": "link",
@@ -25,17 +37,17 @@
   ],
   "monsters": [
     {
-      "name": "PREMIER HOMME-RAT ",
+      "name": " ",
       "force": 8,
       "vie": 12
     },
     {
-      "name": "SECOND HOMME-RAT ",
+      "name": " ",
       "force": 6,
       "vie": 10
     },
     {
-      "name": "TROISIEME HOMME-RAT ",
+      "name": " ",
       "force": 7,
       "vie": 10
     }

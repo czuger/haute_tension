@@ -7,17 +7,25 @@
     },
     {
       "type": "text",
-      "text": "TERMITE GEANT FORCE : 5 VIE : 8"
+      "text": "TERMITE GEANT"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 5 VIE : 8"
     },
     {
       "type": "link",
       "text": "Si vous sortez vainqueur de ce combat.",
       "hash": "5b174d2f369666a10e7fdc1fb47122bcbf521cd473091f219d00e1fcfe3d2c8a"
+    },
+    {
+      "type": "text",
+      "text": " (542)"
     }
   ],
   "monsters": [
     {
-      "name": "TERMITE GEANT ",
+      "name": " ",
       "force": 5,
       "vie": 8
     }

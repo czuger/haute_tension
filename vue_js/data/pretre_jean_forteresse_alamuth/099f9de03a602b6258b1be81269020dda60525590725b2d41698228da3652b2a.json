@@ -2,6 +2,10 @@
   "page_hash": "099f9de03a602b6258b1be81269020dda60525590725b2d41698228da3652b2a",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous fouillez dans votre sac à la recherche de la potion que Sol vous a remise. Rassuré de ne pas l'avoir perdue, "
+    },
+    {
       "type": "link",
       "text": "vous vous rappelez ses instructions et empruntez la rue de droite.",
       "hash": "b9c0faf0d644e97cc1318cfd505ef5632c170b2e92ea17ed1068eebaff7720be"

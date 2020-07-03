@@ -2,6 +2,10 @@
   "page_hash": "bb82a099f957cf7dcb92ee886f769af1aa4b0047669aaccd567eb85538bde4ff",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous savez que certains tapis d'Orient ont la capacité extraordinaire de voler. Cela tiendrait à une fibre spéciale servant à leur tissage, ou encore à l'eau d'une source mystérieuse dont ils seraient imbibés à la fabrication. De toute façon, un tel tapis vous serait fort utile pour pénétrer subrepticement dans la Forteresse au nez et à la barbe des gardes. Ce qu'a dit le marchand au sujet des mages vous laisse supposer qu'il ne trouvera peut-être pas trop bizarre votre requête : vous lui demandez donc s'il possède des tapis volants. Le commerçant sourit, sans doute à l'idée du gain qui s'annonce. «Ainsi, tu désires un de mes tapis spéciaux, seigneur! Suis-moi dans l'arrière-boutique.» "
+    },
+    {
       "type": "link",
       "text": "Vous lui emboîtez le pas, plein d'espoir !",
       "hash": "9d1922c5bcfcb87e8a24e621a53aca4588be3c9227287e4cd8ab8d5dca10ce84"

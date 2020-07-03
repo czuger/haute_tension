@@ -2,6 +2,10 @@
   "page_hash": "dce7b9485bf67a65de233716a64505396f888c27dab4b448ae219857ea804bb1",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Vous essayez vainement d'ouvrir la porte sans faire de bruit, mais celle-ci est munie d'un verrou enchanté. Vous renoncez rapidement à ressortir de la pièce. "
+    },
+    {
       "type": "link",
       "text": "Refaite un autre choix.",
       "hash": "ff1805e19ee7106fd124a1579a4a6f3043fb357fbe095fb5af74c2c46c9adfd2"

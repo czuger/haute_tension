@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "HOMME-OISEAU FORCE: 11 VIE: 14"
+      "text": "HOMME-OISEAU"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 11 VIE: 14"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "HOMME-OISEAU ",
+      "name": " ",
       "force": 11,
       "vie": 14
     }

@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "CHEVALIER LEPREUX FORCE : 12 VIE : 8"
+      "text": "CHEVALIER LEPREUX"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 12 VIE : 8"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "CHEVALIER LEPREUX ",
+      "name": " ",
       "force": 12,
       "vie": 8
     }

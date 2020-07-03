@@ -7,11 +7,19 @@
     },
     {
       "type": "text",
-      "text": "LIEUTENANT DES GARDES FORCE : 7 VIE : 10"
+      "text": "LIEUTENANT DES GARDES"
     },
     {
       "type": "text",
-      "text": "CHAQUE GARDE FORCE : 6 VIE : 10"
+      "text": " FORCE : 7 VIE : 10"
+    },
+    {
+      "type": "text",
+      "text": "CHAQUE GARDE"
+    },
+    {
+      "type": "text",
+      "text": " FORCE : 6 VIE : 10"
     },
     {
       "type": "link",
@@ -21,12 +29,12 @@
   ],
   "monsters": [
     {
-      "name": "LIEUTENANT DES GARDES ",
+      "name": " ",
       "force": 7,
       "vie": 10
     },
     {
-      "name": "CHAQUE GARDE ",
+      "name": " ",
       "force": 6,
       "vie": 10
     }

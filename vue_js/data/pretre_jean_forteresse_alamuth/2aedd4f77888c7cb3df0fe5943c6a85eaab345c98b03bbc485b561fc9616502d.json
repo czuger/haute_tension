@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "DJINN FORCE: 16 VIE: 20"
+      "text": "DJINN "
+    },
+    {
+      "type": "text",
+      "text": "FORCE: 16 VIE: 20"
     },
     {
       "type": "text",
@@ -26,7 +30,7 @@
   ],
   "monsters": [
     {
-      "name": "DJINN ",
+      "name": "",
       "force": 16,
       "vie": 20,
       "adjustment": "1"

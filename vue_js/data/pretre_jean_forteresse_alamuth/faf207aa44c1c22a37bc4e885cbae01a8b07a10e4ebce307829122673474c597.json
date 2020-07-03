@@ -7,7 +7,11 @@
     },
     {
       "type": "text",
-      "text": "FAUCON TUEUR FORCE: 10 VIE: 7"
+      "text": "FAUCON TUEUR"
+    },
+    {
+      "type": "text",
+      "text": " FORCE: 10 VIE: 7"
     },
     {
       "type": "link",
@@ -17,7 +21,7 @@
   ],
   "monsters": [
     {
-      "name": "FAUCON TUEUR ",
+      "name": " ",
       "force": 10,
       "vie": 7
     }

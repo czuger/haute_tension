@@ -2,6 +2,10 @@
   "page_hash": "2e3498cc757c50b331f52dd678d7be38b9f056831574f64789345e74dda11ee0",
   "paragraphs": [
     {
+      "type": "text",
+      "text": "Devant votre refus, l'Homme-Lézard se montre offusqué que vous rejetiez son hospitalité. «Nous te remercions de ta visite, voyageur, mais ta présence parmi nous a assez duré. Il faut te remettre en route. Mais avant de partir, la coutume veut que tu fasses un cadeau à notre peuple qui t'a accueilli et laissé la vie sauve. » Ils sont sept et vous êtes seul ! Vous devez vous exécuter. Donnez à l'Homme-Lézard un objet parmi ceux que vous transportez et rayez-le de la liste de vos possessions. Si vous n'en avez pas, offrez-lui votre bourse. Rayez-la alors de votre Guide de l'Aventure. Si vous avez dépensé tout votre or, donnez-lui votre sac. Mais attention ! "
+    },
+    {
       "type": "link",
       "text": "Dans la suite de votre aventure, il vous sera désormais impossible d'emporter plus de deux objets car vos poches ne sont pas assez larges pour en contenir plus.",
       "hash": "552f4764e800ba1b754e965b1f0b5515ff7229b2949121f21c5c03d6b1e5b280"
