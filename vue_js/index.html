@@ -13,6 +13,8 @@
 <body>
 <div class='container'>
     <div id='current-page'>
+        <button type="button" class="btn btn-primary mt-2" @click="reset">Reset</button>
+        <button type="button" class="btn btn-primary mt-2" @click="back">Back</button>
         <div>
             <div class="" v-for="text in texts_data">
                 <p v-if="text.type == 'text'">{{ text.text }}</p>
