@@ -3,7 +3,12 @@ new Vue({
     data () {
         return {
             current_hash: '8ffd30fe683b4e639114068564522932464f4ba0170ad65f02c7897b85d55a3d',
-            texts_data: [ 'toto' ]
+            texts_data: null
+        }
+    },
+    methods: {
+        getUrl: function ( hash ) {
+            return `http://data/`
         }
     },
     mounted () {

@@ -21,6 +21,11 @@ debug@=3.1.0:
   dependencies:
     ms "2.0.0"
 
+droll@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/droll/-/droll-0.2.1.tgz#c91c000c3502469716667aa804dc4bb74f86d03f"
+  integrity sha1-yRwADDUCRpcWZnqoBNxLt0+G0D8=
+
 follow-redirects@1.5.10:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"

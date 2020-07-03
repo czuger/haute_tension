@@ -1,10 +1,10 @@
 require 'pp'
 
-libs = %w( jquery bootstrap vue axios underscore )
+libs = %w( jquery.min bootstrap.min axios.min underscore.min droll.min vue )
 # libs = %w( jquery bootstrap vue axios underscore )
 
 libs_paths = []
-available_paths = Dir.glob( '**/*min.js' )
+available_paths = Dir.glob( '**/*.js' )
 available_paths.reject!{ |path| File.directory?( path ) }
 
 # p available_paths
@@ -36,3 +36,6 @@ libs_paths.each do |path|
   `cat #{path} >> js/packed_libs.js`
   `echo "" >> js/packed_libs.js`
 end
+
+`cp node_modules/axios/dist/axios.min.map js/`
+`cp node_modules/underscore/underscore-min.js.map js/`
