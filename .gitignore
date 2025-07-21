@@ -27,3 +27,5 @@ coverage
 dl_pages
 
 node_modules
+/config.json
+/.python-version

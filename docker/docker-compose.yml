@@ -1,0 +1,20 @@
+services:
+  haute-tension:
+    build: .
+    container_name: haute-tension
+    ports:
+      - "5001:5000"
+    volumes:
+      - ..:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - PYTHONPATH=/app
+    working_dir: /app
+    networks:
+      - haute-tension-network
+    restart: unless-stopped
+
+networks:
+  haute-tension-network:
+    driver: bridge
