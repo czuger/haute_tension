@@ -1,0 +1,56 @@
+**Context:** numbered game-book pages (French) already enriched with `choices` in `pages.json`. Now we need to detect and structure **combat encounters**. Enemies appear in text using a consistent stat-block pattern like:
+
+```
+HOMME-OISEAU FORCE: 11 VIE: 14
+FAUCON TUEUR FORCE : 10 VIE : 7
+```
+
+i.e. `<ENEMY NAME (uppercase, possibly multi-word/hyphenated)> FORCE\s*:\s*<number> VIE\s*:\s*<number>`, repeated for each enemy on the page. Multiple enemies can appear on a single page, and combat can be either **sequential** (defeat one, then face the next) or **simultaneous** (fight all enemies at once, e.g. text says "combattez-les simultanément" / "en même temps" / "les deux ennemis attaquent ensemble").
+
+**Task:** Do NOT write a standalone script for me to run — directly process `pages.json`, detect combat encounters, and enrich the relevant page entries. Iterate and self-check quality as you go.
+
+### Detection
+For each page, scan `text` for:
+1. Combat vocabulary: `combattre`, `combat`, `vous défendre`, `affronter`, `engager le combat`, `se battre`, `attaque`, `tuer`, `blesser`, etc.
+2. Enemy stat blocks matching the `NAME FORCE: X VIE: Y` pattern (case-insensitive on labels, but preserve enemy name casing/formatting as found, then also store a normalized lowercase version).
+
+A page is flagged as containing a fight if either signal is present; use the stat-block regex as the primary/most reliable extraction method.
+
+### Extraction — combat structure
+```json
+"page_number": {
+  "fight_type": "sequential",
+  "enemies": [
+    {"name": "homme-oiseau", "force": 11, "vie": 14},
+    {"name": "faucon tueur", "force": 10, "vie": 7}
+  ],
+  "outcome": {
+    "on_victory": "44",
+    "on_defeat": "death",
+    "on_flee": null
+  },
+  "needs_review": false
+}
+```
+
+Notes on fields:
+- `fight_type`: `"sequential"` (default when multiple enemies with no explicit simultaneity marker), `"simultaneous"` (when text explicitly indicates fighting together/at once — look for phrasing like "simultanément", "en même temps", "les deux en même temps", "ensemble"), or `"single"` if only one enemy.
+- `enemies`: array, one entry per stat block found, in the order they appear in text (order matters for sequential fights). `name` normalized to lowercase; `force`/`vie` as integers.
+- `outcome.on_victory`: page number to continue to once all enemies are defeated.
+- `outcome.on_defeat`: `"death"` if text implies game over/death, otherwise a page number.
+- `outcome.on_flee`: page number if fleeing is offered, otherwise `null`.
+- If enemy stat blocks are found but outcome branches are ambiguous, set `needs_review: true` and leave unresolved fields as `null`. Same if combat vocabulary is found but no stat block matches (may indicate a different stat format worth flagging for manual review — note these separately).
+
+### Where to attach this
+Add a `fight` object to the corresponding page entry in `pages.json`, alongside `choices`. Keep this separate from `choices` — combat resolution is skill/dice-based, not a player decision branch.
+
+### Process
+1. Scan all pages in `pages.json` for the `FORCE: X VIE: Y` stat-block pattern and general combat vocabulary as a fallback signal.
+2. For each page with detected enemies, group stat blocks in order of appearance, determine `fight_type` from surrounding phrasing, and extract victory/defeat/flee outcomes from context (proximity to page-number references, keywords like "mort", "tué", "vaincu", "fuir", "fuite").
+3. Add an entry in `work/fights.json` (page -> entry)
+4. Update `work/terms_fr.json` with new element keys introduced (`force`, `vie`, `enemy`, etc.) if relevant to gains/losses vocabulary elsewhere.
+
+### Input / Output
+input_file : work/pretre_jean_forteresse_alamuth.json
+output_file : work/fights.json
+output_file : work/terms_fr.json

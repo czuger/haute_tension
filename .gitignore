@@ -22,8 +22,14 @@
 
 .idea
 
+__pycache__/
+*.py[cod]
+
 coverage
 
 dl_pages
 
 node_modules
+/config.json
+/.python-version
+/haute_tension/config.json

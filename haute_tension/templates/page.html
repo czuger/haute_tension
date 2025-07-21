@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Page {{ page.page }} · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }}</p>
+        <h1>{{ book_title }}</h1>
+    </header>
+
+    <p class="page-number">Page {{ page.page }}</p>
+    <nav class="choices" aria-label="Choix de l'aventure">
+        {% if page.choices %}
+        <h2>Que choisissez-vous&nbsp;?</h2>
+        <ul>
+            {% for choice in page.choices %}
+            <li>
+                <a class="choice-link" href="{{ url_for('web.read_page', number=choice.goto) }}">
+                    Continuer vers la page {{ choice.goto }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>Fin de l'aventure</h2>
+        <p class="end-note">Cette route s'arrête ici.</p>
+        <a class="button" href="{{ url_for('web.read_page', number=1) }}">
+            Recommencer
+        </a>
+        {% endif %}
+    </nav>
+
+    <div class="story-text">
+        {% for paragraph in page.text %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}

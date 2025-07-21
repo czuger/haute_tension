@@ -1,0 +1,59 @@
+## Instructions for Claude Code
+
+**Context:** We have a JSON file containing numbered game-book pages (French text, choose-your-own-adventure style). Each page has narrative `text` and a `numbers` array listing the page numbers it can branch to. We need to split this into two structured output files.
+
+**Task:** Do NOT write a standalone script for me to run — instead, directly process the input JSON file and produce the two output files described below (write and run the transformation yourself, iterating as needed to check quality of the extraction).
+
+### Input
+A JSON file (path to be provided) shaped like:
+```json
+{
+  "39": {
+    "text": ["..."],
+    "numbers": ["95", "448"],
+    "file_path": "raw_data/.../xxx.html"
+  }
+}
+```
+
+### Output 1 — `pages.json`
+For every page, produce:
+```json
+{
+  "page": "39",
+  "language": "fr",
+  "text": ["..."],
+  "file_path": "...",
+  "choices": [
+    {
+      "goto": "95",
+      "gains": [{"element": "meal", "amount": 1}, {"element": "lodging", "amount": 1}],
+      "losses": [{"element": "gold coin", "amount": 5}]
+    }
+  ]
+}
+```
+- Preserve `text` and `file_path` unchanged.
+- `choices` must have one entry per number in `numbers`, in order.
+- For each choice, infer `gains`/`losses` from the narrative text surrounding that branch point (look for patterns like "ôtez X pièces d'or", "rayez une ration", "ajoutez X points d'endurance", "perdez X points de vie", "gagnez", etc.). Amount defaults to 1 if not explicitly numeric in text.
+- If no gain/loss pattern can be confidently matched for a choice, leave `gains`/`losses` as empty arrays and add `"needs_review": true` to that choice.
+- Normalize element keys to English, lowercase, singular (`gold coin`, `ration`, `meal`, `lodging`, `endurance`, `life point`, etc.) — keep this vocabulary consistent across the whole file.
+
+### Output 2 — `terms_fr.json`
+A glossary dict mapping every English element key used in Output 1 to its French label, e.g.:
+```json
+{
+  "gold coin": "pièce d'or",
+  "ration": "ration",
+  "meal": "repas",
+  "lodging": "nuitée"
+}
+```
+- If this file already exists, merge into it rather than overwriting — keep existing manual corrections, only add missing keys.
+
+### Process
+1. Read and parse the input JSON.
+2. For each page, split/parse the text around the embedded page-number markers to identify choice boundaries.
+3. Extract gains/losses per choice using pattern matching on common French phrasings found in this corpus.
+4. Build up the element vocabulary (English key → French label) as you go.
+5. Write `pages.json` and `terms_fr.json`.

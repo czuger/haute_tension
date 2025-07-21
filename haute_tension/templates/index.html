@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book_title }} · Haute Tension{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="book-title">
+    <p class="eyebrow">{{ book_series }} · Livre disponible</p>
+    <h1 id="book-title">{{ book_title }}</h1>
+    <p class="book-description">
+        Une aventure dont vous êtes le héros. Lisez, choisissez votre chemin
+        et tentez d'atteindre la mystérieuse forteresse d'Alamuth.
+    </p>
+    <a class="button" href="{{ url_for('web.read_page', number=opening_page) }}">
+        Commencer l'aventure
+    </a>
+</section>
+{% endblock %}
