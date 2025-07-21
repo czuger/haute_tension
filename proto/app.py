@@ -10,7 +10,16 @@ with open('pretre_jean_forteresse_alamuth.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 
-@app.route('/<int:number>')
+@app.route('/numbers/<int:number>')
+def get_numbers(number):
+    number_str = str(number)
+
+    # Return only the numbers from the data entry
+    numbers = data[number_str]['numbers']  # assuming the numbers are stored in a 'numbers' key
+    return jsonify(numbers)
+
+
+@app.route('/audio/<int:number>')
 def get_text(number):
     number_str = str(number)
 

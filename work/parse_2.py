@@ -20,6 +20,7 @@ for url, info in data.items():
 
         sections = soup.find_all('div', class_='ob-sections')
         texts = []
+        numbers = []
 
         for section in sections:
             text_divs = section.find_all('div', class_='ob-text')
@@ -46,8 +47,13 @@ for url, info in data.items():
                 if text:  # Only add non-empty texts
                     texts.append(text)
 
+                if number:  # Only add non-empty texts
+                    numbers.append(number)
+
+
         result[url_number] = {
             "text": texts,
+            "numbers": numbers,
             "file_path": file_path
         }
 
