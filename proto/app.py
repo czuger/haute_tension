@@ -10,13 +10,54 @@ with open('pretre_jean_forteresse_alamuth.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 
-@app.route('/numbers/<int:number>')
+def get_oldest_page():
+    filename = "last_pages.json"
+
+    try:
+        with open(filename, 'r') as f:
+            last_pages = json.load(f)
+
+        if last_pages:  # Check if list is not empty
+            return last_pages[0]  # Return first (oldest) element
+        else:
+            return None  # Return None if list is empty
+
+    except FileNotFoundError:
+        return "1"
+
+
+def update_last_pages(current_page: str):
+    filename = "last_pages.json"
+
+    # Try to load existing file, or initialize with empty list
+    try:
+        with open(filename, 'r') as f:
+            last_pages = json.load(f)
+    except FileNotFoundError:
+        last_pages = []
+
+    # Append current page
+    last_pages.append(current_page)
+
+    # Keep only last 10 elements
+    if len(last_pages) > 10:
+        last_pages = last_pages[-10:]
+
+    # Save back to file
+    with open(filename, 'w') as f:
+        json.dump(last_pages, f)
+
+    return last_pages
+
+
+@app.route('/data/<int:number>')
 def get_numbers(number):
     number_str = str(number)
 
-    # Return only the numbers from the data entry
-    numbers = data[number_str]['numbers']  # assuming the numbers are stored in a 'numbers' key
-    return jsonify(numbers)
+    _data = data[number_str]
+    _data["numbers"].sort()
+
+    return jsonify(_data)
 
 
 @app.route('/audio/<int:number>')
@@ -24,6 +65,8 @@ def get_text(number):
     number_str = str(number)
 
     print(number)
+
+    update_last_pages(number_str)
 
     if number_str in data:
         # Join all text entries with newlines

@@ -12,3 +12,5 @@ rsync -avz --progress \
   ../docker ../proto rpi4fe:/mnt/hdd1/python/haute_tension/
 
 #ssh rpi4fe "docker restart haute-tension"
+
+ssh rpi4fe "sudo supervisorctl restart haute_tension"

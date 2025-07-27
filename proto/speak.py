@@ -43,7 +43,8 @@ def speak_french_text(text, voice="onyx", model="gpt-4o-mini-tts"):
         response = client.audio.speech.create(
             model=model,
             voice=voice,
-            input=text
+            input=text,
+            instructions="Read this text in the style of an epic heroic fantasy narrator. Use a deep, resonant, dramatic voice. Distinguish characters by slightly adjusting your tone: the hero is earnest and bold, the villain is sly and dark, and the old wizard is wise and gentle. Emphasize fantasy names and magical spells, pacing narration to create both excitement in battles and awe in descriptions."
         )
 
         # Save to permanent file

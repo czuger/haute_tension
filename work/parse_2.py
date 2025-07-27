@@ -33,6 +33,7 @@ for url, info in data.items():
                 for link in links:
                     href = link['href']
                     link_text = link.get_text().strip()
+                    link_href = link.attrs["href"]
                     match = re.search(r'/(\d+)', href)
                     if match:
                         number = match.group(1)
@@ -40,15 +41,15 @@ for url, info in data.items():
                         replacement = f"{link_text} {number} "
                         html_content = html_content.replace(str(link), replacement)
 
+                        if number:  # Only add non-empty texts
+                            numbers.append(number)
+
                 # Parse the modified HTML and get text
                 modified_soup = BeautifulSoup(html_content, 'html.parser')
                 text = modified_soup.get_text().strip()
 
                 if text:  # Only add non-empty texts
                     texts.append(text)
-
-                if number:  # Only add non-empty texts
-                    numbers.append(number)
 
 
         result[url_number] = {
