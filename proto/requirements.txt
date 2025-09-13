@@ -1,4 +1,4 @@
-openai~=1.97.0
+openai~=1.97.2
 pygame~=2.6.1
 PyYAML~=6.0.2
 bs4~=0.0.2

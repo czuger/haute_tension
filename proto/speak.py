@@ -33,7 +33,7 @@ def speak_french_text(text, voice="onyx", model="gpt-4o-mini-tts"):
     audio_file = get_audio_filename(text_hash)
 
     if not audio_file.exists():
-        with open('config.json', 'r') as config_file:
+        with open('../work/analyse/config.json', 'r') as config_file:
             config = json.load(config_file)
 
         # Create OpenAI client

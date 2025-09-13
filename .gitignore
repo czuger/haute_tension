@@ -29,3 +29,4 @@ dl_pages
 node_modules
 /config.json
 /.python-version
+/work/analyse/config.json
