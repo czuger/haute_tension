@@ -31,8 +31,11 @@ from mongoengine.errors import MongoEngineException
 from pymongo.errors import PyMongoError
 
 from haute_tension.core.character import (
-    FORCE_DAMAGE_ADJUSTMENTS,
+    DEFAULT_MODE,
+    Mode,
+    damage_adjustment,
     generate_character,
+    named_mode,
 )
 from haute_tension.core.combat import (
     FIGHTS_WITH_SPECIAL_RULES,
@@ -60,13 +63,18 @@ from haute_tension.core.models import (
 # did not do what was asked", and every caller reports them the same way.
 DatabaseError = (PyMongoError, MongoEngineException)
 
-# What a caller catches when it can do without the database entirely. Wider than
-# DatabaseError by one case, and it is the case that matters most: a reader who
-# has never configured a server at all gets EnvironmentError out of connect_db(),
-# not a driver error, and would otherwise be unable to read a book that is sitting
-# on disk. Anything that only *reads better* with a history catches this; anything
-# that exists to write one catches DatabaseError and reports the failure.
-HistoryUnavailable = DatabaseError + (EnvironmentError,)
+# What `connect_db` raises when there is no database to reach: none configured,
+# or one configured wrong. An `EnvironmentError` at heart — it is the environment
+# that is wrong — but a class of its own so the error handler can catch exactly
+# this and not every `OSError` a request might raise.
+class DatabaseUnavailable(EnvironmentError):
+    """There is no database to talk to, and no request can pretend otherwise."""
+
+
+# Every way the database can fail a request, which is what the application turns
+# into one page: the driver refusing or timing out, and there being nothing
+# configured to refuse in the first place.
+DatabaseFailure = DatabaseError + (DatabaseUnavailable,)
 
 # Long enough for a local mongod, short enough that a dead server shows up as an
 # error rather than as a hung request.
@@ -89,8 +97,8 @@ def connect_db() -> None:
     server.
 
     Raises:
-        EnvironmentError: If MONGO_URI is unset, or names a database other than
-            the one APP_ENV asks for.
+        DatabaseUnavailable: If MONGO_URI is unset, or names a database other
+            than the one APP_ENV asks for.
     """
     global _connected_to
     db_name = current_db_name()
@@ -99,7 +107,7 @@ def connect_db() -> None:
 
     mongo_uri = os.environ.get("MONGO_URI")
     if not mongo_uri:
-        raise EnvironmentError(
+        raise DatabaseUnavailable(
             "Missing MONGO_URI environment variable. "
             "Copy .env.example to .env and fill it in."
         )
@@ -121,7 +129,7 @@ def connect_db() -> None:
     connected = mongoengine_db().name
     if connected != db_name:
         disconnect()
-        raise EnvironmentError(
+        raise DatabaseUnavailable(
             f"MONGO_URI points at the database '{connected}', but APP_ENV asks "
             f"for '{db_name}'. Leave the database out of MONGO_URI."
         )
@@ -213,7 +221,12 @@ def get_oldest_page(book: str) -> str | None:
     return history[0] if history else None
 
 
-def start_game(book: str, rng: random.Random | None = None) -> GameDict:
+def start_game(
+    book: str,
+    *,
+    mode: Mode = DEFAULT_MODE,
+    rng: random.Random | None = None,
+) -> GameDict:
     """Roll up a hero and open a game for him.
 
     The only place the hero's Force and Vie are ever rolled: every later read
@@ -221,16 +234,20 @@ def start_game(book: str, rng: random.Random | None = None) -> GameDict:
 
     Args:
         book: The book being played, as `"<series>/<book>"`.
+        mode: How to roll the hero up — by the book, or the easy way. Named
+            rather than positional, so it can never be mistaken for the `rng`
+            that used to sit in its place.
         rng: Source of chance, seeded by the tests.
 
     Returns:
         The freshly created game.
     """
     connect_db()
-    character = generate_character(rng)
+    character = generate_character(mode, rng)
     game = Game(
         id=uuid.uuid4().hex,
         book=book,
+        mode=mode.name,
         force=character.force,
         vie_max=character.vie_max,
         vie_actuelle=character.vie_actuelle,
@@ -243,6 +260,7 @@ def start_game(book: str, rng: random.Random | None = None) -> GameDict:
         "Hero rolled up",
         game=game.id,
         book=book,
+        mode=mode.name,
         force=game.force,
         vie=game.vie_max,
         force_dice=list(game.force_dice),
@@ -437,9 +455,16 @@ def _game_document(game_id: str | None) -> Game | None:
 
 def _game_dict(game: Game) -> GameDict:
     """Turn a game document into the dict the routes and templates read."""
+    mode = named_mode(game.mode)
     return {
         "id": game.id,
         "book": game.book,
+        "mode": mode.name,
+        "mode_label": mode.label,
+        "force_throw": mode.force.notation,
+        "vie_throw": mode.vie.notation,
+        "force_base": mode.force.base,
+        "vie_base": mode.vie.base,
         "force": game.force,
         "vie_max": game.vie_max,
         "vie_actuelle": game.vie_actuelle,
@@ -495,7 +520,7 @@ def _combat_dict(combat: GameCombat) -> CombatDict:
 
 def _hero_damage_adjustment(force: int) -> int:
     """How much a Force of this size adds to the hero's blows."""
-    return FORCE_DAMAGE_ADJUSTMENTS.get(force, 0)
+    return damage_adjustment(force)
 
 
 def _combat_enemies(fight: dict[str, object]) -> list[GameEnemy]:

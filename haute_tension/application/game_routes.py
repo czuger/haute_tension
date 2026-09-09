@@ -24,6 +24,7 @@ from werkzeug.wrappers.response import Response
 
 from haute_tension.application.models.game import SESSION_KEY, GameDict
 from haute_tension.application.models.story_page import StoryData
+from haute_tension.core.character import MODES, named_mode
 from haute_tension.core.combat import DEFEAT, ONGOING, VICTORY
 from haute_tension.core.db import (
     begin_combat,
@@ -59,8 +60,14 @@ def create_game_blueprint(
 
     @blueprint.post("/game/new")
     def create_game() -> Response:
-        """Roll up Prêtre Jean and show the sheet the dice made."""
-        game = start_game(book, rng)
+        """Roll up Prêtre Jean and show the sheet the dice made.
+
+        The mode comes off the form. An unknown one rolls a hero by the book
+        rather than refusing to roll one: a posted value is whatever was posted.
+        """
+        game = start_game(
+            book, mode=named_mode(request.form.get("mode")), rng=rng
+        )
         session[SESSION_KEY] = game["id"]
         return redirect(url_for("game.show_character", rolled=1))
 
@@ -70,7 +77,10 @@ def create_game_blueprint(
         game = _current_game()
         if game is None:
             return render_template(
-                "no_game.html", book_series=book_series, book_title=book_title
+                "no_game.html",
+                book_series=book_series,
+                book_title=book_title,
+                modes=list(MODES.values()),
             )
         return render_template(
             "character.html",
@@ -136,6 +146,7 @@ def create_game_blueprint(
             book_series=book_series,
             book_title=book_title,
             game=_current_game(),
+            modes=list(MODES.values()),
         )
 
     def _render_combat(game: GameDict) -> str:

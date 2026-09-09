@@ -64,6 +64,12 @@ class GameDict(TypedDict):
 
     id: str
     book: str
+    mode: str
+    mode_label: str
+    force_throw: str
+    vie_throw: str
+    force_base: int
+    vie_base: int
     force: int
     vie_max: int
     vie_actuelle: int

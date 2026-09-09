@@ -33,8 +33,8 @@ haute_tension/                 Flask application package
   core/                        Below the web layer — knows nothing about Flask
     config.py                  .env, APP_ENV, session key, which database
     story.py                   load_story(): reads and indexes pages.json
-    dice.py                    roll_2d6(): the two dice everything reads
-    character.py               Rolling up Prêtre Jean, once
+    dice.py                    roll_dice(): any dice; roll_2d6() for combat
+    character.py               Rolling up Prêtre Jean, once, in one of two modes
     combat.py                  The combat engine — pure, one assault at a time
     db.py                      The connection, and every read and write
     logs/
@@ -94,10 +94,10 @@ fixture books. It reads the book **once, at startup**, and holds it in memory.
 | Method | Path              | Blueprint | Description                                                                                   |
 | ------ | ----------------- | --------- | --------------------------------------------------------------------------------------------- |
 | `GET`  | `/`               | `web`     | Landing page: series, title, and a link to the opening page (page 1).                          |
-| `GET`  | `/book/<number>`  | `web`     | Reader: a breadcrumb of the last ten pages read, the page's choices, then its text. Unknown page → HTTP 404. A page with no choices shows "Fin de l'aventure" and a restart link. |
+| `GET`  | `/book/<number>`  | `web`     | Reader: a breadcrumb of the last ten pages read, the page's choices, then its text. Unknown page → HTTP 404; unreachable database → HTTP 503. A page with no choices shows "Fin de l'aventure" and a restart link. |
 | `GET`  | `/data/<number>`  | `api`     | The raw page object as JSON (text, choices, `fight` when present).                              |
 | `GET`  | `/game`           | `game`    | The hero's sheet, or the offer to roll one up.                                                  |
-| `POST` | `/game/new`       | `game`    | Rolls up Prêtre Jean and starts a play-through.                                                 |
+| `POST` | `/game/new`       | `game`    | Rolls up Prêtre Jean and starts a play-through. `mode` in the form picks the difficulty; an unknown one rolls by the book. |
 | `GET`  | `/combat/<number>`| `game`    | The fight a page holds, armed on first arrival. Unknown page, or one whose fight fields nobody → HTTP 404. |
 | `POST` | `/combat/<number>/assault` | `game` | Plays one assault and comes back to the fight.                                          |
 | `POST` | `/combat/<number>/resolve` | `game` | Closes a decided fight and follows the book to what comes next.                          |
@@ -116,8 +116,7 @@ MongoDB, through mongoengine — and it holds **one thing: the reading history.*
 
 The book does not go in it, deliberately. It is 668 static pages that change only
 when the import pipeline is re-run, it fits in memory several times over, and
-`core/story.py` reads it off disk at startup. Storing it would buy nothing, and
-would cost the ability to serve a page without a reachable server.
+`core/story.py` reads it off disk at startup. Storing it would buy nothing.
 
 `haute_tension/core/` is everything below the web layer, and nothing there
 imports Flask. The layering is strict and the imports only ever go one way:
@@ -163,14 +162,25 @@ One row per page asked for, scoped by a `book` field written
 
 ### When the database is not there
 
-`DatabaseError` is what a caller catches when a database call fails.
-`HistoryUnavailable` is wider by one case, and it is the case that matters: a
-reader who has never configured a server at all gets an `EnvironmentError` out of
-`connect_db()`, not a driver error.
+**A request that needs it fails.** It is not served half-built: a reader handed a
+page quietly missing its breadcrumb, after the driver's full three-second
+timeout, is worse off than one told the server is down.
 
-The reader route catches the wider one. The breadcrumb is the only thing on the
-page that needs Mongo, and the book is not — so an unavailable history costs the
-breadcrumb and nothing else, and the book stays readable with no `.env` at all.
+`application/errors.py` registers the one handler that does it, on the
+application rather than on a route, so nothing has to remember. It answers
+**503** — nothing is wrong with the request or with the application, and the same
+request will work once the database is back — as a page for a reader, and as JSON
+under the `api` blueprint, because `/data/<number>` is parsed rather than read.
+The reason goes to the log with its traceback.
+
+`DatabaseError` is the driver failing; `DatabaseUnavailable` is there being
+nothing configured to fail. `DatabaseFailure` is both, and is what the handler
+catches. `DatabaseUnavailable` subclasses `EnvironmentError` but is a class of
+its own, so the handler catches exactly this and not every `OSError` a request
+might raise.
+
+What needs no database still works without one: the landing page reads nothing,
+and an unknown page is a 404 without a query, because the book is in memory.
 
 ---
 
@@ -184,7 +194,8 @@ number, the choices block, then the story text.
 The breadcrumb (`.trail`) lists the last ten pages read, oldest first, each a
 link back except the current one. It can hold ten entries and a revisited page
 appears twice, so it scrolls sideways on a narrow screen rather than wrapping.
-It is absent, not empty, when there is no history to show.
+It is absent, not empty, when there is no history to show — and the page is not
+served at all when the database that holds the history cannot be reached.
 
 ---
 
@@ -192,15 +203,29 @@ It is absent, not empty, when there is no history to show.
 
 ### Rolling up the hero
 
-The rules of the series, from `regles-du-jeu-spj1`: **Force = 6 + 2D6** (so
-8–18) and **Vie = 18 + 2D6** (so 20–30). Both are thrown **once**, by
-`db.start_game()`, and written; every later read loads them back, so reopening a
-game never re-rolls it. `vie_max` is what was thrown and never moves again;
-`vie_actuelle` is what is left, and is the only thing combat writes.
+Two difficulties, chosen once when the game is created and never changed:
 
-A Force of 17 or 18 earns an *Ajustement-Force* (+1 and +2), which adds to the
-damage the hero's blows do — the mirror of the `AJUSTEMENT DOMMAGES` some
-adversaries carry.
+| Mode | Force | Vie | |
+| ---- | ----- | --- | - |
+| `normal` | 6 + 2D6 → 8–18 | 18 + 2D6 → 20–30 | The rules of the series, from `regles-du-jeu-spj1` |
+| `easy` | 12 + 2D4 → 14–20 | 26 + 3D4 → 29–38 | A house rule, not the book's |
+
+The easy mode cannot roll a weakling: the floor of each characteristic is above
+the book's average. It barely moves a fight already won — 96% against the tax
+collector either way — and decides the ones that are not: against Thalos (Force
+18, Vie 22, adjustment +1) it takes the hero from 13% to 45%.
+
+Both throws happen **once**, in `db.start_game()`, and are written; every later
+read loads them back, so reopening a game never re-rolls it. `vie_max` is what
+was thrown and never moves again; `vie_actuelle` is what is left, and is the only
+thing combat writes. The mode is stored with the hero, so the sheet can print the
+throw that made him.
+
+A Force of 17 or more earns an *Ajustement-Force* (+1 at 17, +2 from 18 up),
+which adds to the damage the hero's blows do — the mirror of the `AJUSTEMENT
+DOMMAGES` some adversaries carry. The book's table stops at 18 because its own
+Force does; the easy mode reaches 20, so the top step is read as "18 or more"
+rather than "18 exactly".
 
 ### Fighting
 
@@ -437,17 +462,18 @@ fixtures are the whole interface:
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-286 tests cover the connection and its guards (`test_core_connection.py`), the
+338 tests cover the connection and its guards (`test_core_connection.py`), the
 reading history (`test_core_db.py`), how a run picks its database
 (`test_core_config.py`), loading a book and every malformed input it rejects
-(`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero
+(`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero in either mode
 (`test_core_character.py`), every combat rule on its own with fixed dice
 (`test_core_combat.py`), play-through persistence (`test_core_games.py`), the
 data route (`test_routes.py`), browser navigation and the breadcrumb
 (`test_web_routes.py`), the character and combat routes (`test_game_routes.py`),
 the app factory and entry point (`test_app.py`), what the log writes and what it
-must never write (`test_core_logs.py`), and the request trace
-(`test_request_trace.py`). Current coverage: 100%.
+must never write (`test_core_logs.py`), the request trace
+(`test_request_trace.py`), and what a dead database costs every route
+(`test_errors.py`). Current coverage: 100%.
 
 Nothing in the suite is left to chance: `core.dice`, `core.character` and
 `core.combat` all take a `random.Random`, and `create_app(rng=...)` threads one

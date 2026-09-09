@@ -100,6 +100,11 @@ class Game(Document):
     id = StringField(primary_key=True)
     book = StringField(required=True)
 
+    # Which set of rules rolled this hero up — "normal" or "easy". Kept so the
+    # sheet can print the throw that made him, and so a game says how it was
+    # played.
+    mode = StringField(required=True)
+
     force = IntField(required=True)
     vie_max = IntField(required=True)
     vie_actuelle = IntField(required=True)
@@ -113,4 +118,7 @@ class Game(Document):
     created_at = DateTimeField()
 
     def __str__(self) -> str:
-        return f"{self.book} — Force {self.force}, Vie {self.vie_actuelle}/{self.vie_max}"
+        return (
+            f"{self.book} ({self.mode}) — Force {self.force}, "
+            f"Vie {self.vie_actuelle}/{self.vie_max}"
+        )

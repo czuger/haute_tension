@@ -8,13 +8,15 @@ The application is a Flask service in `haute_tension/`. `app.py` is the developm
 
 `core/logs/` is the log — `note()` for a step at DEBUG, `event()` for something that happened at INFO, `failure()` for what went wrong at ERROR — and `application/logs/request_trace.py` is its Flask half. It sits in `core` because `core.db` writes to it. **Name every variable and write out its content**, and never write a secret: a field whose name says token, secret, password, authorization, cookie, session or key is hidden by `general_log`, at the top level and inside any body. `game_id` is written to its first eight characters — it is the only credential this application has. Use `note`/`event`/`failure`, never `logging` directly and never `print`.
 
+Character creation has two modes, `character.NORMAL` (the book) and `character.EASY` (a house rule). A mode is a `Throw` for Force and one for Vie — a base plus `count`D`faces` — so a new one is a table entry, not a branch, and the sheet prints whatever formula made the hero. `db.start_game()` takes `mode` and `rng` keyword-only, deliberately: they used to be one positional argument and swapping them silently is exactly the bug that catches.
+
 The game rules stay pure and stay out of `db.py`: `combat.py` is handed a fight and gives back the fight after one assault, and `db.py` is what loads it, calls it and writes the result. Every function that needs chance takes a `random.Random`, threaded from `create_app(rng=...)`, so a rule can be tested against dice chosen for it. Never call `random` directly.
 
 `combat.FIGHTS_WITH_SPECIAL_RULES` lists the thirteen fights whose page text adds a rule the engine does not model; `TODO.md` says what each needs. Do not quietly widen the engine for one of them without updating both.
 
-**Only the reading history is stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing and would cost the ability to serve a page without a reachable server. Do not move it there.
+**Only the reading history and the play-throughs are stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing. Do not move it there.
 
-That ability is load-bearing, so keep it: anything on a reader page that needs Mongo must degrade rather than fail. Catch `db.HistoryUnavailable` (the driver errors plus the `EnvironmentError` raised when no server is configured at all) around the database calls themselves, never around a whole route.
+**Never swallow a database failure.** A page that needs the database and cannot reach it must fail, not be served half-built: a reader given a page quietly missing part of itself, after a three-second wait, is worse off than one told the server is down. `application/errors.py` registers the one handler that turns `db.DatabaseFailure` — the driver errors plus `DatabaseUnavailable`, raised when nothing is configured — into a 503 page, or JSON under the `api` blueprint. Routes catch nothing themselves. A page that genuinely needs no database (the landing page) must not touch one, so that it keeps working when there is none.
 
 The connection is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `APP_ENV` (`dev` / `prod`) suffixes the database name, so a dev run never touches prod data.
 

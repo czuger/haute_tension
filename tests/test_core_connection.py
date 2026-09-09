@@ -70,20 +70,20 @@ class TestConnectDb:
     def test_a_missing_uri_is_refused(self, monkeypatch):
         monkeypatch.delenv("MONGO_URI", raising=False)
 
-        with pytest.raises(EnvironmentError, match="Missing MONGO_URI"):
+        with pytest.raises(core_db.DatabaseUnavailable, match="Missing MONGO_URI"):
             core_db.connect_db()
 
     def test_a_uri_naming_another_database_is_refused(self, connections):
         connections.opened_on = "somewhere_else"
 
-        with pytest.raises(EnvironmentError, match="points at the database"):
+        with pytest.raises(core_db.DatabaseUnavailable, match="points at the database"):
             core_db.connect_db()
 
         assert connections.disconnected == 1
 
     def test_a_refused_uri_leaves_no_connection_behind(self, connections):
         connections.opened_on = "somewhere_else"
-        with pytest.raises(EnvironmentError):
+        with pytest.raises(core_db.DatabaseUnavailable):
             core_db.connect_db()
 
         connections.opened_on = "haute_tension_dev"
@@ -124,7 +124,12 @@ class TestDatabaseError:
 
         assert core_db.DatabaseError == (PyMongoError, MongoEngineException)
 
-    def test_an_optional_history_also_tolerates_no_database_at_all(self):
-        """Never configuring a server raises EnvironmentError, not a driver one."""
-        assert EnvironmentError in core_db.HistoryUnavailable
-        assert set(core_db.DatabaseError) < set(core_db.HistoryUnavailable)
+    def test_no_database_at_all_is_a_failure_of_its_own(self):
+        """Never configuring a server is not a driver error, and is caught too."""
+        assert core_db.DatabaseUnavailable in core_db.DatabaseFailure
+        assert set(core_db.DatabaseError) < set(core_db.DatabaseFailure)
+
+    def test_it_is_narrower_than_every_os_error(self):
+        """Registering a handler for OSError would swallow far more than this."""
+        assert issubclass(core_db.DatabaseUnavailable, OSError)
+        assert core_db.DatabaseUnavailable is not OSError

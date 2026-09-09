@@ -8,11 +8,25 @@
     <h1>Prêtre Jean</h1>
     <p class="book-description">
         Avant de partir pour Alamuth, il vous faut savoir de quoi vous êtes fait.
-        Deux dés décideront de votre Force, deux autres de votre Vie&nbsp;: ces
-        chiffres vous suivront jusqu'au bout de l'aventure.
+        Les dés décideront de votre Force et de votre Vie&nbsp;: ces chiffres
+        vous suivront jusqu'au bout de l'aventure.
     </p>
-    <form method="post" action="{{ url_for('game.create_game') }}">
-        <button class="button" type="submit">Lancer les dés</button>
-    </form>
+
+    <div class="modes">
+        {% for mode in modes %}
+        <form method="post" action="{{ url_for('game.create_game') }}" class="mode">
+            <input type="hidden" name="mode" value="{{ mode.name }}">
+            <h2 class="mode-name">Difficulté {{ mode.label|lower }}</h2>
+            <p class="mode-rule">
+                Force {{ mode.force.base }} + {{ mode.force.notation }}
+                <span class="mode-range">({{ mode.force.lowest }}–{{ mode.force.highest }})</span>
+                · Vie {{ mode.vie.base }} + {{ mode.vie.notation }}
+                <span class="mode-range">({{ mode.vie.lowest }}–{{ mode.vie.highest }})</span>
+            </p>
+            <p class="mode-note">{{ mode.description }}</p>
+            <button class="button" type="submit">Lancer les dés</button>
+        </form>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

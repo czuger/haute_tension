@@ -53,8 +53,8 @@ class TestCreatingAHero:
     def test_the_sheet_shows_its_working(self, hero):
         body = text_of(hero.get("/game"))
 
-        assert re.search(r"\d \+ \d \(2D6\) \+ 6 = \d+", body)
-        assert re.search(r"\d \+ \d \(2D6\) \+ 18 = \d+", body)
+        assert re.search(r"\d \+ \d \(2D6\)\s*\+ 6 = \d+", body)
+        assert re.search(r"\d \+ \d \(2D6\)\s*\+ 18 = \d+", body)
 
     def test_the_sheet_shows_force_and_vie(self, hero, fake_db):
         stored = fake_db["games"].docs[0]
@@ -85,6 +85,53 @@ class TestCreatingAHero:
 
         with fighting_client.session_transaction() as session:
             assert SESSION_KEY not in session
+
+    def test_both_difficulties_are_offered(self, fighting_client):
+        body = text_of(fighting_client.get("/game"))
+
+        assert "Difficulté normale" in body
+        assert "Difficulté facile" in body
+
+    def test_each_difficulty_shows_its_dice_and_range(self, fighting_client):
+        body = text_of(fighting_client.get("/game"))
+
+        assert "Force 6 + 2D6" in body
+        assert "Force 12 + 2D4" in body
+        assert "Vie 26 + 3D4" in body
+        assert "29–38" in body
+
+    def test_choosing_the_easy_mode_rolls_an_easy_hero(
+        self, fighting_client, fake_db
+    ):
+        fighting_client.post("/game/new", data={"mode": "easy"})
+
+        stored = fake_db["games"].docs[0]
+        assert stored["mode"] == "easy"
+        assert 14 <= stored["force"] <= 20
+        assert 29 <= stored["vie_max"] <= 38
+        assert len(stored["vie_dice"]) == 3
+
+    def test_choosing_nothing_rolls_by_the_book(self, fighting_client, fake_db):
+        fighting_client.post("/game/new")
+
+        stored = fake_db["games"].docs[0]
+        assert stored["mode"] == "normal"
+        assert 8 <= stored["force"] <= 18
+
+    def test_an_unknown_mode_rolls_by_the_book(self, fighting_client, fake_db):
+        """A posted value is whatever was posted; it must still roll a hero."""
+        response = fighting_client.post("/game/new", data={"mode": "invincible"})
+
+        assert response.status_code == 302
+        assert fake_db["games"].docs[0]["mode"] == "normal"
+
+    def test_the_easy_sheet_prints_its_own_throw(self, fighting_client):
+        fighting_client.post("/game/new", data={"mode": "easy"})
+        body = text_of(fighting_client.get("/game"))
+
+        assert "Difficulté facile" in body
+        assert re.search(r"\d \+ \d \(2D4\)\s*\+ 12 = \d+", body)
+        assert re.search(r"\d \+ \d \+ \d \(3D4\)\s*\+ 26 = \d+", body)
 
     def test_a_new_hero_replaces_the_old_one(self, hero):
         with hero.session_transaction() as session:
@@ -280,7 +327,11 @@ class TestLeavingACombat:
         assert response.headers["Location"] == "/book/1"
 
     def test_the_death_page_offers_a_new_hero(self, hero):
-        assert "nouveau héros" in text_of(hero.get("/game/death"))
+        body = text_of(hero.get("/game/death"))
+
+        assert "Reprendre" in body
+        assert 'value="normal"' in body
+        assert 'value="easy"' in body
 
 
 class TestSpecialRules:

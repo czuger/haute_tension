@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Base de données injoignable · Haute Tension{% endblock %}
+
+{% block content %}
+<section class="card">
+    <p class="eyebrow">Erreur</p>
+    <h1>La base de données ne répond pas</h1>
+    <p class="book-description">
+        Le livre est bien là, mais l'historique de lecture et les parties en
+        cours vivent en base, et elle est injoignable. Rien n'a été perdu&nbsp;:
+        la page redeviendra accessible dès que le serveur répondra.
+    </p>
+    <p class="end-note">
+        En développement&nbsp;: vérifiez que <code>MONGO_URI</code> est renseigné
+        dans <code>.env</code> et que le serveur tourne. Le détail est dans
+        <code>logs/general.log</code>.
+    </p>
+</section>
+{% endblock %}

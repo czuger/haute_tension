@@ -122,15 +122,15 @@ class TestReadingTrail:
 
         assert trail_of(client, "1") == ["1"]
 
-    def test_an_unreachable_database_costs_only_the_trail(self, client, monkeypatch):
-        """The book is on disk, so a dead server must not stop a reader reading."""
+    def test_an_unreachable_database_refuses_the_page(self, client, monkeypatch):
+        """Half a page is worse than none: the reader is told instead."""
         monkeypatch.setattr(core_db, "connect_db", _unreachable)
 
         response = client.get("/book/1")
 
-        assert response.status_code == 200
-        assert "Le début de l&#39;aventure." in response.get_data(as_text=True)
-        assert 'class="trail"' not in response.get_data(as_text=True)
+        assert response.status_code == 503
+        assert "ne répond pas" in response.get_data(as_text=True)
+        assert "Le début de l&#39;aventure." not in response.get_data(as_text=True)
 
 
 def _stamp(minute):

@@ -10,8 +10,18 @@
         Prêtre Jean est tombé. La forteresse d'Alamuth gardera ses secrets —
         du moins pour cet homme-là.
     </p>
-    <form method="post" action="{{ url_for('game.create_game') }}">
-        <button class="button" type="submit">Reprendre avec un nouveau héros</button>
-    </form>
+    <div class="modes">
+        {% for mode in modes %}
+        <form method="post" action="{{ url_for('game.create_game') }}" class="mode">
+            <input type="hidden" name="mode" value="{{ mode.name }}">
+            <h2 class="mode-name">Difficulté {{ mode.label|lower }}</h2>
+            <p class="mode-rule">
+                Force {{ mode.force.base }} + {{ mode.force.notation }}
+                · Vie {{ mode.vie.base }} + {{ mode.vie.notation }}
+            </p>
+            <button class="button" type="submit">Reprendre</button>
+        </form>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

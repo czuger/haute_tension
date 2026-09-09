@@ -1,8 +1,7 @@
 from flask import Blueprint, abort, render_template
 
-from haute_tension.core.logs.general_log import note
 from haute_tension.application.models.story_page import StoryData
-from haute_tension.core.db import HistoryUnavailable, last_pages, record_page_view
+from haute_tension.core.db import last_pages, record_page_view
 
 OPENING_PAGE = 1
 
@@ -56,28 +55,23 @@ def create_web_blueprint(
 def _reading_trail(book: str, current_page: str) -> list[str]:
     """Record this visit and return the pages most recently read, oldest first.
 
-    The trail is the one thing on the page that needs the database, and the book
-    itself does not: a reader whose server is down — or who has never configured
-    one, which is the wider half of `HistoryUnavailable` — should still be able
-    to read, so an unavailable history costs the breadcrumb and nothing else.
-    The `try` holds two database calls and nothing else, so this is not a blanket
-    `except` around the route: a template or story failure still surfaces.
+    Nothing is caught here. A database that cannot answer used to cost the
+    breadcrumb and nothing else, which read well and worked badly: every page
+    then paid the driver's full timeout — three seconds — to render a page that
+    quietly lacked half of itself. A reader is better told. `create_app`
+    registers the one handler that turns a database failure into a page saying
+    so.
 
     Args:
         book: The book being read, as `"<series>/<book>"`.
         current_page: The page number being shown, which ends the trail.
 
     Returns:
-        Up to `MAX_PAGE_HISTORY` page numbers, oldest first, or nothing at all
-        when the database cannot be reached.
+        Up to `MAX_PAGE_HISTORY` page numbers, oldest first.
+
+    Raises:
+        DatabaseUnavailable: If no database is configured.
+        DatabaseError: If the one configured cannot answer.
     """
-    try:
-        record_page_view(book, current_page)
-        return last_pages(book)
-    except HistoryUnavailable as trouble:
-        note(
-            "Reading history unavailable, serving the page without a trail",
-            page=current_page,
-            reason=repr(trouble),
-        )
-        return []
+    record_page_view(book, current_page)
+    return last_pages(book)

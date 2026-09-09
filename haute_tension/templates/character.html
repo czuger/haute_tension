@@ -7,6 +7,7 @@
     <header class="reader-title">
         <p class="eyebrow">{{ book_series }}</p>
         <h1>Prêtre Jean</h1>
+        <p class="mode-badge">Difficulté {{ game.mode_label|lower }}</p>
     </header>
 
     {% if rolled %}
@@ -19,7 +20,8 @@
             <dd>
                 <strong>{{ game.force }}</strong>
                 <span class="roll-detail">
-                    {{ game.force_dice | join(' + ') }} (2D6) + 6 = {{ game.force }}
+                    {{ game.force_dice | join(' + ') }} ({{ game.force_throw }})
+                    + {{ game.force_base }} = {{ game.force }}
                 </span>
             </dd>
         </div>
@@ -28,7 +30,8 @@
             <dd>
                 <strong>{{ game.vie_actuelle }}</strong> / {{ game.vie_max }}
                 <span class="roll-detail">
-                    {{ game.vie_dice | join(' + ') }} (2D6) + 18 = {{ game.vie_max }}
+                    {{ game.vie_dice | join(' + ') }} ({{ game.vie_throw }})
+                    + {{ game.vie_base }} = {{ game.vie_max }}
                 </span>
             </dd>
         </div>

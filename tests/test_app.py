@@ -20,13 +20,23 @@ class TestCreateApp:
     def test_the_session_cookie_is_signed(self, books_path):
         assert create_app(BOOK, books_path).secret_key
 
-    def test_the_book_is_served_without_a_database(self, books_path):
-        """Browsing needs no mongod: only the history is stored."""
+    def test_the_app_is_built_without_a_database(self, books_path):
+        """The book is on disk, so building the app reaches for no server."""
+        assert create_app(BOOK, books_path).blueprints
+
+    def test_a_page_needing_the_database_refuses_without_one(self, books_path):
+        """Nothing is served half-built: the reader is told instead."""
         client = create_app(BOOK, books_path).test_client()
 
-        assert client.get("/book/1").status_code == 200
+        assert client.get("/book/1").status_code == 503
 
-    def test_the_book_is_read_once_at_startup(self, books_path):
+    def test_the_landing_page_needs_no_database(self, books_path):
+        """It shows the book and a link, and reads nothing."""
+        client = create_app(BOOK, books_path).test_client()
+
+        assert client.get("/").status_code == 200
+
+    def test_the_book_is_read_once_at_startup(self, fake_db, books_path):
         from haute_tension.core.story import PAGES_FILE
 
         app = create_app(BOOK, books_path)
@@ -38,7 +48,7 @@ class TestCreateApp:
         with pytest.raises(FileNotFoundError):
             create_app(BOOK, tmp_path)
 
-    def test_the_packaged_book_is_the_default(self):
+    def test_the_packaged_book_is_the_default(self, fake_db):
         assert create_app().test_client().get("/book/1").status_code == 200
 
 
