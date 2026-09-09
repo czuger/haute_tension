@@ -14,12 +14,17 @@ dependencies = [
     "bs4~=0.0.2",
     "beautifulsoup4~=4.13.4",
     "Flask~=3.1.1",
+    "mongoengine~=0.29.1",
+    "pymongo~=4.13.2",
+    "python-dotenv~=1.1.1",
 ]
 
 [project.optional-dependencies]
 test = [
     "pytest~=8.4.1",
     "pytest-cov~=6.2.1",
+    # The models talk to an in-memory server in the tests, never to a mongod.
+    "mongomock~=4.3.0",
 ]
 
 [tool.setuptools]
@@ -27,6 +32,8 @@ packages = [
     "haute_tension",
     "haute_tension.application",
     "haute_tension.application.models",
+    "haute_tension.core",
+    "haute_tension.core.models",
 ]
 
 [tool.setuptools.package-data]
@@ -37,7 +44,9 @@ haute_tension = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=haute_tension --cov-report=term-missing --cov-fail-under=95"
+# The import scripts live in scripts/ and are imported by name from the tests.
+pythonpath = [".", "scripts"]
+addopts = "--cov=haute_tension --cov=scripts --cov-report=term-missing --cov-fail-under=95"
 
 [tool.coverage.run]
 branch = true

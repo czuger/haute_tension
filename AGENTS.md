@@ -2,15 +2,23 @@
 
 ## Project Structure & Module Organization
 
-The application is a Flask service in `haute_tension/`. `app.py` is the development-server entry point, `application/` contains the app factory, routes, story loading, and page-history persistence, and `templates/` contains the browser UI. Runtime books live under `haute_tension/books/<series>/<book>/`; `merged_pages.json` contains the book's pages and `translated_elements.json` contains localized game-element names.
+The application is a Flask service in `haute_tension/`. `app.py` is the development-server entry point, `application/` contains the app factory and the routes, and `templates/` contains the browser UI.
+
+`haute_tension/core/` is the database layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables and which database) then `models/` (one mongoengine document per collection, describing shapes and running no query) then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and it hands plain dicts back — the `TypedDict`s in `application/models/story_page.py` — so no document object ever reaches a route, a template or a script. Keep it that way: a new query belongs in `db.py`, never in a route.
+
+The connection is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `APP_ENV` (`dev` / `prod`) suffixes the database name, so a dev import never touches prod data.
+
+Book sources live under `haute_tension/books/<series>/<book>/`; `merged_pages.json` is the import source and `translated_elements.json` contains localized game-element names. The application reads neither at runtime: `python scripts/import_book.py` loads a book into MongoDB, and the app serves what is in the database.
 
 Story import and conversion files live in `work/`: source YAML/HTML is under `work/raw_data/`, and generated output belongs in `work/parsed_data/`.
 
 ## Build, Test, and Development Commands
 
 - `pyenv virtualenv <python-version> haute_tension && pyenv local haute_tension` creates and selects the named virtualenv used by the repository's `.python-version` file.
-- `python -m pip install -e .` installs the project and dependencies declared in `pyproject.toml`.
-- `cd haute_tension && PYTHONPATH=.. python app.py` starts the development server on port 5001 with the working directory expected by current data paths.
+- `python -m pip install -e ".[test]"` installs the project, its dependencies and the test extras declared in `pyproject.toml`.
+- Copy `.env.example` to `.env` and point `MONGO_URI` at a reachable mongod; `APP_ENV` picks the database. Leave the database name out of `MONGO_URI` — `db.connect_db()` refuses a URI that names one.
+- `python scripts/import_book.py [<series>/<book>]` loads a parsed book into the database, rewriting it wholesale. Run it before the server: the app serves nothing until a book is imported.
+- `cd haute_tension && PYTHONPATH=.. python app.py` starts the development server on port 5001.
 
 Declare Python dependencies and package metadata in `pyproject.toml`; do not recreate `requirements.txt` files.
 
@@ -39,7 +47,9 @@ Reserve comments for genuinely complex, non-obvious, or easily misread logic. Ke
 
 ## Testing Guidelines
 
-Run the suite with `python -m pytest`. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py` and prefer Flask's test client. Branch coverage of `haute_tension` is measured by `pytest-cov` and configured in `pyproject.toml` to fail below 95%, so keep new code covered. Document manual checks for `/data/<number>` in the pull request.
+Run the suite with `python -m pytest`. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py` and prefer Flask's test client. Branch coverage of `haute_tension` and `scripts` is measured by `pytest-cov` and configured in `pyproject.toml` to fail below 95%, so keep new code covered.
+
+No test may need a running mongod. `tests/conftest.py` binds the models to an in-memory mongomock server and stubs `core.db.connect_db()` out; take the `fake_db`, `book_pages` or `client` fixture rather than standing up your own. Seed a collection by assigning to `fake_db["<collection>"].docs`, which is keyed the way the app reads it. Document manual checks for `/data/<number>` in the pull request.
 
 ## Commit & Pull Request Guidelines
 
@@ -47,4 +57,4 @@ History uses short sentence-style subjects such as `Page parsing reworked.` Use 
 
 ## Security & Generated Files
 
-Never commit real credentials. Do not commit `last_pages.json`, caches, logs, or OS/editor artifacts.
+Never commit real credentials or `.env`. Do not commit caches, logs, or OS/editor artifacts.

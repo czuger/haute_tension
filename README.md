@@ -10,10 +10,13 @@ Une mise en ligne du livre dont vous êtes le héros : *La Forteresse d'Alamuth*
 The project has two halves:
 
 1. **A Flask reader** (`haute_tension/`) that serves the book as a browsable
-   website, plus a small JSON API.
+   website, plus a small JSON API. It reads the book from MongoDB.
 2. **An offline import pipeline** (`work/`) that scrapes the original pages from
    the web, parses them into JSON, and enriches them (per-choice gains/losses,
    structured combat encounters) into the runtime book data.
+
+`scripts/import_book.py` joins the two: it loads a parsed book into the database,
+which is the only thing the application reads at runtime.
 
 ---
 
@@ -22,15 +25,23 @@ The project has two halves:
 ```
 haute_tension/                 Flask application package
   app.py                       Development-server entry point (port 5001)
-  application/
-    factory.py                 create_app(): wires blueprints, paths, book title
+  application/                 The web layer — knows nothing about Mongo
+    factory.py                 create_app(): wires blueprints, book title
     web_routes.py              Browser routes: "/" and "/book/<number>"
     routes.py                  API route: "/data/<number>"
-    story.py                   load_story(): reads and indexes merged_pages.json
-    page_history.py            Bounded on-disk history of recently read pages
     models/story_page.py       TypedDicts: StoryPage, StoryChoice, ElementChange
+  core/                        The database layer — knows nothing about Flask
+    config.py                  .env, APP_ENV, and which database is used
+    db.py                      The connection, and every read and write
+    models/
+      base.py                  DictDocument: document <-> dict, both ways
+      story_page.py            StoryPage (+ embedded StoryChoice/ElementChange)
+      page_view.py             PageView: one row per page asked for
   templates/                   Jinja templates (base / index / page), CSS inline
-  books/<series>/<book>/       Runtime book data (see "Book data" below)
+  books/<series>/<book>/       Import sources (see "Book data" below)
+
+scripts/
+  import_book.py               merged_pages.json -> MongoDB
 
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
@@ -42,7 +53,9 @@ work/                          Offline import & conversion pipeline
   raw_data/                    Downloaded HTML + per-book YAML index
   parsed_data/                 Generated intermediate JSON/YAML
 
-tests/                         Test suite (pytest runner, Flask test client)
+tests/                         Test suite (pytest, mongomock, Flask test client)
+  conftest.py                  The fake database every test runs against
+.env.example                   APP_ENV and MONGO_URI — copy to .env
 AGENTS.md                      Coding conventions for this repository
 pyproject.toml                 Package metadata, dependencies, pytest/coverage
 ```
@@ -58,20 +71,20 @@ development server on `127.0.0.1:5001` with debug enabled. It binds loopback
 only, so the debugger is never exposed to the local network; change `host` in
 `main()` if you want to read the book from another device on your wifi.
 
-`application/factory.py` holds all the wiring and the default paths, resolved
-from the repository root:
+`application/factory.py` holds all the wiring:
 
 | Constant        | Value                                                   |
 | --------------- | ------------------------------------------------------- |
-| `BOOK_PATH`     | `haute_tension/books/pretre_jean/forteresse_alamuth`     |
-| `HISTORY_PATH`  | `haute_tension/last_pages.json`                          |
+| `BOOK`          | `pretre_jean/forteresse_alamuth`                         |
 | `TEMPLATE_PATH` | `haute_tension/templates`                                |
 | `BOOK_SERIES`   | `Prêtre Jean`                                            |
 | `BOOK_TITLE`    | `La Forteresse d'Alamuth`                                |
 
-`create_app(book_path, history_path)` accepts overrides for both paths, which is
-how the tests run against isolated fixture books. It loads the story once at
-startup and registers two blueprints.
+`create_app(book)` accepts a book name, which is how the tests run against
+fixture books. It reads that book from the database **once, at startup** — the
+pages only change when `scripts/import_book.py` runs, so holding them in memory
+keeps every page view from going back to Mongo for data that has not moved. A
+book that has never been imported simply serves no pages.
 
 ### Routes
 
@@ -86,25 +99,76 @@ looking it up. An unknown page returns a UTF-8 JSON body
 `{"success": false, "message": "le numéro N n'a pas été trouvé"}` — note that
 this error still carries HTTP 200.
 
-### Story loading
+---
 
-`application/story.py::load_story()` reads `merged_pages.json` from the book
-directory, validates that it is a list of page objects each carrying a string
-`page` number, and returns a `dict[str, StoryPage]` indexed by that number. It
-raises `ValueError` on malformed data or duplicate page numbers, and lets
-`FileNotFoundError` / `json.JSONDecodeError` propagate.
+## The database
 
-### Page history
+MongoDB, through mongoengine. `haute_tension/core/` is the whole of it, and
+nothing there imports Flask. The layering is strict and the imports only ever go
+one way:
 
-`application/page_history.py` persists a list of recently requested page numbers
-to `last_pages.json` (git-ignored):
+```
+config      environment variables, and which database
+models      the shape of what is stored — no module here runs a query
+db          the connection, and every read and write
+```
 
-- `update_last_pages(page, path)` appends and truncates to the last
-  `MAX_PAGE_HISTORY = 10` entries.
-- `get_oldest_page(path)` returns the oldest retained page, `"1"` when no file
-  exists yet, and `None` when the file holds an empty list.
+**`core/db.py` is the only module that talks to Mongo**, and it hands plain
+dicts back — the same `TypedDict`s the routes and templates already read. No
+document object ever leaves it, which is what keeps the ORM out of the web
+layer. A new query belongs here, never in a route.
 
-### Templates
+The connection is opened on the first call rather than at import time, so
+importing `core.db` never needs a reachable server — and it is the single seam
+the tests replace.
+
+### Which database
+
+`APP_ENV` (`dev` or `prod`, default `dev`) suffixes the base name, giving
+`haute_tension_dev` or `haute_tension_prod`, so a dev import never touches prod
+data. `MONGO_URI` says where the server is, and must **not** name a database: one
+given there would silently win over `APP_ENV`, so `connect_db()` refuses it.
+
+### Collections
+
+| Collection    | Model       | Keyed by                                     |
+| ------------- | ----------- | -------------------------------------------- |
+| `story_pages` | `StoryPage` | The book's own page number (`_id`)           |
+| `page_views`  | `PageView`  | An ObjectId — a visit has no id of its own   |
+
+Both are scoped by a `book` field, written `"<series>/<book>"`, so a second
+imported book never shows up in the first one's pages or history.
+
+`StoryPage` embeds its `choices` (and each choice its `gains` / `losses`).
+`fight` is stored as a free-form dict: its shape varies with `fight_type` and the
+import pipeline is still moving it around, and the app only ever hands the whole
+object to a template.
+
+### Reads and writes
+
+- `load_story(book)` — every page of a book, indexed by page number.
+- `save_story(book, pages)` — replaces a book wholesale, refusing a page with no
+  string number and refusing two pages that share one. A rejected import writes
+  nothing.
+- `record_page_view(book, page)` — notes that a page was asked for.
+- `last_pages(book, limit=10)` / `get_oldest_page(book)` — the bounded reading
+  history, oldest first. Bounding happens on read, so recording a visit stays a
+  plain insert.
+
+### The dict boundary
+
+`core/models/base.py` holds `DictDocument`, which every model mixes in. Two rules
+the rest of the package leans on:
+
+- **The dict is keyed as the document is stored**, so a stored page and a raw
+  imported page read the same.
+- **`to_dict()` always returns every declared field**, `None` where nothing was
+  written; **`from_dict()` ignores anything undeclared**, which is what lets a
+  raw `merged_pages.json` page be handed over as it came.
+
+---
+
+## The Flask templates
 
 `base.html` carries the layout and the whole stylesheet (serif body, parchment
 palette, drop cap on the first paragraph, mobile breakpoint at 36rem).
@@ -115,10 +179,12 @@ choices block, then the story text.
 
 ## Book data
 
-Runtime books live in `haute_tension/books/<series>/<book>/`:
+Book sources live in `haute_tension/books/<series>/<book>/`. The application
+reads none of them at runtime — `scripts/import_book.py` loads them into Mongo,
+and the app serves what is in the database:
 
-- **`merged_pages.json`** — the file the application actually loads. A JSON list
-  of 668 page objects for *La Forteresse d'Alamuth*.
+- **`merged_pages.json`** — what the import script reads. A JSON list of 668 page
+  objects for *La Forteresse d'Alamuth*.
 - **`translated_elements.json`** — a flat map from English element keys to their
   French display names (`"healing potion": "potion de guérison"`, …), used to
   localize the gains/losses vocabulary produced by the import pipeline.
@@ -175,15 +241,44 @@ pyenv local haute_tension
 python -m pip install -e .
 ```
 
-Dependencies come from `pyproject.toml`: Flask, PyYAML, beautifulsoup4/bs4. Do
-not add a `requirements.txt`. Add `[test]` to also install pytest and
-pytest-cov:
+Dependencies come from `pyproject.toml`: Flask, mongoengine/pymongo,
+python-dotenv, PyYAML, beautifulsoup4/bs4. Do not add a `requirements.txt`. Add
+`[test]` to also install pytest, pytest-cov and mongomock:
 
 ```bash
 python -m pip install -e ".[test]"
 ```
 
-### 3. Run the server
+### 3. Database
+
+Copy `.env.example` to `.env` (git-ignored) and point it at a mongod:
+
+```bash
+APP_ENV=dev
+MONGO_URI=mongodb://localhost:27017
+```
+
+Leave the database name out of `MONGO_URI` — `APP_ENV` is what picks it, and a
+URI naming one is refused rather than silently obeyed. Any mongod will do:
+
+```bash
+docker run -d --rm --name ht-mongo -p 27017:27017 mongo:7
+```
+
+### 4. Import a book
+
+The application serves nothing until a book is in the database:
+
+```bash
+python scripts/import_book.py                              # the default book
+python scripts/import_book.py pretre_jean/forteresse_alamuth
+```
+
+It rewrites the book wholesale, so re-running it is how a re-parsed book reaches
+the app. It refuses an import with a malformed or duplicated page number, and
+writes nothing when it does.
+
+### 5. Run the server
 
 ```bash
 cd haute_tension && PYTHONPATH=.. python app.py
@@ -194,7 +289,7 @@ resolves.
 
 Then open <http://localhost:5001/>.
 
-### 4. Manual checks
+### 6. Manual checks
 
 ```bash
 curl http://localhost:5001/data/1
@@ -205,21 +300,30 @@ curl http://localhost:5001/data/99999      # unknown page, HTTP 200 + JSON error
 
 ## Tests
 
-All tests live in the repository-root `tests/` directory. They are written with
-the standard library's `unittest` and run under pytest, which is configured in
-`pyproject.toml` to measure branch coverage of `haute_tension` and to fail below
-95%:
+All tests live in the repository-root `tests/` directory and run under pytest,
+configured in `pyproject.toml` to measure branch coverage of `haute_tension` and
+`scripts` and to fail below 95%:
 
 ```bash
 python -m pytest
 ```
 
-27 tests cover the data route and its history side effect (`test_routes.py`),
-browser navigation and 404s (`test_web_routes.py`), the bounded page history and
-its validation errors (`test_page_history.py`), book loading and every malformed
-input it rejects (`test_story.py`), and the development-server entry point
-(`test_app.py`). Each route test builds a throwaway book in a
-`TemporaryDirectory` and passes it to `create_app()`. Current coverage: 100%.
+**No test needs a running mongod.** `tests/conftest.py` binds the models to an
+in-memory mongomock server and stubs out `core.db.connect_db()` — the one place
+that would reach for a server. Three fixtures are the whole interface:
+
+- `fake_db` — the empty database. Seed a collection by assigning to
+  `fake_db["story_pages"].docs`, which is keyed the way the app reads it (`page`,
+  not `_id`).
+- `book_pages` — a small two-page book, already imported.
+- `client` — a Flask test client serving that book.
+
+95 tests cover the connection and its guards (`test_core_connection.py`), every
+read and write (`test_core_db.py`), the dict boundary the models are
+(`test_core_models.py`), how a run picks its database (`test_core_config.py`),
+the import script (`test_import_book.py`), the data route and its history side
+effect (`test_routes.py`), browser navigation and 404s (`test_web_routes.py`),
+and the app factory and entry point (`test_app.py`). Current coverage: 100%.
 
 ---
 
@@ -267,7 +371,12 @@ emitting a script:
 - `new_fable_prompt_for_processing_book.txt` — both passes in one run.
 
 **4. Install.** Copy the enriched result to
-`haute_tension/books/<series>/<book>/merged_pages.json` and restart the server.
+`haute_tension/books/<series>/<book>/merged_pages.json`, then load it into the
+database and restart the server:
+
+```bash
+python scripts/import_book.py <series>/<book>
+```
 
 ---
 
@@ -280,15 +389,18 @@ emitting a script:
 - Google-style docstrings on every function and method; comments only for
   genuinely non-obvious logic.
 - Absolute imports from the repository root
-  (`from haute_tension.application.story import load_story`), `pathlib.Path` for
-  paths, one public class per snake_case file, models under `models/`.
+  (`from haute_tension.core.db import load_story`), `pathlib.Path` for paths, one
+  public class per snake_case file, models under `models/`.
+- The database layer stays in `core/` and the web layer stays out of it: a new
+  query goes in `core/db.py`, never in a route, and no document object leaves
+  that module.
 - Code, identifiers and comments in English even when the discussion is in
   French; user-facing French text stays UTF-8.
 - No global `try`/`except` around entry points — let tracebacks surface.
 - Commit subjects are short imperative sentences (`Page parsing reworked.`); no
   `wip` subjects in review-ready work.
 
-Never commit `last_pages.json`, caches or logs.
+Never commit `.env`, caches or logs.
 
 ---
 

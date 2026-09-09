@@ -1,21 +1,17 @@
 import json
-from pathlib import Path
 
 from flask import Blueprint, Response, jsonify
 
 from haute_tension.application.models.story_page import StoryData
-from haute_tension.application.page_history import update_last_pages
+from haute_tension.core.db import record_page_view
 
 
-def create_api_blueprint(
-    story_data: StoryData,
-    history_path: Path,
-) -> Blueprint:
+def create_api_blueprint(story_data: StoryData, book: str) -> Blueprint:
     """Create the blueprint serving story data.
 
     Args:
         story_data: Story sections indexed by page number.
-        history_path: Path used to persist recently requested pages.
+        book: The book being served, as `"<series>/<book>"`.
 
     Returns:
         A configured Flask blueprint.
@@ -26,7 +22,7 @@ def create_api_blueprint(
     def get_numbers(number: int) -> Response:
         """Return one story page with its choices and actions."""
         number_string = str(number)
-        update_last_pages(number_string, history_path)
+        record_page_view(book, number_string)
         if number_string not in story_data:
             return _page_not_found_response(number)
 

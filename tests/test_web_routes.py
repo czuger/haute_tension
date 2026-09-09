@@ -1,91 +1,47 @@
+"""Tests for the landing page and book navigation."""
+
 import html
-import json
-import tempfile
-import unittest
-from pathlib import Path
-
-from flask.testing import FlaskClient
-
-from haute_tension.application.factory import create_app
 
 
-class WebRoutesTestCase(unittest.TestCase):
-    """Tests for the landing page and book navigation."""
+class TestLandingPage:
+    """The one book on offer."""
 
-    def setUp(self) -> None:
-        """Create a small navigable book in an isolated directory."""
-        self.temporary_directory = tempfile.TemporaryDirectory()
-        temporary_path = Path(self.temporary_directory.name)
-        book_path = temporary_path / "books" / "series" / "book"
-        book_path.mkdir(parents=True)
-        (book_path / "merged_pages.json").write_text(
-            json.dumps(
-                [
-                    {
-                        "page": "1",
-                        "language": "fr",
-                        "text": ["Le début de l'aventure."],
-                        "choices": [
-                            {"goto": "2", "gains": [], "losses": []}
-                        ],
-                        "file_path": "raw_data/1.html",
-                    },
-                    {
-                        "page": "2",
-                        "language": "fr",
-                        "text": ["La fin de l'aventure."],
-                        "choices": [],
-                        "file_path": "raw_data/2.html",
-                    },
-                ]
-            ),
-            encoding="utf-8",
-        )
-        app = create_app(book_path, temporary_path / "last_pages.json")
-        app.config.update(TESTING=True)
-        self.client: FlaskClient = app.test_client()
+    def test_the_current_book_is_shown(self, client):
+        response = client.get("/")
 
-    def tearDown(self) -> None:
-        """Remove the isolated test directory."""
-        self.temporary_directory.cleanup()
-
-    def test_landing_page_shows_the_current_book(self) -> None:
-        """Present the only book and link to its opening page."""
-        response = self.client.get("/")
-        response_text = html.unescape(response.get_data(as_text=True))
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("La Forteresse d'Alamuth", response_text)
-        self.assertIn('href="/book/1"', response_text)
-
-    def test_reader_links_to_the_next_page(self) -> None:
-        """Render story text and a link for each available choice."""
-        response = self.client.get("/book/1")
-        response_text = response.get_data(as_text=True)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("Le début de l&#39;aventure.", response_text)
-        self.assertIn('href="/book/2"', response_text)
-        self.assertLess(
-            response_text.index('href="/book/2"'),
-            response_text.index("Le début de l&#39;aventure."),
+        assert response.status_code == 200
+        assert "La Forteresse d'Alamuth" in html.unescape(
+            response.get_data(as_text=True)
         )
 
-    def test_terminal_page_offers_to_restart(self) -> None:
-        """Show a restart action when a page has no choices."""
-        response = self.client.get("/book/2")
-        response_text = response.get_data(as_text=True)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("Fin de l'aventure", response_text)
-        self.assertIn('href="/book/1"', response_text)
-
-    def test_unknown_page_returns_not_found(self) -> None:
-        """Return HTTP 404 when a story page does not exist."""
-        response = self.client.get("/book/999")
-
-        self.assertEqual(response.status_code, 404)
+    def test_it_links_to_the_opening_page(self, client):
+        assert 'href="/book/1"' in client.get("/").get_data(as_text=True)
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TestReader:
+    """Reading a page and moving on from it."""
+
+    def test_choices_come_before_the_story_text(self, client):
+        body = client.get("/book/1").get_data(as_text=True)
+
+        assert body.index('href="/book/2"') < body.index("Le début de l&#39;aventure.")
+
+    def test_the_story_text_is_rendered(self, client):
+        body = client.get("/book/1").get_data(as_text=True)
+
+        assert "Le début de l&#39;aventure." in body
+        assert "Deuxième ligne." in body
+
+    def test_a_terminal_page_offers_to_restart(self, client):
+        body = client.get("/book/2").get_data(as_text=True)
+
+        assert "Fin de l'aventure" in body
+        assert 'href="/book/1"' in body
+
+    def test_an_unknown_page_returns_not_found(self, client):
+        assert client.get("/book/999").status_code == 404
+
+    def test_reading_a_page_is_not_recorded(self, client, fake_db):
+        client.get("/book/1")
+
+        assert fake_db["page_views"].docs == []

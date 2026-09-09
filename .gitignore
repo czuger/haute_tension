@@ -36,6 +36,7 @@ node_modules
 
 .coverage
 .pytest_cache/
-/haute_tension/last_pages.json
+
 *.egg-info/
 .DS_Store
+.env
