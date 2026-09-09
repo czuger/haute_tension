@@ -5,6 +5,7 @@ variables, and about nothing else here.
 """
 
 import os
+import secrets
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -63,3 +64,18 @@ def current_env() -> str:
 def current_db_name() -> str:
     """Return the Mongo database this run reads and writes."""
     return f"{DB_NAME}_{current_env()}"
+
+
+def session_secret() -> str:
+    """Return the key the session cookie is signed with.
+
+    The cookie carries a game id and nothing else, so a forged one costs a
+    stranger's play-through rather than an account. A generated key is therefore
+    good enough for a dev run, and only bad in production — where it would also
+    log every reader out at each restart, which is the visible half of the
+    problem.
+
+    Returns:
+        `FLASK_SECRET_KEY`, or a fresh random key when it is unset.
+    """
+    return os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)

@@ -10,8 +10,15 @@ from haute_tension.application.factory import BOOK, create_app
 class TestCreateApp:
     """Wiring the app onto a book read off disk."""
 
-    def test_both_blueprints_are_registered(self, books_path):
-        assert sorted(create_app(BOOK, books_path).blueprints) == ["api", "web"]
+    def test_every_blueprint_is_registered(self, books_path):
+        assert sorted(create_app(BOOK, books_path).blueprints) == [
+            "api",
+            "game",
+            "web",
+        ]
+
+    def test_the_session_cookie_is_signed(self, books_path):
+        assert create_app(BOOK, books_path).secret_key
 
     def test_the_book_is_served_without_a_database(self, books_path):
         """Browsing needs no mongod: only the history is stored."""

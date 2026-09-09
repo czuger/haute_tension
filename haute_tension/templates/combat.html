@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Combat · page {{ page_number }} · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }} · Page {{ page_number }}</p>
+        <h1>Combat</h1>
+    </header>
+
+    {% if combat.has_special_rules %}
+    <p class="warning" role="note">
+        Le texte de cette page ajoute une règle particulière que le moteur ne
+        gère pas encore. Reportez-vous au paragraphe avant de vous fier au
+        résultat.
+    </p>
+    {% endif %}
+
+    <div class="combatants">
+        <div class="combatant hero{% if game.vie_actuelle <= 0 %} down{% endif %}">
+            <p class="combatant-name">Prêtre Jean</p>
+            <p class="combatant-stats">
+                Force {{ game.force }}{% if game.damage_adjustment %}
+                <span class="adjust">+{{ game.damage_adjustment }} dom.</span>{% endif %}
+            </p>
+            <p class="combatant-vie">Vie {{ game.vie_actuelle }} / {{ game.vie_max }}</p>
+        </div>
+        {% for enemy in combat.enemies %}
+        <div class="combatant{% if enemy.vie_actuelle <= 0 %} down{% endif %}">
+            <p class="combatant-name">{{ enemy.name }}</p>
+            <p class="combatant-stats">
+                Force {{ enemy.force }}{% if enemy.damage_adjustment %}
+                <span class="adjust">+{{ enemy.damage_adjustment }} dom.</span>{% endif %}
+            </p>
+            <p class="combatant-vie">
+                {% if enemy.vie_actuelle <= 0 %}Vaincu{% else %}Vie {{ enemy.vie_actuelle }} / {{ enemy.vie_max }}{% endif %}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if combat.status == 'ongoing' %}
+    <form method="post" action="{{ url_for('game.fight_assault', number=page_number) }}">
+        <button class="button" type="submit">Assaut suivant</button>
+    </form>
+    {% else %}
+    <p class="verdict {{ combat.status }}">
+        {% if combat.status == 'victory' %}Vous l'emportez.{% else %}Vous êtes vaincu.{% endif %}
+    </p>
+    <form method="post" action="{{ url_for('game.leave_combat', number=page_number) }}">
+        <button class="button" type="submit">Poursuivre l'aventure</button>
+    </form>
+    {% endif %}
+
+    {% if combat.assaults %}
+    <h2>Journal des assauts</h2>
+    <ol class="assaults" reversed>
+        {% for assault in combat.assaults | reverse %}
+        <li class="assault">
+            <p class="assault-head">
+                Assaut {{ assault.number }} — vous&nbsp;:
+                {{ assault.hero_dice | join(' + ') }} + Force {{ game.force }}
+                = <strong>{{ assault.hero_attack_force }}</strong>
+            </p>
+            <ul class="exchanges">
+                {% for exchange in assault.exchanges %}
+                <li class="exchange{% if exchange.divine_judgement %} judgement{% endif %}">
+                    <span class="against">{{ exchange.enemy_name }}</span>
+                    {{ exchange.enemy_dice | join(' + ') }} + Force
+                    {{ exchange.enemy_force }}
+                    = <strong>{{ exchange.enemy_attack_force }}</strong> —
+                    {% if exchange.divine_judgement and exchange.winner == 'hero' %}
+                    double 6&nbsp;: tué net.
+                    {% elif exchange.divine_judgement %}
+                    double 1&nbsp;: il met fin à vos jours.
+                    {% elif exchange.winner == 'hero' %}
+                    vous touchez, {{ exchange.damage }} dommage{{ 's' if exchange.damage > 1 }}.
+                    {% elif exchange.winner == 'enemy' %}
+                    il vous blesse, {{ exchange.damage }} dommage{{ 's' if exchange.damage > 1 }}.
+                    {% else %}
+                    égalité, aucun dommage.
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</article>
+{% endblock %}

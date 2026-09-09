@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Créer votre héros · {{ book_title }}{% endblock %}
+
+{% block content %}
+<section class="card">
+    <p class="eyebrow">{{ book_series }}</p>
+    <h1>Prêtre Jean</h1>
+    <p class="book-description">
+        Avant de partir pour Alamuth, il vous faut savoir de quoi vous êtes fait.
+        Deux dés décideront de votre Force, deux autres de votre Vie&nbsp;: ces
+        chiffres vous suivront jusqu'au bout de l'aventure.
+    </p>
+    <form method="post" action="{{ url_for('game.create_game') }}">
+        <button class="button" type="submit">Lancer les dés</button>
+    </form>
+</section>
+{% endblock %}

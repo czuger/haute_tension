@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Mort · {{ book_title }}{% endblock %}
+
+{% block content %}
+<section class="card">
+    <p class="eyebrow">{{ book_series }}</p>
+    <h1>Votre aventure s'achève ici</h1>
+    <p class="book-description">
+        Prêtre Jean est tombé. La forteresse d'Alamuth gardera ses secrets —
+        du moins pour cet homme-là.
+    </p>
+    <form method="post" action="{{ url_for('game.create_game') }}">
+        <button class="button" type="submit">Reprendre avec un nouveau héros</button>
+    </form>
+</section>
+{% endblock %}

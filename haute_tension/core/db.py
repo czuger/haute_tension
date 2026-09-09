@@ -21,6 +21,8 @@ up in the first one's history.
 """
 
 import os
+import random
+import uuid
 from datetime import datetime, timezone
 
 from mongoengine import connect, disconnect
@@ -28,8 +30,28 @@ from mongoengine import get_db as mongoengine_db
 from mongoengine.errors import MongoEngineException
 from pymongo.errors import PyMongoError
 
+from haute_tension.core.character import (
+    FORCE_DAMAGE_ADJUSTMENTS,
+    generate_character,
+)
+from haute_tension.core.combat import (
+    FIGHTS_WITH_SPECIAL_RULES,
+    ONGOING,
+    Combatant,
+    combat_status,
+    resolve_assault,
+)
+from haute_tension.application.models.game import Combat as CombatDict
+from haute_tension.application.models.game import GameDict
 from haute_tension.core.config import current_db_name
-from haute_tension.core.models import PageView
+from haute_tension.core.models import (
+    Game,
+    GameAssault,
+    GameCombat,
+    GameEnemy,
+    GameExchange,
+    PageView,
+)
 
 # What every caller catches around a database call. Two families rather than
 # one: pymongo raises when the server cannot be reached or refuses a command,
@@ -188,3 +210,307 @@ def get_oldest_page(book: str) -> str | None:
     """
     history = last_pages(book)
     return history[0] if history else None
+
+
+def start_game(book: str, rng: random.Random | None = None) -> GameDict:
+    """Roll up a hero and open a game for him.
+
+    The only place the hero's Force and Vie are ever rolled: every later read
+    loads what was written here, so reopening a game never re-rolls it.
+
+    Args:
+        book: The book being played, as `"<series>/<book>"`.
+        rng: Source of chance, seeded by the tests.
+
+    Returns:
+        The freshly created game.
+    """
+    connect_db()
+    character = generate_character(rng)
+    game = Game(
+        id=uuid.uuid4().hex,
+        book=book,
+        force=character.force,
+        vie_max=character.vie_max,
+        vie_actuelle=character.vie_actuelle,
+        force_dice=list(character.force_roll.dice),
+        vie_dice=list(character.vie_roll.dice),
+        created_at=datetime.now(timezone.utc),
+    )
+    game.save(force_insert=True)
+    return _game_dict(game)
+
+
+def find_game(game_id: str | None) -> GameDict | None:
+    """Load one game, or `None` — a blank id matches nothing.
+
+    Args:
+        game_id: The id carried in the session cookie.
+
+    Returns:
+        The game, or `None` when it is unknown or the id is empty.
+    """
+    if not game_id:
+        return None
+    connect_db()
+    game = Game.objects(id=game_id).first()
+    return _game_dict(game) if game else None
+
+
+def begin_combat(
+    game_id: str, page: str, fight: dict[str, object]
+) -> GameDict | None:
+    """Put the hero into the fight a page holds, unless he is already in one.
+
+    Re-entering a page mid-fight must not restart it — a reload would otherwise
+    hand back full-health adversaries — so an open combat on the same page is
+    left exactly as it stands.
+
+    Args:
+        game_id: The game to arm.
+        page: The page number the fight belongs to.
+        fight: The page's `fight` object, as the book stores it.
+
+    Returns:
+        The game with a combat on it, or `None` when the game is unknown or the
+        fight has no adversaries to field.
+    """
+    game = _game_document(game_id)
+    if game is None:
+        return None
+    if game.combat is not None and game.combat.page == page:
+        return _game_dict(game)
+
+    enemies = _combat_enemies(fight)
+    if not enemies:
+        return None
+
+    outcome = fight.get("outcome") or {}
+    game.combat = GameCombat(
+        page=page,
+        fight_type=str(fight.get("fight_type") or ""),
+        enemies=enemies,
+        assaults=[],
+        status=ONGOING,
+        on_victory=_outcome_branch(outcome.get("on_victory")),
+        on_defeat=_outcome_branch(outcome.get("on_defeat")),
+        on_flee=_outcome_branch(outcome.get("on_flee")),
+        has_special_rules=page in FIGHTS_WITH_SPECIAL_RULES,
+    )
+    game.save()
+    return _game_dict(game)
+
+
+def play_assault(
+    game_id: str, rng: random.Random | None = None
+) -> GameDict | None:
+    """Play one assault of the open fight and write the result back.
+
+    Args:
+        game_id: The game to advance.
+        rng: Source of chance, seeded by the tests.
+
+    Returns:
+        The game after the assault, or `None` when there is no fight to advance
+        — no game, no combat, or one already decided.
+    """
+    game = _game_document(game_id)
+    if game is None or game.combat is None or game.combat.status != ONGOING:
+        return None
+
+    hero = Combatant(
+        name="Prêtre Jean",
+        force=game.force,
+        vie_max=game.vie_max,
+        vie_actuelle=game.vie_actuelle,
+        damage_adjustment=_hero_damage_adjustment(game.force),
+    )
+    enemies = [
+        Combatant(
+            name=enemy.name,
+            force=enemy.force,
+            vie_max=enemy.vie_max,
+            vie_actuelle=enemy.vie_actuelle,
+            damage_adjustment=enemy.damage_adjustment or 0,
+        )
+        for enemy in game.combat.enemies
+    ]
+
+    hero, enemies, assault = resolve_assault(
+        hero,
+        enemies,
+        game.combat.fight_type,
+        number=len(game.combat.assaults) + 1,
+        rng=rng,
+    )
+
+    game.vie_actuelle = hero.vie_actuelle
+    for stored, fought in zip(game.combat.enemies, enemies):
+        stored.vie_actuelle = fought.vie_actuelle
+    game.combat.assaults.append(_stored_assault(assault))
+    game.combat.status = combat_status(hero, enemies)
+    game.save()
+    return _game_dict(game)
+
+
+def end_combat(game_id: str) -> GameDict | None:
+    """Take the hero out of the fight, leaving his Vie where the fight left it.
+
+    Args:
+        game_id: The game to clear.
+
+    Returns:
+        The game with no combat on it, or `None` when it is unknown.
+    """
+    game = _game_document(game_id)
+    if game is None:
+        return None
+    game.combat = None
+    game.save()
+    return _game_dict(game)
+
+
+def _game_document(game_id: str | None) -> Game | None:
+    """The game as a document, for the three functions that write it back.
+
+    The one place inside this module that keeps a document: everything public
+    converts before returning, so no caller ever holds one.
+
+    Args:
+        game_id: The game to load.
+
+    Returns:
+        The document, or `None` when the id is unknown or empty.
+    """
+    if not game_id:
+        return None
+    connect_db()
+    return Game.objects(id=game_id).first()
+
+
+def _game_dict(game: Game) -> GameDict:
+    """Turn a game document into the dict the routes and templates read."""
+    return {
+        "id": game.id,
+        "book": game.book,
+        "force": game.force,
+        "vie_max": game.vie_max,
+        "vie_actuelle": game.vie_actuelle,
+        "force_dice": list(game.force_dice or []),
+        "vie_dice": list(game.vie_dice or []),
+        "damage_adjustment": _hero_damage_adjustment(game.force),
+        "combat": _combat_dict(game.combat) if game.combat else None,
+    }
+
+
+def _combat_dict(combat: GameCombat) -> CombatDict:
+    """Turn an open fight into the dict the combat template reads."""
+    return {
+        "page": combat.page,
+        "fight_type": combat.fight_type,
+        "status": combat.status,
+        "on_victory": combat.on_victory,
+        "on_defeat": combat.on_defeat,
+        "on_flee": combat.on_flee,
+        "has_special_rules": bool(combat.has_special_rules),
+        "enemies": [
+            {
+                "name": enemy.name,
+                "force": enemy.force,
+                "vie_max": enemy.vie_max,
+                "vie_actuelle": enemy.vie_actuelle,
+                "damage_adjustment": enemy.damage_adjustment or 0,
+            }
+            for enemy in combat.enemies
+        ],
+        "assaults": [
+            {
+                "number": assault.number,
+                "hero_dice": list(assault.hero_dice or []),
+                "hero_attack_force": assault.hero_attack_force,
+                "exchanges": [
+                    {
+                        "enemy_name": exchange.enemy_name,
+                        "enemy_force": exchange.enemy_force,
+                        "enemy_dice": list(exchange.enemy_dice or []),
+                        "enemy_attack_force": exchange.enemy_attack_force,
+                        "winner": exchange.winner,
+                        "damage": exchange.damage or 0,
+                        "divine_judgement": bool(exchange.divine_judgement),
+                    }
+                    for exchange in assault.exchanges
+                ],
+            }
+            for assault in combat.assaults
+        ],
+    }
+
+
+def _hero_damage_adjustment(force: int) -> int:
+    """How much a Force of this size adds to the hero's blows."""
+    return FORCE_DAMAGE_ADJUSTMENTS.get(force, 0)
+
+
+def _combat_enemies(fight: dict[str, object]) -> list[GameEnemy]:
+    """Field one adversary per body the fight puts in front of the hero.
+
+    A `count` on an adversary means the book prints one set of statistics for
+    several identical creatures ("LEPREUX ... count: 2"), so it is expanded into
+    that many adversaries, each with its own Vie to whittle down.
+
+    Args:
+        fight: The page's `fight` object.
+
+    Returns:
+        The adversaries, at full Vie.
+    """
+    enemies: list[GameEnemy] = []
+    for entry in fight.get("enemies") or []:
+        if not isinstance(entry, dict):
+            continue
+        vie = int(entry.get("vie") or 0)
+        for copy_number in range(max(1, int(entry.get("count") or 1))):
+            enemies.append(
+                GameEnemy(
+                    name=_enemy_name(entry, copy_number, entry.get("count")),
+                    force=int(entry.get("force") or 0),
+                    vie_max=vie,
+                    vie_actuelle=vie,
+                    damage_adjustment=int(entry.get("damage_adjustment") or 0),
+                )
+            )
+    return enemies
+
+
+def _enemy_name(entry: dict[str, object], copy_number: int, count: object) -> str:
+    """Name one adversary, numbering the copies of a repeated one apart."""
+    name = str(entry.get("name") or "adversaire")
+    if not count or int(count) < 2:
+        return name
+    return f"{name} {copy_number + 1}"
+
+
+def _outcome_branch(value: object) -> str | None:
+    """The page (or `"death"`) an outcome points at, or `None` when it has none."""
+    return None if value is None else str(value)
+
+
+def _stored_assault(assault: object) -> GameAssault:
+    """Turn an assault the engine produced into the document that keeps it."""
+    return GameAssault(
+        number=assault.number,
+        hero_dice=list(assault.hero_roll.dice),
+        hero_attack_force=assault.hero_attack_force,
+        exchanges=[
+            GameExchange(
+                enemy_name=exchange.enemy_name,
+                enemy_force=exchange.enemy_force,
+                enemy_dice=list(exchange.enemy_roll.dice),
+                enemy_attack_force=exchange.enemy_attack_force,
+                winner=exchange.winner,
+                damage=exchange.damage,
+                divine_judgement=exchange.divine_judgement,
+            )
+            for exchange in assault.exchanges
+        ],
+    )

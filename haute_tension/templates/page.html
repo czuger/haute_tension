@@ -26,6 +26,15 @@
     {% endif %}
 
     <p class="page-number">Page {{ page.page }}</p>
+
+    {% if page.fight and page.fight.enemies %}
+    <p class="fight-call">
+        <a class="button" href="{{ url_for('game.show_combat', number=page.page) }}">
+            Engager le combat
+        </a>
+    </p>
+    {% endif %}
+
     <nav class="choices" aria-label="Choix de l'aventure">
         {% if page.choices %}
         <h2>Que choisissez-vous&nbsp;?</h2>

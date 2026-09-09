@@ -30,10 +30,25 @@
         a { color: inherit; }
 
         .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
             padding: 1rem 1.25rem;
             border-bottom: 1px solid var(--line);
             background: rgba(255, 253, 248, 0.88);
         }
+
+        .site-sheet {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .site-sheet:hover, .site-sheet:focus-visible { color: var(--accent); }
 
         .site-name {
             display: inline-block;
@@ -201,6 +216,146 @@
 
         .end-note { color: var(--muted); }
 
+        /* --- Character sheet and combat --- */
+
+        button { font: inherit; cursor: pointer; }
+
+        .button[type="submit"], button.button {
+            border: none;
+        }
+
+        .roll-intro { color: var(--muted); font-style: italic; }
+
+        .sheet { margin: 0 0 2rem; }
+
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stat dt {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .stat dd { margin: 0; text-align: right; }
+        .stat dd strong { font-size: 1.5rem; }
+
+        .roll-detail {
+            display: block;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .reroll { margin-top: 2rem; }
+
+        .reroll button {
+            border: none;
+            padding: 0;
+            color: var(--muted);
+            background: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            text-decoration: underline;
+        }
+
+        .warning {
+            margin: 0 0 1.5rem;
+            padding: 0.8rem 1rem;
+            border-left: 3px solid var(--accent);
+            background: #f8f3ea;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .combatants {
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+            margin-bottom: 1.75rem;
+        }
+
+        .combatant {
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 0.25rem;
+            background: #f8f3ea;
+        }
+
+        .combatant.hero { border-color: var(--accent); }
+        .combatant.down { opacity: 0.45; }
+
+        .combatant p { margin: 0; }
+
+        .combatant-name {
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .combatant-stats, .combatant-vie {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .combatant-vie { font-weight: 700; color: var(--ink); }
+        .adjust { color: var(--accent); }
+
+        .verdict {
+            margin: 0 0 1.25rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .verdict.victory { color: var(--accent); }
+
+        .assaults {
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .assault {
+            padding: 0.8rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .assault-head {
+            margin: 0 0 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .exchanges { margin: 0; padding: 0; list-style: none; }
+
+        .exchange {
+            padding: 0.15rem 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .exchange.judgement { color: var(--accent); font-weight: 700; }
+
+        .against {
+            display: inline-block;
+            min-width: 9rem;
+            color: var(--ink);
+        }
+
         @media (max-width: 36rem) {
             main { width: min(100% - 1rem, 48rem); padding-top: 0.5rem; }
             .card { border-radius: 0; }
@@ -210,6 +365,7 @@
 <body>
     <header class="site-header">
         <a class="site-name" href="{{ url_for('web.landing_page') }}">Haute Tension</a>
+        <a class="site-sheet" href="{{ url_for('game.show_character') }}">Feuille de personnage</a>
     </header>
     <main>
         {% block content %}{% endblock %}

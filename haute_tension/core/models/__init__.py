@@ -6,11 +6,19 @@ write, and hands plain values back, so only this package and `core.db` ever see
 a document object.
 
     page_views -> PageView, one row per page asked for
+    games      -> Game, one play-through: the hero and the fight he is in
 
-One collection, because there is only one thing worth storing: the book is
-static and read into memory at startup, so nothing about it belongs here.
+The book is in neither: it is static and read into memory at startup.
 """
 
+from .game import Game, GameAssault, GameCombat, GameEnemy, GameExchange
 from .page_view import PageView
 
-__all__ = ["PageView"]
+__all__ = [
+    "Game",
+    "GameAssault",
+    "GameCombat",
+    "GameEnemy",
+    "GameExchange",
+    "PageView",
+]

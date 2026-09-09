@@ -4,7 +4,11 @@
 
 The application is a Flask service in `haute_tension/`. `app.py` is the development-server entry point, `application/` contains the app factory and the routes, and `templates/` contains the browser UI.
 
-`haute_tension/core/` is everything below the web layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables and which database), `story.py` (the book, read off disk), `models/` (one mongoengine document per collection, describing shapes and running no query), then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and no document object ever reaches a route or a template. Keep it that way: a new query belongs in `db.py`, never in a route.
+`haute_tension/core/` is everything below the web layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables, session key, which database), `story.py` (the book, read off disk), `dice.py` / `character.py` / `combat.py` (the game rules, all pure), `models/` (one mongoengine document per collection, describing shapes and running no query), then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and no document object ever reaches a route or a template. Keep it that way: a new query belongs in `db.py`, never in a route.
+
+The game rules stay pure and stay out of `db.py`: `combat.py` is handed a fight and gives back the fight after one assault, and `db.py` is what loads it, calls it and writes the result. Every function that needs chance takes a `random.Random`, threaded from `create_app(rng=...)`, so a rule can be tested against dice chosen for it. Never call `random` directly.
+
+`combat.FIGHTS_WITH_SPECIAL_RULES` lists the thirteen fights whose page text adds a rule the engine does not model; `TODO.md` says what each needs. Do not quietly widen the engine for one of them without updating both.
 
 **Only the reading history is stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing and would cost the ability to serve a page without a reachable server. Do not move it there.
 

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Prêtre Jean · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }}</p>
+        <h1>Prêtre Jean</h1>
+    </header>
+
+    {% if rolled %}
+    <p class="roll-intro">Les dés ont parlé. Voici l'homme que vous incarnez.</p>
+    {% endif %}
+
+    <dl class="sheet">
+        <div class="stat">
+            <dt>Force</dt>
+            <dd>
+                <strong>{{ game.force }}</strong>
+                <span class="roll-detail">
+                    {{ game.force_dice | join(' + ') }} (2D6) + 6 = {{ game.force }}
+                </span>
+            </dd>
+        </div>
+        <div class="stat">
+            <dt>Vie</dt>
+            <dd>
+                <strong>{{ game.vie_actuelle }}</strong> / {{ game.vie_max }}
+                <span class="roll-detail">
+                    {{ game.vie_dice | join(' + ') }} (2D6) + 18 = {{ game.vie_max }}
+                </span>
+            </dd>
+        </div>
+        {% if game.damage_adjustment %}
+        <div class="stat">
+            <dt>Ajustement-Force</dt>
+            <dd>
+                <strong>+{{ game.damage_adjustment }}</strong>
+                <span class="roll-detail">ajouté aux dommages que vous infligez</span>
+            </dd>
+        </div>
+        {% endif %}
+    </dl>
+
+    {% if game.combat %}
+    <a class="button" href="{{ url_for('game.show_combat', number=game.combat.page) }}">
+        Reprendre le combat
+    </a>
+    {% else %}
+    <a class="button" href="{{ url_for('web.read_page', number=1) }}">
+        Commencer l'aventure
+    </a>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('game.create_game') }}" class="reroll">
+        <button type="submit">Abandonner et créer un nouveau héros</button>
+    </form>
+</article>
+{% endblock %}

@@ -29,11 +29,16 @@ haute_tension/                 Flask application package
     routes.py                  API route: "/data/<number>"
     models/story_page.py       TypedDicts: StoryPage, StoryChoice, ElementChange
   core/                        Below the web layer — knows nothing about Flask
-    config.py                  .env, APP_ENV, and which database is used
+    config.py                  .env, APP_ENV, session key, which database
     story.py                   load_story(): reads and indexes pages.json
+    dice.py                    roll_2d6(): the two dice everything reads
+    character.py               Rolling up Prêtre Jean, once
+    combat.py                  The combat engine — pure, one assault at a time
     db.py                      The connection, and every read and write
-    models/page_view.py        PageView: one row per page asked for
-  templates/                   Jinja templates (base / index / page), CSS inline
+    models/
+      page_view.py             PageView: one row per page asked for
+      game.py                  Game: a hero, and the fight he is in
+  templates/                   Jinja templates, CSS inline in base.html
   books/<series>/<book>/       Runtime book data (see "Book data" below)
 
 Makefile                       make test / test-fast / coverage / serve
@@ -86,6 +91,12 @@ fixture books. It reads the book **once, at startup**, and holds it in memory.
 | `GET`  | `/`               | `web`     | Landing page: series, title, and a link to the opening page (page 1).                          |
 | `GET`  | `/book/<number>`  | `web`     | Reader: a breadcrumb of the last ten pages read, the page's choices, then its text. Unknown page → HTTP 404. A page with no choices shows "Fin de l'aventure" and a restart link. |
 | `GET`  | `/data/<number>`  | `api`     | The raw page object as JSON (text, choices, `fight` when present).                              |
+| `GET`  | `/game`           | `game`    | The hero's sheet, or the offer to roll one up.                                                  |
+| `POST` | `/game/new`       | `game`    | Rolls up Prêtre Jean and starts a play-through.                                                 |
+| `GET`  | `/combat/<number>`| `game`    | The fight a page holds, armed on first arrival. Unknown page, or one whose fight fields nobody → HTTP 404. |
+| `POST` | `/combat/<number>/assault` | `game` | Plays one assault and comes back to the fight.                                          |
+| `POST` | `/combat/<number>/resolve` | `game` | Closes a decided fight and follows the book to what comes next.                          |
+| `GET`  | `/game/death`     | `game`    | The end of the adventure, and the offer of another hero.                                        |
 
 `/data/<number>` also appends the requested page to the read history before
 looking it up. An unknown page returns a UTF-8 JSON body
@@ -169,6 +180,56 @@ The breadcrumb (`.trail`) lists the last ten pages read, oldest first, each a
 link back except the current one. It can hold ten entries and a revisited page
 appears twice, so it scrolls sideways on a narrow screen rather than wrapping.
 It is absent, not empty, when there is no history to show.
+
+---
+
+## The game
+
+### Rolling up the hero
+
+The rules of the series, from `regles-du-jeu-spj1`: **Force = 6 + 2D6** (so
+8–18) and **Vie = 18 + 2D6** (so 20–30). Both are thrown **once**, by
+`db.start_game()`, and written; every later read loads them back, so reopening a
+game never re-rolls it. `vie_max` is what was thrown and never moves again;
+`vie_actuelle` is what is left, and is the only thing combat writes.
+
+A Force of 17 or 18 earns an *Ajustement-Force* (+1 and +2), which adds to the
+damage the hero's blows do — the mirror of the `AJUSTEMENT DOMMAGES` some
+adversaries carry.
+
+### Fighting
+
+`core/combat.py` is the engine, and it is pure: no database, no Flask, no clock.
+It is handed the state of a fight and gives back the state after one assault.
+
+- **Force d'Attaque** — "jetez deux dés. Ajoutez au résultat votre total de
+  Force du moment."
+- **Damage is the gap** — "retirez la Force d'Attaque la plus faible de la Force
+  d'Attaque la plus élevée." An assault won by one point barely stings; one won
+  by ten is close to lethal. Adjustments are added to the gap.
+- **Divine judgement** — a hero's double 6 kills outright, an adversary's double
+  1 kills the hero. Neither computes a gap or applies an adjustment.
+- **Melee** — one hero roll per assault, compared to each adversary's own:
+  "lancez deux dés pour vous et deux dés pour chacun de vos adversaires."
+  A `sequential` fight is a queue instead, one adversary at a time.
+
+Two things the rules leave open are decided in the engine and marked as choices:
+**equal Forces d'Attaque cost nobody anything**, and **a hero's double 6
+outranks an adversary's double 1** in the same assault.
+
+### What the engine does not model
+
+Thirteen of the book's forty-seven fights add a rule of their own — a fight
+decided on the first assault, a limit of three assaults, a Force halved under
+water, a branch on the first wound or on a Vie threshold. They are listed in
+`combat.FIGHTS_WITH_SPECIAL_RULES`, the combat page warns the reader on them,
+and `TODO.md` says what each one needs.
+
+### State
+
+A play-through lives in the `games` collection; the session cookie carries its id
+and nothing else. It is the only document that is read, changed and written back
+— the book is static and the reading history is a log.
 
 ---
 
@@ -324,13 +385,20 @@ fixtures are the whole interface:
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-73 tests cover the connection and its guards (`test_core_connection.py`), the
+203 tests cover the connection and its guards (`test_core_connection.py`), the
 reading history (`test_core_db.py`), how a run picks its database
 (`test_core_config.py`), loading a book and every malformed input it rejects
-(`test_story.py`), the data route and its history side effect (`test_routes.py`),
-browser navigation, the breadcrumb and what a dead database costs it
-(`test_web_routes.py`), and the app factory and entry point (`test_app.py`).
-Current coverage: 100%.
+(`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero
+(`test_core_character.py`), every combat rule on its own with fixed dice
+(`test_core_combat.py`), play-through persistence (`test_core_games.py`), the
+data route (`test_routes.py`), browser navigation and the breadcrumb
+(`test_web_routes.py`), the character and combat routes (`test_game_routes.py`),
+and the app factory and entry point (`test_app.py`). Current coverage: 100%.
+
+Nothing in the suite is left to chance: `core.dice`, `core.character` and
+`core.combat` all take a `random.Random`, and `create_app(rng=...)` threads one
+through the whole application, so a rule is asserted against dice chosen for it
+rather than against a lucky seed.
 
 ---
 
