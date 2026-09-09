@@ -28,6 +28,8 @@ haute_tension/                 Flask application package
     web_routes.py              Browser routes: "/" and "/book/<number>"
     routes.py                  API route: "/data/<number>"
     models/story_page.py       TypedDicts: StoryPage, StoryChoice, ElementChange
+  application/logs/
+    request_trace.py           Every request and its answer, into the log
   core/                        Below the web layer — knows nothing about Flask
     config.py                  .env, APP_ENV, session key, which database
     story.py                   load_story(): reads and indexes pages.json
@@ -35,6 +37,9 @@ haute_tension/                 Flask application package
     character.py               Rolling up Prêtre Jean, once
     combat.py                  The combat engine — pure, one assault at a time
     db.py                      The connection, and every read and write
+    logs/
+      rotating_log.py          A log file that rotates, on a directory it makes
+      general_log.py           note() / event() / failure(), and what they hide
     models/
       page_view.py             PageView: one row per page asked for
       game.py                  Game: a hero, and the fight he is in
@@ -233,6 +238,53 @@ and nothing else. It is the only document that is read, changed and written back
 
 ---
 
+## The log
+
+One file, `logs/general.log`, not versioned and made on first write. It is the
+server's own trace: what is read when something has gone wrong and the page
+itself has nothing to say about it.
+
+**DEBUG, and on.** `LOG_LEVEL` raises it; a trace one must first go and turn on
+is a trace one does not have on the day it is needed. It rotates at 512 KB and
+keeps five archives, so yesterday's run is still there today.
+
+Two ways in, and one rule for both — **name every variable and write out its
+content**:
+
+```python
+note("Assault played", game=game.id, number=3, hero_vie=21)   # a step, DEBUG
+event("Hero rolled up", force=15, vie=24)                     # it happened, INFO
+failure("The database refused", trouble=error, page="22")     # ERROR + traceback
+```
+
+```
+2026-09-09 22:06:23  Hero rolled up — game='64e57937…', force=14, vie=27, force_dice=[5, 3]
+2026-09-09 22:06:23  Combat armed — game='64e57937…', page='22', enemies=["collecteur d'impots"]
+```
+
+`request_trace.py` is wired onto the application itself rather than a blueprint,
+so nothing is outside it: every request leaves a `Request` line and an `Answer`
+line, and a third when it fails. A JSON answer is written in full; a page is
+described (`<12138 bytes of text/html>`); a refusal is read whatever its shape,
+because its body carries the sentence explaining it; a streamed answer is left
+untouched, since reading it would consume it.
+
+### What it never writes
+
+A field whose name says `secret`, `token`, `password`, `authorization`,
+`cookie`, `session` or `key` is replaced by its length — at the top level, and
+**inside any body being logged**, because a body is where a secret travels.
+
+`game_id` is the exception this application adds. It is not a secret by name, but
+it is the only credential here: whoever holds one can pick up that play-through.
+It is written to its first eight characters — enough to follow one reader through
+a run, useless to anyone who reads the file.
+
+`LOG_VALUE_LIMIT` cuts a value beyond 2000 characters and says by how much; 0
+there writes every answer whole.
+
+---
+
 ## Book data
 
 Runtime books live in `haute_tension/books/<series>/<book>/`:
@@ -385,7 +437,7 @@ fixtures are the whole interface:
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-203 tests cover the connection and its guards (`test_core_connection.py`), the
+286 tests cover the connection and its guards (`test_core_connection.py`), the
 reading history (`test_core_db.py`), how a run picks its database
 (`test_core_config.py`), loading a book and every malformed input it rejects
 (`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero
@@ -393,7 +445,9 @@ reading history (`test_core_db.py`), how a run picks its database
 (`test_core_combat.py`), play-through persistence (`test_core_games.py`), the
 data route (`test_routes.py`), browser navigation and the breadcrumb
 (`test_web_routes.py`), the character and combat routes (`test_game_routes.py`),
-and the app factory and entry point (`test_app.py`). Current coverage: 100%.
+the app factory and entry point (`test_app.py`), what the log writes and what it
+must never write (`test_core_logs.py`), and the request trace
+(`test_request_trace.py`). Current coverage: 100%.
 
 Nothing in the suite is left to chance: `core.dice`, `core.character` and
 `core.combat` all take a `random.Random`, and `create_app(rng=...)` threads one

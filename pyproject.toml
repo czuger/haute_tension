@@ -32,7 +32,9 @@ packages = [
     "haute_tension",
     "haute_tension.application",
     "haute_tension.application.models",
+    "haute_tension.application.logs",
     "haute_tension.core",
+    "haute_tension.core.logs",
     "haute_tension.core.models",
 ]
 

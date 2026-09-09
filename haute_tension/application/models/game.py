@@ -7,6 +7,11 @@ the book.
 
 from typing import TypedDict
 
+# What the session cookie carries, and all it carries: the id of the
+# play-through. Read by the routes that drive a game and by the request trace,
+# which is why it sits here rather than in either.
+SESSION_KEY = "game_id"
+
 
 class Exchange(TypedDict):
     """What happened between the hero and one adversary in one assault."""

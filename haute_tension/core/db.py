@@ -41,6 +41,7 @@ from haute_tension.core.combat import (
     combat_status,
     resolve_assault,
 )
+from haute_tension.core.logs.general_log import event, note
 from haute_tension.application.models.game import Combat as CombatDict
 from haute_tension.application.models.game import GameDict
 from haute_tension.core.config import current_db_name
@@ -238,6 +239,15 @@ def start_game(book: str, rng: random.Random | None = None) -> GameDict:
         created_at=datetime.now(timezone.utc),
     )
     game.save(force_insert=True)
+    event(
+        "Hero rolled up",
+        game=game.id,
+        book=book,
+        force=game.force,
+        vie=game.vie_max,
+        force_dice=list(game.force_dice),
+        vie_dice=list(game.vie_dice),
+    )
     return _game_dict(game)
 
 
@@ -298,6 +308,14 @@ def begin_combat(
         has_special_rules=page in FIGHTS_WITH_SPECIAL_RULES,
     )
     game.save()
+    event(
+        "Combat armed",
+        game=game.id,
+        page=page,
+        fight_type=game.combat.fight_type,
+        enemies=[enemy.name for enemy in enemies],
+        special_rules=game.combat.has_special_rules,
+    )
     return _game_dict(game)
 
 
@@ -350,6 +368,33 @@ def play_assault(
     game.combat.assaults.append(_stored_assault(assault))
     game.combat.status = combat_status(hero, enemies)
     game.save()
+    note(
+        "Assault played",
+        game=game.id,
+        page=game.combat.page,
+        number=assault.number,
+        hero_attack_force=assault.hero_attack_force,
+        hero_vie=game.vie_actuelle,
+        exchanges=[
+            {
+                "enemy": exchange.enemy_name,
+                "attack_force": exchange.enemy_attack_force,
+                "winner": exchange.winner,
+                "damage": exchange.damage,
+                "divine_judgement": exchange.divine_judgement,
+            }
+            for exchange in assault.exchanges
+        ],
+    )
+    if game.combat.status != ONGOING:
+        event(
+            "Combat decided",
+            game=game.id,
+            page=game.combat.page,
+            outcome=game.combat.status,
+            assaults=len(game.combat.assaults),
+            hero_vie=game.vie_actuelle,
+        )
     return _game_dict(game)
 
 
@@ -365,8 +410,10 @@ def end_combat(game_id: str) -> GameDict | None:
     game = _game_document(game_id)
     if game is None:
         return None
+    decided = game.combat.status if game.combat else None
     game.combat = None
     game.save()
+    note("Combat left", game=game.id, outcome=decided, hero_vie=game.vie_actuelle)
     return _game_dict(game)
 
 

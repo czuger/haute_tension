@@ -1,5 +1,6 @@
 from flask import Blueprint, abort, render_template
 
+from haute_tension.core.logs.general_log import note
 from haute_tension.application.models.story_page import StoryData
 from haute_tension.core.db import HistoryUnavailable, last_pages, record_page_view
 
@@ -73,5 +74,10 @@ def _reading_trail(book: str, current_page: str) -> list[str]:
     try:
         record_page_view(book, current_page)
         return last_pages(book)
-    except HistoryUnavailable:
+    except HistoryUnavailable as trouble:
+        note(
+            "Reading history unavailable, serving the page without a trail",
+            page=current_page,
+            reason=repr(trouble),
+        )
         return []

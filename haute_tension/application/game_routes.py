@@ -22,7 +22,7 @@ from flask import (
 )
 from werkzeug.wrappers.response import Response
 
-from haute_tension.application.models.game import GameDict
+from haute_tension.application.models.game import SESSION_KEY, GameDict
 from haute_tension.application.models.story_page import StoryData
 from haute_tension.core.combat import DEFEAT, ONGOING, VICTORY
 from haute_tension.core.db import (
@@ -33,7 +33,6 @@ from haute_tension.core.db import (
     start_game,
 )
 
-SESSION_KEY = "game_id"
 DEATH = "death"
 
 
