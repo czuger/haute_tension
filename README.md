@@ -10,13 +10,11 @@ Une mise en ligne du livre dont vous êtes le héros : *La Forteresse d'Alamuth*
 The project has two halves:
 
 1. **A Flask reader** (`haute_tension/`) that serves the book as a browsable
-   website, plus a small JSON API. It reads the book from MongoDB.
+   website, plus a small JSON API. The book is read off disk into memory at
+   startup; MongoDB holds the reading history, and nothing else.
 2. **An offline import pipeline** (`work/`) that scrapes the original pages from
    the web, parses them into JSON, and enriches them (per-choice gains/losses,
    structured combat encounters) into the runtime book data.
-
-`scripts/import_book.py` joins the two: it loads a parsed book into the database,
-which is the only thing the application reads at runtime.
 
 ---
 
@@ -30,20 +28,15 @@ haute_tension/                 Flask application package
     web_routes.py              Browser routes: "/" and "/book/<number>"
     routes.py                  API route: "/data/<number>"
     models/story_page.py       TypedDicts: StoryPage, StoryChoice, ElementChange
-  core/                        The database layer — knows nothing about Flask
+  core/                        Below the web layer — knows nothing about Flask
     config.py                  .env, APP_ENV, and which database is used
+    story.py                   load_story(): reads and indexes pages.json
     db.py                      The connection, and every read and write
-    models/
-      base.py                  DictDocument: document <-> dict, both ways
-      story_page.py            StoryPage (+ embedded StoryChoice/ElementChange)
-      page_view.py             PageView: one row per page asked for
+    models/page_view.py        PageView: one row per page asked for
   templates/                   Jinja templates (base / index / page), CSS inline
-  books/<series>/<book>/       Import sources (see "Book data" below)
+  books/<series>/<book>/       Runtime book data (see "Book data" below)
 
-scripts/
-  import_book.py               merged_pages.json -> MongoDB
-
-Makefile                       make test / test-fast / coverage / import / serve
+Makefile                       make test / test-fast / coverage / serve
 
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
@@ -78,22 +71,20 @@ only, so the debugger is never exposed to the local network; change `host` in
 | Constant        | Value                                                   |
 | --------------- | ------------------------------------------------------- |
 | `BOOK`          | `pretre_jean/forteresse_alamuth`                         |
+| `BOOKS_PATH`    | `haute_tension/books`                                    |
 | `TEMPLATE_PATH` | `haute_tension/templates`                                |
 | `BOOK_SERIES`   | `Prêtre Jean`                                            |
 | `BOOK_TITLE`    | `La Forteresse d'Alamuth`                                |
 
-`create_app(book)` accepts a book name, which is how the tests run against
-fixture books. It reads that book from the database **once, at startup** — the
-pages only change when `scripts/import_book.py` runs, so holding them in memory
-keeps every page view from going back to Mongo for data that has not moved. A
-book that has never been imported simply serves no pages.
+`create_app(book, books_path)` accepts both, which is how the tests run against
+fixture books. It reads the book **once, at startup**, and holds it in memory.
 
 ### Routes
 
 | Method | Path              | Blueprint | Description                                                                                   |
 | ------ | ----------------- | --------- | --------------------------------------------------------------------------------------------- |
 | `GET`  | `/`               | `web`     | Landing page: series, title, and a link to the opening page (page 1).                          |
-| `GET`  | `/book/<number>`  | `web`     | Reader: the page's choices first, then its text. Unknown page → HTTP 404. A page with no choices shows "Fin de l'aventure" and a restart link. |
+| `GET`  | `/book/<number>`  | `web`     | Reader: a breadcrumb of the last ten pages read, the page's choices, then its text. Unknown page → HTTP 404. A page with no choices shows "Fin de l'aventure" and a restart link. |
 | `GET`  | `/data/<number>`  | `api`     | The raw page object as JSON (text, choices, `fight` when present).                              |
 
 `/data/<number>` also appends the requested page to the read history before
@@ -105,20 +96,26 @@ this error still carries HTTP 200.
 
 ## The database
 
-MongoDB, through mongoengine. `haute_tension/core/` is the whole of it, and
-nothing there imports Flask. The layering is strict and the imports only ever go
-one way:
+MongoDB, through mongoengine — and it holds **one thing: the reading history.**
+
+The book does not go in it, deliberately. It is 668 static pages that change only
+when the import pipeline is re-run, it fits in memory several times over, and
+`core/story.py` reads it off disk at startup. Storing it would buy nothing, and
+would cost the ability to serve a page without a reachable server.
+
+`haute_tension/core/` is everything below the web layer, and nothing there
+imports Flask. The layering is strict and the imports only ever go one way:
 
 ```
 config      environment variables, and which database
+story       the book, read off disk into memory
 models      the shape of what is stored — no module here runs a query
-db          the connection, and every read and write
+db          the database, on top of config and models
 ```
 
-**`core/db.py` is the only module that talks to Mongo**, and it hands plain
-dicts back — the same `TypedDict`s the routes and templates already read. No
-document object ever leaves it, which is what keeps the ORM out of the web
-layer. A new query belongs here, never in a route.
+**`core/db.py` is the only module that talks to Mongo**, and no document object
+ever leaves it, which is what keeps the ORM out of the web layer. A new query
+belongs here, never in a route.
 
 The connection is opened on the first call rather than at import time, so
 importing `core.db` never needs a reachable server — and it is the single seam
@@ -127,46 +124,37 @@ the tests replace.
 ### Which database
 
 `APP_ENV` (`dev` or `prod`, default `dev`) suffixes the base name, giving
-`haute_tension_dev` or `haute_tension_prod`, so a dev import never touches prod
-data. `MONGO_URI` says where the server is, and must **not** name a database: one
-given there would silently win over `APP_ENV`, so `connect_db()` refuses it.
+`haute_tension_dev` or `haute_tension_prod`. `MONGO_URI` says where the server
+is, and must **not** name a database: one given there would silently win over
+`APP_ENV`, so `connect_db()` refuses it.
 
-### Collections
+### The one collection
 
-| Collection    | Model       | Keyed by                                     |
-| ------------- | ----------- | -------------------------------------------- |
-| `story_pages` | `StoryPage` | The book's own page number (`_id`)           |
-| `page_views`  | `PageView`  | An ObjectId — a visit has no id of its own   |
+| Collection   | Model      | Keyed by                                    |
+| ------------ | ---------- | ------------------------------------------- |
+| `page_views` | `PageView` | An ObjectId — a visit has no id of its own  |
 
-Both are scoped by a `book` field, written `"<series>/<book>"`, so a second
-imported book never shows up in the first one's pages or history.
+One row per page asked for, scoped by a `book` field written
+`"<series>/<book>"`, so a second book never shows up in the first one's history.
 
-`StoryPage` embeds its `choices` (and each choice its `gains` / `losses`).
-`fight` is stored as a free-form dict: its shape varies with `fight_type` and the
-import pipeline is still moving it around, and the app only ever hands the whole
-object to a template.
-
-### Reads and writes
-
-- `load_story(book)` — every page of a book, indexed by page number.
-- `save_story(book, pages)` — replaces a book wholesale, refusing a page with no
-  string number and refusing two pages that share one. A rejected import writes
-  nothing.
-- `record_page_view(book, page)` — notes that a page was asked for.
+- `record_page_view(book, page)` — notes that a page was asked for, and says
+  whether it recorded anything. Asking again for the page one is already on is a
+  reload rather than a move, and is dropped; coming back to a page after going
+  elsewhere is a loop in the story, and is kept.
 - `last_pages(book, limit=10)` / `get_oldest_page(book)` — the bounded reading
-  history, oldest first. Bounding happens on read, so recording a visit stays a
-  plain insert.
+  history, oldest first. Bounding happens **on read**, so recording a visit stays
+  a plain insert.
 
-### The dict boundary
+### When the database is not there
 
-`core/models/base.py` holds `DictDocument`, which every model mixes in. Two rules
-the rest of the package leans on:
+`DatabaseError` is what a caller catches when a database call fails.
+`HistoryUnavailable` is wider by one case, and it is the case that matters: a
+reader who has never configured a server at all gets an `EnvironmentError` out of
+`connect_db()`, not a driver error.
 
-- **The dict is keyed as the document is stored**, so a stored page and a raw
-  imported page read the same.
-- **`to_dict()` always returns every declared field**, `None` where nothing was
-  written; **`from_dict()` ignores anything undeclared**, which is what lets a
-  raw `merged_pages.json` page be handed over as it came.
+The reader route catches the wider one. The breadcrumb is the only thing on the
+page that needs Mongo, and the book is not — so an unavailable history costs the
+breadcrumb and nothing else, and the book stays readable with no `.env` at all.
 
 ---
 
@@ -174,25 +162,23 @@ the rest of the package leans on:
 
 `base.html` carries the layout and the whole stylesheet (serif body, parchment
 palette, drop cap on the first paragraph, mobile breakpoint at 36rem).
-`index.html` is the landing card; `page.html` renders the page number, the
-choices block, then the story text.
+`index.html` is the landing card; `page.html` renders the breadcrumb, the page
+number, the choices block, then the story text.
+
+The breadcrumb (`.trail`) lists the last ten pages read, oldest first, each a
+link back except the current one. It can hold ten entries and a revisited page
+appears twice, so it scrolls sideways on a narrow screen rather than wrapping.
+It is absent, not empty, when there is no history to show.
 
 ---
 
 ## Book data
 
-Book sources live in `haute_tension/books/<series>/<book>/`. The application
-reads none of them at runtime — `scripts/import_book.py` loads them into Mongo,
-and the app serves what is in the database:
+Runtime books live in `haute_tension/books/<series>/<book>/`:
 
-- **`merged_pages.json`** — what the import script reads. A JSON list of 668 page
-  objects for *La Forteresse d'Alamuth*.
-- **`translated_elements.json`** — a flat map from English element keys to their
-  French display names (`"healing potion": "potion de guérison"`, …), used to
-  localize the gains/losses vocabulary produced by the import pipeline.
-- **`pages.json`** — a later regeneration of the same book (68 fights detected
-  instead of 50, 262 pages differing). It is *not* loaded by the app; treat it as
-  a candidate for the next `merged_pages.json`.
+- **`pages.json`** — the file the application loads, named by
+  `core.story.PAGES_FILE`. A JSON list of 668 page objects for *La Forteresse
+  d'Alamuth*, 68 of them carrying a `fight`. Read into memory at startup.
 
 A page object looks like this:
 
@@ -267,20 +253,10 @@ URI naming one is refused rather than silently obeyed. Any mongod will do:
 docker run -d --rm --name ht-mongo -p 27017:27017 mongo:7
 ```
 
-### 4. Import a book
+Only the reading history needs it. The book is read off disk, so browsing works
+whether or not a server is up.
 
-The application serves nothing until a book is in the database:
-
-```bash
-python scripts/import_book.py                              # the default book
-python scripts/import_book.py pretre_jean/forteresse_alamuth
-```
-
-It rewrites the book wholesale, so re-running it is how a re-parsed book reaches
-the app. It refuses an import with a malformed or duplicated page number, and
-writes nothing when it does.
-
-### 5. Run the server
+### 4. Run the server
 
 ```bash
 cd haute_tension && PYTHONPATH=.. python app.py
@@ -291,7 +267,7 @@ resolves.
 
 Then open <http://localhost:5001/>.
 
-### 6. Manual checks
+### 5. Manual checks
 
 ```bash
 curl http://localhost:5001/data/1
@@ -304,7 +280,7 @@ curl http://localhost:5001/data/99999      # unknown page, HTTP 200 + JSON error
 
 All tests live in the repository-root `tests/` directory and run under pytest,
 configured in `pyproject.toml` to measure branch coverage of `haute_tension` and
-`scripts` and to fail below 95%.
+to fail below 95%.
 
 The same suite runs against two backends, and no test is written to care which:
 
@@ -324,7 +300,7 @@ Two separations keep it away from the application's data, and both matter: it
 listens on its own port, **and** it works in its own database,
 `haute_tension_test`. The port alone would not be enough — nothing stops a
 `MONGO_URI` from pointing the application at that very container, and only the
-distinct database name then keeps `make test` from dropping an imported book.
+distinct database name then keeps `make test` from dropping a reading history.
 
 | Target | Does |
 | ------ | ---- |
@@ -332,11 +308,9 @@ distinct database name then keeps `make test` from dropping an imported book.
 | `make test-fast` | The same suite on the in-memory server |
 | `make coverage` | The suite plus an HTML report in `htmlcov/` |
 | `make mongo` / `make mongo-stop` | Brings the test container up / removes it |
-| `make import` | Loads `BOOK` into the database `.env` points at |
 | `make serve` | Runs the development server on port 5001 |
 
-`ARGS` passes arguments through to pytest (`make test ARGS="-k history -v"`), and
-`BOOK` picks what `make import` reads (`make import BOOK=serie/livre`).
+`ARGS` passes arguments through to pytest (`make test ARGS="-k history -v"`).
 
 **No test needs a running mongod** — `make test-fast` is the whole suite with
 nothing brought up. `tests/conftest.py` binds the models to mongomock, or to
@@ -345,17 +319,18 @@ either way — the one place that would reach for a server of its own. Three
 fixtures are the whole interface:
 
 - `fake_db` — the empty database. Seed a collection by assigning to
-  `fake_db["story_pages"].docs`, which is keyed the way the app reads it (`page`,
-  not `_id`).
-- `book_pages` — a small two-page book, already imported.
-- `client` — a Flask test client serving that book.
+  `fake_db["page_views"].docs`.
+- `books_path` — a small two-page book written to a temporary directory, so no
+  test reads the packaged one.
+- `client` — a Flask test client serving that book, with a database behind it.
 
-95 tests cover the connection and its guards (`test_core_connection.py`), every
-read and write (`test_core_db.py`), the dict boundary the models are
-(`test_core_models.py`), how a run picks its database (`test_core_config.py`),
-the import script (`test_import_book.py`), the data route and its history side
-effect (`test_routes.py`), browser navigation and 404s (`test_web_routes.py`),
-and the app factory and entry point (`test_app.py`). Current coverage: 100%.
+73 tests cover the connection and its guards (`test_core_connection.py`), the
+reading history (`test_core_db.py`), how a run picks its database
+(`test_core_config.py`), loading a book and every malformed input it rejects
+(`test_story.py`), the data route and its history side effect (`test_routes.py`),
+browser navigation, the breadcrumb and what a dead database costs it
+(`test_web_routes.py`), and the app factory and entry point (`test_app.py`).
+Current coverage: 100%.
 
 ---
 
@@ -403,12 +378,7 @@ emitting a script:
 - `new_fable_prompt_for_processing_book.txt` — both passes in one run.
 
 **4. Install.** Copy the enriched result to
-`haute_tension/books/<series>/<book>/merged_pages.json`, then load it into the
-database and restart the server:
-
-```bash
-python scripts/import_book.py <series>/<book>
-```
+`haute_tension/books/<series>/<book>/pages.json` and restart the server.
 
 ---
 
@@ -421,7 +391,7 @@ python scripts/import_book.py <series>/<book>
 - Google-style docstrings on every function and method; comments only for
   genuinely non-obvious logic.
 - Absolute imports from the repository root
-  (`from haute_tension.core.db import load_story`), `pathlib.Path` for paths, one
+  (`from haute_tension.core.story import load_story`), `pathlib.Path` for paths, one
   public class per snake_case file, models under `models/`.
 - The database layer stays in `core/` and the web layer stays out of it: a new
   query goes in `core/db.py`, never in a route, and no document object leaves

@@ -2,19 +2,15 @@
 
 The models describe the collections and nothing else: no module here opens a
 connection or runs a query. `core.db` holds the connection and every read and
-write, and hands dicts back to the rest of the app, so only this package and
-`core.db` ever see a document object.
+write, and hands plain values back, so only this package and `core.db` ever see
+a document object.
 
-    story_pages -> StoryPage (+ its embedded StoryChoice and ElementChange)
-    page_views  -> PageView, one row per page asked for
+    page_views -> PageView, one row per page asked for
+
+One collection, because there is only one thing worth storing: the book is
+static and read into memory at startup, so nothing about it belongs here.
 """
 
 from .page_view import PageView
-from .story_page import ElementChange, StoryChoice, StoryPage
 
-__all__ = [
-    "ElementChange",
-    "PageView",
-    "StoryChoice",
-    "StoryPage",
-]
+__all__ = ["PageView"]

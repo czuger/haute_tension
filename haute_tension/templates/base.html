@@ -123,6 +123,56 @@
             line-height: 0.85;
         }
 
+        /* The last pages read, oldest first. It can hold ten entries and a
+           revisited page appears twice, so it scrolls sideways on a narrow
+           screen rather than wrapping into the page number below it. */
+        .trail {
+            margin: 0 0 1.25rem;
+            overflow-x: auto;
+        }
+
+        .trail ol {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        .trail li + li::before {
+            content: "›";
+            margin-right: 0.4rem;
+            color: var(--line);
+        }
+
+        .trail li {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .trail a, .trail-current {
+            display: block;
+            padding: 0.15rem 0.45rem;
+            border-radius: 0.2rem;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .trail a:hover, .trail a:focus-visible {
+            color: var(--accent);
+            background: #f8f3ea;
+        }
+
+        .trail-current {
+            color: var(--paper);
+            background: var(--accent);
+            font-weight: 700;
+        }
+
         .choices {
             margin: 1.5rem 0 2.5rem;
             padding: 0 0 2rem;

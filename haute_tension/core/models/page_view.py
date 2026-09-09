@@ -1,20 +1,20 @@
 """The reading history: which page was asked for, and when.
 
 What `last_pages.json` used to hold, with one row per visit instead of one file
-per reader. The history is bounded when it is read rather than when it is
-written (see `core.db.last_pages`), so a visit is only ever an insert.
+per reader. The only thing this application stores: the book is static and lives
+in memory (see `core.story`), the history is what actually changes.
 
-The id is Mongo's own ObjectId: a visit has no id of its own, nothing ever looks
-one up by id, and `DictDocument` keeps an ObjectId out of the dicts it hands
-over.
+The history is bounded when it is read rather than when it is written (see
+`core.db.last_pages`), so a visit is only ever an insert.
+
+The id is Mongo's own ObjectId: a visit has no id of its own and nothing ever
+looks one up by id.
 """
 
 from mongoengine import DateTimeField, Document, StringField
 
-from .base import DictDocument
 
-
-class PageView(Document, DictDocument):
+class PageView(Document):
     """One page, asked for once."""
 
     meta = {

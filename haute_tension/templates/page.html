@@ -9,6 +9,22 @@
         <h1>{{ book_title }}</h1>
     </header>
 
+    {% if trail %}
+    <nav class="trail" aria-label="Pages parcourues">
+        <ol>
+            {% for number in trail %}
+            <li>
+                {% if loop.last %}
+                <span class="trail-current" aria-current="page">{{ number }}</span>
+                {% else %}
+                <a href="{{ url_for('web.read_page', number=number) }}">{{ number }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    </nav>
+    {% endif %}
+
     <p class="page-number">Page {{ page.page }}</p>
     <nav class="choices" aria-label="Choix de l'aventure">
         {% if page.choices %}

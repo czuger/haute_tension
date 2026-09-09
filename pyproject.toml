@@ -44,9 +44,7 @@ haute_tension = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-# The import scripts live in scripts/ and are imported by name from the tests.
-pythonpath = [".", "scripts"]
-addopts = "--cov=haute_tension --cov=scripts --cov-report=term-missing --cov-fail-under=95"
+addopts = "--cov=haute_tension --cov-report=term-missing --cov-fail-under=95"
 
 [tool.coverage.run]
 branch = true

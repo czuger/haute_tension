@@ -4,11 +4,15 @@
 
 The application is a Flask service in `haute_tension/`. `app.py` is the development-server entry point, `application/` contains the app factory and the routes, and `templates/` contains the browser UI.
 
-`haute_tension/core/` is the database layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables and which database) then `models/` (one mongoengine document per collection, describing shapes and running no query) then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and it hands plain dicts back — the `TypedDict`s in `application/models/story_page.py` — so no document object ever reaches a route, a template or a script. Keep it that way: a new query belongs in `db.py`, never in a route.
+`haute_tension/core/` is everything below the web layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables and which database), `story.py` (the book, read off disk), `models/` (one mongoengine document per collection, describing shapes and running no query), then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and no document object ever reaches a route or a template. Keep it that way: a new query belongs in `db.py`, never in a route.
 
-The connection is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `APP_ENV` (`dev` / `prod`) suffixes the database name, so a dev import never touches prod data.
+**Only the reading history is stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing and would cost the ability to serve a page without a reachable server. Do not move it there.
 
-Book sources live under `haute_tension/books/<series>/<book>/`; `merged_pages.json` is the import source and `translated_elements.json` contains localized game-element names. The application reads neither at runtime: `python scripts/import_book.py` loads a book into MongoDB, and the app serves what is in the database.
+That ability is load-bearing, so keep it: anything on a reader page that needs Mongo must degrade rather than fail. Catch `db.HistoryUnavailable` (the driver errors plus the `EnvironmentError` raised when no server is configured at all) around the database calls themselves, never around a whole route.
+
+The connection is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `APP_ENV` (`dev` / `prod`) suffixes the database name, so a dev run never touches prod data.
+
+Runtime books live under `haute_tension/books/<series>/<book>/`; `pages.json` is the file the application loads, named by `core.story.PAGES_FILE`.
 
 Story import and conversion files live in `work/`: source YAML/HTML is under `work/raw_data/`, and generated output belongs in `work/parsed_data/`.
 
@@ -17,8 +21,7 @@ Story import and conversion files live in `work/`: source YAML/HTML is under `wo
 - `pyenv virtualenv <python-version> haute_tension && pyenv local haute_tension` creates and selects the named virtualenv used by the repository's `.python-version` file.
 - `python -m pip install -e ".[test]"` installs the project, its dependencies and the test extras declared in `pyproject.toml`.
 - `make help` lists the repository's targets; `make test` is how the suite is run before pushing.
-- Copy `.env.example` to `.env` and point `MONGO_URI` at a reachable mongod; `APP_ENV` picks the database. Leave the database name out of `MONGO_URI` — `db.connect_db()` refuses a URI that names one.
-- `python scripts/import_book.py [<series>/<book>]` loads a parsed book into the database, rewriting it wholesale. Run it before the server: the app serves nothing until a book is imported.
+- Copy `.env.example` to `.env` and point `MONGO_URI` at a reachable mongod; `APP_ENV` picks the database. Leave the database name out of `MONGO_URI` — `db.connect_db()` refuses a URI that names one. Only the reading history needs the server; browsing works without one.
 - `cd haute_tension && PYTHONPATH=.. python app.py` starts the development server on port 5001.
 
 Declare Python dependencies and package metadata in `pyproject.toml`; do not recreate `requirements.txt` files.

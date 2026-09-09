@@ -10,7 +10,7 @@
 # in its own database, `haute_tension_test`, which the suite empties before every test. Both
 # separations matter, and the second is the one that saves you: the port keeps the two servers
 # apart, but nothing stops a MONGO_URI from pointing the application at this very container, and
-# only the distinct database name then keeps `make test` from dropping an imported book. It stays
+# only the distinct database name then keeps `make test` from dropping a reading history. It stays
 # up between two `make test`, which makes series fast; `make mongo-stop` removes it.
 #
 # Port 27019 is deliberate: 27017 is the default a local application container takes, and 27018 is
@@ -26,10 +26,7 @@ URI       := mongodb://localhost:$(PORT)
 # Arguments passed to pytest: `make test ARGS="-k history -v"`.
 ARGS ?=
 
-# The book the import targets read and write, as "<series>/<book>".
-BOOK ?= pretre_jean/forteresse_alamuth
-
-.PHONY: help test test-fast coverage mongo mongo-stop import serve
+.PHONY: help test test-fast coverage mongo mongo-stop serve
 
 help:
 	@echo "make test       — brings up MongoDB and runs the whole suite against it"
@@ -37,11 +34,9 @@ help:
 	@echo "make coverage   — the whole suite, with an HTML report in htmlcov/"
 	@echo "make mongo      — brings up the test MongoDB and waits for it"
 	@echo "make mongo-stop — removes the container"
-	@echo "make import     — loads BOOK into the database MONGO_URI/.env points at"
 	@echo "make serve      — runs the development server on port 5001"
 	@echo ""
 	@echo "ARGS passes arguments to pytest:  make test ARGS='-k history -v'"
-	@echo "BOOK picks the book to import:    make import BOOK=serie/livre"
 
 test: mongo
 	MONGO_URI_TEST=$(URI) python3 -m pytest $(ARGS)
@@ -92,11 +87,9 @@ mongo-stop:
 
 # --- Running the application ------------------------------------------------------------------
 #
-# These two read .env, not the test container above: the application's database is its own, and
-# `make test` must never be able to write to it.
-
-import:
-	python3 scripts/import_book.py $(BOOK)
+# Reads .env, not the test container above: the application's database is its own, and `make test`
+# must never be able to write to it. The book itself is read off disk, so this serves pages with
+# or without a reachable server — only the reading history needs one.
 
 serve:
 	cd haute_tension && PYTHONPATH=.. python3 app.py

@@ -116,10 +116,15 @@ class TestResetConnection:
 
 
 class TestDatabaseError:
-    """What every caller catches around a database call."""
+    """What a caller catches around a database call."""
 
     def test_both_driver_families_are_caught(self):
         from mongoengine.errors import MongoEngineException
         from pymongo.errors import PyMongoError
 
         assert core_db.DatabaseError == (PyMongoError, MongoEngineException)
+
+    def test_an_optional_history_also_tolerates_no_database_at_all(self):
+        """Never configuring a server raises EnvironmentError, not a driver one."""
+        assert EnvironmentError in core_db.HistoryUnavailable
+        assert set(core_db.DatabaseError) < set(core_db.HistoryUnavailable)

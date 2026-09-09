@@ -1,36 +1,41 @@
+from pathlib import Path
+
 from flask import Flask
 
 from haute_tension.application.routes import create_api_blueprint
 from haute_tension.application.web_routes import create_web_blueprint
 from haute_tension.core.config import ROOT
-from haute_tension.core.db import load_story
+from haute_tension.core.story import load_story
 
+BOOKS_PATH = ROOT / "haute_tension" / "books"
 TEMPLATE_PATH = ROOT / "haute_tension" / "templates"
 BOOK = "pretre_jean/forteresse_alamuth"
 BOOK_SERIES = "Prêtre Jean"
 BOOK_TITLE = "La Forteresse d'Alamuth"
 
 
-def create_app(book: str = BOOK) -> Flask:
+def create_app(book: str = BOOK, books_path: Path = BOOKS_PATH) -> Flask:
     """Create and configure the Flask application.
 
-    The book is read from the database once, at startup: it only changes when
-    `scripts/import_book.py` is run, and holding it in memory keeps every page
-    view from going back to Mongo for data that has not moved.
+    The book is read off disk once, at startup: it is static, small enough to sit
+    in memory, and changes only when the import pipeline is re-run. Only the
+    reading history goes to the database.
 
     Args:
         book: The book to serve, as `"<series>/<book>"`.
+        books_path: Directory the books live under.
 
     Returns:
         The configured Flask application.
 
     Raises:
-        EnvironmentError: If the database is not configured.
+        FileNotFoundError: If the book has no `pages.json`.
+        ValueError: If the book data is malformed or repeats a page.
     """
     app = Flask(__name__, template_folder=str(TEMPLATE_PATH))
-    story_data = load_story(book)
+    story_data = load_story(books_path / book)
     app.register_blueprint(
-        create_web_blueprint(story_data, BOOK_SERIES, BOOK_TITLE)
+        create_web_blueprint(story_data, book, BOOK_SERIES, BOOK_TITLE)
     )
     app.register_blueprint(create_api_blueprint(story_data, book))
     return app
