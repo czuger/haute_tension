@@ -39,6 +39,49 @@ class PageHistoryTestCase(unittest.TestCase):
         history = json.loads(self.history_path.read_text(encoding="utf-8"))
         self.assertEqual(history, [str(page) for page in range(2, 12)])
 
+    def test_oldest_page_is_the_first_retained_entry(self) -> None:
+        """Return the first page kept by the bounded history."""
+        self.history_path.write_text('["4", "7"]', encoding="utf-8")
+
+        self.assertEqual(get_oldest_page(self.history_path), "4")
+
+    def test_update_returns_the_bounded_history(self) -> None:
+        """Return the history that was just persisted."""
+        history = update_last_pages("1", self.history_path)
+
+        self.assertEqual(history, ["1"])
+        self.assertEqual(
+            json.loads(self.history_path.read_text(encoding="utf-8")),
+            ["1"],
+        )
+
+    def test_update_appends_to_an_existing_history(self) -> None:
+        """Keep previously persisted pages when appending a new one."""
+        self.history_path.write_text('["1"]', encoding="utf-8")
+
+        self.assertEqual(update_last_pages("2", self.history_path), ["1", "2"])
+
+    def test_non_list_history_is_rejected(self) -> None:
+        """Raise when the persisted history is not a list."""
+        self.history_path.write_text('{"page": "1"}', encoding="utf-8")
+
+        with self.assertRaises(ValueError):
+            get_oldest_page(self.history_path)
+
+    def test_history_of_non_strings_is_rejected(self) -> None:
+        """Raise when the persisted history holds non-string page numbers."""
+        self.history_path.write_text("[1]", encoding="utf-8")
+
+        with self.assertRaises(ValueError):
+            get_oldest_page(self.history_path)
+
+    def test_invalid_json_history_is_rejected(self) -> None:
+        """Raise when the persisted history is not valid JSON."""
+        self.history_path.write_text("[", encoding="utf-8")
+
+        with self.assertRaises(json.JSONDecodeError):
+            get_oldest_page(self.history_path)
+
 
 if __name__ == "__main__":
     unittest.main()

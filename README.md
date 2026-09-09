@@ -10,8 +10,7 @@ Une mise en ligne du livre dont vous êtes le héros : *La Forteresse d'Alamuth*
 The project has two halves:
 
 1. **A Flask reader** (`haute_tension/`) that serves the book as a browsable
-   website, plus a small JSON/audio API. Narration is generated on demand with
-   OpenAI text-to-speech and cached on disk.
+   website, plus a small JSON API.
 2. **An offline import pipeline** (`work/`) that scrapes the original pages from
    the web, parses them into JSON, and enriches them (per-choice gains/losses,
    structured combat encounters) into the runtime book data.
@@ -23,32 +22,29 @@ The project has two halves:
 ```
 haute_tension/                 Flask application package
   app.py                       Development-server entry point (port 5001)
-  config.json                  OpenAI credentials — git-ignored, not committed
   application/
     factory.py                 create_app(): wires blueprints, paths, book title
     web_routes.py              Browser routes: "/" and "/book/<number>"
-    routes.py                  API routes: "/data/<number>" and "/audio/<number>"
+    routes.py                  API route: "/data/<number>"
     story.py                   load_story(): reads and indexes merged_pages.json
-    page_history.py            Bounded on-disk history of recently played pages
+    page_history.py            Bounded on-disk history of recently read pages
     models/story_page.py       TypedDicts: StoryPage, StoryChoice, ElementChange
   templates/                   Jinja templates (base / index / page), CSS inline
   books/<series>/<book>/       Runtime book data (see "Book data" below)
-  speeches/                    Generated MP3 cache, keyed by text hash (ignored)
 
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
   urls.txt                     Books to crawl (one per line, "#" disables)
   parse_pages.py               HTML -> JSON: page text + outgoing page numbers
-  speak.py                     OpenAI TTS helper, also used by the audio route
   conversions_prompt_actions.txt   LLM prompt: extract choice gains/losses
   conversion_prompt_combat.txt     LLM prompt: detect and structure fights
   new_fable_prompt_for_processing_book.txt  Combined single-pass version
   raw_data/                    Downloaded HTML + per-book YAML index
   parsed_data/                 Generated intermediate JSON/YAML
 
-tests/                         unittest suite (Flask test client, OpenAI mocked)
+tests/                         Test suite (pytest runner, Flask test client)
 AGENTS.md                      Coding conventions for this repository
-pyproject.toml                 Package metadata and dependencies
+pyproject.toml                 Package metadata, dependencies, pytest/coverage
 ```
 
 ---
@@ -58,7 +54,9 @@ pyproject.toml                 Package metadata and dependencies
 ### Entry point and factory
 
 `haute_tension/app.py` builds the app with `create_app()` and runs the
-development server on `0.0.0.0:5001` with debug enabled.
+development server on `127.0.0.1:5001` with debug enabled. It binds loopback
+only, so the debugger is never exposed to the local network; change `host` in
+`main()` if you want to read the book from another device on your wifi.
 
 `application/factory.py` holds all the wiring and the default paths, resolved
 from the repository root:
@@ -82,9 +80,8 @@ startup and registers two blueprints.
 | `GET`  | `/`               | `web`     | Landing page: series, title, and a link to the opening page (page 1).                          |
 | `GET`  | `/book/<number>`  | `web`     | Reader: the page's choices first, then its text. Unknown page → HTTP 404. A page with no choices shows "Fin de l'aventure" and a restart link. |
 | `GET`  | `/data/<number>`  | `api`     | The raw page object as JSON (text, choices, `fight` when present).                              |
-| `GET`  | `/audio/<number>` | `api`     | Generates (or reuses) an MP3 narration of the page text and returns it as an attachment.        |
 
-`/audio/<number>` also appends the requested page to the play history before
+`/data/<number>` also appends the requested page to the read history before
 looking it up. An unknown page returns a UTF-8 JSON body
 `{"success": false, "message": "le numéro N n'a pas été trouvé"}` — note that
 this error still carries HTTP 200.
@@ -106,21 +103,6 @@ to `last_pages.json` (git-ignored):
   `MAX_PAGE_HISTORY = 10` entries.
 - `get_oldest_page(path)` returns the oldest retained page, `"1"` when no file
   exists yet, and `None` when the file holds an empty list.
-
-### Narration
-
-`work/speak.py` provides the three functions the audio route uses:
-
-- `get_text_hash(text)` — SHA-256 of the page text.
-- `get_audio_filename(hash)` — `../haute_tension/speeches/<hash>.mp3`.
-- `speak_french_text(text, voice="onyx", model="gpt-4o-mini-tts")` — if the file
-  is missing, calls the OpenAI speech API with a heroic-fantasy narrator style
-  instruction and writes the MP3. Existing files are reused, so a page is only
-  ever paid for once.
-
-Both the config path and the audio path in `speak.py` are **relative**, which is
-why the server is started from inside `haute_tension/` (see below). The pygame
-playback block is currently commented out; the route streams the file instead.
 
 ### Templates
 
@@ -193,59 +175,51 @@ pyenv local haute_tension
 python -m pip install -e .
 ```
 
-Dependencies come from `pyproject.toml`: Flask, openai, PyYAML,
-beautifulsoup4/bs4, pygame. Do not add a `requirements.txt`.
+Dependencies come from `pyproject.toml`: Flask, PyYAML, beautifulsoup4/bs4. Do
+not add a `requirements.txt`. Add `[test]` to also install pytest and
+pytest-cov:
 
-### 3. Credentials
-
-Create `haute_tension/config.json` (git-ignored — never commit a real key):
-
-```json
-{
-  "open_ai": {
-    "openai_key": "sk-…"
-  }
-}
+```bash
+python -m pip install -e ".[test]"
 ```
 
-Only the `/audio/<number>` route needs it; browsing the book works without one.
-
-### 4. Run the server
+### 3. Run the server
 
 ```bash
 cd haute_tension && PYTHONPATH=.. python app.py
 ```
 
-The `cd` matters: `work/speak.py` resolves `../haute_tension/config.json` and
-`../haute_tension/speeches/` relative to the working directory. `PYTHONPATH=..`
-puts the repository root on the import path so `haute_tension.*` and `work.*`
-both resolve.
+`PYTHONPATH=..` puts the repository root on the import path so `haute_tension.*`
+resolves.
 
 Then open <http://localhost:5001/>.
 
-### 5. Manual checks
+### 4. Manual checks
 
 ```bash
 curl http://localhost:5001/data/1
-curl -o page1.mp3 http://localhost:5001/audio/1     # spends OpenAI credit
+curl http://localhost:5001/data/99999      # unknown page, HTTP 200 + JSON error
 ```
 
 ---
 
 ## Tests
 
-All tests live in the repository-root `tests/` directory and run on the standard
-library's `unittest` — there is no pytest dependency:
+All tests live in the repository-root `tests/` directory. They are written with
+the standard library's `unittest` and run under pytest, which is configured in
+`pyproject.toml` to measure branch coverage of `haute_tension` and to fail below
+95%:
 
 ```bash
-python -m unittest discover -s tests
+python -m pytest
 ```
 
-10 tests cover the data and audio routes (`test_routes.py`, with
-`speak_french_text` and the hashing helpers patched out so no OpenAI call is
-made), browser navigation and 404s (`test_web_routes.py`), and the bounded page
-history (`test_page_history.py`). Each builds a throwaway book in a
-`TemporaryDirectory` and passes it to `create_app()`.
+27 tests cover the data route and its history side effect (`test_routes.py`),
+browser navigation and 404s (`test_web_routes.py`), the bounded page history and
+its validation errors (`test_page_history.py`), book loading and every malformed
+input it rejects (`test_story.py`), and the development-server entry point
+(`test_app.py`). Each route test builds a throwaway book in a
+`TemporaryDirectory` and passes it to `create_app()`. Current coverage: 100%.
 
 ---
 
@@ -314,8 +288,7 @@ emitting a script:
 - Commit subjects are short imperative sentences (`Page parsing reworked.`); no
   `wip` subjects in review-ready work.
 
-Never commit `haute_tension/config.json`, `last_pages.json`, generated MP3s in
-`haute_tension/speeches/`, caches or logs.
+Never commit `last_pages.json`, caches or logs.
 
 ---
 

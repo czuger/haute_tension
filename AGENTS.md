@@ -39,7 +39,7 @@ Reserve comments for genuinely complex, non-obvious, or easily misread logic. Ke
 
 ## Testing Guidelines
 
-There is no active automated Python test suite or coverage threshold. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py`, prefer Flask's test client, and mock OpenAI/audio calls. Document manual checks for `/data/<number>` and `/audio/<number>` in the pull request.
+Run the suite with `python -m pytest`. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py` and prefer Flask's test client. Branch coverage of `haute_tension` is measured by `pytest-cov` and configured in `pyproject.toml` to fail below 95%, so keep new code covered. Document manual checks for `/data/<number>` in the pull request.
 
 ## Commit & Pull Request Guidelines
 
@@ -47,4 +47,4 @@ History uses short sentence-style subjects such as `Page parsing reworked.` Use 
 
 ## Security & Generated Files
 
-Keep API keys in ignored `haute_tension/config.json`; never commit real credentials. Do not commit `last_pages.json`, generated files in `haute_tension/speeches/`, caches, logs, or OS/editor artifacts.
+Never commit real credentials. Do not commit `last_pages.json`, caches, logs, or OS/editor artifacts.

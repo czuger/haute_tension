@@ -28,7 +28,7 @@ def create_app(
 
     Args:
         book_path: Path to the directory containing the runtime book data.
-        history_path: Path used to persist recently requested audio pages.
+        history_path: Path used to persist recently requested pages.
 
     Returns:
         The configured Flask application.

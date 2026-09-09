@@ -33,3 +33,9 @@ node_modules
 /config.json
 /.python-version
 /haute_tension/config.json
+
+.coverage
+.pytest_cache/
+/haute_tension/last_pages.json
+*.egg-info/
+.DS_Store
