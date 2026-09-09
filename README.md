@@ -43,6 +43,8 @@ haute_tension/                 Flask application package
 scripts/
   import_book.py               merged_pages.json -> MongoDB
 
+Makefile                       make test / test-fast / coverage / import / serve
+
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
   urls.txt                     Books to crawl (one per line, "#" disables)
@@ -302,15 +304,45 @@ curl http://localhost:5001/data/99999      # unknown page, HTTP 200 + JSON error
 
 All tests live in the repository-root `tests/` directory and run under pytest,
 configured in `pyproject.toml` to measure branch coverage of `haute_tension` and
-`scripts` and to fail below 95%:
+`scripts` and to fail below 95%.
+
+The same suite runs against two backends, and no test is written to care which:
 
 ```bash
-python -m pytest
+make test        # a real MongoDB in a container — the pass that counts
+make test-fast   # the in-memory server, no container, well under a second
+python -m pytest # the same as make test-fast
 ```
 
-**No test needs a running mongod.** `tests/conftest.py` binds the models to an
-in-memory mongomock server and stubs out `core.db.connect_db()` — the one place
-that would reach for a server. Three fixtures are the whole interface:
+`make test` brings up `mongo:7` on **port 27019**, waits for it to actually
+answer, and points the suite at it. mongomock is a reimplementation, so a driver
+behaviour it does not share is a bug only the real server shows — this repository
+has already had one. The container stays up between runs, which makes a series of
+`make test` fast; `make mongo-stop` removes it.
+
+Two separations keep it away from the application's data, and both matter: it
+listens on its own port, **and** it works in its own database,
+`haute_tension_test`. The port alone would not be enough — nothing stops a
+`MONGO_URI` from pointing the application at that very container, and only the
+distinct database name then keeps `make test` from dropping an imported book.
+
+| Target | Does |
+| ------ | ---- |
+| `make test` | Brings up MongoDB and runs the whole suite against it |
+| `make test-fast` | The same suite on the in-memory server |
+| `make coverage` | The suite plus an HTML report in `htmlcov/` |
+| `make mongo` / `make mongo-stop` | Brings the test container up / removes it |
+| `make import` | Loads `BOOK` into the database `.env` points at |
+| `make serve` | Runs the development server on port 5001 |
+
+`ARGS` passes arguments through to pytest (`make test ARGS="-k history -v"`), and
+`BOOK` picks what `make import` reads (`make import BOOK=serie/livre`).
+
+**No test needs a running mongod** — `make test-fast` is the whole suite with
+nothing brought up. `tests/conftest.py` binds the models to mongomock, or to
+`MONGO_URI_TEST` when the Makefile sets it, and stubs out `core.db.connect_db()`
+either way — the one place that would reach for a server of its own. Three
+fixtures are the whole interface:
 
 - `fake_db` — the empty database. Seed a collection by assigning to
   `fake_db["story_pages"].docs`, which is keyed the way the app reads it (`page`,

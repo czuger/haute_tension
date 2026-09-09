@@ -16,6 +16,7 @@ Story import and conversion files live in `work/`: source YAML/HTML is under `wo
 
 - `pyenv virtualenv <python-version> haute_tension && pyenv local haute_tension` creates and selects the named virtualenv used by the repository's `.python-version` file.
 - `python -m pip install -e ".[test]"` installs the project, its dependencies and the test extras declared in `pyproject.toml`.
+- `make help` lists the repository's targets; `make test` is how the suite is run before pushing.
 - Copy `.env.example` to `.env` and point `MONGO_URI` at a reachable mongod; `APP_ENV` picks the database. Leave the database name out of `MONGO_URI` — `db.connect_db()` refuses a URI that names one.
 - `python scripts/import_book.py [<series>/<book>]` loads a parsed book into the database, rewriting it wholesale. Run it before the server: the app serves nothing until a book is imported.
 - `cd haute_tension && PYTHONPATH=.. python app.py` starts the development server on port 5001.
@@ -49,7 +50,9 @@ Reserve comments for genuinely complex, non-obvious, or easily misread logic. Ke
 
 Run the suite with `python -m pytest`. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py` and prefer Flask's test client. Branch coverage of `haute_tension` and `scripts` is measured by `pytest-cov` and configured in `pyproject.toml` to fail below 95%, so keep new code covered.
 
-No test may need a running mongod. `tests/conftest.py` binds the models to an in-memory mongomock server and stubs `core.db.connect_db()` out; take the `fake_db`, `book_pages` or `client` fixture rather than standing up your own. Seed a collection by assigning to `fake_db["<collection>"].docs`, which is keyed the way the app reads it. Document manual checks for `/data/<number>` in the pull request.
+The suite runs against two backends and no test may care which. `make test` brings up a real MongoDB in a container (port 27019, database `haute_tension_test`) and runs the suite against it; `make test-fast` and a bare `python -m pytest` use an in-memory mongomock server and need nothing brought up. `tests/conftest.py` binds the models to whichever applies and stubs `core.db.connect_db()` out either way; take the `fake_db`, `book_pages` or `client` fixture rather than standing up your own. Run `make test` before pushing: mongomock is a reimplementation, and a driver behaviour it does not share is a bug only the real server shows.
+
+Never point `TEST_DB_NAME` at a database the application uses — the suite empties it before every test. Seed a collection by assigning to `fake_db["<collection>"].docs`, which is keyed the way the app reads it. Document manual checks for `/data/<number>` in the pull request.
 
 ## Commit & Pull Request Guidelines
 

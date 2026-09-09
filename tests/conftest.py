@@ -1,11 +1,23 @@
-"""Fixtures every test file shares: the fake database, and an app on top of it.
+"""Fixtures every test file shares: the database, and an app on top of it.
 
-No test here ever needs a running mongod: the models are pointed at an in-memory
-mongomock server, and `core.db.connect_db()` — the one place that would reach for
-a server — is stubbed out.
+The suite runs the same way against two backends, and every test is written not
+to care which:
+
+- **`python -m pytest`** — the models are bound to an in-memory mongomock server.
+  No mongod, nothing to bring up, and the whole suite runs in a fraction of a
+  second. This is the pass one wants while writing a test.
+- **`make test`** — `MONGO_URI_TEST` names a real MongoDB (the Makefile brings
+  one up in a container), and the models are bound to that instead. Slower, and
+  the one that counts before pushing: mongomock is a reimplementation, so a
+  driver behaviour it does not share is a bug this suite would otherwise never
+  see.
+
+Either way `core.db.connect_db()` — the one place that would reach for a server
+of its own — is stubbed out, so nothing here follows `.env`.
 """
 
 import copy
+import os
 
 import mongoengine
 import mongomock
@@ -14,10 +26,19 @@ import pytest
 from haute_tension.core import db as core_db
 from haute_tension.core.models import PageView, StoryPage
 
-# The database the models are bound to for the whole session. Its name matters
-# only in what the import script prints; `current_db_name()` gives the same one,
-# since clean_env drops APP_ENV.
-TEST_DB_NAME = "haute_tension_dev"
+# A real MongoDB to run against, instead of mongomock. The Makefile sets it; an
+# empty environment means the in-memory server.
+MONGO_URI_TEST = os.environ.get("MONGO_URI_TEST", "").strip()
+
+# The database the models are bound to for the whole session, and it is emptied
+# before every test — so it must never be one the application uses. Deliberately
+# not `haute_tension_dev`: the test server is meant to be a container of its own,
+# but nothing stops a MONGO_URI from pointing the application at it, and a name
+# of its own is what keeps `make test` from dropping an imported book.
+#
+# Unrelated to what `current_db_name()` returns, which is what the import script
+# prints and which `connect_db()` — stubbed here — would have connected to.
+TEST_DB_NAME = "haute_tension_test"
 
 # The collections whose `_id` is the book's own id (a page number) rather than an
 # ObjectId — everywhere the app says `page`, Mongo says `_id`, and `docs` below
@@ -91,20 +112,31 @@ class FakeDB:
 
 @pytest.fixture
 def fake_db(monkeypatch):
-    """Bind the models to an in-memory server, emptied for every test.
+    """Bind the models to a database of their own, emptied for every test.
 
-    `connect_db()` is the single seam: stubbing it out is what keeps every read
-    and write in `core.db` from reaching for a real server.
+    mongomock unless `MONGO_URI_TEST` names a real server. `connect_db()` is the
+    single seam: stubbing it out is what keeps every read and write in `core.db`
+    from opening a connection of its own.
     """
     mongoengine.disconnect()
-    mongoengine.connect(
-        db=TEST_DB_NAME,
-        mongo_client_class=mongomock.MongoClient,
-        uuidRepresentation="standard",
-    )
+    if MONGO_URI_TEST:
+        mongoengine.connect(
+            db=TEST_DB_NAME,
+            host=MONGO_URI_TEST,
+            serverSelectionTimeoutMS=core_db.SERVER_SELECTION_TIMEOUT_MS,
+            uuidRepresentation="standard",
+        )
+    else:
+        mongoengine.connect(
+            db=TEST_DB_NAME,
+            mongo_client_class=mongomock.MongoClient,
+            uuidRepresentation="standard",
+        )
     monkeypatch.setattr(core_db, "connect_db", lambda: None)
 
     database = mongoengine.get_db()
+    # Dropped rather than emptied: an index left behind by another test's model
+    # would outlive the documents it was built for.
     for name in database.list_collection_names():
         database.drop_collection(name)
 
