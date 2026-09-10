@@ -27,6 +27,61 @@
 
     <p class="page-number">Page {{ page.page }}</p>
 
+    {% if game %}
+    <p class="holdings">
+        <span>Force <strong>{{ game.force }}</strong></span>
+        <span>Vie <strong>{{ game.vie_actuelle }}</strong>/{{ game.vie_max }}</span>
+        <span>Or <strong>{{ game.gold }}</strong></span>
+        <a class="bag-link" href="{{ url_for('game.show_character') }}">
+            Feuille de personnage
+            {% if game.bag %}
+            <span class="bag-count">({{ game.bag | sum(attribute='count') }}
+            objet{{ 's' if game.bag | sum(attribute='count') > 1 }})</span>
+            {% else %}
+            <span class="bag-count">(sac vide)</span>
+            {% endif %}
+        </a>
+    </p>
+    {% endif %}
+
+    {% if game and game.pending %}
+    <section class="pending" aria-labelledby="pending-title">
+        <h2 id="pending-title">À vous de voir</h2>
+        <p class="pending-intro">
+            Ces effets dépendent de votre situation, que le livre ne dit pas au
+            programme. Appliquez ceux qui vous concernent.
+        </p>
+        <ul>
+            {% for change in game.pending %}
+            <li>
+                <span class="pending-change">{{ change.described }}</span>
+                {% if change.condition %}
+                <span class="pending-condition">{{ change.condition }}</span>
+                {% elif change.note == 'dice' %}
+                <span class="pending-condition">
+                    Le montant se lance aux dés&nbsp;: voyez le paragraphe.
+                </span>
+                {% endif %}
+                <span class="pending-actions">
+                    <form method="post" action="{{ url_for('game.apply_change', index=change.index) }}">
+                        <input type="hidden" name="page" value="{{ page.page }}">
+                        <button type="submit">Appliquer</button>
+                    </form>
+                    <form method="post" action="{{ url_for('game.dismiss_change', index=change.index) }}">
+                        <input type="hidden" name="page" value="{{ page.page }}">
+                        <button type="submit" class="quiet">Ignorer</button>
+                    </form>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="{{ url_for('game.dismiss_all_changes') }}">
+            <input type="hidden" name="page" value="{{ page.page }}">
+            <button type="submit" class="quiet">Tout ignorer</button>
+        </form>
+    </section>
+    {% endif %}
+
     {% if page.fight and page.fight.enemies %}
     <p class="fight-call">
         <a class="button" href="{{ url_for('game.show_combat', number=page.page) }}">
@@ -41,9 +96,23 @@
         <ul>
             {% for choice in page.choices %}
             <li>
+                {% if game %}
+                <form method="post" action="{{ url_for('game.take_choice', number=page.page, index=loop.index0) }}">
+                    <button class="choice-link" type="submit">
+                        Continuer vers la page {{ choice.goto }}
+                        {% if choice_changes[loop.index0] %}
+                        <span class="choice-cost">{{ choice_changes[loop.index0] | join(', ') }}</span>
+                        {% endif %}
+                    </button>
+                </form>
+                {% else %}
                 <a class="choice-link" href="{{ url_for('web.read_page', number=choice.goto) }}">
                     Continuer vers la page {{ choice.goto }}
+                    {% if choice_changes[loop.index0] %}
+                    <span class="choice-cost">{{ choice_changes[loop.index0] | join(', ') }}</span>
+                    {% endif %}
                 </a>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>

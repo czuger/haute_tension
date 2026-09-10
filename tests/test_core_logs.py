@@ -334,6 +334,65 @@ class TestRotatingLog:
     def test_the_default_size_is_generous_enough_for_a_run(self):
         assert MAX_BYTES >= 100 * 1024
 
+    def test_a_directory_that_disappears_is_remade(self, tmp_path):
+        """`logs/` going under a running server must not cost every later line.
+
+        The handler reopens the file at every rotation, so making the directory
+        once, before handing it over, is not enough.
+        """
+        import shutil
+
+        directory = tmp_path / "logs"
+        path = directory / "general.log"
+        handler = open_the_log(path, max_bytes=200, files_kept=2)
+        logger = logging.getLogger("haute_tension.test.vanishing")
+        logger.addHandler(handler)
+        logger.setLevel(logging.DEBUG)
+        logger.info("before")
+        shutil.rmtree(directory)
+
+        try:
+            for _ in range(20):
+                logger.info("x" * 50)
+        finally:
+            logger.removeHandler(handler)
+            handler.close()
+
+        assert directory.is_dir()
+        assert path.exists()
+        assert "x" in path.read_text(encoding="utf-8")
+
+    def test_nothing_is_written_to_stderr_when_it_disappears(
+        self, tmp_path, capsys
+    ):
+        """A lost log line used to print a traceback per request."""
+        import shutil
+
+        directory = tmp_path / "logs"
+        handler = open_the_log(directory / "general.log", max_bytes=200)
+        logger = logging.getLogger("haute_tension.test.quiet")
+        logger.addHandler(handler)
+        logger.setLevel(logging.DEBUG)
+        logger.info("before")
+        shutil.rmtree(directory)
+
+        try:
+            for _ in range(20):
+                logger.info("x" * 50)
+        finally:
+            logger.removeHandler(handler)
+            handler.close()
+
+        assert "FileNotFoundError" not in capsys.readouterr().err
+
+    def test_the_directory_is_made_on_the_first_open_too(self, tmp_path):
+        handler = open_the_log(tmp_path / "deeper" / "still" / "general.log")
+
+        try:
+            assert (tmp_path / "deeper" / "still").is_dir()
+        finally:
+            handler.close()
+
 
 class TestSetUp:
     """Giving the log its file and its level."""

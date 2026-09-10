@@ -10,6 +10,10 @@ The application is a Flask service in `haute_tension/`. `app.py` is the developm
 
 Character creation has two modes, `character.NORMAL` (the book) and `character.EASY` (a house rule). A mode is a `Throw` for Force and one for Vie — a base plus `count`D`faces` — so a new one is a table entry, not a branch, and the sheet prints whatever formula made the hero. `db.start_game()` takes `mode` and `rng` keyword-only, deliberately: they used to be one positional argument and swapping them silently is exactly the bug that catches.
 
+`core/inventory.py` says what a gain or a loss does; it is pure like the combat engine, and `db.py` loads, calls and writes. **Never apply a change carrying a `condition`.** The conditions are free French — a prerequisite or a duration — and 65 of the book's 275 changes have one; they go to the game's `pending` list and the reader rules on them. Vie may never rise above `vie_max`, nothing goes below zero, and a template must read `game.bag`, never `game.items` — Jinja finds `dict.items`, the method, before the key.
+
+A hero is laid to rest by `db._lay_to_rest()`, called after every write that can empty his Vie — combat, a choice followed, a pending change applied. Add a call there if you add another such write, and never move a stamped `died_at`: the first death is the one that counts. A hero abandoned alive is not among the fallen.
+
 The game rules stay pure and stay out of `db.py`: `combat.py` is handed a fight and gives back the fight after one assault, and `db.py` is what loads it, calls it and writes the result. Every function that needs chance takes a `random.Random`, threaded from `create_app(rng=...)`, so a rule can be tested against dice chosen for it. Never call `random` directly.
 
 `combat.FIGHTS_WITH_SPECIAL_RULES` lists the thirteen fights whose page text adds a rule the engine does not model; `TODO.md` says what each needs. Do not quietly widen the engine for one of them without updating both.

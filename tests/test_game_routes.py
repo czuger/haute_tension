@@ -60,8 +60,9 @@ class TestCreatingAHero:
         stored = fake_db["games"].docs[0]
         body = text_of(hero.get("/game"))
 
-        assert str(stored["force"]) in body
-        assert f'{stored["vie_actuelle"]}</strong> / {stored["vie_max"]}' in body
+        assert f'<strong>{stored["force"]}</strong>' in body
+        assert f'<strong>{stored["vie_actuelle"]}</strong>' in body
+        assert f'/{stored["vie_max"]}' in body
 
     def test_reloading_the_sheet_never_re_rolls(self, hero, fake_db):
         """The dice are thrown once; every later view loads what was written."""
@@ -316,7 +317,26 @@ class TestLeavingACombat:
         assert response.headers["Location"] == "/book/1"
 
     def test_an_undecided_fight_is_not_cleared(self, hero, fake_db):
-        hero.post("/combat/1/assault")
+        """Seeded rather than fought: whether one assault decides it is chance."""
+        game = fake_db["games"].docs[0]
+        game["combat"] = {
+            "page": "1",
+            "fight_type": "single",
+            "status": "ongoing",
+            "on_victory": "2",
+            "on_defeat": "death",
+            "enemies": [
+                {
+                    "name": "collecteur",
+                    "force": 6,
+                    "vie_max": 400,
+                    "vie_actuelle": 400,
+                }
+            ],
+            "assaults": [],
+        }
+        fake_db["games"].docs = [game]
+
         hero.post("/combat/1/resolve")
 
         assert fake_db["games"].docs[0].get("combat") is not None

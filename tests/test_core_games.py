@@ -5,7 +5,10 @@ import random
 from haute_tension.core.character import EASY, NORMAL
 from haute_tension.core.combat import DEFEAT, ONGOING, VICTORY
 from haute_tension.core.db import (
+    apply_pending,
     begin_combat,
+    dismiss_pending,
+    follow_choice,
     end_combat,
     find_game,
     play_assault,
@@ -31,7 +34,7 @@ class TestStartGame:
     """Rolling up a hero and opening a game for him."""
 
     def test_the_hero_is_rolled_and_stored(self, fake_db):
-        game = start_game(BOOK, rng=FixedDice(3, 4, 5, 2))
+        game = start_game(BOOK, rng=FixedDice(3, 4, 5, 2, 1, 1, 1, 1))
 
         assert game["force"] == 13
         assert game["vie_max"] == 25
@@ -47,7 +50,7 @@ class TestStartGame:
         assert game["force_base"] == 6
 
     def test_an_easy_hero_is_rolled_the_easy_way(self, fake_db):
-        game = start_game(BOOK, mode=EASY, rng=FixedDice(3, 4, 2, 3, 1))
+        game = start_game(BOOK, mode=EASY, rng=FixedDice(3, 4, 2, 3, 1, 1, 1, 1, 1))
 
         assert game["mode"] == "easy"
         assert game["force"] == 12 + 7
@@ -86,7 +89,7 @@ class TestStartGame:
         assert start_game(BOOK, rng=random.Random(1))["combat"] is None
 
     def test_the_adjustment_is_derived_from_the_force(self, fake_db):
-        assert start_game(BOOK, rng=FixedDice(6, 6, 1, 1))["damage_adjustment"] == 2
+        assert start_game(BOOK, rng=FixedDice(6, 6, 1, 1, 1, 1, 1, 1))["damage_adjustment"] == 2
 
     def test_each_game_gets_its_own_id(self, fake_db):
         first = start_game(BOOK, rng=random.Random(1))
@@ -104,7 +107,7 @@ class TestFindGame:
     """Loading one back."""
 
     def test_a_game_is_loaded_as_it_was_written(self, fake_db):
-        created = start_game(BOOK, rng=FixedDice(3, 4, 5, 2))
+        created = start_game(BOOK, rng=FixedDice(3, 4, 5, 2, 1, 1, 1, 1))
 
         assert find_game(created["id"]) == created
 
@@ -241,7 +244,7 @@ class TestPlayAssault:
     """Advancing an open fight, one assault at a time."""
 
     def test_the_assault_is_logged_with_its_dice(self, fake_db):
-        game = start_game(BOOK, rng=FixedDice(4, 4, 4, 4))  # Force 14, Vie 26
+        game = start_game(BOOK, rng=FixedDice(4, 4, 4, 4, 1, 1, 1, 1))  # Force 14, Vie 26
         begin_combat(game["id"], "22", SINGLE_FIGHT)
 
         combat = play_assault(game["id"], FixedDice(3, 3, 1, 2))["combat"]
@@ -256,7 +259,7 @@ class TestPlayAssault:
         assert assault["exchanges"][0]["damage"] == 11
 
     def test_the_wounds_are_persisted(self, fake_db):
-        game = start_game(BOOK, rng=FixedDice(4, 4, 4, 4))
+        game = start_game(BOOK, rng=FixedDice(4, 4, 4, 4, 1, 1, 1, 1))
         begin_combat(game["id"], "22", SINGLE_FIGHT)
         play_assault(game["id"], FixedDice(1, 1, 6, 6))  # hero loses
 
@@ -271,7 +274,7 @@ class TestPlayAssault:
             "enemies": [{"name": "thalos", "force": 18, "vie": 400}],
             "outcome": {"on_victory": "149", "on_defeat": "death"},
         }
-        game = start_game(BOOK, rng=FixedDice(6, 5, 6, 6))  # Force 17, Vie 30
+        game = start_game(BOOK, rng=FixedDice(6, 5, 6, 6, 1, 1, 1, 1))  # Force 17, Vie 30
         begin_combat(game["id"], "503", tough)
         for _ in range(3):
             play_assault(game["id"], FixedDice(4, 4, 3, 3))
@@ -282,7 +285,7 @@ class TestPlayAssault:
         assert combat["status"] == ONGOING
 
     def test_a_won_fight_stops_accepting_assaults(self, fake_db):
-        game = start_game(BOOK, rng=FixedDice(6, 6, 6, 6))  # Force 18, Vie 30
+        game = start_game(BOOK, rng=FixedDice(6, 6, 6, 6, 1, 1, 1, 1))  # Force 18, Vie 30
         begin_combat(game["id"], "22", SINGLE_FIGHT)
         play_assault(game["id"], FixedDice(6, 6, 1, 2))  # double 6 kills
 
@@ -290,7 +293,7 @@ class TestPlayAssault:
         assert play_assault(game["id"], random.Random(1)) is None
 
     def test_a_lost_fight_is_a_defeat(self, fake_db):
-        game = start_game(BOOK, rng=FixedDice(1, 1, 1, 1))  # Force 8, Vie 20
+        game = start_game(BOOK, rng=FixedDice(1, 1, 1, 1, 1, 1, 1, 1))  # Force 8, Vie 20
         begin_combat(game["id"], "22", SINGLE_FIGHT)
 
         combat = play_assault(game["id"], FixedDice(3, 4, 1, 1))["combat"]
@@ -319,7 +322,7 @@ class TestEndCombat:
 
     def test_the_wounds_it_cost_are_kept(self, fake_db):
         """Leaving the fight does not heal the hero."""
-        game = start_game(BOOK, rng=FixedDice(1, 1, 4, 4))
+        game = start_game(BOOK, rng=FixedDice(1, 1, 4, 4, 1, 1, 1, 1))
         begin_combat(game["id"], "22", SINGLE_FIGHT)
         play_assault(game["id"], FixedDice(1, 1, 6, 5))
         wounded = find_game(game["id"])["vie_actuelle"]
@@ -346,3 +349,157 @@ class TestGameDocument:
         )
 
         assert str(game) == f"{BOOK} (easy) — Force 14, Vie 20/27"
+
+
+GOLD_FIGHT_PAGE = "39"
+COSTLY_CHOICE = {
+    "goto": "40",
+    "gains": [{"element": "meal", "label_fr": "repas", "amount": 1}],
+    "losses": [{"element": "gold coin", "label_fr": "pièce d'or", "amount": 5}],
+}
+CONDITIONAL_CHOICE = {
+    "goto": "41",
+    "gains": [
+        {
+            "element": "strength point",
+            "label_fr": "point de Force",
+            "amount": 1,
+            "condition": "pendant tout le temps où vous les porterez",
+        }
+    ],
+    "losses": [],
+}
+
+
+class TestStartingHoldings:
+    """What the hero sets out with."""
+
+    def test_he_carries_a_sword_a_bag_and_four_rations(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        assert {item["element"]: item["count"] for item in game["bag"]} == {
+            "sword": 1,
+            "bag": 1,
+            "ration": 4,
+        }
+
+    def test_his_purse_is_two_throws_of_two_dice(self, fake_db):
+        game = start_game(BOOK, rng=FixedDice(1, 1, 1, 1, 3, 4, 5, 2))
+
+        assert game["gold_dice"] == [3, 4, 5, 2]
+        assert game["gold"] == 14
+
+    def test_the_purse_never_leaves_four_to_twenty_four(self, fake_db):
+        purses = [
+            start_game(BOOK, rng=random.Random(s))["gold"] for s in range(60)
+        ]
+
+        assert min(purses) >= 4
+        assert max(purses) <= 24
+
+    def test_he_owes_nothing_and_waits_on_nothing(self, fake_db):
+        assert start_game(BOOK, rng=random.Random(1))["pending"] == []
+
+
+class TestFollowingAChoice:
+    """What a choice costs and gives."""
+
+    def test_an_unconditional_loss_is_paid(self, fake_db):
+        game = start_game(BOOK, rng=FixedDice(1, 1, 1, 1, 6, 6, 6, 6))
+        assert game["gold"] == 24
+
+        after = follow_choice(game["id"], GOLD_FIGHT_PAGE, COSTLY_CHOICE)
+
+        assert after["gold"] == 19
+
+    def test_an_unconditional_gain_is_taken(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        after = follow_choice(game["id"], GOLD_FIGHT_PAGE, COSTLY_CHOICE)
+
+        assert {item["element"] for item in after["bag"]} >= {"meal"}
+
+    def test_it_is_written_to_the_database(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        follow_choice(game["id"], GOLD_FIGHT_PAGE, COSTLY_CHOICE)
+
+        assert find_game(game["id"])["gold"] == game["gold"] - 5
+
+    def test_a_conditional_change_waits_for_the_reader(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        after = follow_choice(game["id"], "11", CONDITIONAL_CHOICE)
+
+        assert after["force"] == game["force"]
+        assert len(after["pending"]) == 1
+        assert after["pending"][0]["element"] == "strength point"
+        assert after["pending"][0]["page"] == "11"
+        assert "porterez" in after["pending"][0]["condition"]
+
+    def test_a_choice_carrying_nothing_changes_nothing(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        after = follow_choice(game["id"], "1", {"goto": "2"})
+
+        assert after["gold"] == game["gold"]
+        assert after["bag"] == game["bag"]
+        assert after["pending"] == []
+
+    def test_following_again_replaces_what_was_waiting(self, fake_db):
+        """A reader who walked past one condition is not asked about it forever."""
+        game = start_game(BOOK, rng=random.Random(1))
+        follow_choice(game["id"], "11", CONDITIONAL_CHOICE)
+
+        after = follow_choice(game["id"], "1", {"goto": "2"})
+
+        assert after["pending"] == []
+
+    def test_an_unknown_game_follows_nothing(self, fake_db):
+        assert follow_choice("nope", "1", COSTLY_CHOICE) is None
+
+
+class TestRulingOnAWaitingChange:
+    """The reader's word on a condition only he can judge."""
+
+    def test_applying_it_moves_the_hero(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        follow_choice(game["id"], "11", CONDITIONAL_CHOICE)
+
+        after = apply_pending(game["id"], 0)
+
+        assert after["force"] == game["force"] + 1
+        assert after["pending"] == []
+
+    def test_dismissing_it_leaves_the_hero_alone(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        follow_choice(game["id"], "11", CONDITIONAL_CHOICE)
+
+        after = dismiss_pending(game["id"], 0)
+
+        assert after["force"] == game["force"]
+        assert after["pending"] == []
+
+    def test_dismissing_everything_clears_the_lot(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        follow_choice(
+            game["id"],
+            "11",
+            {
+                "goto": "12",
+                "gains": CONDITIONAL_CHOICE["gains"] * 2,
+                "losses": [],
+            },
+        )
+
+        assert len(find_game(game["id"])["pending"]) == 2
+        assert dismiss_pending(game["id"])["pending"] == []
+
+    def test_an_index_that_names_nothing_does_nothing(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        assert apply_pending(game["id"], 0) is None
+        assert dismiss_pending(game["id"], 3) is None
+
+    def test_an_unknown_game_rules_on_nothing(self, fake_db):
+        assert apply_pending("nope", 0) is None
+        assert dismiss_pending("nope") is None

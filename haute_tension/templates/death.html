@@ -10,6 +10,11 @@
         Prêtre Jean est tombé. La forteresse d'Alamuth gardera ses secrets —
         du moins pour cet homme-là.
     </p>
+    <p class="bag-back">
+        <a class="sheet-link" href="{{ url_for('game.show_fallen') }}">
+            Ceux qui vous ont précédé
+        </a>
+    </p>
     <div class="modes">
         {% for mode in modes %}
         <form method="post" action="{{ url_for('game.create_game') }}" class="mode">

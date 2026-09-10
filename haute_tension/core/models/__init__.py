@@ -11,7 +11,15 @@ a document object.
 The book is in neither: it is static and read into memory at startup.
 """
 
-from .game import Game, GameAssault, GameCombat, GameEnemy, GameExchange
+from .game import (
+    Game,
+    GameAssault,
+    GameCombat,
+    GameEnemy,
+    GameExchange,
+    GameItem,
+    PendingChange,
+)
 from .page_view import PageView
 
 __all__ = [
@@ -20,5 +28,7 @@ __all__ = [
     "GameCombat",
     "GameEnemy",
     "GameExchange",
+    "GameItem",
     "PageView",
+    "PendingChange",
 ]

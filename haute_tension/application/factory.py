@@ -4,6 +4,7 @@ from pathlib import Path
 from flask import Flask
 
 from haute_tension.application.errors import wire_the_error_pages
+from haute_tension.application.french_date import french_date
 from haute_tension.application.game_routes import create_game_blueprint
 from haute_tension.application.logs.request_trace import wire_the_request_trace
 from haute_tension.application.routes import create_api_blueprint
@@ -47,6 +48,7 @@ def create_app(
     app.secret_key = session_secret()
     wire_the_request_trace(app)
     wire_the_error_pages(app)
+    app.add_template_filter(french_date)
     story_data = load_story(books_path / book)
     app.register_blueprint(
         create_web_blueprint(story_data, book, BOOK_SERIES, BOOK_TITLE)

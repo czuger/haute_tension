@@ -52,6 +52,37 @@ class GameAssault(EmbeddedDocument):
     exchanges = EmbeddedDocumentListField(GameExchange)
 
 
+class GameItem(EmbeddedDocument):
+    """One thing in the hero's bag, and how many of it he has."""
+
+    meta = {"strict": False}
+
+    element = StringField(required=True)
+    label = StringField(required=True)
+    count = IntField(required=True)
+
+
+class PendingChange(EmbeddedDocument):
+    """A gain or loss only the reader can decide on.
+
+    Its condition is free French — a prerequisite or a duration — or its amount
+    is one the page's text asks to be rolled. Either way it waits here until the
+    reader applies it or waves it away.
+    """
+
+    meta = {"strict": False}
+
+    element = StringField(required=True)
+    label = StringField(required=True)
+    amount = IntField()
+    condition = StringField()
+    note = StringField()
+    # 1 for a gain, -1 for a loss.
+    sign = IntField(default=1)
+    # The page whose choice carried it, so the reader can see where it came from.
+    page = StringField()
+
+
 class GameEnemy(EmbeddedDocument):
     """One adversary of the current fight, as it stands."""
 
@@ -114,11 +145,30 @@ class Game(Document):
     force_dice = ListField(IntField())
     vie_dice = ListField(IntField())
 
+    # "vous êtes équipé de votre épée et d'un sac", "4 rations de provisions",
+    # and a purse of two throws of two dice.
+    gold = IntField(default=0)
+    gold_dice = ListField(IntField())
+    items = EmbeddedDocumentListField(GameItem)
+
+    # Changes waiting on the reader's word; see PendingChange.
+    pending = EmbeddedDocumentListField(PendingChange)
+
     combat = EmbeddedDocumentField(GameCombat)
     created_at = DateTimeField()
 
+    # When the hero's Vie reached zero, and where. Unset while he lives, which
+    # is what tells a game apart from an epitaph: a hero abandoned in good
+    # health is simply left behind, and does not join the fallen.
+    died_at = DateTimeField()
+    died_on_page = StringField()
+    died_of = StringField()
+
+    @property
+    def is_dead(self) -> bool:
+        """Whether this hero has already been laid to rest."""
+        return self.died_at is not None
+
     def __str__(self) -> str:
-        return (
-            f"{self.book} ({self.mode}) — Force {self.force}, "
-            f"Vie {self.vie_actuelle}/{self.vie_max}"
-        )
+        state = "mort" if self.is_dead else f"Vie {self.vie_actuelle}/{self.vie_max}"
+        return f"{self.book} ({self.mode}) — Force {self.force}, {state}"

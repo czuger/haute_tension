@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Ceux qui vous ont précédé · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }}</p>
+        <h1>Ceux qui vous ont précédé</h1>
+    </header>
+
+    {% if fallen %}
+    <p class="book-description">
+        {{ fallen | length }} héros {{ 'sont tombés' if fallen | length > 1 else 'est tombé' }}
+        sur la route d'Alamuth. Voici ce qu'ils portaient.
+    </p>
+    <ol class="fallen">
+        {% for hero in fallen %}
+        <li>
+            <p class="fallen-head">
+                <span class="fallen-death">
+                    {% if hero.died_on_page %}Paragraphe {{ hero.died_on_page }}{% else %}Quelque part{% endif %}
+                </span>
+                <span class="fallen-cause">
+                    {% if hero.died_of %}tué par {{ hero.died_of }}{% else %}mort en chemin{% endif %}
+                </span>
+                {% if hero.died_at %}
+                <span class="fallen-date">le {{ hero.died_at | french_date }}</span>
+                {% endif %}
+            </p>
+            <p class="fallen-stats">
+                Difficulté {{ hero.mode_label|lower }} · Force {{ hero.force }} ·
+                Vie de départ {{ hero.vie_max }} · {{ hero.gold }} pièce{{ 's' if hero.gold > 1 }}
+            </p>
+            {% if hero.bag %}
+            <p class="fallen-bag">
+                {% for item in hero.bag %}
+                <span class="held">{{ item.label }}{% if item.count > 1 %} ×{{ item.count }}{% endif %}</span>
+                {% endfor %}
+            </p>
+            {% else %}
+            <p class="fallen-bag end-note">Il ne lui restait rien.</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p class="book-description">
+        Personne n'est encore tombé. Vous êtes le premier à tenter la forteresse.
+    </p>
+    {% endif %}
+
+    <p class="bag-back">
+        <a class="button" href="{{ url_for('game.show_character') }}">
+            {% if game %}Retour à votre feuille{% else %}Créer un héros{% endif %}
+        </a>
+    </p>
+</article>
+{% endblock %}

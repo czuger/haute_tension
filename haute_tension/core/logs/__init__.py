@@ -1,7 +1,7 @@
 """The log: one file, and the two ways of writing into it.
 
 - `rotating_log.py` opens a log file that rotates — the standard handler, on a
-  directory it makes;
+  directory it makes again at every open;
 - `general_log.py` is the server's own trace, at DEBUG, in `logs/general.log`.
 
 It sits in `core` and not beside the routes because nothing here imports Flask,

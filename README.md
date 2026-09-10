@@ -35,6 +35,7 @@ haute_tension/                 Flask application package
     story.py                   load_story(): reads and indexes pages.json
     dice.py                    roll_dice(): any dice; roll_2d6() for combat
     character.py               Rolling up Prêtre Jean, once, in one of two modes
+    inventory.py               What a gain or a loss does to a hero
     combat.py                  The combat engine — pure, one assault at a time
     db.py                      The connection, and every read and write
     logs/
@@ -96,11 +97,16 @@ fixture books. It reads the book **once, at startup**, and holds it in memory.
 | `GET`  | `/`               | `web`     | Landing page: series, title, and a link to the opening page (page 1).                          |
 | `GET`  | `/book/<number>`  | `web`     | Reader: a breadcrumb of the last ten pages read, the page's choices, then its text. Unknown page → HTTP 404; unreachable database → HTTP 503. A page with no choices shows "Fin de l'aventure" and a restart link. |
 | `GET`  | `/data/<number>`  | `api`     | The raw page object as JSON (text, choices, `fight` when present).                              |
-| `GET`  | `/game`           | `game`    | The hero's sheet, or the offer to roll one up.                                                  |
+| `GET`  | `/game/new`       | `game`    | The offer to roll a hero up, with a warning when a living one would be left behind. Writes nothing. |
 | `POST` | `/game/new`       | `game`    | Rolls up Prêtre Jean and starts a play-through. `mode` in the form picks the difficulty; an unknown one rolls by the book. |
+| `GET`  | `/game/resume`    | `game`    | Redirects to wherever the adventure stands: the open fight, the death page, the last page read, page 1, or `/game/new` without a hero. |
+| `GET`  | `/game`           | `game`    | The full sheet — Vie, Force, gold, bag, waiting changes, open fight — or the offer to roll a hero up. Read-only. |
+| `GET`  | `/heroes`         | `game`    | The heroes who did not come back, most recent first, each with the day he fell.                  |
 | `GET`  | `/combat/<number>`| `game`    | The fight a page holds, armed on first arrival. Unknown page, or one whose fight fields nobody → HTTP 404. |
 | `POST` | `/combat/<number>/assault` | `game` | Plays one assault and comes back to the fight.                                          |
 | `POST` | `/combat/<number>/resolve` | `game` | Closes a decided fight and follows the book to what comes next.                          |
+| `POST` | `/book/<number>/choice/<index>` | `game` | Follows one choice, paying what it costs, then redirects to its destination.       |
+| `POST` | `/game/pending/<index>/apply` · `/dismiss` · `/game/pending/dismiss` | `game` | The reader's word on a change only he can judge.            |
 | `GET`  | `/game/death`     | `game`    | The end of the adventure, and the offer of another hero.                                        |
 
 `/data/<number>` also appends the requested page to the read history before
@@ -227,6 +233,86 @@ DOMMAGES` some adversaries carry. The book's table stops at 18 because its own
 Force does; the easy mode reaches 20, so the top step is read as "18 or more"
 rather than "18 exactly".
 
+### What the hero carries
+
+He sets out, from `regles-du-jeu-spj1`, with "votre épée et un sac", "4 rations
+de provisions", and a purse of two throws of two dice — 4 to 24 pieces of gold.
+
+`core/inventory.py` reads the `gains` and `losses` the import pipeline attached
+to every choice. Three elements are the hero rather than his bag:
+
+| Element | Is |
+| ------- | -- |
+| `life point` | Vie, which **may never rise above the Vie he started with** — "vous ne pourrez le dépasser en aucun cas" |
+| `strength point` | Force |
+| `gold coin` | the purse |
+
+Everything else is an item, counted: two vials are one line saying two. Nothing
+goes below zero, and an item drops out of the bag once none of it is left.
+
+### The menu
+
+The site header is the same four entries on every page, hero or not:
+
+| Entry | Route | What it does |
+| ----- | ----- | ------------ |
+| **Nouveau** | `GET /game/new` | Offers the two difficulties. It writes nothing: the dice are only thrown by the `POST`, so the page is the confirmation. While a hero is alive it shows him as he stands — Force, Vie, gold, the fight he is in — and says that rolling another leaves him behind: his game stays in the database but the session forgets him, and being abandoned is not dying, so he does not join the fallen. A dead hero is simply mentioned. |
+| **Partie en cours** | `GET /game/resume` | Puts the reader back in the story rather than on a sheet: the fight he is in, the death page if he fell, the last paragraph *this* hero read, or page 1 if he has read nothing. Without a hero, the offer to roll one up. It records no visit of its own. |
+| **Feuille** | `GET /game` | The sheet, read-only: nothing on it posts. Without a hero, the same offer as **Nouveau**. |
+| **Les tombés** | `GET /heroes` | The memorial, or "Personne n'est encore tombé". |
+
+Nothing about the hero lives in the cookie — only the game id — and none of the
+four entries writes, so moving between them cannot leave a play-through in two
+states.
+
+### The sheet
+
+`/game` is the whole of a hero on one page: **Vie** out of the maximum he was
+rolled with, drawn as a gauge, **Force** with its Ajustement, **gold**, and the
+**bag** — each with the throw that produced it, and the changes still waiting on
+the reader's word, each linked to the paragraph they are ruled on. It carries the
+way back to the story too, because it is reached mid-adventure rather than
+instead of one.
+
+That way back is **scoped to the play-through**, not to the book. The reading
+history is a book's, and two heroes of the same book each stopped somewhere of
+their own: sending the living one back to where a dead one fell would be worse
+than offering nothing.
+
+Every story page carries a banner — Force, Vie, gold — and a link to the sheet
+saying how many things are in the bag, and the site header links to it from
+everywhere.
+
+### The fallen
+
+A hero is laid to rest the moment his Vie reaches zero: `died_at`, the page he
+fell on, and what killed him — the adversary that struck the last blow, or "les
+épreuves du chemin" for a paragraph that did it. The first death is the one that
+counts; nothing afterwards moves the date on the stone.
+
+`/heroes` remembers them, most recent first, with the day they fell, the
+difficulty they chose, what they were worth and what they were still carrying. **Being abandoned is not
+dying**: a hero left behind in good health is simply left behind, and does not
+join them.
+
+Following a choice is a **POST**, not a link, because it spends rations and gold;
+the redirect afterwards is what keeps a reload from spending them twice.
+
+### What the reader has to rule on
+
+**65 of the book's 275 changes carry a condition the code cannot evaluate** —
+either a prerequisite ("Si vous avez des provisions dans votre sac") or a
+duration ("pendant tout le temps où vous porterez cette cuirasse") — or an amount
+the page's text asks to be rolled (`note: "dice"`).
+
+Those are never applied on their own. They wait in the game's `pending` list and
+appear on the page under **"À vous de voir"**, each with its condition in the
+book's own words and a button to apply or dismiss it. The reader is the one who
+knows whether he has eaten; the other 210 changes apply by themselves.
+
+`note: "all"` is the one note the code *can* act on: everything of that element
+goes, however much there was.
+
 ### Fighting
 
 `core/combat.py` is the engine, and it is pure: no database, no Flask, no clock.
@@ -267,7 +353,10 @@ and nothing else. It is the only document that is read, changed and written back
 
 One file, `logs/general.log`, not versioned and made on first write. It is the
 server's own trace: what is read when something has gone wrong and the page
-itself has nothing to say about it.
+itself has nothing to say about it. The directory is made again at every open,
+so a `logs/` taken away under a running server — a `git clean -fdx`, a hand —
+costs the lines written in the meantime and nothing more, rather than a
+traceback on stderr per request until the next restart.
 
 **DEBUG, and on.** `LOG_LEVEL` raises it; a trace one must first go and turn on
 is a trace one does not have on the day it is needed. It rotates at 512 KB and
@@ -462,11 +551,13 @@ fixtures are the whole interface:
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-338 tests cover the connection and its guards (`test_core_connection.py`), the
+468 tests cover the connection and its guards (`test_core_connection.py`), the
 reading history (`test_core_db.py`), how a run picks its database
 (`test_core_config.py`), loading a book and every malformed input it rejects
 (`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero in either mode
-(`test_core_character.py`), every combat rule on its own with fixed dice
+(`test_core_character.py`), what a gain or a loss does — every one the book
+carries (`test_core_inventory.py`), the sheet and the bag through the browser
+(`test_inventory_routes.py`), the memorial (`test_fallen_heroes.py`), every combat rule on its own with fixed dice
 (`test_core_combat.py`), play-through persistence (`test_core_games.py`), the
 data route (`test_routes.py`), browser navigation and the breadcrumb
 (`test_web_routes.py`), the character and combat routes (`test_game_routes.py`),

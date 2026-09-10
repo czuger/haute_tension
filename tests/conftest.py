@@ -188,6 +188,25 @@ def books_path_with_fights(books_path):
         "enemies": [{"name": "collecteur", "force": 6, "vie": 10}],
         "outcome": {"on_victory": "2", "on_defeat": "death", "on_flee": None},
     }
+    pages[0]["choices"] = [
+        {
+            "goto": "2",
+            "gains": [{"element": "key", "label_fr": "clé", "amount": 1}],
+            "losses": [{"element": "gold coin", "label_fr": "pièce d'or", "amount": 3}],
+        },
+        {
+            "goto": "4",
+            "gains": [
+                {
+                    "element": "strength point",
+                    "label_fr": "point de Force",
+                    "amount": 1,
+                    "condition": "pendant tout le temps où vous les porterez",
+                }
+            ],
+            "losses": [],
+        },
+    ]
     pages[1]["fight"] = {
         "fight_type": "simultaneous",
         "enemies": [{"name": "lepreux", "force": 6, "vie": 6, "count": 2}],

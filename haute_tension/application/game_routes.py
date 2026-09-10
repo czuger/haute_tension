@@ -1,4 +1,9 @@
-"""The routes a play-through needs: the character sheet, and the fights.
+"""The routes a play-through needs: creating a hero, his sheet, and the fights.
+
+The site header is a menu of four entries, and three of them land here:
+**Nouveau** (`/game/new`) offers to roll a hero up, **Partie en cours**
+(`/game/resume`) puts the reader back where his adventure stands, **Feuille**
+(`/game`) is the sheet, and **Les tombés** (`/heroes`) the memorial.
 
 The session cookie carries nothing but a game id; everything else is loaded from
 the database on each request, so two tabs of the same browser are the same hero
@@ -24,13 +29,19 @@ from werkzeug.wrappers.response import Response
 
 from haute_tension.application.models.game import SESSION_KEY, GameDict
 from haute_tension.application.models.story_page import StoryData
+from haute_tension.application.web_routes import OPENING_PAGE
 from haute_tension.core.character import MODES, named_mode
 from haute_tension.core.combat import DEFEAT, ONGOING, VICTORY
 from haute_tension.core.db import (
+    apply_pending,
     begin_combat,
+    dismiss_pending,
     end_combat,
     find_game,
+    follow_choice,
     play_assault,
+    fallen_heroes,
+    last_page_read,
     start_game,
 )
 
@@ -71,23 +82,66 @@ def create_game_blueprint(
         session[SESSION_KEY] = game["id"]
         return redirect(url_for("game.show_character", rolled=1))
 
-    @blueprint.get("/game")
-    def show_character() -> str | Response:
-        """Show the hero's sheet, or offer to roll one up."""
+    @blueprint.get("/game/new")
+    def offer_game() -> str:
+        """Offer to roll a hero up, saying what it costs when one is alive.
+
+        The menu's "Nouveau". Nothing is written here: the dice are only thrown
+        by the POST, so the page is the confirmation. A living hero is shown
+        as he stands, because creating another one leaves him behind — his
+        game stays in the database, but the session forgets him.
+        """
+        return _offer_a_hero(_current_game())
+
+    @blueprint.get("/game/resume")
+    def resume_game() -> Response:
+        """Put the reader back where his adventure stands.
+
+        The menu's "Partie en cours": the fight he is in, the death page if he
+        fell, the last paragraph he read, or the opening page of a hero who has
+        read nothing. Without a hero, the offer to roll one up.
+        """
         game = _current_game()
         if game is None:
-            return render_template(
-                "no_game.html",
-                book_series=book_series,
-                book_title=book_title,
-                modes=list(MODES.values()),
+            return redirect(url_for("game.offer_game"))
+        if game["combat"] is not None:
+            return redirect(
+                url_for("game.show_combat", number=int(game["combat"]["page"]))
             )
+        if game["is_dead"]:
+            return redirect(url_for("game.show_death"))
+        page = last_page_read(game["id"]) or str(OPENING_PAGE)
+        return redirect(url_for("web.read_page", number=int(page)))
+
+    @blueprint.get("/game")
+    def show_character() -> str:
+        """Show the hero's sheet, or offer to roll one up.
+
+        Everything about him on one page — his Vie, his Force, his purse and his
+        bag — because that is what a sheet is. It carries the way back to the
+        story too: it is reached mid-adventure, not instead of one.
+        """
+        game = _current_game()
+        if game is None:
+            return _offer_a_hero(None)
         return render_template(
             "character.html",
             book_series=book_series,
             book_title=book_title,
             game=game,
             rolled=request.args.get("rolled") == "1",
+            back_page=last_page_read(game["id"]),
+        )
+
+    @blueprint.get("/heroes")
+    def show_fallen() -> str:
+        """Remember the heroes who did not come back."""
+        return render_template(
+            "heroes.html",
+            book_series=book_series,
+            book_title=book_title,
+            fallen=fallen_heroes(book),
+            game=_current_game(),
         )
 
     @blueprint.get("/combat/<int:number>")
@@ -138,6 +192,47 @@ def create_game_blueprint(
             return redirect(url_for("web.read_page", number=number))
         return redirect(url_for("web.read_page", number=int(destination)))
 
+    @blueprint.post("/book/<int:number>/choice/<int:index>")
+    def take_choice(number: int, index: int) -> Response:
+        """Follow one choice of a page, paying what it costs.
+
+        A POST and not a link: following a choice spends rations and gold, and
+        the redirect afterwards is what keeps a reload from spending them twice.
+        """
+        page = story_data.get(str(number))
+        if page is None or not 0 <= index < len(page.get("choices") or []):
+            abort(404)
+
+        choice = page["choices"][index]
+        game = _current_game()
+        if game is not None:
+            follow_choice(game["id"], str(number), choice)
+        return redirect(url_for("web.read_page", number=int(choice["goto"])))
+
+    @blueprint.post("/game/pending/<int:index>/apply")
+    def apply_change(index: int) -> Response:
+        """Apply a waiting change, because the reader says it applies."""
+        game = _current_game()
+        if game is not None:
+            apply_pending(game["id"], index)
+        return redirect(_back_to_the_reader())
+
+    @blueprint.post("/game/pending/<int:index>/dismiss")
+    def dismiss_change(index: int) -> Response:
+        """Wave one waiting change away."""
+        game = _current_game()
+        if game is not None:
+            dismiss_pending(game["id"], index)
+        return redirect(_back_to_the_reader())
+
+    @blueprint.post("/game/pending/dismiss")
+    def dismiss_all_changes() -> Response:
+        """Wave every waiting change away."""
+        game = _current_game()
+        if game is not None:
+            dismiss_pending(game["id"])
+        return redirect(_back_to_the_reader())
+
     @blueprint.get("/game/death")
     def show_death() -> str:
         """Tell the reader the adventure is over, and offer another hero."""
@@ -147,6 +242,22 @@ def create_game_blueprint(
             book_title=book_title,
             game=_current_game(),
             modes=list(MODES.values()),
+        )
+
+    def _offer_a_hero(game: GameDict | None) -> str:
+        """Render the page that rolls a hero up.
+
+        Args:
+            game: The hero the session has, so the page can say what starting
+                over leaves behind, or `None` when it has none.
+        """
+        return render_template(
+            "new_game.html",
+            book_series=book_series,
+            book_title=book_title,
+            game=game,
+            modes=list(MODES.values()),
+            fallen=fallen_heroes(book),
         )
 
     def _render_combat(game: GameDict) -> str:
@@ -161,6 +272,18 @@ def create_game_blueprint(
         )
 
     return blueprint
+
+
+def _back_to_the_reader() -> str:
+    """The page the reader was on, or the sheet when the form said nothing.
+
+    The waiting changes are shown on a story page and acted on from there, so
+    the answer to a form posted from it is that same page.
+    """
+    number = request.form.get("page", "").strip()
+    if number.isdigit():
+        return url_for("web.read_page", number=int(number))
+    return url_for("game.show_character")
 
 
 def _current_game() -> GameDict | None:

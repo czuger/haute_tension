@@ -1,63 +1,136 @@
 {% extends "base.html" %}
 
-{% block title %}Prêtre Jean · {{ book_title }}{% endblock %}
+{% block title %}Feuille de personnage · {{ book_title }}{% endblock %}
 
 {% block content %}
-<article class="card">
+<article class="card sheet-card">
     <header class="reader-title">
-        <p class="eyebrow">{{ book_series }}</p>
+        <p class="eyebrow">{{ book_series }} · Difficulté {{ game.mode_label|lower }}</p>
         <h1>Prêtre Jean</h1>
-        <p class="mode-badge">Difficulté {{ game.mode_label|lower }}</p>
     </header>
 
     {% if rolled %}
     <p class="roll-intro">Les dés ont parlé. Voici l'homme que vous incarnez.</p>
     {% endif %}
 
-    <dl class="sheet">
-        <div class="stat">
-            <dt>Force</dt>
-            <dd>
+    {% if game.is_dead %}
+    <p class="warning" role="note">
+        Ce héros est mort{% if game.died_on_page %} au paragraphe {{ game.died_on_page }}{% endif %}{% if game.died_of %},
+        tué par {{ game.died_of }}{% endif %}. Sa feuille reste ici pour mémoire.
+    </p>
+    {% endif %}
+
+    <section class="vitals" aria-label="Caractéristiques">
+        <div class="vital">
+            <p class="vital-name">Points de Vie</p>
+            <p class="vital-value">
+                <strong>{{ game.vie_actuelle }}</strong><span class="vital-max">/{{ game.vie_max }}</span>
+            </p>
+            <div class="gauge" role="img"
+                 aria-label="{{ game.vie_actuelle }} points de Vie sur {{ game.vie_max }}">
+                <span style="width: {{ (100 * game.vie_actuelle / game.vie_max) | round | int }}%"></span>
+            </div>
+            <p class="vital-rule">
+                {{ game.vie_dice | join(' + ') }} ({{ game.vie_throw }})
+                + {{ game.vie_base }} = {{ game.vie_max }}
+            </p>
+        </div>
+
+        <div class="vital">
+            <p class="vital-name">Points de Force</p>
+            <p class="vital-value">
                 <strong>{{ game.force }}</strong>
-                <span class="roll-detail">
-                    {{ game.force_dice | join(' + ') }} ({{ game.force_throw }})
-                    + {{ game.force_base }} = {{ game.force }}
-                </span>
-            </dd>
+                {% if game.damage_adjustment %}
+                <span class="vital-max">ajust. +{{ game.damage_adjustment }}</span>
+                {% endif %}
+            </p>
+            <p class="vital-rule">
+                {{ game.force_dice | join(' + ') }} ({{ game.force_throw }})
+                + {{ game.force_base }} = {{ game.force }}
+            </p>
         </div>
-        <div class="stat">
-            <dt>Vie</dt>
-            <dd>
-                <strong>{{ game.vie_actuelle }}</strong> / {{ game.vie_max }}
-                <span class="roll-detail">
-                    {{ game.vie_dice | join(' + ') }} ({{ game.vie_throw }})
-                    + {{ game.vie_base }} = {{ game.vie_max }}
-                </span>
-            </dd>
+
+        <div class="vital">
+            <p class="vital-name">Or</p>
+            <p class="vital-value">
+                <strong>{{ game.gold }}</strong>
+                <span class="vital-max">pièce{{ 's' if game.gold > 1 }}</span>
+            </p>
+            <p class="vital-rule">{{ game.gold_dice | join(' + ') }} (2D6 deux fois)</p>
         </div>
-        {% if game.damage_adjustment %}
-        <div class="stat">
-            <dt>Ajustement-Force</dt>
-            <dd>
-                <strong>+{{ game.damage_adjustment }}</strong>
-                <span class="roll-detail">ajouté aux dommages que vous infligez</span>
-            </dd>
-        </div>
-        {% endif %}
-    </dl>
+    </section>
+
+    <h2 class="bag-title">
+        Équipement
+        <span class="bag-count">
+            {% if game.bag %}{{ game.bag | sum(attribute='count') }} objet{{ 's' if game.bag | sum(attribute='count') > 1 }}{% else %}sac vide{% endif %}
+        </span>
+    </h2>
+    {% if game.bag %}
+    <ul class="bag">
+        {% for item in game.bag %}
+        <li>
+            <span class="bag-label">{{ item.label }}</span>
+            <span class="count">{% if item.count > 1 %}×{{ item.count }}{% endif %}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="end-note">Vous n'avez plus rien. Ni provisions, ni arme, ni bourse.</p>
+    {% endif %}
+
+    {% if game.pending %}
+    <h2 class="bag-title">
+        À vous de voir
+        <span class="bag-count">{{ game.pending | length }} effet{{ 's' if game.pending | length > 1 }} en attente</span>
+    </h2>
+    <ul class="bag">
+        {% for change in game.pending %}
+        <li>
+            <span class="bag-label">
+                {{ change.described }}{% if change.condition %} — {{ change.condition }}{% endif %}
+            </span>
+            {% if change.page %}
+            <a class="count" href="{{ url_for('web.read_page', number=change.page) }}">paragraphe {{ change.page }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
     {% if game.combat %}
+    <h2 class="bag-title">Combat en cours</h2>
+    <p class="end-note">
+        Vous êtes aux prises au paragraphe {{ game.combat.page }}.
+    </p>
     <a class="button" href="{{ url_for('game.show_combat', number=game.combat.page) }}">
         Reprendre le combat
     </a>
+    {% elif game.is_dead %}
+    <p class="bag-back">
+        <a class="button" href="{{ url_for('game.show_death') }}">Repartir de zéro</a>
+    </p>
     {% else %}
-    <a class="button" href="{{ url_for('web.read_page', number=1) }}">
-        Commencer l'aventure
-    </a>
+    <p class="bag-back">
+        {% if back_page %}
+        <a class="button" href="{{ url_for('web.read_page', number=back_page) }}">
+            Reprendre la lecture
+        </a>
+        {% else %}
+        <a class="button" href="{{ url_for('web.read_page', number=1) }}">
+            Commencer l'aventure
+        </a>
+        {% endif %}
+        <a class="sheet-link" href="{{ url_for('game.show_fallen') }}">
+            Ceux qui vous ont précédé
+        </a>
+    </p>
     {% endif %}
 
-    <form method="post" action="{{ url_for('game.create_game') }}" class="reroll">
-        <button type="submit">Abandonner et créer un nouveau héros</button>
-    </form>
+    {% if not game.is_dead %}
+    <p class="reroll">
+        <a href="{{ url_for('game.offer_game') }}">Abandonner et créer un nouveau héros</a>
+    </p>
+    {% endif %}
 </article>
 {% endblock %}

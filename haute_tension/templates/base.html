@@ -216,6 +216,277 @@
 
         .end-note { color: var(--muted); }
 
+        /* --- What the hero is and carries --- */
+
+        .holdings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.9rem;
+            margin: 0 0 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .holdings strong { color: var(--ink); font-size: 0.95rem; }
+
+        .held {
+            padding: 0.1rem 0.45rem;
+            border: 1px solid var(--line);
+            border-radius: 0.2rem;
+            background: #f8f3ea;
+        }
+
+        .bag-link {
+            padding: 0.1rem 0.5rem;
+            border: 1px solid var(--line);
+            border-radius: 0.2rem;
+            background: #f8f3ea;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .bag-link:hover, .bag-link:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .site-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1rem; }
+
+        .bag-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .bag-count {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* --- The sheet proper --- */
+
+        .vitals {
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+            margin: 0 0 2.5rem;
+        }
+
+        .vital {
+            padding: 1rem 1.1rem;
+            border: 1px solid var(--line);
+            border-radius: 0.3rem;
+            background: #f8f3ea;
+        }
+
+        .vital p { margin: 0; }
+
+        .vital-name {
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .vital-value { margin: 0.35rem 0 0; line-height: 1.1; }
+        .vital-value strong { font-size: 2.1rem; }
+
+        .vital-max {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .vital-rule {
+            margin-top: 0.5rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+        }
+
+        .gauge {
+            height: 0.35rem;
+            margin: 0.55rem 0 0;
+            border-radius: 0.2rem;
+            background: var(--line);
+            overflow: hidden;
+        }
+
+        .gauge span {
+            display: block;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        /* --- The memorial --- */
+
+        .fallen {
+            margin: 1.5rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .fallen li {
+            padding: 1rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .fallen p { margin: 0; }
+
+        .fallen-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .fallen-death {
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .fallen-cause { color: var(--ink); }
+
+        .fallen-date {
+            margin-left: auto;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .fallen-stats {
+            margin-top: 0.3rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .fallen-bag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.6rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .bag-label { flex: 1 1 auto; }
+
+        .bag-back { margin-top: 2rem; }
+
+        .sheet-link {
+            margin-left: 1rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        .bag {
+            margin: 0.75rem 0 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .bag li {
+            display: flex;
+            gap: 1rem;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .bag .count { color: var(--muted); }
+
+        .choice-cost {
+            display: block;
+            margin-top: 0.2rem;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        button.choice-link {
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        /* --- Changes only the reader can rule on --- */
+
+        .pending {
+            margin: 0 0 1.75rem;
+            padding: 1rem 1.2rem;
+            border-left: 3px solid var(--accent);
+            background: #f8f3ea;
+        }
+
+        .pending h2 {
+            margin: 0 0 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .pending-intro {
+            margin: 0 0 0.9rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .pending ul { margin: 0 0 0.8rem; padding: 0; list-style: none; }
+
+        .pending li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--line);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .pending-change { font-weight: 700; }
+        .pending-condition { flex: 1 1 12rem; color: var(--muted); }
+
+        .pending-actions { display: flex; gap: 0.4rem; }
+        .pending-actions form { display: inline; }
+
+        .pending button {
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--accent);
+            border-radius: 0.2rem;
+            color: white;
+            background: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .pending button.quiet {
+            color: var(--muted);
+            background: none;
+            border-color: var(--line);
+        }
+
         /* --- Character sheet and combat --- */
 
         button { font: inherit; cursor: pointer; }
@@ -306,14 +577,10 @@
 
         .reroll { margin-top: 2rem; }
 
-        .reroll button {
-            border: none;
-            padding: 0;
+        .reroll a {
             color: var(--muted);
-            background: none;
             font-family: Arial, sans-serif;
             font-size: 0.78rem;
-            text-decoration: underline;
         }
 
         .warning {
@@ -413,7 +680,12 @@
 <body>
     <header class="site-header">
         <a class="site-name" href="{{ url_for('web.landing_page') }}">Haute Tension</a>
-        <a class="site-sheet" href="{{ url_for('game.show_character') }}">Feuille de personnage</a>
+        <nav class="site-links" aria-label="Menu">
+            <a class="site-sheet" href="{{ url_for('game.offer_game') }}">Nouveau</a>
+            <a class="site-sheet" href="{{ url_for('game.resume_game') }}">Partie en cours</a>
+            <a class="site-sheet" href="{{ url_for('game.show_character') }}">Feuille</a>
+            <a class="site-sheet" href="{{ url_for('game.show_fallen') }}">Les tombés</a>
+        </nav>
     </header>
     <main>
         {% block content %}{% endblock %}

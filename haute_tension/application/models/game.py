@@ -59,6 +59,28 @@ class Combat(TypedDict):
     assaults: list[Assault]
 
 
+class Item(TypedDict):
+    """One thing in the hero's bag, and how many of it he has."""
+
+    element: str
+    label: str
+    count: int
+
+
+class Pending(TypedDict):
+    """A gain or loss waiting on the reader's word."""
+
+    index: int
+    element: str
+    label: str
+    amount: int | None
+    condition: str | None
+    note: str | None
+    sign: int
+    page: str | None
+    described: str
+
+
 class GameDict(TypedDict):
     """A hero, rolled once, and the fight he is in the middle of."""
 
@@ -76,4 +98,27 @@ class GameDict(TypedDict):
     force_dice: list[int]
     vie_dice: list[int]
     damage_adjustment: int
+    gold: int
+    gold_dice: list[int]
+    # Named `bag` and not `items`: a template reading `game.items` would find
+    # `dict.items` — the method — before the key, and fail well away from here.
+    bag: list[Item]
+    pending: list[Pending]
     combat: Combat | None
+    is_dead: bool
+    died_on_page: str | None
+    died_of: str | None
+
+
+class FallenHero(TypedDict):
+    """One hero who did not come back, as the memorial lists him."""
+
+    id: str
+    mode_label: str
+    force: int
+    vie_max: int
+    gold: int
+    bag: list[Item]
+    died_on_page: str | None
+    died_of: str | None
+    died_at: str | None

@@ -38,6 +38,7 @@ from haute_tension.core.character import (
     named_mode,
 )
 from haute_tension.core.combat import (
+    ENEMY,
     FIGHTS_WITH_SPECIAL_RULES,
     ONGOING,
     Combatant,
@@ -46,15 +47,25 @@ from haute_tension.core.combat import (
 )
 from haute_tension.core.logs.general_log import event, note
 from haute_tension.application.models.game import Combat as CombatDict
+from haute_tension.application.models.game import FallenHero
 from haute_tension.application.models.game import GameDict
 from haute_tension.core.config import current_db_name
+from haute_tension.core.inventory import (
+    STARTING_ITEMS,
+    Change,
+    Holdings,
+    read_changes,
+    starting_gold,
+)
 from haute_tension.core.models import (
     Game,
     GameAssault,
     GameCombat,
     GameEnemy,
     GameExchange,
+    GameItem,
     PageView,
+    PendingChange,
 )
 
 # What every caller catches around a database call. Two families rather than
@@ -83,6 +94,9 @@ SERVER_SELECTION_TIMEOUT_MS = 3000
 # How many pages of reading history are kept. What MAX_PAGE_HISTORY used to bound
 # in last_pages.json, now applied when the history is read.
 MAX_PAGE_HISTORY = 10
+
+# How many of the fallen the memorial remembers.
+MAX_FALLEN_HEROES = 20
 
 # The database the current connection was opened on, so a run that switches
 # APP_ENV mid-flight (the tests do) reconnects instead of reading the wrong one.
@@ -151,7 +165,7 @@ def reset_connection() -> None:
     _connected_to = None
 
 
-def record_page_view(book: str, page: str) -> bool:
+def record_page_view(book: str, page: str, game_id: str | None = None) -> bool:
     """Note that a page was asked for, unless it is already the last one read.
 
     Asking for the page one is already on is a reload, not a move, and a trail
@@ -162,6 +176,7 @@ def record_page_view(book: str, page: str) -> bool:
     Args:
         book: The book being read, as `"<series>/<book>"`.
         page: The page number asked for, whether or not the book has it.
+        game_id: The play-through that asked, when there is one.
 
     Returns:
         Whether a visit was actually recorded.
@@ -171,7 +186,10 @@ def record_page_view(book: str, page: str) -> bool:
         return False
 
     PageView(
-        book=book, page=page, viewed_at=datetime.now(timezone.utc)
+        book=book,
+        game=game_id,
+        page=page,
+        viewed_at=datetime.now(timezone.utc),
     ).save(force_insert=True)
     return True
 
@@ -192,6 +210,27 @@ def last_pages(book: str, limit: int = MAX_PAGE_HISTORY) -> list[str]:
     connect_db()
     views = PageView.objects(book=book).order_by("-viewed_at", "-id").limit(limit)
     return [view.page for view in views][::-1]
+
+
+def last_page_read(game_id: str) -> str | None:
+    """The story page one play-through was on last.
+
+    What the sheet offers as the way back; the sheet itself records no visit, so
+    this is still the last paragraph of the story that was open. Scoped to the
+    play-through and not to the book: two heroes of the same book each stopped
+    somewhere of their own, and sending the living one back to where a dead one
+    fell would be worse than offering nothing. A game belongs to one book, so
+    naming the game is enough.
+
+    Args:
+        game_id: The play-through to answer for.
+
+    Returns:
+        The page number, or `None` when that hero has read nothing yet.
+    """
+    connect_db()
+    latest = PageView.objects(game=game_id).order_by("-viewed_at", "-id").first()
+    return latest.page if latest else None
 
 
 def _latest_page(book: str) -> str | None:
@@ -244,6 +283,7 @@ def start_game(
     """
     connect_db()
     character = generate_character(mode, rng)
+    gold, gold_throws = starting_gold(rng)
     game = Game(
         id=uuid.uuid4().hex,
         book=book,
@@ -253,6 +293,12 @@ def start_game(
         vie_actuelle=character.vie_actuelle,
         force_dice=list(character.force_roll.dice),
         vie_dice=list(character.vie_roll.dice),
+        gold=gold,
+        gold_dice=[die for throw in gold_throws for die in throw.dice],
+        items=[
+            GameItem(element=element, label=label, count=count)
+            for element, label, count in STARTING_ITEMS
+        ],
         created_at=datetime.now(timezone.utc),
     )
     game.save(force_insert=True)
@@ -265,6 +311,7 @@ def start_game(
         vie=game.vie_max,
         force_dice=list(game.force_dice),
         vie_dice=list(game.vie_dice),
+        gold=gold,
     )
     return _game_dict(game)
 
@@ -385,6 +432,7 @@ def play_assault(
         stored.vie_actuelle = fought.vie_actuelle
     game.combat.assaults.append(_stored_assault(assault))
     game.combat.status = combat_status(hero, enemies)
+    _lay_to_rest(game, game.combat.page, _killed_by(assault))
     game.save()
     note(
         "Assault played",
@@ -471,7 +519,20 @@ def _game_dict(game: Game) -> GameDict:
         "force_dice": list(game.force_dice or []),
         "vie_dice": list(game.vie_dice or []),
         "damage_adjustment": _hero_damage_adjustment(game.force),
+        "gold": game.gold or 0,
+        "gold_dice": list(game.gold_dice or []),
+        "bag": [
+            {"element": item.element, "label": item.label, "count": item.count}
+            for item in game.items
+        ],
+        "pending": [
+            _pending_dict(index, waiting)
+            for index, waiting in enumerate(game.pending)
+        ],
         "combat": _combat_dict(game.combat) if game.combat else None,
+        "is_dead": game.is_dead,
+        "died_on_page": game.died_on_page,
+        "died_of": game.died_of,
     }
 
 
@@ -586,3 +647,241 @@ def _stored_assault(assault: object) -> GameAssault:
             for exchange in assault.exchanges
         ],
     )
+
+
+def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDict | None:
+    """Apply what following a choice costs and gives, and say what is left over.
+
+    The unconditional changes are applied here and now. A change carrying a
+    condition — or an amount the page asks to be rolled — is not: it goes to
+    `pending`, where the reader decides. See `core.inventory`.
+
+    Args:
+        game_id: The game being played.
+        page: The page the choice was taken from.
+        choice: The choice, as the book stores it.
+
+    Returns:
+        The game afterwards, or `None` when it is unknown.
+    """
+    game = _game_document(game_id)
+    if game is None:
+        return None
+
+    applied, waiting = [], []
+    for change in read_changes(choice):
+        (waiting if change.is_conditional else applied).append(change)
+
+    if applied:
+        _write_holdings(game, _holdings(game), applied)
+        _lay_to_rest(game, page, "les épreuves du chemin")
+    game.pending = [_pending_document(change, page) for change in waiting]
+    game.save()
+    note(
+        "Choice followed",
+        game=game.id,
+        page=page,
+        goto=choice.get("goto"),
+        applied=[change.described() for change in applied],
+        pending=[change.described() for change in waiting],
+    )
+    return _game_dict(game)
+
+
+def apply_pending(game_id: str, index: int) -> GameDict | None:
+    """Apply one waiting change, because the reader says it applies.
+
+    Args:
+        game_id: The game being played.
+        index: Which waiting change, as the page numbered them.
+
+    Returns:
+        The game afterwards, or `None` when the game or the change is unknown.
+    """
+    game = _game_document(game_id)
+    if game is None or not 0 <= index < len(game.pending):
+        return None
+
+    waiting = game.pending[index]
+    _write_holdings(game, _holdings(game), [_pending_change(waiting)])
+    _lay_to_rest(game, waiting.page, "les épreuves du chemin")
+    del game.pending[index]
+    game.save()
+    note("Pending change applied", game=game.id, element=waiting.element)
+    return _game_dict(game)
+
+
+def dismiss_pending(game_id: str, index: int | None = None) -> GameDict | None:
+    """Wave a waiting change away, or all of them.
+
+    Args:
+        game_id: The game being played.
+        index: Which one; `None` for every one of them.
+
+    Returns:
+        The game afterwards, or `None` when the game or the change is unknown.
+    """
+    game = _game_document(game_id)
+    if game is None:
+        return None
+    if index is None:
+        game.pending = []
+    elif 0 <= index < len(game.pending):
+        del game.pending[index]
+    else:
+        return None
+    game.save()
+    return _game_dict(game)
+
+
+def _killed_by(assault: object) -> str:
+    """What killed the hero this assault, named for the memorial.
+
+    Args:
+        assault: The assault just played.
+
+    Returns:
+        The adversary that struck the last blow, or the fight itself when no
+        exchange settled it.
+    """
+    for exchange in reversed(assault.exchanges):
+        if exchange.winner == ENEMY:
+            return exchange.enemy_name
+    return "un combat"
+
+
+def _lay_to_rest(game: Game, page: str | None, cause: str) -> None:
+    """Stamp a hero's death, once, the moment his Vie reaches zero.
+
+    Called after every write that can empty it. A hero already laid to rest is
+    left alone: the first death is the one that counts, and nothing afterwards
+    should move the date on the stone.
+
+    Args:
+        game: The document, not saved here.
+        page: Where he fell, when it is known.
+        cause: What killed him, in French, for the memorial.
+    """
+    if game.vie_actuelle > 0 or game.is_dead:
+        return
+    game.died_at = datetime.now(timezone.utc)
+    game.died_on_page = page
+    game.died_of = cause
+    event(
+        "Hero fell",
+        game=game.id,
+        page=page,
+        cause=cause,
+        force=game.force,
+        gold=game.gold or 0,
+    )
+
+
+def fallen_heroes(book: str, limit: int = MAX_FALLEN_HEROES) -> list[FallenHero]:
+    """The heroes who did not come back, most recent first.
+
+    Args:
+        book: The book they died in, as `"<series>/<book>"`.
+        limit: How many to remember.
+
+    Returns:
+        One epitaph each.
+    """
+    connect_db()
+    games = (
+        Game.objects(book=book, died_at__ne=None)
+        .order_by("-died_at", "-id")
+        .limit(limit)
+    )
+    return [_fallen_dict(game) for game in games]
+
+
+def _fallen_dict(game: Game) -> FallenHero:
+    """One dead hero as the memorial lists him."""
+    return {
+        "id": game.id,
+        "mode_label": named_mode(game.mode).label,
+        "force": game.force,
+        "vie_max": game.vie_max,
+        "gold": game.gold or 0,
+        "bag": [
+            {"element": item.element, "label": item.label, "count": item.count}
+            for item in game.items
+        ],
+        "died_on_page": game.died_on_page,
+        "died_of": game.died_of,
+        "died_at": game.died_at.isoformat() if game.died_at else None,
+    }
+
+
+def _holdings(game: Game) -> Holdings:
+    """What the hero is and carries, as `core.inventory` reads it."""
+    return Holdings(
+        force=game.force,
+        vie_max=game.vie_max,
+        vie_actuelle=game.vie_actuelle,
+        gold=game.gold or 0,
+        items={item.element: (item.label, item.count) for item in game.items},
+    )
+
+
+def _write_holdings(
+    game: Game, holdings: Holdings, changes: list[Change]
+) -> None:
+    """Apply changes to a hero and write the result onto the document.
+
+    Args:
+        game: The document to change; not saved here.
+        holdings: What the hero is and carries before the changes.
+        changes: The changes to apply, in order.
+    """
+    for change in changes:
+        holdings = holdings.with_change(change)
+    game.force = holdings.force
+    game.vie_actuelle = holdings.vie_actuelle
+    game.gold = holdings.gold
+    game.items = [
+        GameItem(element=element, label=label, count=count)
+        for element, (label, count) in holdings.items.items()
+    ]
+
+
+def _pending_document(change: Change, page: str) -> PendingChange:
+    """Keep a change the reader has yet to rule on."""
+    return PendingChange(
+        element=change.element,
+        label=change.label,
+        amount=change.amount,
+        condition=change.condition,
+        note=change.note,
+        sign=change.sign,
+        page=page,
+    )
+
+
+def _pending_change(waiting: PendingChange) -> Change:
+    """Read a waiting change back as `core.inventory` understands it."""
+    return Change(
+        element=waiting.element,
+        label=waiting.label,
+        amount=waiting.amount,
+        condition=waiting.condition,
+        note=waiting.note,
+        sign=waiting.sign or 1,
+    )
+
+
+def _pending_dict(index: int, waiting: PendingChange) -> dict[str, object]:
+    """A waiting change as the page shows it, numbered so it can be acted on."""
+    change = _pending_change(waiting)
+    return {
+        "index": index,
+        "element": waiting.element,
+        "label": waiting.label,
+        "amount": waiting.amount,
+        "condition": waiting.condition,
+        "note": waiting.note,
+        "sign": waiting.sign or 1,
+        "page": waiting.page,
+        "described": change.described(),
+    }

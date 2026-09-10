@@ -6,6 +6,24 @@
 <section class="card">
     <p class="eyebrow">{{ book_series }}</p>
     <h1>Prêtre Jean</h1>
+
+    {% if game and not game.is_dead %}
+    <p class="warning" role="note">
+        Un héros est déjà en route&nbsp;: Force {{ game.force }},
+        Vie {{ game.vie_actuelle }}/{{ game.vie_max }}, {{ game.gold }} pièce{{ 's' if game.gold > 1 }} d'or{% if game.combat %},
+        aux prises au paragraphe {{ game.combat.page }}{% endif %}.
+        Lancer les dés l'abandonne là où il est&nbsp;: sa feuille ne sera plus
+        accessible, et il ne rejoindra pas les tombés.
+        <a href="{{ url_for('game.resume_game') }}">Reprendre sa partie</a>
+        plutôt&nbsp;?
+    </p>
+    {% elif game %}
+    <p class="warning" role="note">
+        Votre héros est mort{% if game.died_on_page %} au paragraphe {{ game.died_on_page }}{% endif %}.
+        Un autre homme peut prendre la route.
+    </p>
+    {% endif %}
+
     <p class="book-description">
         Avant de partir pour Alamuth, il vous faut savoir de quoi vous êtes fait.
         Les dés décideront de votre Force et de votre Vie&nbsp;: ces chiffres
@@ -28,5 +46,13 @@
         </form>
         {% endfor %}
     </div>
+
+    {% if fallen %}
+    <p class="bag-back">
+        <a class="sheet-link" href="{{ url_for('game.show_fallen') }}">
+            {{ fallen | length }} héros {{ 'sont tombés' if fallen | length > 1 else 'est tombé' }} avant vous
+        </a>
+    </p>
+    {% endif %}
 </section>
 {% endblock %}

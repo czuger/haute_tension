@@ -21,11 +21,17 @@ class PageView(Document):
         "collection": "page_views",
         # Read newest first, always for one book: the compound index is the
         # order the history is served in.
-        "indexes": [("book", "-viewed_at")],
+        "indexes": [("book", "-viewed_at"), ("game", "-viewed_at")],
         "strict": False,
     }
 
     book = StringField(required=True)
+
+    # The play-through that asked for it, when there was one. A reader with no
+    # hero still leaves a trail; only "where was I?" needs to know whose it is,
+    # since two heroes of the same book each have their own last page.
+    game = StringField()
+
     page = StringField(required=True)
     viewed_at = DateTimeField(required=True)
 
