@@ -11,26 +11,31 @@ re-run — so `core.story` reads it off disk into memory at startup, and it is
 deliberately not in here: putting it in a database would buy nothing.
 
 Every table is hybrid (see `core.models.hybrid_document`): a few real columns
-for what a query filters or sorts on, and one JSON blob for the rest. A row is
-therefore read as one flat dict, changed as a dict, and written back whole with
-`update_from_dict()` — the functions below never touch a column by hand.
+for what a query filters, sorts or constrains, and one JSON blob for the rest.
+A row is therefore read as one flat dict, changed as a dict, and written back
+whole with `update_from_dict()` — the functions below never touch a column by
+hand. A game's bag comes and goes the same way: its lines are rows of their
+own, carried in the game's dict as `items`.
 
 The engine is opened on the first call rather than at import time, so importing
 `core.db` never needs a database file — and a test can stand an in-memory one
-in by replacing `connect_db()`.
+in by replacing `connect_db()`. A file is only opened if it carries the schema
+the models describe: a new file is given it, and a file an older schema wrote is
+refused until the scripts in `migrations/` have been applied to it.
 
 The history is **scoped to a book**, named `"<series>/<book>"`: the functions
 below take a `book`, and it is part of every query, so a second book never shows
 up in the first one's history.
 """
 
+import json
 import random
-import uuid
 from collections.abc import Iterator
 from contextlib import contextmanager
 from datetime import datetime, timezone
+from pathlib import Path
 
-from sqlalchemy import Engine, create_engine, event as sqlalchemy_event, select
+from sqlalchemy import Engine, create_engine, event as sqlalchemy_event, inspect, select
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
@@ -92,6 +97,11 @@ MAX_PAGE_HISTORY = 10
 # How many of the fallen the memorial remembers.
 MAX_FALLEN_HEROES = 20
 
+# The schema the models describe, as `PRAGMA user_version` records it in a file.
+# Raised by one with every script added to `migrations/`, each of which moves a
+# file from the version before to its own.
+SCHEMA_VERSION = 1
+
 # The row as one flat dict — the columns and the blob merged, the shape
 # `HybridDocument.to_dict()` gives and `update_from_dict()` takes back.
 State = dict[str, object]
@@ -110,12 +120,13 @@ def connect_db() -> None:
     tests replace: with it stubbed out and `_engine` bound to a database of
     their own, nothing here ever reaches for a file.
 
-    The tables are created if the file does not have them yet: there is no
-    migration step, the schema is what the models say.
+    A new file is given the tables and marked with `SCHEMA_VERSION`. A file
+    carrying another version is refused rather than half-read: the scripts in
+    `migrations/` are what move it.
 
     Raises:
-        DatabaseUnavailable: If DATABASE_DIR is unset, or names a file rather
-            than a directory.
+        DatabaseUnavailable: If DATABASE_DIR is unset, names a file rather than
+            a directory, or leads to a file another schema wrote.
     """
     global _engine, _connected_to
     db_name = current_db_name()
@@ -136,15 +147,52 @@ def connect_db() -> None:
 
     reset_connection()
     path.parent.mkdir(parents=True, exist_ok=True)
-    _engine = _open_engine(f"sqlite:///{path}")
-    Base.metadata.create_all(_engine)
+    engine = _open_engine(f"sqlite:///{path}")
+    _refuse_another_schema(engine, path)
+    _create_the_schema(engine)
+    _engine = engine
     _connected_to = db_name
+
+
+def _refuse_another_schema(engine: Engine, path: Path) -> None:
+    """Refuse a file whose tables another version of the schema wrote.
+
+    A file with no table at all is a new one, whatever its version says.
+
+    Args:
+        engine: The engine just opened on the file; disposed of when refused.
+        path: The file, for the message.
+
+    Raises:
+        DatabaseUnavailable: If the file has tables and a version other than
+            `SCHEMA_VERSION`.
+    """
+    with engine.connect() as connection:
+        version = connection.exec_driver_sql("PRAGMA user_version").scalar_one()
+        has_tables = bool(inspect(connection).get_table_names())
+    if not has_tables or version == SCHEMA_VERSION:
+        return
+    engine.dispose()
+    raise DatabaseUnavailable(
+        f"The database file '{path}' carries schema version {version}, and this "
+        f"code reads version {SCHEMA_VERSION}. Back the file up, then apply the "
+        f"scripts in migrations/ to it (see README)."
+    )
+
+
+def _create_the_schema(engine: Engine) -> None:
+    """Give a file the tables it lacks, and mark it with the current version."""
+    with engine.begin() as connection:
+        Base.metadata.create_all(connection)
+        connection.exec_driver_sql(f"PRAGMA user_version = {SCHEMA_VERSION}")
 
 
 def _open_engine(url: str, **options: object) -> Engine:
     """Build an engine on a SQLite URL, with foreign keys enforced.
 
     SQLite checks foreign keys only when asked to, connection by connection.
+    The blobs keep their accents as they are, so the file reads in French rather
+    than in escapes.
 
     Args:
         url: The database, as `sqlite:///<path>`.
@@ -153,7 +201,7 @@ def _open_engine(url: str, **options: object) -> Engine:
     Returns:
         The engine, nothing opened yet.
     """
-    engine = create_engine(url, **options)
+    engine = create_engine(url, json_serializer=_json_text, **options)
 
     @sqlalchemy_event.listens_for(engine, "connect")
     def enforce_foreign_keys(connection: object, _record: object) -> None:
@@ -161,6 +209,11 @@ def _open_engine(url: str, **options: object) -> Engine:
         connection.execute("PRAGMA foreign_keys=ON")
 
     return engine
+
+
+def _json_text(value: object) -> str:
+    """A blob as the file stores it: JSON, accents kept."""
+    return json.dumps(value, ensure_ascii=False)
 
 
 def reset_connection() -> None:
@@ -193,7 +246,7 @@ def _session() -> Iterator[Session]:
         session.commit()
 
 
-def record_page_view(book: str, page: str, game_id: str | None = None) -> bool:
+def record_page_view(book: str, page: str, game_id: int | None = None) -> bool:
     """Note that a page was asked for, unless it is already the last one read.
 
     Asking for the page one is already on is a reload, not a move, and a trail
@@ -216,7 +269,7 @@ def record_page_view(book: str, page: str, game_id: str | None = None) -> bool:
             PageView.from_dict(
                 {
                     "book": book,
-                    "game": game_id,
+                    "game_id": game_id,
                     "page": page,
                     "viewed_at": datetime.now(timezone.utc),
                 }
@@ -248,7 +301,7 @@ def last_pages(book: str, limit: int = MAX_PAGE_HISTORY) -> list[str]:
         return [_page_of(view) for view in views][::-1]
 
 
-def last_page_read(game_id: str) -> str | None:
+def last_page_read(game_id: int) -> str | None:
     """The story page one play-through was on last.
 
     What the sheet offers as the way back; the sheet itself records no visit, so
@@ -267,7 +320,7 @@ def last_page_read(game_id: str) -> str | None:
     with _session() as session:
         latest = session.scalars(
             select(PageView)
-            .where(PageView.game == game_id)
+            .where(PageView.game_id == game_id)
             .order_by(PageView.viewed_at.desc(), PageView.id.desc())
             .limit(1)
         ).first()
@@ -336,7 +389,6 @@ def start_game(
     character = generate_character(mode, rng)
     gold, gold_throws = starting_gold(rng)
     hero: State = {
-        "id": uuid.uuid4().hex,
         "book": book,
         "mode": mode.name,
         "force": character.force,
@@ -352,7 +404,6 @@ def start_game(
         ],
         "pending": [],
         "combat": None,
-        "created_at": datetime.now(timezone.utc),
         "died_at": None,
     }
     with _session() as session:
@@ -372,7 +423,7 @@ def start_game(
     return _game_dict(game.to_dict())
 
 
-def find_game(game_id: str | None) -> GameDict | None:
+def find_game(game_id: int | None) -> GameDict | None:
     """Load one game, or `None` — a blank id matches nothing.
 
     Args:
@@ -389,7 +440,7 @@ def find_game(game_id: str | None) -> GameDict | None:
 
 
 def begin_combat(
-    game_id: str, page: str, fight: dict[str, object]
+    game_id: int, page: str, fight: dict[str, object]
 ) -> GameDict | None:
     """Put the hero into the fight a page holds, unless he is already in one.
 
@@ -444,7 +495,7 @@ def begin_combat(
 
 
 def play_assault(
-    game_id: str, rng: random.Random | None = None
+    game_id: int, rng: random.Random | None = None
 ) -> GameDict | None:
     """Play one assault of the open fight and write the result back.
 
@@ -485,7 +536,7 @@ def play_assault(
 
 
 def _log_assault(
-    game_id: str, combat: dict[str, object], assault: object, hero_vie: int
+    game_id: int, combat: dict[str, object], assault: object, hero_vie: int
 ) -> None:
     """Write an assault to the log, and the fight's outcome when it decided it."""
     note(
@@ -517,7 +568,7 @@ def _log_assault(
         )
 
 
-def end_combat(game_id: str) -> GameDict | None:
+def end_combat(game_id: int) -> GameDict | None:
     """Take the hero out of the fight, leaving his Vie where the fight left it.
 
     Args:
@@ -539,7 +590,7 @@ def end_combat(game_id: str) -> GameDict | None:
     return _game_dict(game.to_dict())
 
 
-def _game_row(session: Session, game_id: str | None) -> Game | None:
+def _game_row(session: Session, game_id: int | None) -> Game | None:
     """The game as a row, for the functions that write it back.
 
     The one place inside this module that fetches a row by id: everything
@@ -591,7 +642,7 @@ def _game_dict(state: State) -> GameDict:
     force = int(state["force"])
     combat = _combat_of(state)
     return {
-        "id": str(state["id"]),
+        "id": int(state["id"]),
         "book": str(state["book"]),
         "mode": mode.name,
         "mode_label": mode.label,
@@ -745,7 +796,7 @@ def _stored_assault(assault: object) -> dict[str, object]:
     }
 
 
-def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDict | None:
+def follow_choice(game_id: int, page: str, choice: dict[str, object]) -> GameDict | None:
     """Apply what following a choice costs and gives, and say what is left over.
 
     The unconditional changes are applied here and now. A change carrying a
@@ -785,7 +836,7 @@ def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDic
     return _game_dict(game.to_dict())
 
 
-def apply_pending(game_id: str, index: int) -> GameDict | None:
+def apply_pending(game_id: int, index: int) -> GameDict | None:
     """Apply one waiting change, because the reader says it applies.
 
     Args:
@@ -813,7 +864,7 @@ def apply_pending(game_id: str, index: int) -> GameDict | None:
     return _game_dict(game.to_dict())
 
 
-def dismiss_pending(game_id: str, index: int | None = None) -> GameDict | None:
+def dismiss_pending(game_id: int, index: int | None = None) -> GameDict | None:
     """Wave a waiting change away, or all of them.
 
     Args:
@@ -906,7 +957,7 @@ def fallen_heroes(book: str, limit: int = MAX_FALLEN_HEROES) -> list[FallenHero]
 def _fallen_dict(state: State) -> FallenHero:
     """One dead hero as the memorial lists him, `died_at` being set."""
     return {
-        "id": str(state["id"]),
+        "id": int(state["id"]),
         "mode_label": named_mode(str(state["mode"])).label,
         "force": int(state["force"]),
         "vie_max": int(state["vie_max"]),
@@ -945,8 +996,10 @@ def _write_holdings(state: State, holdings: Holdings, changes: list[Change]) -> 
     state["force"] = holdings.force
     state["vie_actuelle"] = holdings.vie_actuelle
     state["gold"] = holdings.gold
+    # Matched by element, so a line still in the bag stays the row it was.
+    carried = {item["element"]: item for item in state.get("items") or []}
     state["items"] = [
-        {"element": element, "label": label, "count": count}
+        {**carried.get(element, {}), "element": element, "label": label, "count": count}
         for element, (label, count) in holdings.items.items()
     ]
 
@@ -999,7 +1052,8 @@ def flag_page(
 
     Find-or-create on `(book, path)`: the first report opens the file, every
     later one appends a comment. A resolved page that is flagged again is
-    reopened — a new remark means someone still sees a problem.
+    reopened — a new remark means someone still sees a problem. The file's
+    `updated_at` moves with the new comment on its own.
 
     Args:
         book: The book the page belongs to, as `"<series>/<book>"`.
@@ -1017,28 +1071,22 @@ def flag_page(
                 PageInspection.book == book, PageInspection.path == path
             )
         ).first()
-        if inspection is None:
-            inspection = PageInspection.from_dict(
-                {
-                    "id": uuid.uuid4().hex,
-                    "book": book,
-                    "path": path,
-                    "status": OPEN,
-                    "comments": [],
-                    "created_at": now,
-                    "updated_at": now,
-                }
-            )
-            session.add(inspection)
-        state = inspection.to_dict()
+        state: State = (
+            inspection.to_dict()
+            if inspection is not None
+            else {"book": book, "path": path, "comments": []}
+        )
         state["page_title"] = page_title or state.get("page_title")
         state["status"] = OPEN
-        state["updated_at"] = now
         state["comments"] = [
             *(state.get("comments") or []),
             {"text": text, "created_at": now},
         ]
-        inspection.update_from_dict(state)
+        if inspection is None:
+            inspection = PageInspection.from_dict(state)
+            session.add(inspection)
+        else:
+            inspection.update_from_dict(state)
     event(
         "Page flagged",
         inspection=inspection.id,
@@ -1071,7 +1119,7 @@ def flagged_pages(book: str, status: str | None = None) -> list[InspectionDict]:
         ]
 
 
-def find_inspection(inspection_id: str | None) -> InspectionDict | None:
+def find_inspection(inspection_id: int | None) -> InspectionDict | None:
     """Load the file on one flagged page, or `None` when there is none.
 
     Args:
@@ -1087,8 +1135,11 @@ def find_inspection(inspection_id: str | None) -> InspectionDict | None:
         return _inspection_dict(inspection.to_dict()) if inspection else None
 
 
-def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | None:
+def set_inspection_status(inspection_id: int, status: str) -> InspectionDict | None:
     """Mark a flagged page resolved, or open it again.
+
+    Setting the state a file already has writes nothing, and so leaves it where
+    it stands in the list.
 
     Args:
         inspection_id: The id carried in the URL.
@@ -1108,7 +1159,6 @@ def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | N
             return None
         state = inspection.to_dict()
         state["status"] = status
-        state["updated_at"] = datetime.now(timezone.utc)
         inspection.update_from_dict(state)
     event(
         "Flagged page status changed",
@@ -1122,11 +1172,11 @@ def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | N
 def _inspection_dict(state: State) -> InspectionDict:
     """One flagged page as the routes read it.
 
-    The blob's instants are already ISO 8601 text; only `updated_at`, a real
-    column, still needs printing.
+    The comments' instants are already ISO 8601 text in the blob; the file's
+    own two are columns, and are printed here.
     """
     return {
-        "id": str(state["id"]),
+        "id": int(state["id"]),
         "book": str(state["book"]),
         "path": str(state["path"]),
         "page_title": state.get("page_title"),
@@ -1135,6 +1185,6 @@ def _inspection_dict(state: State) -> InspectionDict:
             {"text": comment["text"], "created_at": comment["created_at"]}
             for comment in state.get("comments") or []
         ],
-        "created_at": str(state["created_at"]),
+        "created_at": state["created_at"].isoformat(),
         "updated_at": state["updated_at"].isoformat(),
     }

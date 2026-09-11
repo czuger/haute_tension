@@ -17,7 +17,7 @@ class CommentDict(TypedDict):
 class InspectionDict(TypedDict):
     """A flagged page and everything said about it, newest remark last."""
 
-    id: str
+    id: int
     book: str
     path: str
     page_title: str | None

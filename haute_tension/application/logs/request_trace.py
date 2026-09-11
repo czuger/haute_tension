@@ -6,7 +6,7 @@ that **nothing is outside it**: a page, a fight, a refusal, an address that
 matches no route at all — each one leaves its two lines, `Request` then `Answer`,
 and a third when it fails.
 
-    Request — method='GET', path='/combat/22', endpoint='game.show_combat', game='4f2a91c0…'
+    Request — method='GET', path='/combat/22', endpoint='game.show_combat', game='3'
     Answer  — status=200, type='text/html; charset=utf-8', took='4.2 ms', body=<5264 bytes of text/html>
 
 **A JSON answer is written out in full**, because that is what one comes to this

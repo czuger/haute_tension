@@ -20,10 +20,12 @@ The rule that is not negotiable: **a secret is never written out.** A name that
 says token, secret, password, authorization, cookie, key or session — at the top
 level or deep inside a body being logged — is replaced by its length.
 
-`game_id` is the exception this application adds. It is not a secret by name, but
-it is the only credential here: whoever holds one can pick up that play-through.
-It is written to its first few characters, which is enough to follow one reader
-through a run and not enough to replay them.
+`game_id` is the exception this application adds. It names the play-through the
+session cookie is on, and is written to its first few characters. Ids are small
+integers the database counts up, so in practice they are written whole: guessing
+one gains nothing, because the cookie that carries it is signed. The cut still
+shortens anything longer, such as an old uuid left in a cookie from before
+migration 001.
 """
 
 import json
@@ -62,8 +64,8 @@ SECRET_NAMES = (
     "key",
 )
 
-# How much of a play-through id is written. Enough to tell two readers apart in a
-# log, short enough to be useless to anyone who reads the file.
+# How much of a play-through id is written. A counted-up id is shorter than this
+# and written whole; an old uuid still carried by a cookie is cut to it.
 IDENTIFIER_NAMES = ("game_id", "game")
 IDENTIFIER_LENGTH = 8
 
@@ -155,7 +157,7 @@ def failure(
 def spell_out(message: str, variables: Mapping[str, object]) -> str:
     """Put a message and its variables into the one line the log carries.
 
-        Combat armed — page='22', enemies=1, game='4f2a91c0…'
+        Combat armed — page='22', enemies=1, game='3'
 
     Args:
         message: The message.

@@ -95,8 +95,8 @@ def create_inspection_blueprint(
             status=status,
         )
 
-    @blueprint.get("/flagged-pages/<inspection_id>")
-    def show_flagged(inspection_id: str) -> str:
+    @blueprint.get("/flagged-pages/<int:inspection_id>")
+    def show_flagged(inspection_id: int) -> str:
         """Everything said about one flagged page."""
         inspection = find_inspection(inspection_id)
         if inspection is None:
@@ -108,15 +108,15 @@ def create_inspection_blueprint(
             inspection=inspection,
         )
 
-    @blueprint.post("/flagged-pages/<inspection_id>/resolve")
-    def resolve_flagged(inspection_id: str) -> Response:
+    @blueprint.post("/flagged-pages/<int:inspection_id>/resolve")
+    def resolve_flagged(inspection_id: int) -> Response:
         """Close the file on a page."""
         if set_inspection_status(inspection_id, RESOLVED) is None:
             abort(404)
         return redirect(url_for("inspection.show_flagged", inspection_id=inspection_id))
 
-    @blueprint.post("/flagged-pages/<inspection_id>/reopen")
-    def reopen_flagged(inspection_id: str) -> Response:
+    @blueprint.post("/flagged-pages/<int:inspection_id>/reopen")
+    def reopen_flagged(inspection_id: int) -> Response:
         """Open the file on a page again."""
         if set_inspection_status(inspection_id, OPEN) is None:
             abort(404)

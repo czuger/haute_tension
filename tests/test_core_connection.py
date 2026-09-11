@@ -4,6 +4,8 @@ The one part of `core.db` the other tests stub out, so it is exercised here for
 real: on SQLite files in a temporary directory, which is what a run opens.
 """
 
+import sqlite3
+
 import pytest
 from sqlalchemy import inspect
 
@@ -35,6 +37,7 @@ class TestConnectDb:
 
         assert sorted(inspect(core_db._engine).get_table_names()) == [
             "games",
+            "items",
             "page_inspections",
             "page_views",
         ]
@@ -104,10 +107,92 @@ class TestConnectDb:
         with core_db._engine.connect() as connection, pytest.raises(IntegrityError):
             connection.execute(
                 text(
-                    "INSERT INTO page_views (book, game, viewed_at, data) "
-                    "VALUES ('livre', 'no-such-game', '2026', '{}')"
+                    "INSERT INTO page_views (book, game_id, viewed_at, data) "
+                    "VALUES ('livre', 999, '2026', '{}')"
                 )
             )
+
+
+FILE = "haute_tension_dev.sqlite3"
+
+
+def version_of(path) -> int:
+    """The schema version a file carries."""
+    connection = sqlite3.connect(path)
+    version = connection.execute("PRAGMA user_version").fetchone()[0]
+    connection.close()
+    return version
+
+
+def tables_of(path) -> list[str]:
+    """The tables a file holds."""
+    connection = sqlite3.connect(path)
+    names = [row[0] for row in connection.execute(
+        "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name"
+    )]
+    connection.close()
+    return names
+
+
+def a_file_at(path, version: int, with_a_table: bool = True) -> None:
+    """Write a file carrying a schema version, and a table unless told not to."""
+    connection = sqlite3.connect(path)
+    if with_a_table:
+        connection.execute("CREATE TABLE games (id VARCHAR(32) PRIMARY KEY)")
+    connection.execute(f"PRAGMA user_version = {version}")
+    connection.commit()
+    connection.close()
+
+
+class TestSchemaVersion:
+    """Marking a new file, and refusing one another schema wrote."""
+
+    def test_a_new_file_is_marked_with_the_current_version(self, database_dir):
+        core_db.connect_db()
+
+        assert version_of(database_dir / FILE) == core_db.SCHEMA_VERSION
+
+    def test_a_file_an_older_schema_wrote_is_refused(self, database_dir):
+        a_file_at(database_dir / FILE, 0)
+
+        with pytest.raises(
+            core_db.DatabaseUnavailable,
+            match="schema version 0, and this code reads version 1.*migrations/",
+        ):
+            core_db.connect_db()
+
+        assert core_db._engine is None
+
+    def test_a_refused_file_is_left_as_it_was(self, database_dir):
+        a_file_at(database_dir / FILE, 0)
+
+        with pytest.raises(core_db.DatabaseUnavailable):
+            core_db.connect_db()
+
+        assert version_of(database_dir / FILE) == 0
+        assert tables_of(database_dir / FILE) == ["games"]
+
+    def test_a_file_a_newer_schema_wrote_is_refused(self, database_dir):
+        a_file_at(database_dir / FILE, core_db.SCHEMA_VERSION + 1)
+
+        with pytest.raises(
+            core_db.DatabaseUnavailable,
+            match=f"schema version {core_db.SCHEMA_VERSION + 1},",
+        ):
+            core_db.connect_db()
+
+    def test_a_file_without_tables_is_new_whatever_it_says(self, database_dir):
+        a_file_at(database_dir / FILE, 7, with_a_table=False)
+
+        core_db.connect_db()
+
+        assert version_of(database_dir / FILE) == core_db.SCHEMA_VERSION
+
+    def test_a_file_at_the_current_version_is_opened_again(self, database_dir):
+        core_db.record_page_view("livre", "1")
+        core_db.reset_connection()
+
+        assert core_db.last_pages("livre") == ["1"]
 
 
 class TestResetConnection:

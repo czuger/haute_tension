@@ -345,7 +345,7 @@ class TestGameRow:
         from haute_tension.core.models.game import Game
 
         game = Game.from_dict(
-            {"id": "x", "book": BOOK, "mode": "easy", "force": 14, "vie_max": 27, "vie_actuelle": 20}
+            {"id": 1, "book": BOOK, "mode": "easy", "force": 14, "vie_max": 27, "vie_actuelle": 20}
         )
 
         assert str(game) == f"{BOOK} (easy) — Force 14, Vie 20/27"
@@ -503,3 +503,41 @@ class TestRulingOnAWaitingChange:
     def test_an_unknown_game_rules_on_nothing(self, fake_db):
         assert apply_pending("nope", 0) is None
         assert dismiss_pending("nope") is None
+
+
+class TestTheBagAsRows:
+    """The hero's bag, kept as one row per line through a play-through."""
+
+    def test_a_new_hero_carries_three_lines(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+
+        rows = fake_db["items"].docs
+
+        assert [row["element"] for row in rows] == ["sword", "bag", "ration"]
+        assert {row["game_id"] for row in rows} == {game["id"]}
+
+    def test_a_line_still_in_the_bag_stays_the_row_it_was(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        before = {row["element"]: row["id"] for row in fake_db["items"].docs}
+
+        follow_choice(game["id"], GOLD_FIGHT_PAGE, COSTLY_CHOICE)
+        after = {row["element"]: row["id"] for row in fake_db["items"].docs}
+
+        assert {element: after[element] for element in before} == before
+        assert after["meal"] > max(before.values())
+
+    def test_a_line_used_up_is_deleted(self, fake_db):
+        game = start_game(BOOK, rng=random.Random(1))
+        eat_everything = {
+            "goto": "2",
+            "gains": [],
+            "losses": [{"element": "ration", "label_fr": "ration", "amount": 4}],
+        }
+
+        follow_choice(game["id"], "12", eat_everything)
+
+        assert [row["element"] for row in fake_db["items"].docs] == ["sword", "bag"]
+        assert [item["element"] for item in find_game(game["id"])["bag"]] == [
+            "sword",
+            "bag",
+        ]

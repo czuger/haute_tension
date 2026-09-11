@@ -84,7 +84,7 @@ class Pending(TypedDict):
 class GameDict(TypedDict):
     """A hero, rolled once, and the fight he is in the middle of."""
 
-    id: str
+    id: int
     book: str
     mode: str
     mode_label: str
@@ -113,7 +113,7 @@ class GameDict(TypedDict):
 class FallenHero(TypedDict):
     """One hero who did not come back, as the memorial lists him."""
 
-    id: str
+    id: int
     mode_label: str
     force: int
     vie_max: int

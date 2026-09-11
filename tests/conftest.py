@@ -19,6 +19,7 @@ from sqlalchemy.pool import StaticPool
 from haute_tension.core import db as core_db
 from haute_tension.core.models.base import Base
 from haute_tension.core.models.game import Game
+from haute_tension.core.models.item import Item
 from haute_tension.core.models.page_inspection import PageInspection
 from haute_tension.core.models.page_view import PageView
 from haute_tension.core.story import PAGES_FILE
@@ -29,6 +30,7 @@ BOOK = "pretre_jean/forteresse_alamuth"
 # `fake_db["games"]` the way it would name a collection.
 TABLES = {
     Game.__tablename__: Game,
+    Item.__tablename__: Item,
     PageView.__tablename__: PageView,
     PageInspection.__tablename__: PageInspection,
 }
@@ -41,7 +43,9 @@ class FakeTable:
     columns and the blob merged; assigning replaces the table's contents. A row
     keyed by an id the new list also carries is updated in place rather than
     deleted and re-inserted, so the reading history that points at a game
-    survives that game being changed under it.
+    survives that game being changed under it. A game's dict carries its
+    `items`, so seeding a game seeds its bag: an item with an id is that row,
+    one without is a new row, and one left out is deleted.
     """
 
     def __init__(self, engine, model) -> None:

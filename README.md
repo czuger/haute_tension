@@ -44,15 +44,18 @@ haute_tension/                 Flask application package
       general_log.py           note() / event() / failure(), and what they hide
     models/
       base.py                  The declarative base every table is mapped on
-      hybrid_document.py       The mixin: a few columns + one JSON blob, to_dict/from_dict
+      hybrid_document.py       The mixin: columns, child rows and one JSON blob, to_dict/from_dict
+      timestamped.py           The mixin: created_at set on insert, updated_at moved on update
       utc_datetime.py          A timestamp column that keeps its timezone
       page_view.py             PageView: one row per page asked for
       game.py                  Game: a hero, and the fight he is in
+      item.py                  Item: one line of a hero's bag
       page_inspection.py       PageInspection: a flagged page and its comments
   templates/                   Jinja templates, CSS inline in base.html
   books/<series>/<book>/       Runtime book data (see "Book data" below)
 
 Makefile                       make test / coverage / serve
+migrations/                    SQL scripts moving an existing database file to the current schema
 
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
@@ -150,8 +153,9 @@ belongs here, never in a route.
 
 The engine is opened on the first call rather than at import time, so importing
 `core.db` never needs a database file — and it is the single seam the tests
-replace. The tables are created on first use from the models: there is no
-migration step, the schema is what the models say.
+replace. A new file is given the tables the models describe and marked with
+`SCHEMA_VERSION` in `PRAGMA user_version`. A file carrying another version is
+refused with the 503 page until it is migrated (see "Migrations" below).
 
 ### Which database
 
@@ -165,20 +169,26 @@ refused.
 ### Indexed columns and the JSON blob
 
 Every table follows one pattern, and a new table should too. A field is a
-**real column** only when a query filters, sorts or joins on it: the id, the
-book every query is scoped to, a timestamp something is ordered by. Everything
-else is bundled into **one `data` column holding a JSON object**. A new field
-on a hero or a fight is therefore a key in that object and nothing else; a new
-query on such a key means promoting it to a column, with an index, in the model.
+**real column** when a query filters, sorts or joins on it, or when the database
+has a rule to hold about it: the id, the book every query is scoped to, a
+timestamp something is ordered by, the hero's Force, Vie and gold, which may
+never go below zero. Everything else is bundled into **one `data` column
+holding a JSON object**. A new field on a fight is therefore a key in that
+object and nothing else. Promoting a key to a column is a schema change: it
+takes the model, and a migration for the files that already exist.
+
+A row's children live in a table of their own but travel inside the parent's
+dict: a game's bag is rows of `items`, and reads and writes as the game's
+`items` list.
 
 `core/models/hybrid_document.py` is the mixin every model takes, and its four
 methods are the whole contract:
 
 | Method | Does |
 | ------ | ---- |
-| `to_dict()` | The row as one flat dict — the columns and the blob's keys merged, columns first |
-| `from_dict(values)` | The reverse: keys naming a column become that column, the rest is packed into `data` |
-| `update_from_dict(values)` | The same onto a loaded row — how `core.db` writes a changed state back, whole |
+| `to_dict()` | The row as one flat dict: its columns first, then its children, then the blob's keys |
+| `from_dict(values)` | The reverse: keys naming a column become that column, keys naming a relationship become child rows, the rest is packed into `data` |
+| `update_from_dict(values)` | The same onto a loaded row, which is how `core.db` writes a changed state back. A child dict with an `id` updates that row, one without is a new row, and a row no dict names is deleted |
 | `to_json()` | `to_dict()` as text, with instants written as ISO 8601 |
 
 `core.db` never sets a column by hand: it reads a row as a dict, changes the
@@ -187,20 +197,37 @@ goes through `core/models/utc_datetime.py` — aware in, aware out, stored as
 fixed-width UTC text so that an `ORDER BY` on it is an order in time. An instant
 put in the blob comes back as ISO 8601 text, and is handed out as it is.
 
-### The three tables
+`core/models/timestamped.py` gives `created_at` and `updated_at` to the tables
+whose rows change. On insert both are the same instant; every update SQLAlchemy
+writes moves `updated_at`, and an update that changes nothing is not written.
+Only the row that changed moves: a bag line changing count does not move its
+game. The server defaults write the same fixed-width text for a row inserted by
+hand. `page_views` has neither column: a visit is never changed, and `viewed_at`
+already says when it was written.
+
+### The four tables
+
+Every id is an integer the database counts up and never reuses
+(`AUTOINCREMENT`). A game's id travels in the session cookie, whose signature is
+what keeps a reader from writing another hero's number into it.
 
 | Table | Model | Columns | In the blob |
 | ----- | ----- | ------- | ----------- |
-| `page_views` | `PageView` | `id` (autoincrement), `book`, `game` (→ `games.id`), `viewed_at` | `page` |
-| `games` | `Game` | `id` (a `uuid4().hex`, it travels in the cookie), `book`, `died_at` | the hero, his bag, the pending changes, the open fight, where and of what he died |
-| `page_inspections` | `PageInspection` | `id`, `book`, `path`, `status`, `updated_at` | `page_title`, `comments`, `created_at` |
+| `games` | `Game` | `id`, `book`, `force`, `vie_max`, `vie_actuelle`, `gold`, `died_at`, `created_at`, `updated_at` | the mode and the dice, the pending changes, the open fight, where and of what he died |
+| `items` | `Item` | `id`, `game_id` (→ `games.id`), `created_at`, `updated_at` | `element`, `label`, `count`: one row per line of the bag |
+| `page_views` | `PageView` | `id`, `book`, `game_id` (→ `games.id`), `viewed_at` | `page` |
+| `page_inspections` | `PageInspection` | `id`, `book`, `path`, `status`, `created_at`, `updated_at` | `page_title`, `comments` |
+
+`force`, `vie_max`, `vie_actuelle` and `gold` are `SMALLINT` with a `CHECK`
+holding each at zero or above. SQLite enforces no column width, so the checks
+are what the database actually guarantees.
 
 The indexes are the orders the rows are served in: `(book, viewed_at)` and
-`(game, viewed_at)` on the history, `(book, died_at)` on the memorial,
-`(book, updated_at)` and `status` on the flagged pages, plus the unique
-`(book, path)` that keeps two reports on one page from opening two files.
-`page_views.game` is a foreign key, enforced — SQLite only checks them when
-told to, so the engine turns them on for every connection.
+`(game_id, viewed_at)` on the history, `(book, died_at)` on the memorial,
+`game_id` on the bag, `(book, updated_at)` and `status` on the flagged pages,
+plus the unique `(book, path)` that keeps two reports on one page from opening
+two files. Both foreign keys are enforced — SQLite only checks them when told
+to, so the engine turns them on for every connection.
 
 The history is one row per page asked for, scoped by a `book` field written
 `"<series>/<book>"`, so a second book never shows up in the first one's history.
@@ -212,6 +239,36 @@ The history is one row per page asked for, scoped by a `book` field written
 - `last_pages(book, limit=10)` / `get_oldest_page(book)` — the bounded reading
   history, oldest first. Bounding happens **on read**, so recording a visit stays
   a plain insert.
+
+### Migrations
+
+`migrations/` holds one SQL script per schema version, numbered from `001`. Each
+moves a file from the version before to its own. `SCHEMA_VERSION` in
+`core/db.py` is the number of the last one, and `tests/test_migrations.py`
+checks that they agree and that a migrated file ends with exactly the schema a
+new file gets.
+
+`001_integer_ids_items_and_stats.sql` moves a file the previous schema wrote —
+version 0: uuid ids, the bag and the stats inside the blob — to version 1. Stop
+the server, back the file up, and apply the script with `-bail`, so the first
+error stops it before anything is committed:
+
+```bash
+cp data/haute_tension_dev.sqlite3 data/haute_tension_dev.sqlite3.before-001
+sqlite3 -bail data/haute_tension_dev.sqlite3 < migrations/001_integer_ids_items_and_stats.sql
+```
+
+It is one transaction. It refuses anything but a version-0 file, and before it
+commits it checks that every game, bag line, visit and flagged page came across
+and that every reference resolves; a failed check leaves the file exactly as it
+was. Games and flagged pages are renumbered in the order they were created, and
+keep their old uuid in the blob as `legacy_id`, so an old log line can still be
+traced to them. Visits keep their ids. Bag lines are stamped with the time of
+the migration, since the old schema never recorded when a thing was picked up.
+
+A reader whose session cookie still holds an old uuid is shown as having no
+hero: the cookie names an id that no longer exists. The game itself is intact,
+and on the memorial if he fell.
 
 ### When the database is not there
 
@@ -414,9 +471,10 @@ and `TODO.md` says what each one needs.
 
 ### State
 
-A play-through lives in the `games` table; the session cookie carries its id
-and nothing else. It is the only row that is read, changed and written back
-— the book is static and the reading history is a log.
+A play-through lives in the `games` table and its bag in `items`; the session
+cookie carries the game's id and nothing else. A game and its bag are read,
+changed and written back together — the book is static and the reading history
+is a log.
 
 ---
 
@@ -460,10 +518,11 @@ A field whose name says `secret`, `token`, `password`, `authorization`,
 `cookie`, `session` or `key` is replaced by its length — at the top level, and
 **inside any body being logged**, because a body is where a secret travels.
 
-`game_id` is the exception this application adds. It is not a secret by name, but
-it is the only credential here: whoever holds one can pick up that play-through.
-It is written to its first eight characters — enough to follow one reader through
-a run, useless to anyone who reads the file.
+`game_id` is the exception this application adds, written to its first eight
+characters. Game ids are small integers the database counts up, so in practice
+they are written whole: guessing one gains nothing, because the session cookie
+that carries it is signed. The cut still shortens anything longer, such as an
+old uuid left in a cookie from before migration 001.
 
 `LOG_VALUE_LIMIT` cuts a value beyond 2000 characters and says by how much; 0
 there writes every answer whole.
@@ -547,7 +606,8 @@ DATABASE_DIR=data
 `DATABASE_DIR` is a directory, made on first use if it is missing; `APP_ENV`
 picks the file inside it (`data/haute_tension_dev.sqlite3` here, git-ignored),
 and the tables are created the first time the file is opened. There is nothing
-to install or bring up: SQLite ships with Python.
+to install or bring up: SQLite ships with Python. A file written by an older
+schema is refused until it is migrated, as "Migrations" above describes.
 
 Only the reading history, the play-throughs and the flagged pages need it. The
 book is read off disk, so the landing page works whether or not a database is
@@ -601,13 +661,16 @@ open a file of its own. Three fixtures are the whole interface:
 
 - `fake_db` — the empty database. Seed a table by assigning to
   `fake_db["page_views"].docs`, a list of flat dicts in the `to_dict()` shape —
-  columns and blob keys mixed; reading `.docs` gives the same shape back.
+  columns and blob keys mixed; reading `.docs` gives the same shape back. A
+  game's dict carries its `items`, so seeding a game seeds its bag.
 - `books_path` — a small two-page book written to a temporary directory, so no
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-593 tests cover the engine and its guards (`test_core_connection.py`), the
-hybrid models (`test_core_models.py`), the reading history (`test_core_db.py`),
+662 tests cover the engine, its guards and the schema version
+(`test_core_connection.py`), the hybrid models, the bag as rows, the stat
+columns and the timestamps (`test_core_models.py`), migration 001 applied to a
+version-0 file (`test_migrations.py`), the reading history (`test_core_db.py`),
 how a run picks its database file (`test_core_config.py`), loading a book and every malformed input it rejects
 (`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero in either mode
 (`test_core_character.py`), what a gain or a loss does — every one the book
@@ -690,7 +753,8 @@ emitting a script:
 - The database layer stays in `core/` and the web layer stays out of it: a new
   query goes in `core/db.py`, never in a route, and no row object leaves that
   module. A new table follows the hybrid pattern: real columns only for what is
-  queried, one JSON `data` blob for the rest.
+  queried or constrained, one JSON `data` blob for the rest. A schema change
+  comes with the next script in `migrations/` and a raised `SCHEMA_VERSION`.
 - Code, identifiers and comments in English even when the discussion is in
   French; user-facing French text stays UTF-8.
 - No global `try`/`except` around entry points — let tracebacks surface.

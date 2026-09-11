@@ -1,32 +1,41 @@
 """What every table shares: a few real columns, and a JSON blob for the rest.
 
-The schema is hybrid on purpose. A field is a column of its own only when a
-query filters, sorts or joins on it — the id, the book, a timestamp things are
-ordered by. Everything else is bundled into one `data` column holding a JSON
-object, so that a new field on a hero or a fight is a key in that object and
-not a migration.
+The schema is hybrid on purpose. A field is a column of its own when a query
+filters, sorts or joins on it, or when the database has a rule to keep about it
+— the id, the book, a timestamp, the hero's characteristics that may never go
+below zero. Everything else is bundled into one `data` column holding a JSON
+object, so that a new field on a fight is a key in that object.
 
-The mixin is the whole contract:
+A row's children — the lines of a game's bag — are rows of a table of their
+own, but they travel inside the parent's dict, as a list of their dicts under
+the relationship's name. The mixin is the whole contract:
 
-- `to_dict()` is the row as one flat dict, the columns and the blob merged.
-- `from_dict()` is the reverse: the keys that name a column become that column,
-  the others are packed into `data`.
+- `to_dict()` is the row as one flat dict: its columns, its children, its blob.
+- `from_dict()` is the reverse: keys naming a column become that column, keys
+  naming a relationship become child rows, the others are packed into `data`.
 - `update_from_dict()` does the same onto an existing row, which is how
-  `core.db` writes a loaded and changed state back.
+  `core.db` writes a loaded and changed state back. A child dict carrying an
+  `id` updates that child, one without is a new child, and a child no dict
+  names is dropped — which the relationship's `delete-orphan` cascade turns
+  into a delete.
 - `to_json()` is `to_dict()` as text, for anything that answers JSON.
 
-The blob is written with `json_default`, so an instant put into it comes back
-as ISO 8601 text rather than as a `datetime`; only a real column keeps the type.
+The blob is normalised as it is set, so an instant put into it is ISO 8601 text
+at once and not only after a round trip; only a real column keeps the type.
 """
 
+import copy
 import json
 from datetime import date, datetime
 from typing import Self
 
-from sqlalchemy import Text
+from sqlalchemy import JSON, inspect
 from sqlalchemy.orm import Mapped, mapped_column
 
 DATA_COLUMN = "data"
+
+# One row as a flat dict, the shape `to_dict()` gives and `from_dict()` takes.
+RowDict = dict[str, object]
 
 
 def json_default(value: object) -> str:
@@ -47,9 +56,9 @@ def json_default(value: object) -> str:
 
 
 class HybridDocument:
-    """A row made of indexed columns plus one JSON object for everything else."""
+    """A row made of indexed columns, child rows, and one JSON object for the rest."""
 
-    data: Mapped[str] = mapped_column(Text, nullable=False, default="{}")
+    data: Mapped[RowDict] = mapped_column(JSON, nullable=False, default=dict)
 
     @classmethod
     def indexed_columns(cls) -> tuple[str, ...]:
@@ -59,60 +68,112 @@ class HybridDocument:
         )
 
     @classmethod
-    def split(
-        cls, values: dict[str, object]
-    ) -> tuple[dict[str, object], dict[str, object]]:
-        """Sort a flat dict into what goes in a column and what goes in the blob.
+    def child_tables(cls) -> dict[str, type["HybridDocument"]]:
+        """The one-to-many relationships whose rows travel inside this row's dict.
+
+        Returns:
+            Each relationship's name, and the model its rows are.
+        """
+        return {
+            relationship.key: relationship.mapper.class_
+            for relationship in inspect(cls).relationships
+            if relationship.uselist
+        }
+
+    @classmethod
+    def split(cls, values: RowDict) -> tuple[RowDict, dict[str, list[RowDict]], RowDict]:
+        """Sort a flat dict into columns, children and the blob.
 
         Args:
             values: The row as one flat dict.
 
         Returns:
-            The column values, then the rest.
+            The column values, the child dicts by relationship, then the rest.
         """
         columns = set(cls.indexed_columns())
+        children = cls.child_tables()
         indexed = {key: value for key, value in values.items() if key in columns}
-        rest = {key: value for key, value in values.items() if key not in columns}
-        return indexed, rest
+        nested = {key: value for key, value in values.items() if key in children}
+        rest = {
+            key: value
+            for key, value in values.items()
+            if key not in columns and key not in children
+        }
+        return indexed, nested, rest
 
     @classmethod
-    def from_dict(cls, values: dict[str, object]) -> Self:
-        """Build a row from one flat dict.
+    def from_dict(cls, values: RowDict) -> Self:
+        """Build a row, and its children, from one flat dict.
 
         Args:
-            values: The columns and the blob's keys, mixed.
+            values: The columns, the child lists and the blob's keys, mixed.
 
         Returns:
             The row, not yet added to a session.
         """
-        indexed, rest = cls.split(values)
-        return cls(**indexed, data=_pack(rest))
+        indexed, nested, rest = cls.split(values)
+        children = cls.child_tables()
+        rows = {
+            key: [children[key].from_dict(entry) for entry in entries]
+            for key, entries in nested.items()
+        }
+        return cls(**indexed, **rows, data=_normalised(rest))
 
-    def update_from_dict(self, values: dict[str, object]) -> None:
-        """Replace the whole row with one flat dict, blob included.
+    def update_from_dict(self, values: RowDict) -> None:
+        """Replace the whole row with one flat dict, children and blob included.
 
         Args:
-            values: The columns and the blob's keys, mixed. A column left out
-                keeps its value; the blob is replaced entirely.
+            values: The columns, the child lists and the blob's keys, mixed. A
+                column or a relationship left out keeps what it has; the blob is
+                replaced entirely.
         """
-        indexed, rest = self.split(values)
+        indexed, nested, rest = self.split(values)
         for key, value in indexed.items():
             setattr(self, key, value)
-        self.data = _pack(rest)
+        for key, entries in nested.items():
+            setattr(self, key, self._synced_children(key, entries))
+        self.data = _normalised(rest)
 
-    def to_dict(self) -> dict[str, object]:
-        """The row as one flat dict: the columns first, then the blob's keys."""
-        values: dict[str, object] = {
-            key: getattr(self, key) for key in self.indexed_columns()
+    def _synced_children(
+        self, key: str, entries: list[RowDict]
+    ) -> list["HybridDocument"]:
+        """The child rows a list of child dicts describes, reusing those it names.
+
+        Args:
+            key: The relationship.
+            entries: One dict per child, in order.
+
+        Returns:
+            The rows: the existing child an entry's `id` names, updated, or a new
+            one for an entry without. A child no entry names is left out.
+        """
+        existing = {
+            child.id: child for child in getattr(self, key) if child.id is not None
         }
-        values.update(json.loads(self.data or "{}"))
+        model = self.child_tables()[key]
+        rows = []
+        for entry in entries:
+            child = existing.get(entry.get("id"))
+            if child is None:
+                child = model.from_dict(entry)
+            else:
+                child.update_from_dict(entry)
+            rows.append(child)
+        return rows
+
+    def to_dict(self) -> RowDict:
+        """The row as one flat dict: its columns, its children, then the blob's keys."""
+        values: RowDict = {key: getattr(self, key) for key in self.indexed_columns()}
+        for key in self.child_tables():
+            values[key] = [child.to_dict() for child in getattr(self, key)]
+        values.update(copy.deepcopy(self.data or {}))
         return values
 
     def to_json(self) -> str:
-        """The row as JSON text, instants written as ISO 8601."""
+        """The row as JSON text, children included, instants written as ISO 8601."""
         return json.dumps(self.to_dict(), default=json_default, ensure_ascii=False)
 
 
-def _pack(values: dict[str, object]) -> str:
-    """The blob as the column stores it."""
-    return json.dumps(values, default=json_default, ensure_ascii=False)
+def _normalised(values: RowDict) -> RowDict:
+    """The blob as it reads back: plain JSON values, instants as text, a copy."""
+    return json.loads(json.dumps(values, default=json_default))

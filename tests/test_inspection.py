@@ -114,9 +114,9 @@ class TestTheList:
         assert len(flagged_pages(BOOK)) == 2
 
     def test_an_unknown_file_is_none(self, fake_db):
-        assert find_inspection("nope") is None
+        assert find_inspection(999) is None
         assert find_inspection(None) is None
-        assert set_inspection_status("nope", "resolved") is None
+        assert set_inspection_status(999, "resolved") is None
 
     def test_an_unknown_status_is_refused(self, fake_db):
         filed = flag_page(BOOK, "/book/1", "Page 1", "Une.")
@@ -131,7 +131,7 @@ class TestTheList:
         now = datetime.now(timezone.utc)
         twins = [
             {"id": number, "book": BOOK, "path": "/book/1", "created_at": now, "updated_at": now}
-            for number in ("a", "b")
+            for number in (1, 2)
         ]
 
         with pytest.raises(IntegrityError):
@@ -335,6 +335,7 @@ class TestTheFile:
         assert 'href="/book/1"' in body
 
     def test_an_unknown_file_is_not_found(self, client):
+        assert client.get("/flagged-pages/999").status_code == 404
         assert client.get("/flagged-pages/nope").status_code == 404
 
     def test_it_can_be_resolved(self, client, fake_db):
@@ -358,5 +359,5 @@ class TestTheFile:
         assert "Marquer comme réglée" in text_of(client.get(f"/flagged-pages/{filed['id']}"))
 
     def test_resolving_an_unknown_file_is_not_found(self, client):
-        assert client.post("/flagged-pages/nope/resolve").status_code == 404
-        assert client.post("/flagged-pages/nope/reopen").status_code == 404
+        assert client.post("/flagged-pages/999/resolve").status_code == 404
+        assert client.post("/flagged-pages/999/reopen").status_code == 404

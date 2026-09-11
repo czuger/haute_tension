@@ -122,20 +122,19 @@ class TestRedirects:
 
 
 class TestTheGameId:
-    """The credential that travels in the session cookie."""
+    """The play-through the session cookie names."""
 
     def test_a_reader_without_a_game_shows_none(self, client, caplog):
         client.get("/book/1")
 
         assert "game=<absent>" in lines(caplog, "Request")[0]
 
-    def test_a_reader_with_one_is_followed_by_its_head(self, hero, caplog, fake_db):
+    def test_a_reader_with_one_is_followed_by_its_id(self, hero, caplog, fake_db):
         game_id = fake_db["games"].docs[0]["id"]
         caplog.clear()
         hero.get("/book/1")
 
-        assert game_id[:8] in lines(caplog, "Request")[0]
-        assert game_id not in lines(caplog, "Request")[0]
+        assert f"game='{game_id}'" in lines(caplog, "Request")[0]
 
 
 class TestFailures:
