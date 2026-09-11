@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Page signalée · {{ inspection.path }} · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }} · Page signalée</p>
+        <h1>{{ inspection.page_title or inspection.path }}</h1>
+        <p class="fallen-head">
+            <span class="status {{ inspection.status }}">
+                {% if inspection.status == 'open' %}À traiter{% else %}Réglée{% endif %}
+            </span>
+            <a class="flagged-path" href="{{ inspection.path }}">{{ inspection.path }}</a>
+        </p>
+    </header>
+
+    <p class="fallen-stats">
+        Signalée le {{ inspection.created_at | french_date }} ·
+        {{ inspection.comments | length }} remarque{{ 's' if inspection.comments | length > 1 }}
+    </p>
+
+    <ol class="comments">
+        {% for comment in inspection.comments %}
+        <li>
+            <p class="comment-date">Le {{ comment.created_at | french_date }}</p>
+            <p>{{ comment.text }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <p class="flagged-actions">
+        {% if inspection.status == 'open' %}
+        <form method="post" action="{{ url_for('inspection.resolve_flagged', inspection_id=inspection.id) }}">
+            <button class="button" type="submit">Marquer comme réglée</button>
+        </form>
+        {% else %}
+        <form method="post" action="{{ url_for('inspection.reopen_flagged', inspection_id=inspection.id) }}">
+            <button class="button" type="submit">Rouvrir</button>
+        </form>
+        {% endif %}
+        <a class="sheet-link" href="{{ url_for('inspection.list_flagged') }}">Toutes les pages signalées</a>
+    </p>
+</article>
+{% endblock %}

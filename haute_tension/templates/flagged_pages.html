@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Pages signalées · {{ book_title }}{% endblock %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }}</p>
+        <h1>Pages signalées</h1>
+    </header>
+
+    <nav class="status-filter" aria-label="Filtrer par état">
+        <a href="{{ url_for('inspection.list_flagged') }}"{% if not status %} class="current"{% endif %}>Toutes</a>
+        <a href="{{ url_for('inspection.list_flagged', status='open') }}"{% if status == 'open' %} class="current"{% endif %}>À traiter</a>
+        <a href="{{ url_for('inspection.list_flagged', status='resolved') }}"{% if status == 'resolved' %} class="current"{% endif %}>Réglées</a>
+    </nav>
+
+    {% if inspections %}
+    <ol class="fallen">
+        {% for inspection in inspections %}
+        {% set last = inspection.comments[-1] %}
+        <li>
+            <p class="fallen-head">
+                <span class="status {{ inspection.status }}">
+                    {% if inspection.status == 'open' %}À traiter{% else %}Réglée{% endif %}
+                </span>
+                <a href="{{ url_for('inspection.show_flagged', inspection_id=inspection.id) }}">
+                    {{ inspection.page_title or inspection.path }}
+                </a>
+                <span class="flagged-path">{{ inspection.path }}</span>
+            </p>
+            <p class="fallen-stats">
+                {{ inspection.comments | length }} remarque{{ 's' if inspection.comments | length > 1 }} ·
+                dernière le {{ last.created_at | french_date }}
+            </p>
+            <p class="fallen-cause">{{ last.text | truncate(160) }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p class="book-description">
+        {% if status == 'resolved' %}Aucune page réglée.{% elif status == 'open' %}Aucune page à traiter.{% else %}Aucune page n'a été signalée.{% endif %}
+    </p>
+    {% endif %}
+</article>
+{% endblock %}

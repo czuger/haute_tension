@@ -108,6 +108,10 @@ fixture books. It reads the book **once, at startup**, and holds it in memory.
 | `POST` | `/book/<number>/choice/<index>` | `game` | Follows one choice, paying what it costs, then redirects to its destination.       |
 | `POST` | `/game/pending/<index>/apply` · `/dismiss` · `/game/pending/dismiss` | `game` | The reader's word on a change only he can judge.            |
 | `GET`  | `/game/death`     | `game`    | The end of the adventure, and the offer of another hero.                                        |
+| `POST` | `/flag-page`      | `inspection` | Files a report on a page: `path`, `title`, `comment` in the form. JSON when the request accepts JSON first (the page's script), otherwise a flash message and a redirect back to the page. A blank comment → HTTP 400. |
+| `GET`  | `/flagged-pages`  | `inspection` | The pages flagged for inspection, most recently commented first; `?status=open` or `resolved` narrows it. |
+| `GET`  | `/flagged-pages/<id>` | `inspection` | Every remark on one flagged page, and the button to resolve or reopen it. Unknown id → HTTP 404. |
+| `POST` | `/flagged-pages/<id>/resolve` · `/reopen` | `inspection` | Changes the state of the file and comes back to it.                       |
 
 `/data/<number>` also appends the requested page to the read history before
 looking it up. An unknown page returns a UTF-8 JSON body
@@ -264,6 +268,29 @@ The site header is the same four entries on every page, hero or not:
 Nothing about the hero lives in the cookie — only the game id — and none of the
 four entries writes, so moving between them cannot leave a play-through in two
 states.
+
+A fifth entry, **Signaler**, is not about the hero: it opens a dialog to flag
+the page being read as having a problem — see *Flagging a page* below.
+
+### Flagging a page
+
+Any page can be flagged from the header's **Signaler**: a dialog with the page's
+path and title already filled in and a box for what is wrong. With JavaScript
+the report is sent by `fetch` and the answer shown on the page; without it the
+dialog still opens (the link lands on its anchor) and the form posts the
+ordinary way, coming back with a flash message. Either way it is one route,
+`POST /flag-page`, which answers JSON only when asked for it first.
+
+One file per page and per book, in the `page_inspections` collection: the first
+report opens it, every later one appends a dated comment, and a resolved page
+that is flagged again is reopened. A unique index on `(book, path)` is the
+safety net under that find-or-create. There are no users, so comments carry no
+author.
+
+`/flagged-pages` lists the files, most recently commented first, with the last
+remark and a filter on state; each file shows the whole thread and can be
+marked resolved or reopened. Nothing restricts it: the application has no
+accounts, and the list is a tool for whoever maintains the book.
 
 ### The sheet
 

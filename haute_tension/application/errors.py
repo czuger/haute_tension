@@ -5,7 +5,8 @@ about it. A page that needs the database and cannot reach it **fails**: it is no
 served half-built. The reader gets a page saying so, and the log gets the reason.
 
 `/data/<number>` answers JSON rather than HTML, because that is what its callers
-parse; the status is the same.
+parse; so does any request that asks for JSON first, which is how the page's
+own script flags a page. The status is the same.
 
 **503, not 500.** Nothing is wrong with the request or with the application: the
 database is not there, and the same request will work once it is.
@@ -50,9 +51,14 @@ def database_unavailable(trouble: BaseException) -> tuple[BaseResponse, int]:
         path=request.path,
         endpoint=request.endpoint,
     )
-    if request.blueprint == JSON_BLUEPRINT:
+    if request.blueprint == JSON_BLUEPRINT or _asks_for_json():
         return _json_answer(), DATABASE_UNAVAILABLE
     return _page_answer(), DATABASE_UNAVAILABLE
+
+
+def _asks_for_json() -> bool:
+    """Whether the request put JSON first in what it accepts."""
+    return request.accept_mimetypes.best == "application/json"
 
 
 def _json_answer() -> BaseResponse:

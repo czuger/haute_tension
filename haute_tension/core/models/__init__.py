@@ -5,8 +5,9 @@ connection or runs a query. `core.db` holds the connection and every read and
 write, and hands plain values back, so only this package and `core.db` ever see
 a document object.
 
-    page_views -> PageView, one row per page asked for
-    games      -> Game, one play-through: the hero and the fight he is in
+    page_views       -> PageView, one row per page asked for
+    games            -> Game, one play-through: the hero and the fight he is in
+    page_inspections -> PageInspection, one flagged page and its comments
 
 The book is in neither: it is static and read into memory at startup.
 """
@@ -20,6 +21,7 @@ from .game import (
     GameItem,
     PendingChange,
 )
+from .page_inspection import InspectionComment, PageInspection
 from .page_view import PageView
 
 __all__ = [
@@ -29,6 +31,8 @@ __all__ = [
     "GameEnemy",
     "GameExchange",
     "GameItem",
+    "InspectionComment",
+    "PageInspection",
     "PageView",
     "PendingChange",
 ]

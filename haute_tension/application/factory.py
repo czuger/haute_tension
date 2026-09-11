@@ -6,6 +6,7 @@ from flask import Flask
 from haute_tension.application.errors import wire_the_error_pages
 from haute_tension.application.french_date import french_date
 from haute_tension.application.game_routes import create_game_blueprint
+from haute_tension.application.inspection_routes import create_inspection_blueprint
 from haute_tension.application.logs.request_trace import wire_the_request_trace
 from haute_tension.application.routes import create_api_blueprint
 from haute_tension.application.web_routes import create_web_blueprint
@@ -56,6 +57,9 @@ def create_app(
     app.register_blueprint(create_api_blueprint(story_data, book))
     app.register_blueprint(
         create_game_blueprint(story_data, book, BOOK_SERIES, BOOK_TITLE, rng)
+    )
+    app.register_blueprint(
+        create_inspection_blueprint(book, BOOK_SERIES, BOOK_TITLE)
     )
     event(
         "Application built",

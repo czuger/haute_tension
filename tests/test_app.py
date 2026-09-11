@@ -14,6 +14,7 @@ class TestCreateApp:
         assert sorted(create_app(BOOK, books_path).blueprints) == [
             "api",
             "game",
+            "inspection",
             "web",
         ]
 

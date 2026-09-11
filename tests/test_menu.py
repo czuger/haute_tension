@@ -1,5 +1,6 @@
 """The site menu: Nouveau, Partie en cours, Feuille, Les tombés."""
 
+import re
 from datetime import datetime, timezone
 
 import pytest
@@ -181,7 +182,10 @@ class TestFeuille:
         assert "À vous de voir" not in text_of(hero.get("/game"))
 
     def test_the_sheet_posts_nothing(self, hero):
-        assert "<form" not in text_of(hero.get("/game"))
+        """Only the site-wide flag dialog, outside the card, holds a form."""
+        card = re.search(r'<article class="card.*?</article>', text_of(hero.get("/game")), re.S)
+
+        assert "<form" not in card.group(0)
 
     def test_the_sheet_never_changes_the_hero(self, hero, fake_db):
         hero.post("/book/1/choice/1")

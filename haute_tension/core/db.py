@@ -49,6 +49,7 @@ from haute_tension.core.logs.general_log import event, note
 from haute_tension.application.models.game import Combat as CombatDict
 from haute_tension.application.models.game import FallenHero
 from haute_tension.application.models.game import GameDict
+from haute_tension.application.models.inspection import InspectionDict
 from haute_tension.core.config import current_db_name
 from haute_tension.core.inventory import (
     STARTING_ITEMS,
@@ -64,9 +65,12 @@ from haute_tension.core.models import (
     GameEnemy,
     GameExchange,
     GameItem,
+    InspectionComment,
+    PageInspection,
     PageView,
     PendingChange,
 )
+from haute_tension.core.models.page_inspection import OPEN, STATUSES
 
 # What every caller catches around a database call. Two families rather than
 # one: pymongo raises when the server cannot be reached or refuses a command,
@@ -884,4 +888,129 @@ def _pending_dict(index: int, waiting: PendingChange) -> dict[str, object]:
         "sign": waiting.sign or 1,
         "page": waiting.page,
         "described": change.described(),
+    }
+
+
+def flag_page(
+    book: str, path: str, page_title: str | None, text: str
+) -> InspectionDict:
+    """Flag a page for inspection, or add to the file already open on it.
+
+    Find-or-create on `(book, path)`: the first report opens the file, every
+    later one appends a comment. A resolved page that is flagged again is
+    reopened — a new remark means someone still sees a problem.
+
+    Args:
+        book: The book the page belongs to, as `"<series>/<book>"`.
+        path: The page as the browser had it, `"/book/22"`.
+        page_title: What its tab said, kept for the list.
+        text: The remark, already checked to be non-blank by the caller.
+
+    Returns:
+        The file on that page, with the new comment last.
+    """
+    connect_db()
+    now = datetime.now(timezone.utc)
+    inspection = PageInspection.objects(book=book, path=path).first()
+    if inspection is None:
+        inspection = PageInspection(
+            id=uuid.uuid4().hex, book=book, path=path, created_at=now
+        )
+    inspection.page_title = page_title or inspection.page_title
+    inspection.status = OPEN
+    inspection.updated_at = now
+    inspection.comments.append(InspectionComment(text=text, created_at=now))
+    inspection.save()
+    event(
+        "Page flagged",
+        inspection=inspection.id,
+        book=book,
+        path=path,
+        comments=len(inspection.comments),
+        text=text,
+    )
+    return _inspection_dict(inspection)
+
+
+def flagged_pages(book: str, status: str | None = None) -> list[InspectionDict]:
+    """The pages flagged in one book, most recently commented first.
+
+    Args:
+        book: The book, as `"<series>/<book>"`.
+        status: Keep only the files in that state; `None` lists them all.
+
+    Returns:
+        One file per flagged page.
+    """
+    connect_db()
+    query = PageInspection.objects(book=book)
+    if status is not None:
+        query = query.filter(status=status)
+    return [
+        _inspection_dict(inspection)
+        for inspection in query.order_by("-updated_at", "-id")
+    ]
+
+
+def find_inspection(inspection_id: str | None) -> InspectionDict | None:
+    """Load the file on one flagged page, or `None` when there is none.
+
+    Args:
+        inspection_id: The id carried in the URL.
+
+    Returns:
+        The file, or `None` when the id is unknown or empty.
+    """
+    if not inspection_id:
+        return None
+    connect_db()
+    inspection = PageInspection.objects(id=inspection_id).first()
+    return _inspection_dict(inspection) if inspection else None
+
+
+def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | None:
+    """Mark a flagged page resolved, or open it again.
+
+    Args:
+        inspection_id: The id carried in the URL.
+        status: `"open"` or `"resolved"`.
+
+    Returns:
+        The file as it now stands, or `None` when the id is unknown.
+
+    Raises:
+        ValueError: If the status is neither.
+    """
+    if status not in STATUSES:
+        raise ValueError(f"unknown inspection status {status!r}")
+    connect_db()
+    inspection = PageInspection.objects(id=inspection_id).first()
+    if inspection is None:
+        return None
+    inspection.status = status
+    inspection.updated_at = datetime.now(timezone.utc)
+    inspection.save()
+    event(
+        "Flagged page status changed",
+        inspection=inspection.id,
+        path=inspection.path,
+        status=status,
+    )
+    return _inspection_dict(inspection)
+
+
+def _inspection_dict(inspection: PageInspection) -> InspectionDict:
+    """One flagged page as the routes read it."""
+    return {
+        "id": inspection.id,
+        "book": inspection.book,
+        "path": inspection.path,
+        "page_title": inspection.page_title,
+        "status": inspection.status,
+        "comments": [
+            {"text": comment.text, "created_at": comment.created_at.isoformat()}
+            for comment in inspection.comments
+        ],
+        "created_at": inspection.created_at.isoformat(),
+        "updated_at": inspection.updated_at.isoformat(),
     }

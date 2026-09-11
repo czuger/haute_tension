@@ -18,7 +18,7 @@ The game rules stay pure and stay out of `db.py`: `combat.py` is handed a fight 
 
 `combat.FIGHTS_WITH_SPECIAL_RULES` lists the thirteen fights whose page text adds a rule the engine does not model; `TODO.md` says what each needs. Do not quietly widen the engine for one of them without updating both.
 
-**Only the reading history and the play-throughs are stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing. Do not move it there.
+**Only the reading history, the play-throughs and the flagged pages are stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing. Do not move it there.
 
 **Never swallow a database failure.** A page that needs the database and cannot reach it must fail, not be served half-built: a reader given a page quietly missing part of itself, after a three-second wait, is worse off than one told the server is down. `application/errors.py` registers the one handler that turns `db.DatabaseFailure` — the driver errors plus `DatabaseUnavailable`, raised when nothing is configured — into a 503 page, or JSON under the `api` blueprint. Routes catch nothing themselves. A page that genuinely needs no database (the landing page) must not touch one, so that it keeps working when there is none.
 

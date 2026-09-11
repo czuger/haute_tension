@@ -49,7 +49,7 @@ BOOK = "pretre_jean/forteresse_alamuth"
 # ObjectId. Everywhere the app says `id`, Mongo says `_id`, and `docs` below
 # shows them the way the app writes and reads them — which is what lets a test
 # seed a game by the id it will then look up.
-SOURCE_ID_COLLECTIONS = {"games"}
+SOURCE_ID_COLLECTIONS = {"games", "page_inspections"}
 
 
 class FakeCollection:

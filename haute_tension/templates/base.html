@@ -671,6 +671,116 @@
             color: var(--ink);
         }
 
+        /* --- Flagging a page, and the pages flagged --- */
+
+        .toast {
+            margin: 0 0 1.25rem;
+            padding: 0.7rem 1rem;
+            border-left: 3px solid var(--accent);
+            border-radius: 0.2rem;
+            background: var(--paper);
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .toast.error { color: var(--accent-dark); }
+
+        .flag {
+            width: min(100% - 2rem, 32rem);
+            padding: clamp(1.25rem, 4vw, 2rem);
+            border: 1px solid var(--line);
+            border-radius: 0.35rem;
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 1rem 3rem rgba(71, 52, 38, 0.2);
+        }
+
+        /* Without a script, the menu link lands on the dialog's id and this is
+           what shows it: fixed in the viewport, over the page. */
+        .flag:target { display: block; position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); z-index: 10; }
+
+        .flag::backdrop { background: rgba(37, 28, 22, 0.45); }
+
+        .flag h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+
+        .flag-page {
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .flag label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .flag textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--line);
+            border-radius: 0.25rem;
+            font: inherit;
+            font-size: 0.95rem;
+        }
+
+        .flag-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1rem;
+            margin: 1rem 0 0;
+        }
+
+        .flag-actions .sheet-link { margin-left: 0; }
+
+        .status-filter {
+            display: flex;
+            gap: 1rem;
+            margin: 0 0 1.5rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .status-filter a { color: var(--muted); text-decoration: none; }
+        .status-filter a.current { color: var(--accent); font-weight: 700; }
+
+        .status {
+            padding: 0.1rem 0.45rem;
+            border-radius: 0.2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status.open { color: var(--paper); background: var(--accent); }
+        .status.resolved { color: var(--muted); background: #e4dccd; }
+
+        .flagged-path { font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--muted); }
+
+        .comments { margin: 1.5rem 0; padding: 0; list-style: none; }
+
+        .comments li {
+            padding: 0.8rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .comment-date {
+            margin: 0 0 0.3rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .comments p { margin: 0; white-space: pre-line; }
+
+        .flagged-actions { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+        .flagged-actions form { display: inline; }
+
         @media (max-width: 36rem) {
             main { width: min(100% - 1rem, 48rem); padding-top: 0.5rem; }
             .card { border-radius: 0; }
@@ -685,10 +795,87 @@
             <a class="site-sheet" href="{{ url_for('game.resume_game') }}">Partie en cours</a>
             <a class="site-sheet" href="{{ url_for('game.show_character') }}">Feuille</a>
             <a class="site-sheet" href="{{ url_for('game.show_fallen') }}">Les tombés</a>
+            <a class="site-sheet" id="flag-open" href="#signaler">Signaler</a>
         </nav>
     </header>
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <p class="toast {{ category }}" role="status">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <p class="toast" id="flag-toast" role="status" hidden></p>
         {% block content %}{% endblock %}
     </main>
+
+    <dialog class="flag" id="signaler" aria-labelledby="flag-title">
+        <form method="post" action="{{ url_for('inspection.report_page') }}" id="flag-form">
+            <h2 id="flag-title">Signaler cette page</h2>
+            <p class="flag-page">{{ self.title() }} · <code>{{ request.path }}</code></p>
+            <input type="hidden" name="path" value="{{ request.path }}">
+            <input type="hidden" name="title" value="{{ self.title() }}">
+            <label for="flag-comment">Qu'est-ce qui ne va pas&nbsp;?</label>
+            <textarea id="flag-comment" name="comment" rows="4" required
+                      placeholder="Une coquille, un choix qui mène au mauvais paragraphe, un combat mal lu…"></textarea>
+            <p class="flag-actions">
+                <button class="button" type="submit">Envoyer</button>
+                <a class="sheet-link" href="#" id="flag-close">Annuler</a>
+                <a class="sheet-link" href="{{ url_for('inspection.list_flagged') }}">Pages signalées</a>
+            </p>
+        </form>
+    </dialog>
+
+    <script>
+        // Progressive enhancement: the dialog opens as a modal and the report is
+        // sent without leaving the page. Without this, the anchor shows the
+        // dialog through :target and the form posts the ordinary way.
+        (function () {
+            var dialog = document.getElementById("signaler");
+            var form = document.getElementById("flag-form");
+            var toast = document.getElementById("flag-toast");
+            if (!dialog || typeof dialog.showModal !== "function") { return; }
+
+            function say(message, category) {
+                toast.textContent = message;
+                toast.className = "toast " + category;
+                toast.hidden = false;
+            }
+
+            document.getElementById("flag-open").addEventListener("click", function (click) {
+                click.preventDefault();
+                dialog.showModal();
+                document.getElementById("flag-comment").focus();
+            });
+            document.getElementById("flag-close").addEventListener("click", function (click) {
+                click.preventDefault();
+                dialog.close();
+            });
+
+            form.addEventListener("submit", function (submit) {
+                submit.preventDefault();
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                }).then(function (response) {
+                    return response.json().then(function (answer) {
+                        return { ok: response.ok, answer: answer };
+                    }, function () {
+                        return { ok: false, answer: { message: "Le signalement n'a pas pu être envoyé." } };
+                    });
+                }).then(function (result) {
+                    say(result.answer.message, result.ok ? "success" : "error");
+                    if (result.ok) {
+                        form.reset();
+                        dialog.close();
+                    }
+                }, function () {
+                    say("Le signalement n'a pas pu être envoyé.", "error");
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
