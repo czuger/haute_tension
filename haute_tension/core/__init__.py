@@ -9,6 +9,7 @@ way:
     models      the shape of what is stored, and nothing else
     db          the database, on top of config and models
 
-Only the reading history is stored. The book is static, so it is read once at
+Only the reading history, the play-throughs and the flagged pages are stored,
+in one SQLite file per environment. The book is static, so it is read once at
 startup rather than kept in a database that would have to be loaded first.
 """

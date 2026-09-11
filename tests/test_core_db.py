@@ -1,7 +1,7 @@
-"""Tests for the reads and writes in `core.db`.
+"""Tests for the reads and writes of the reading history in `core.db`.
 
-Only the reading history is stored, so only the reading history is tested here;
-the book is read off disk and belongs to `test_story.py`.
+The play-throughs are in `test_core_games.py` and the flagged pages in
+`test_inspection.py`; the book is read off disk and belongs to `test_story.py`.
 """
 
 from datetime import datetime, timedelta, timezone
@@ -92,8 +92,8 @@ class TestPageView:
     """What a stored visit prints as, for a message about a run."""
 
     def test_it_names_what_was_read(self):
-        from haute_tension.core.models import PageView
+        from haute_tension.core.models.page_view import PageView
 
-        view = PageView(book=BOOK, page="22", viewed_at="now")
+        view = PageView.from_dict({"book": BOOK, "page": "22", "viewed_at": "now"})
 
         assert str(view) == f"{BOOK} p.22 @ now"

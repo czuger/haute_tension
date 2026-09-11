@@ -2,7 +2,13 @@
 
 import pytest
 
-from haute_tension.core.config import current_db_name, current_env, load_env
+from haute_tension.core.config import (
+    ROOT,
+    current_db_name,
+    current_env,
+    database_path,
+    load_env,
+)
 
 
 class TestCurrentEnv:
@@ -49,26 +55,64 @@ class TestLoadEnv:
     """Refusing to run without the variables a script needs."""
 
     def test_set_variables_are_returned(self, monkeypatch):
-        monkeypatch.setenv("MONGO_URI", "mongodb://localhost:27017")
+        monkeypatch.setenv("DATABASE_DIR", "data")
 
-        assert load_env(["MONGO_URI"]) == {"MONGO_URI": "mongodb://localhost:27017"}
+        assert load_env(["DATABASE_DIR"]) == {"DATABASE_DIR": "data"}
 
     def test_nothing_required_is_nothing_to_check(self):
         assert load_env([]) == {}
 
     def test_a_missing_variable_is_refused(self):
-        with pytest.raises(EnvironmentError, match="MONGO_URI"):
-            load_env(["MONGO_URI"])
+        with pytest.raises(EnvironmentError, match="DATABASE_DIR"):
+            load_env(["DATABASE_DIR"])
 
     def test_an_empty_variable_counts_as_missing(self, monkeypatch):
-        monkeypatch.setenv("MONGO_URI", "")
+        monkeypatch.setenv("DATABASE_DIR", "")
 
-        with pytest.raises(EnvironmentError, match="MONGO_URI"):
-            load_env(["MONGO_URI"])
+        with pytest.raises(EnvironmentError, match="DATABASE_DIR"):
+            load_env(["DATABASE_DIR"])
 
     def test_every_missing_variable_is_named(self):
         with pytest.raises(EnvironmentError) as raised:
-            load_env(["MONGO_URI", "APP_SECRET"])
+            load_env(["DATABASE_DIR", "APP_SECRET"])
 
-        assert "MONGO_URI" in str(raised.value)
+        assert "DATABASE_DIR" in str(raised.value)
         assert "APP_SECRET" in str(raised.value)
+
+
+class TestDatabasePath:
+    """Which SQLite file a run opens."""
+
+    def test_the_file_is_named_after_the_env(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("DATABASE_DIR", str(tmp_path))
+        monkeypatch.setenv("APP_ENV", "prod")
+
+        assert database_path() == tmp_path / "haute_tension_prod.sqlite3"
+
+    def test_a_relative_directory_is_taken_from_the_repository_root(self, monkeypatch):
+        monkeypatch.setenv("DATABASE_DIR", "data")
+
+        assert database_path() == ROOT / "data" / "haute_tension_dev.sqlite3"
+
+    def test_a_home_directory_is_expanded(self, monkeypatch):
+        monkeypatch.setenv("DATABASE_DIR", "~/haute_tension_data")
+
+        assert "~" not in str(database_path())
+        assert database_path().is_absolute()
+
+    def test_dev_and_prod_are_separate_files(self, monkeypatch, tmp_path):
+        monkeypatch.setenv("DATABASE_DIR", str(tmp_path))
+        monkeypatch.setenv("APP_ENV", "dev")
+        dev = database_path()
+        monkeypatch.setenv("APP_ENV", "prod")
+
+        assert dev != database_path()
+        assert dev.parent == database_path().parent
+
+    def test_nothing_configured_is_no_path(self):
+        assert database_path() is None
+
+    def test_a_blank_directory_counts_as_unset(self, monkeypatch):
+        monkeypatch.setenv("DATABASE_DIR", "   ")
+
+        assert database_path() is None

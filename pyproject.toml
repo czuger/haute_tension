@@ -14,8 +14,7 @@ dependencies = [
     "bs4~=0.0.2",
     "beautifulsoup4~=4.13.4",
     "Flask~=3.1.1",
-    "mongoengine~=0.29.1",
-    "pymongo~=4.13.2",
+    "SQLAlchemy~=2.0.43",
     "python-dotenv~=1.1.1",
 ]
 
@@ -23,8 +22,6 @@ dependencies = [
 test = [
     "pytest~=8.4.1",
     "pytest-cov~=6.2.1",
-    # The models talk to an in-memory server in the tests, never to a mongod.
-    "mongomock~=4.3.0",
 ]
 
 [tool.setuptools]

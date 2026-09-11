@@ -11,7 +11,8 @@ The project has two halves:
 
 1. **A Flask reader** (`haute_tension/`) that serves the book as a browsable
    website, plus a small JSON API. The book is read off disk into memory at
-   startup; MongoDB holds the reading history, and nothing else.
+   startup; a SQLite file holds the reading history, the play-throughs and the
+   flagged pages, and nothing else.
 2. **An offline import pipeline** (`work/`) that scrapes the original pages from
    the web, parses them into JSON, and enriches them (per-choice gains/losses,
    structured combat encounters) into the runtime book data.
@@ -23,7 +24,7 @@ The project has two halves:
 ```
 haute_tension/                 Flask application package
   app.py                       Development-server entry point (port 5001)
-  application/                 The web layer — knows nothing about Mongo
+  application/                 The web layer — knows nothing about the database
     factory.py                 create_app(): wires blueprints, book title
     web_routes.py              Browser routes: "/" and "/book/<number>"
     routes.py                  API route: "/data/<number>"
@@ -31,23 +32,27 @@ haute_tension/                 Flask application package
   application/logs/
     request_trace.py           Every request and its answer, into the log
   core/                        Below the web layer — knows nothing about Flask
-    config.py                  .env, APP_ENV, session key, which database
+    config.py                  .env, APP_ENV, session key, which database file
     story.py                   load_story(): reads and indexes pages.json
     dice.py                    roll_dice(): any dice; roll_2d6() for combat
     character.py               Rolling up Prêtre Jean, once, in one of two modes
     inventory.py               What a gain or a loss does to a hero
     combat.py                  The combat engine — pure, one assault at a time
-    db.py                      The connection, and every read and write
+    db.py                      The engine, the sessions, and every read and write
     logs/
       rotating_log.py          A log file that rotates, on a directory it makes
       general_log.py           note() / event() / failure(), and what they hide
     models/
+      base.py                  The declarative base every table is mapped on
+      hybrid_document.py       The mixin: a few columns + one JSON blob, to_dict/from_dict
+      utc_datetime.py          A timestamp column that keeps its timezone
       page_view.py             PageView: one row per page asked for
       game.py                  Game: a hero, and the fight he is in
+      page_inspection.py       PageInspection: a flagged page and its comments
   templates/                   Jinja templates, CSS inline in base.html
   books/<series>/<book>/       Runtime book data (see "Book data" below)
 
-Makefile                       make test / test-fast / coverage / serve
+Makefile                       make test / coverage / serve
 
 work/                          Offline import & conversion pipeline
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
@@ -59,9 +64,9 @@ work/                          Offline import & conversion pipeline
   raw_data/                    Downloaded HTML + per-book YAML index
   parsed_data/                 Generated intermediate JSON/YAML
 
-tests/                         Test suite (pytest, mongomock, Flask test client)
-  conftest.py                  The fake database every test runs against
-.env.example                   APP_ENV and MONGO_URI — copy to .env
+tests/                         Test suite (pytest, in-memory SQLite, Flask test client)
+  conftest.py                  The database every test runs against
+.env.example                   APP_ENV and DATABASE_DIR — copy to .env
 AGENTS.md                      Coding conventions for this repository
 pyproject.toml                 Package metadata, dependencies, pytest/coverage
 ```
@@ -122,7 +127,8 @@ this error still carries HTTP 200.
 
 ## The database
 
-MongoDB, through mongoengine — and it holds **one thing: the reading history.**
+SQLite, through SQLAlchemy — one file per environment, and it holds **three
+things: the reading history, the play-throughs and the flagged pages.**
 
 The book does not go in it, deliberately. It is 668 static pages that change only
 when the import pipeline is re-run, it fits in memory several times over, and
@@ -132,40 +138,77 @@ when the import pipeline is re-run, it fits in memory several times over, and
 imports Flask. The layering is strict and the imports only ever go one way:
 
 ```
-config      environment variables, and which database
+config      environment variables, and which database file
 story       the book, read off disk into memory
 models      the shape of what is stored — no module here runs a query
-db          the database, on top of config and models
+db          the engine and the sessions, on top of config and models
 ```
 
-**`core/db.py` is the only module that talks to Mongo**, and no document object
+**`core/db.py` is the only module that talks to SQLite**, and no row object
 ever leaves it, which is what keeps the ORM out of the web layer. A new query
 belongs here, never in a route.
 
-The connection is opened on the first call rather than at import time, so
-importing `core.db` never needs a reachable server — and it is the single seam
-the tests replace.
+The engine is opened on the first call rather than at import time, so importing
+`core.db` never needs a database file — and it is the single seam the tests
+replace. The tables are created on first use from the models: there is no
+migration step, the schema is what the models say.
 
 ### Which database
 
-`APP_ENV` (`dev` or `prod`, default `dev`) suffixes the base name, giving
-`haute_tension_dev` or `haute_tension_prod`. `MONGO_URI` says where the server
-is, and must **not** name a database: one given there would silently win over
-`APP_ENV`, so `connect_db()` refuses it.
+`DATABASE_DIR` names the directory the files live in — a relative path is taken
+from the repository root, and the directory is made if it is missing.
+`APP_ENV` (`dev` or `prod`, default `dev`) picks the file inside it,
+`haute_tension_dev.sqlite3` or `haute_tension_prod.sqlite3`, so a dev run never
+opens prod data. A `DATABASE_DIR` that names a file rather than a directory is
+refused.
 
-### The one collection
+### Indexed columns and the JSON blob
 
-| Collection   | Model      | Keyed by                                    |
-| ------------ | ---------- | ------------------------------------------- |
-| `page_views` | `PageView` | An ObjectId — a visit has no id of its own  |
+Every table follows one pattern, and a new table should too. A field is a
+**real column** only when a query filters, sorts or joins on it: the id, the
+book every query is scoped to, a timestamp something is ordered by. Everything
+else is bundled into **one `data` column holding a JSON object**. A new field
+on a hero or a fight is therefore a key in that object and nothing else; a new
+query on such a key means promoting it to a column, with an index, in the model.
 
-One row per page asked for, scoped by a `book` field written
+`core/models/hybrid_document.py` is the mixin every model takes, and its four
+methods are the whole contract:
+
+| Method | Does |
+| ------ | ---- |
+| `to_dict()` | The row as one flat dict — the columns and the blob's keys merged, columns first |
+| `from_dict(values)` | The reverse: keys naming a column become that column, the rest is packed into `data` |
+| `update_from_dict(values)` | The same onto a loaded row — how `core.db` writes a changed state back, whole |
+| `to_json()` | `to_dict()` as text, with instants written as ISO 8601 |
+
+`core.db` never sets a column by hand: it reads a row as a dict, changes the
+dict, and writes it back with `update_from_dict()`. An instant kept in a column
+goes through `core/models/utc_datetime.py` — aware in, aware out, stored as
+fixed-width UTC text so that an `ORDER BY` on it is an order in time. An instant
+put in the blob comes back as ISO 8601 text, and is handed out as it is.
+
+### The three tables
+
+| Table | Model | Columns | In the blob |
+| ----- | ----- | ------- | ----------- |
+| `page_views` | `PageView` | `id` (autoincrement), `book`, `game` (→ `games.id`), `viewed_at` | `page` |
+| `games` | `Game` | `id` (a `uuid4().hex`, it travels in the cookie), `book`, `died_at` | the hero, his bag, the pending changes, the open fight, where and of what he died |
+| `page_inspections` | `PageInspection` | `id`, `book`, `path`, `status`, `updated_at` | `page_title`, `comments`, `created_at` |
+
+The indexes are the orders the rows are served in: `(book, viewed_at)` and
+`(game, viewed_at)` on the history, `(book, died_at)` on the memorial,
+`(book, updated_at)` and `status` on the flagged pages, plus the unique
+`(book, path)` that keeps two reports on one page from opening two files.
+`page_views.game` is a foreign key, enforced — SQLite only checks them when
+told to, so the engine turns them on for every connection.
+
+The history is one row per page asked for, scoped by a `book` field written
 `"<series>/<book>"`, so a second book never shows up in the first one's history.
 
-- `record_page_view(book, page)` — notes that a page was asked for, and says
-  whether it recorded anything. Asking again for the page one is already on is a
-  reload rather than a move, and is dropped; coming back to a page after going
-  elsewhere is a loop in the story, and is kept.
+- `record_page_view(book, page, game_id)` — notes that a page was asked for, and
+  says whether it recorded anything. Asking again for the page one is already on
+  is a reload rather than a move, and is dropped; coming back to a page after
+  going elsewhere is a loop in the story, and is kept.
 - `last_pages(book, limit=10)` / `get_oldest_page(book)` — the bounded reading
   history, oldest first. Bounding happens **on read**, so recording a visit stays
   a plain insert.
@@ -173,8 +216,8 @@ One row per page asked for, scoped by a `book` field written
 ### When the database is not there
 
 **A request that needs it fails.** It is not served half-built: a reader handed a
-page quietly missing its breadcrumb, after the driver's full three-second
-timeout, is worse off than one told the server is down.
+page quietly missing its breadcrumb is worse off than one told the database is
+down.
 
 `application/errors.py` registers the one handler that does it, on the
 application rather than on a route, so nothing has to remember. It answers
@@ -183,8 +226,9 @@ request will work once the database is back — as a page for a reader, and as J
 under the `api` blueprint, because `/data/<number>` is parsed rather than read.
 The reason goes to the log with its traceback.
 
-`DatabaseError` is the driver failing; `DatabaseUnavailable` is there being
-nothing configured to fail. `DatabaseFailure` is both, and is what the handler
+`DatabaseError` is the driver failing — a file that cannot be opened or
+written, a constraint refused; `DatabaseUnavailable` is there being nothing
+configured to fail. `DatabaseFailure` is both, and is what the handler
 catches. `DatabaseUnavailable` subclasses `EnvironmentError` but is a class of
 its own, so the handler catches exactly this and not every `OSError` a request
 might raise.
@@ -281,9 +325,9 @@ dialog still opens (the link lands on its anchor) and the form posts the
 ordinary way, coming back with a flash message. Either way it is one route,
 `POST /flag-page`, which answers JSON only when asked for it first.
 
-One file per page and per book, in the `page_inspections` collection: the first
+One file per page and per book, in the `page_inspections` table: the first
 report opens it, every later one appends a dated comment, and a resolved page
-that is flagged again is reopened. A unique index on `(book, path)` is the
+that is flagged again is reopened. A unique constraint on `(book, path)` is the
 safety net under that find-or-create. There are no users, so comments carry no
 author.
 
@@ -370,8 +414,8 @@ and `TODO.md` says what each one needs.
 
 ### State
 
-A play-through lives in the `games` collection; the session cookie carries its id
-and nothing else. It is the only document that is read, changed and written back
+A play-through lives in the `games` table; the session cookie carries its id
+and nothing else. It is the only row that is read, changed and written back
 — the book is static and the reading history is a log.
 
 ---
@@ -483,9 +527,9 @@ pyenv local haute_tension
 python -m pip install -e .
 ```
 
-Dependencies come from `pyproject.toml`: Flask, mongoengine/pymongo,
-python-dotenv, PyYAML, beautifulsoup4/bs4. Do not add a `requirements.txt`. Add
-`[test]` to also install pytest, pytest-cov and mongomock:
+Dependencies come from `pyproject.toml`: Flask, SQLAlchemy, python-dotenv,
+PyYAML, beautifulsoup4/bs4. Do not add a `requirements.txt`. Add `[test]` to
+also install pytest and pytest-cov:
 
 ```bash
 python -m pip install -e ".[test]"
@@ -493,22 +537,21 @@ python -m pip install -e ".[test]"
 
 ### 3. Database
 
-Copy `.env.example` to `.env` (git-ignored) and point it at a mongod:
+Copy `.env.example` to `.env` (git-ignored) and say where the files go:
 
 ```bash
 APP_ENV=dev
-MONGO_URI=mongodb://localhost:27017
+DATABASE_DIR=data
 ```
 
-Leave the database name out of `MONGO_URI` — `APP_ENV` is what picks it, and a
-URI naming one is refused rather than silently obeyed. Any mongod will do:
+`DATABASE_DIR` is a directory, made on first use if it is missing; `APP_ENV`
+picks the file inside it (`data/haute_tension_dev.sqlite3` here, git-ignored),
+and the tables are created the first time the file is opened. There is nothing
+to install or bring up: SQLite ships with Python.
 
-```bash
-docker run -d --rm --name ht-mongo -p 27017:27017 mongo:7
-```
-
-Only the reading history needs it. The book is read off disk, so browsing works
-whether or not a server is up.
+Only the reading history, the play-throughs and the flagged pages need it. The
+book is read off disk, so the landing page works whether or not a database is
+configured.
 
 ### 4. Run the server
 
@@ -536,51 +579,36 @@ All tests live in the repository-root `tests/` directory and run under pytest,
 configured in `pyproject.toml` to measure branch coverage of `haute_tension` and
 to fail below 95%.
 
-The same suite runs against two backends, and no test is written to care which:
+There is nothing to bring up: every test runs on an in-memory SQLite of its
+own, which is the same engine as the file the application opens.
 
 ```bash
-make test        # a real MongoDB in a container — the pass that counts
-make test-fast   # the in-memory server, no container, well under a second
-python -m pytest # the same as make test-fast
+make test        # the whole suite, well under ten seconds
+python -m pytest # the same
 ```
-
-`make test` brings up `mongo:7` on **port 27019**, waits for it to actually
-answer, and points the suite at it. mongomock is a reimplementation, so a driver
-behaviour it does not share is a bug only the real server shows — this repository
-has already had one. The container stays up between runs, which makes a series of
-`make test` fast; `make mongo-stop` removes it.
-
-Two separations keep it away from the application's data, and both matter: it
-listens on its own port, **and** it works in its own database,
-`haute_tension_test`. The port alone would not be enough — nothing stops a
-`MONGO_URI` from pointing the application at that very container, and only the
-distinct database name then keeps `make test` from dropping a reading history.
 
 | Target | Does |
 | ------ | ---- |
-| `make test` | Brings up MongoDB and runs the whole suite against it |
-| `make test-fast` | The same suite on the in-memory server |
+| `make test` | Runs the whole suite |
 | `make coverage` | The suite plus an HTML report in `htmlcov/` |
-| `make mongo` / `make mongo-stop` | Brings the test container up / removes it |
 | `make serve` | Runs the development server on port 5001 |
 
 `ARGS` passes arguments through to pytest (`make test ARGS="-k history -v"`).
 
-**No test needs a running mongod** — `make test-fast` is the whole suite with
-nothing brought up. `tests/conftest.py` binds the models to mongomock, or to
-`MONGO_URI_TEST` when the Makefile sets it, and stubs out `core.db.connect_db()`
-either way — the one place that would reach for a server of its own. Three
-fixtures are the whole interface:
+`tests/conftest.py` opens the in-memory database, creates the tables, binds
+`core.db` to it and stubs out `core.db.connect_db()` — the one place that would
+open a file of its own. Three fixtures are the whole interface:
 
-- `fake_db` — the empty database. Seed a collection by assigning to
-  `fake_db["page_views"].docs`.
+- `fake_db` — the empty database. Seed a table by assigning to
+  `fake_db["page_views"].docs`, a list of flat dicts in the `to_dict()` shape —
+  columns and blob keys mixed; reading `.docs` gives the same shape back.
 - `books_path` — a small two-page book written to a temporary directory, so no
   test reads the packaged one.
 - `client` — a Flask test client serving that book, with a database behind it.
 
-468 tests cover the connection and its guards (`test_core_connection.py`), the
-reading history (`test_core_db.py`), how a run picks its database
-(`test_core_config.py`), loading a book and every malformed input it rejects
+593 tests cover the engine and its guards (`test_core_connection.py`), the
+hybrid models (`test_core_models.py`), the reading history (`test_core_db.py`),
+how a run picks its database file (`test_core_config.py`), loading a book and every malformed input it rejects
 (`test_story.py`), the two dice (`test_core_dice.py`), rolling up a hero in either mode
 (`test_core_character.py`), what a gain or a loss does — every one the book
 carries (`test_core_inventory.py`), the sheet and the bag through the browser
@@ -660,8 +688,9 @@ emitting a script:
   (`from haute_tension.core.story import load_story`), `pathlib.Path` for paths, one
   public class per snake_case file, models under `models/`.
 - The database layer stays in `core/` and the web layer stays out of it: a new
-  query goes in `core/db.py`, never in a route, and no document object leaves
-  that module.
+  query goes in `core/db.py`, never in a route, and no row object leaves that
+  module. A new table follows the hybrid pattern: real columns only for what is
+  queried, one JSON `data` blob for the rest.
 - Code, identifiers and comments in English even when the discussion is in
   French; user-facing French text stays UTF-8.
 - No global `try`/`except` around entry points — let tracebacks surface.

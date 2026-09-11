@@ -2,167 +2,60 @@
 
 The second thing this application stores, and the first that is *state* rather
 than a trace. The book stays on disk and the reading history stays a log; a game
-is the only document that is read, changed and written back.
+is the only row that is read, changed and written back.
 
-The id is a `uuid4().hex` this app generates rather than Mongo's ObjectId,
+The id is a `uuid4().hex` this app generates rather than an autoincrement,
 because it travels in the session cookie.
 
-The hero is stored flat rather than as an embedded document: there is exactly one
-per game, and `vie_actuelle` is written after every assault, which is cheaper and
-plainer as a top-level field. `combat` is embedded and unset between fights —
-absent means the hero is reading, not fighting.
+Three real columns: the id, the book every query is scoped to, and `died_at`,
+which the memorial filters and sorts on. **Everything else is in the blob** —
+the hero's characteristics and dice, his purse and bag, the changes waiting on
+the reader, the open fight, and where and of what he died:
+
+    mode            "normal" or "easy" — which set of rules rolled him up
+    force, vie_max, vie_actuelle
+    force_dice, vie_dice        the throws that made him, for the sheet
+    gold, gold_dice
+    items           [{element, label, count}]
+    pending         [{element, label, amount, condition, note, sign, page}]
+    combat          None while he is reading, or {page, fight_type, status,
+                    on_victory, on_defeat, on_flee, has_special_rules,
+                    enemies: [{name, force, vie_max, vie_actuelle,
+                    damage_adjustment}], assaults: [{number, hero_dice,
+                    hero_attack_force, exchanges: [{enemy_name, enemy_force,
+                    enemy_dice, enemy_attack_force, winner, damage,
+                    divine_judgement}]}]}
+    created_at      ISO 8601 text
+    died_on_page, died_of       set with `died_at`, see below
+
+`died_at` is unset while he lives, which is what tells a game apart from an
+epitaph: a hero abandoned in good health is simply left behind, and does not
+join the fallen.
 """
 
-from mongoengine import (
-    BooleanField,
-    DateTimeField,
-    Document,
-    EmbeddedDocument,
-    EmbeddedDocumentField,
-    EmbeddedDocumentListField,
-    IntField,
-    ListField,
-    StringField,
-)
+from datetime import datetime
+
+from sqlalchemy import Index, String
+from sqlalchemy.orm import Mapped, mapped_column
+
+from haute_tension.core.models.base import Base
+from haute_tension.core.models.hybrid_document import HybridDocument
+from haute_tension.core.models.utc_datetime import UtcDateTime
 
 
-class GameExchange(EmbeddedDocument):
-    """What happened between the hero and one adversary in one assault."""
-
-    meta = {"strict": False}
-
-    enemy_name = StringField()
-    enemy_force = IntField()
-    enemy_dice = ListField(IntField())
-    enemy_attack_force = IntField()
-    # "hero", "enemy", or unset when the two Forces d'Attaque were equal.
-    winner = StringField()
-    damage = IntField(default=0)
-    divine_judgement = BooleanField(default=False)
-
-
-class GameAssault(EmbeddedDocument):
-    """One assault: the hero's single roll, and every exchange it settled."""
-
-    meta = {"strict": False}
-
-    number = IntField()
-    hero_dice = ListField(IntField())
-    hero_attack_force = IntField()
-    exchanges = EmbeddedDocumentListField(GameExchange)
-
-
-class GameItem(EmbeddedDocument):
-    """One thing in the hero's bag, and how many of it he has."""
-
-    meta = {"strict": False}
-
-    element = StringField(required=True)
-    label = StringField(required=True)
-    count = IntField(required=True)
-
-
-class PendingChange(EmbeddedDocument):
-    """A gain or loss only the reader can decide on.
-
-    Its condition is free French — a prerequisite or a duration — or its amount
-    is one the page's text asks to be rolled. Either way it waits here until the
-    reader applies it or waves it away.
-    """
-
-    meta = {"strict": False}
-
-    element = StringField(required=True)
-    label = StringField(required=True)
-    amount = IntField()
-    condition = StringField()
-    note = StringField()
-    # 1 for a gain, -1 for a loss.
-    sign = IntField(default=1)
-    # The page whose choice carried it, so the reader can see where it came from.
-    page = StringField()
-
-
-class GameEnemy(EmbeddedDocument):
-    """One adversary of the current fight, as it stands."""
-
-    meta = {"strict": False}
-
-    name = StringField()
-    force = IntField()
-    vie_max = IntField()
-    vie_actuelle = IntField()
-    damage_adjustment = IntField(default=0)
-
-
-class GameCombat(EmbeddedDocument):
-    """The fight the hero is in, and everything it has cost so far."""
-
-    meta = {"strict": False}
-
-    # The page the fight was started from, which is where its outcome branches.
-    page = StringField()
-    fight_type = StringField()
-    enemies = EmbeddedDocumentListField(GameEnemy)
-    assaults = EmbeddedDocumentListField(GameAssault)
-    status = StringField()
-
-    # Where the book sends the hero next. `on_defeat` is a page number or the
-    # string "death"; either can be unset when the parser found no branch.
-    on_victory = StringField()
-    on_defeat = StringField()
-    on_flee = StringField()
-
-    # Whether the page's text adds a rule the engine does not implement, so a
-    # reader is told rather than quietly given a wrong fight.
-    has_special_rules = BooleanField(default=False)
-
-
-class Game(Document):
+class Game(HybridDocument, Base):
     """A hero, rolled once, and the fight he is in the middle of."""
 
-    meta = {
-        "collection": "games",
-        "indexes": ["book"],
-        "strict": False,
-    }
+    __tablename__ = "games"
+    __table_args__ = (
+        # The memorial: the fallen of one book, most recent first.
+        Index("ix_games_book_died_at", "book", "died_at"),
+    )
 
     # Generated by core.db.start_game(); see the module docstring.
-    id = StringField(primary_key=True)
-    book = StringField(required=True)
-
-    # Which set of rules rolled this hero up — "normal" or "easy". Kept so the
-    # sheet can print the throw that made him, and so a game says how it was
-    # played.
-    mode = StringField(required=True)
-
-    force = IntField(required=True)
-    vie_max = IntField(required=True)
-    vie_actuelle = IntField(required=True)
-
-    # The two throws that made the hero, kept so the sheet can show its work:
-    # "Force : 3 + 2 (2D6) + 6 = 11".
-    force_dice = ListField(IntField())
-    vie_dice = ListField(IntField())
-
-    # "vous êtes équipé de votre épée et d'un sac", "4 rations de provisions",
-    # and a purse of two throws of two dice.
-    gold = IntField(default=0)
-    gold_dice = ListField(IntField())
-    items = EmbeddedDocumentListField(GameItem)
-
-    # Changes waiting on the reader's word; see PendingChange.
-    pending = EmbeddedDocumentListField(PendingChange)
-
-    combat = EmbeddedDocumentField(GameCombat)
-    created_at = DateTimeField()
-
-    # When the hero's Vie reached zero, and where. Unset while he lives, which
-    # is what tells a game apart from an epitaph: a hero abandoned in good
-    # health is simply left behind, and does not join the fallen.
-    died_at = DateTimeField()
-    died_on_page = StringField()
-    died_of = StringField()
+    id: Mapped[str] = mapped_column(String(32), primary_key=True)
+    book: Mapped[str] = mapped_column(String, nullable=False, index=True)
+    died_at: Mapped[datetime | None] = mapped_column(UtcDateTime)
 
     @property
     def is_dead(self) -> bool:
@@ -170,5 +63,10 @@ class Game(Document):
         return self.died_at is not None
 
     def __str__(self) -> str:
-        state = "mort" if self.is_dead else f"Vie {self.vie_actuelle}/{self.vie_max}"
-        return f"{self.book} ({self.mode}) — Force {self.force}, {state}"
+        hero = self.to_dict()
+        state = (
+            "mort"
+            if self.is_dead
+            else f"Vie {hero.get('vie_actuelle')}/{hero.get('vie_max')}"
+        )
+        return f"{self.book} ({hero.get('mode')}) — Force {hero.get('force')}, {state}"

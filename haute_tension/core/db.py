@@ -1,35 +1,42 @@
-"""The MongoDB database: the connection, and every read and write.
+"""The SQLite database: the connection, and every read and write.
 
 The only module here that talks to the database — `core.config` is pure and
-`core.models` only describes the collection. Callers get plain values back:
-nothing outside this module and `core/models/` ever holds a document object,
-which is what keeps the Flask routes free of the ORM.
+`core.models` only describes the tables. Callers get plain dicts back: nothing
+outside this module and `core/models/` ever holds a row object, which is what
+keeps the Flask routes free of the ORM.
 
-**Only the reading history is stored.** The book is static — 668 pages that
-change only when the import pipeline is re-run — so `core.story` reads it off
-disk into memory at startup, and it is deliberately not in here: putting it in a
-database would buy nothing and would make a page unservable without a reachable
-server.
+**Only the reading history, the play-throughs and the flagged pages are stored.**
+The book is static — 668 pages that change only when the import pipeline is
+re-run — so `core.story` reads it off disk into memory at startup, and it is
+deliberately not in here: putting it in a database would buy nothing.
 
-The connection is opened on the first call rather than at import time, so
-importing `core.db` never needs a reachable server — and a test can stand a fake
-one in by replacing `connect_db()`.
+Every table is hybrid (see `core.models.hybrid_document`): a few real columns
+for what a query filters or sorts on, and one JSON blob for the rest. A row is
+therefore read as one flat dict, changed as a dict, and written back whole with
+`update_from_dict()` — the functions below never touch a column by hand.
+
+The engine is opened on the first call rather than at import time, so importing
+`core.db` never needs a database file — and a test can stand an in-memory one
+in by replacing `connect_db()`.
 
 The history is **scoped to a book**, named `"<series>/<book>"`: the functions
 below take a `book`, and it is part of every query, so a second book never shows
 up in the first one's history.
 """
 
-import os
 import random
 import uuid
+from collections.abc import Iterator
+from contextlib import contextmanager
 from datetime import datetime, timezone
 
-from mongoengine import connect, disconnect
-from mongoengine import get_db as mongoengine_db
-from mongoengine.errors import MongoEngineException
-from pymongo.errors import PyMongoError
+from sqlalchemy import Engine, create_engine, event as sqlalchemy_event, select
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.orm import Session
 
+from haute_tension.application.models.game import Combat as CombatDict
+from haute_tension.application.models.game import FallenHero, GameDict
+from haute_tension.application.models.inspection import InspectionDict
 from haute_tension.core.character import (
     DEFAULT_MODE,
     Mode,
@@ -45,12 +52,7 @@ from haute_tension.core.combat import (
     combat_status,
     resolve_assault,
 )
-from haute_tension.core.logs.general_log import event, note
-from haute_tension.application.models.game import Combat as CombatDict
-from haute_tension.application.models.game import FallenHero
-from haute_tension.application.models.game import GameDict
-from haute_tension.application.models.inspection import InspectionDict
-from haute_tension.core.config import current_db_name
+from haute_tension.core.config import DATABASE_DIR_VAR, current_db_name, database_path
 from haute_tension.core.inventory import (
     STARTING_ITEMS,
     Change,
@@ -58,25 +60,17 @@ from haute_tension.core.inventory import (
     read_changes,
     starting_gold,
 )
-from haute_tension.core.models import (
-    Game,
-    GameAssault,
-    GameCombat,
-    GameEnemy,
-    GameExchange,
-    GameItem,
-    InspectionComment,
-    PageInspection,
-    PageView,
-    PendingChange,
-)
-from haute_tension.core.models.page_inspection import OPEN, STATUSES
+from haute_tension.core.logs.general_log import event, note
+from haute_tension.core.models.base import Base
+from haute_tension.core.models.game import Game
+from haute_tension.core.models.page_inspection import OPEN, STATUSES, PageInspection
+from haute_tension.core.models.page_view import PageView
 
-# What every caller catches around a database call. Two families rather than
-# one: pymongo raises when the server cannot be reached or refuses a command,
-# mongoengine when a document does not fit its model. Both mean "the database
-# did not do what was asked", and every caller reports them the same way.
-DatabaseError = (PyMongoError, MongoEngineException)
+# What every caller catches around a database call: the driver failing — a
+# file that cannot be opened or written, a constraint refused, a query the
+# engine will not run. Every caller reports it the same way.
+DatabaseError = (SQLAlchemyError,)
+
 
 # What `connect_db` raises when there is no database to reach: none configured,
 # or one configured wrong. An `EnvironmentError` at heart — it is the environment
@@ -87,13 +81,9 @@ class DatabaseUnavailable(EnvironmentError):
 
 
 # Every way the database can fail a request, which is what the application turns
-# into one page: the driver refusing or timing out, and there being nothing
-# configured to refuse in the first place.
+# into one page: the driver refusing, and there being nothing configured to
+# refuse in the first place.
 DatabaseFailure = DatabaseError + (DatabaseUnavailable,)
-
-# Long enough for a local mongod, short enough that a dead server shows up as an
-# error rather than as a hung request.
-SERVER_SELECTION_TIMEOUT_MS = 3000
 
 # How many pages of reading history are kept. What MAX_PAGE_HISTORY used to bound
 # in last_pages.json, now applied when the history is read.
@@ -102,71 +92,105 @@ MAX_PAGE_HISTORY = 10
 # How many of the fallen the memorial remembers.
 MAX_FALLEN_HEROES = 20
 
-# The database the current connection was opened on, so a run that switches
-# APP_ENV mid-flight (the tests do) reconnects instead of reading the wrong one.
+# The row as one flat dict — the columns and the blob merged, the shape
+# `HybridDocument.to_dict()` gives and `update_from_dict()` takes back.
+State = dict[str, object]
+
+# The engine every session below opens on, and the database it was opened on,
+# so a run that switches APP_ENV mid-flight (the tests do) reopens instead of
+# reading the wrong file.
+_engine: Engine | None = None
 _connected_to: str | None = None
 
 
 def connect_db() -> None:
-    """Register the connection the models use, once per database name.
+    """Open the engine on the file APP_ENV picks, once per database name.
 
     Every function below calls this first, which is also the single seam the
-    tests replace: with it stubbed out, nothing here ever reaches for a real
-    server.
+    tests replace: with it stubbed out and `_engine` bound to a database of
+    their own, nothing here ever reaches for a file.
+
+    The tables are created if the file does not have them yet: there is no
+    migration step, the schema is what the models say.
 
     Raises:
-        DatabaseUnavailable: If MONGO_URI is unset, or names a database other
-            than the one APP_ENV asks for.
+        DatabaseUnavailable: If DATABASE_DIR is unset, or names a file rather
+            than a directory.
     """
-    global _connected_to
+    global _engine, _connected_to
     db_name = current_db_name()
     if _connected_to == db_name:
         return
 
-    mongo_uri = os.environ.get("MONGO_URI")
-    if not mongo_uri:
+    path = database_path()
+    if path is None:
         raise DatabaseUnavailable(
-            "Missing MONGO_URI environment variable. "
-            "Copy .env.example to .env and fill it in."
+            f"Missing {DATABASE_DIR_VAR} environment variable. "
+            f"Copy .env.example to .env and fill it in."
+        )
+    if path.parent.exists() and not path.parent.is_dir():
+        raise DatabaseUnavailable(
+            f"{DATABASE_DIR_VAR} points at '{path.parent}', which is not a "
+            f"directory. It must name the directory the database files live in."
         )
 
-    if _connected_to is not None:
-        disconnect()
-    connect(
-        db=db_name,
-        host=mongo_uri,
-        serverSelectionTimeoutMS=SERVER_SELECTION_TIMEOUT_MS,
-        # Explicit only to keep pymongo from warning about its legacy default;
-        # no UUID is ever stored here.
-        uuidRepresentation="standard",
-    )
-
-    # A database named in MONGO_URI ("…:27017/somewhere") wins over `db` above,
-    # and would quietly take a dev run onto another database. APP_ENV is what
-    # picks it.
-    connected = mongoengine_db().name
-    if connected != db_name:
-        disconnect()
-        raise DatabaseUnavailable(
-            f"MONGO_URI points at the database '{connected}', but APP_ENV asks "
-            f"for '{db_name}'. Leave the database out of MONGO_URI."
-        )
-
+    reset_connection()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _engine = _open_engine(f"sqlite:///{path}")
+    Base.metadata.create_all(_engine)
     _connected_to = db_name
 
 
+def _open_engine(url: str, **options: object) -> Engine:
+    """Build an engine on a SQLite URL, with foreign keys enforced.
+
+    SQLite checks foreign keys only when asked to, connection by connection.
+
+    Args:
+        url: The database, as `sqlite:///<path>`.
+        **options: Passed on to `create_engine`; the tests pick a pool.
+
+    Returns:
+        The engine, nothing opened yet.
+    """
+    engine = create_engine(url, **options)
+
+    @sqlalchemy_event.listens_for(engine, "connect")
+    def enforce_foreign_keys(connection: object, _record: object) -> None:
+        # `connection` is the driver's own sqlite3 connection, not SQLAlchemy's.
+        connection.execute("PRAGMA foreign_keys=ON")
+
+    return engine
+
+
 def reset_connection() -> None:
-    """Close the open connection, so the next call reconnects.
+    """Dispose of the open engine, so the next call reopens it.
 
     Only the tests need this: a process normally works on one database for its
-    whole life. The connection is dropped and not merely forgotten, because
-    mongoengine registers it under a fixed alias and refuses to open a second
-    one under the same name.
+    whole life.
     """
-    global _connected_to
-    if _connected_to is not None:
-        disconnect()
+    global _engine, _connected_to
+    if _engine is not None:
+        _engine.dispose()
+    _engine = None
     _connected_to = None
+
+
+@contextmanager
+def _session() -> Iterator[Session]:
+    """One unit of work: a session that commits when the block ends.
+
+    An exception in the block rolls back and propagates; nothing is committed
+    half-done. Rows stay readable after the commit, so a function can build its
+    answer from what it just wrote.
+
+    Yields:
+        The session every read and write below goes through.
+    """
+    connect_db()
+    with Session(_engine, expire_on_commit=False) as session:
+        yield session
+        session.commit()
 
 
 def record_page_view(book: str, page: str, game_id: str | None = None) -> bool:
@@ -185,16 +209,19 @@ def record_page_view(book: str, page: str, game_id: str | None = None) -> bool:
     Returns:
         Whether a visit was actually recorded.
     """
-    connect_db()
-    if _latest_page(book) == page:
-        return False
-
-    PageView(
-        book=book,
-        game=game_id,
-        page=page,
-        viewed_at=datetime.now(timezone.utc),
-    ).save(force_insert=True)
+    with _session() as session:
+        if _latest_page(session, book) == page:
+            return False
+        session.add(
+            PageView.from_dict(
+                {
+                    "book": book,
+                    "game": game_id,
+                    "page": page,
+                    "viewed_at": datetime.now(timezone.utc),
+                }
+            )
+        )
     return True
 
 
@@ -211,9 +238,14 @@ def last_pages(book: str, limit: int = MAX_PAGE_HISTORY) -> list[str]:
     Returns:
         Up to `limit` page numbers, oldest first.
     """
-    connect_db()
-    views = PageView.objects(book=book).order_by("-viewed_at", "-id").limit(limit)
-    return [view.page for view in views][::-1]
+    with _session() as session:
+        views = session.scalars(
+            select(PageView)
+            .where(PageView.book == book)
+            .order_by(PageView.viewed_at.desc(), PageView.id.desc())
+            .limit(limit)
+        )
+        return [_page_of(view) for view in views][::-1]
 
 
 def last_page_read(game_id: str) -> str | None:
@@ -232,22 +264,38 @@ def last_page_read(game_id: str) -> str | None:
     Returns:
         The page number, or `None` when that hero has read nothing yet.
     """
-    connect_db()
-    latest = PageView.objects(game=game_id).order_by("-viewed_at", "-id").first()
-    return latest.page if latest else None
+    with _session() as session:
+        latest = session.scalars(
+            select(PageView)
+            .where(PageView.game == game_id)
+            .order_by(PageView.viewed_at.desc(), PageView.id.desc())
+            .limit(1)
+        ).first()
+        return _page_of(latest) if latest else None
 
 
-def _latest_page(book: str) -> str | None:
+def _latest_page(session: Session, book: str) -> str | None:
     """Return the page most recently read, or `None` when nothing has been.
 
     Args:
+        session: The unit of work the caller is in.
         book: The book being read, as `"<series>/<book>"`.
 
     Returns:
         The last page number recorded for that book.
     """
-    latest = PageView.objects(book=book).order_by("-viewed_at", "-id").first()
-    return latest.page if latest else None
+    latest = session.scalars(
+        select(PageView)
+        .where(PageView.book == book)
+        .order_by(PageView.viewed_at.desc(), PageView.id.desc())
+        .limit(1)
+    ).first()
+    return _page_of(latest) if latest else None
+
+
+def _page_of(view: PageView) -> str:
+    """The page number a visit was for, out of its blob."""
+    return str(view.to_dict()["page"])
 
 
 def get_oldest_page(book: str) -> str | None:
@@ -285,39 +333,43 @@ def start_game(
     Returns:
         The freshly created game.
     """
-    connect_db()
     character = generate_character(mode, rng)
     gold, gold_throws = starting_gold(rng)
-    game = Game(
-        id=uuid.uuid4().hex,
-        book=book,
-        mode=mode.name,
-        force=character.force,
-        vie_max=character.vie_max,
-        vie_actuelle=character.vie_actuelle,
-        force_dice=list(character.force_roll.dice),
-        vie_dice=list(character.vie_roll.dice),
-        gold=gold,
-        gold_dice=[die for throw in gold_throws for die in throw.dice],
-        items=[
-            GameItem(element=element, label=label, count=count)
+    hero: State = {
+        "id": uuid.uuid4().hex,
+        "book": book,
+        "mode": mode.name,
+        "force": character.force,
+        "vie_max": character.vie_max,
+        "vie_actuelle": character.vie_actuelle,
+        "force_dice": list(character.force_roll.dice),
+        "vie_dice": list(character.vie_roll.dice),
+        "gold": gold,
+        "gold_dice": [die for throw in gold_throws for die in throw.dice],
+        "items": [
+            {"element": element, "label": label, "count": count}
             for element, label, count in STARTING_ITEMS
         ],
-        created_at=datetime.now(timezone.utc),
-    )
-    game.save(force_insert=True)
+        "pending": [],
+        "combat": None,
+        "created_at": datetime.now(timezone.utc),
+        "died_at": None,
+    }
+    with _session() as session:
+        game = Game.from_dict(hero)
+        session.add(game)
     event(
         "Hero rolled up",
         game=game.id,
         book=book,
         mode=mode.name,
-        force=game.force,
-        vie=game.vie_max,
-        force_dice=list(game.force_dice),
-        vie_dice=list(game.vie_dice),
+        force=hero["force"],
+        vie=hero["vie_max"],
+        force_dice=hero["force_dice"],
+        vie_dice=hero["vie_dice"],
         gold=gold,
     )
-    return _game_dict(game)
+    return _game_dict(game.to_dict())
 
 
 def find_game(game_id: str | None) -> GameDict | None:
@@ -331,9 +383,9 @@ def find_game(game_id: str | None) -> GameDict | None:
     """
     if not game_id:
         return None
-    connect_db()
-    game = Game.objects(id=game_id).first()
-    return _game_dict(game) if game else None
+    with _session() as session:
+        game = session.get(Game, game_id)
+        return _game_dict(game.to_dict()) if game else None
 
 
 def begin_combat(
@@ -354,38 +406,41 @@ def begin_combat(
         The game with a combat on it, or `None` when the game is unknown or the
         fight has no adversaries to field.
     """
-    game = _game_document(game_id)
-    if game is None:
-        return None
-    if game.combat is not None and game.combat.page == page:
-        return _game_dict(game)
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        combat = _combat_of(state)
+        if combat is not None and combat.get("page") == page:
+            return _game_dict(state)
 
-    enemies = _combat_enemies(fight)
-    if not enemies:
-        return None
+        enemies = _combat_enemies(fight)
+        if not enemies:
+            return None
 
-    outcome = fight.get("outcome") or {}
-    game.combat = GameCombat(
-        page=page,
-        fight_type=str(fight.get("fight_type") or ""),
-        enemies=enemies,
-        assaults=[],
-        status=ONGOING,
-        on_victory=_outcome_branch(outcome.get("on_victory")),
-        on_defeat=_outcome_branch(outcome.get("on_defeat")),
-        on_flee=_outcome_branch(outcome.get("on_flee")),
-        has_special_rules=page in FIGHTS_WITH_SPECIAL_RULES,
-    )
-    game.save()
+        outcome = fight.get("outcome") or {}
+        state["combat"] = {
+            "page": page,
+            "fight_type": str(fight.get("fight_type") or ""),
+            "enemies": enemies,
+            "assaults": [],
+            "status": ONGOING,
+            "on_victory": _outcome_branch(outcome.get("on_victory")),
+            "on_defeat": _outcome_branch(outcome.get("on_defeat")),
+            "on_flee": _outcome_branch(outcome.get("on_flee")),
+            "has_special_rules": page in FIGHTS_WITH_SPECIAL_RULES,
+        }
+        game.update_from_dict(state)
     event(
         "Combat armed",
         game=game.id,
         page=page,
-        fight_type=game.combat.fight_type,
-        enemies=[enemy.name for enemy in enemies],
-        special_rules=game.combat.has_special_rules,
+        fight_type=state["combat"]["fight_type"],
+        enemies=[enemy["name"] for enemy in enemies],
+        special_rules=state["combat"]["has_special_rules"],
     )
-    return _game_dict(game)
+    return _game_dict(game.to_dict())
 
 
 def play_assault(
@@ -401,50 +456,45 @@ def play_assault(
         The game after the assault, or `None` when there is no fight to advance
         — no game, no combat, or one already decided.
     """
-    game = _game_document(game_id)
-    if game is None or game.combat is None or game.combat.status != ONGOING:
-        return None
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        combat = _combat_of(state)
+        if combat is None or combat.get("status") != ONGOING:
+            return None
 
-    hero = Combatant(
-        name="Prêtre Jean",
-        force=game.force,
-        vie_max=game.vie_max,
-        vie_actuelle=game.vie_actuelle,
-        damage_adjustment=_hero_damage_adjustment(game.force),
-    )
-    enemies = [
-        Combatant(
-            name=enemy.name,
-            force=enemy.force,
-            vie_max=enemy.vie_max,
-            vie_actuelle=enemy.vie_actuelle,
-            damage_adjustment=enemy.damage_adjustment or 0,
+        hero, enemies, assault = resolve_assault(
+            _hero_combatant(state),
+            [_enemy_combatant(enemy) for enemy in combat["enemies"]],
+            str(combat.get("fight_type") or ""),
+            number=len(combat["assaults"]) + 1,
+            rng=rng,
         )
-        for enemy in game.combat.enemies
-    ]
 
-    hero, enemies, assault = resolve_assault(
-        hero,
-        enemies,
-        game.combat.fight_type,
-        number=len(game.combat.assaults) + 1,
-        rng=rng,
-    )
+        state["vie_actuelle"] = hero.vie_actuelle
+        for stored, fought in zip(combat["enemies"], enemies):
+            stored["vie_actuelle"] = fought.vie_actuelle
+        combat["assaults"].append(_stored_assault(assault))
+        combat["status"] = combat_status(hero, enemies)
+        _lay_to_rest(state, combat.get("page"), _killed_by(assault))
+        game.update_from_dict(state)
+    _log_assault(game.id, combat, assault, state["vie_actuelle"])
+    return _game_dict(game.to_dict())
 
-    game.vie_actuelle = hero.vie_actuelle
-    for stored, fought in zip(game.combat.enemies, enemies):
-        stored.vie_actuelle = fought.vie_actuelle
-    game.combat.assaults.append(_stored_assault(assault))
-    game.combat.status = combat_status(hero, enemies)
-    _lay_to_rest(game, game.combat.page, _killed_by(assault))
-    game.save()
+
+def _log_assault(
+    game_id: str, combat: dict[str, object], assault: object, hero_vie: int
+) -> None:
+    """Write an assault to the log, and the fight's outcome when it decided it."""
     note(
         "Assault played",
-        game=game.id,
-        page=game.combat.page,
+        game=game_id,
+        page=combat.get("page"),
         number=assault.number,
         hero_attack_force=assault.hero_attack_force,
-        hero_vie=game.vie_actuelle,
+        hero_vie=hero_vie,
         exchanges=[
             {
                 "enemy": exchange.enemy_name,
@@ -456,16 +506,15 @@ def play_assault(
             for exchange in assault.exchanges
         ],
     )
-    if game.combat.status != ONGOING:
+    if combat["status"] != ONGOING:
         event(
             "Combat decided",
-            game=game.id,
-            page=game.combat.page,
-            outcome=game.combat.status,
-            assaults=len(game.combat.assaults),
-            hero_vie=game.vie_actuelle,
+            game=game_id,
+            page=combat.get("page"),
+            outcome=combat["status"],
+            assaults=len(combat["assaults"]),
+            hero_vie=hero_vie,
         )
-    return _game_dict(game)
 
 
 def end_combat(game_id: str) -> GameDict | None:
@@ -477,108 +526,151 @@ def end_combat(game_id: str) -> GameDict | None:
     Returns:
         The game with no combat on it, or `None` when it is unknown.
     """
-    game = _game_document(game_id)
-    if game is None:
-        return None
-    decided = game.combat.status if game.combat else None
-    game.combat = None
-    game.save()
-    note("Combat left", game=game.id, outcome=decided, hero_vie=game.vie_actuelle)
-    return _game_dict(game)
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        combat = _combat_of(state)
+        decided = combat.get("status") if combat else None
+        state["combat"] = None
+        game.update_from_dict(state)
+    note("Combat left", game=game.id, outcome=decided, hero_vie=state["vie_actuelle"])
+    return _game_dict(game.to_dict())
 
 
-def _game_document(game_id: str | None) -> Game | None:
-    """The game as a document, for the three functions that write it back.
+def _game_row(session: Session, game_id: str | None) -> Game | None:
+    """The game as a row, for the functions that write it back.
 
-    The one place inside this module that keeps a document: everything public
-    converts before returning, so no caller ever holds one.
+    The one place inside this module that fetches a row by id: everything
+    public converts before returning, so no caller ever holds one.
 
     Args:
+        session: The unit of work the caller is in.
         game_id: The game to load.
 
     Returns:
-        The document, or `None` when the id is unknown or empty.
+        The row, or `None` when the id is unknown or empty.
     """
     if not game_id:
         return None
-    connect_db()
-    return Game.objects(id=game_id).first()
+    return session.get(Game, game_id)
 
 
-def _game_dict(game: Game) -> GameDict:
-    """Turn a game document into the dict the routes and templates read."""
-    mode = named_mode(game.mode)
+def _combat_of(state: State) -> dict[str, object] | None:
+    """The open fight in a game's state, or `None` while the hero is reading."""
+    combat = state.get("combat")
+    return combat if isinstance(combat, dict) else None
+
+
+def _hero_combatant(state: State) -> Combatant:
+    """The hero as the combat engine fights him."""
+    return Combatant(
+        name="Prêtre Jean",
+        force=int(state["force"]),
+        vie_max=int(state["vie_max"]),
+        vie_actuelle=int(state["vie_actuelle"]),
+        damage_adjustment=_hero_damage_adjustment(int(state["force"])),
+    )
+
+
+def _enemy_combatant(enemy: dict[str, object]) -> Combatant:
+    """One stored adversary as the combat engine fights it."""
+    return Combatant(
+        name=str(enemy.get("name")),
+        force=int(enemy.get("force") or 0),
+        vie_max=int(enemy.get("vie_max") or 0),
+        vie_actuelle=int(enemy.get("vie_actuelle") or 0),
+        damage_adjustment=int(enemy.get("damage_adjustment") or 0),
+    )
+
+
+def _game_dict(state: State) -> GameDict:
+    """Turn a game's stored state into the dict the routes and templates read."""
+    mode = named_mode(str(state["mode"]))
+    force = int(state["force"])
+    combat = _combat_of(state)
     return {
-        "id": game.id,
-        "book": game.book,
+        "id": str(state["id"]),
+        "book": str(state["book"]),
         "mode": mode.name,
         "mode_label": mode.label,
         "force_throw": mode.force.notation,
         "vie_throw": mode.vie.notation,
         "force_base": mode.force.base,
         "vie_base": mode.vie.base,
-        "force": game.force,
-        "vie_max": game.vie_max,
-        "vie_actuelle": game.vie_actuelle,
-        "force_dice": list(game.force_dice or []),
-        "vie_dice": list(game.vie_dice or []),
-        "damage_adjustment": _hero_damage_adjustment(game.force),
-        "gold": game.gold or 0,
-        "gold_dice": list(game.gold_dice or []),
-        "bag": [
-            {"element": item.element, "label": item.label, "count": item.count}
-            for item in game.items
-        ],
+        "force": force,
+        "vie_max": int(state["vie_max"]),
+        "vie_actuelle": int(state["vie_actuelle"]),
+        "force_dice": list(state.get("force_dice") or []),
+        "vie_dice": list(state.get("vie_dice") or []),
+        "damage_adjustment": _hero_damage_adjustment(force),
+        "gold": int(state.get("gold") or 0),
+        "gold_dice": list(state.get("gold_dice") or []),
+        "bag": _bag(state),
         "pending": [
             _pending_dict(index, waiting)
-            for index, waiting in enumerate(game.pending)
+            for index, waiting in enumerate(state.get("pending") or [])
         ],
-        "combat": _combat_dict(game.combat) if game.combat else None,
-        "is_dead": game.is_dead,
-        "died_on_page": game.died_on_page,
-        "died_of": game.died_of,
+        "combat": _combat_dict(combat) if combat else None,
+        "is_dead": _is_dead(state),
+        "died_on_page": state.get("died_on_page"),
+        "died_of": state.get("died_of"),
     }
 
 
-def _combat_dict(combat: GameCombat) -> CombatDict:
+def _bag(state: State) -> list[dict[str, object]]:
+    """What the hero carries, one line per kind of thing."""
+    return [
+        {"element": item["element"], "label": item["label"], "count": item["count"]}
+        for item in state.get("items") or []
+    ]
+
+
+def _is_dead(state: State) -> bool:
+    """Whether the hero of this state has been laid to rest."""
+    return state.get("died_at") is not None
+
+
+def _combat_dict(combat: dict[str, object]) -> CombatDict:
     """Turn an open fight into the dict the combat template reads."""
     return {
-        "page": combat.page,
-        "fight_type": combat.fight_type,
-        "status": combat.status,
-        "on_victory": combat.on_victory,
-        "on_defeat": combat.on_defeat,
-        "on_flee": combat.on_flee,
-        "has_special_rules": bool(combat.has_special_rules),
+        "page": combat.get("page"),
+        "fight_type": combat.get("fight_type"),
+        "status": combat.get("status"),
+        "on_victory": combat.get("on_victory"),
+        "on_defeat": combat.get("on_defeat"),
+        "on_flee": combat.get("on_flee"),
+        "has_special_rules": bool(combat.get("has_special_rules")),
         "enemies": [
             {
-                "name": enemy.name,
-                "force": enemy.force,
-                "vie_max": enemy.vie_max,
-                "vie_actuelle": enemy.vie_actuelle,
-                "damage_adjustment": enemy.damage_adjustment or 0,
+                "name": enemy.get("name"),
+                "force": enemy.get("force"),
+                "vie_max": enemy.get("vie_max"),
+                "vie_actuelle": enemy.get("vie_actuelle"),
+                "damage_adjustment": enemy.get("damage_adjustment") or 0,
             }
-            for enemy in combat.enemies
+            for enemy in combat.get("enemies") or []
         ],
         "assaults": [
             {
-                "number": assault.number,
-                "hero_dice": list(assault.hero_dice or []),
-                "hero_attack_force": assault.hero_attack_force,
+                "number": assault.get("number"),
+                "hero_dice": list(assault.get("hero_dice") or []),
+                "hero_attack_force": assault.get("hero_attack_force"),
                 "exchanges": [
                     {
-                        "enemy_name": exchange.enemy_name,
-                        "enemy_force": exchange.enemy_force,
-                        "enemy_dice": list(exchange.enemy_dice or []),
-                        "enemy_attack_force": exchange.enemy_attack_force,
-                        "winner": exchange.winner,
-                        "damage": exchange.damage or 0,
-                        "divine_judgement": bool(exchange.divine_judgement),
+                        "enemy_name": exchange.get("enemy_name"),
+                        "enemy_force": exchange.get("enemy_force"),
+                        "enemy_dice": list(exchange.get("enemy_dice") or []),
+                        "enemy_attack_force": exchange.get("enemy_attack_force"),
+                        "winner": exchange.get("winner"),
+                        "damage": exchange.get("damage") or 0,
+                        "divine_judgement": bool(exchange.get("divine_judgement")),
                     }
-                    for exchange in assault.exchanges
+                    for exchange in assault.get("exchanges") or []
                 ],
             }
-            for assault in combat.assaults
+            for assault in combat.get("assaults") or []
         ],
     }
 
@@ -588,7 +680,7 @@ def _hero_damage_adjustment(force: int) -> int:
     return damage_adjustment(force)
 
 
-def _combat_enemies(fight: dict[str, object]) -> list[GameEnemy]:
+def _combat_enemies(fight: dict[str, object]) -> list[dict[str, object]]:
     """Field one adversary per body the fight puts in front of the hero.
 
     A `count` on an adversary means the book prints one set of statistics for
@@ -599,22 +691,22 @@ def _combat_enemies(fight: dict[str, object]) -> list[GameEnemy]:
         fight: The page's `fight` object.
 
     Returns:
-        The adversaries, at full Vie.
+        The adversaries, at full Vie, as the blob stores them.
     """
-    enemies: list[GameEnemy] = []
+    enemies: list[dict[str, object]] = []
     for entry in fight.get("enemies") or []:
         if not isinstance(entry, dict):
             continue
         vie = int(entry.get("vie") or 0)
         for copy_number in range(max(1, int(entry.get("count") or 1))):
             enemies.append(
-                GameEnemy(
-                    name=_enemy_name(entry, copy_number, entry.get("count")),
-                    force=int(entry.get("force") or 0),
-                    vie_max=vie,
-                    vie_actuelle=vie,
-                    damage_adjustment=int(entry.get("damage_adjustment") or 0),
-                )
+                {
+                    "name": _enemy_name(entry, copy_number, entry.get("count")),
+                    "force": int(entry.get("force") or 0),
+                    "vie_max": vie,
+                    "vie_actuelle": vie,
+                    "damage_adjustment": int(entry.get("damage_adjustment") or 0),
+                }
             )
     return enemies
 
@@ -632,25 +724,25 @@ def _outcome_branch(value: object) -> str | None:
     return None if value is None else str(value)
 
 
-def _stored_assault(assault: object) -> GameAssault:
-    """Turn an assault the engine produced into the document that keeps it."""
-    return GameAssault(
-        number=assault.number,
-        hero_dice=list(assault.hero_roll.dice),
-        hero_attack_force=assault.hero_attack_force,
-        exchanges=[
-            GameExchange(
-                enemy_name=exchange.enemy_name,
-                enemy_force=exchange.enemy_force,
-                enemy_dice=list(exchange.enemy_roll.dice),
-                enemy_attack_force=exchange.enemy_attack_force,
-                winner=exchange.winner,
-                damage=exchange.damage,
-                divine_judgement=exchange.divine_judgement,
-            )
+def _stored_assault(assault: object) -> dict[str, object]:
+    """Turn an assault the engine produced into what the blob keeps of it."""
+    return {
+        "number": assault.number,
+        "hero_dice": list(assault.hero_roll.dice),
+        "hero_attack_force": assault.hero_attack_force,
+        "exchanges": [
+            {
+                "enemy_name": exchange.enemy_name,
+                "enemy_force": exchange.enemy_force,
+                "enemy_dice": list(exchange.enemy_roll.dice),
+                "enemy_attack_force": exchange.enemy_attack_force,
+                "winner": exchange.winner,
+                "damage": exchange.damage,
+                "divine_judgement": exchange.divine_judgement,
+            }
             for exchange in assault.exchanges
         ],
-    )
+    }
 
 
 def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDict | None:
@@ -668,19 +760,20 @@ def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDic
     Returns:
         The game afterwards, or `None` when it is unknown.
     """
-    game = _game_document(game_id)
-    if game is None:
-        return None
-
     applied, waiting = [], []
     for change in read_changes(choice):
         (waiting if change.is_conditional else applied).append(change)
 
-    if applied:
-        _write_holdings(game, _holdings(game), applied)
-        _lay_to_rest(game, page, "les épreuves du chemin")
-    game.pending = [_pending_document(change, page) for change in waiting]
-    game.save()
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        if applied:
+            _write_holdings(state, _holdings(state), applied)
+            _lay_to_rest(state, page, "les épreuves du chemin")
+        state["pending"] = [_pending_entry(change, page) for change in waiting]
+        game.update_from_dict(state)
     note(
         "Choice followed",
         game=game.id,
@@ -689,7 +782,7 @@ def follow_choice(game_id: str, page: str, choice: dict[str, object]) -> GameDic
         applied=[change.described() for change in applied],
         pending=[change.described() for change in waiting],
     )
-    return _game_dict(game)
+    return _game_dict(game.to_dict())
 
 
 def apply_pending(game_id: str, index: int) -> GameDict | None:
@@ -702,17 +795,22 @@ def apply_pending(game_id: str, index: int) -> GameDict | None:
     Returns:
         The game afterwards, or `None` when the game or the change is unknown.
     """
-    game = _game_document(game_id)
-    if game is None or not 0 <= index < len(game.pending):
-        return None
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        pending = list(state.get("pending") or [])
+        if not 0 <= index < len(pending):
+            return None
 
-    waiting = game.pending[index]
-    _write_holdings(game, _holdings(game), [_pending_change(waiting)])
-    _lay_to_rest(game, waiting.page, "les épreuves du chemin")
-    del game.pending[index]
-    game.save()
-    note("Pending change applied", game=game.id, element=waiting.element)
-    return _game_dict(game)
+        waiting = pending.pop(index)
+        _write_holdings(state, _holdings(state), [_pending_change(waiting)])
+        _lay_to_rest(state, waiting.get("page"), "les épreuves du chemin")
+        state["pending"] = pending
+        game.update_from_dict(state)
+    note("Pending change applied", game=game.id, element=waiting["element"])
+    return _game_dict(game.to_dict())
 
 
 def dismiss_pending(game_id: str, index: int | None = None) -> GameDict | None:
@@ -725,17 +823,21 @@ def dismiss_pending(game_id: str, index: int | None = None) -> GameDict | None:
     Returns:
         The game afterwards, or `None` when the game or the change is unknown.
     """
-    game = _game_document(game_id)
-    if game is None:
-        return None
-    if index is None:
-        game.pending = []
-    elif 0 <= index < len(game.pending):
-        del game.pending[index]
-    else:
-        return None
-    game.save()
-    return _game_dict(game)
+    with _session() as session:
+        game = _game_row(session, game_id)
+        if game is None:
+            return None
+        state = game.to_dict()
+        pending = list(state.get("pending") or [])
+        if index is None:
+            pending = []
+        elif 0 <= index < len(pending):
+            del pending[index]
+        else:
+            return None
+        state["pending"] = pending
+        game.update_from_dict(state)
+    return _game_dict(game.to_dict())
 
 
 def _killed_by(assault: object) -> str:
@@ -754,7 +856,7 @@ def _killed_by(assault: object) -> str:
     return "un combat"
 
 
-def _lay_to_rest(game: Game, page: str | None, cause: str) -> None:
+def _lay_to_rest(state: State, page: str | None, cause: str) -> None:
     """Stamp a hero's death, once, the moment his Vie reaches zero.
 
     Called after every write that can empty it. A hero already laid to rest is
@@ -762,22 +864,22 @@ def _lay_to_rest(game: Game, page: str | None, cause: str) -> None:
     should move the date on the stone.
 
     Args:
-        game: The document, not saved here.
+        state: The game's state, not written here.
         page: Where he fell, when it is known.
         cause: What killed him, in French, for the memorial.
     """
-    if game.vie_actuelle > 0 or game.is_dead:
+    if int(state["vie_actuelle"]) > 0 or _is_dead(state):
         return
-    game.died_at = datetime.now(timezone.utc)
-    game.died_on_page = page
-    game.died_of = cause
+    state["died_at"] = datetime.now(timezone.utc)
+    state["died_on_page"] = page
+    state["died_of"] = cause
     event(
         "Hero fell",
-        game=game.id,
+        game=state["id"],
         page=page,
         cause=cause,
-        force=game.force,
-        gold=game.gold or 0,
+        force=state["force"],
+        gold=state.get("gold") or 0,
     )
 
 
@@ -791,102 +893,101 @@ def fallen_heroes(book: str, limit: int = MAX_FALLEN_HEROES) -> list[FallenHero]
     Returns:
         One epitaph each.
     """
-    connect_db()
-    games = (
-        Game.objects(book=book, died_at__ne=None)
-        .order_by("-died_at", "-id")
-        .limit(limit)
-    )
-    return [_fallen_dict(game) for game in games]
+    with _session() as session:
+        games = session.scalars(
+            select(Game)
+            .where(Game.book == book, Game.died_at.is_not(None))
+            .order_by(Game.died_at.desc(), Game.id.desc())
+            .limit(limit)
+        )
+        return [_fallen_dict(game.to_dict()) for game in games]
 
 
-def _fallen_dict(game: Game) -> FallenHero:
-    """One dead hero as the memorial lists him."""
+def _fallen_dict(state: State) -> FallenHero:
+    """One dead hero as the memorial lists him, `died_at` being set."""
     return {
-        "id": game.id,
-        "mode_label": named_mode(game.mode).label,
-        "force": game.force,
-        "vie_max": game.vie_max,
-        "gold": game.gold or 0,
-        "bag": [
-            {"element": item.element, "label": item.label, "count": item.count}
-            for item in game.items
-        ],
-        "died_on_page": game.died_on_page,
-        "died_of": game.died_of,
-        "died_at": game.died_at.isoformat() if game.died_at else None,
+        "id": str(state["id"]),
+        "mode_label": named_mode(str(state["mode"])).label,
+        "force": int(state["force"]),
+        "vie_max": int(state["vie_max"]),
+        "gold": int(state.get("gold") or 0),
+        "bag": _bag(state),
+        "died_on_page": state.get("died_on_page"),
+        "died_of": state.get("died_of"),
+        "died_at": state["died_at"].isoformat(),
     }
 
 
-def _holdings(game: Game) -> Holdings:
+def _holdings(state: State) -> Holdings:
     """What the hero is and carries, as `core.inventory` reads it."""
     return Holdings(
-        force=game.force,
-        vie_max=game.vie_max,
-        vie_actuelle=game.vie_actuelle,
-        gold=game.gold or 0,
-        items={item.element: (item.label, item.count) for item in game.items},
+        force=int(state["force"]),
+        vie_max=int(state["vie_max"]),
+        vie_actuelle=int(state["vie_actuelle"]),
+        gold=int(state.get("gold") or 0),
+        items={
+            item["element"]: (item["label"], item["count"])
+            for item in state.get("items") or []
+        },
     )
 
 
-def _write_holdings(
-    game: Game, holdings: Holdings, changes: list[Change]
-) -> None:
-    """Apply changes to a hero and write the result onto the document.
+def _write_holdings(state: State, holdings: Holdings, changes: list[Change]) -> None:
+    """Apply changes to a hero and write the result onto his state.
 
     Args:
-        game: The document to change; not saved here.
+        state: The game's state to change; not written here.
         holdings: What the hero is and carries before the changes.
         changes: The changes to apply, in order.
     """
     for change in changes:
         holdings = holdings.with_change(change)
-    game.force = holdings.force
-    game.vie_actuelle = holdings.vie_actuelle
-    game.gold = holdings.gold
-    game.items = [
-        GameItem(element=element, label=label, count=count)
+    state["force"] = holdings.force
+    state["vie_actuelle"] = holdings.vie_actuelle
+    state["gold"] = holdings.gold
+    state["items"] = [
+        {"element": element, "label": label, "count": count}
         for element, (label, count) in holdings.items.items()
     ]
 
 
-def _pending_document(change: Change, page: str) -> PendingChange:
+def _pending_entry(change: Change, page: str) -> dict[str, object]:
     """Keep a change the reader has yet to rule on."""
-    return PendingChange(
-        element=change.element,
-        label=change.label,
-        amount=change.amount,
-        condition=change.condition,
-        note=change.note,
-        sign=change.sign,
-        page=page,
-    )
+    return {
+        "element": change.element,
+        "label": change.label,
+        "amount": change.amount,
+        "condition": change.condition,
+        "note": change.note,
+        "sign": change.sign,
+        "page": page,
+    }
 
 
-def _pending_change(waiting: PendingChange) -> Change:
+def _pending_change(waiting: dict[str, object]) -> Change:
     """Read a waiting change back as `core.inventory` understands it."""
     return Change(
-        element=waiting.element,
-        label=waiting.label,
-        amount=waiting.amount,
-        condition=waiting.condition,
-        note=waiting.note,
-        sign=waiting.sign or 1,
+        element=str(waiting["element"]),
+        label=str(waiting["label"]),
+        amount=waiting.get("amount"),
+        condition=waiting.get("condition"),
+        note=waiting.get("note"),
+        sign=int(waiting.get("sign") or 1),
     )
 
 
-def _pending_dict(index: int, waiting: PendingChange) -> dict[str, object]:
+def _pending_dict(index: int, waiting: dict[str, object]) -> dict[str, object]:
     """A waiting change as the page shows it, numbered so it can be acted on."""
     change = _pending_change(waiting)
     return {
         "index": index,
-        "element": waiting.element,
-        "label": waiting.label,
-        "amount": waiting.amount,
-        "condition": waiting.condition,
-        "note": waiting.note,
-        "sign": waiting.sign or 1,
-        "page": waiting.page,
+        "element": change.element,
+        "label": change.label,
+        "amount": change.amount,
+        "condition": change.condition,
+        "note": change.note,
+        "sign": change.sign,
+        "page": waiting.get("page"),
         "described": change.described(),
     }
 
@@ -909,27 +1010,44 @@ def flag_page(
     Returns:
         The file on that page, with the new comment last.
     """
-    connect_db()
     now = datetime.now(timezone.utc)
-    inspection = PageInspection.objects(book=book, path=path).first()
-    if inspection is None:
-        inspection = PageInspection(
-            id=uuid.uuid4().hex, book=book, path=path, created_at=now
-        )
-    inspection.page_title = page_title or inspection.page_title
-    inspection.status = OPEN
-    inspection.updated_at = now
-    inspection.comments.append(InspectionComment(text=text, created_at=now))
-    inspection.save()
+    with _session() as session:
+        inspection = session.scalars(
+            select(PageInspection).where(
+                PageInspection.book == book, PageInspection.path == path
+            )
+        ).first()
+        if inspection is None:
+            inspection = PageInspection.from_dict(
+                {
+                    "id": uuid.uuid4().hex,
+                    "book": book,
+                    "path": path,
+                    "status": OPEN,
+                    "comments": [],
+                    "created_at": now,
+                    "updated_at": now,
+                }
+            )
+            session.add(inspection)
+        state = inspection.to_dict()
+        state["page_title"] = page_title or state.get("page_title")
+        state["status"] = OPEN
+        state["updated_at"] = now
+        state["comments"] = [
+            *(state.get("comments") or []),
+            {"text": text, "created_at": now},
+        ]
+        inspection.update_from_dict(state)
     event(
         "Page flagged",
         inspection=inspection.id,
         book=book,
         path=path,
-        comments=len(inspection.comments),
+        comments=len(state["comments"]),
         text=text,
     )
-    return _inspection_dict(inspection)
+    return _inspection_dict(inspection.to_dict())
 
 
 def flagged_pages(book: str, status: str | None = None) -> list[InspectionDict]:
@@ -942,14 +1060,15 @@ def flagged_pages(book: str, status: str | None = None) -> list[InspectionDict]:
     Returns:
         One file per flagged page.
     """
-    connect_db()
-    query = PageInspection.objects(book=book)
+    query = select(PageInspection).where(PageInspection.book == book)
     if status is not None:
-        query = query.filter(status=status)
-    return [
-        _inspection_dict(inspection)
-        for inspection in query.order_by("-updated_at", "-id")
-    ]
+        query = query.where(PageInspection.status == status)
+    query = query.order_by(PageInspection.updated_at.desc(), PageInspection.id.desc())
+    with _session() as session:
+        return [
+            _inspection_dict(inspection.to_dict())
+            for inspection in session.scalars(query)
+        ]
 
 
 def find_inspection(inspection_id: str | None) -> InspectionDict | None:
@@ -963,9 +1082,9 @@ def find_inspection(inspection_id: str | None) -> InspectionDict | None:
     """
     if not inspection_id:
         return None
-    connect_db()
-    inspection = PageInspection.objects(id=inspection_id).first()
-    return _inspection_dict(inspection) if inspection else None
+    with _session() as session:
+        inspection = session.get(PageInspection, inspection_id)
+        return _inspection_dict(inspection.to_dict()) if inspection else None
 
 
 def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | None:
@@ -983,34 +1102,39 @@ def set_inspection_status(inspection_id: str, status: str) -> InspectionDict | N
     """
     if status not in STATUSES:
         raise ValueError(f"unknown inspection status {status!r}")
-    connect_db()
-    inspection = PageInspection.objects(id=inspection_id).first()
-    if inspection is None:
-        return None
-    inspection.status = status
-    inspection.updated_at = datetime.now(timezone.utc)
-    inspection.save()
+    with _session() as session:
+        inspection = session.get(PageInspection, inspection_id)
+        if inspection is None:
+            return None
+        state = inspection.to_dict()
+        state["status"] = status
+        state["updated_at"] = datetime.now(timezone.utc)
+        inspection.update_from_dict(state)
     event(
         "Flagged page status changed",
         inspection=inspection.id,
         path=inspection.path,
         status=status,
     )
-    return _inspection_dict(inspection)
+    return _inspection_dict(inspection.to_dict())
 
 
-def _inspection_dict(inspection: PageInspection) -> InspectionDict:
-    """One flagged page as the routes read it."""
+def _inspection_dict(state: State) -> InspectionDict:
+    """One flagged page as the routes read it.
+
+    The blob's instants are already ISO 8601 text; only `updated_at`, a real
+    column, still needs printing.
+    """
     return {
-        "id": inspection.id,
-        "book": inspection.book,
-        "path": inspection.path,
-        "page_title": inspection.page_title,
-        "status": inspection.status,
+        "id": str(state["id"]),
+        "book": str(state["book"]),
+        "path": str(state["path"]),
+        "page_title": state.get("page_title"),
+        "status": str(state["status"]),
         "comments": [
-            {"text": comment.text, "created_at": comment.created_at.isoformat()}
-            for comment in inspection.comments
+            {"text": comment["text"], "created_at": comment["created_at"]}
+            for comment in state.get("comments") or []
         ],
-        "created_at": inspection.created_at.isoformat(),
-        "updated_at": inspection.updated_at.isoformat(),
+        "created_at": str(state["created_at"]),
+        "updated_at": state["updated_at"].isoformat(),
     }

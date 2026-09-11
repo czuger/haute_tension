@@ -1,7 +1,7 @@
 """What a reader is shown when the database cannot answer."""
 
 import pytest
-from pymongo.errors import ServerSelectionTimeoutError
+from sqlalchemy.exc import OperationalError
 
 from haute_tension.core import db as core_db
 from haute_tension.core.db import DatabaseUnavailable
@@ -9,10 +9,10 @@ from haute_tension.core.db import DatabaseUnavailable
 
 @pytest.fixture
 def dead_database(monkeypatch):
-    """Every read and write fails the way an unreachable server looks."""
+    """Every read and write fails the way a file that cannot be opened looks."""
 
     def boom():
-        raise ServerSelectionTimeoutError("no reachable servers")
+        raise OperationalError("PRAGMA foreign_keys=ON", {}, Exception("unable to open database file"))
 
     monkeypatch.setattr(core_db, "connect_db", boom)
 
@@ -22,7 +22,7 @@ def no_database(monkeypatch):
     """Nothing configured to reach in the first place."""
 
     def boom():
-        raise DatabaseUnavailable("Missing MONGO_URI environment variable.")
+        raise DatabaseUnavailable("Missing DATABASE_DIR environment variable.")
 
     monkeypatch.setattr(core_db, "connect_db", boom)
 
@@ -50,7 +50,7 @@ class TestThePagesThatNeedIt:
         assert "ne répond pas" in response.get_data(as_text=True)
 
     def test_the_page_points_at_the_configuration(self, client, no_database):
-        assert "MONGO_URI" in client.get("/book/1").get_data(as_text=True)
+        assert "DATABASE_DIR" in client.get("/book/1").get_data(as_text=True)
 
     def test_rolling_up_a_hero_is_refused(self, fighting_client, no_database):
         assert fighting_client.post("/game/new").status_code == 503
@@ -109,7 +109,7 @@ class TestTheLog:
         client.get("/book/1")
 
         assert "The database could not answer" in caplog.text
-        assert "ServerSelectionTimeoutError" in caplog.text
+        assert "OperationalError" in caplog.text
 
     def test_the_line_names_the_request(self, client, dead_database, caplog):
         import logging

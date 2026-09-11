@@ -15,11 +15,16 @@ ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env")
 
 # Base database name; the database actually used is this name plus the current
-# environment suffix (see `current_db_name`). APP_ENV picks which local Mongo
-# database is used, so a dev import never touches prod data, and vice versa.
+# environment suffix (see `current_db_name`). APP_ENV picks which SQLite file
+# is used, so a dev run never touches prod data, and vice versa.
 DB_NAME = "haute_tension"
 ENV_NAMES = ("dev", "prod")
 DEFAULT_ENV = "dev"
+
+# The directory the SQLite files live in, from the environment. A relative path
+# is taken from the repository root, so `data` in `.env` means `<root>/data`.
+DATABASE_DIR_VAR = "DATABASE_DIR"
+DATABASE_SUFFIX = ".sqlite3"
 
 
 def load_env(required_vars: list[str]) -> dict[str, str]:
@@ -62,8 +67,24 @@ def current_env() -> str:
 
 
 def current_db_name() -> str:
-    """Return the Mongo database this run reads and writes."""
+    """Return the name of the database this run reads and writes."""
     return f"{DB_NAME}_{current_env()}"
+
+
+def database_path() -> Path | None:
+    """Return the SQLite file this run reads and writes.
+
+    `DATABASE_DIR` says where the files live; `APP_ENV` picks which one, so a
+    dev run and a prod run on the same directory never open the same file.
+
+    Returns:
+        `<DATABASE_DIR>/haute_tension_<env>.sqlite3`, or `None` when
+        `DATABASE_DIR` is unset — there is then no database to reach.
+    """
+    directory = os.environ.get(DATABASE_DIR_VAR, "").strip()
+    if not directory:
+        return None
+    return ROOT / Path(directory).expanduser() / f"{current_db_name()}{DATABASE_SUFFIX}"
 
 
 def session_secret() -> str:

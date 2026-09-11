@@ -333,19 +333,19 @@ class TestEndCombat:
         assert end_combat("nope") is None
 
 
-class TestGameDocument:
+class TestGameRow:
     """Corners the browser flow never reaches on its own."""
 
-    def test_a_blank_id_loads_no_document(self, fake_db):
+    def test_a_blank_id_loads_no_row(self, fake_db):
         """The three writers share the same guard as find_game()."""
         assert end_combat("") is None
         assert play_assault("", random.Random(1)) is None
 
     def test_a_game_prints_its_hero(self, fake_db):
-        from haute_tension.core.models import Game
+        from haute_tension.core.models.game import Game
 
-        game = Game(
-            id="x", book=BOOK, mode="easy", force=14, vie_max=27, vie_actuelle=20
+        game = Game.from_dict(
+            {"id": "x", "book": BOOK, "mode": "easy", "force": 14, "vie_max": 27, "vie_actuelle": 20}
         )
 
         assert str(game) == f"{BOOK} (easy) — Force 14, Vie 20/27"

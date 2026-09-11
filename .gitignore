@@ -42,3 +42,6 @@ node_modules
 .env
 htmlcov/
 /logs/
+
+# The SQLite files, one per APP_ENV, under the default DATABASE_DIR.
+/data/

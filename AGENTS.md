@@ -4,7 +4,9 @@
 
 The application is a Flask service in `haute_tension/`. `app.py` is the development-server entry point, `application/` contains the app factory and the routes, and `templates/` contains the browser UI.
 
-`haute_tension/core/` is everything below the web layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables, session key, which database), `story.py` (the book, read off disk), `dice.py` / `character.py` / `combat.py` (the game rules, all pure), `models/` (one mongoengine document per collection, describing shapes and running no query), then `db.py` (the connection and every read and write). `db.py` is the only module that talks to MongoDB, and no document object ever reaches a route or a template. Keep it that way: a new query belongs in `db.py`, never in a route.
+`haute_tension/core/` is everything below the web layer, and nothing in it knows about Flask. It is strictly layered and the imports only go one way: `config.py` (environment variables, session key, which database file), `story.py` (the book, read off disk), `dice.py` / `character.py` / `combat.py` (the game rules, all pure), `models/` (one SQLAlchemy model per table, describing shapes and running no query), then `db.py` (the engine, the sessions and every read and write). `db.py` is the only module that talks to SQLite, and no row object ever reaches a route or a template. Keep it that way: a new query belongs in `db.py`, never in a route.
+
+Every table is **hybrid**: a real column only for what a query filters, sorts or joins on, and one JSON `data` column for everything else. `core/models/hybrid_document.py` is the mixin every model takes — `to_dict()` merges columns and blob into one flat dict, `from_dict()` splits one back, `update_from_dict()` writes a changed dict onto a loaded row, `to_json()` is the dict as text. `db.py` reads a row as a dict, changes the dict, and writes it back whole; it never sets a column by hand. Adding a field to a hero or a fight is adding a key to the blob. Adding a query on a blob key means promoting that key to a column with an index, in the model, and nothing else: the tables are created from the models on first use, there is no migration step.
 
 `core/logs/` is the log — `note()` for a step at DEBUG, `event()` for something that happened at INFO, `failure()` for what went wrong at ERROR — and `application/logs/request_trace.py` is its Flask half. It sits in `core` because `core.db` writes to it. **Name every variable and write out its content**, and never write a secret: a field whose name says token, secret, password, authorization, cookie, session or key is hidden by `general_log`, at the top level and inside any body. `game_id` is written to its first eight characters — it is the only credential this application has. Use `note`/`event`/`failure`, never `logging` directly and never `print`.
 
@@ -20,9 +22,11 @@ The game rules stay pure and stay out of `db.py`: `combat.py` is handed a fight 
 
 **Only the reading history, the play-throughs and the flagged pages are stored.** The book is static, fits in memory, and is read off disk at startup by `core/story.py`; putting it in the database would buy nothing. Do not move it there.
 
+An instant is stored through `core/models/utc_datetime.py` when it is a column — aware in, aware out, sortable as text — and as ISO 8601 text when it is in the blob. `core.db` prints a column instant with `isoformat()` and passes a blob one through as it is.
+
 **Never swallow a database failure.** A page that needs the database and cannot reach it must fail, not be served half-built: a reader given a page quietly missing part of itself, after a three-second wait, is worse off than one told the server is down. `application/errors.py` registers the one handler that turns `db.DatabaseFailure` — the driver errors plus `DatabaseUnavailable`, raised when nothing is configured — into a 503 page, or JSON under the `api` blueprint. Routes catch nothing themselves. A page that genuinely needs no database (the landing page) must not touch one, so that it keeps working when there is none.
 
-The connection is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `APP_ENV` (`dev` / `prod`) suffixes the database name, so a dev run never touches prod data.
+The engine is opened lazily by `db.connect_db()`, which is the single seam the tests replace. `DATABASE_DIR` names the directory the SQLite files live in, and `APP_ENV` (`dev` / `prod`) picks the file, so a dev run never touches prod data.
 
 Runtime books live under `haute_tension/books/<series>/<book>/`; `pages.json` is the file the application loads, named by `core.story.PAGES_FILE`.
 
@@ -33,7 +37,7 @@ Story import and conversion files live in `work/`: source YAML/HTML is under `wo
 - `pyenv virtualenv <python-version> haute_tension && pyenv local haute_tension` creates and selects the named virtualenv used by the repository's `.python-version` file.
 - `python -m pip install -e ".[test]"` installs the project, its dependencies and the test extras declared in `pyproject.toml`.
 - `make help` lists the repository's targets; `make test` is how the suite is run before pushing.
-- Copy `.env.example` to `.env` and point `MONGO_URI` at a reachable mongod; `APP_ENV` picks the database. Leave the database name out of `MONGO_URI` — `db.connect_db()` refuses a URI that names one. Only the reading history needs the server; browsing works without one.
+- Copy `.env.example` to `.env`; `DATABASE_DIR` is the directory the SQLite files live in (default `data`, relative to the repository root, git-ignored) and `APP_ENV` picks the file. The file and its tables are created on first use. Only the reading history, the play-throughs and the flagged pages need it; the landing page works without one.
 - `cd haute_tension && PYTHONPATH=.. python app.py` starts the development server on port 5001.
 
 Declare Python dependencies and package metadata in `pyproject.toml`; do not recreate `requirements.txt` files.
@@ -65,9 +69,9 @@ Reserve comments for genuinely complex, non-obvious, or easily misread logic. Ke
 
 Run the suite with `python -m pytest`. All tests must live in the repository-root `tests/` directory; do not create package-local or alternate test directories. Name test files `test_*.py` and prefer Flask's test client. Branch coverage of `haute_tension` and `scripts` is measured by `pytest-cov` and configured in `pyproject.toml` to fail below 95%, so keep new code covered.
 
-The suite runs against two backends and no test may care which. `make test` brings up a real MongoDB in a container (port 27019, database `haute_tension_test`) and runs the suite against it; `make test-fast` and a bare `python -m pytest` use an in-memory mongomock server and need nothing brought up. `tests/conftest.py` binds the models to whichever applies and stubs `core.db.connect_db()` out either way; take the `fake_db`, `book_pages` or `client` fixture rather than standing up your own. Run `make test` before pushing: mongomock is a reimplementation, and a driver behaviour it does not share is a bug only the real server shows.
+Every test runs on an in-memory SQLite of its own — the same engine as the file the application opens, so there is one backend and nothing to bring up. `tests/conftest.py` opens it, creates the tables and stubs `core.db.connect_db()` out; take the `fake_db`, `books_path` or `client` fixture rather than standing up your own. Run `make test` before pushing.
 
-Never point `TEST_DB_NAME` at a database the application uses — the suite empties it before every test. Seed a collection by assigning to `fake_db["<collection>"].docs`, which is keyed the way the app reads it. Document manual checks for `/data/<number>` in the pull request.
+Seed a table by assigning to `fake_db["<table>"].docs`, a list of flat dicts in the `to_dict()` shape — columns and blob keys mixed, `id` included where the application generates one; reading `.docs` gives the same shape back. Document manual checks for `/data/<number>` in the pull request.
 
 ## Commit & Pull Request Guidelines
 

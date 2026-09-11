@@ -71,12 +71,13 @@ class TestFlaggingInTheDatabase:
         assert filed["comments"][0]["created_at"].startswith("20")
         assert filed["created_at"] == filed["updated_at"]
 
-    def test_the_document_says_what_it_is(self, fake_db):
-        from haute_tension.core.models import PageInspection
+    def test_the_row_says_what_it_is(self, fake_db):
+        from haute_tension.core.models.page_inspection import PageInspection
 
         flag_page(BOOK, "/book/22", "Page 22", "Une.")
+        [filed] = fake_db["page_inspections"].docs
 
-        assert str(PageInspection.objects.first()) == f"{BOOK} /book/22 (open, 1 comments)"
+        assert str(PageInspection.from_dict(filed)) == f"{BOOK} /book/22 (open, 1 comments)"
 
     def test_pages_of_another_book_are_kept_apart(self, fake_db):
         flag_page(BOOK, "/book/22", "Page 22", "Ici.")
@@ -124,21 +125,17 @@ class TestTheList:
             set_inspection_status(filed["id"], "lost")
 
     def test_two_files_on_one_page_cannot_coexist(self, fake_db):
-        """The unique index is the safety net under the find-or-create."""
-        from mongoengine.errors import NotUniqueError
-
-        from haute_tension.core.models import PageInspection
+        """The unique constraint is the safety net under the find-or-create."""
+        from sqlalchemy.exc import IntegrityError
 
         now = datetime.now(timezone.utc)
-        for number in ("a", "b"):
-            twin = PageInspection(
-                id=number, book=BOOK, path="/book/1", created_at=now, updated_at=now
-            )
-            if number == "a":
-                twin.save(force_insert=True)
-                continue
-            with pytest.raises(NotUniqueError):
-                twin.save(force_insert=True)
+        twins = [
+            {"id": number, "book": BOOK, "path": "/book/1", "created_at": now, "updated_at": now}
+            for number in ("a", "b")
+        ]
+
+        with pytest.raises(IntegrityError):
+            fake_db["page_inspections"].docs = twins
 
 
 class TestTheDialog:

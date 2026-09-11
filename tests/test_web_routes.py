@@ -141,7 +141,7 @@ def _stamp(minute):
 
 
 def _unreachable():
-    """What every read and write looks like when the server is gone."""
-    from pymongo.errors import ServerSelectionTimeoutError
+    """What every read and write looks like when the file cannot be opened."""
+    from sqlalchemy.exc import OperationalError
 
-    raise ServerSelectionTimeoutError("no reachable servers")
+    raise OperationalError("PRAGMA foreign_keys=ON", {}, Exception("unable to open database file"))
