@@ -45,3 +45,6 @@ htmlcov/
 
 # The SQLite files, one per APP_ENV, under the default DATABASE_DIR.
 /data/
+
+# The Rust build directory; the lock file is versioned, the artefacts are not.
+/rust/target/

@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ layout.title }}</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #251c16;
+            --muted: #706157;
+            --paper: #fffdf8;
+            --canvas: #eee8dd;
+            --accent: #8a3027;
+            --accent-dark: #642019;
+            --line: #d8cdbd;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            background: var(--canvas);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.65;
+        }
+
+        a { color: inherit; }
+
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255, 253, 248, 0.88);
+        }
+
+        .site-sheet {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .site-sheet:hover, .site-sheet:focus-visible { color: var(--accent); }
+
+        .site-name {
+            display: inline-block;
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        main {
+            width: min(100% - 2rem, 48rem);
+            margin: 0 auto;
+            padding: clamp(2rem, 7vw, 5rem) 0;
+        }
+
+        .card {
+            padding: clamp(1.5rem, 6vw, 4rem);
+            border: 1px solid var(--line);
+            border-radius: 0.35rem;
+            background: var(--paper);
+            box-shadow: 0 1rem 3rem rgba(71, 52, 38, 0.09);
+        }
+
+        .eyebrow, .page-number {
+            margin: 0 0 0.75rem;
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1, h2 { line-height: 1.15; }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.3rem, 8vw, 4.6rem);
+            font-weight: 500;
+        }
+
+        h2 { margin-top: 2.5rem; }
+
+        .book-description {
+            max-width: 34rem;
+            margin: 1.5rem 0 2rem;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .button, .choice-link {
+            display: inline-block;
+            border-radius: 0.25rem;
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .button {
+            padding: 0.8rem 1.1rem;
+            color: white;
+            background: var(--accent);
+        }
+
+        .button:hover, .button:focus-visible { background: var(--accent-dark); }
+
+        .reader-title {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .reader-title h1 { font-size: clamp(1.7rem, 5vw, 2.7rem); }
+
+        .story-text {
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+        }
+
+        .story-text p:first-child::first-letter {
+            float: left;
+            margin: 0.08em 0.12em 0 0;
+            color: var(--accent);
+            font-size: 3.2em;
+            line-height: 0.85;
+        }
+
+        /* The last pages read, oldest first. It can hold ten entries and a
+           revisited page appears twice, so it scrolls sideways on a narrow
+           screen rather than wrapping into the page number below it. */
+        .trail {
+            margin: 0 0 1.25rem;
+            overflow-x: auto;
+        }
+
+        .trail ol {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        .trail li + li::before {
+            content: "›";
+            margin-right: 0.4rem;
+            color: var(--line);
+        }
+
+        .trail li {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .trail a, .trail-current {
+            display: block;
+            padding: 0.15rem 0.45rem;
+            border-radius: 0.2rem;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .trail a:hover, .trail a:focus-visible {
+            color: var(--accent);
+            background: #f8f3ea;
+        }
+
+        .trail-current {
+            color: var(--paper);
+            background: var(--accent);
+            font-weight: 700;
+        }
+
+        .choices {
+            margin: 1.5rem 0 2.5rem;
+            padding: 0 0 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .choices ul {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .choice-link {
+            display: block;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--line);
+            background: #f8f3ea;
+        }
+
+        .choice-link:hover, .choice-link:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .end-note { color: var(--muted); }
+
+        /* --- What the hero is and carries --- */
+
+        .holdings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.9rem;
+            margin: 0 0 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .holdings strong { color: var(--ink); font-size: 0.95rem; }
+
+        .held {
+            padding: 0.1rem 0.45rem;
+            border: 1px solid var(--line);
+            border-radius: 0.2rem;
+            background: #f8f3ea;
+        }
+
+        .bag-link {
+            padding: 0.1rem 0.5rem;
+            border: 1px solid var(--line);
+            border-radius: 0.2rem;
+            background: #f8f3ea;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .bag-link:hover, .bag-link:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .site-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem 1rem; }
+
+        .bag-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .bag-count {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* --- The sheet proper --- */
+
+        .vitals {
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+            margin: 0 0 2.5rem;
+        }
+
+        .vital {
+            padding: 1rem 1.1rem;
+            border: 1px solid var(--line);
+            border-radius: 0.3rem;
+            background: #f8f3ea;
+        }
+
+        .vital p { margin: 0; }
+
+        .vital-name {
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .vital-value { margin: 0.35rem 0 0; line-height: 1.1; }
+        .vital-value strong { font-size: 2.1rem; }
+
+        .vital-max {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .vital-rule {
+            margin-top: 0.5rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+        }
+
+        .gauge {
+            height: 0.35rem;
+            margin: 0.55rem 0 0;
+            border-radius: 0.2rem;
+            background: var(--line);
+            overflow: hidden;
+        }
+
+        .gauge span {
+            display: block;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        /* --- The memorial --- */
+
+        .fallen {
+            margin: 1.5rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .fallen li {
+            padding: 1rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .fallen p { margin: 0; }
+
+        .fallen-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .fallen-death {
+            color: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .fallen-cause { color: var(--ink); }
+
+        .fallen-date {
+            margin-left: auto;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .fallen-stats {
+            margin-top: 0.3rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .fallen-bag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.6rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .bag-label { flex: 1 1 auto; }
+
+        .bag-back { margin-top: 2rem; }
+
+        .sheet-link {
+            margin-left: 1rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        .bag {
+            margin: 0.75rem 0 0;
+            padding: 0;
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .bag li {
+            display: flex;
+            gap: 1rem;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .bag .count { color: var(--muted); }
+
+        .choice-cost {
+            display: block;
+            margin-top: 0.2rem;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        button.choice-link {
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        /* --- Changes only the reader can rule on --- */
+
+        .pending {
+            margin: 0 0 1.75rem;
+            padding: 1rem 1.2rem;
+            border-left: 3px solid var(--accent);
+            background: #f8f3ea;
+        }
+
+        .pending h2 {
+            margin: 0 0 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .pending-intro {
+            margin: 0 0 0.9rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .pending ul { margin: 0 0 0.8rem; padding: 0; list-style: none; }
+
+        .pending li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--line);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .pending-change { font-weight: 700; }
+        .pending-condition { flex: 1 1 12rem; color: var(--muted); }
+
+        .pending-actions { display: flex; gap: 0.4rem; }
+        .pending-actions form { display: inline; }
+
+        .pending button {
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--accent);
+            border-radius: 0.2rem;
+            color: white;
+            background: var(--accent);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .pending button.quiet {
+            color: var(--muted);
+            background: none;
+            border-color: var(--line);
+        }
+
+        /* --- Character sheet and combat --- */
+
+        button { font: inherit; cursor: pointer; }
+
+        .button[type="submit"], button.button {
+            border: none;
+        }
+
+        .roll-intro { color: var(--muted); font-style: italic; }
+
+        .mode-badge {
+            margin: 0.5rem 0 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .modes {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            margin-top: 2rem;
+        }
+
+        .mode {
+            padding: 1.2rem;
+            border: 1px solid var(--line);
+            border-radius: 0.3rem;
+            background: #f8f3ea;
+        }
+
+        .mode-name {
+            margin: 0 0 0.5rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .mode-rule {
+            margin: 0 0 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .mode-range { color: var(--muted); }
+
+        .mode-note {
+            margin: 0 0 1rem;
+            min-height: 2.4em;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .sheet { margin: 0 0 2rem; }
+
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stat dt {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .stat dd { margin: 0; text-align: right; }
+        .stat dd strong { font-size: 1.5rem; }
+
+        .roll-detail {
+            display: block;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .reroll { margin-top: 2rem; }
+
+        .reroll a {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        .warning {
+            margin: 0 0 1.5rem;
+            padding: 0.8rem 1rem;
+            border-left: 3px solid var(--accent);
+            background: #f8f3ea;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .combatants {
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+            margin-bottom: 1.75rem;
+        }
+
+        .combatant {
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 0.25rem;
+            background: #f8f3ea;
+        }
+
+        .combatant.hero { border-color: var(--accent); }
+        .combatant.down { opacity: 0.45; }
+
+        .combatant p { margin: 0; }
+
+        .combatant-name {
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .combatant-stats, .combatant-vie {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .combatant-vie { font-weight: 700; color: var(--ink); }
+        .adjust { color: var(--accent); }
+
+        .verdict {
+            margin: 0 0 1.25rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .verdict.victory { color: var(--accent); }
+
+        .assaults {
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .assault {
+            padding: 0.8rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .assault-head {
+            margin: 0 0 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .exchanges { margin: 0; padding: 0; list-style: none; }
+
+        .exchange {
+            padding: 0.15rem 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .exchange.judgement { color: var(--accent); font-weight: 700; }
+
+        .against {
+            display: inline-block;
+            min-width: 9rem;
+            color: var(--ink);
+        }
+
+        /* --- Flagging a page, and the pages flagged --- */
+
+        .toast {
+            margin: 0 0 1.25rem;
+            padding: 0.7rem 1rem;
+            border-left: 3px solid var(--accent);
+            border-radius: 0.2rem;
+            background: var(--paper);
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .toast.error { color: var(--accent-dark); }
+
+        .flag {
+            width: min(100% - 2rem, 32rem);
+            padding: clamp(1.25rem, 4vw, 2rem);
+            border: 1px solid var(--line);
+            border-radius: 0.35rem;
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 1rem 3rem rgba(71, 52, 38, 0.2);
+        }
+
+        /* Without a script, the menu link lands on the dialog's id and this is
+           what shows it: fixed in the viewport, over the page. */
+        .flag:target { display: block; position: fixed; top: 10vh; left: 50%; transform: translateX(-50%); z-index: 10; }
+
+        .flag::backdrop { background: rgba(37, 28, 22, 0.45); }
+
+        .flag h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+
+        .flag-page {
+            margin: 0 0 1rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .flag label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .flag textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--line);
+            border-radius: 0.25rem;
+            font: inherit;
+            font-size: 0.95rem;
+        }
+
+        .flag-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1rem;
+            margin: 1rem 0 0;
+        }
+
+        .flag-actions .sheet-link { margin-left: 0; }
+
+        .status-filter {
+            display: flex;
+            gap: 1rem;
+            margin: 0 0 1.5rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .status-filter a { color: var(--muted); text-decoration: none; }
+        .status-filter a.current { color: var(--accent); font-weight: 700; }
+
+        .status {
+            padding: 0.1rem 0.45rem;
+            border-radius: 0.2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status.open { color: var(--paper); background: var(--accent); }
+        .status.resolved { color: var(--muted); background: #e4dccd; }
+
+        .flagged-path { font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--muted); }
+
+        .comments { margin: 1.5rem 0; padding: 0; list-style: none; }
+
+        .comments li {
+            padding: 0.8rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .comment-date {
+            margin: 0 0 0.3rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .comments p { margin: 0; white-space: pre-line; }
+
+        .flagged-actions { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+        .flagged-actions form { display: inline; }
+
+        @media (max-width: 36rem) {
+            main { width: min(100% - 1rem, 48rem); padding-top: 0.5rem; }
+            .card { border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="site-name" href="/">Haute Tension</a>
+        <nav class="site-links" aria-label="Menu">
+            <a class="site-sheet" href="/game/new">Nouveau</a>
+            <a class="site-sheet" href="/game/resume">Partie en cours</a>
+            <a class="site-sheet" href="/game">Feuille</a>
+            <a class="site-sheet" href="/heroes">Les tombés</a>
+            <a class="site-sheet" id="flag-open" href="#signaler">Signaler</a>
+        </nav>
+    </header>
+    <main>
+        {% let messages = layout.flashes %}
+        {% if !messages.is_empty() %}
+        {% for flash in messages %}
+        <p class="toast {{ flash.category }}" role="status">{{ flash.message }}</p>
+        {% endfor %}
+        {% endif %}
+        
+        <p class="toast" id="flag-toast" role="status" hidden></p>
+        {% block content %}{% endblock %}
+    </main>
+
+    <dialog class="flag" id="signaler" aria-labelledby="flag-title">
+        <form method="post" action="/flag-page" id="flag-form">
+            <h2 id="flag-title">Signaler cette page</h2>
+            <p class="flag-page">{{ layout.title }} · <code>{{ layout.path }}</code></p>
+            <input type="hidden" name="path" value="{{ layout.path }}">
+            <input type="hidden" name="title" value="{{ layout.title }}">
+            <label for="flag-comment">Qu'est-ce qui ne va pas&nbsp;?</label>
+            <textarea id="flag-comment" name="comment" rows="4" required
+                      placeholder="Une coquille, un choix qui mène au mauvais paragraphe, un combat mal lu…"></textarea>
+            <p class="flag-actions">
+                <button class="button" type="submit">Envoyer</button>
+                <a class="sheet-link" href="#" id="flag-close">Annuler</a>
+                <a class="sheet-link" href="/flagged-pages">Pages signalées</a>
+            </p>
+        </form>
+    </dialog>
+
+    <script>
+        // Progressive enhancement: the dialog opens as a modal and the report is
+        // sent without leaving the page. Without this, the anchor shows the
+        // dialog through :target and the form posts the ordinary way.
+        (function () {
+            var dialog = document.getElementById("signaler");
+            var form = document.getElementById("flag-form");
+            var toast = document.getElementById("flag-toast");
+            if (!dialog || typeof dialog.showModal !== "function") { return; }
+
+            function say(message, category) {
+                toast.textContent = message;
+                toast.className = "toast " + category;
+                toast.hidden = false;
+            }
+
+            document.getElementById("flag-open").addEventListener("click", function (click) {
+                click.preventDefault();
+                dialog.showModal();
+                document.getElementById("flag-comment").focus();
+            });
+            document.getElementById("flag-close").addEventListener("click", function (click) {
+                click.preventDefault();
+                dialog.close();
+            });
+
+            form.addEventListener("submit", function (submit) {
+                submit.preventDefault();
+                fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                }).then(function (response) {
+                    return response.json().then(function (answer) {
+                        return { ok: response.ok, answer: answer };
+                    }, function () {
+                        return { ok: false, answer: { message: "Le signalement n'a pas pu être envoyé." } };
+                    });
+                }).then(function (result) {
+                    say(result.answer.message, result.ok ? "success" : "error");
+                    if (result.ok) {
+                        form.reset();
+                        dialog.close();
+                    }
+                }, function () {
+                    say("Le signalement n'a pas pu être envoyé.", "error");
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

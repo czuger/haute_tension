@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <p class="eyebrow">{{ book_series }}</p>
+    <h1>Prêtre Jean</h1>
+
+    {% if let Some(game) = game %}{% if !game.is_dead %}
+    <p class="warning" role="note">
+        Un héros est déjà en route&nbsp;: Force {{ game.force }},
+        Vie {{ game.vie_actuelle }}/{{ game.vie_max }}, {{ game.gold }} pièce{% if game.gold > 1 %}s{% endif %} d'or{% if let Some(combat) = game.combat %},
+        aux prises au paragraphe {{ combat.page }}{% endif %}.
+        Lancer les dés l'abandonne là où il est&nbsp;: sa feuille ne sera plus
+        accessible, et il ne rejoindra pas les tombés.
+        <a href="/game/resume">Reprendre sa partie</a>
+        plutôt&nbsp;?
+    </p>
+    {% else %}
+    <p class="warning" role="note">
+        Votre héros est mort{% if let Some(died_on_page) = game.died_on_page %} au paragraphe {{ died_on_page }}{% endif %}.
+        Un autre homme peut prendre la route.
+    </p>
+    {% endif %}{% endif %}
+
+    <p class="book-description">
+        Avant de partir pour Alamuth, il vous faut savoir de quoi vous êtes fait.
+        Les dés décideront de votre Force et de votre Vie&nbsp;: ces chiffres
+        vous suivront jusqu'au bout de l'aventure.
+    </p>
+
+    <div class="modes">
+        {% for mode in modes %}
+        <form method="post" action="/game/new" class="mode">
+            <input type="hidden" name="mode" value="{{ mode.name }}">
+            <h2 class="mode-name">Difficulté {{ mode.label|lower }}</h2>
+            <p class="mode-rule">
+                Force {{ mode.force.base }} + {{ mode.force.notation() }}
+                <span class="mode-range">({{ mode.force.lowest() }}–{{ mode.force.highest() }})</span>
+                · Vie {{ mode.vie.base }} + {{ mode.vie.notation() }}
+                <span class="mode-range">({{ mode.vie.lowest() }}–{{ mode.vie.highest() }})</span>
+            </p>
+            <p class="mode-note">{{ mode.description }}</p>
+            <button class="button" type="submit">Lancer les dés</button>
+        </form>
+        {% endfor %}
+    </div>
+
+    {% if !fallen.is_empty() %}
+    <p class="bag-back">
+        <a class="sheet-link" href="/heroes">
+            {{ fallen.len() }} héros {% if fallen.len() > 1 %}sont tombés{% else %}est tombé{% endif %} avant vous
+        </a>
+    </p>
+    {% endif %}
+</section>
+{% endblock %}

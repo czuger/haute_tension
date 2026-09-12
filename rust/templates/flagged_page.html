@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }} · Page signalée</p>
+        <h1>{{ inspection.title_or_path() }}</h1>
+        <p class="fallen-head">
+            <span class="status {{ inspection.status }}">
+                {% if inspection.status == "open" %}À traiter{% else %}Réglée{% endif %}
+            </span>
+            <a class="flagged-path" href="{{ inspection.path }}">{{ inspection.path }}</a>
+        </p>
+    </header>
+
+    <p class="fallen-stats">
+        Signalée le {{ inspection.created_at|french_date }} ·
+        {{ inspection.comments.len() }} remarque{% if inspection.comments.len() > 1 %}s{% endif %}
+    </p>
+
+    <ol class="comments">
+        {% for comment in inspection.comments %}
+        <li>
+            <p class="comment-date">Le {{ comment.created_at|french_date }}</p>
+            <p>{{ comment.text }}</p>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <p class="flagged-actions">
+        {% if inspection.status == "open" %}
+        <form method="post" action="/flagged-pages/{{ inspection.id }}/resolve">
+            <button class="button" type="submit">Marquer comme réglée</button>
+        </form>
+        {% else %}
+        <form method="post" action="/flagged-pages/{{ inspection.id }}/reopen">
+            <button class="button" type="submit">Rouvrir</button>
+        </form>
+        {% endif %}
+        <a class="sheet-link" href="/flagged-pages">Toutes les pages signalées</a>
+    </p>
+</article>
+{% endblock %}

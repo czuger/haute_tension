@@ -1,0 +1,58 @@
+[package]
+name = "haute_tension"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "An Axum adaptation of La Forteresse d'Alamuth"
+license = "MIT"
+
+[lib]
+name = "haute_tension"
+path = "src/lib.rs"
+
+[[bin]]
+name = "serve"
+path = "src/bin/serve.rs"
+
+[[bin]]
+name = "parse_pages"
+path = "src/bin/parse_pages.rs"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "fs", "sync", "time"] }
+tower = { version = "0.5", features = ["util"] }
+sea-orm = { version = "1", default-features = false, features = [
+    "sqlx-sqlite",
+    "runtime-tokio-rustls",
+    "macros",
+    "with-json",
+] }
+askama = "0.14"
+scraper = "0.23"
+ego-tree = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+serde_urlencoded = "0.7"
+indexmap = "2"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+rand = "0.9"
+thiserror = "2"
+dotenvy = "0.15"
+hmac = "0.12"
+sha2 = "0.10"
+base64 = "0.22"
+percent-encoding = "2"
+url = "2"
+unicode-normalization = "0.1"
+regex = "1"
+clap = { version = "4", features = ["derive"] }
+http-body-util = "0.1"
+bytes = "1"
+sqlx = { version = "0.8", default-features = false, features = ["sqlite", "runtime-tokio-rustls"] }
+
+[dev-dependencies]
+tempfile = "3"
+rusqlite = { version = "0.32", features = ["bundled"] }
+futures-lite = "2"
+askama = "0.14"

@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="card">
+    <header class="reader-title">
+        <p class="eyebrow">{{ book_series }}</p>
+        <h1>{{ book_title }}</h1>
+    </header>
+
+    {% if !trail.is_empty() %}
+    <nav class="trail" aria-label="Pages parcourues">
+        <ol>
+            {% for number in trail %}
+            <li>
+                {% if loop.last %}
+                <span class="trail-current" aria-current="page">{{ number }}</span>
+                {% else %}
+                <a href="/book/{{ number }}">{{ number }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    </nav>
+    {% endif %}
+
+    <p class="page-number">Page {{ page.page }}</p>
+
+    {% if let Some(game) = game %}
+    <p class="holdings">
+        <span>Force <strong>{{ game.force }}</strong></span>
+        <span>Vie <strong>{{ game.vie_actuelle }}</strong>/{{ game.vie_max }}</span>
+        <span>Or <strong>{{ game.gold }}</strong></span>
+        <a class="bag-link" href="/game">
+            Feuille de personnage
+            {% if !game.bag.is_empty() %}
+            <span class="bag-count">({{ game.carried() }}
+            objet{% if game.carried() > 1 %}s{% endif %})</span>
+            {% else %}
+            <span class="bag-count">(sac vide)</span>
+            {% endif %}
+        </a>
+    </p>
+    {% endif %}
+
+    {% if let Some(game) = game %}{% if !game.pending.is_empty() %}
+    <section class="pending" aria-labelledby="pending-title">
+        <h2 id="pending-title">À vous de voir</h2>
+        <p class="pending-intro">
+            Ces effets dépendent de votre situation, que le livre ne dit pas au
+            programme. Appliquez ceux qui vous concernent.
+        </p>
+        <ul>
+            {% for change in game.pending %}
+            <li>
+                <span class="pending-change">{{ change.described }}</span>
+                {% if let Some(condition) = change.condition %}
+                <span class="pending-condition">{{ condition }}</span>
+                {% else if change.note.as_deref() == Some("dice") %}
+                <span class="pending-condition">
+                    Le montant se lance aux dés&nbsp;: voyez le paragraphe.
+                </span>
+                {% endif %}
+                <span class="pending-actions">
+                    <form method="post" action="/game/pending/{{ change.index }}/apply">
+                        <input type="hidden" name="page" value="{{ page.page }}">
+                        <button type="submit">Appliquer</button>
+                    </form>
+                    <form method="post" action="/game/pending/{{ change.index }}/dismiss">
+                        <input type="hidden" name="page" value="{{ page.page }}">
+                        <button type="submit" class="quiet">Ignorer</button>
+                    </form>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="/game/pending/dismiss">
+            <input type="hidden" name="page" value="{{ page.page }}">
+            <button type="submit" class="quiet">Tout ignorer</button>
+        </form>
+    </section>
+    {% endif %}{% endif %}
+
+    {% if page.has_fight %}
+    <p class="fight-call">
+        <a class="button" href="/combat/{{ page.page }}">
+            Engager le combat
+        </a>
+    </p>
+    {% endif %}
+
+    <nav class="choices" aria-label="Choix de l'aventure">
+        {% if !page.choices.is_empty() %}
+        <h2>Que choisissez-vous&nbsp;?</h2>
+        <ul>
+            {% for choice in page.choices %}
+            <li>
+                {% if game.is_some() %}
+                <form method="post" action="/book/{{ page.page }}/choice/{{ loop.index0 }}">
+                    <button class="choice-link" type="submit">
+                        Continuer vers la page {{ choice.goto }}
+                        {% if !choice.changes.is_empty() %}
+                        <span class="choice-cost">{{ choice.changes|join(", ") }}</span>
+                        {% endif %}
+                    </button>
+                </form>
+                {% else %}
+                <a class="choice-link" href="/book/{{ choice.goto }}">
+                    Continuer vers la page {{ choice.goto }}
+                    {% if !choice.changes.is_empty() %}
+                    <span class="choice-cost">{{ choice.changes|join(", ") }}</span>
+                    {% endif %}
+                </a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>Fin de l'aventure</h2>
+        <p class="end-note">Cette route s'arrête ici.</p>
+        <a class="button" href="/book/1">
+            Recommencer
+        </a>
+        {% endif %}
+    </nav>
+
+    <div class="story-text">
+        {% for paragraph in page.text %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}
