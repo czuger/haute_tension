@@ -1,6 +1,0 @@
-# The templates escape exactly as Jinja does, so that a page rendered here is
-# byte for byte the page Flask rendered: an apostrophe is `&#39;` and a quote
-# `&#34;`, where Askama's own escaper writes `&#x27;` and `&quot;`.
-[[escaper]]
-path = "crate::escape::Jinja"
-extensions = ["html"]

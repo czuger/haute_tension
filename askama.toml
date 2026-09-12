@@ -1,0 +1,6 @@
+# Every template is escaped by the crate's own escaper rather than Askama's: the
+# pages write `&#39;` for an apostrophe and `&#34;` for a quote, where Askama
+# writes `&#x27;` and `&quot;`. See `src/escape.rs`.
+[[escaper]]
+path = "crate::escape::Html"
+extensions = ["html"]

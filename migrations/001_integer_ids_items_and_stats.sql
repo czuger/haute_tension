@@ -59,7 +59,7 @@ ALTER TABLE page_views RENAME TO legacy_page_views;
 ALTER TABLE page_inspections RENAME TO legacy_page_inspections;
 ALTER TABLE games RENAME TO legacy_games;
 
--- 3. The new tables, as SQLAlchemy creates them from core/models/.
+-- 3. The new tables, word for word as `src/core/db/schema.rs` creates them.
 
 CREATE TABLE games (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

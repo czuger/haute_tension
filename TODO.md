@@ -2,7 +2,7 @@
 
 ## Combats à règle particulière
 
-Le moteur de `core/combat.py` applique les règles générales de la série
+Le moteur de `src/core/combat.rs` applique les règles générales de la série
 (Force d'Attaque = Force + 2D6, dommages = écart entre les deux FA, double 6 /
 double 1). **Treize des quarante-sept combats du livre ajoutent une règle que le
 moteur ne modélise pas.** Ils se résolvent aujourd'hui comme des combats
