@@ -21,9 +21,17 @@ cargo test --test test_core_combat assault::the_name     # one test, by name fil
 
 make serve                              # dev server on http://127.0.0.1:5001 (= cargo run --bin serve)
 make import                             # the import pipeline over work/raw_data (= cargo run --bin parse_pages)
+
+make setup                              # one-time server preparation (repository, toolchain, .env, nginx)
+make deploy                             # ship the minimum, build it on the server, restart it, check it
+make checks                             # everything that has to be true for the site to be up
+make status / versions / logs           # what runs, what was deployed, what it is saying
+make rollback                           # one version back, rebuilt and restarted
 ```
 
-Coverage is `cargo llvm-cov`, gated on **lines** at `MIN` (default 95): branches need a nightly toolchain, so the table prints regions beside the lines and the gate reads the lines. **The suite does not clear the gate yet** — 654 tests pass and the crate sits at 89.98% of lines, two fifths of the shortfall being in `pipeline/parse_pages.rs`, `bin/parse_pages.rs` and `bin/serve.rs`, which the application never serves. Without those three it is at 93.38%.
+The deployment is `deploy/`, and `deploy/config.sh` is the only place the server is described — every value overridable from the environment (`make deploy SSH_HOST=ced@other-box`). It is a native process on one machine: the minimum is pushed as a commit into a git repository of its own on the server (`~/rust`), built **there** — the binary resolves `.env`, `books/`, `data/` and `logs/` from the directory it was built in — kept up by supervisord, and reached by nginx over a UNIX socket. `README.md` has the whole of it, including the one step no script takes: bind-mounting the socket directory into the nginx container.
+
+Coverage is `cargo llvm-cov`, gated on **lines** at `MIN` (default 95): branches need a nightly toolchain, so the table prints regions beside the lines and the gate reads the lines. **The suite does not clear the gate yet** — 683 tests pass and the crate sits at 89.66% of lines, two fifths of the shortfall being in `pipeline/parse_pages.rs`, `bin/parse_pages.rs` and `bin/serve.rs`, which the application never serves. Without those three it is at 93.44%.
 
 Nothing has to be brought up for the tests: SQLite in memory is the same engine as the file the application opens, so there is one backend and one suite. The application's own files live under `DATABASE_DIR` (`.env`, default `data/`, git-ignored), one per `APP_ENV`.
 
@@ -58,6 +66,8 @@ Things that only make sense once you have read several files:
 - **Gains and losses with a `condition` are never applied automatically** — they land in `game.pending` for the reader to rule on (`/game/pending/...` routes). 65 of the book's 275 changes carry one.
 - **The book stays on disk.** SQLite holds only `page_views` (reading history), `games`, `items` and `page_inspections`. `DATABASE_DIR` names the directory and `APP_ENV` picks the file in it (`haute_tension_dev.sqlite3` / `_prod`); a new file gets its tables on first use, and a file an older schema wrote must be migrated first. A `DATABASE_DIR` that names a file is refused.
 - **The log is part of the contract.** Every request leaves `Request` / `Answer` lines in `logs/general.log` via `application/logs/request_trace.rs`, a layer around the whole router; JSON answers are written in full, secrets are redacted by field name, `game_id` is cut to eight characters, which leaves an integer id whole. Use `note`/`event`/`failure` from `core::logs::general_log` with the `vars!` macro, never `println!`.
+- **A site can be served under a sub-path.** `URL_PREFIX` is the one setting no route sees: the proxy strips it on the way in, and the application puts it back on the way out — `{{ layout.prefix }}` in every template link, `Reader::redirect` for every `Location`, and the session cookie's `Path`. Never write a bare `href="/game"` in a template or build a `Location` by hand: unset, both look right; behind the proxy, both leave the site. The address a flagged page is filed against stays bare, because it is stored.
+- **The server listens on a socket when deployed**, on `127.0.0.1:5001` otherwise, and `LISTEN_SOCKET` says which — prod on `/run/haute_tension/serve.sock` (tmpfs, remade at boot by `/etc/tmpfiles.d/haute_tension.conf`, bind-mounted into the nginx container at the same path), dev in a browser on the port. `src/bin/serve.rs` is a thin shell over `application/listener.rs` — a binary cannot be reached from an integration test, so the part that can go wrong (a stale socket taken over, a live one left alone, the mode the proxy needs) lives in the library.
 - **The templates are checked at compile time.** Askama: one struct in `application/templates.rs` per file in `templates/`, so a field a template reads and nobody fills is a build error. There is no reverse routing — a template writes the address — but the endpoint names live on in `routes::endpoint_of`, which is what the log's `endpoint='web.read_page'` is read off. `src/escape.rs` is the escaper they all use, wired in through `askama.toml`: the pages carry `&#39;` and `&#34;` where Askama's own escaper writes `&#x27;` and `&quot;`.
 
 ## Tests

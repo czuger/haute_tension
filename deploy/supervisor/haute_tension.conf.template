@@ -1,0 +1,38 @@
+; supervisord program for this app, rendered from deploy/supervisor/ and shipped to
+; SUPERVISOR_CONF_DIR by every deploy — so a changed path cannot drift from what is
+; actually running. Do not edit the deployed copy: it is overwritten.
+;
+; The system-wide supervisord includes that directory, and it runs as root: `user`
+; below is what drops the server to the account that owns the repository, the
+; database and the socket.
+
+[program:__APP_NAME__]
+command=__REMOTE_DIR__/target/release/serve
+directory=__REMOTE_DIR__
+user=__RUN_USER__
+
+; Up with the machine, and up again whenever it dies — which is the whole reason
+; supervisord is in front of it.
+autostart=true
+autorestart=true
+; It binds its socket and reads the book off disk before it answers; anything that
+; falls over faster than this did not start at all.
+startsecs=5
+startretries=3
+
+; TERM is what the server exits on. The socket file it leaves behind is removed by
+; the next start, once nothing answers on it.
+stopsignal=TERM
+stopwaitsecs=15
+
+; The application writes its own trace to __REMOTE_DIR__/logs/general.log. This is
+; the other half: what it says on its way up, and anything that killed it.
+redirect_stderr=true
+stdout_logfile=__REMOTE_DIR__/logs/supervisor.log
+stdout_logfile_maxbytes=5MB
+stdout_logfile_backups=3
+
+; supervisord passes no environment of its own, and the application reads its
+; settings from __REMOTE_DIR__/.env. HOME is here because a `~` in one of them is
+; expanded against it.
+environment=HOME="/home/__RUN_USER__",USER="__RUN_USER__"

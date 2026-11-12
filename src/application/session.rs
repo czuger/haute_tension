@@ -17,7 +17,11 @@ use sha2::Sha256;
 use crate::application::templates::Flash;
 
 /// The cookie the session travels in.
-pub const COOKIE_NAME: &str = "session";
+///
+/// Named for this application rather than `session`: under a sub-path the host is
+/// shared with other sites, and two cookies of the same name on two paths are
+/// read in an order the standard leaves to the browser.
+pub const COOKIE_NAME: &str = "haute_tension_session";
 
 /// Where the messages waiting for the reader are kept.
 const FLASHES_KEY: &str = "_flashes";
@@ -57,14 +61,18 @@ impl Session {
     }
 
     /// The session as a `Set-Cookie` value, signed.
-    pub fn encode(&self, secret: &[u8]) -> String {
+    ///
+    /// # Arguments
+    ///
+    /// * `prefix` - The sub-path the site is served under, which is the widest
+    ///   path the cookie is sent back on. Empty for a site at the root of its
+    ///   host, where that path is `/`.
+    pub fn encode(&self, secret: &[u8], prefix: &str) -> String {
         let payload = URL_SAFE_NO_PAD.encode(
             serde_json::to_vec(&Value::Object(self.values.clone())).unwrap_or_default(),
         );
         let signature = sign(&payload, secret);
-        format!(
-            "{COOKIE_NAME}={payload}.{signature}; Path=/; HttpOnly; SameSite=Lax"
-        )
+        format!("{COOKIE_NAME}={payload}.{signature}; Path={prefix}/; HttpOnly; SameSite=Lax")
     }
 
     /// Whether anything was written into the session this request.

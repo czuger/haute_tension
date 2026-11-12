@@ -12,7 +12,7 @@
         aux prises au paragraphe {{ combat.page }}{% endif %}.
         Lancer les dés l'abandonne là où il est&nbsp;: sa feuille ne sera plus
         accessible, et il ne rejoindra pas les tombés.
-        <a href="/game/resume">Reprendre sa partie</a>
+        <a href="{{ layout.prefix }}/game/resume">Reprendre sa partie</a>
         plutôt&nbsp;?
     </p>
     {% else %}
@@ -30,7 +30,7 @@
 
     <div class="modes">
         {% for mode in modes %}
-        <form method="post" action="/game/new" class="mode">
+        <form method="post" action="{{ layout.prefix }}/game/new" class="mode">
             <input type="hidden" name="mode" value="{{ mode.name }}">
             <h2 class="mode-name">Difficulté {{ mode.label|lower }}</h2>
             <p class="mode-rule">
@@ -47,7 +47,7 @@
 
     {% if !fallen.is_empty() %}
     <p class="bag-back">
-        <a class="sheet-link" href="/heroes">
+        <a class="sheet-link" href="{{ layout.prefix }}/heroes">
             {{ fallen.len() }} héros {% if fallen.len() > 1 %}sont tombés{% else %}est tombé{% endif %} avant vous
         </a>
     </p>

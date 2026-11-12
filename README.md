@@ -38,6 +38,7 @@ src/
     routes/mod.rs              What every handler shares: state, forms, refusals
     templates.rs               One struct per template, checked at compile time
     session.rs                 The signed cookie carrying a play-through id
+    listener.rs                What the server listens on: a UNIX socket, or a port
     errors.rs                  The one place a failure becomes an answer
     french_date.rs             A date in French, for the memorial
     models/story_page.rs       The book's shapes: StoryPage, StoryChoice, ElementChange
@@ -69,7 +70,17 @@ templates/                     Askama templates, CSS inline in base.html
 books/<series>/<book>/         Runtime book data (see "Book data" below)
 migrations/                    SQL scripts moving an existing database file to the current schema
 tests/                         The suite; tests/common/mod.rs is the harness
-Makefile                       make test / coverage / lint / serve / import
+Makefile                       make test / coverage / serve, and the deployment targets
+deploy/                        Everything about the deployment (see "Deployment" below)
+  config.sh                    Where it goes and what runs it — one place, all overridable
+  setup_server.sh              One-time: the repository, the toolchain, .env, nginx
+  deploy.sh                    Ship the minimum, build it there, restart it, check it
+  rollback.sh                  One version back, rebuilt and restarted
+  remote.sh                    The server side of all of them, piped over ssh
+  nginx/                       The location block, as a template
+  supervisor/                  The supervisord program, as a template
+scripts/
+  text_to_speech.sh            A text read aloud by ElevenLabs, saved as audio
 
 work/                          Offline import & conversion sources
   download_raw_data.rb         Ruby crawler: fetches source HTML into raw_data/
@@ -90,10 +101,18 @@ AGENTS.md                      Coding conventions for this repository
 
 ### Entry point and factory
 
-`src/bin/serve.rs` builds the app with `create_app()` and serves it on
-`127.0.0.1:5001`. It binds loopback only, so nothing on the local network reaches
-a development run; change `ADDRESS` if you want to read the book from another
-device on your wifi.
+`src/bin/serve.rs` builds the app with `create_app()` and serves it on one of two
+things, which is the whole difference between a development run and a deployed
+one:
+
+- **a port**, `127.0.0.1:5001`, when `LISTEN_SOCKET` is unset. Loopback only, so
+  nothing on the local network reaches a development run; change `ADDRESS` if you
+  want to read the book from another device on your wifi.
+- **a UNIX socket**, the path `LISTEN_SOCKET` names, when it is set — which is
+  what a deployed run does, on `/run/haute_tension/serve.sock`. No port is
+  published and nothing of the application is reachable over the network: the
+  proxy in front of it opens the file, and that is the only way in.
+  `application/listener.rs` is what binds it — see "Deployment" below.
 
 `application/factory.rs` holds all the wiring:
 
@@ -105,9 +124,32 @@ device on your wifi.
 | `BOOK_TITLE`        | `La Forteresse d'Alamuth`        |
 
 `create_app(AppConfig)` takes the book, the directory it lives in, the database,
-the source of chance and the key the session is signed with — which is how the
-tests run against fixture books, fixed dice and a database of their own. It reads
-the book **once, at startup**, and holds it in memory behind an `Arc`.
+the source of chance, the key the session is signed with and the sub-path the site
+is served under — which is how the tests run against fixture books, fixed dice, a
+database of their own and a proxy that is not there. It reads the book **once, at
+startup**, and holds it in memory behind an `Arc`.
+
+### The sub-path the site is served under
+
+`URL_PREFIX` is the one setting the routes do **not** see. A proxy serving the
+site at `https://<host>/haute-tension/` strips the prefix before the request
+arrives, so every handler answers its own address exactly as it does at the root —
+and everything written back out has to carry it again:
+
+| What | Where it is put back |
+| ---- | -------------------- |
+| Every link and form in the templates | `layout.prefix`, which `base.html` and every page read off the `Layout` they are handed |
+| Every redirect | `Reader::redirect`, which is the one place a `Location` is built |
+| The session cookie | Its `Path`, so the browser sends it to this site and to nothing else on a shared host |
+| The 503 page | It carries the site menu, so `refusal()` is handed the prefix too |
+
+What is **not** prefixed: the address a flagged page is filed against. That one is
+stored, and what is stored is the application's own address — the list links to it
+under the prefix, but a report filed from behind one proxy has to be the same
+report as one filed from behind another.
+
+With `URL_PREFIX` unset every one of these is the bare address, which is what a
+development run and the whole suite see.
 
 ### Routes
 
@@ -152,7 +194,7 @@ this error still carries HTTP 200.
 SQLite, through SeaORM — one file per environment, and it holds **three things:
 the reading history, the play-throughs and the flagged pages.**
 
-The book does not go in it, deliberately. It is 668 static pages that change only
+The book does not go in it, deliberately. It is 670 static pages that change only
 when the import pipeline is re-run, it fits in memory several times over, and
 `core/story.rs` reads it off disk at startup. Storing it would buy nothing.
 
@@ -528,10 +570,14 @@ changed and written back together — the book is static and the reading history
 is a log.
 
 The cookie is signed, not encrypted: a base64url JSON payload and an
-HMAC-SHA256 of it under `SESSION_SECRET_KEY`, `HttpOnly`, `Path=/`,
-`SameSite=Lax`. It carries the game id and the flash messages, and its signature
-is what keeps a reader from writing another hero's number into it. A cookie
-naming no game is a reader with no hero, which every route already handles.
+HMAC-SHA256 of it under `SESSION_SECRET_KEY`, `HttpOnly`, `SameSite=Lax`, and a
+`Path` no wider than the site — `/` at the root of a host, the sub-path when there
+is one. It is named `haute_tension_session` rather than `session`, because under a
+sub-path the host is shared with other sites and two cookies of the same name on
+two paths are read in whichever order the browser chose. It carries the game id
+and the flash messages, and its signature is what keeps a reader from writing
+another hero's number into it. A cookie naming no game is a reader with no hero,
+which every route already handles.
 
 ---
 
@@ -591,8 +637,16 @@ there writes every answer whole.
 Runtime books live in `books/<series>/<book>/`:
 
 - **`pages.json`** — the file the application loads, named by
-  `core::story::PAGES_FILE`. A JSON list of 668 page objects for *La Forteresse
-  d'Alamuth*, 68 of them carrying a `fight`. Read into memory at startup.
+  `core::story::PAGES_FILE`. A JSON list of 670 page objects for *La Forteresse
+  d'Alamuth*, 48 of them carrying a `fight`: 47 with the adversaries' stat
+  blocks, and page 564, whose double has the hero's own Force and Vie and so no
+  stat block — a `fight` without `enemies` offers no « Engager le combat ». The
+  text is one entry per paragraph, each choice keeping its page number inline.
+  Read into memory at startup.
+- **`audio/<page>.mp3`** — a page read aloud, made by `scripts/text_to_speech.sh <page>`
+  (see "Listening to a text"). Not served yet: it is kept here so that a page can one day be
+  heard as well as read. Git-ignored, like every `.mp3` in the repository: the audio is made
+  again from `pages.json`, never versioned.
 
 A page object looks like this:
 
@@ -600,7 +654,11 @@ A page object looks like this:
 {
   "page": "22",
   "language": "fr",
-  "text": ["Vous renversez d'un violent coup de pied la table…"],
+  "text": [
+    "Vous renversez d'un violent coup de pied la table…",
+    "COLLECTEUR D'IMPOTS FORCE : 6 VIE : 10",
+    "Si vous triomphez. 621"
+  ],
   "file_path": "raw_data/pretre_jean_forteresse_alamuth/3777178a….html",
   "choices": [
     { "goto": "621", "gains": [], "losses": [] }
@@ -609,11 +667,10 @@ A page object looks like this:
     "fight_type": "single",
     "enemies": [
       { "name": "collecteur d'impots",
-        "original_name": "COLLECTEUR D'IMPOTS",
+        "name_raw": "COLLECTEUR D'IMPOTS",
         "force": 6, "vie": 10 }
     ],
-    "outcome": { "on_victory": "621", "on_defeat": "death", "on_flee": null },
-    "needs_review": false
+    "outcome": { "on_victory": "621", "on_defeat": "death", "on_flee": null }
   }
 }
 ```
@@ -657,7 +714,7 @@ configured.
 ### 3. Run the server
 
 ```bash
-make serve            # or: cargo run --bin serve
+make serve            # or: cargo run (default-run = serve)
 ```
 
 Then open <http://localhost:5001/>.
@@ -705,8 +762,9 @@ interface:
 - `books_path()` / `books_path_with_fights()` — a small two-page book written to
   a temporary directory, so no test reads the packaged one.
 - `client()` / `fighting_client()` / `hero()` — test clients over that book, the
-  last with a hero already rolled up; `no_database_client()` and
-  `dead_database_client()` are the two ways it can fail. They keep cookies
+  last with a hero already rolled up; `client_under(prefix, …)` is the same served
+  behind a proxy, and `no_database_client()` / `dead_database_client()` are the two
+  ways it can fail. They keep cookies
   between requests, so a session survives a redirect.
 - `fixed(&[…])` — dice chosen for the rule being checked; `seeded(n)` when a run
   only has to be reproducible.
@@ -714,7 +772,7 @@ interface:
   process, and cargo runs a file's tests in parallel threads, so a test touching
   either takes the lock.
 
-654 tests cover the engine, its guards and the schema version
+683 tests cover the engine, its guards and the schema version
 (`test_core_connection.rs`), the hybrid models, the bag as rows, the stat
 columns and the timestamps (`test_core_models.rs`), migration 001 applied to a
 version-0 file (`test_migrations.rs`), the reading history (`test_core_db.rs`),
@@ -731,7 +789,9 @@ data route (`test_routes.rs`), browser navigation and the breadcrumb
 the menu (`test_menu.rs`), the app factory and entry point (`test_app.rs`), what
 the log writes and what it must never write (`test_core_logs.rs`), the request
 trace (`test_request_trace.rs`), what a dead database costs every route
-(`test_errors.rs`), and the import pipeline (`test_parse_pages.rs`).
+(`test_errors.rs`), the import pipeline (`test_parse_pages.rs`), the site served
+under a sub-path (`test_url_prefix.rs`) and the socket a deployed run listens on
+(`test_listener.rs`).
 
 Nothing in the suite is left to chance: `core::dice::Rng` is the one seam chance
 comes through, `create_app` threads one through the whole application, and a rule
@@ -753,12 +813,169 @@ The gate is `MIN`, defaulting to 95, and it is on **lines**: `--branch` needs a
 nightly toolchain and measures nothing on stable, so the table prints regions —
 the finer count — beside the lines, and the gate reads the lines.
 
-**The suite does not clear the gate yet.** All 654 tests pass under
-instrumentation and the crate sits at **89.98% of lines, 88.45% of regions**, so
+**The suite does not clear the gate yet.** All 683 tests pass under
+instrumentation and the crate sits at **89.66% of lines, 88.27% of regions**, so
 `make coverage` fails on `MIN` until the gaps are closed or it is lowered. Two
 fifths of the shortfall is in three files the application never serves:
 `pipeline/parse_pages.rs` (66.87%), `bin/parse_pages.rs` (0%) and `bin/serve.rs`
-(25%). Without them the crate is at **93.38% of lines, 91.88% of regions**.
+(8.57%, and a binary cannot be reached from an integration test — what it does is
+in `application/listener.rs`, which is covered). Without those three the crate is
+at **93.44% of lines, 91.94% of regions**.
+
+---
+
+## Deployment
+
+One machine, one native process, no container: the server is built on the target
+from the sources pushed to it, kept up by **supervisord**, and reached by **nginx
+over a UNIX socket**. Everything about it lives in `deploy/`, and
+`deploy/config.sh` is the one place the server is described — every value in it can
+be overridden from the environment:
+
+```bash
+make setup                        # one time: the repository, the toolchain, .env, nginx
+make deploy                       # ship the minimum, build it there, restart it, check it
+make checks                       # everything that has to be true for the site to be up
+make status                       # what is running, which version, whether it answers
+make versions                     # the versions deployed, newest first
+make logs                         # follow the application's log on the server
+make rollback                     # one version back, rebuilt and restarted
+make deploy SSH_HOST=ced@other-box
+```
+
+### What ends up on the server
+
+```
+~/rust/                  a git repository of its own — the deploy pushes into it
+  Cargo.toml Cargo.lock askama.toml src/ templates/ books/ migrations/   ← THE MINIMUM
+  RELEASE                which commit of this repository it was built from, and when
+  .env                   APP_ENV, DATABASE_DIR, the session key, URL_PREFIX, LISTEN_SOCKET
+  data/                  haute_tension_prod.sqlite3
+  logs/                  general.log, and supervisor.log for what it says on the way up
+  target/release/serve   built there, kept between deploys
+~/supervisor/conf.d/haute_tension.conf                    the program, rendered per deploy
+/etc/tmpfiles.d/haute_tension.conf                        remakes the runtime directory at boot
+/run/haute_tension/serve.sock                             the socket, made by the server itself
+~/services/nginx_proxy/sites/apps/haute_tension.conf      the location block
+```
+
+**The minimum is what the server needs to build and run, and nothing else** —
+`deploy/config.sh`'s `PAYLOAD`. No `tests/` (they would drag in the dev
+dependencies), no `work/` (three thousand scraped pages), no documentation, no
+history of this repository. It arrives as **one commit in the server's own
+repository**, so the versions on the server are that repository's history,
+`make versions` reads it, and `make rollback` is one commit back.
+
+`.env`, `data/`, `logs/` and `target/` are the server's: the payload carries a
+`.gitignore` naming them, so a deploy never has to fight the working tree it is
+checking out. `make setup` **generates the session key once** — it is what keeps
+every reader's hero across a restart — and on a later run it rewrites only the two
+keys that are derived from `deploy/config.sh`, `URL_PREFIX` and `LISTEN_SOCKET`,
+leaving the rest of the file alone.
+
+**The binary is built on the server, in `~/rust`, and that is not incidental.** It
+resolves `.env`, `books/`, `data/` and `logs/` from the directory it was *built*
+in, so a binary built anywhere else would look for them there. `make setup`
+installs rustup (minimal profile) for exactly that reason.
+
+### nginx reaches it over a socket, and only in prod
+
+**A deployed run listens on a UNIX socket; a development run listens on
+`127.0.0.1:5001`.** `LISTEN_SOCKET` is the whole of the difference: set in the
+server's `.env`, empty in `.env.example`. Nothing of a deployed run is reachable
+over the network — there is no port to publish — and
+`deploy/nginx/haute_tension.conf.template` is the `location` block that connects to
+the file.
+
+The socket lives at **`/run/haute_tension/serve.sock`**, and `/run` is the right
+place for it twice over: it is what `/run` is *for* — state that describes a running
+system and means nothing afterwards — and it is tmpfs, so no socket can outlive a
+boot and there is never one from last week to take over. (`/var/run` is a
+compatibility symlink to `/run`; same directory, and `/run` is how the FHS spells
+it.)
+
+`/run` is root's, so the directory is **declared to systemd-tmpfiles** rather than
+made by hand — a `mkdir` would be gone at the next boot and the server would come
+up with nowhere to listen. `make setup` writes it, and `make checks` fails if it is
+missing, because nothing else would say so until the next reboot:
+
+```
+# /etc/tmpfiles.d/haute_tension.conf
+d /run/haute_tension 0755 ced ced -
+```
+
+nginx runs in a container here, so that directory is bind-mounted into it **at the
+same path** — one spelling for both sides, so there is no pair of paths that can
+drift. This is **the one step no script takes for you**, because recreating that
+container is a blip for every other site behind it:
+
+```yaml
+# ~/services/nginx_proxy/docker-compose.yml, under the nginx service
+volumes:
+  - /run/haute_tension:/run/haute_tension
+```
+
+```bash
+cd ~/services/nginx_proxy && docker compose up -d nginx
+```
+
+Until that mount is there, every request under the prefix is a 502 and nothing else
+is wrong: `make setup` and `make checks` both say so, with the line to add. The
+socket itself is left mode `666` on purpose — nginx's workers are another user, and
+in a container not even a user of this system; what guards it is the directory
+holding it, which only this account and root may write.
+
+A Docker *managed* volume would not do: its directory is root's
+(`/var/lib/docker/volumes/…/_data`, mode 755), so the server — which runs as the
+deploying user, not as root — could not create its socket in it; and a
+`docker volume prune` would take a live socket with it.
+
+The site answers under a sub-path, `https://apps.ieroe.com/haute-tension/`, so
+`URL_PREFIX` in `.env` and the prefix the nginx snippet was rendered from have to
+agree — see "The sub-path the site is served under" above. `deploy/config.sh` is
+the source of both: **`make setup` writes `URL_PREFIX` and `LISTEN_SOCKET` into the
+server's `.env`** and leaves every other line of it — the session key above all —
+exactly as it was, and `make checks` compares the two pairs, which are the only
+settings that can disagree.
+
+### supervisord keeps it up
+
+`deploy/supervisor/haute_tension.conf.template` is the program: `autostart`,
+`autorestart`, `TERM` to stop, five seconds to be considered up, and the output it
+writes on the way up captured in `logs/supervisor.log`. The system-wide daemon
+includes `~/supervisor/conf.d`, and it runs as root — `user=` in the program is
+what drops the server to the account that owns the repository, the database and the
+socket. Every deploy ships the file again, so a path changed in `deploy/config.sh`
+cannot drift from what is actually running, and `supervisorctl` is called with
+`sudo` because its socket is root's.
+
+```bash
+sudo supervisorctl status haute_tension        # what make status reads
+sudo supervisorctl restart haute_tension
+```
+
+The socket file outlives a killed process, so one is usually already there when the
+server starts. It is removed — but only once nothing answers on it, because a
+socket that still answers belongs to a server that is running
+(`application/listener.rs`, and `tests/test_listener.rs` for what that costs).
+
+### A schema change on a deployed file
+
+The scripts travel with the payload, so they are on the server. A file the previous
+schema wrote is **refused** by the new binary — that is the 503 page, not silent
+corruption — so the order is: stop the server, back the file up, migrate, deploy.
+
+```bash
+ssh ced@nuc150
+sudo supervisorctl stop haute_tension
+cp ~/rust/data/haute_tension_prod.sqlite3{,.before-002}
+sqlite3 -bail ~/rust/data/haute_tension_prod.sqlite3 < ~/rust/migrations/002_*.sql
+exit
+make deploy          # builds the new binary and starts it again
+```
+
+Readers see a 502 between the stop and the deploy, which is a minute of a personal
+site being down rather than a database half-migrated under a running server.
 
 ---
 
@@ -804,6 +1021,14 @@ refusal carries its kind on the response, and `request_trace` is what writes the
 503, JSON under `/data/{number}` or for a caller that puts JSON first, the page
 otherwise.
 
+**The proxy is one setting and two places.** A site under a sub-path could have
+been a rewrite in nginx and a `sub_filter` over the HTML going back; instead the
+application is told the prefix once and puts it back in the two places an address
+is written — `layout.prefix` in the templates, `Reader::redirect` for a `Location`
+— with the cookie's `Path` following from the same value. Nothing else in the
+application knows about it, and with the prefix empty the output is byte for byte
+what it was.
+
 **The pipeline reads the document rather than rewriting it.** `scraper`/`ego-tree`
 is a read-only DOM, so the tree is walked once and the link markers are written
 into the text as it is collected — the text comes out the same and the document
@@ -840,7 +1065,11 @@ make import                                  # the defaults below
 cargo run --bin parse_pages -- -i work/raw_data -o work/parsed_data
 ```
 
-`-n` inlines `<link text> <number>` and `-v` logs per-file details. Output:
+`-n` inlines `<link text> <number>` and `-v` logs per-file details. The book
+the application serves is parsed with `-n` — a choice is shown as « Continuer
+vers la page N », so the text is what says which choice is which — and
+`work/pretre_jean_forteresse_alamuth.json` is that parse, the input the
+enrichment prompts name. Output:
 `{ "<page>": { "text": [...], "numbers": [...], "file_path": "..." } }`, plus a
 per-book report (failed files, pages without numbers, remapped links).
 
@@ -859,6 +1088,38 @@ emitting a script:
 
 **4. Install.** Copy the enriched result to
 `books/<series>/<book>/pages.json` and restart the server.
+
+---
+
+## Listening to a text
+
+`scripts/text_to_speech.sh` sends a text to the ElevenLabs text-to-speech API and saves the audio
+it gets back. It is a standalone tool run by hand, needing only `curl` and `jq`: the application
+never calls it.
+
+```bash
+scripts/text_to_speech.sh 121         # page 121, saved as books/pretre_jean/forteresse_alamuth/audio/121.mp3
+scripts/text_to_speech.sh 121 -o essai.mp3
+scripts/text_to_speech.sh -t "Vous entrez dans la forteresse." -o page_1.mp3
+scripts/text_to_speech.sh -f page.txt -o page.mp3
+echo "Bonjour, aventurier." | scripts/text_to_speech.sh -o bonjour.mp3
+scripts/text_to_speech.sh -l          # the voices the account can use
+afplay books/pretre_jean/forteresse_alamuth/audio/121.mp3   # listen, on macOS
+```
+
+Given a page number (bare, or `-p N`), the script reads that page's paragraphs out of the book's
+`pages.json`, separated by blank lines, and writes the audio into the book itself, as
+`<book>/audio/<N>.mp3` — named by the page's number like `/page/<N>`, the extension following the
+`-F` format — unless `-o` says otherwise. That is where the reader will find it once the pages
+offer to be heard as well as read. The `audio/` directories and every `.mp3` are git-ignored. The book is `books/pretre_jean/forteresse_alamuth` by default; `-b DIR` names another. A page, `-t` and `-f`
+are three ways of giving the text, and only one may be used at a time.
+
+The key is `ELEVENLABS_API_KEY`, taken from the environment or from `.env` (read line by line,
+never sourced); `ELEVENLABS_VOICE_ID` picks the voice, `-v` overrides it. The model defaults to
+`eleven_multilingual_v2`, which reads French well and takes up to 10 000 characters a request —
+the script refuses a longer text rather than send it. `-m` and `-F` change the model and the
+output format (`mp3_44100_128` by default); `-h` lists every option. On any answer other than
+200, the API's error is printed and no file is written.
 
 ---
 

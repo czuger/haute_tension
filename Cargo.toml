@@ -3,6 +3,7 @@ name = "haute_tension"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.85"
+default-run = "serve"
 description = "An Axum adaptation of La Forteresse d'Alamuth"
 license = "MIT"
 

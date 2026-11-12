@@ -112,6 +112,37 @@ handler holds — which is the seam a test binds an in-memory database through.
 Runtime books live under `books/<series>/<book>/`; `pages.json` is the file the
 application loads, named by `core::story::PAGES_FILE`.
 
+**A site can be served under a sub-path, and no address may be written bare.**
+`URL_PREFIX` is the one setting the routes never see: the proxy strips it on the way
+in, and the application puts it back on everything going out. A link or a form in a
+template is written `{{ layout.prefix }}/game`, a redirect goes through
+`Reader::redirect`, which is the only place a `Location` is built, and the session
+cookie's `Path` follows from the same value. Never write `href="/game"` in a
+template and never build a `Location` by hand: with `URL_PREFIX` unset both look
+right, and behind the proxy both leave the site. What is *not* prefixed is the
+address a flagged page is filed against, because that one is stored.
+
+**The server listens on a socket when it is deployed**, on `127.0.0.1:5001` when it
+is not — `LISTEN_SOCKET` is what says which, and prod is the only run that has a
+socket (`/run/haute_tension/serve.sock`: tmpfs, so nothing stale survives a boot,
+and a `tmpfiles.d` file is what remakes the directory). `src/bin/serve.rs` stays a
+thin shell over `application/listener.rs`, the way `parse_pages` is over
+`pipeline/`: a binary cannot be reached from an integration test, so nothing that
+can go wrong belongs in one. The socket is left mode `666` deliberately
+(`SOCKET_MODE`) — the proxy's workers are another user, and in a container not even
+a user of this system.
+
+**The deployment is `deploy/`, and `deploy/config.sh` is the only place the server
+is described.** `make setup` prepares it once, `make deploy` ships
+`config.sh`'s `PAYLOAD` — the minimum: the sources, the book and the migrations,
+never the tests or `work/` — as one commit in a repository of its own on the
+server, builds it **there** (the binary resolves `.env`, `books/`, `data/` and
+`logs/` from the directory it was built in, so it cannot be built anywhere else),
+and restarts it under supervisord. `make checks` is what says whether the site is
+up, and it compares the two settings that can disagree between the application and
+nginx. A schema change means applying the new script to the deployed file by hand,
+with the server stopped — see README.
+
 The import pipeline is `src/pipeline/`, with `src/bin/parse_pages.rs` as a thin
 command line over it. Its sources live in `work/`: crawled HTML under
 `work/raw_data/`, and generated output in `work/parsed_data/`. The application
@@ -130,8 +161,12 @@ never calls it.
   `APP_ENV` picks the file. The file and its tables are created on first use.
   Only the reading history, the play-throughs and the flagged pages need it; the
   landing page works without one.
-- `cargo run --bin serve` starts the development server on port 5001.
+- `cargo run` (the crate's `default-run`, the same as `cargo run --bin serve`) starts the
+  development server on port 5001.
 - `cargo run --bin parse_pages` runs the import pipeline over `work/raw_data`.
+- `make setup` prepares the server once, `make deploy` ships and restarts,
+  `make checks` says whether the site is up, `make rollback` goes one version back.
+  The settings are in `deploy/config.sh`, all overridable from the environment.
 
 Declare dependencies in `Cargo.toml`, with an exact major version and the
 features actually used; `Cargo.lock` is versioned.

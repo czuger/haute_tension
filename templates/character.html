@@ -89,7 +89,7 @@
                 {{ change.described }}{% if let Some(condition) = change.condition %} — {{ condition }}{% endif %}
             </span>
             {% if let Some(page) = change.page %}
-            <a class="count" href="/book/{{ page }}">paragraphe {{ page }}</a>
+            <a class="count" href="{{ layout.prefix }}/book/{{ page }}">paragraphe {{ page }}</a>
             {% endif %}
         </li>
         {% endfor %}
@@ -101,25 +101,25 @@
     <p class="end-note">
         Vous êtes aux prises au paragraphe {{ combat.page }}.
     </p>
-    <a class="button" href="/combat/{{ combat.page }}">
+    <a class="button" href="{{ layout.prefix }}/combat/{{ combat.page }}">
         Reprendre le combat
     </a>
     {% elif game.is_dead %}
     <p class="bag-back">
-        <a class="button" href="/game/death">Repartir de zéro</a>
+        <a class="button" href="{{ layout.prefix }}/game/death">Repartir de zéro</a>
     </p>
     {% else %}
     <p class="bag-back">
         {% if let Some(back_page) = back_page %}
-        <a class="button" href="/book/{{ back_page }}">
+        <a class="button" href="{{ layout.prefix }}/book/{{ back_page }}">
             Reprendre la lecture
         </a>
         {% else %}
-        <a class="button" href="/book/1">
+        <a class="button" href="{{ layout.prefix }}/book/1">
             Commencer l'aventure
         </a>
         {% endif %}
-        <a class="sheet-link" href="/heroes">
+        <a class="sheet-link" href="{{ layout.prefix }}/heroes">
             Ceux qui vous ont précédé
         </a>
     </p>
@@ -127,7 +127,7 @@
 
     {% if !game.is_dead %}
     <p class="reroll">
-        <a href="/game/new">Abandonner et créer un nouveau héros</a>
+        <a href="{{ layout.prefix }}/game/new">Abandonner et créer un nouveau héros</a>
     </p>
     {% endif %}
 </article>

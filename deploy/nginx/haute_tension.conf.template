@@ -1,0 +1,39 @@
+# nginx snippet for this app — a `location` block, meant to be included by the
+# server{} that already owns server_name and TLS. It is uploaded to NGINX_CONF_DIR
+# on the server by `make setup` / `make nginx`, never by a deploy: routing does not
+# change from one version to the next.
+#
+# Do not edit the deployed copy on the server: it is rendered from this template
+# and overwritten. The __PLACEHOLDERS__ come from deploy/config.sh, so the prefix
+# and the socket cannot drift from what the application is actually listening on.
+
+# https://<host>__PREFIX__ (no trailing slash) would otherwise miss the block below.
+location = __PREFIX__ { return 301 __PREFIX__/; }
+
+location __PREFIX__/ {
+    # The application listens on a UNIX socket, so there is no port to publish and
+    # nothing of it is reachable over the network: this file is the only way in.
+    #
+    # A socket needs no resolver and no upstream name — it is a path, opened per
+    # request. nginx starts and `nginx -t` passes whether or not anything is
+    # listening on it, and a server that is down is a 502 rather than a
+    # configuration error that would take every other site here down with it.
+    #
+    # nginx runs in a container, so this is the path *inside* it: the directory is
+    # bind-mounted from the host, where the application creates the socket.
+    #
+    # The rewrite MUST come before proxy_pass, and `break` stops the rewrite module
+    # here: the application is served at the root of its own routes and never sees
+    # the prefix. It builds its links back under it because URL_PREFIX says so in
+    # the server's .env — the two have to agree, and `make checks` compares them.
+    rewrite ^__PREFIX__/(.*)$ /$1 break;
+
+    proxy_pass http://unix:__SOCKET__:;
+
+    proxy_set_header Host              $host;
+    proxy_set_header X-Real-IP         $remote_addr;
+    # The general log writes this one as the reader's address: over a socket there
+    # is no peer to read it from, so without the header every line says "absent".
+    proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}

@@ -9,13 +9,13 @@
         du moins pour cet homme-là.
     </p>
     <p class="bag-back">
-        <a class="sheet-link" href="/heroes">
+        <a class="sheet-link" href="{{ layout.prefix }}/heroes">
             Ceux qui vous ont précédé
         </a>
     </p>
     <div class="modes">
         {% for mode in modes %}
-        <form method="post" action="/game/new" class="mode">
+        <form method="post" action="{{ layout.prefix }}/game/new" class="mode">
             <input type="hidden" name="mode" value="{{ mode.name }}">
             <h2 class="mode-name">Difficulté {{ mode.label|lower }}</h2>
             <p class="mode-rule">

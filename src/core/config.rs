@@ -166,3 +166,50 @@ pub fn session_secret() -> String {
         .map(|_| format!("{:02x}", generator.random::<u8>()))
         .collect()
 }
+
+/// The sub-path the site is served under, from the environment.
+pub const URL_PREFIX_VAR: &str = "URL_PREFIX";
+
+/// The UNIX socket the server listens on instead of a port, from the environment.
+pub const LISTEN_SOCKET_VAR: &str = "LISTEN_SOCKET";
+
+/// Return the sub-path every address the application writes is built under.
+///
+/// A proxy serving the site under a sub-path strips it before the request
+/// arrives, so no route ever sees it — but every link and every redirect going
+/// back out has to carry it, or it leaves the sub-path behind.
+///
+/// # Returns
+///
+/// The prefix with a leading and no trailing slash (`/haute-tension`), or an
+/// empty string when the site is served at the root of its host.
+pub fn url_prefix() -> String {
+    let asked = variable(URL_PREFIX_VAR);
+    let trimmed = asked.trim().trim_matches('/');
+    if trimmed.is_empty() {
+        return String::new();
+    }
+    format!("/{trimmed}")
+}
+
+/// Return the UNIX socket the server listens on.
+///
+/// How a proxy on the same machine reaches a run: no port is published, and the
+/// permissions of one file are what says who may connect. A relative path is
+/// taken from the repository root, the way `DATABASE_DIR` is.
+///
+/// # Returns
+///
+/// The socket path, or nothing when `LISTEN_SOCKET` is unset — a run then
+/// listens on its development port instead.
+pub fn listen_socket() -> Option<PathBuf> {
+    let asked = variable(LISTEN_SOCKET_VAR).trim().to_string();
+    if asked.is_empty() {
+        return None;
+    }
+    let path = expanded(&asked);
+    if path.is_absolute() {
+        return Some(path);
+    }
+    Some(root().join(path))
+}

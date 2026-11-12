@@ -12,7 +12,7 @@ mod common;
 
 use common::{clean_env, env_lock, EnvVar};
 use haute_tension::core::config::{
-    current_db_name, current_env, database_path, load_env, root,
+    current_db_name, current_env, database_path, listen_socket, load_env, root, url_prefix,
 };
 
 /// Which environment a run works in.
@@ -225,5 +225,94 @@ mod the_database_path {
         let _dir = EnvVar::set("DATABASE_DIR", "   ");
 
         assert_eq!(database_path().expect("dev is a known environment"), None);
+    }
+}
+
+/// The sub-path a proxied run is served under.
+mod the_url_prefix {
+    use super::*;
+
+    #[test]
+    fn nothing_configured_is_the_root_of_the_host() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+
+        assert_eq!(url_prefix(), "");
+    }
+
+    #[test]
+    fn a_lone_slash_is_the_root_too() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+        let _set = EnvVar::set("URL_PREFIX", "/");
+
+        assert_eq!(url_prefix(), "");
+    }
+
+    #[test]
+    fn a_sub_path_keeps_its_leading_slash() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+
+        for asked in ["/haute-tension", "haute-tension", "/haute-tension/", "  /haute-tension  "] {
+            let _set = EnvVar::set("URL_PREFIX", asked);
+
+            assert_eq!(url_prefix(), "/haute-tension", "{asked} is one prefix");
+        }
+    }
+
+    #[test]
+    fn a_deeper_path_is_kept_whole() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+        let _set = EnvVar::set("URL_PREFIX", "/apps/haute-tension/");
+
+        assert_eq!(url_prefix(), "/apps/haute-tension");
+    }
+}
+
+/// The socket a proxied run listens on instead of a port.
+mod the_listening_socket {
+    use super::*;
+
+    #[test]
+    fn nothing_configured_is_a_port() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+
+        assert_eq!(listen_socket(), None);
+    }
+
+    #[test]
+    fn an_absolute_path_is_taken_as_it_is() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+        let _set = EnvVar::set("LISTEN_SOCKET", "/run/haute_tension/serve.sock");
+
+        assert_eq!(
+            listen_socket(),
+            Some(std::path::PathBuf::from("/run/haute_tension/serve.sock"))
+        );
+    }
+
+    #[test]
+    fn a_relative_path_is_taken_from_the_repository_root() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+        let _set = EnvVar::set("LISTEN_SOCKET", "run/serve.sock");
+
+        assert_eq!(listen_socket(), Some(root().join("run").join("serve.sock")));
+    }
+
+    #[test]
+    fn a_home_directory_is_expanded() {
+        let _lock = env_lock();
+        let _clean = clean_env();
+        let _set = EnvVar::set("LISTEN_SOCKET", "~/sockets/serve.sock");
+
+        let path = listen_socket().expect("a socket is configured");
+
+        assert!(!path.display().to_string().contains('~'));
+        assert!(path.is_absolute());
     }
 }

@@ -8,7 +8,7 @@ use axum::Router;
 
 use crate::application::logs::request_trace::trace_the_request;
 use crate::application::routes::{api, game, inspection, web, AppState};
-use crate::core::config::{root, session_secret};
+use crate::core::config::{root, session_secret, url_prefix};
 use crate::core::db::Db;
 use crate::core::dice::Rng;
 use crate::core::logs::general_log::event;
@@ -35,6 +35,9 @@ pub struct AppConfig {
     pub db: Db,
     /// The key the session cookie is signed with.
     pub secret: Vec<u8>,
+    /// The sub-path the site is served under, empty when it is served at the root
+    /// of its host. Every link and redirect is built under it.
+    pub prefix: String,
 }
 
 impl Default for AppConfig {
@@ -45,6 +48,7 @@ impl Default for AppConfig {
             rng: None,
             db: Db::Environment,
             secret: session_secret().into_bytes(),
+            prefix: url_prefix(),
         }
     }
 }
@@ -85,6 +89,7 @@ pub fn create_app(config: AppConfig) -> Result<Router, StoryError> {
         book_title: BOOK_TITLE.to_string(),
         rng: config.rng,
         secret: Arc::new(config.secret),
+        prefix: config.prefix,
     };
 
     let router = Router::new()
@@ -141,6 +146,8 @@ pub fn create_app(config: AppConfig) -> Result<Router, StoryError> {
 /// An address that matches no route at all is a 404, and is traced like any other.
 async fn no_such_address() -> axum::response::Response {
     use axum::response::IntoResponse;
-    crate::application::errors::refusal(&crate::application::errors::AppError::NotFound, false)
+    // The 404 page is the plain one, which carries no link of this site's own and
+    // so needs no sub-path.
+    crate::application::errors::refusal(&crate::application::errors::AppError::NotFound, false, "")
         .into_response()
 }

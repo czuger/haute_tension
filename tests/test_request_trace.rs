@@ -280,6 +280,7 @@ mod failures {
                 "the templates are gone".to_string().into(),
             )),
             false,
+            "",
         )
         .into_response()
     }

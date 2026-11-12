@@ -789,12 +789,12 @@
 </head>
 <body>
     <header class="site-header">
-        <a class="site-name" href="/">Haute Tension</a>
+        <a class="site-name" href="{{ layout.prefix }}/">Haute Tension</a>
         <nav class="site-links" aria-label="Menu">
-            <a class="site-sheet" href="/game/new">Nouveau</a>
-            <a class="site-sheet" href="/game/resume">Partie en cours</a>
-            <a class="site-sheet" href="/game">Feuille</a>
-            <a class="site-sheet" href="/heroes">Les tombés</a>
+            <a class="site-sheet" href="{{ layout.prefix }}/game/new">Nouveau</a>
+            <a class="site-sheet" href="{{ layout.prefix }}/game/resume">Partie en cours</a>
+            <a class="site-sheet" href="{{ layout.prefix }}/game">Feuille</a>
+            <a class="site-sheet" href="{{ layout.prefix }}/heroes">Les tombés</a>
             <a class="site-sheet" id="flag-open" href="#signaler">Signaler</a>
         </nav>
     </header>
@@ -811,7 +811,7 @@
     </main>
 
     <dialog class="flag" id="signaler" aria-labelledby="flag-title">
-        <form method="post" action="/flag-page" id="flag-form">
+        <form method="post" action="{{ layout.prefix }}/flag-page" id="flag-form">
             <h2 id="flag-title">Signaler cette page</h2>
             <p class="flag-page">{{ layout.title }} · <code>{{ layout.path }}</code></p>
             <input type="hidden" name="path" value="{{ layout.path }}">
@@ -822,7 +822,7 @@
             <p class="flag-actions">
                 <button class="button" type="submit">Envoyer</button>
                 <a class="sheet-link" href="#" id="flag-close">Annuler</a>
-                <a class="sheet-link" href="/flagged-pages">Pages signalées</a>
+                <a class="sheet-link" href="{{ layout.prefix }}/flagged-pages">Pages signalées</a>
             </p>
         </form>
     </dialog>

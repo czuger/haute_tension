@@ -1,0 +1,7 @@
+# The deployed repository holds the sources and the book. Everything the server
+# makes for itself stays out of it, so that a push never has to fight the working
+# tree it is checking out.
+/.env
+/data/
+/logs/
+/target/

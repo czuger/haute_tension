@@ -22,6 +22,9 @@ pub struct Flash {
 /// What every page carries, whatever else it holds.
 #[derive(Clone, Debug, Default)]
 pub struct Layout {
+    /// The sub-path the site is served under, prepended to every address the
+    /// templates write. Empty when it is served at the root of its host.
+    pub prefix: String,
     /// The page's own title, in the tab and in the flag dialog.
     pub title: String,
     /// The address the page was reached at, which a report is filed against.
@@ -34,10 +37,17 @@ impl Layout {
     /// Build the header of one page.
     pub fn new(title: impl Into<String>, path: impl Into<String>, flashes: Vec<Flash>) -> Self {
         Self {
+            prefix: String::new(),
             title: title.into(),
             path: path.into(),
             flashes,
         }
+    }
+
+    /// The same header, on a site served under a sub-path.
+    pub fn under(mut self, prefix: &str) -> Self {
+        self.prefix = prefix.to_string();
+        self
     }
 }
 

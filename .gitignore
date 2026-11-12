@@ -38,3 +38,10 @@ node_modules
 
 # The Rust build directory; the lock file is versioned, the artefacts are not.
 /target/
+
+# Rendered configuration files, and the clone the deploy payload is built in.
+/dist/
+
+# Audio made by scripts/text_to_speech.sh: a book's pages read aloud, and any test output.
+/books/*/*/audio/
+*.mp3

@@ -35,6 +35,8 @@ pub struct AppState {
     /// Source of chance for character creation and combat, seeded by the tests.
     pub rng: Option<Arc<dyn Rng>>,
     pub secret: Arc<Vec<u8>>,
+    /// The sub-path the site is served under, empty at the root of its host.
+    pub prefix: String,
 }
 
 impl AppState {
@@ -50,6 +52,9 @@ pub struct Reader {
     pub path: String,
     pub wants_json: bool,
     pub secret: Arc<Vec<u8>>,
+    /// The sub-path the site is served under. The address above never carries it
+    /// — the proxy strips it — so everything written back out adds it here.
+    pub prefix: String,
 }
 
 impl Reader {
@@ -63,13 +68,14 @@ impl Reader {
             path: path.to_string(),
             wants_json: asks_for_json(headers),
             secret: state.secret.clone(),
+            prefix: state.prefix.clone(),
         }
     }
 
     /// The header of the page being built, the messages waiting taken out of it.
     pub fn layout(&mut self, title: impl Into<String>) -> Layout {
         let flashes: Vec<Flash> = self.session.take_flashes();
-        Layout::new(title, self.path.clone(), flashes)
+        Layout::new(title, self.path.clone(), flashes).under(&self.prefix)
     }
 
     /// The answer, carrying the session when this request changed it.
@@ -78,7 +84,7 @@ impl Reader {
             return response;
         }
         let mut response = response;
-        if let Ok(cookie) = self.session.encode(&self.secret).parse() {
+        if let Ok(cookie) = self.session.encode(&self.secret, &self.prefix).parse() {
             response.headers_mut().append(header::SET_COOKIE, cookie);
         }
         response
@@ -97,7 +103,12 @@ impl Reader {
     }
 
     /// A redirect, as every form here answers.
+    ///
+    /// The address is this application's own, so it is written under the
+    /// sub-path the site is served under: a `Location` without it would send the
+    /// reader out of the site.
     pub fn redirect(&self, location: &str) -> Response {
+        let location = format!("{}{location}", self.prefix);
         self.answer(
             (
                 StatusCode::FOUND,
@@ -110,7 +121,9 @@ impl Reader {
 
     /// What a handler gives up with, answered the way this caller reads answers.
     pub fn refuse(&self, trouble: &AppError) -> Response {
-        self.answer(refusal(trouble, self.wants_json || is_api(&self.path)).into_response())
+        self.answer(
+            refusal(trouble, self.wants_json || is_api(&self.path), &self.prefix).into_response(),
+        )
     }
 }
 

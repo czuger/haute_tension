@@ -7,6 +7,7 @@
 pub mod errors;
 pub mod factory;
 pub mod french_date;
+pub mod listener;
 pub mod logs;
 pub mod models;
 pub mod routes;

@@ -49,7 +49,7 @@
     {% endif %}
 
     <p class="bag-back">
-        <a class="button" href="/game">
+        <a class="button" href="{{ layout.prefix }}/game">
             {% if game.is_some() %}Retour à votre feuille{% else %}Créer un héros{% endif %}
         </a>
     </p>

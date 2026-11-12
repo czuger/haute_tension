@@ -8,9 +8,9 @@
     </header>
 
     <nav class="status-filter" aria-label="Filtrer par état">
-        <a href="/flagged-pages"{% if status.is_none() %} class="current"{% endif %}>Toutes</a>
-        <a href="/flagged-pages?status=open"{% if status.as_deref() == Some("open") %} class="current"{% endif %}>À traiter</a>
-        <a href="/flagged-pages?status=resolved"{% if status.as_deref() == Some("resolved") %} class="current"{% endif %}>Réglées</a>
+        <a href="{{ layout.prefix }}/flagged-pages"{% if status.is_none() %} class="current"{% endif %}>Toutes</a>
+        <a href="{{ layout.prefix }}/flagged-pages?status=open"{% if status.as_deref() == Some("open") %} class="current"{% endif %}>À traiter</a>
+        <a href="{{ layout.prefix }}/flagged-pages?status=resolved"{% if status.as_deref() == Some("resolved") %} class="current"{% endif %}>Réglées</a>
     </nav>
 
     {% if !inspections.is_empty() %}
@@ -22,7 +22,7 @@
                 <span class="status {{ inspection.status }}">
                     {% if inspection.status == "open" %}À traiter{% else %}Réglée{% endif %}
                 </span>
-                <a href="/flagged-pages/{{ inspection.id }}">
+                <a href="{{ layout.prefix }}/flagged-pages/{{ inspection.id }}">
                     {{ inspection.title_or_path() }}
                 </a>
                 <span class="flagged-path">{{ inspection.path }}</span>

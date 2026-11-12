@@ -127,7 +127,12 @@ impl Drop for EnvVar {
 pub fn clean_env() -> Vec<EnvVar> {
     haute_tension::core::config::load_dotenv();
     haute_tension::core::db::reset_connection();
-    vec![EnvVar::unset("APP_ENV"), EnvVar::unset("DATABASE_DIR")]
+    vec![
+        EnvVar::unset("APP_ENV"),
+        EnvVar::unset("DATABASE_DIR"),
+        EnvVar::unset("URL_PREFIX"),
+        EnvVar::unset("LISTEN_SOCKET"),
+    ]
 }
 
 /// The database, indexed by table name.
@@ -620,7 +625,7 @@ impl TestClient {
     pub fn set_session(&self, key: &str, value: Value) {
         let mut session = self.session();
         session.set(key, value);
-        let cookie = session.encode(&self.secret);
+        let cookie = session.encode(&self.secret, "");
         let value = cookie
             .split(';')
             .next()
@@ -667,7 +672,13 @@ impl TestClient {
 }
 
 /// Build a test client for a book on disk, with a database behind it.
-pub fn client_for(
+pub fn client_for(db: Db, books: tempfile::TempDir, rng: Option<Arc<dyn Rng>>) -> TestClient {
+    client_under("", db, books, rng)
+}
+
+/// The same client, on a site served under a sub-path.
+pub fn client_under(
+    prefix: &str,
     db: Db,
     books: tempfile::TempDir,
     rng: Option<Arc<dyn Rng>>,
@@ -679,6 +690,7 @@ pub fn client_for(
         rng: rng.clone(),
         db: db.clone(),
         secret: TEST_SECRET.to_vec(),
+        prefix: prefix.to_string(),
     };
     let router = create_app(config).expect("the test book is always readable");
     let story = haute_tension::core::story::load_story(&books_root.join(BOOK))
@@ -691,6 +703,7 @@ pub fn client_for(
         book_title: haute_tension::application::factory::BOOK_TITLE.to_string(),
         rng,
         secret: Arc::new(TEST_SECRET.to_vec()),
+        prefix: prefix.to_string(),
     };
     TestClient {
         router,

@@ -105,7 +105,9 @@ impl IntoResponse for Refusal {
 /// * `trouble` - What the handler gave up on.
 /// * `wants_json` - Whether the caller parses answers rather than reading them:
 ///   one of the API addresses, or a request that put JSON first in what it accepts.
-pub fn refusal(trouble: &AppError, wants_json: bool) -> Refusal {
+/// * `prefix` - The sub-path the site is served under: the database page carries
+///   the site menu, and a menu under the wrong path is a menu out of the site.
+pub fn refusal(trouble: &AppError, wants_json: bool, prefix: &str) -> Refusal {
     match trouble {
         AppError::NotFound => Refusal {
             status: StatusCode::NOT_FOUND,
@@ -134,7 +136,8 @@ pub fn refusal(trouble: &AppError, wants_json: bool) -> Refusal {
             status: DATABASE_UNAVAILABLE,
             content_type: "text/html; charset=utf-8",
             body: DatabaseErrorTemplate {
-                layout: Layout::new("Base de données injoignable · Haute Tension", "/", Vec::new()),
+                layout: Layout::new("Base de données injoignable · Haute Tension", "/", Vec::new())
+                    .under(prefix),
             }
             .render()
             .unwrap_or_else(|_| "La base de données ne répond pas.".to_string()),

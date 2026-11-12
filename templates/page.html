@@ -15,7 +15,7 @@
                 {% if loop.last %}
                 <span class="trail-current" aria-current="page">{{ number }}</span>
                 {% else %}
-                <a href="/book/{{ number }}">{{ number }}</a>
+                <a href="{{ layout.prefix }}/book/{{ number }}">{{ number }}</a>
                 {% endif %}
             </li>
             {% endfor %}
@@ -30,7 +30,7 @@
         <span>Force <strong>{{ game.force }}</strong></span>
         <span>Vie <strong>{{ game.vie_actuelle }}</strong>/{{ game.vie_max }}</span>
         <span>Or <strong>{{ game.gold }}</strong></span>
-        <a class="bag-link" href="/game">
+        <a class="bag-link" href="{{ layout.prefix }}/game">
             Feuille de personnage
             {% if !game.bag.is_empty() %}
             <span class="bag-count">({{ game.carried() }}
@@ -61,11 +61,11 @@
                 </span>
                 {% endif %}
                 <span class="pending-actions">
-                    <form method="post" action="/game/pending/{{ change.index }}/apply">
+                    <form method="post" action="{{ layout.prefix }}/game/pending/{{ change.index }}/apply">
                         <input type="hidden" name="page" value="{{ page.page }}">
                         <button type="submit">Appliquer</button>
                     </form>
-                    <form method="post" action="/game/pending/{{ change.index }}/dismiss">
+                    <form method="post" action="{{ layout.prefix }}/game/pending/{{ change.index }}/dismiss">
                         <input type="hidden" name="page" value="{{ page.page }}">
                         <button type="submit" class="quiet">Ignorer</button>
                     </form>
@@ -73,7 +73,7 @@
             </li>
             {% endfor %}
         </ul>
-        <form method="post" action="/game/pending/dismiss">
+        <form method="post" action="{{ layout.prefix }}/game/pending/dismiss">
             <input type="hidden" name="page" value="{{ page.page }}">
             <button type="submit" class="quiet">Tout ignorer</button>
         </form>
@@ -82,7 +82,7 @@
 
     {% if page.has_fight %}
     <p class="fight-call">
-        <a class="button" href="/combat/{{ page.page }}">
+        <a class="button" href="{{ layout.prefix }}/combat/{{ page.page }}">
             Engager le combat
         </a>
     </p>
@@ -95,7 +95,7 @@
             {% for choice in page.choices %}
             <li>
                 {% if game.is_some() %}
-                <form method="post" action="/book/{{ page.page }}/choice/{{ loop.index0 }}">
+                <form method="post" action="{{ layout.prefix }}/book/{{ page.page }}/choice/{{ loop.index0 }}">
                     <button class="choice-link" type="submit">
                         Continuer vers la page {{ choice.goto }}
                         {% if !choice.changes.is_empty() %}
@@ -104,7 +104,7 @@
                     </button>
                 </form>
                 {% else %}
-                <a class="choice-link" href="/book/{{ choice.goto }}">
+                <a class="choice-link" href="{{ layout.prefix }}/book/{{ choice.goto }}">
                     Continuer vers la page {{ choice.goto }}
                     {% if !choice.changes.is_empty() %}
                     <span class="choice-cost">{{ choice.changes|join(", ") }}</span>
@@ -117,7 +117,7 @@
         {% else %}
         <h2>Fin de l'aventure</h2>
         <p class="end-note">Cette route s'arrête ici.</p>
-        <a class="button" href="/book/1">
+        <a class="button" href="{{ layout.prefix }}/book/1">
             Recommencer
         </a>
         {% endif %}

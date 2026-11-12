@@ -39,14 +39,14 @@
     </div>
 
     {% if combat.status == "ongoing" %}
-    <form method="post" action="/combat/{{ page_number }}/assault">
+    <form method="post" action="{{ layout.prefix }}/combat/{{ page_number }}/assault">
         <button class="button" type="submit">Assaut suivant</button>
     </form>
     {% else %}
     <p class="verdict {{ combat.status }}">
         {% if combat.status == "victory" %}Vous l'emportez.{% else %}Vous êtes vaincu.{% endif %}
     </p>
-    <form method="post" action="/combat/{{ page_number }}/resolve">
+    <form method="post" action="{{ layout.prefix }}/combat/{{ page_number }}/resolve">
         <button class="button" type="submit">Poursuivre l'aventure</button>
     </form>
     {% endif %}

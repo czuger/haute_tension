@@ -42,5 +42,7 @@ Deux formes reviennent et couvriraient presque tout :
   l'adversaire tué net ne frappe pas. Choix, non règle.
 - **Inventaire** : les `gains` / `losses` des choix existent dans les données et
   ne sont ni suivis ni appliqués.
-- **Vingt et un `fight` fantômes** dans `pages.json` (pages 18, 81, 91, 148…) :
-  `enemies` vide et `outcome` nul. Faux positifs du parseur, ignorés.
+- **Le double de la page 564** n'est pas jouable : son `fight` n'a pas
+  d'`enemies`, puisqu'il a la Force et la Vie du héros, et la page n'offre donc
+  pas « Engager le combat ». Il faudrait un adversaire copié sur le héros à
+  l'armement du combat.
